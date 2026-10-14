@@ -1,0 +1,1 @@
+["python", "-m", "pytest", "../research/grid_discovery_20261014_r1/tests", "-q"]

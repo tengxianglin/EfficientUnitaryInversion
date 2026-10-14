@@ -1,0 +1,33 @@
+{
+  "run_id": "r1_fresh_reproduction",
+  "group": "R1",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:19:38.459338+00:00",
+  "end_utc": "2026-10-14T09:19:56.272728+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "../research/grid_discovery_20261014_r1/code/run_round.py",
+    "--input",
+    "../research/pro_handoff_20261014",
+    "--output",
+    "./results/r1_fresh"
+  ],
+  "cpu_seconds": 8.203484000000001,
+  "wall_seconds": 17.813410931266844,
+  "budget": {
+    "group_cpu_seconds": 120,
+    "remaining_before": 117.369725,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/r1_fresh_reproduction/stdout.txt",
+    "runs/r1_fresh_reproduction/stderr.txt",
+    "runs/r1_fresh_reproduction/command.txt",
+    "runs/r1_fresh_reproduction/environment.txt"
+  ]
+}

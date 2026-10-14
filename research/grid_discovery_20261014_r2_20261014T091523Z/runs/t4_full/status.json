@@ -1,0 +1,48 @@
+{
+  "run_id": "t4_full",
+  "group": "T4",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:20:00.364069+00:00",
+  "end_utc": "2026-10-14T09:20:04.288398+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./code/tied_coeff_span.py",
+    "--input",
+    "../research/grid_discovery_20261014_r1/results",
+    "--grids",
+    "matched_q4",
+    "B4q0",
+    "B55q0",
+    "--constraints",
+    "independent",
+    "row",
+    "column",
+    "uniform",
+    "--span-max-degree",
+    "7",
+    "--graded-max-degree",
+    "15",
+    "--rays",
+    "ternary",
+    "--output",
+    "./results/T4"
+  ],
+  "cpu_seconds": 1.274974,
+  "wall_seconds": 3.9243465838953853,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 480,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t4_full/stdout.txt",
+    "runs/t4_full/stderr.txt",
+    "runs/t4_full/command.txt",
+    "runs/t4_full/environment.txt"
+  ]
+}

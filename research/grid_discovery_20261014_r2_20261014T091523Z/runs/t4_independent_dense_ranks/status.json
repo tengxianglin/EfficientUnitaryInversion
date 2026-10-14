@@ -1,0 +1,33 @@
+{
+  "run_id": "t4_independent_dense_ranks",
+  "group": "T4",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:21:27.817868+00:00",
+  "end_utc": "2026-10-14T09:21:28.233174+00:00",
+  "state": "failed",
+  "exit_code": 1,
+  "command": [
+    "python",
+    "./code/verify_t4.py",
+    "--input",
+    "./results/T4",
+    "--output",
+    "./results/T4_independent_verification.json"
+  ],
+  "cpu_seconds": 0.379895,
+  "wall_seconds": 0.41532379016280174,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 478.725026,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t4_independent_dense_ranks/stdout.txt",
+    "runs/t4_independent_dense_ranks/stderr.txt",
+    "runs/t4_independent_dense_ranks/command.txt",
+    "runs/t4_independent_dense_ranks/environment.txt"
+  ]
+}

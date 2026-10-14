@@ -1,0 +1,9 @@
+{
+  "paths": "passed",
+  "secret_patterns": "passed",
+  "symlinks": [],
+  "cycle_bytes": 32229326,
+  "disk_cap_bytes": 314572800,
+  "raw_paths_preserved_inside_zip": true,
+  "raw_execution_archive_sha256": "e2e36f1179e75f93398d376b1e3c9868c687e429101b92176a254194b5b8f048"
+}

@@ -1,0 +1,410 @@
+#!/usr/bin/env python3
+"""Independent T1 audit. RREF x GL4 census and single-letter Pauli arithmetic.
+
+No r1 modules are imported. Python standard library only. Every symbolic
+coefficient is a Gaussian integer, represented by two ordinary integers.
+"""
+import argparse
+import collections
+import hashlib
+import itertools
+import json
+import subprocess
+import time
+from pathlib import Path
+
+PAIRS = tuple(itertools.combinations(range(4), 2))
+GRID = (1, 2, 3, 4, 8, 12, 5, 10, 15)
+LINES = ((1, 2, 3), (4, 8, 12), (5, 10, 15),
+         (1, 4, 5), (2, 8, 10), (3, 12, 15))
+J = 12
+# Entries are (power of i, resulting single-qubit Hermitian Pauli).
+LETTER = {('I', p): (0, p) for p in 'IXYZ'}
+LETTER.update({(p, 'I'): (0, p) for p in 'IXYZ'})
+LETTER.update({(p, p): (0, 'I') for p in 'XYZ'})
+LETTER.update({('X', 'Y'): (1, 'Z'), ('Y', 'Z'): (1, 'X'),
+               ('Z', 'X'): (1, 'Y'), ('Y', 'X'): (3, 'Z'),
+               ('Z', 'Y'): (3, 'X'), ('X', 'Z'): (3, 'Y')})
+GAUSS = ((1, 0), (0, 1), (-1, 0), (0, -1))
+
+
+def write(path, value):
+    path.write_text(json.dumps(value, indent=2) + '\n')
+
+
+def rank(rows):
+    pivots = {}
+    for row in rows:
+        while row:
+            p = row.bit_length() - 1
+            if p in pivots:
+                row ^= pivots[p]
+            else:
+                pivots[p] = row
+                break
+    return len(pivots)
+
+
+def bilinear(mask, a, b):
+    return sum(((mask >> k) & 1) *
+               (((a >> i) & 1) * ((b >> j) & 1) +
+                ((a >> j) & 1) * ((b >> i) & 1))
+               for k, (i, j) in enumerate(PAIRS)) % 2
+
+
+def quadratic(mask, linear, a):
+    return ((linear & a).bit_count() +
+            sum(((mask >> k) & 1) * ((a >> i) & 1) * ((a >> j) & 1)
+                for k, (i, j) in enumerate(PAIRS))) % 2
+
+
+def delta(v):
+    return (((v >> 0) & 1) * ((v >> 3) & 1) +
+            ((v >> 1) & 1) * ((v >> 2) & 1)) % 2
+
+
+def physical_word(v, n):
+    return ''.join('IXZY'[((v >> k) & 1) + 2 * ((v >> (n+k)) & 1)]
+                   for k in range(n))
+
+
+def word_physical(word):
+    n = len(word)
+    x = sum((p in 'XY') << i for i, p in enumerate(word))
+    z = sum((p in 'ZY') << i for i, p in enumerate(word))
+    return x | (z << n)
+
+
+def physical_omega(a, b, n):
+    low = (1 << n) - 1
+    return ((((a & low) & (b >> n)) ^
+             ((b & low) & (a >> n))).bit_count() % 2)
+
+
+def physical_q(a, n):
+    return (((a & ((1 << n) - 1)) & (a >> n)).bit_count() % 2)
+
+
+def lift(mask, linear=0):
+    seeds = []
+    for i in range(4):
+        z = ((linear >> i) & 1) << i
+        for j in range(i):
+            z |= bilinear(mask, 1 << j, 1 << i) << j
+        seeds.append((1 << i) | (z << 4))
+    physical = {v: 0 for v in range(16)}
+    for v in range(16):
+        for i in range(4):
+            if (v >> i) & 1:
+                physical[v] ^= seeds[i]
+    return seeds, physical, {v: physical_word(w, 4) for v, w in physical.items()}
+
+
+def multiply(words):
+    result = 'I' * len(words[0])
+    phase = 0
+    for word in words:
+        next_word = []
+        for a, b in zip(result, word):
+            e, c = LETTER[a, b]
+            phase += e
+            next_word.append(c)
+        result = ''.join(next_word)
+    return phase % 4, result
+
+
+def coefficients(words, degree):
+    rows = []
+    for indices in itertools.combinations_with_replacement(range(9), degree):
+        label = 0
+        for i in indices:
+            label ^= GRID[i]
+        re = im = 0
+        for order in sorted(set(itertools.permutations(indices))):
+            phase, word = multiply([words[GRID[i]] for i in order])
+            assert word == words[label]
+            a, b = GAUSS[phase]
+            re += a
+            im += b
+        assert im == 0, (degree, indices, re, im)
+        rows.append({'grid_indices': list(indices), 'labels': [GRID[i] for i in indices],
+                     'output_label': label, 'gaussian_integer': [re, im]})
+    return rows
+
+
+def eligibility(mask, linear):
+    matrix_rows = [sum(bilinear(mask, 1 << i, 1 << j) << j
+                       for j in range(4)) for i in range(4)]
+    r = rank(matrix_rows)
+    radical = [v for v in range(16)
+               if all(bilinear(mask, v, 1 << i) == 0 for i in range(4))]
+    radical_nonsingular = any(quadratic(mask, linear, v) for v in radical)
+    gauss = sum((-1) ** quadratic(mask, linear, v) for v in range(16))
+    allowed = r == 4 or (r == 2 and (radical_nonsingular or gauss == 8))
+    reason = ('nondegenerate_rank4' if r == 4 else
+              'rank2_nonsingular_radical' if r == 2 and radical_nonsingular else
+              'rank2_plus_quotient' if r == 2 and gauss == 8 else
+              'forbidden_rank0_isotropic_dimension' if r == 0 else
+              'forbidden_rank2_minus_quotient')
+    return {'Bmask': mask, 'qmask': linear, 'rank': r, 'radical': radical,
+            'q_on_radical': [quadratic(mask, linear, v) for v in radical],
+            'gauss_sum': gauss, 'allowed_n3': allowed, 'reason': reason}
+
+
+def geometric_group():
+    group = []
+    for images in itertools.product(GRID, repeat=4):
+        if rank(images) != 4:
+            continue
+        action = [0] * 16
+        for v in range(16):
+            for i in range(4):
+                if (v >> i) & 1:
+                    action[v] ^= images[i]
+        if {action[v] for v in GRID} == set(GRID):
+            group.append(tuple(action))
+    return group
+
+
+def transform_type(t, action):
+    mask, linear = divmod(t, 16)
+    b = sum(bilinear(mask, action[1 << i], action[1 << j]) << k
+            for k, (i, j) in enumerate(PAIRS))
+    q = sum(quadratic(mask, linear, action[1 << i]) << i for i in range(4))
+    return b * 16 + q
+
+
+def canonical_type(t, group):
+    return min(transform_type(t, action) for action in group)
+
+
+def audit_polynomials(output):
+    rows = []
+    cubic_rows = []
+    for mask in range(64):
+        seeds, physical, words = lift(mask)
+        assert all(physical_q(seeds[i], 4) == 0 for i in range(4))
+        assert all(physical_omega(seeds[i], seeds[j], 4) == bilinear(mask, 1 << i, 1 << j)
+                   for i in range(4) for j in range(4))
+        h2, h3 = coefficients(words, 2), coefficients(words, 3)
+        supports = [{0}, set(GRID)]
+        supports += [{r['output_label'] for r in records if r['gaussian_integer'] != [0, 0]}
+                     for records in (h2, h3)]
+        t2 = set.union(*supports[:3])
+        t3 = set.union(*supports)
+        predicted_missing = {v for v in range(16) if delta(v) and
+                             all(bilinear(mask ^ J, v, 1 << i) == 0 for i in range(4))}
+        assert set(range(16)) - t2 == predicted_missing
+        assert t3 == ({0, *GRID} if mask == J else set(range(16)))
+        decomposition = []
+        for v in range(16):
+            if delta(v) != 1:
+                continue
+            pairs = [(a, b) for a, b in itertools.combinations(GRID, 2) if a ^ b == v]
+            assert len(pairs) == 3 and rank([x for pair in pairs for x in pair]) == 4
+            actual_missing = all(multiply([words[a], words[b]])[0] % 2 for a, b in pairs)
+            assert actual_missing == (v in predicted_missing)
+            decomposition.append({'label': v, 'pairs': pairs,
+                                  'six_points_rank': 4, 'all_anticommuting': actual_missing})
+        line_phases = []
+        for line in LINES:
+            phase, word = multiply([words[v] for v in line])
+            assert word == 'IIII'
+            line_phases.append(phase)
+        epsilon = [x % 2 for x in line_phases]
+        p, t, u, v, w, z = [(mask >> k) & 1 for k in range(6)]
+        predicted_epsilon = [p, z, p ^ u ^ v ^ z, t, w, t ^ u ^ v ^ w]
+        phase_total = sum(line_phases) % 4
+        phase_defect = p ^ t ^ u ^ w ^ z
+        assert epsilon == predicted_epsilon and phase_total == 2 * phase_defect
+        rp, rz, rt, rw = epsilon[0], epsilon[1], epsilon[3], epsilon[4]
+        ru = (phase_total // 2) ^ rp ^ rt ^ rw ^ rz
+        rv = epsilon[2] ^ rp ^ ru ^ rz
+        recovered = sum(x << k for k, x in enumerate((rp, rt, ru, rv, rw, rz)))
+        direct_gram = [[physical_omega(physical[a], physical[b], 4) for b in GRID] for a in GRID]
+        restored_gram = [[bilinear(recovered, a, b) for b in GRID] for a in GRID]
+        assert recovered == mask and restored_gram == direct_gram
+        rows.append({'Bmask': mask, 'four_qubit_seeds': [physical_word(s, 4) for s in seeds],
+                     'grid': [words[v] for v in GRID], 'H2': h2, 'H3': h3,
+                     'cumulative_support_H2': sorted(t2), 'cumulative_support_H3': sorted(t3),
+                     'H2_missing_formula': sorted(predicted_missing),
+                     'delta_one_decompositions': decomposition,
+                     'line_phases_mod4': line_phases, 'epsilon': epsilon,
+                     'phase_defect': phase_defect, 'total_phase_mod4': phase_total,
+                     'reconstructed_Bmask': recovered, 'direct_Gram': direct_gram,
+                     'reconstructed_Gram': restored_gram})
+    for c in range(1, 64):
+        if any(bilinear(c, 9, 1 << i) for i in range(4)):
+            continue
+        triples = [triple for triple in itertools.combinations(GRID, 3)
+                   if triple[0] ^ triple[1] ^ triple[2] == 9 and
+                   all(bilinear(c, a, b) == 1 for a, b in itertools.combinations(triple, 2))]
+        assert triples
+        triple = min(triples)
+        monomial = sorted(GRID.index(v) for v in triple)
+        h3 = next(row for row in rows[c ^ J]['H3'] if row['grid_indices'] == monomial)
+        assert h3['gaussian_integer'][0] in (-6, -2, 2, 6)
+        cubic_rows.append({'Cmask': c, 'Bmask': c ^ J, 'triple': triple,
+                           'coefficient': h3['gaussian_integer'],
+                           'all_C_edges_one': True, 'sum_label': 9})
+    assert len(cubic_rows) == 7
+    write(output / 'all64_polynomial_phase_Gram.json', rows)
+    write(output / 'seven_cubic_certificates.json', cubic_rows)
+    return {'B_types': 64, 'H2_monomials_per_type': 45, 'H3_monomials_per_type': 165,
+            'H2_only_saturated': sum(len(r['cumulative_support_H2']) == 16 for r in rows),
+            'needs_H3': sum(len(r['cumulative_support_H2']) < 16 and r['Bmask'] != J for r in rows),
+            'special_dimension10_Bmask': J, 'all_exact_integer_checks_passed': True}
+
+
+def compare_source(source, output, census, census_n2):
+    # Source outputs are opened only after independent calculations and gates.
+    path = source / 'exact/embedding1024.json'
+    if not path.exists():
+        write(output / 'source_comparison.json', {'state': 'not_run', 'reason': 'source exact/embedding1024.json absent'})
+        return
+    data = json.loads(path.read_text())
+    # Preserve the source schema and hash; only compare fields which are explicit.
+    if isinstance(data, dict):
+        records = data.get('cases', data.get('types', data.get('records', data.get('rows', []))))
+    else:
+        records = data
+    if not isinstance(records, list):
+        records = []
+    compared = []
+    for row in records:
+        if not isinstance(row, dict):
+            continue
+        b = row.get('Bmask', row.get('B'))
+        q = row.get('qmask', row.get('q'))
+        allowed = row.get('physical_n3', row.get('embeddable_n3', row.get('allowed_n3')))
+        if isinstance(b, int) and isinstance(q, int) and isinstance(allowed, bool):
+            ours = census['type_counts'][b * 16 + q] > 0
+            comparison = {'Bmask': b, 'qmask': q, 'source_allowed': allowed, 'independent_allowed': ours}
+            if 'count_n3' in row:
+                comparison['source_n3_ordered_basis_count'] = row['count_n3']
+                comparison['independent_n3_ordered_basis_count'] = census['type_counts'][b * 16 + q]
+                assert row['count_n3'] == census['type_counts'][b * 16 + q]
+            if 'count_n2' in row:
+                comparison['source_n2_ordered_basis_count'] = row['count_n2']
+                comparison['independent_n2_ordered_basis_count'] = census_n2['type_counts'][b * 16 + q]
+                assert row['count_n2'] == census_n2['type_counts'][b * 16 + q]
+            if 'nine_q_plus_phase_defect' in row:
+                signature = [quadratic(b, q, v) for v in GRID] + [sum((b >> k) & 1 for k in (0, 1, 2, 4, 5)) % 2]
+                comparison['ten_bit_signature_agrees'] = signature == row['nine_q_plus_phase_defect']
+                assert comparison['ten_bit_signature_agrees']
+            compared.append(comparison)
+            assert ours == allowed
+    write(output / 'source_comparison.json', {'source': str(path), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+          'schema': sorted(data) if isinstance(data, dict) else 'list',
+          'explicit_type_comparisons': compared,
+          'state': 'passed' if compared else 'schema_requires_manual_comparison',
+          'independent_n3_type_count': sum(bool(c) for c in census['type_counts'])})
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--n', type=int, choices=(3,), required=True)
+    parser.add_argument('--all-ordered-bases', action='store_true', required=True)
+    parser.add_argument('--source', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--backend', type=Path, default=Path(__file__).with_name('rref_census'))
+    args = parser.parse_args()
+    args.output.mkdir(parents=True, exist_ok=False)
+    (args.output / 'source_audit_rref.py.txt').write_text(Path(__file__).read_text())
+    (args.output / 'source_rref_census.cpp.txt').write_text(Path(__file__).with_name('rref_census.cpp').read_text())
+    started = time.time()
+    ledger = {'task': 'T1', 'method': 'independent_RREF_x_GL4_and_single_letter_Pauli',
+              'seed': None, 'GPU': 0, 'source_helpers_imported': [], 'gates': [], 'coverage': {}}
+    def gate(name, passed, details):
+        ledger['gates'].append({'name': name, 'passed': bool(passed), 'details': details})
+        write(args.output / 'ledger.json', ledger)
+        if not passed:
+            write(args.output / 'contradiction.json', {'gate': name, 'details': details})
+            raise RuntimeError('Mathematical gate failed: ' + name)
+    kill = eligibility(1, 3)
+    seeds, physical, words = lift(1, 3)
+    control = {'seeds': [physical_word(s, 4) for s in seeds], 'grid': [words[v] for v in GRID],
+               'observed_Bmask': sum(physical_omega(seeds[i], seeds[j], 4) << k for k, (i, j) in enumerate(PAIRS)),
+               'observed_qmask': sum(physical_q(seeds[i], 4) << i for i in range(4))}
+    write(args.output / 'kill_B1q3_four_qubit_control.json', {'kill_criterion': kill, 'four_qubit_control': control})
+    gate('B1q3_singular_radical_minus_quotient', kill['rank'] == 2 and not any(kill['q_on_radical']) and kill['gauss_sum'] == -8 and not kill['allowed_n3'], kill)
+    gate('B1q3_four_qubit_positive_control', control['observed_Bmask'] == 1 and control['observed_qmask'] == 3, control)
+    given_grid = ['YIII', 'XYII', 'ZYII', 'IIZI', 'IIIZ', 'IIZZ', 'YIZI', 'XYIZ', 'ZYZZ']
+    given_seeds = [word_physical(given_grid[i]) for i in (0, 1, 3, 4)]
+    given_B = sum(physical_omega(given_seeds[i], given_seeds[j], 4) << k for k, (i, j) in enumerate(PAIRS))
+    given_q = sum(physical_q(given_seeds[i], 4) << i for i in range(4))
+    given_labels = dict(zip(GRID, map(word_physical, given_grid)))
+    line_closed = all(given_labels[a] ^ given_labels[b] ^ given_labels[c] == 0 for a, b, c in LINES)
+    given_control = {'grid': given_grid, 'Bmask': given_B, 'qmask': given_q,
+                     'seed_rank': rank(given_seeds), 'all_six_lines_projectively_closed': line_closed}
+    write(args.output / 'given_four_qubit_grid_control.json', given_control)
+    gate('given_four_qubit_grid_positive_control', given_B == 1 and given_q == 3 and rank(given_seeds) == 4 and line_closed, given_control)
+    subprocess.run([str(args.backend), '2', str(args.output / 'census_n2.json')], check=True)
+    n2 = json.loads((args.output / 'census_n2.json').read_text())
+    gate('n2_all_ordered_bases_20160_types280', n2['ordered_basis_count'] == 20160 and sum(bool(c) for c in n2['type_counts']) == 280, {'basis_count': n2['ordered_basis_count'], 'type_count': sum(bool(c) for c in n2['type_counts'])})
+    subprocess.run([str(args.backend), '3', str(args.output / 'census_n3.json')], check=True)
+    n3 = json.loads((args.output / 'census_n3.json').read_text())
+    gate('n3_RREF651_GL4_20160_complete', n3['subspace_count'] == 651 and n3['GL4_count'] == 20160 and n3['ordered_basis_count'] == 13124160, {'RREF': n3['subspace_count'], 'GL4': n3['GL4_count'], 'ordered_bases': n3['ordered_basis_count']})
+    gate('B1q3_n3_zero', n3['type_counts'][1 * 16 + 3] == 0, {'count': n3['type_counts'][19]})
+    types = []
+    for b in range(64):
+        for q in range(16):
+            row = eligibility(b, q)
+            t = b * 16 + q
+            row['n2_ordered_basis_count'] = n2['type_counts'][t]
+            row['n3_ordered_basis_count'] = n3['type_counts'][t]
+            row['nine_q_plus_phase_defect'] = [quadratic(b, q, v) for v in GRID] + [sum((b >> k) & 1 for k in (0, 1, 2, 4, 5)) % 2]
+            row['physical_witness_n3'] = (None if not n3['physical_witnesses'][t] else
+                                         [physical_word(v, 3) for v in n3['physical_witnesses'][t]])
+            if n3['physical_witnesses'][t]:
+                witness = n3['physical_witnesses'][t]
+                assert rank(witness) == 4
+                assert all(physical_q(witness[i], 3) == ((q >> i) & 1) for i in range(4))
+                assert all(physical_omega(witness[i], witness[j], 3) == ((b >> k) & 1) for k, (i, j) in enumerate(PAIRS))
+            assert row['allowed_n3'] == (row['n3_ordered_basis_count'] > 0), row
+            types.append(row)
+    write(args.output / 'all1024_type_counts_witnesses_forbidden_criteria.json', types)
+    gate('n3_criterion_all1024', True, {'allowed': sum(r['allowed_n3'] for r in types), 'forbidden': sum(not r['allowed_n3'] for r in types)})
+    gate('nine_q_plus_phase_defect_bijection', len({tuple(r['nine_q_plus_phase_defect']) for r in types}) == 1024, {'signatures': len({tuple(r['nine_q_plus_phase_defect']) for r in types})})
+    polynomials = audit_polynomials(args.output)
+    gate('H2_H3_phase_Gram_all64', True, polynomials)
+    group = geometric_group()
+    group_set = set(group)
+    identity = tuple(range(16))
+    assert len(group) == 72 and identity in group_set
+    assert all(tuple(a[b[v]] for v in range(16)) in group_set for a in group for b in group)
+    assert all(any(tuple(a[b[v]] for v in range(16)) == identity for b in group) for a in group)
+    delta_one = {v for v in range(16) if delta(v)}
+    assert {a[9] for a in group} == delta_one
+    canonical = [canonical_type(t, group) for t in range(1024)]
+    assert all(canonical[transform_type(t, a)] == canonical[t] for t in range(1024) for a in group)
+    orbits = collections.defaultdict(list)
+    for t, c in enumerate(canonical):
+        orbits[c].append(t)
+    physical_orbits = [members for members in orbits.values() if n3['type_counts'][members[0]]]
+    assert all(len({bool(n3['type_counts'][t]) for t in members}) == 1 for members in orbits.values())
+    physical_B = {t // 16 for t in range(1024) if n3['type_counts'][t]}
+    B_canonical = {min(transform_type(b * 16, a) // 16 for a in group) for b in physical_B}
+    assert len(B_canonical) == 8
+    write(args.output / 'incidence_group72.json', {'actions': group, 'tests': {'order': 72, 'closed': True, 'inverses': True, 'delta_one_transitive': True, 'canonical_invariance_checks': 1024 * 72}, 'physical_B_orbit_count': len(B_canonical)})
+    write(args.output / 'quadratic_orbits.json', {'canonical_type_ids': canonical,
+          'all_orbits': [{'representative_type_id': c, 'members': members, 'physical_n3': bool(n3['type_counts'][members[0]])} for c, members in sorted(orbits.items())],
+          'abstract_count': len(orbits), 'physical_count': len(physical_orbits)})
+    gate('quadratic_orbit_census', len(orbits) == 44 and len(physical_orbits) == 37, {'abstract': len(orbits), 'physical': len(physical_orbits)})
+    compare_source(args.source, args.output, n3, n2)
+    ledger['coverage'] = {'n2_subspaces': n2['subspace_count'], 'n2_ordered_bases': n2['ordered_basis_count'],
+              'n3_subspaces': n3['subspace_count'], 'n3_ordered_bases': n3['ordered_basis_count'],
+              'n3_type_count': sum(bool(c) for c in n3['type_counts']), 'all1024_criteria': 1024,
+              'all64_polynomial_phase_Gram': 64, 'physical_quadratic_orbits': len(physical_orbits)}
+    ledger['claims'] = [{'status': 'exact-finite', 'scope': 'n2/n3 all ordered independent four-generator bases and 64 lifted cubic/phase/Gram cases'},
+                        {'status': 'analytic-checked', 'scope': 'proper independent nine-coefficient grid cubic closure argument and embedding dimension/Witt argument'},
+                        {'status': 'not_run', 'scope': 'general tied coefficient spaces, auxiliary minimality, arbitrary nonproper grids'}]
+    ledger['elapsed_wall_seconds_internal'] = time.time() - started
+    ledger['code_sha256'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__), Path(__file__).with_name('rref_census.cpp')]}
+    ledger['state'] = 'completed'
+    write(args.output / 'ledger.json', ledger)
+    print(json.dumps(ledger['coverage'], sort_keys=True))
+
+
+if __name__ == '__main__':
+    main()

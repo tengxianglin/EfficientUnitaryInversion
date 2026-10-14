@@ -1,0 +1,32 @@
+{
+  "run_id": "r1_pytest",
+  "group": "R1",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:17:22.026274+00:00",
+  "end_utc": "2026-10-14T09:19:38.431186+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "../research/grid_discovery_20261014_r1/tests",
+    "-q"
+  ],
+  "cpu_seconds": 2.601045,
+  "wall_seconds": 136.4049437502399,
+  "budget": {
+    "group_cpu_seconds": 120,
+    "remaining_before": 119.97077,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/r1_pytest/stdout.txt",
+    "runs/r1_pytest/stderr.txt",
+    "runs/r1_pytest/command.txt",
+    "runs/r1_pytest/environment.txt"
+  ]
+}

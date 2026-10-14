@@ -1,0 +1,11 @@
+{
+  "response_status": "received",
+  "response_binding": "matched",
+  "response_completeness": "complete",
+  "model_provenance": "unverified",
+  "input_zip_sha256": "fe58b23b942190b34d98455794e81085c751485f25d17e30d581246520ae158e",
+  "baseline_commit": "62fa763aff42e4bedf82b5de19bc9f05c5ed83b2",
+  "patch_paths_checked": 114,
+  "delivery_manifest_hashes": "passed",
+  "original_input_zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d"
+}

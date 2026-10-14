@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "./code/verify_t4.py", line 54, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "./code/verify_t4.py", line 41, in main
+    assert power==expected,(fp.name,beta,degree)
+           ^^^^^^^^^^^^^^^
+AssertionError: ('B4q0_column.json', (1, 2, 3), 3)

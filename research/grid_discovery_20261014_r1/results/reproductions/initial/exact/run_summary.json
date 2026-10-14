@@ -1,0 +1,33 @@
+{
+  "cpu_seconds": 5.61879545,
+  "calibration": true,
+  "embedding_summary": {
+    "physical_n3_cases": 973,
+    "forbidden_rank_two_count": 35,
+    "abstract_orbits": 44,
+    "physical_orbits": 37,
+    "B_orbits": 9,
+    "physical_rank_hist": {
+      "2": 525,
+      "4": 448
+    },
+    "minimal_qubit_hist": {
+      "4": 51,
+      "3": 693,
+      "2": 280
+    },
+    "all_anti_physical_cases": 30,
+    "physical_lambda_hist": {
+      "2": 525,
+      "1": 16,
+      "4": 432
+    }
+  },
+  "abstract_depth_hist": {
+    "2": 34,
+    "3": 29,
+    "1": 1
+  },
+  "code_sha256": "dae4b00abc363e6648143c52643e8079ad8f004f929b4adcd6665bce24e60bd1",
+  "input_zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d"
+}

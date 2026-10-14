@@ -1,0 +1,691 @@
+{
+  "schema": "research-experiments-v1",
+  "date": "2026-10-14",
+  "input": {
+    "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+    "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+    "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+    "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+  },
+  "experiments": [
+    {
+      "id": "E00_integrity_and_environment",
+      "status": "passed",
+      "command": "python frozen/verify_bundle.py; source-map hash audit; python code/probe_environment.py --output environment.json",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "code/probe_environment.py": "c319ce2cbdcc28a9c918593f6cb7e46358a9c897835b715afa76a2ab7f2cf27f"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "input_audit.json",
+          "sha256": "db369c15c9e9cecfbabf5bcc82351fd8e070d7d80ec6ef03dbf3a72f3ccee61b"
+        },
+        {
+          "path": "environment.json",
+          "sha256": "750e1622551f215095ba381b7f3d76c8b0f391c855a0146e86a5d856fbb46c52"
+        },
+        {
+          "path": "logs/frozen_verify_final.stdout.txt",
+          "sha256": "5434dc42489cf32eb53474ca8357e1936d69cdb298e63a8cd34abfec7aaaa898"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": []
+    },
+    {
+      "id": "E01_primary_literature",
+      "status": "completed_with_access_limits",
+      "command": "web.run primary-source search/open/PDF screenshots on2026-10-14",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {},
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "RELATED_WORK.md",
+          "sha256": "90d9458d123f4b1db174479af15deb0913b9aeedef366eb967b3f37109574841"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [
+        "Not exhaustive novelty clearance",
+        "R4/R7 abstract-level access",
+        "Failed older HTML endpoints retained in related-work record"
+      ]
+    },
+    {
+      "id": "E02_physical_enumeration_n2_n3",
+      "status": "passed",
+      "command": "c++ -O2 -std=c++17 code/physical_census.cpp -o /mnt/data/physical_census; /usr/bin/time -v /mnt/data/physical_census 2; same 3",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [
+        "H2"
+      ],
+      "code_hashes": {
+        "code/physical_census.cpp": "384317de2ed1c73e762c5e38dbd3e3f14f877258f91451b1ea4a0028a730378e"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "results/physical_n2.json",
+          "sha256": "47c10a195005da351804c0e03c132e729afe36fa422f03bd51c160302588f8a7"
+        },
+        {
+          "path": "results/physical_n3.json",
+          "sha256": "8804563ddf8afcd109323d5bb4fa18c85fd2aad766c3340a31abdfee1930ccc8"
+        },
+        {
+          "path": "logs/physical_n2.time.txt",
+          "sha256": "bc6e762802dbdc1cc31ec0c1dd2a4d20e4392a527baab2d23f872f38b0d20995"
+        },
+        {
+          "path": "logs/physical_n3.time.txt",
+          "sha256": "032eae530b9f1f3ec5b18f1396f272bee964cfdc917d86dc80bf56301fa425c4"
+        }
+      ],
+      "proof_status": "exact-finite",
+      "limitations": [],
+      "ordered_bases_n2": 20160,
+      "ordered_bases_n3": 13124160,
+      "embedding_predicate_used": false
+    },
+    {
+      "id": "E03_exact_algebra",
+      "status": "passed",
+      "command": "python code/grid_check.py --input /mnt/data/eui_grid_research --output results/exact --physical2 results/physical_n2.json --physical3 results/physical_n3.json",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [
+        "H1",
+        "H2",
+        "H3",
+        "H4"
+      ],
+      "code_hashes": {
+        "logs/source_versions/grid_check_initial.py": "dae4b00abc363e6648143c52643e8079ad8f004f929b4adcd6665bce24e60bd1"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "results/exact/calibration.json",
+          "sha256": "856c9137e8557463c0e63eac9009881329dc40747df9fc0ecda55649d631dbd2"
+        },
+        {
+          "path": "results/exact/abstract64.json",
+          "sha256": "5f710f5b524bd625e196f34f9933b89863f7e347a8df408929603063432cc963"
+        },
+        {
+          "path": "results/exact/embedding1024.json",
+          "sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f"
+        },
+        {
+          "path": "results/exact/run_summary.json",
+          "sha256": "099b0a9bc2f65a8987fcb093a7044e790f228acb127243a7701da8ca278086d2"
+        },
+        {
+          "path": "logs/exact.time.txt",
+          "sha256": "366f2bc2ea61664fdbbb86aee2e9bc911aace376a665e20945caf19769f66b45"
+        }
+      ],
+      "proof_status": "exact-finite; analytic proofs separate",
+      "limitations": [
+        "Two nonproper control lambda values are historical fields, not recomputed LP optima."
+      ]
+    },
+    {
+      "id": "E04_phase_and_matrix_validation",
+      "status": "passed",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python code/validate_predictions.py --exact results/exact --frozen /mnt/data/eui_grid_research --output results/validation --seed 20261014",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6"
+      ],
+      "code_hashes": {
+        "code/validate_predictions.py": "75c19aa8c148dafa7cc3e9556179bb59773cd31dd652a982a341f2a705637354",
+        "logs/source_versions/grid_check_initial.py": "dae4b00abc363e6648143c52643e8079ad8f004f929b4adcd6665bce24e60bd1"
+      },
+      "seed": 20261014,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "results/validation/summary.json",
+          "sha256": "558ff0e8e8648a64cab6e87f6cf4c884e446cb0dc1f428393ee1b0d522163ccb"
+        },
+        {
+          "path": "results/validation/matrix_raw.json",
+          "sha256": "71f6afbdc8f41260fde2c5e71de187fca385d015b9d5174f49bf0f6e519cb9a0"
+        },
+        {
+          "path": "results/validation/gauge_certificates.json",
+          "sha256": "eda28195a18f56ca9bf10e356c4cd85b11070db9f71164163dc1373a0426dbdb"
+        },
+        {
+          "path": "results/validation/all_anti_grids.json",
+          "sha256": "7ce67351da95230f4e1fb2c3436044d8a3b2723aa5296734a3e7f4d97ed7bebe"
+        },
+        {
+          "path": "results/validation/controls.json",
+          "sha256": "52178de056f0afe824a473938570a87e61b1a5162d812d999634930a52573906"
+        },
+        {
+          "path": "results/validation/H3_seven_case_coefficients.json",
+          "sha256": "0aadd62949788d74a81d236d1680c821c6389e3524e767011a0728b9076f9042"
+        },
+        {
+          "path": "logs/validation.time.txt",
+          "sha256": "2ab69ec15fbaa0e8bd6002ca6f241c75a214ef0b1779aa2b14815e349209eb20"
+        }
+      ],
+      "proof_status": "exact-finite phase/spectrum checks; finite-support complex128 exponentials",
+      "limitations": [
+        "One coefficient vector per physical case; no numerical general-optimality claim."
+      ],
+      "controls": [
+        "two known parameter-phase spectra",
+        "commuting kill spectrum",
+        "S-gate naive covariance failure"
+      ],
+      "dtype": "complex128",
+      "tolerance": 1e-11,
+      "cases": 973
+    },
+    {
+      "id": "E05_solver_preflight",
+      "status": "not_run",
+      "command": "importlib.util.find_spec for cvxpy,clarabel,scs",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [
+        "H4",
+        "H5"
+      ],
+      "code_hashes": {},
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "environment.json",
+          "sha256": "750e1622551f215095ba381b7f3d76c8b0f391c855a0146e86a5d856fbb46c52"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [
+        "All three absent. No SDP optimization attempted. Exact comb certificate used instead."
+      ]
+    },
+    {
+      "id": "E06_integer_comb",
+      "status": "passed",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python code/comb_certificate.py --output results/comb_certificates.json",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [
+        "H4",
+        "H5"
+      ],
+      "code_hashes": {
+        "code/comb_certificate.py": "1b8db6eb62e2c527fa32c569ce77a0d967082cb775d32407a71f6054f7f137aa"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "results/comb_certificates.json",
+          "sha256": "6af805d8d882ab7daaf9b7686138ba460fabf9d5992399050f3a8a24e7d986df"
+        },
+        {
+          "path": "logs/comb.stdout.txt",
+          "sha256": "15261e2916b474b5b71ace32bbbffb203c2f3cccb41c5dc3e2e2ba419a34edf5"
+        },
+        {
+          "path": "logs/comb.time.txt",
+          "sha256": "0dfec2105b4f639b71f8978f9d93bbfbf95089fadd6307eea8acfcd28f344f95"
+        }
+      ],
+      "proof_status": "exact integer identities + analytic PSD argument",
+      "limitations": [
+        "Promise-family reduction is a separate proof, not established by tensor arithmetic alone."
+      ]
+    },
+    {
+      "id": "E07_pytest_attempt1",
+      "status": "failed",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest tests -q",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "logs/source_versions/test_grid_attempt1.py": "8ba8bc40262be54baa73831aebb5c9cd70d85de28a0d2eff516dbe7423e606c1"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "logs/pytest_attempt1.stdout.txt",
+          "sha256": "ddc8a60ba664c005c2f0c20c3933916421d7f4e964648497ca4e5d7902ed729d"
+        },
+        {
+          "path": "logs/pytest_attempt1.time.txt",
+          "sha256": "8d8a2a9a669970f2c94419245d598a1d5c07b63f0455a6225635a428bbb068c1"
+        },
+        {
+          "path": "logs/pytest_schema_repair.json",
+          "sha256": "2f5a34183e03a7c1c88633ba7ca792705d28ef8f2f83c51e993117b9570a35af"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [],
+      "passed": 75,
+      "failed": 1,
+      "failure": "Test reader used cases instead of examples in calibration JSON; no scientific-data failure."
+    },
+    {
+      "id": "E07_pytest_attempt2",
+      "status": "passed",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest tests -q",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "logs/source_versions/test_grid_fixed76.py": "ecfd6f4df745cc19799920ab5f44c144d2664ee0413acd707ed01516f39e50be"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "logs/pytest_attempt2.stdout.txt",
+          "sha256": "fcf90dca759d24dfa5941f986c95ea53f0d1ad2652a3621481b06a0eaf37ddb9"
+        },
+        {
+          "path": "logs/pytest_attempt2.time.txt",
+          "sha256": "3dcbddab3e09d0fe7c38abac29e314ca624c474acca4f18522740df232418936"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [],
+      "passed": 76,
+      "revision_note": "release adds line-relation rank test; prior sources/logs retained"
+    },
+    {
+      "id": "E07_pytest_final",
+      "status": "passed",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest tests -q",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "logs/source_versions/test_grid_fixed76.py": "ecfd6f4df745cc19799920ab5f44c144d2664ee0413acd707ed01516f39e50be"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "logs/pytest_final.stdout.txt",
+          "sha256": "43b7b3dd82dbd59bfd703212e277ddd86818e485caacd23f94e3d73fe0a5bfde"
+        },
+        {
+          "path": "logs/pytest_final.time.txt",
+          "sha256": "51c9ee221527b22e61f5b852e72f21302177d4672f3f8be40fd70418b73e0c3d"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [],
+      "passed": 76,
+      "revision_note": "release adds line-relation rank test; prior sources/logs retained"
+    },
+    {
+      "id": "E07_pytest_release",
+      "status": "passed",
+      "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest tests -q",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "tests/test_grid.py": "8ed91ec344a7ae283008d0ed9769b04a6088d41e0ac06a18304fd2176f13b770"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "logs/pytest_release.stdout.txt",
+          "sha256": "ed2ec5d180a212a6b82a500e98976d31a037503bc54dd06a4c9e7728d74ea279"
+        },
+        {
+          "path": "logs/pytest_release.time.txt",
+          "sha256": "c56080340f10ddcafda6aa25e142820fd6e24aec926f7789e8c7fc26ba4fdfe5"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [],
+      "passed": 77,
+      "revision_note": "release adds line-relation rank test; prior sources/logs retained"
+    },
+    {
+      "id": "E08_initial_clean_reproduction",
+      "status": "passed",
+      "command": "python code/run_round.py --input /mnt/data/eui_grid_research --output /mnt/data/eui_r1_clean_reproduction",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "code/run_round.py": "aed03365d87223cdc483d5dcd679f7f25083ff91ba37591d08ec1a83a90f55d2",
+        "logs/source_versions/grid_check_initial.py": "dae4b00abc363e6648143c52643e8079ad8f004f929b4adcd6665bce24e60bd1"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "logs/reproduction.stdout.txt",
+          "sha256": "00878e5bc06bae6dbd47adafbfe7713898617f6891ee149a178c0c911164f82b"
+        },
+        {
+          "path": "results/reproductions/initial/run_ledger.json",
+          "sha256": "89776b0362fffbefc798684e63eb562286b9e4db80b55962c5787842b83c693e"
+        }
+      ],
+      "proof_status": "reproducibility",
+      "limitations": [],
+      "timed_child_cpu_seconds": 23.350915
+    },
+    {
+      "id": "E09_portability_repair_and_rerun",
+      "status": "passed",
+      "command": "python code/run_round.py --input /mnt/data/eui_repro_portable_input/frozen --output /mnt/data/eui_r1_clean_reproduction_portable",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {
+        "code/run_round.py": "aed03365d87223cdc483d5dcd679f7f25083ff91ba37591d08ec1a83a90f55d2",
+        "code/grid_check.py": "662c351092f2e3aef502cebafc2bb9295d1217f2c907369756e450009706f718"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "logs/portability_repair.json",
+          "sha256": "39b5589186d14f653f2aade589b8e55d588e4e1198421f70f1222fa379b522d0"
+        },
+        {
+          "path": "logs/reproduction_portable.stdout.txt",
+          "sha256": "8a45e75df33f809e2cbc6861c79fb492c67edbdffe1db5cf033fc31ddec92535"
+        },
+        {
+          "path": "results/reproductions/portable/run_ledger.json",
+          "sha256": "848e2b1d7f3b26801de5f8a95cf7c8dbf19d65f17cebb003840e1895f59a3e1e"
+        },
+        {
+          "path": "results/reproduction_comparison.json",
+          "sha256": "7c330ab9e53261f45c0d4ce31a21fcaa8963f1fb2531d0f8ec5168b0c386f27c"
+        }
+      ],
+      "proof_status": "reproducibility",
+      "limitations": [],
+      "timed_child_cpu_seconds": 17.084044999999996,
+      "repair": "Summary metadata no longer requires an adjacent archive. Frozen manifest always hashed. No scientific formula changed."
+    },
+    {
+      "id": "E10_matched_pair_recheck",
+      "status": "passed",
+      "command": "Independent literal-table W/rank/odd-Y/edge-count audit of both same_W_q4 cases",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [
+        "H3"
+      ],
+      "code_hashes": {
+        "code/grid_check.py": "662c351092f2e3aef502cebafc2bb9295d1217f2c907369756e450009706f718"
+      },
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "results/matched_pair_check.json",
+          "sha256": "9c9c69383e30979d589f0f0f85f8d8565c52e3f8e8ca27418aa8364c13cb1976"
+        }
+      ],
+      "proof_status": "exact-finite",
+      "limitations": [],
+      "equal_features": [
+        "W",
+        "rank4",
+        "oddY4",
+        "anti_edges18"
+      ],
+      "different_targets": [
+        [
+          10,
+          1
+        ],
+        [
+          16,
+          4
+        ]
+      ]
+    },
+    {
+      "id": "E11_github_delivery",
+      "status": "not_pushed",
+      "command": "GitHub read/ref/content/PR tools; local git tree reconstruction; no remote write API available",
+      "input_hashes": {
+        "zip_sha256": "bf8c6941078ac7d7f8086d83299eeac68a8a7cb169f3422c5389044576c0fb0d",
+        "manifest_sha256": "3f5fcaf0e5d478ae02fa6628bfa091d6b91a5ffc9023b8f2e171f3995111ef57",
+        "physical_examples_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+        "abstract_census_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74"
+      },
+      "hypotheses": [],
+      "code_hashes": {},
+      "seed": null,
+      "software_versions": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "sympy": "1.14.0",
+        "pytest": "9.0.2"
+      },
+      "outputs": [
+        {
+          "path": "github_delivery.json",
+          "sha256": "813b33028a34301287106615d4dae77df0b4b638c26ce1f3702b8c31082e29be"
+        }
+      ],
+      "proof_status": "not_applicable",
+      "limitations": [
+        "No new remote commit or PR update. Add-only patch tested locally, not equivalent to push."
+      ]
+    }
+  ],
+  "measured_processes": [
+    {
+      "log": "logs/comb.time.txt",
+      "cpu_seconds": 0.8700000000000001,
+      "peak_rss_kib": 97812
+    },
+    {
+      "log": "logs/exact.time.txt",
+      "cpu_seconds": 10.01,
+      "peak_rss_kib": 106532
+    },
+    {
+      "log": "logs/physical_n2.time.txt",
+      "cpu_seconds": 0.0,
+      "peak_rss_kib": 1536
+    },
+    {
+      "log": "logs/physical_n3.time.txt",
+      "cpu_seconds": 0.13,
+      "peak_rss_kib": 1536
+    },
+    {
+      "log": "logs/pytest_attempt1.time.txt",
+      "cpu_seconds": 6.44,
+      "peak_rss_kib": 201480
+    },
+    {
+      "log": "logs/pytest_attempt2.time.txt",
+      "cpu_seconds": 5.5600000000000005,
+      "peak_rss_kib": 174632
+    },
+    {
+      "log": "logs/pytest_final.time.txt",
+      "cpu_seconds": 4.61,
+      "peak_rss_kib": 174620
+    },
+    {
+      "log": "logs/pytest_release.time.txt",
+      "cpu_seconds": 5.09,
+      "peak_rss_kib": 174656
+    },
+    {
+      "log": "logs/validation.time.txt",
+      "cpu_seconds": 8.83,
+      "peak_rss_kib": 152380
+    }
+  ],
+  "recorded_cpu_seconds_excluding_unmeasured_editing": 81.97496000000001,
+  "initial_budget_cpu_seconds": 1800,
+  "gpu_used": false,
+  "paid_resources_created": false,
+  "remote_device_used": false,
+  "ledger_caveat": "Web-tool and interactive derivation steps lack wall/CPU timing; no precise whole-session CPU claim."
+}

@@ -1,0 +1,39 @@
+{
+  "run_id": "t2-comb-independent-02",
+  "group": "T2",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:26:06.310203+00:00",
+  "end_utc": "2026-10-14T09:26:06.625532+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/audit_comb_indices.py",
+    "--dims",
+    "2",
+    "4",
+    "--targets",
+    "transpose",
+    "adjugate2",
+    "--certificates",
+    "../grid_discovery_20261014_r1/results/comb_certificates.json",
+    "--output",
+    "results/T2_final"
+  ],
+  "cpu_seconds": 0.294042,
+  "wall_seconds": 0.31534542981535196,
+  "budget": {
+    "group_cpu_seconds": 300,
+    "remaining_before": 299.915857,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t2-comb-independent-02/stdout.txt",
+    "runs/t2-comb-independent-02/stderr.txt",
+    "runs/t2-comb-independent-02/command.txt",
+    "runs/t2-comb-independent-02/environment.txt"
+  ]
+}

@@ -1,0 +1,1 @@
+["python", "./code/tied_coeff_span.py", "--input", "../research/grid_discovery_20261014_r1/results", "--grids", "matched_q4", "B4q0", "B55q0", "--constraints", "independent", "row", "column", "uniform", "--span-max-degree", "7", "--graded-max-degree", "15", "--rays", "ternary", "--output", "./results/T4"]

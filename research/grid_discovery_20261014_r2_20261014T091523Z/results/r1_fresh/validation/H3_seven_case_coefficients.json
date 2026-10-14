@@ -1,0 +1,100 @@
+[
+  {
+    "C": 8,
+    "B": 4,
+    "v": 9,
+    "triple": [
+      2,
+      4,
+      15
+    ],
+    "gaussian_coefficient": [
+      6,
+      0
+    ]
+  },
+  {
+    "C": 17,
+    "B": 29,
+    "v": 9,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "gaussian_coefficient": [
+      -2,
+      0
+    ]
+  },
+  {
+    "C": 25,
+    "B": 21,
+    "v": 9,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "gaussian_coefficient": [
+      -2,
+      0
+    ]
+  },
+  {
+    "C": 34,
+    "B": 46,
+    "v": 9,
+    "triple": [
+      1,
+      4,
+      12
+    ],
+    "gaussian_coefficient": [
+      -2,
+      0
+    ]
+  },
+  {
+    "C": 42,
+    "B": 38,
+    "v": 9,
+    "triple": [
+      1,
+      4,
+      12
+    ],
+    "gaussian_coefficient": [
+      -2,
+      0
+    ]
+  },
+  {
+    "C": 51,
+    "B": 63,
+    "v": 9,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "gaussian_coefficient": [
+      -2,
+      0
+    ]
+  },
+  {
+    "C": 59,
+    "B": 55,
+    "v": 9,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "gaussian_coefficient": [
+      -2,
+      0
+    ]
+  }
+]

@@ -1,0 +1,1 @@
+["python", "./code/verify_t4.py", "--input", "./results/T4", "--output", "./results/T4_independent_verification.json"]

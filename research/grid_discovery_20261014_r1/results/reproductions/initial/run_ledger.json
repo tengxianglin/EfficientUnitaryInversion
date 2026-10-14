@@ -1,0 +1,122 @@
+[
+  {
+    "id": "verify_frozen",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/eui_grid_research/verify_bundle.py"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 1.4721538590001728,
+    "cpu_seconds": 1.469216,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/logs/verify_frozen.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/verify_frozen.stderr.txt"
+  },
+  {
+    "id": "compile",
+    "command": [
+      "/usr/bin/c++",
+      "-O2",
+      "-std=c++17",
+      "/mnt/data/grid_discovery_20261014_r1/code/physical_census.cpp",
+      "-o",
+      "/mnt/data/eui_r1_clean_reproduction/physical_census"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.7211646050000127,
+    "cpu_seconds": 0.6794570000000001,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/logs/compile.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/compile.stderr.txt"
+  },
+  {
+    "id": "physical_n2",
+    "command": [
+      "/mnt/data/eui_r1_clean_reproduction/physical_census",
+      "2"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.008554544000162423,
+    "cpu_seconds": 0.006224999999999814,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/physical_n2.json",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/physical_n2.stderr.txt"
+  },
+  {
+    "id": "physical_n3",
+    "command": [
+      "/mnt/data/eui_r1_clean_reproduction/physical_census",
+      "3"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.36662763300000734,
+    "cpu_seconds": 0.36505699999999996,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/physical_n3.json",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/physical_n3.stderr.txt"
+  },
+  {
+    "id": "exact",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/grid_discovery_20261014_r1/code/grid_check.py",
+      "--input",
+      "/mnt/data/eui_grid_research",
+      "--output",
+      "/mnt/data/eui_r1_clean_reproduction/exact",
+      "--physical2",
+      "/mnt/data/eui_r1_clean_reproduction/physical_n2.json",
+      "--physical3",
+      "/mnt/data/eui_r1_clean_reproduction/physical_n3.json"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 8.013705960000152,
+    "cpu_seconds": 7.983381,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/logs/exact.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/exact.stderr.txt"
+  },
+  {
+    "id": "validation",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/grid_discovery_20261014_r1/code/validate_predictions.py",
+      "--exact",
+      "/mnt/data/eui_r1_clean_reproduction/exact",
+      "--frozen",
+      "/mnt/data/eui_grid_research",
+      "--output",
+      "/mnt/data/eui_r1_clean_reproduction/validation",
+      "--seed",
+      "20261014"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 11.54085384200016,
+    "cpu_seconds": 11.522588,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/logs/validation.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/validation.stderr.txt"
+  },
+  {
+    "id": "comb",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/grid_discovery_20261014_r1/code/comb_certificate.py",
+      "--output",
+      "/mnt/data/eui_r1_clean_reproduction/comb_certificates.json"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 1.3692947969998386,
+    "cpu_seconds": 1.324991000000002,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction/logs/comb.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction/logs/comb.stderr.txt"
+  }
+]

@@ -1,0 +1,202 @@
+{
+  "schema": "exact-comb-certificates-v1",
+  "cases": [
+    {
+      "d": 2,
+      "target": "transpose",
+      "status": "exact_integer_certificate",
+      "tensor_order": [
+        "o",
+        "a",
+        "b",
+        "i"
+      ],
+      "flattening": "C-order",
+      "t_nonzero": [
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          15,
+          1
+        ]
+      ],
+      "primal_p": "1/4",
+      "dual_upper_p": "1/4",
+      "Q_definition": "Tr_o(t t^T)",
+      "M_definition": "d I_(a,b,i) - Q",
+      "C1_definition": "I_(b,i)/d",
+      "Cdet_definition": "(d t t^T + I_o tensor M)/d^3",
+      "exact_checks": {
+        "Q_squared_equals_d_Q": true,
+        "M_squared_equals_d_M": true,
+        "Tr_a_Q_equals_I_bi": true,
+        "Tr_o_Cdet_equals_I_a_tensor_C1": true,
+        "Tr_b_C1_equals_I_i": "symbolic identity",
+        "Tr_Q_squared": 8,
+        "t_norm_squared": 4,
+        "matrix_units_checked": 4
+      },
+      "upper_bound_reason": "Tr[Q Tr_o(Cdet)] = Tr(C1) = d >= p Tr(Q^2) = p d^3",
+      "limitation": "Promise-family constant-amplitude and span reduction must be proved separately."
+    },
+    {
+      "d": 4,
+      "target": "transpose",
+      "status": "exact_integer_certificate",
+      "tensor_order": [
+        "o",
+        "a",
+        "b",
+        "i"
+      ],
+      "flattening": "C-order",
+      "t_nonzero": [
+        [
+          0,
+          1
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          34,
+          1
+        ],
+        [
+          51,
+          1
+        ],
+        [
+          68,
+          1
+        ],
+        [
+          85,
+          1
+        ],
+        [
+          102,
+          1
+        ],
+        [
+          119,
+          1
+        ],
+        [
+          136,
+          1
+        ],
+        [
+          153,
+          1
+        ],
+        [
+          170,
+          1
+        ],
+        [
+          187,
+          1
+        ],
+        [
+          204,
+          1
+        ],
+        [
+          221,
+          1
+        ],
+        [
+          238,
+          1
+        ],
+        [
+          255,
+          1
+        ]
+      ],
+      "primal_p": "1/16",
+      "dual_upper_p": "1/16",
+      "Q_definition": "Tr_o(t t^T)",
+      "M_definition": "d I_(a,b,i) - Q",
+      "C1_definition": "I_(b,i)/d",
+      "Cdet_definition": "(d t t^T + I_o tensor M)/d^3",
+      "exact_checks": {
+        "Q_squared_equals_d_Q": true,
+        "M_squared_equals_d_M": true,
+        "Tr_a_Q_equals_I_bi": true,
+        "Tr_o_Cdet_equals_I_a_tensor_C1": true,
+        "Tr_b_C1_equals_I_i": "symbolic identity",
+        "Tr_Q_squared": 64,
+        "t_norm_squared": 16,
+        "matrix_units_checked": 16
+      },
+      "upper_bound_reason": "Tr[Q Tr_o(Cdet)] = Tr(C1) = d >= p Tr(Q^2) = p d^3",
+      "limitation": "Promise-family constant-amplitude and span reduction must be proved separately."
+    },
+    {
+      "d": 2,
+      "target": "adjugate2",
+      "status": "exact_integer_certificate",
+      "tensor_order": [
+        "o",
+        "a",
+        "b",
+        "i"
+      ],
+      "flattening": "C-order",
+      "t_nonzero": [
+        [
+          3,
+          -1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          12,
+          -1
+        ]
+      ],
+      "primal_p": "1/4",
+      "dual_upper_p": "1/4",
+      "Q_definition": "Tr_o(t t^T)",
+      "M_definition": "d I_(a,b,i) - Q",
+      "C1_definition": "I_(b,i)/d",
+      "Cdet_definition": "(d t t^T + I_o tensor M)/d^3",
+      "exact_checks": {
+        "Q_squared_equals_d_Q": true,
+        "M_squared_equals_d_M": true,
+        "Tr_a_Q_equals_I_bi": true,
+        "Tr_o_Cdet_equals_I_a_tensor_C1": true,
+        "Tr_b_C1_equals_I_i": "symbolic identity",
+        "Tr_Q_squared": 8,
+        "t_norm_squared": 4,
+        "matrix_units_checked": 4
+      },
+      "upper_bound_reason": "Tr[Q Tr_o(Cdet)] = Tr(C1) = d >= p Tr(Q^2) = p d^3",
+      "limitation": "Promise-family constant-amplitude and span reduction must be proved separately."
+    }
+  ],
+  "dtype": "int64",
+  "seed": null,
+  "cpu_seconds": 0.005753118999999973,
+  "code_sha256": "1b8db6eb62e2c527fa32c569ce77a0d967082cb775d32407a71f6054f7f137aa",
+  "solver": "none; exact identities plus analytic positive-semidefiniteness proof"
+}
