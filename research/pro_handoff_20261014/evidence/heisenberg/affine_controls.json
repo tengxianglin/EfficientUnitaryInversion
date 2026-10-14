@@ -1,0 +1,1147 @@
+{
+  "status": "VERIFIED_AFFINE_SPECTRUM_CONTROLS",
+  "rays": [
+    {
+      "J": [
+        0,
+        0,
+        1
+      ],
+      "sum_J": 1,
+      "D": 1,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-4"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        0,
+        1,
+        -2
+      ],
+      "sum_J": -1,
+      "D": 7,
+      "distinct_spectrum_center": "1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-88/3",
+        "-992/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        0,
+        1,
+        -1
+      ],
+      "sum_J": 0,
+      "D": 3,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-12",
+        "0"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        0,
+        1,
+        0
+      ],
+      "sum_J": 1,
+      "D": 1,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-4"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        0,
+        1,
+        1
+      ],
+      "sum_J": 2,
+      "D": 1,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-28/3",
+        "160/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        0,
+        1,
+        2
+      ],
+      "sum_J": 3,
+      "D": 3,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-24",
+        "32"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        0,
+        2,
+        -1
+      ],
+      "sum_J": 1,
+      "D": 7,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-88/3",
+        "992/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        0,
+        2,
+        1
+      ],
+      "sum_J": 3,
+      "D": 3,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-24",
+        "32"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -2,
+        -2
+      ],
+      "sum_J": -3,
+      "D": 9,
+      "distinct_spectrum_center": "3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-36"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        -2,
+        -1
+      ],
+      "sum_J": -2,
+      "D": 7,
+      "distinct_spectrum_center": "2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-100/3",
+        "-1888/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -2,
+        0
+      ],
+      "sum_J": -1,
+      "D": 7,
+      "distinct_spectrum_center": "1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-88/3",
+        "-992/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -2,
+        1
+      ],
+      "sum_J": 0,
+      "D": 9,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-36",
+        "0"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        -2,
+        2
+      ],
+      "sum_J": 1,
+      "D": 13,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-160/3",
+        "1856/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -1,
+        -2
+      ],
+      "sum_J": -2,
+      "D": 7,
+      "distinct_spectrum_center": "2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-100/3",
+        "-1888/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -1,
+        -1
+      ],
+      "sum_J": -1,
+      "D": 4,
+      "distinct_spectrum_center": "1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-52/3",
+        "-560/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -1,
+        0
+      ],
+      "sum_J": 0,
+      "D": 3,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-12",
+        "0"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        -1,
+        1
+      ],
+      "sum_J": 1,
+      "D": 4,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-52/3",
+        "560/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        -1,
+        2
+      ],
+      "sum_J": 2,
+      "D": 7,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-100/3",
+        "1888/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        0,
+        -2
+      ],
+      "sum_J": -1,
+      "D": 7,
+      "distinct_spectrum_center": "1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-88/3",
+        "-992/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        0,
+        -1
+      ],
+      "sum_J": 0,
+      "D": 3,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-12",
+        "0"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        0,
+        0
+      ],
+      "sum_J": 1,
+      "D": 1,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-4"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        0,
+        1
+      ],
+      "sum_J": 2,
+      "D": 1,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-28/3",
+        "160/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        0,
+        2
+      ],
+      "sum_J": 3,
+      "D": 3,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-24",
+        "32"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        1,
+        -2
+      ],
+      "sum_J": 0,
+      "D": 9,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-36",
+        "0"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        1,
+        -1
+      ],
+      "sum_J": 1,
+      "D": 4,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-52/3",
+        "560/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        1,
+        0
+      ],
+      "sum_J": 2,
+      "D": 1,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-28/3",
+        "160/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        1,
+        1
+      ],
+      "sum_J": 3,
+      "D": 0,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-9"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        1,
+        1,
+        2
+      ],
+      "sum_J": 4,
+      "D": 1,
+      "distinct_spectrum_center": "-4/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-76/3",
+        "-448/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        2,
+        -2
+      ],
+      "sum_J": 1,
+      "D": 13,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-160/3",
+        "1856/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        2,
+        -1
+      ],
+      "sum_J": 2,
+      "D": 7,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-100/3",
+        "1888/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        2,
+        0
+      ],
+      "sum_J": 3,
+      "D": 3,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-24",
+        "32"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        2,
+        1
+      ],
+      "sum_J": 4,
+      "D": 1,
+      "distinct_spectrum_center": "-4/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-76/3",
+        "-448/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        1,
+        2,
+        2
+      ],
+      "sum_J": 5,
+      "D": 1,
+      "distinct_spectrum_center": "-5/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-112/3",
+        "-1280/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        -2,
+        -1
+      ],
+      "sum_J": -1,
+      "D": 13,
+      "distinct_spectrum_center": "1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-160/3",
+        "-1856/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        -2,
+        1
+      ],
+      "sum_J": 1,
+      "D": 13,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-160/3",
+        "1856/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        -1,
+        -2
+      ],
+      "sum_J": -1,
+      "D": 13,
+      "distinct_spectrum_center": "1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-160/3",
+        "-1856/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        -1,
+        -1
+      ],
+      "sum_J": 0,
+      "D": 9,
+      "distinct_spectrum_center": "0",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-36",
+        "0"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        2,
+        -1,
+        0
+      ],
+      "sum_J": 1,
+      "D": 7,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-88/3",
+        "992/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        -1,
+        1
+      ],
+      "sum_J": 2,
+      "D": 7,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-100/3",
+        "1888/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        -1,
+        2
+      ],
+      "sum_J": 3,
+      "D": 9,
+      "distinct_spectrum_center": "-3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-36"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        2,
+        0,
+        -1
+      ],
+      "sum_J": 1,
+      "D": 7,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-88/3",
+        "992/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        0,
+        1
+      ],
+      "sum_J": 3,
+      "D": 3,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-24",
+        "32"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        1,
+        -2
+      ],
+      "sum_J": 1,
+      "D": 13,
+      "distinct_spectrum_center": "-1/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-160/3",
+        "1856/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        1,
+        -1
+      ],
+      "sum_J": 2,
+      "D": 7,
+      "distinct_spectrum_center": "-2/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-100/3",
+        "1888/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        1,
+        0
+      ],
+      "sum_J": 3,
+      "D": 3,
+      "distinct_spectrum_center": "-1",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-24",
+        "32"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        1,
+        1
+      ],
+      "sum_J": 4,
+      "D": 1,
+      "distinct_spectrum_center": "-4/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-76/3",
+        "-448/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        1,
+        2
+      ],
+      "sum_J": 5,
+      "D": 1,
+      "distinct_spectrum_center": "-5/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-112/3",
+        "-1280/27"
+      ],
+      "affine_spectrum_symmetric": false
+    },
+    {
+      "J": [
+        2,
+        2,
+        -1
+      ],
+      "sum_J": 3,
+      "D": 9,
+      "distinct_spectrum_center": "-3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-36"
+      ],
+      "affine_spectrum_symmetric": true
+    },
+    {
+      "J": [
+        2,
+        2,
+        1
+      ],
+      "sum_J": 5,
+      "D": 1,
+      "distinct_spectrum_center": "-5/3",
+      "centered_minimal_polynomial": [
+        "1",
+        "0",
+        "-112/3",
+        "-1280/27"
+      ],
+      "affine_spectrum_symmetric": false
+    }
+  ],
+  "ray_scope": "49 primitive directions in [-2,2]^3, sign identified; affine property only, not a full channel classification",
+  "representative": {
+    "J": [
+      1,
+      4,
+      4
+    ],
+    "spectrum_multiplicities": {
+      "-15": 2,
+      "-3": 2,
+      "9": 4
+    },
+    "kappa": "-6",
+    "encoder_matrix": [
+      [
+        "0",
+        "0",
+        "-sqrt(6)/3",
+        "0",
+        "sqrt(6)/6",
+        "0",
+        "0",
+        "0",
+        "sqrt(6)/6",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-sqrt(2)/2",
+        "0",
+        "0",
+        "0",
+        "sqrt(2)/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-sqrt(6)/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "0",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "sqrt(2)/3",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-sqrt(2)/3",
+        "-sqrt(6)/6",
+        "0",
+        "0",
+        "-sqrt(2)/3",
+        "sqrt(6)/6",
+        "-sqrt(2)/3",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "sqrt(6)/6",
+        "0",
+        "0",
+        "0",
+        "1/2",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "-1/2",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "sqrt(2)/3",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "sqrt(3)/3",
+        "0",
+        "-sqrt(3)/6",
+        "sqrt(2)/6",
+        "-sqrt(6)/6",
+        "0",
+        "-sqrt(3)/6",
+        "sqrt(2)/6",
+        "sqrt(6)/6",
+        "sqrt(2)/6",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "sqrt(3)/3",
+        "-sqrt(2)/6",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "1/2",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "-1/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "sqrt(3)/6",
+        "0",
+        "1/3",
+        "0",
+        "sqrt(3)/6",
+        "0",
+        "-sqrt(3)/3",
+        "-sqrt(6)/6",
+        "0"
+      ],
+      [
+        "sqrt(6)/6",
+        "0",
+        "0",
+        "0",
+        "-1/2",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "1/2",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "sqrt(2)/3",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-sqrt(3)/3",
+        "0",
+        "sqrt(3)/6",
+        "sqrt(2)/6",
+        "-sqrt(6)/6",
+        "0",
+        "sqrt(3)/6",
+        "sqrt(2)/6",
+        "sqrt(6)/6",
+        "sqrt(2)/6",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "sqrt(3)/3",
+        "-sqrt(2)/6",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "-1/2",
+        "0",
+        "-sqrt(2)/6",
+        "0",
+        "1/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "-sqrt(3)/6",
+        "0",
+        "1/3",
+        "0",
+        "-sqrt(3)/6",
+        "0",
+        "sqrt(3)/3",
+        "-sqrt(6)/6",
+        "0"
+      ],
+      [
+        "0",
+        "sqrt(3)/3",
+        "sqrt(2)/3",
+        "0",
+        "sqrt(2)/3",
+        "0",
+        "0",
+        "0",
+        "sqrt(2)/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "sqrt(6)/3",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "sqrt(3)/3",
+        "0",
+        "0",
+        "0",
+        "sqrt(3)/3",
+        "0",
+        "sqrt(3)/3",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "generator_identity": "W^dagger(H tensor I2)W J=J(-6I8-H)",
+    "output": "exp(6ia)*U(a)^dagger",
+    "queries": 1,
+    "workspace_qubits": 1,
+    "success_probability": 1,
+    "workspace_returned_to_0": true,
+    "numerical_trials": 17,
+    "seed": 20260909,
+    "max_residual": 1.0501995421857161e-14,
+    "max_leakage": 1.0592786150891944e-14
+  },
+  "limits": "Extra ray spectral controls and one explicit encoding; no necessity theorem for arbitrary multi-Kraus channels, no minimal-workspace proof, no novelty claim",
+  "elapsed_seconds": 2.846129956888035
+}

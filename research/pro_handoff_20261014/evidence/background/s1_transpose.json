@@ -1,0 +1,41 @@
+{
+  "support_id": "S1",
+  "target": "transpose",
+  "num_qubits": 3,
+  "support": [
+    "X0,X1", "Y1,X2", "X0,Z1,X2",
+    "Z0,Z1", "Z2", "Z0,Z1,Z2",
+    "X0,Y1", "Y1,Y2", "X0,Y2"
+  ],
+  "row_labels": [
+    ["A_0", "B_0", "C_0"],
+    ["A_1", "B_1", "C_1"],
+    ["A_2", "B_2", "C_2"]
+  ],
+  "support_hash": "16a326cf540d16d07988b3951a7d05f78c1265191b6092e372fab18c7060f848",
+  "resource": {
+    "sequential_slots": 6,
+    "parallel_width": 1,
+    "oracle_depth": 6,
+    "total_queries": 6,
+    "user_ancilla_qubits": 0
+  },
+  "dataset_policy": {
+    "num_train": 1000,
+    "num_test": 1000,
+    "sigma": 1.0,
+    "train_data_type": "normal",
+    "test_data_type": "uniform"
+  },
+  "seed_list": [42, 123, 2024, 31415, 271828],
+  "restart_policy": {
+    "max_restarts": 5,
+    "optimizer": "Adam"
+  },
+  "output_schema": {
+    "manifest_dir": "results/exact_s1_s2",
+    "artifact_dir": "results/exact_s1_s2",
+    "manifest_filename": "s1_manifest.json",
+    "artifact_bundle": "s1_bundle.json"
+  }
+}

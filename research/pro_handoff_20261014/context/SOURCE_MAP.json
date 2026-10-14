@@ -1,0 +1,271 @@
+{
+  "repository": "EfficientUnitaryInversion",
+  "files": [
+    {
+      "original_repository_path": "docs/research/eui_grid_examples_20260905/verify_grid_examples.py",
+      "packaged_path": "source/grid/verify_grid_examples.py",
+      "original_sha256": "e9bd2fe4882dfc2e2c69dba71d716957d4796a66540e4a6f9106165a14ee6ba4",
+      "packaged_sha256": "e9bd2fe4882dfc2e2c69dba71d716957d4796a66540e4a6f9106165a14ee6ba4",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Independent physical Pauli examples and exact coordinate-envelope/LCU computation"
+    },
+    {
+      "original_repository_path": "docs/research/eui_grid_examples_20260905/grid_examples.json",
+      "packaged_path": "evidence/grid/grid_examples.json",
+      "original_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+      "packaged_sha256": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Eight physical examples, including two non-grid controls and decisive matched pairs"
+    },
+    {
+      "original_repository_path": "docs/research/eui_grid_examples_20260905/GRID_EXAMPLES.md",
+      "packaged_path": "evidence/grid/GRID_EXAMPLES.md",
+      "original_sha256": "53ebf8d4d24bc2fa4a48229675de9f1e21c0cd5782d6004736e67efa61c8fb74",
+      "packaged_sha256": "53ebf8d4d24bc2fa4a48229675de9f1e21c0cd5782d6004736e67efa61c8fb74",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Contemporaneous explanation; its early not-yet-classified wording is superseded by the later census"
+    },
+    {
+      "original_repository_path": "scripts/independent_exact_grid_verifier.py",
+      "packaged_path": "source/grid/independent_exact_grid_verifier.py",
+      "original_sha256": "bea9c108b02ab188b7d94d0d65018ed1f4b40bdd63484bf08f1db41874682314",
+      "packaged_sha256": "bea9c108b02ab188b7d94d0d65018ed1f4b40bdd63484bf08f1db41874682314",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Standalone standard-library exact abstract census with no repository imports"
+    },
+    {
+      "original_repository_path": "results/eui_grid_exact_20260905/independent_grid_certificates.json",
+      "packaged_path": "evidence/grid/independent_grid_certificates.json",
+      "original_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74",
+      "packaged_sha256": "fd7d62aeeed96f72bdf740c9f9aeed45bf00f5f9c78fc4417bdada5e44c9cf74",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "All 1024 raw cases, 44 abstract equivalence classes, exact certificates and counterexamples"
+    },
+    {
+      "original_repository_path": "results/eui_grid_exact_20260905/README.md",
+      "packaged_path": "evidence/grid/CENSUS_README.md",
+      "original_sha256": "d973966f1c811a1cc2de2e4e9d55432d2816d3a0fe1013f0a8ce21bebf18b2f5",
+      "packaged_sha256": "d973966f1c811a1cc2de2e4e9d55432d2816d3a0fe1013f0a8ce21bebf18b2f5",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Historical census scope, rank-zero exception and dictionary-only optimality"
+    },
+    {
+      "original_repository_path": "docs/research/eui_audio_new_discovery_20260907/verify_new_theory.py",
+      "packaged_path": "source/theory/verify_new_theory.py",
+      "original_sha256": "769652fda4eb6ab3bd7dc05dd65ae32d1842b9f35c80598946c49c9db6de4e90",
+      "packaged_sha256": "769652fda4eb6ab3bd7dc05dd65ae32d1842b9f35c80598946c49c9db6de4e90",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Exact deletion counterexample, diagonal sign-map classification, chain ranks and frame checks"
+    },
+    {
+      "original_repository_path": "docs/research/eui_audio_new_discovery_20260907/verification_results.json",
+      "packaged_path": "evidence/theory/verification_results.json",
+      "original_sha256": "a0e33efa2262231dcb03c48b06faf554ef0e221699f8e05920f255209dd21e58",
+      "packaged_sha256": "a0e33efa2262231dcb03c48b06faf554ef0e221699f8e05920f255209dd21e58",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Primary September 7 theory verification outputs"
+    },
+    {
+      "original_repository_path": "results/eui_heisenberg_followup_20260909T144616/open_result.json",
+      "packaged_path": "evidence/heisenberg/open_result.json",
+      "original_sha256": "d740ce3db08f026d5227868f2fbd30e4ebbdf1f9e21d9b1891cc2c8b72da461f",
+      "packaged_sha256": "d740ce3db08f026d5227868f2fbd30e4ebbdf1f9e21d9b1891cc2c8b72da461f",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Original uniform open-chain census"
+    },
+    {
+      "original_repository_path": "results/eui_heisenberg_followup_20260909T144616/periodic_result.json",
+      "packaged_path": "evidence/heisenberg/periodic_result.json",
+      "original_sha256": "a60c784f20405fbc0b1c6e25ad0eeb3feaef951c3db7e5ff31cc1c022e114786",
+      "packaged_sha256": "a60c784f20405fbc0b1c6e25ad0eeb3feaef951c3db7e5ff31cc1c022e114786",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Original uniform periodic-chain census"
+    },
+    {
+      "original_repository_path": "results/eui_heisenberg_followup_20260909T144616/triangle_result.json",
+      "packaged_path": "evidence/heisenberg/triangle_result.json",
+      "original_sha256": "3b60a47d3233ec62cb2bd1f3326152e85819f26e521e5b71b38d4c7f6633bd19",
+      "packaged_sha256": "3b60a47d3233ec62cb2bd1f3326152e85819f26e521e5b71b38d4c7f6633bd19",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Explicit exact uniform-triangle gate"
+    },
+    {
+      "original_repository_path": "results/eui_heisenberg_followup_20260909T144616/root_acceptance.json",
+      "packaged_path": "evidence/heisenberg/root_acceptance.json",
+      "original_sha256": "1b5ed3e6d9c4f707d3794d19fdd3135548a3d4178564a62b4421450f99da21ea",
+      "packaged_sha256": "1b5ed3e6d9c4f707d3794d19fdd3135548a3d4178564a62b4421450f99da21ea",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Historical independent acceptance; not a claim of a new rerun"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/exact_extensions_v2.json",
+      "packaged_path": "evidence/heisenberg/exact_extensions_v2.json",
+      "original_sha256": "42a1b3f615d27f03569efada870706636e0f1b0dbd1775a89609b057a26050c3",
+      "packaged_sha256": "42a1b3f615d27f03569efada870706636e0f1b0dbd1775a89609b057a26050c3",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Final exact symbolic triangle classification and N3/N4 transfer results"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/compilation_v2.json",
+      "packaged_path": "evidence/heisenberg/compilation_v2.json",
+      "original_sha256": "e34062041932570bc4d4700269501fe253fe04fd47f48584f5a4a4ca6207007e",
+      "packaged_sha256": "e34062041932570bc4d4700269501fe253fe04fd47f48584f5a4a4ca6207007e",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Final gate compilation and parameter-mismatch numerical diagnostics"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/phase_covariant.json",
+      "packaged_path": "evidence/heisenberg/phase_covariant.json",
+      "original_sha256": "83f8cac49eaee319df3f33f4322669b1deedfcbf426bac7cf6d6f0a0be612095",
+      "packaged_sha256": "83f8cac49eaee319df3f33f4322669b1deedfcbf426bac7cf6d6f0a0be612095",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Phase-covariant deterministic single-edge channel example"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/affine_controls.json",
+      "packaged_path": "evidence/heisenberg/affine_controls.json",
+      "original_sha256": "93ec994fd5e07fead317d78eb5afacdc0f1c5c6d6d517d2f0c520d0c09ee4210",
+      "packaged_sha256": "93ec994fd5e07fead317d78eb5afacdc0f1c5c6d6d517d2f0c520d0c09ee4210",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "49 affine-spectrum controls and explicit J=(1,4,4) encoding"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/README.md",
+      "packaged_path": "evidence/heisenberg/FOLLOWUP_README.md",
+      "original_sha256": "5a2dd670886feb318f6646c7216834f2c72dfd56507fbbbcf71e05d4d7329b81",
+      "packaged_sha256": "5a2dd670886feb318f6646c7216834f2c72dfd56507fbbbcf71e05d4d7329b81",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Precise scope, implementation versions, resource accounting and remaining questions"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/PROTOCOL.md",
+      "packaged_path": "evidence/heisenberg/PROTOCOL.md",
+      "original_sha256": "baa2160b87fb2da1a9518f59a1b30ee11b3b2f584efd3a6f1eebcad1b0b312f5",
+      "packaged_sha256": "baa2160b87fb2da1a9518f59a1b30ee11b3b2f584efd3a6f1eebcad1b0b312f5",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Frozen September follow-up protocol"
+    },
+    {
+      "original_repository_path": "results/exact_s1_s2/s2_exact/s2_certificate.json",
+      "packaged_path": "evidence/background/s2_certificate.json",
+      "original_sha256": "7fdbd30aad04a6f4d9281e44645c6f1a9129eaa452cb5ce89ff1f4a6e40365bb",
+      "packaged_sha256": "7fdbd30aad04a6f4d9281e44645c6f1a9129eaa452cb5ce89ff1f4a6e40365bb",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Historical S2 exact construction and restricted representation-theoretic width scope"
+    },
+    {
+      "original_repository_path": "results/exact_s1_s2/algebraic_lcu/s1_lcu_certificate.json",
+      "packaged_path": "evidence/background/s1_lcu_certificate.json",
+      "original_sha256": "eda0dbef1ab042c81edda4e2346d590b17d744d79cf9906e208488e339651c2c",
+      "packaged_sha256": "eda0dbef1ab042c81edda4e2346d590b17d744d79cf9906e208488e339651c2c",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Historical frozen-S1 postselected transpose construction"
+    },
+    {
+      "original_repository_path": "configs/s1_transpose.json",
+      "packaged_path": "evidence/background/s1_transpose.json",
+      "original_sha256": "b91f2f2b6d3e6eacc69e8fdfcb3df786cdbf76cf5536416dd812ae870c11c3c1",
+      "packaged_sha256": "b91f2f2b6d3e6eacc69e8fdfcb3df786cdbf76cf5536416dd812ae870c11c3c1",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Frozen S1 literal support and search configuration, not the LCU construction resource"
+    },
+    {
+      "original_repository_path": "configs/s2_dagger.json",
+      "packaged_path": "evidence/background/s2_dagger.json",
+      "original_sha256": "20e5b9c5ab43d9eb35b41288790c0ff8b0266eff4c9e901ded4ce0c71c9b3de8",
+      "packaged_sha256": "20e5b9c5ab43d9eb35b41288790c0ff8b0266eff4c9e901ded4ce0c71c9b3de8",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Frozen S2 literal support and target"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/source_v2/verify_heisenberg_tied_inversion.py",
+      "packaged_path": "source/heisenberg/verify_heisenberg_tied_inversion.py",
+      "original_sha256": "09556c256b89c8cde910b3cfee84c62cd1aad008d5229b063b8a0dfbcb353ec9",
+      "packaged_sha256": "09556c256b89c8cde910b3cfee84c62cd1aad008d5229b063b8a0dfbcb353ec9",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Final frozen source and its local import closure"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/source_v2/verify_triangle_intertwiner.py",
+      "packaged_path": "source/heisenberg/verify_triangle_intertwiner.py",
+      "original_sha256": "3cfeb8cd38fa52ea58b268fdca6b1fec83970cad8d2b18a2fcbf7f290b2ff0cf",
+      "packaged_sha256": "3cfeb8cd38fa52ea58b268fdca6b1fec83970cad8d2b18a2fcbf7f290b2ff0cf",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Final frozen source and its local import closure"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/source_v2/run_heisenberg_followup_extensions.py",
+      "packaged_path": "source/heisenberg/run_heisenberg_followup_extensions.py",
+      "original_sha256": "58a17ee5f3e7eceeef418189cd2efaf15197dd42a6c57255aec2be6c2a2bb84f",
+      "packaged_sha256": "58a17ee5f3e7eceeef418189cd2efaf15197dd42a6c57255aec2be6c2a2bb84f",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Final frozen source and its local import closure"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/source_v2/validate_triangle_gate_compilation.py",
+      "packaged_path": "source/heisenberg/validate_triangle_gate_compilation.py",
+      "original_sha256": "5a32275d0b87308a2353ac44e380c8f940b25a1836196c281248901e7dabca95",
+      "packaged_sha256": "5a32275d0b87308a2353ac44e380c8f940b25a1836196c281248901e7dabca95",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Final frozen source and its local import closure"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/source_phase/verify_phase_covariant_inversion.py",
+      "packaged_path": "source/heisenberg/verify_phase_covariant_inversion.py",
+      "original_sha256": "aea454a90b3a2804ea79efaef7d25a9d84e5c0f1823f5f14aac9186a33df0083",
+      "packaged_sha256": "aea454a90b3a2804ea79efaef7d25a9d84e5c0f1823f5f14aac9186a33df0083",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Single-edge phase-covariant encoder source"
+    },
+    {
+      "original_repository_path": "results/eui_pro_followup_20260909T153611/source_affine/verify_affine_spectrum_controls.py",
+      "packaged_path": "source/heisenberg/verify_affine_spectrum_controls.py",
+      "original_sha256": "bebbf4906f49b19a61ef308e14b5a07836c5317349716de70f9d369373f0c442",
+      "packaged_sha256": "bebbf4906f49b19a61ef308e14b5a07836c5317349716de70f9d369373f0c442",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Affine-spectrum/encoder source with local imports supplied"
+    },
+    {
+      "original_repository_path": "docs/goals/EUI_Pro_OpenProblems_20260909/EUI_01_OneQuery_Physical_Limits_20260909/PROMPT_ZH.md",
+      "packaged_path": "context/previous_questions/one_query_physical_limits.md",
+      "original_sha256": "6d782c07b720f3d073337671dbb9819abe208aea346f11d39921f426b4655ae0",
+      "packaged_sha256": "6d782c07b720f3d073337671dbb9819abe208aea346f11d39921f426b4655ae0",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Attributed prior question, not a received Pro answer or a new Codex task"
+    },
+    {
+      "original_repository_path": "docs/goals/EUI_Pro_OpenProblems_20260909/EUI_02_Coupling_Equivalence_20260909/PROMPT_ZH.md",
+      "packaged_path": "context/previous_questions/coupling_equivalence.md",
+      "original_sha256": "8e1aedb877729ad3d34317acc3c7d03d4e5ff49fc3edc5b15c3276df44e37686",
+      "packaged_sha256": "8e1aedb877729ad3d34317acc3c7d03d4e5ff49fc3edc5b15c3276df44e37686",
+      "transformation": "none; byte-for-byte copy",
+      "reason": "Attributed prior question; secondary priority this round"
+    }
+  ],
+  "omissions": [
+    {
+      "item": "Original meeting audio, handwritten image, raw ASR and complete private Obsidian notes",
+      "reason": "Private source material is unnecessary for mathematical reconstruction. Only a concise attributed mathematical requirement is supplied."
+    },
+    {
+      "item": "Unrelated dirty tracked edits and eleven local commits ahead of remote main",
+      "reason": "Remote research branch starts from verified origin/main; only this round and selected research evidence are added."
+    },
+    {
+      "item": "Old Type-2.2.2 universality/fidelity claims and large optimizer logs",
+      "reason": "Historical target-convention problems make them inadmissible as current dagger evidence."
+    },
+    {
+      "item": "Full old S1/S2 training/checkpoint dependency tree and mature manuscript",
+      "reason": "Background certificates are attributed historical records; full reconstruction and manuscript novelty comparisons are not claimed complete by this package."
+    },
+    {
+      "item": "Local host addresses, credentials, browser state, caches and raw agent logs",
+      "reason": "Unnecessary private or operational information."
+    },
+    {
+      "item": "A Pro reply or a next Codex experiment task",
+      "reason": "No reply has been received for this outgoing question; Pro must author the next bounded tasks."
+    }
+  ]
+}

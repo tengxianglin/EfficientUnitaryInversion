@@ -1,0 +1,71 @@
+{
+  "certificate_stage": "E",
+  "device": "cpu",
+  "diagnostics": {
+    "exterior_isometry_residual": 4.440892098500626e-16,
+    "logical_transform_unitarity_residual": 0.0,
+    "max_logical_factor_residual": 0.0,
+    "max_sample_operator_residual": 8.415462112040261e-15,
+    "max_workspace_reset_residual": 4.201652116001754e-15,
+    "physical_isometry_residual": 6.280369834735101e-16,
+    "pre_maps_source_residual": 0.0,
+    "pre_post_unitarity_residual": 1.6522146056655196e-15,
+    "source_encoded_overlap": 0.0
+  },
+  "dtype": "torch.complex128",
+  "equality": "operator equality; hence channel equality (global phase 1)",
+  "exact_obligations": {
+    "conjugate_weight_first_occurs_at_three_queries": true,
+    "exterior_cofactor_polynomial_identity": true,
+    "logical_factorization_exact": true,
+    "logical_generators_traceless": true,
+    "resource_equation": true,
+    "support_is_real_symmetric": true
+  },
+  "library_versions": {
+    "numpy": "2.1.3",
+    "python": "3.13.5",
+    "quairkit": "0.5.1",
+    "torch": "2.12.0+cu130"
+  },
+  "num_qubits": 3,
+  "proof": [
+    "The real permutation T maps every physical support generator exactly to A_j tensor I_2.",
+    "Each A_j is real symmetric and traceless, so V=exp(-i sum alpha_j A_j) lies in SU(4) and V^T=V.",
+    "The exact cofactor identity gives J^* V^tensor3 J = det(V) V^-T = V*.",
+    "Since V is symmetric, V*=V^dagger. The multiplicity subsystem is untouched.",
+    "The fixed involution swaps |0,0> tensor input with the encoded J subspace before and after the three parallel queries.",
+    "The conjugate SU(4) fundamental has weights n_j=c-delta_ij, so P=4c-1 and cannot occur at P=1 or P=2; P=3 is the first occurrence."
+  ],
+  "query_width_result": {
+    "minimum_parallel_width": 3,
+    "occurrences": {
+      "1": false,
+      "2": false,
+      "3": true
+    },
+    "scope": "deterministic one-layer SU(4) representation intertwiners"
+  },
+  "resource": {
+    "oracle_depth": 1,
+    "parallel_width": 3,
+    "sequential_slots": 1,
+    "total_queries": 3,
+    "user_ancilla_qubits": 0
+  },
+  "support": [
+    "X0,X1",
+    "Y0,Y1",
+    "Z0,Z1",
+    "X1,X2",
+    "Y1,Y2",
+    "Z1,Z2",
+    "X0,X2",
+    "Y0,Y2",
+    "Z0,Z2"
+  ],
+  "support_hash": "ce4f9e850a8bb084ac8728749c143aa50cc9f50bcb5eee5daa0c6d8dedd4c037",
+  "support_id": "S2",
+  "target": "dagger",
+  "topology": "fixed pre / one U tensor U tensor U layer / same fixed post"
+}

@@ -1,0 +1,556 @@
+{
+  "status": "VERIFIED_EXACT_PHASE_COVARIANT_DETERMINISTIC_INVERTER",
+  "family": "H=XX+YY+ZZ, U(a)=exp(-iaH), all real a",
+  "constant_amplitude_obstruction": "H^2-3I=-2H !=0; forbids fixed c linear operator equality",
+  "actual_output": "exp(2ia)*U(a)^dagger",
+  "channel_output": "rho -> U(a)^dagger rho U(a), probability 1",
+  "encoding_basis_eigenvalues": [
+    1,
+    1,
+    1,
+    -3
+  ],
+  "query_times_workspace_basis": "query eigenvector index *4 + workspace index",
+  "encoding_permutation": {
+    "0": 12,
+    "4": 13,
+    "8": 14,
+    "12": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "5": 4,
+    "6": 5,
+    "7": 6,
+    "9": 7,
+    "10": 8,
+    "11": 9,
+    "13": 10,
+    "14": 11,
+    "15": 15
+  },
+  "encoder_matrix": [
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "-sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "1/2",
+      "0",
+      "1/2",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "sqrt(2)/2",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "-1/2",
+      "0",
+      "sqrt(2)/2",
+      "0",
+      "0"
+    ],
+    [
+      "-sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "-1/2",
+      "0",
+      "1/2",
+      "0",
+      "-1/2",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "-sqrt(2)/2",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-1/2",
+      "0",
+      "0",
+      "0",
+      "1/2",
+      "0",
+      "sqrt(2)/2",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "-sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "-sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "exact_generator_intertwining": "W^dagger(H tensor I4)W J=J(-2I4-H), J=I4 tensor |00>",
+  "exact_checks": {
+    "encoder_unitary": true,
+    "invariant_code_subspace": true,
+    "generator_identity": true
+  },
+  "resources": {
+    "unknown_queries": 1,
+    "workspace_qubits": 2,
+    "workspace_dimension": 4,
+    "success_probability": 1,
+    "sequence": "W -> (U tensor I4) -> W^dagger",
+    "workspace_returned_to_00": true,
+    "controlled_unknown_U": false
+  },
+  "numerical": {
+    "seed": 20260909,
+    "dtype": "complex128",
+    "trials": [
+      {
+        "a": 0.0,
+        "phase_covariant_residual": 3.510833468576701e-16,
+        "workspace_leakage": 0.0,
+        "successful_block_unitarity_residual": 7.021666937153402e-16
+      },
+      {
+        "a": 2.1944091151836056,
+        "phase_covariant_residual": 8.391185778350837e-16,
+        "workspace_leakage": 6.902283069127861e-17,
+        "successful_block_unitarity_residual": 8.005932084973442e-16
+      },
+      {
+        "a": 1.4713027635104001,
+        "phase_covariant_residual": 3.850929832103114e-16,
+        "workspace_leakage": 1.069482362796735e-16,
+        "successful_block_unitarity_residual": 3.0798059965048346e-16
+      },
+      {
+        "a": -1.7074204589769475,
+        "phase_covariant_residual": 6.847391072233808e-16,
+        "workspace_leakage": 3.362331981320264e-17,
+        "successful_block_unitarity_residual": 7.046309244299666e-16
+      },
+      {
+        "a": -0.2551993685119014,
+        "phase_covariant_residual": 2.309724214262959e-16,
+        "workspace_leakage": 1.5298524856016177e-16,
+        "successful_block_unitarity_residual": 4.1725779438208954e-16
+      },
+      {
+        "a": 0.13202405458721225,
+        "phase_covariant_residual": 2.6703474716024767e-16,
+        "workspace_leakage": 2.992842904079915e-17,
+        "successful_block_unitarity_residual": 7.205766531097152e-16
+      },
+      {
+        "a": -0.25758997612237194,
+        "phase_covariant_residual": 3.5435946773586813e-16,
+        "workspace_leakage": 3.916192416974947e-17,
+        "successful_block_unitarity_residual": 6.389813363550566e-16
+      },
+      {
+        "a": -1.4958649601775431,
+        "phase_covariant_residual": 1.2230895423923617e-15,
+        "workspace_leakage": 4.67489180681515e-17,
+        "successful_block_unitarity_residual": 6.913868759218039e-16
+      },
+      {
+        "a": 0.9058468082475817,
+        "phase_covariant_residual": 3.7238012298709097e-16,
+        "workspace_leakage": 1.0961066945369565e-16,
+        "successful_block_unitarity_residual": 7.032629733738598e-16
+      },
+      {
+        "a": -0.3064700995135819,
+        "phase_covariant_residual": 2.435541875787129e-16,
+        "workspace_leakage": 9.440361202600196e-17,
+        "successful_block_unitarity_residual": 3.236828524569469e-16
+      },
+      {
+        "a": 0.3950893636306688,
+        "phase_covariant_residual": 4.611102534756203e-16,
+        "workspace_leakage": 1.3507944847442906e-16,
+        "successful_block_unitarity_residual": 5.026748538604307e-16
+      },
+      {
+        "a": 0.08850974057993616,
+        "phase_covariant_residual": 3.513917807227805e-16,
+        "workspace_leakage": 2.567616486055644e-17,
+        "successful_block_unitarity_residual": 6.287265869083954e-16
+      },
+      {
+        "a": 0.23664293760475547,
+        "phase_covariant_residual": 3.7675062959647363e-16,
+        "workspace_leakage": 4.490266784339445e-17,
+        "successful_block_unitarity_residual": 4.1725779438208954e-16
+      },
+      {
+        "a": 2.0802757165340164,
+        "phase_covariant_residual": 6.883858386228463e-16,
+        "workspace_leakage": 2.6511714935206015e-16,
+        "successful_block_unitarity_residual": 7.065416064076988e-16
+      },
+      {
+        "a": -1.4263239837304382,
+        "phase_covariant_residual": 4.0980616289968964e-16,
+        "workspace_leakage": 9.698356460240896e-17,
+        "successful_block_unitarity_residual": 7.154803835313218e-16
+      },
+      {
+        "a": -1.6304671067155365,
+        "phase_covariant_residual": 9.686935716134114e-16,
+        "workspace_leakage": 8.876758165540194e-18,
+        "successful_block_unitarity_residual": 1.1368885872426456e-15
+      },
+      {
+        "a": 0.33003087336602616,
+        "phase_covariant_residual": 4.041272810440265e-16,
+        "workspace_leakage": 1.1735684910379946e-16,
+        "successful_block_unitarity_residual": 7.195067539997724e-16
+      },
+      {
+        "a": 0.6436627977319532,
+        "phase_covariant_residual": 4.397310159819051e-16,
+        "workspace_leakage": 3.2684419077317323e-17,
+        "successful_block_unitarity_residual": 3.510833468576701e-16
+      },
+      {
+        "a": 0.25133318157476325,
+        "phase_covariant_residual": 2.847483988694276e-16,
+        "workspace_leakage": 3.487581107268122e-17,
+        "successful_block_unitarity_residual": 3.925231146709438e-16
+      },
+      {
+        "a": -0.9715462429923075,
+        "phase_covariant_residual": 4.509747244882934e-16,
+        "workspace_leakage": 2.2530762420669395e-16,
+        "successful_block_unitarity_residual": 3.1401849173675503e-16
+      },
+      {
+        "a": 0.1999206330281315,
+        "phase_covariant_residual": 1.8253379971363983e-16,
+        "workspace_leakage": 5.630769488279189e-17,
+        "successful_block_unitarity_residual": 4.710277376051325e-16
+      },
+      {
+        "a": 0.4292955896813862,
+        "phase_covariant_residual": 5.266250202865052e-16,
+        "workspace_leakage": 2.094751791590581e-16,
+        "successful_block_unitarity_residual": 6.280369834735101e-16
+      },
+      {
+        "a": 0.8838105342781565,
+        "phase_covariant_residual": 4.211628519682908e-16,
+        "workspace_leakage": 2.8079453808891917e-16,
+        "successful_block_unitarity_residual": 4.458205583648681e-16
+      },
+      {
+        "a": 0.2729351365220559,
+        "phase_covariant_residual": 3.885780586188048e-16,
+        "workspace_leakage": 1.2517572521270637e-17,
+        "successful_block_unitarity_residual": 5.222180388738334e-16
+      },
+      {
+        "a": 0.8633341453120693,
+        "phase_covariant_residual": 7.833270583107501e-16,
+        "workspace_leakage": 4.12323813044579e-16,
+        "successful_block_unitarity_residual": 3.510833468576701e-16
+      },
+      {
+        "a": 0.03859484129968473,
+        "phase_covariant_residual": 4.0605986967359e-16,
+        "workspace_leakage": 4.7204414521771746e-17,
+        "successful_block_unitarity_residual": 8.020502949002897e-16
+      },
+      {
+        "a": 0.3147113368665625,
+        "phase_covariant_residual": 4.406061034464155e-16,
+        "workspace_leakage": 1.0893503476117655e-16,
+        "successful_block_unitarity_residual": 4.440892098500626e-16
+      },
+      {
+        "a": 0.49742579151367683,
+        "phase_covariant_residual": 3.597533769998862e-16,
+        "workspace_leakage": 1.248579593465446e-16,
+        "successful_block_unitarity_residual": 7.195067539997724e-16
+      },
+      {
+        "a": -1.2832066452930033,
+        "phase_covariant_residual": 4.972820174300706e-16,
+        "workspace_leakage": 1.863506109464227e-16,
+        "successful_block_unitarity_residual": 6.280369834735101e-16
+      },
+      {
+        "a": -0.6949294040833439,
+        "phase_covariant_residual": 6.988675367311055e-16,
+        "workspace_leakage": 4.446190415112224e-16,
+        "successful_block_unitarity_residual": 4.509747244882934e-16
+      },
+      {
+        "a": 0.8168184247966604,
+        "phase_covariant_residual": 6.181070722114558e-16,
+        "workspace_leakage": 2.647903676910193e-16,
+        "successful_block_unitarity_residual": 3.236828524569469e-16
+      },
+      {
+        "a": 0.38233539798735255,
+        "phase_covariant_residual": 2.0014830212433605e-16,
+        "workspace_leakage": 1.4483829745955763e-16,
+        "successful_block_unitarity_residual": 4.509747244882934e-16
+      },
+      {
+        "a": -1.481590365092782,
+        "phase_covariant_residual": 4.75504127711907e-16,
+        "workspace_leakage": 3.929550384211977e-17,
+        "successful_block_unitarity_residual": 5.151865880056137e-16
+      },
+      {
+        "a": -1.6442508629501957,
+        "phase_covariant_residual": 6.81037501799318e-16,
+        "workspace_leakage": 3.6429608103561994e-17,
+        "successful_block_unitarity_residual": 6.364331397947003e-16
+      },
+      {
+        "a": -0.5991626516563903,
+        "phase_covariant_residual": 6.916653802134305e-16,
+        "workspace_leakage": 1.2820268414949975e-16,
+        "successful_block_unitarity_residual": 7.406111315403549e-16
+      }
+    ],
+    "tolerance": 1e-12
+  },
+  "limits": "Single known isotropic-edge direction only; does not invert an arbitrary independent XYZ family; no minimal-workspace or elementary-gate-optimality claim; novelty unverified",
+  "elapsed_seconds": 0.09395185904577374
+}
