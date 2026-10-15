@@ -1,0 +1,211 @@
+{
+  "schema": "hypotheses-v1",
+  "date": "2026-10-14",
+  "preregistration_claim": false,
+  "record_kind": "Consolidated research lifecycle with original failed candidates retained; not a timestamped external preregistration.",
+  "hypotheses": [
+    {
+      "id": "H1",
+      "original_candidate": "Six line modes plus their ordered global phase defect reconstruct B; nine q bits plus defect reconstruct (B,q).",
+      "representations": [
+        "F2 grid/Segre",
+        "9x9 Gram",
+        "Z4 line phases",
+        "quadratic evaluations"
+      ],
+      "cheapest_falsification_test": "64 B masks using literal Pauli products; check injectivity of 1024 ten-bit keys",
+      "status": "supported",
+      "proof_status": "analytic derivation + exact finite enumeration",
+      "repaired_or_supported_claim": "Even line parity; product tau=(-1)^(p+t+u+w+z); complete ordered invariant modulo stated sign/reparameterization gauge.",
+      "controls": [
+        "all-commuting Mermin calibration",
+        "all 512 vertex-sign flips on 973 physical cases"
+      ],
+      "counterexample": null,
+      "limitations": [
+        "Not minimal after the 72-element quotient.",
+        "Anti-line orientation must be retained.",
+        "Not a cost-only minimal descriptor."
+      ],
+      "scope": {
+        "family": "proper 3x3, nine independent real coefficients, full real parameter domain",
+        "pauli_convention": "Hermitian I,X,Y,Z; q0q1q2; Y=[[0,-i],[i,0]]",
+        "models": "one forward query, finite ancilla, arbitrary fixed encoder/decoder, multi-Kraus heralded exact unitary channel; parameter-dependent amplitudes allowed"
+      }
+    },
+    {
+      "id": "H2",
+      "original_candidate": "Alternating rank in {2,4} suffices for a standard three-qubit (B,q) realization.",
+      "representations": [
+        "physical x,z labels",
+        "quadratic radical quotient",
+        "Arf/Gauss sum",
+        "RREF/ordered bases"
+      ],
+      "cheapest_falsification_test": "Try B=1,q=3; radical singular and quotient Gauss sum -8.",
+      "status": "falsified_and_repaired",
+      "proof_status": "necessary/sufficient embedding proof plus exhaustive physical bases",
+      "repaired_or_supported_claim": "973 physical types,37 quadratic grid orbits; rank2 requires q|rad nonzero or quotient Arf0.",
+      "controls": [
+        "280 n2 types",
+        "physical witnesses for all973",
+        "four-qubit witness for all1024"
+      ],
+      "counterexample": {
+        "B": 1,
+        "q": 3,
+        "grid4": [
+          "YIII XYII ZYII",
+          "IIZI IIIZ IIZZ",
+          "YIZI XYIZ ZYZZ"
+        ],
+        "minimal_qubits": 4
+      },
+      "limitations": [
+        "973 is not a count of all distinct physical grid embeddings.",
+        "Frozen 1024 abstract cases and44 abstract orbits remain valid."
+      ],
+      "scope": {
+        "family": "proper 3x3, nine independent real coefficients, full real parameter domain",
+        "pauli_convention": "Hermitian I,X,Y,Z; q0q1q2; Y=[[0,-i],[i,0]]",
+        "models": "one forward query, finite ancilla, arbitrary fixed encoder/decoder, multi-Kraus heralded exact unitary channel; parameter-dependent amplitudes allowed"
+      }
+    },
+    {
+      "id": "H3",
+      "original_candidate": "Outside the special all-commuting physical grid, H^2 already saturates W.",
+      "representations": [
+        "Gaussian-integer monomial coefficients",
+        "geometric delta and polar J",
+        "rad(B+J)",
+        "Jordan anti-automorphism"
+      ],
+      "cheapest_falsification_test": "B4q0 grid exact coefficients through degree3.",
+      "status": "falsified_and_repaired",
+      "proof_status": "cubic proof with explicit exhaustive seven-case table plus exact degree0..7 checks",
+      "repaired_or_supported_claim": "W minus T<=2 = {delta=1} intersect rad(B+J); B=J gives10, otherwise16 byH3.",
+      "controls": [
+        "eight historical envelopes, six proper LP certificates",
+        "matched same_W_q4 pair"
+      ],
+      "counterexample": {
+        "B": 4,
+        "q": 0,
+        "grid3": [
+          "XII IXI XXI",
+          "IIX ZII ZIX",
+          "XIX ZXI YXX"
+        ],
+        "cumulative_dimensions": [
+          1,
+          10,
+          15,
+          16
+        ]
+      },
+      "limitations": [
+        "Independent parameters required for support=span.",
+        "For n>=4, B0 is all-line-commuting yet saturates16."
+      ],
+      "scope": {
+        "family": "proper 3x3, nine independent real coefficients, full real parameter domain",
+        "pauli_convention": "Hermitian I,X,Y,Z; q0q1q2; Y=[[0,-i],[i,0]]",
+        "models": "one forward query, finite ancilla, arbitrary fixed encoder/decoder, multi-Kraus heralded exact unitary channel; parameter-dependent amplitudes allowed"
+      }
+    },
+    {
+      "id": "H4",
+      "original_candidate": "The Pauli-conjugation LCU success bound is also the full physical one-query transpose optimum for these independent grids.",
+      "representations": [
+        "Walsh rational primal/dual",
+        "ray frequency rigidity",
+        "mixed-derivative span",
+        "Wedderburn blocks",
+        "comb tensors"
+      ],
+      "cheapest_falsification_test": "Audit constant-amplitude lemma and d2 tensor indices before any large SDP.",
+      "status": "supported_in_stated_scope",
+      "proof_status": "analytic reduction plus exact integer primal/dual; independent review pending",
+      "repaired_or_supported_claim": "pT=1 for B=J and2^(-rankB) otherwise, across arbitrary finite-ancilla multi-Kraus instruments.",
+      "controls": [
+        "exact Walsh certificates1024",
+        "d2/d4 transpose comb certificates",
+        "matrix/Choi check973"
+      ],
+      "counterexample": null,
+      "limitations": [
+        "Not inferred from numerical samples.",
+        "No ancillary-qubit minimality.",
+        "No extension to tied coefficients without a new span analysis."
+      ],
+      "scope": {
+        "family": "proper 3x3, nine independent real coefficients, full real parameter domain",
+        "pauli_convention": "Hermitian I,X,Y,Z; q0q1q2; Y=[[0,-i],[i,0]]",
+        "models": "one forward query, finite ancilla, arbitrary fixed encoder/decoder, multi-Kraus heralded exact unitary channel; parameter-dependent amplitudes allowed"
+      }
+    },
+    {
+      "id": "H5",
+      "original_candidate": "All-six-anticommuting grids permit a uniform one-query star/dagger construction; a commuting line obstructs the full independent family.",
+      "representations": [
+        "even/odd envelope",
+        "SU2 center blocks",
+        "spectrum reflection with global phase",
+        "LCU circuit",
+        "comb adjugate2"
+      ],
+      "cheapest_falsification_test": "Keep phase-positive spectra{1,-3},{9,-3,-15}; test negative{7,-5,-3,1}.",
+      "status": "supported_in_stated_scope",
+      "proof_status": "analytic phase-aware no-go and explicit constructions; independent review pending",
+      "repaired_or_supported_claim": "All anti: star p1 A0; dagger p1/4 A2 optimal. Any commuting line: no nonzero success branch for star/dagger.",
+      "controls": [
+        "30 actual all-anti grids and32x32 SELECT circuits",
+        "943 commuting-line kill rays",
+        "two frozen phase-compatible spectra"
+      ],
+      "counterexample": null,
+      "limitations": [
+        "Only independent nine-coefficient family.",
+        "No claim to re-solve general Heisenberg triangle promise.",
+        "Known-gate bound is not hardware routing or optimal synthesis."
+      ],
+      "scope": {
+        "family": "proper 3x3, nine independent real coefficients, full real parameter domain",
+        "pauli_convention": "Hermitian I,X,Y,Z; q0q1q2; Y=[[0,-i],[i,0]]",
+        "models": "one forward query, finite ancilla, arbitrary fixed encoder/decoder, multi-Kraus heralded exact unitary channel; parameter-dependent amplitudes allowed"
+      }
+    },
+    {
+      "id": "H6",
+      "original_candidate": "An arbitrary Clifford transports transpose/star with the same C and C-dagger wrappers as dagger.",
+      "representations": [
+        "direct matrices",
+        "intertwiners",
+        "center/multiplicity",
+        "target-aware covariance"
+      ],
+      "cheapest_falsification_test": "C=S, U=exp(-0.37iX).",
+      "status": "falsified_and_repaired",
+      "proof_status": "elementary matrix proof plus explicit numeric counterexample",
+      "repaired_or_supported_claim": "For transpose/star use C* and C^T; dagger uses C and C-dagger. Physical oracle query count remains unchanged.",
+      "controls": [
+        "naive residual1.0228028964965088",
+        "correct residual0"
+      ],
+      "counterexample": {
+        "system_qubits": 1,
+        "C": "diag(1,i)",
+        "U": "exp(-0.37 i X)"
+      },
+      "limitations": [
+        "A generic constructive canonicalizer was not implemented.",
+        "Coefficient-subspace/sign compatibility must be explicit."
+      ],
+      "scope": {
+        "family": "proper 3x3, nine independent real coefficients, full real parameter domain",
+        "pauli_convention": "Hermitian I,X,Y,Z; q0q1q2; Y=[[0,-i],[i,0]]",
+        "models": "one forward query, finite ancilla, arbitrary fixed encoder/decoder, multi-Kraus heralded exact unitary channel; parameter-dependent amplitudes allowed"
+      }
+    }
+  ]
+}

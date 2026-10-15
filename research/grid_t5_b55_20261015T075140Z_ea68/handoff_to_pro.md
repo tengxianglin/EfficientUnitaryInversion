@@ -1,0 +1,1 @@
+Prepared for manual relay; not sent. Upload the ZIP and paste NEXT_PRO_PROMPT.md. All required bounded T5 science is completed; the next scientific task belongs to Pro. See codex_verdict.md for evidence boundaries and the external delivery receipt for remote Git verification.

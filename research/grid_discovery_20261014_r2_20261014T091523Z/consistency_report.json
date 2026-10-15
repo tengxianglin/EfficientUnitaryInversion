@@ -1,0 +1,51 @@
+{
+  "status": "passed_with_scoped_limitations",
+  "reviewer": "root; read critical code and primary JSON after subagent completion",
+  "interfaces": [
+    {
+      "interface": "received task to code",
+      "status": "matched",
+      "evidence": "T1 independent RREF/C++ and literal Pauli; T2 new ibao; T3 center/multiplicity Pauli isometries and primitive gates; T4 coefficient vectors not support unions."
+    },
+    {
+      "interface": "code to command/config",
+      "status": "matched",
+      "evidence": "runs/* command/environment/status; fixed seeds, samples, degrees, rays and fresh outputs."
+    },
+    {
+      "interface": "computation to metrics",
+      "status": "matched",
+      "evidence": "T1 counts matched raw census; T2 integer matrices and per-unit negative controls; T3 raw saved matrices/hashes; T4 independent exact ranks and416 matrix-power evaluations."
+    },
+    {
+      "interface": "controls and ablation",
+      "status": "matched",
+      "evidence": "B1q3 negative and4qubit positive; n2=280; all35 forbidden retained; B4 cubic; S negative/corrected; phase controls and commuting tied-vs-independent spectrum."
+    },
+    {
+      "interface": "initial T4 verifier",
+      "status": "mismatched",
+      "severity": "P1",
+      "resolution": "Exact expanded difference zero; repaired symbolic structural equality and fresh acceptance pass. Failed original source/log preserved. No tolerance change."
+    },
+    {
+      "interface": "T4 requested grid selection",
+      "status": "mismatched",
+      "severity": "P2",
+      "resolution": "Original computation coincidentally used exact required four grids; explicit alias validation added, fresh outputs/rank checks pass."
+    },
+    {
+      "interface": "T3 memory residence",
+      "status": "mismatched",
+      "severity": "P2",
+      "resolution": "Preliminary3 completed circuits retained in memory; streamed final run now releases earlier circuit before next; initial output preserved."
+    }
+  ],
+  "unresolved_P0_P1": [],
+  "limitations": [
+    "T3 floating certificates and exponential samples do not constitute exact algebraic encoding certificates.",
+    "No novelty check beyond supplied R1 references; no publication novelty claimed.",
+    "Tied-family improved optimum and physical map realization not derived from finite ray passes.",
+    "Optional solver and prohibited repeated search were not run."
+  ]
+}

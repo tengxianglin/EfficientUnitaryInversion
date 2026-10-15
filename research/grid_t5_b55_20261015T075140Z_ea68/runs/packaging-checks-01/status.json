@@ -1,0 +1,28 @@
+{
+  "run_id": "packaging-checks-01",
+  "group": "packaging",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/package_checks.py"
+  ],
+  "host": "quair07-System-Product-Name",
+  "device": "CPU",
+  "start_utc": "2026-10-15T08:03:42.428316+00:00",
+  "end_utc": "2026-10-15T08:03:42.480857+00:00",
+  "cpu_seconds": 0.027526999999999996,
+  "wall_seconds": 0.05251830816268921,
+  "max_rss_kib": 21100,
+  "disk_bytes": 11593271,
+  "budget": {
+    "cpu_remaining": 20,
+    "wall_remaining": 70,
+    "address_space_bytes": 2147483648,
+    "disk_bytes": 100663296
+  },
+  "reason": "",
+  "artifact_paths": [
+    "runs/packaging-checks-01"
+  ]
+}

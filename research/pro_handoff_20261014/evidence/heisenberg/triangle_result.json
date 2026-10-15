@@ -1,0 +1,146 @@
+{
+  "status": "VERIFIED_EXACT_FIXED_UNITARY_INVERTER",
+  "family": "H(a)=a*(XXI+YYI+ZZI+IXX+IYY+IZZ+XIX+YIY+ZIZ), a real",
+  "target": "U(a)^dagger; U(a)=exp(-i*a*H0)",
+  "support": [
+    "XXI",
+    "YYI",
+    "ZZI",
+    "IXX",
+    "IYY",
+    "IZZ",
+    "XIX",
+    "YIY",
+    "ZIZ"
+  ],
+  "exact_checks": {
+    "H0_squared_equals_9I": true,
+    "eigenbasis_unitary": true,
+    "V_hermitian": true,
+    "V_squared_equals_I": true,
+    "V_H0_V_equals_minus_H0": true
+  },
+  "eigenvalues_and_multiplicities": {
+    "3": 4,
+    "-3": 4
+  },
+  "V_matrix_sympy_strings": [
+    [
+      "0",
+      "sqrt(2)/2",
+      "-sqrt(2)/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "sqrt(2)/2",
+      "sqrt(2)/3",
+      "sqrt(2)/3",
+      "0",
+      "-sqrt(2)/6",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "-sqrt(2)/2",
+      "sqrt(2)/3",
+      "sqrt(2)/3",
+      "0",
+      "-sqrt(2)/6",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "sqrt(6)/3",
+      "0",
+      "0",
+      "sqrt(6)/6",
+      "sqrt(6)/6"
+    ],
+    [
+      "0",
+      "-sqrt(2)/6",
+      "-sqrt(2)/6",
+      "0",
+      "-2*sqrt(2)/3",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-sqrt(6)/3",
+      "-sqrt(6)/6",
+      "sqrt(6)/6"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "sqrt(6)/6",
+      "0",
+      "-sqrt(6)/6",
+      "0",
+      "-sqrt(6)/3"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "sqrt(6)/6",
+      "0",
+      "sqrt(6)/6",
+      "-sqrt(6)/3",
+      "0"
+    ]
+  ],
+  "V_matrix_sha256": "38d2deef23366aac6083860ae54143641a63cfc3d4bcc513f43649e8791a6249",
+  "physical_contract": {
+    "sequence": "V -> U -> V",
+    "queries": 1,
+    "slots": 1,
+    "parallel": 1,
+    "ancilla_qubits": 0,
+    "success_probability": "1",
+    "known_gates": "two applications of the explicit 8x8 unitary V",
+    "elementary_gate_decomposition": "not computed; arbitrary known unitaries permitted"
+  },
+  "independent_coefficients_counterexample": {
+    "term": "XXI",
+    "V_P_V_plus_P_nonzero_entry": [
+      0,
+      1,
+      "1/6"
+    ],
+    "single_edge_XYZ_also_fails": true
+  },
+  "numerical_corroboration": {
+    "dtype": "complex128",
+    "seed": 20260909,
+    "trials": 35,
+    "max_dagger_residual_frobenius": 5.944691888779828e-15,
+    "max_transpose_minus_dagger_frobenius": 5.639425314635467
+  },
+  "claim_limits": [
+    "Only the uniform one-real-parameter triangle family is inverted by this V.",
+    "The construction uses spectral pairing; literature novelty is not assessed.",
+    "No elementary gate cost or noisy/hardware performance claim."
+  ],
+  "elapsed_seconds": 0.5288556611631066,
+  "versions": {
+    "numpy": "1.26.4",
+    "sympy": "1.13.2"
+  }
+}

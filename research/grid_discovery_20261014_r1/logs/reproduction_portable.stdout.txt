@@ -1,0 +1,1 @@
+{"status": "passed", "output": "/mnt/data/eui_r1_clean_reproduction_portable", "timed_child_cpu_seconds": 17.084044999999996}

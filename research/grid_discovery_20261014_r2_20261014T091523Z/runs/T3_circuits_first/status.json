@@ -1,0 +1,37 @@
+{
+  "run_id": "T3_circuits_first",
+  "group": "T3",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:20:56.764689+00:00",
+  "end_utc": "2026-10-14T09:20:57.581048+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/compile_all_anti.py",
+    "--input",
+    "../grid_discovery_20261014_r1/results/validation/all_anti_grids.json",
+    "--seed",
+    "20261015",
+    "--samples-per-grid",
+    "3",
+    "--output",
+    "results/T3_circuits"
+  ],
+  "cpu_seconds": 0.318721,
+  "wall_seconds": 0.8163763508200645,
+  "budget": {
+    "group_cpu_seconds": 420,
+    "remaining_before": 420,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/T3_circuits_first/stdout.txt",
+    "runs/T3_circuits_first/stderr.txt",
+    "runs/T3_circuits_first/command.txt",
+    "runs/T3_circuits_first/environment.txt"
+  ]
+}

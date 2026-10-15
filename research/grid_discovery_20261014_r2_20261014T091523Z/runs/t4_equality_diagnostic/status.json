@@ -1,0 +1,29 @@
+{
+  "run_id": "t4_equality_diagnostic",
+  "group": "T4",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:22:27.923830+00:00",
+  "end_utc": "2026-10-14T09:22:28.289294+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./code/diagnose_t4_equality.py"
+  ],
+  "cpu_seconds": 0.325131,
+  "wall_seconds": 0.36548264510929585,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 478.345131,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t4_equality_diagnostic/stdout.txt",
+    "runs/t4_equality_diagnostic/stderr.txt",
+    "runs/t4_equality_diagnostic/command.txt",
+    "runs/t4_equality_diagnostic/environment.txt"
+  ]
+}

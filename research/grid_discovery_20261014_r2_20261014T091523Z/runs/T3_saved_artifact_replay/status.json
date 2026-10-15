@@ -1,0 +1,30 @@
+{
+  "run_id": "T3_saved_artifact_replay",
+  "group": "T3",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:25:42.308805+00:00",
+  "end_utc": "2026-10-14T09:25:42.474138+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/replay_T3_executed.py"
+  ],
+  "cpu_seconds": 0.161553,
+  "wall_seconds": 0.16535284649580717,
+  "budget": {
+    "group_cpu_seconds": 420,
+    "remaining_before": 416.896232,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/T3_saved_artifact_replay/stdout.txt",
+    "runs/T3_saved_artifact_replay/stderr.txt",
+    "runs/T3_saved_artifact_replay/command.txt",
+    "runs/T3_saved_artifact_replay/environment.txt"
+  ],
+  "command_representation": "Portable equivalent file invocation. Exact executed inline source command preserved unchanged in raw_execution_evidence.zip; code/replay_T3_executed.py is exactly that inline body."
+}

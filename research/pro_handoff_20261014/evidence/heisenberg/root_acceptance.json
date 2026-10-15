@@ -1,0 +1,154 @@
+{
+  "status": "PASS",
+  "independent_matrix_construction": "SymPy Kronecker products vs primary bit-action matrices",
+  "cases": [
+    {
+      "n": 2,
+      "boundary": "open",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 2,
+      "boundary": "open",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 3,
+      "boundary": "open",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 3,
+      "boundary": "open",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 4,
+      "boundary": "open",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 4,
+      "boundary": "open",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 5,
+      "boundary": "open",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 5,
+      "boundary": "open",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 6,
+      "boundary": "open",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 6,
+      "boundary": "open",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 3,
+      "boundary": "periodic",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 3,
+      "boundary": "periodic",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 4,
+      "boundary": "periodic",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 4,
+      "boundary": "periodic",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 5,
+      "boundary": "periodic",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 5,
+      "boundary": "periodic",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 6,
+      "boundary": "periodic",
+      "axes": "XYZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    },
+    {
+      "n": 6,
+      "boundary": "periodic",
+      "axes": "XZ",
+      "matrix_hash_match": true,
+      "minimal_polynomial_match": true,
+      "certificate_pass": true
+    }
+  ],
+  "triangle_matrix_hash_matches_independent_environment": true,
+  "remote_source_hashes_verified": true,
+  "existing_focused_regression": "1 passed in 0.17s",
+  "gpu_hours": 0
+}

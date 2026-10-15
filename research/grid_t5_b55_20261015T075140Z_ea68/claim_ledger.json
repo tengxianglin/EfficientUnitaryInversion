@@ -1,0 +1,80 @@
+[
+  {
+    "claim_id": "T5_REP",
+    "text": "B55 row/column exact coherent C+C+M2 corner and parity representation",
+    "evidence_class": "empirical_result",
+    "source_paths": [
+      "results/T5_candidate_complete/certificate.json",
+      "results/T5_independent/verification.json"
+    ],
+    "conditions": "One unconditional original 8x8 forward oracle, all real tied parameters including origin/rays, exact CP maps on all inputs and references, arbitrary finite memory.",
+    "claim_verdict": "verified",
+    "verification_method": "Independent sparse/dense exact checks plus separate analytic audit",
+    "scope_or_limit": "Exact finite matrix identities on pinned whole bases; old closure theorem reused.",
+    "next_discriminator": "Publication-usefulness decision; no new experiments authorized.",
+    "dependencies": [
+      "frozen R2 whole-coefficient closure",
+      "input manifest verified"
+    ]
+  },
+  {
+    "claim_id": "T5_OPT",
+    "text": "B55 row/column dagger and transpose optimum1/4; star optimum1; uniform all optimum1",
+    "evidence_class": "theory_derivation",
+    "source_paths": [
+      "proofs/T5_corner_reduction.md",
+      "results/T5_summary.json"
+    ],
+    "conditions": "One unconditional original 8x8 forward oracle, all real tied parameters including origin/rays, exact CP maps on all inputs and references, arbitrary finite memory.",
+    "claim_verdict": "verified",
+    "verification_method": "Independent sparse/dense exact checks plus separate analytic audit",
+    "scope_or_limit": "Analytic-checked under stated one-query physical model. Known universal bound attributed.",
+    "next_discriminator": "Publication-usefulness decision; no new experiments authorized.",
+    "dependencies": [
+      "T5_REP"
+    ]
+  },
+  {
+    "claim_id": "T5_PHASE_THEOREM",
+    "text": "Positive dagger/star success iff some real linear centring separates whole even/odd spans",
+    "evidence_class": "theory_derivation",
+    "source_paths": [
+      "proofs/T5_phase_centred_span.md"
+    ],
+    "conditions": "General finite N, real linear all-parameter H, one unconditional query, arbitrary finite memory.",
+    "claim_verdict": "verified",
+    "verification_method": "Independent sparse/dense exact checks plus separate analytic audit",
+    "scope_or_limit": "Analytic-checked positive-success criterion; no optimal probability claimed.",
+    "next_discriminator": "Publication-usefulness decision; no new experiments authorized.",
+    "dependencies": []
+  },
+  {
+    "claim_id": "T5_PHASE_CONTROL",
+    "text": "Specified four-dimensional phase construction achieves3/40",
+    "evidence_class": "empirical_result",
+    "source_paths": [
+      "results/T5_phase/certificate.json",
+      "results/T5_independent/verification.json"
+    ],
+    "conditions": "One unconditional original 8x8 forward oracle, all real tied parameters including origin/rays, exact CP maps on all inputs and references, arbitrary finite memory.",
+    "claim_verdict": "verified",
+    "verification_method": "Independent sparse/dense exact checks plus separate analytic audit",
+    "scope_or_limit": "Exact finite physical interface plus formal two-frequency identity; no optimum.",
+    "next_discriminator": "Publication-usefulness decision; no new experiments authorized.",
+    "dependencies": []
+  },
+  {
+    "claim_id": "NOVELTY",
+    "text": "Publication novelty/usefulness of tied-family closure",
+    "evidence_class": "unresolved",
+    "source_paths": [
+      "NEXT_PRO_PROMPT.md"
+    ],
+    "conditions": "One unconditional original 8x8 forward oracle, all real tied parameters including origin/rays, exact CP maps on all inputs and references, arbitrary finite memory.",
+    "claim_verdict": "unresolved",
+    "verification_method": "Requires Pro literature and scientific adjudication",
+    "scope_or_limit": "Not established by this round.",
+    "next_discriminator": "Publication-usefulness decision; no new experiments authorized.",
+    "dependencies": []
+  }
+]

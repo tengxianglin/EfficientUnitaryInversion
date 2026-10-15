@@ -1,0 +1,3 @@
+n=2 RREF=1 GL4=20160 ordered_bases=20160
+n=3 RREF=651 GL4=20160 ordered_bases=13124160
+{"all1024_criteria": 1024, "all64_polynomial_phase_Gram": 64, "n2_ordered_bases": 20160, "n2_subspaces": 1, "n3_ordered_bases": 13124160, "n3_subspaces": 651, "n3_type_count": 973, "physical_quadratic_orbits": 37}

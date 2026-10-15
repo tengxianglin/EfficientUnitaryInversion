@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED_FINITE_NUMERICAL",
+  "representatives_completed": 37,
+  "method": "symplectic Gram-Schmidt + center projectors + Pauli-equation isometries",
+  "arithmetic": "complex128",
+  "tolerance": 1e-10,
+  "max_matrix_dimension": 8,
+  "rank_histogram": {
+    "2": 19,
+    "4": 18
+  },
+  "matrix_units_checked": 592,
+  "max_residual": 6.312164422641715e-16,
+  "input_sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f",
+  "S_gate_control": {
+    "C": "diag(1,i)",
+    "theta": 0.37,
+    "naive_transpose_residual": 1.022802896496509,
+    "corrected_transpose_residual": 0.0,
+    "expected": "naive fails; target-aware passes"
+  },
+  "limitations": [
+    "Numerical linear certificates at stated tolerance",
+    "Encoding gates have not been synthesized or optimized",
+    "No ancilla or known-gate optimality claim"
+  ]
+}

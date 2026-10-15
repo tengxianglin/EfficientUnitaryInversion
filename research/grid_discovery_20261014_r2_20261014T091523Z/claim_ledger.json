@@ -1,0 +1,113 @@
+[
+  {
+    "claim_id": "H1",
+    "text": "Six-line parity plus phase defect reconstruct B; nine q plus phase distinguish1024 abstract types.",
+    "evidence_class": "empirical_result",
+    "claim_verdict": "verified",
+    "source_paths": [
+      "results/T1_final/all64_polynomial_phase_Gram.json",
+      "results/T1_final/quadratic_orbits.json"
+    ],
+    "conditions": "All64 B and1024 ordered quadratic types; proper independent seed grids.",
+    "verification_method": "Independent single-letter phases, full Gram and canonicalizer.",
+    "scope_or_limit": "No novelty or gate-feature minimality.",
+    "next_discriminator": "None for scoped census.",
+    "task_label": "exact-finite"
+  },
+  {
+    "claim_id": "H2",
+    "text": "Physical n3 embedding is973 types/37 quadratic orbits; rank-only1008 has35 false positives.",
+    "evidence_class": "empirical_result",
+    "claim_verdict": "verified",
+    "source_paths": [
+      "results/T1_final/census_n3.json",
+      "results/T1_final/all1024_type_counts_witnesses_forbidden_criteria.json",
+      "proofs/T1.md"
+    ],
+    "conditions": "All651 RREF subspaces \u00d720160 ordered bases.",
+    "verification_method": "Complete independent finite-field census and quadratic-space analytic review.",
+    "scope_or_limit": "Exact-finite census; analytic argument explicitly scoped to four-space embedding.",
+    "next_discriminator": "None for scoped census.",
+    "task_label": "exact-finite"
+  },
+  {
+    "claim_id": "H3",
+    "text": "Independent proper grid full exponential span closes through degree3:10 for B=J,16 otherwise.",
+    "evidence_class": "theory_derivation",
+    "claim_verdict": "verified",
+    "source_paths": [
+      "proofs/T1.md",
+      "proofs/one_query_audit.md",
+      "results/T1_final/all64_polynomial_phase_Gram.json"
+    ],
+    "conditions": "Nine independent real coefficients and proper independent four-generator grid.",
+    "verification_method": "All monomials H2/H3, seven missing-point cases, special anti-automorphism and mixed derivatives.",
+    "scope_or_limit": "Not coefficient-tied families or nonproper grids.",
+    "next_discriminator": "None under stated assumptions.",
+    "task_label": "analytic-checked"
+  },
+  {
+    "claim_id": "H4",
+    "text": "Independent proper physical-grid one-query transpose probability table survives multi-Kraus, actual span and coherent logical-reduction audit.",
+    "evidence_class": "theory_derivation",
+    "claim_verdict": "verified",
+    "source_paths": [
+      "proofs/one_query_audit.md",
+      "results/T2_final/comb_index_audit.json"
+    ],
+    "conditions": "One original forward8\u00d78 oracle, all real parameters, exact target CP map on all inputs/references, arbitrary finite memory.",
+    "verification_method": "Phase-aware amplitude lemma, full-algebra extension, coherent encoding, integer comb upper/lower certificates.",
+    "scope_or_limit": "Known universal logical bounds are not novel; no ancilla/gate minimum or tied-family upper bound.",
+    "next_discriminator": "Optimal probabilities on tied true subspaces.",
+    "task_label": "analytic-checked"
+  },
+  {
+    "claim_id": "H5",
+    "text": "All-anti independent families have star p1 and dagger p1/4; commuting-line families fail phase-aware dagger/star.",
+    "evidence_class": "theory_derivation",
+    "claim_verdict": "verified",
+    "source_paths": [
+      "proofs/one_query_audit.md",
+      "proofs/T3.md",
+      "results/T3_circuits_streamed/summary.json"
+    ],
+    "conditions": "Independent nine-parameter promise for upper/no-go table.",
+    "verification_method": "Shared-I spectral obstruction, SU2 line adjugate bound and explicit one-query constructions.",
+    "scope_or_limit": "Circuit samples finite-support; construction identity and analytic bound are separate.",
+    "next_discriminator": "Potential tighter tied-family resource/probability bounds.",
+    "task_label": "analytic-checked"
+  },
+  {
+    "claim_id": "H6",
+    "text": "Target-aware encodings preserve all center/multiplicity coherence; naive S-transfer fails.",
+    "evidence_class": "empirical_result",
+    "claim_verdict": "partially_verified",
+    "source_paths": [
+      "results/T3_transport_verified/summary.json",
+      "results/T3_saved_artifact_audit.json",
+      "proofs/T3.md"
+    ],
+    "conditions": "37 specified physical quadratic representatives, complex128 tol1e-10;592 algebra+2368 full input units.",
+    "verification_method": "Explicit isometries and matrix units, center projector transpose permutations, S negative control.",
+    "scope_or_limit": "Numerical linear certificates; encoding gates not synthesized or optimized.",
+    "next_discriminator": "Hardware/optimal encoding synthesis if scientifically required.",
+    "task_label": "finite-support"
+  },
+  {
+    "claim_id": "T4",
+    "text": "All12 registered tied families have support greater than true span;9 have global phase-aware dagger/star obstructions.",
+    "evidence_class": "empirical_result",
+    "claim_verdict": "verified",
+    "source_paths": [
+      "results/T4_final/summary.json",
+      "results/T4_final_independent_verification.json",
+      "results/T4_final_fixed_maps.json",
+      "proofs/T4.md"
+    ],
+    "conditions": "Exactly four registered physical grids and row/column/uniform all-real linear ties.",
+    "verification_method": "Complete exact coefficient vectors degree7, parity14/15, independent rational ranks and216 exact spectra.",
+    "scope_or_limit": "82 ray kills certify obstruction for9 families;54 passing B55 rays alone do not certify feasibility or optimality. B55 existence inherited separately.",
+    "next_discriminator": "Derive tied-family optimal one-query probabilities with actual spans and amplitude quantifiers.",
+    "task_label": "exact-finite"
+  }
+]

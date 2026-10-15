@@ -1,0 +1,33 @@
+{
+  "run_id": "t4_final_fixed_map_acceptance",
+  "group": "T4",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:24:22.248557+00:00",
+  "end_utc": "2026-10-14T09:24:22.864917+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./code/t4_fixed_map.py",
+    "--input",
+    "./results/T4_final",
+    "--output",
+    "./results/T4_final_fixed_maps.json"
+  ],
+  "cpu_seconds": 0.5814859999999998,
+  "wall_seconds": 0.6164126172661781,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 468.408624,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t4_final_fixed_map_acceptance/stdout.txt",
+    "runs/t4_final_fixed_map_acceptance/stderr.txt",
+    "runs/t4_final_fixed_map_acceptance/command.txt",
+    "runs/t4_final_fixed_map_acceptance/environment.txt"
+  ]
+}

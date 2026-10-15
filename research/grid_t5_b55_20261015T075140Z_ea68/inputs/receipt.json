@@ -1,0 +1,10 @@
+{
+  "response_status": "received",
+  "response_binding": "matched",
+  "response_completeness": "complete",
+  "model_provenance": "unverified",
+  "raw_path": "inputs/EUI_Pro_R3_Handoff_20261015.zip",
+  "sha256": "827d3daa010911f38f755c49c93fb8847e164a0e517681b2a7ec011f2f330e1a",
+  "basis": "user-supplied attachment, pinned R2 hashes and prompt",
+  "observed_utc": "2026-10-15T08:03:06.922246+00:00"
+}

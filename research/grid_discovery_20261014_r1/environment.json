@@ -1,0 +1,66 @@
+{
+  "schema": "actual-environment-v1",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "visible_cpu_count": 5,
+  "cpu_cgroup": "400000 100000",
+  "memory_cgroup_bytes": "4294967296",
+  "tools": {
+    "git": true,
+    "gh": false,
+    "c++": true,
+    "curl": true
+  },
+  "credential_variable_presence_only": {
+    "GH_TOKEN": false,
+    "GITHUB_TOKEN": false,
+    "GIT_ASKPASS": false,
+    "SSH_AUTH_SOCK": false
+  },
+  "external_compute_created": false,
+  "remote_user_device_used": false,
+  "gpu_used": false,
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "sympy": "1.14.0",
+    "pytest": "9.0.2"
+  },
+  "optional_solver_installed": {
+    "cvxpy": false,
+    "clarabel": false,
+    "scs": false
+  },
+  "git_version": {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "git version 2.47.3\n",
+    "stderr": ""
+  },
+  "compiler_version": {
+    "command": [
+      "c++",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "c++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+    "stderr": ""
+  },
+  "local_github_network_probe": {
+    "command": [
+      "curl",
+      "-I",
+      "--max-time",
+      "5",
+      "https://api.github.com"
+    ],
+    "returncode": 6,
+    "stdout": "",
+    "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: api.github.com\n"
+  },
+  "connected_github_observed": "read actions available; no create/commit/push action exposed",
+  "per_science_subprocess_reproduction_wall_limit_seconds": 40
+}

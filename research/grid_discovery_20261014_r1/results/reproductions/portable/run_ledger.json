@@ -1,0 +1,122 @@
+[
+  {
+    "id": "verify_frozen",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/eui_repro_portable_input/frozen/verify_bundle.py"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 1.1209323299999596,
+    "cpu_seconds": 1.089338,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/logs/verify_frozen.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/verify_frozen.stderr.txt"
+  },
+  {
+    "id": "compile",
+    "command": [
+      "/usr/bin/c++",
+      "-O2",
+      "-std=c++17",
+      "/mnt/data/grid_discovery_20261014_r1/code/physical_census.cpp",
+      "-o",
+      "/mnt/data/eui_r1_clean_reproduction_portable/physical_census"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.5676109209998685,
+    "cpu_seconds": 0.536986,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/logs/compile.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/compile.stderr.txt"
+  },
+  {
+    "id": "physical_n2",
+    "command": [
+      "/mnt/data/eui_r1_clean_reproduction_portable/physical_census",
+      "2"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.008229088000007323,
+    "cpu_seconds": 0.003973000000000115,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/physical_n2.json",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/physical_n2.stderr.txt"
+  },
+  {
+    "id": "physical_n3",
+    "command": [
+      "/mnt/data/eui_r1_clean_reproduction_portable/physical_census",
+      "3"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.16463773799978298,
+    "cpu_seconds": 0.11967599999999978,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/physical_n3.json",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/physical_n3.stderr.txt"
+  },
+  {
+    "id": "exact",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/grid_discovery_20261014_r1/code/grid_check.py",
+      "--input",
+      "/mnt/data/eui_repro_portable_input/frozen",
+      "--output",
+      "/mnt/data/eui_r1_clean_reproduction_portable/exact",
+      "--physical2",
+      "/mnt/data/eui_r1_clean_reproduction_portable/physical_n2.json",
+      "--physical3",
+      "/mnt/data/eui_r1_clean_reproduction_portable/physical_n3.json"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 4.5307940330003476,
+    "cpu_seconds": 4.496808999999999,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/logs/exact.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/exact.stderr.txt"
+  },
+  {
+    "id": "validation",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/grid_discovery_20261014_r1/code/validate_predictions.py",
+      "--exact",
+      "/mnt/data/eui_r1_clean_reproduction_portable/exact",
+      "--frozen",
+      "/mnt/data/eui_repro_portable_input/frozen",
+      "--output",
+      "/mnt/data/eui_r1_clean_reproduction_portable/validation",
+      "--seed",
+      "20261014"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 9.964381365000008,
+    "cpu_seconds": 9.919678999999999,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/logs/validation.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/validation.stderr.txt"
+  },
+  {
+    "id": "comb",
+    "command": [
+      "/opt/pyvenv/bin/python",
+      "/mnt/data/grid_discovery_20261014_r1/code/comb_certificate.py",
+      "--output",
+      "/mnt/data/eui_r1_clean_reproduction_portable/comb_certificates.json"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.9184491680002793,
+    "cpu_seconds": 0.9175840000000006,
+    "timeout_seconds": 40,
+    "stdout": "/mnt/data/eui_r1_clean_reproduction_portable/logs/comb.stdout.txt",
+    "stderr": "/mnt/data/eui_r1_clean_reproduction_portable/logs/comb.stderr.txt"
+  }
+]

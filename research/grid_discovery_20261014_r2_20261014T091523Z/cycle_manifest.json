@@ -1,0 +1,109 @@
+{
+  "round_id": "grid_discovery_20261014_r2_20261014T091523Z",
+  "parent_round_id": "grid_discovery_20261014_r1",
+  "created_utc": "2026-10-14T09:33:18.437526+00:00",
+  "transport_mode": "manual_relay",
+  "delivery_status": "prepared_for_manual_relay",
+  "response_status": "pending",
+  "response_binding": "missing",
+  "response_completeness": "pending",
+  "model_provenance": "unverified",
+  "verification_status": "partially_verified",
+  "bundle_integrity": "passed",
+  "input_revision": "62fa763aff42e4bedf82b5de19bc9f05c5ed83b2",
+  "input_hashes": [
+    {
+      "path": "inputs/EUI_Grid_Research_20261014_R1.zip",
+      "sha256": "fe58b23b942190b34d98455794e81085c751485f25d17e30d581246520ae158e"
+    },
+    {
+      "path": "inputs/NEXT_CODEX_TASK_PROMPT.md",
+      "sha256": "63b39ef1cb1fcd08e2f11b602ed20a273fd839f0fb0aa70dd1f6b089cb1305fb"
+    }
+  ],
+  "controls": [
+    "B1q3 forbidden n3 and supplied4qubit positive",
+    "n2 ordered census280",
+    "B4q0 H2 gap/H3 closure",
+    "S-gate naive fail corrected pass",
+    "Gamma nonzero phases -2,-6 and asymmetric spectrum",
+    "uniform commuting coefficients versus(1,2,4)",
+    "deliberate wrong comb order + asymmetric reorder sentinel"
+  ],
+  "resource_budget": {
+    "caps_cpu_seconds": {
+      "R1": 120,
+      "T1": 480,
+      "T2": 300,
+      "T3": 420,
+      "T4": 480
+    },
+    "actual_cpu_seconds": {
+      "R1": 10.833759,
+      "T1": 6.6077129999999995,
+      "T2": 0.43359800000000004,
+      "T3": 3.2653209999999997,
+      "T4": 12.172862
+    },
+    "actual_total_cpu_seconds": 33.313253,
+    "total_cap_cpu_seconds": 1800,
+    "gpu": 0,
+    "formal_concurrency": 1,
+    "memory_limit_kind": "RLIMIT_AS virtual address space, not measured RSS",
+    "disk_cap_mib": 300
+  },
+  "budgets": {
+    "caps_cpu_seconds": {
+      "R1": 120,
+      "T1": 480,
+      "T2": 300,
+      "T3": 420,
+      "T4": 480
+    },
+    "actual_cpu_seconds": {
+      "R1": 10.833759,
+      "T1": 6.6077129999999995,
+      "T2": 0.43359800000000004,
+      "T3": 3.2653209999999997,
+      "T4": 12.172862
+    },
+    "actual_total_cpu_seconds": 33.313253,
+    "total_cap_cpu_seconds": 1800,
+    "gpu": 0,
+    "formal_concurrency": 1,
+    "memory_limit_kind": "RLIMIT_AS virtual address space, not measured RSS",
+    "disk_cap_mib": 300
+  },
+  "host_allocations": [
+    {
+      "host": "quair07-local",
+      "device": "CPU",
+      "gpu": 0,
+      "concurrency": 1,
+      "threads": 1
+    }
+  ],
+  "seeds": {
+    "T1": null,
+    "T2": null,
+    "T3": 20261015,
+    "T4": null
+  },
+  "failure_criteria": [
+    "Stop dependent formal rows on failed mathematical gate",
+    "CPU total1800s and task caps",
+    "RAM/address-space and disk caps",
+    "Fixed tolerances and full coverage; no silent reduction"
+  ],
+  "stop_reason": "All four authorized formal tasks and required verification reached terminal states; outbound question prepared. No next-round execution or Pro send.",
+  "next_task_id": "AWAITING_PRO",
+  "round_class": "HYBRID",
+  "handoff_contract_version": 3,
+  "value_add_ledger": {
+    "pro_derived": "Received R1 supplies physical quadratic embedding, cubic span law, phase-aware multi-Kraus rigidity and one-query independent-grid table, with bounded T1\u2013T4 audit/extension tasks. Provenance is input ZIP; model identity unverified.",
+    "codex_new_evidence": "Independent RREF\u00d7GL4 full census, exact cubic/phase/Gram audit, independent ibao integer comb + full analytic chain review, all37 explicit coherent encodings and30 primitive circuits, exact true tied spans and216 ray spectra with independent rational/dense checks.",
+    "not_run_reason": "No required main task remains not_run. Optional solver, blind d8 SDP, prohibited49-direction repeat and hardware encoding synthesis not run; they are unnecessary or outside scope.",
+    "claim_delta": "Independent proper-grid claims supported within stated assumptions; all12 tied support-union identifications falsified by actual rank;9 tied dagger/star families ruled out by exact spectral kills. Improved tied-family optima remain unresolved. Numerical encodings/circuit samples retain finite-support labels.",
+    "next_pro_question": "Derive what the actual coefficient-tied spans and graded spaces imply for one-query amplitudes and optimum/resources; choose smallest useful discriminator or known-work attribution/reasoned stop."
+  }
+}

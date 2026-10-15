@@ -1,0 +1,29 @@
+{
+  "run_id": "t1_source_snapshot_hash_provenance",
+  "group": "T1",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:25:50.774957+00:00",
+  "end_utc": "2026-10-14T09:25:50.808043+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./results/T1_source_provenance/reconstruct_snapshots.py"
+  ],
+  "cpu_seconds": 0.024404,
+  "wall_seconds": 0.033104849979281425,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 473.416691,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t1_source_snapshot_hash_provenance/stdout.txt",
+    "runs/t1_source_snapshot_hash_provenance/stderr.txt",
+    "runs/t1_source_snapshot_hash_provenance/command.txt",
+    "runs/t1_source_snapshot_hash_provenance/environment.txt"
+  ]
+}

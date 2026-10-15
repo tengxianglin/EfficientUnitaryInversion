@@ -1,0 +1,111 @@
+{
+  "status": "exact-finite",
+  "cases": [
+    {
+      "name": "same_W_q4_partial",
+      "grid": [
+        [
+          "ZIZ",
+          "ZZI",
+          "IZZ"
+        ],
+        [
+          "XIX",
+          "YXZ",
+          "ZXY"
+        ],
+        [
+          "YIY",
+          "XYZ",
+          "ZYX"
+        ]
+      ],
+      "W": [
+        0,
+        3,
+        5,
+        6,
+        24,
+        27,
+        29,
+        30,
+        40,
+        43,
+        45,
+        46,
+        48,
+        51,
+        53,
+        54
+      ],
+      "rank": 4,
+      "odd_Y_count": 4,
+      "anticommuting_edge_count": 18,
+      "B": 12,
+      "q": 8,
+      "line_phase_i_exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "T_size": 10,
+      "lambda": "1"
+    },
+    {
+      "name": "same_W_q4_saturated",
+      "grid": [
+        [
+          "ZIZ",
+          "ZZI",
+          "IZZ"
+        ],
+        [
+          "YZX",
+          "ZYX",
+          "XXI"
+        ],
+        [
+          "XZY",
+          "IXX",
+          "XYZ"
+        ]
+      ],
+      "W": [
+        0,
+        3,
+        5,
+        6,
+        24,
+        27,
+        29,
+        30,
+        40,
+        43,
+        45,
+        46,
+        48,
+        51,
+        53,
+        54
+      ],
+      "rank": 4,
+      "odd_Y_count": 4,
+      "anticommuting_edge_count": 18,
+      "B": 28,
+      "q": 12,
+      "line_phase_i_exponents": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        1
+      ],
+      "T_size": 16,
+      "lambda": "4"
+    }
+  ]
+}

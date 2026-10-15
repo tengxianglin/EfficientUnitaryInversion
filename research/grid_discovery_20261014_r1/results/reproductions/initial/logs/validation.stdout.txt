@@ -1,0 +1,25 @@
+{
+  "schema": "prediction-validation-v1",
+  "seed": 20261014,
+  "dtype": "complex128",
+  "tolerance": 1e-11,
+  "physical_cases_tested": 973,
+  "anti_cases_tested": 30,
+  "commuting_kill_cases": 943,
+  "phase_sign_gauges_tested": 498176,
+  "cocycle_gauges_cases": 1024,
+  "cocycle_pair_equations": 262144,
+  "max_errors": {
+    "transpose_operator": 1.293144143603155e-15,
+    "success_probability": 1.096433067399243e-15,
+    "transpose_choi": 4.608688946477573e-15,
+    "star": 1.0059287820801311e-15,
+    "dagger": 1.0769769133760761e-15,
+    "dagger_circuit_block": 8.632946845849547e-16
+  },
+  "cpu_seconds": 9.702004814999999,
+  "historical_case_support_and_LCU_comparisons": 1024,
+  "code_sha256": "75c19aa8c148dafa7cc3e9556179bb59773cd31dd652a982a341f2a705637354",
+  "numerical_status": "finite-support",
+  "analytic_claims": "see THEORY.md, not inferred from numerical samples"
+}

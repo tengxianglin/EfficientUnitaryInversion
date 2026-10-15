@@ -1,0 +1,36 @@
+{
+  "run_id": "t1_final_explicit_grid_control",
+  "group": "T1",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:23:01.158235+00:00",
+  "end_utc": "2026-10-14T09:23:03.479040+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./code/audit_rref.py",
+    "--n",
+    "3",
+    "--all-ordered-bases",
+    "--source",
+    "../research/grid_discovery_20261014_r1/results",
+    "--output",
+    "./results/T1_final"
+  ],
+  "cpu_seconds": 2.0717849999999998,
+  "wall_seconds": 2.3208428462967277,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 475.488476,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t1_final_explicit_grid_control/stdout.txt",
+    "runs/t1_final_explicit_grid_control/stderr.txt",
+    "runs/t1_final_explicit_grid_control/command.txt",
+    "runs/t1_final_explicit_grid_control/environment.txt"
+  ]
+}

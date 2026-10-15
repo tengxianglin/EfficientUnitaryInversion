@@ -1,0 +1,20 @@
+{
+  "status": "verified_source_preservation",
+  "sources": [
+    {
+      "snapshot": "results/T2/audit_comb_indices.py",
+      "sha256": "e1d15107e76971577ce40690f83889f4af894124a05e4b9f43cf2cbcf4e0713e",
+      "matches_executed_output_source_hash": true
+    },
+    {
+      "snapshot": "results/T2_final/audit_comb_indices.py",
+      "sha256": "406c0b9395449a00ae981ef07b6226938857de3b24f68678276034d5eeada2fc",
+      "matches_executed_output_source_hash": true
+    },
+    {
+      "snapshot": "results/T2_final/one_query_audit_executed.md",
+      "sha256": "76acbe6a4e9db1800c9c5f1f988d4bd8f738001cf36b6f5bca2ab13bb8346e60",
+      "matches_executed_output_source_hash": true
+    }
+  ]
+}

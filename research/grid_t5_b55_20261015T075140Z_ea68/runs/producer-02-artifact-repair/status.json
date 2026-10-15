@@ -1,0 +1,36 @@
+{
+  "run_id": "producer-02-artifact-repair",
+  "group": "producer",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/t5_b55_producer.py",
+    "--evidence-root",
+    "inputs/EUI_Pro_R3_Handoff/evidence/cycle",
+    "--families",
+    "row",
+    "column",
+    "uniform",
+    "--output",
+    "results/T5_candidate_complete"
+  ],
+  "host": "quair07-System-Product-Name",
+  "device": "CPU",
+  "start_utc": "2026-10-15T07:57:49.999600+00:00",
+  "end_utc": "2026-10-15T07:58:04.213469+00:00",
+  "cpu_seconds": 14.172979999999999,
+  "wall_seconds": 14.213851754553616,
+  "max_rss_kib": 65496,
+  "disk_bytes": 11444180,
+  "budget": {
+    "cpu_remaining": 44.808434,
+    "wall_remaining": 134.49735392816365,
+    "address_space_bytes": 2147483648,
+    "disk_bytes": 100663296
+  },
+  "reason": "",
+  "artifact_paths": [
+    "runs/producer-02-artifact-repair"
+  ]
+}
