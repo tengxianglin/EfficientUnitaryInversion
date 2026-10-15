@@ -1,0 +1,1 @@
+{"status": "passed", "checks": {"E_isometry": true, "BBdagger_exact": true, "contraction_exact": true, "matrix_units_16": true, "spectral_exchange": true, "closures": true, "dropped_phase_rejected": true}, "ranks": {"unshifted_even": 2, "unshifted_odd": 2, "unshifted_combined": 2, "shifted_even": 1, "shifted_odd": 1, "shifted_combined": 2}, "probability": "3/40"}

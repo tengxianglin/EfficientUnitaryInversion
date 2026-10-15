@@ -1,0 +1,84 @@
+{
+  "status": "completed",
+  "representation_status": "exact-finite",
+  "all_parameter_status": "analytic-checked",
+  "optimal_probabilities": {
+    "row": {
+      "dagger": "1/4",
+      "transpose": "1/4",
+      "star": "1"
+    },
+    "column": {
+      "dagger": "1/4",
+      "transpose": "1/4",
+      "star": "1"
+    },
+    "uniform": {
+      "dagger": "1",
+      "transpose": "1",
+      "star": "1"
+    }
+  },
+  "phase_control": {
+    "probability": "3/40",
+    "optimality": "not_claimed"
+  },
+  "authoritative_candidate": "results/T5_candidate_complete/certificate.json",
+  "independent": "results/T5_independent/verification.json",
+  "phase": "results/T5_phase/certificate.json",
+  "scientific_child_cpu_seconds": 32.667007,
+  "scientific_child_wall_seconds": 33.07338412757963,
+  "runs": [
+    {
+      "run_id": "preflight-01",
+      "state": "completed",
+      "cpu_seconds": 0.15836,
+      "wall_seconds": 0.20397758297622204,
+      "max_rss_kib": 56732
+    },
+    {
+      "run_id": "producer-01",
+      "state": "completed",
+      "cpu_seconds": 15.191566,
+      "wall_seconds": 15.502646071836352,
+      "max_rss_kib": 65548
+    },
+    {
+      "run_id": "phase-01",
+      "state": "completed",
+      "cpu_seconds": 0.20206999999999997,
+      "wall_seconds": 0.20457315724343061,
+      "max_rss_kib": 51832
+    },
+    {
+      "run_id": "producer-02-artifact-repair",
+      "state": "completed",
+      "cpu_seconds": 14.172979999999999,
+      "wall_seconds": 14.213851754553616,
+      "max_rss_kib": 65496
+    },
+    {
+      "run_id": "independent-01",
+      "state": "completed",
+      "cpu_seconds": 2.9420309999999996,
+      "wall_seconds": 2.9483355609700084,
+      "max_rss_kib": 60356
+    }
+  ],
+  "failures": [],
+  "repair": "First producer checked but omitted serialized W-negative residuals. Single artifact-repair rerun completed; initial output/source retained.",
+  "scope": "One unconditional original 8x8 forward oracle, all real tied parameters including origin/rays, exact CP maps on all inputs and references, arbitrary finite memory.",
+  "not_run": [
+    "old T1-T4 recensus",
+    "new families or rays",
+    "SDP",
+    "GPU",
+    "hardware",
+    "gate or ancilla optimization"
+  ],
+  "no_claims": [
+    "novelty",
+    "general coefficient-subspace optimum",
+    "hardware performance"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "run_id": "independent-01",
+  "group": "independent",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/t5_b55_independent.py",
+    "--evidence-root",
+    "inputs/EUI_Pro_R3_Handoff/evidence/cycle",
+    "--candidate",
+    "results/T5_candidate_complete",
+    "--phase",
+    "results/T5_phase/certificate.json",
+    "--output",
+    "results/T5_independent"
+  ],
+  "host": "quair07-System-Product-Name",
+  "device": "CPU",
+  "start_utc": "2026-10-15T07:58:26.226402+00:00",
+  "end_utc": "2026-10-15T07:58:29.174757+00:00",
+  "cpu_seconds": 2.9420309999999996,
+  "wall_seconds": 2.9483355609700084,
+  "max_rss_kib": 60356,
+  "disk_bytes": 11508322,
+  "budget": {
+    "cpu_remaining": 100,
+    "wall_remaining": 240,
+    "address_space_bytes": 2147483648,
+    "disk_bytes": 100663296
+  },
+  "reason": "",
+  "artifact_paths": [
+    "runs/independent-01"
+  ]
+}

@@ -1,0 +1,37 @@
+Source: https://raw.githubusercontent.com/Wholiver/Math.Skill/main/SKILL.md
+The following excerpts preserve the source wording returned by web, with web line labels retained.
+
+L0: ---
+L1: name: math-skill
+L2: description: A comprehensive mathematical reasoning skill for AI assistants — handles arithmetic to research-level problems with rigorous step-by-step reasoning, systematic verification, and transparent uncertainty handling
+L3: ---
+L5: # Math.skill
+L10: ## Skill Purpose
+L12: Enable AI assistants to handle mathematical tasks across all difficulty levels — from basic arithmetic to research-level problems — with rigorous, step-by-step reasoning, systematic verification, and transparent uncertainty handling.
+L13: This skill enforces a disciplined mathematical workflow: every problem is parsed, modeled, solved with justifications, verified through multiple independent checks, and only then delivered as a final answer. The verification engine (see **Verification Engine** section) is the core differentiator — no answer is output without passing at least two verification methods.
+L31: - **Linear Algebra**: Matrices, determinants, vector spaces, linear transformations, eigenvalues/eigenvectors, diagonalization, inner product spaces, quadratic forms
+
+L159: ### Step 5: Verification
+L161: Apply at least two verification methods from the Verification Engine. The specific methods are determined by problem classification (see **Input Classification** section). Record the verification steps and their outcomes.
+L177: ## Verification Engine
+L179: Verification is the core of Math.skill. Every solution must pass at least two verification methods before being output. Never output an unverified solution.
+L182: ### Method A: Back-Substitution
+L184: Substitute the obtained solution back into the original equation(s) or conditions. Verify that all equalities hold and all inequality constraints are satisfied.
+L187: ### Method B: Domain Check
+L197: ### Method C: Boundary Check
+L205: ### Method D: Reverse Derivation
+L210: ### Method E: Numerical Sampling
+L212: Choose representative numerical values (special values: 0, 1, -1, fractions, parameter extremes) and verify both the intermediate steps and the final answer numerically.
+L225: ### Method H: Independent Method Cross-Validation
+L227: Solve the same problem using a completely different method. The two solutions must agree. If they disagree, at least one is wrong — re-examine both.
+L230: ### Method I: Counterexample Search
+L235: ### Method J: Formal Logic Check
+L244: ### Method K: Computational Consistency Check
+L246: For problems involving computation (matrix operations, numerical integration, statistics), verify using an independent computational approach — manual recalculation with different intermediate values, symmetry checks, or known identities (e.g., trace = sum of eigenvalues).
+L249: ## Higher Mathematics Modules
+L272: ### Linear Algebra
+L274: - Check matrix dimension compatibility before every multiplication
+L275: - Verify eigenvalues/eigenvectors by computing $A\mathbf{v} - \lambda\mathbf{v} = \mathbf{0}$
+L276: - For diagonalization, check that eigenvectors are linearly independent and that the diagonalization $A = PDP^{-1}$ reconstructs $A$
+L277: - For systems $A\mathbf{x} = \mathbf{b}$, state whether the solution is unique, infinite, or nonexistent based on rank analysis
+L278: - Verify orthogonality claims by computing inner products

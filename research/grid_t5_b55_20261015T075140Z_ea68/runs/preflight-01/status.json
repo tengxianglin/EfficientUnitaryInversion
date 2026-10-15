@@ -1,0 +1,28 @@
+{
+  "run_id": "preflight-01",
+  "group": "preflight",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/preflight.py"
+  ],
+  "host": "quair07-System-Product-Name",
+  "device": "CPU",
+  "start_utc": "2026-10-15T07:55:01.812183+00:00",
+  "end_utc": "2026-10-15T07:55:02.016179+00:00",
+  "cpu_seconds": 0.15836,
+  "wall_seconds": 0.20397758297622204,
+  "max_rss_kib": 56732,
+  "disk_bytes": 11093736,
+  "budget": {
+    "cpu_remaining": 20,
+    "wall_remaining": 40,
+    "address_space_bytes": 2147483648,
+    "disk_bytes": 100663296
+  },
+  "reason": "",
+  "artifact_paths": [
+    "runs/preflight-01"
+  ]
+}
