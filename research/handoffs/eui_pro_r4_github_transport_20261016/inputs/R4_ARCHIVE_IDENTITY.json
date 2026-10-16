@@ -1,0 +1,15 @@
+{
+  "label": "digest-only reference; original protected bytes NOT included",
+  "archive_filename": "EUI_Pro_R4_Closure_20261016.zip",
+  "archive_sha256": "d9f81ff1273ade8e422472d9ade6c355bd264f848ad35eef7ea275b79685ec95",
+  "original_r4_round_id": "eui_pro_r4_b55_freeze_write_20261016",
+  "original_r4_protocol_id": "pro-codex-research/4.0",
+  "original_scientific_baseline_commit": "28c7e0ffb833a88f6980011ffecf48c7fbe2f1b1",
+  "declared_decision": "FREEZE_WRITE",
+  "declared_scientific_runs_this_round": 0,
+  "declared_current_manuscript_source": "not supplied",
+  "protected_theory_note_filename": "manuscript/THEORY_NOTE.md",
+  "protected_theory_note_sha256": "7dc922216e4008bc137d79e4c2abb5fd41b622bdd7c885794808e2adbfb4d631",
+  "original_r4_pro_report_sha256": "c98c5afe6715495ef9b3174cd9c9db6fbc3b962284205b1fa8321233985b134e",
+  "disclaimer": "Digests do not give Codex access to the local archive or prove its scientific claims."
+}

@@ -1,0 +1,59 @@
+{
+  "handoff_contract_version": 4,
+  "protocol_id": "pro-codex-research/4.1",
+  "round_id": "eui_pro_r4_github_transport_20261016",
+  "parent_round_id": "eui_pro_r4_b55_freeze_write_20261016",
+  "direction": "pro_to_codex",
+  "phase": "write",
+  "decision": "FREEZE_WRITE",
+  "input_revision": "28c7e0ffb833a88f6980011ffecf48c7fbe2f1b1",
+  "parent_package_sha256": "d9f81ff1273ade8e422472d9ade6c355bd264f848ad35eef7ea275b79685ec95",
+  "input_hashes": [
+    {
+      "path": "inputs/R4_ARCHIVE_IDENTITY.json",
+      "sha256": "ffff049ac6104700f36dda874fccb07740e3ef435d6be6586e759346b0d7fe32"
+    }
+  ],
+  "delivery_status": "prepared_for_repository_handoff",
+  "transport_mode": "github_pointer",
+  "verification_status": "partially_verified",
+  "execution_authorization": {
+    "status": "granted",
+    "basis": "User on 2026-10-16 explicitly requested continuing GitHub-first transfer within prior scope. Only preparing public-safe administrative/task files and future user-launched read-only intake; no new scientific run, manuscript editing, or automatic message."
+  },
+  "resource_budget": {
+    "scope": "GitHub metadata-only handoff plus optional user-started local read-only check",
+    "limits": {
+      "new_scientific_cpu_seconds": 0,
+      "new_gpu_seconds": 0,
+      "new_replicates": 0,
+      "optional_local_readonly_wall_seconds": 30,
+      "ram_bytes": 1073741824,
+      "new_disk_bytes": 20971520,
+      "max_concurrent": 1
+    },
+    "spent": {
+      "new_scientific_runs": 0,
+      "new_scientific_cpu_seconds": 0,
+      "github_admin_connector_time": "unmeasured",
+      "historical_t5_scientific_cpu_seconds_reported": 32.667007,
+      "full_project_cumulative": "unknown_not_reset"
+    }
+  },
+  "manuscript": {
+    "mode": "local_only",
+    "action": "blocked_missing_source",
+    "base_sha256": null,
+    "source_paths": [],
+    "remote_publish_authorized": false,
+    "note": "EUI Private paper registry is disabled. No original theory/manuscript bytes are delivered through this public GitHub pointer."
+  },
+  "value_add_ledger": {
+    "scientific_delta": "None: prior R4 scientific decision preserved without new theoretical claims or experiments.",
+    "execution_delta": "GitHub-first transport/entry preparation and verified archive identity only; Codex not started.",
+    "manuscript_delta": "None: no manuscript bytes copied or written remotely; full manuscript base unavailable.",
+    "remaining_blocker": "EUI private paper binding disabled; original R4 protected note and current complete manuscript not available to Codex through GitHub."
+  },
+  "runs": [],
+  "stop_reason": "Transport-only preparation completed; no R4 scientific task was reopened or Codex execution launched."
+}

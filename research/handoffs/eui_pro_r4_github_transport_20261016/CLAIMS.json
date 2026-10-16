@@ -1,0 +1,16 @@
+[
+  {
+    "claim_id": "R4-ADMIN-TRANSPORT-01",
+    "text": "The locally inspected R4 package records FREEZE_WRITE, no further scientific experiment, and a missing current manuscript base; this successor is a transport-only record.",
+    "conditions": "Applies only to the original R4 closure archive identified by SHA-256; it is not a new independent theory or verification result.",
+    "evidence_class": "documented",
+    "source_paths": [
+      "inputs/R4_ARCHIVE_IDENTITY.json",
+      "PAPER_STATE.md"
+    ],
+    "claim_verdict": "partially_verified",
+    "verification_method": "Pro read the original R4 cycle manifest, verified its archive SHA-256 and ZIP CRC locally, and copied only its non-sensitive decision metadata.",
+    "scope_or_limit": "Codex cannot independently verify the inaccessible original R4 bytes from this GitHub snapshot. No substantive mathematical claim is certified here.",
+    "next_discriminator": "Only if an authorized original archive or enabled private paper binding is available, verify that exact source; otherwise stop without experiments."
+  }
+]

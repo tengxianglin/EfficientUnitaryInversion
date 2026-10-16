@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "path": "CLAIMS.json",
+      "sha256": "afaf3dff9526cf0708d6a6f85ad99fec59005b573cb969564d7ad4261729e859"
+    },
+    {
+      "path": "cycle_manifest.json",
+      "sha256": "5b8e9473b7a2bd144c26c7f84ad733d4e5dcd5bd74d51d049e8fa07780bce8e8"
+    },
+    {
+      "path": "HUMAN_BRIEF.md",
+      "sha256": "5810b0ecaea487a4b8e98a44adb59b7429fe6598216520a5738297ac04111a7b"
+    },
+    {
+      "path": "inputs/R4_ARCHIVE_IDENTITY.json",
+      "sha256": "ffff049ac6104700f36dda874fccb07740e3ef435d6be6586e759346b0d7fe32"
+    },
+    {
+      "path": "NEXT_CODEX_TASK_PROMPT.md",
+      "sha256": "f0bd3024887e71133c3ab94fa1b3a6c243e33e2ea6040fdd6b1fee920f21b2ea"
+    },
+    {
+      "path": "PAPER_STATE.md",
+      "sha256": "0efb086f2f9d3abf3dccbf6f6844c81fb9458578339f6bb74007da51609e4abd"
+    },
+    {
+      "path": "PAPER_UPDATE.md",
+      "sha256": "73cf1055ca2668f75372e1c7767888f5d7fb2cb3a5e575f1ad9892ce72ea6f59"
+    },
+    {
+      "path": "PRO_REPORT.md",
+      "sha256": "fdeb6b9d2c09c1adfc94d1af72ec240b088ed11899fded04230e5431dfbe6602"
+    },
+    {
+      "path": "README.md",
+      "sha256": "48c2a02139cd87f5050a58a43e8ea0ad438b1821fad683da1d47ca57adb6a555"
+    }
+  ],
+  "note": "SHA-256 covers packet files only, except this BUILD_MANIFEST.json. Actual experiment repo code is pinned by the handoff commit/source baseline."
+}
