@@ -1,3 +1,8 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Tengxiang Lin
+# Full license: IBM_noise_simulation.LICENSE
+# License scope and provenance: LICENSE_SCOPE.md
+
 """
 Perform noise simulations on fake IBM Quantum backends to evaluate the fidelity
 of quantum circuits under realistic noise.
