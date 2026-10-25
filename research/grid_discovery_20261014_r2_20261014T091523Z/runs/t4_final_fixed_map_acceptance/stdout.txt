@@ -1,0 +1,1 @@
+{"families": 12, "fixed_maps_consistent": 3}

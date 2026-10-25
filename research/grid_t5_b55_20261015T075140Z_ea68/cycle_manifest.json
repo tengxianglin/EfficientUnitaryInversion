@@ -1,0 +1,70 @@
+{
+  "round_id": "grid_t5_b55_20261015T075140Z_ea68",
+  "parent_round_id": "grid_discovery_20261014_r2_20261014T091523Z",
+  "created_utc": "2026-10-15T08:03:06.922246+00:00",
+  "transport_mode": "manual_relay",
+  "delivery_status": "prepared_for_manual_relay",
+  "response_status": "pending",
+  "response_binding": "missing",
+  "response_completeness": "pending",
+  "model_provenance": "unverified",
+  "verification_status": "verified",
+  "bundle_integrity": "passed",
+  "input_revision": "28c7e0ffb833a88f6980011ffecf48c7fbe2f1b1",
+  "input_hashes": [
+    {
+      "response_status": "received",
+      "response_binding": "matched",
+      "response_completeness": "complete",
+      "model_provenance": "unverified",
+      "raw_path": "inputs/EUI_Pro_R3_Handoff_20261015.zip",
+      "sha256": "827d3daa010911f38f755c49c93fb8847e164a0e517681b2a7ec011f2f330e1a",
+      "basis": "user-supplied attachment, pinned R2 hashes and prompt",
+      "observed_utc": "2026-10-15T08:03:06.922246+00:00"
+    }
+  ],
+  "controls": [
+    "W not row/column generator sign flip",
+    "naive transpose encoding rejected",
+    "full identity cannot become corner",
+    "dropped phase rejected"
+  ],
+  "resource_budget": {
+    "cpu_seconds": 240,
+    "subprocess_wall_seconds": 600,
+    "ram_bytes": 2147483648,
+    "disk_bytes": 100663296,
+    "concurrency": 1,
+    "gpu": 0,
+    "implementation_delivery_elapsed_seconds": 900,
+    "active_round_elapsed_seconds": 1800
+  },
+  "host_allocations": [
+    {
+      "host": "quair07-System-Product-Name",
+      "device": "CPU",
+      "affinity": [
+        0
+      ]
+    }
+  ],
+  "seeds": [],
+  "budgets": "See codex_plan.md and budget_ledger.jsonl",
+  "failure_criteria": [
+    "exact nonzero required residual",
+    "normalization gap",
+    "input mismatch",
+    "resource exhaustion"
+  ],
+  "stop_reason": "All authorized T5 checks complete; no further experiment authorized.",
+  "next_task_id": "AWAITING_PRO",
+  "round_class": "HYBRID",
+  "handoff_contract_version": 3,
+  "value_add_ledger": {
+    "pro_derived": "Phase-centred existence criterion and B55 heralded coherent-corner reduction.",
+    "codex_new_evidence": "Independent sparse/dense exact certificate, normalized phase3/40 control, independent analytic audit.",
+    "not_run_reason": "No unexecuted required science; old census, SDP and expanded promises intentionally not authorized.",
+    "claim_delta": "Row/column optimum1/4 and uniform optimum1 closed under stated model; novelty unresolved.",
+    "next_pro_question": "Is the known-work-attributed theorem and B55 closure publication-useful, or should this path stop?"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "raw_input": "inputs/EUI_Pro_R3_Handoff_20261015.zip",
+  "input_duplicate_omitted": "inputs/EUI_Pro_R3_Handoff",
+  "reason": "Preserve incoming bytes and historical absolute paths in original archive; extract to inputs before reproduction.",
+  "discovery_sources": "discovery/source_transcriptions.zip preserves text returned by web, not upstream raw byte identity",
+  "source_and_results": "All new code, proofs, exact results and completed run records copied unchanged"
+}

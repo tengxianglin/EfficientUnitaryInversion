@@ -1,0 +1,168 @@
+{
+  "certificate_stage": "E",
+  "support_id": "S1",
+  "support": [
+    "X0,X1",
+    "Y1,X2",
+    "X0,Z1,X2",
+    "Z0,Z1",
+    "Z2",
+    "Z0,Z1,Z2",
+    "X0,Y1",
+    "Y1,Y2",
+    "X0,Y2"
+  ],
+  "support_hash": "4f3742ff7d705720e28dd6e76cfe2fc1828142a75820b87f9db0eb0ff3385fb2",
+  "target": "transpose",
+  "protocol": "Pauli-twirl LCU with postselection",
+  "resource": {
+    "sequential_slots": 1,
+    "parallel_width": 1,
+    "oracle_depth": 1,
+    "total_queries": 1,
+    "user_ancilla_qubits": 4,
+    "success_probability": 0.0625
+  },
+  "lcu_terms": [
+    {
+      "pauli": "III",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IIZ",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IXX",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IXY",
+      "sign": -1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IYX",
+      "sign": -1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IYY",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IZI",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "IZZ",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XIX",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XIY",
+      "sign": -1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XXI",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XXZ",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XYI",
+      "sign": -1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XYZ",
+      "sign": -1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XZX",
+      "sign": 1,
+      "weight": 0.25
+    },
+    {
+      "pauli": "XZY",
+      "sign": -1,
+      "weight": 0.25
+    }
+  ],
+  "identity": "sum_i sign_i sigma_i U sigma_i = 4 U^T for every U in exp(-i span S1)",
+  "circuit": [
+    "ancilla prep: apply H^{tensor 4} on 4 ancilla qubits initialized in |0>",
+    "Sel1: sum_i |i><i| tensor sigma_i (unsigned) on ancilla-system",
+    "oracle: I_a tensor U (single query)",
+    "Sel2: sum_i sign_i |i><i| tensor sigma_i (signed) on ancilla-system",
+    "unprep: apply H^{tensor 4} on ancilla",
+    "postselect ancilla on |0>^{tensor 4}; conditioned output = (1/4) U^T |psi>"
+  ],
+  "success_probability_formula": "constant 1/16 on any input; equals ||4E - U^T|| = 0",
+  "numeric_check": {
+    "identity_holds_on_subalgebra": true,
+    "subalgebra_size": 32,
+    "numeric_max_residual_over_64_alphas": 3.1732867627414665e-15,
+    "success_probability_min": 0.06249999999999981,
+    "success_probability_max": 0.06250000000000001
+  },
+  "symbolic_check": {
+    "symbolic_identity_holds_for_all_paulis_in_subalgebra": true,
+    "subalgebra_size": 32,
+    "per_pauli_residual_norms": {
+      "III": "0",
+      "XIY": "0",
+      "IYY": "0",
+      "XYI": "0",
+      "ZZZ": "0",
+      "YZX": "0",
+      "ZXX": "0",
+      "YXZ": "0",
+      "IIZ": "0",
+      "XIX": "0",
+      "IYX": "0",
+      "XYZ": "0",
+      "ZZI": "0",
+      "YZY": "0",
+      "ZXY": "0",
+      "YXI": "0",
+      "XZX": "0",
+      "IZZ": "0",
+      "XXZ": "0",
+      "IXX": "0",
+      "YIY": "0",
+      "ZII": "0",
+      "YYI": "0",
+      "ZYY": "0",
+      "XZY": "0",
+      "IZI": "0",
+      "XXI": "0",
+      "IXY": "0",
+      "YIX": "0",
+      "ZIZ": "0",
+      "YYZ": "0",
+      "ZYX": "0"
+    }
+  },
+  "notes": [
+    "LP-optimal L1 support of size 16 with uniform weights 1/4 and +-1 signs.",
+    "Restricting to Pauli conjugations sigma U sigma the L1 minimum is 4 with 16 terms; hence success probability 1/16 is optimal for that class of LCU protocols.",
+    "The claim holds only for the C-affine family exp(-i span_R S1). It is not a global transpose implementation."
+  ]
+}

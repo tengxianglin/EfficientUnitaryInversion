@@ -1,0 +1,17 @@
+{
+  "grid": [
+    "YIII",
+    "XYII",
+    "ZYII",
+    "IIZI",
+    "IIIZ",
+    "IIZZ",
+    "YIZI",
+    "XYIZ",
+    "ZYZZ"
+  ],
+  "Bmask": 1,
+  "qmask": 3,
+  "seed_rank": 4,
+  "all_six_lines_projectively_closed": true
+}

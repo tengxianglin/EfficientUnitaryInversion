@@ -1,0 +1,1 @@
+{"status": "passed", "output": "./results/r1_fresh", "timed_child_cpu_seconds": 7.923642}

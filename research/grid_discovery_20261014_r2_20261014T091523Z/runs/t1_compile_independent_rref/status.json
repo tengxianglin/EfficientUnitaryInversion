@@ -1,0 +1,33 @@
+{
+  "run_id": "t1_compile_independent_rref",
+  "group": "T1",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:20:33.437508+00:00",
+  "end_utc": "2026-10-14T09:20:34.054819+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "g++",
+    "-O2",
+    "-std=c++17",
+    "./code/rref_census.cpp",
+    "-o",
+    "./code/rref_census"
+  ],
+  "cpu_seconds": 0.46249599999999996,
+  "wall_seconds": 0.6173485601320863,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 480,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t1_compile_independent_rref/stdout.txt",
+    "runs/t1_compile_independent_rref/stderr.txt",
+    "runs/t1_compile_independent_rref/command.txt",
+    "runs/t1_compile_independent_rref/environment.txt"
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "pro_exploratory_not_independent_codex_certificate": true,
+  "grid": [
+    [
+      "XII",
+      "ZII",
+      "YII"
+    ],
+    [
+      "ZXI",
+      "YIY",
+      "XXY"
+    ],
+    [
+      "YXI",
+      "XIY",
+      "ZXY"
+    ]
+  ],
+  "W_unitary": true,
+  "W_anticommutes_H0": true,
+  "star_generator_checks": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "charpoly": "(lambda**2 - 27)*(lambda**2 - 3)**3",
+  "projector_ranks": [
+    2,
+    6
+  ],
+  "A0_inverse": [
+    [
+      "0",
+      "1/2",
+      "1/2"
+    ],
+    [
+      "-1/2",
+      "0",
+      "1/2"
+    ],
+    [
+      "-1/2",
+      "1/2",
+      "0"
+    ]
+  ],
+  "row": {
+    "pauli_product_checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "corner_matrix_unit_coordinates": [
+      [
+        "3/8",
+        "-1/8",
+        "1/8",
+        "-1/8",
+        "-1/8",
+        "1/8"
+      ],
+      [
+        "0",
+        "0",
+        "1/8 + I/8",
+        "-1/8 + I/8",
+        "1/8 - I/8",
+        "-1/8 - I/8"
+      ],
+      [
+        "0",
+        "0",
+        "1/8 - I/8",
+        "-1/8 - I/8",
+        "1/8 + I/8",
+        "-1/8 + I/8"
+      ],
+      [
+        "3/8",
+        "-1/8",
+        "-1/8",
+        "1/8",
+        "1/8",
+        "-1/8"
+      ]
+    ],
+    "corner_checks": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "Pi0_generators": [
+      true,
+      true,
+      true
+    ],
+    "W_wrongly_generalized_fails": true
+  },
+  "column": {
+    "pauli_product_checks": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "corner_matrix_unit_coordinates": [
+      [
+        "3/8",
+        "-1/8",
+        "1/8",
+        "1/8",
+        "-1/8",
+        "-1/8"
+      ],
+      [
+        "0",
+        "0",
+        "1/8 + I/8",
+        "-1/8 - I/8",
+        "1/8 - I/8",
+        "-1/8 + I/8"
+      ],
+      [
+        "0",
+        "0",
+        "1/8 - I/8",
+        "-1/8 + I/8",
+        "1/8 + I/8",
+        "-1/8 - I/8"
+      ],
+      [
+        "3/8",
+        "-1/8",
+        "-1/8",
+        "-1/8",
+        "1/8",
+        "1/8"
+      ]
+    ],
+    "corner_checks": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "Pi0_generators": [
+      true,
+      true,
+      true
+    ],
+    "W_wrongly_generalized_fails": true
+  },
+  "elapsed_seconds": 13.246464967727661
+}

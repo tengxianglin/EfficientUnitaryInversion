@@ -1,0 +1,253 @@
+{
+  "raw_archive": "raw_execution_evidence.zip",
+  "raw_archive_sha256": "e2e36f1179e75f93398d376b1e3c9868c687e429101b92176a254194b5b8f048",
+  "files": [
+    {
+      "path": "results/T1/source_comparison.json",
+      "raw_sha256": "13441223ee034af920893e13d7413e432fa9ef9fe6796326fe1bb74e53b98c69",
+      "portable_sha256": "860ca3bca56099a4e948a62f9ee28eb8e3c0bfa385f4c84cbc40de7270097d6e",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "results/T1_verified/source_comparison.json",
+      "raw_sha256": "e07b4b9f365cb559a4da9addbe9119552439432aabfa702db2e164b89d2073f3",
+      "portable_sha256": "8e96f458b65d649a9019f674e63dc3d16ca9150e684f0dba5ed63c5a7614f1b9",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "results/T1_final/source_comparison.json",
+      "raw_sha256": "e07b4b9f365cb559a4da9addbe9119552439432aabfa702db2e164b89d2073f3",
+      "portable_sha256": "8e96f458b65d649a9019f674e63dc3d16ca9150e684f0dba5ed63c5a7614f1b9",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "results/r1_fresh/run_ledger.json",
+      "raw_sha256": "c854311fd16b33b004da14d4521dcab7e54a5f4ed338b040299df92bd22c0414",
+      "portable_sha256": "20bf8971fae2bc8203b8c2be38b09c6792f1c5681665e6003d56f8c80c3f5d5c",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_full_independent_audit/status.json",
+      "raw_sha256": "581a8c02c40a89af7f9e2bf1b676f061fc97047a6325206f33ed0ecd19fbe03d",
+      "portable_sha256": "2b35a3f9316d7b20e56bb031fbca5c7c1a3f15b7192140e288d7dc6b78ed4dd3",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_full_independent_audit/command.txt",
+      "raw_sha256": "10b60dc21b2c24c6d0b0dd55d045a976825ba2f4554a1e5dc6361c6e6d5beb4c",
+      "portable_sha256": "a274b47a597c480bb688809809b963b1345b7aa316a23d454185821a86970af5",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_final_audit_source_counts/status.json",
+      "raw_sha256": "2e075e237cdcbf2fd0076afca42b7f116b17ad6cfb523aec5cf674d0dcf97dc7",
+      "portable_sha256": "f070332f71c7c70e6990b083116c9db0d76f5c037b73c0ad462d7b3a46ccf395",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_final_audit_source_counts/command.txt",
+      "raw_sha256": "18ea3b2adfa4fb7922fefe9ba2133468bd2eb231740a4f4f936a4d4aa7f22f41",
+      "portable_sha256": "60afd1e7ae238fc829d04bf8e70970dffbff415aaf2b9db66f6dcabe0d22bda6",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_final_corrected_cli_scope/status.json",
+      "raw_sha256": "7fb037f402544bfbd76442c0174add80bee86df57d5367eee0be97ac11b5066e",
+      "portable_sha256": "b65ac8d1002eef3a78c3b8fa4fa49c4142e171a72c394146718014e4c431d7ca",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_final_corrected_cli_scope/command.txt",
+      "raw_sha256": "34133bdf3aecfe59aa09db645f86f102060cd85bf3d0fba67707ebc8dd92b292",
+      "portable_sha256": "312c409a4377d87278f7b8bfb4331d0186df3deb45a87d90dda668468070417a",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_fresh_reproduction/status.json",
+      "raw_sha256": "02822dbdab99e3c9875df440ca6c3a12f7195a845edf3661453b78bcb39109ec",
+      "portable_sha256": "57480dd9d3fb66c44eb7268d7c07a5a13dbbc52f73a7e961716798b6f11b0dbb",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_fresh_reproduction/command.txt",
+      "raw_sha256": "40aa7ed850e49ed0a705ae67108aaf51713466c20ac126892a8bc0a72d1c48d7",
+      "portable_sha256": "508df1fe1f59476b9dc0a13715a29883e28a3c1ab7e4c374b6922555518561e3",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_fresh_reproduction/stdout.txt",
+      "raw_sha256": "a1b80abad0be03642c69fb946be221d680a1365ff3a4985acf66fab0dda6a687",
+      "portable_sha256": "6c5d21a3de35d5c8708de62755b7864417a8cf1008710852c0078ed3624a4f8e",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_source_snapshot_hash_provenance/status.json",
+      "raw_sha256": "50dc92995625dc49907727c25d8fda969d54e6cc611da4c306f34df033e455c0",
+      "portable_sha256": "313ad7cd8a27337eca42667df1631c8e797e7cdebe23ce053922aa7801885d6a",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_source_snapshot_hash_provenance/command.txt",
+      "raw_sha256": "64d3fb6a2d2c7b416287686455811224b8de569c330943087c2ae6328b0e35fb",
+      "portable_sha256": "01eebffe46cf26ae07ffc79b0a115687073ba8330ffc9bcde3bc7a1ec17a05aa",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_pytest/status.json",
+      "raw_sha256": "b62039b49a0d70e2a469e50f3df2c230440915d6c7df574be26162f1fdaf652c",
+      "portable_sha256": "8033687cee5b520cb2fdefe5099af6e131ee15d24058ae8706ec2a83b6635a61",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_pytest/command.txt",
+      "raw_sha256": "1369209645bb7e49db2974952121433ffc88fb4632727b858fa95e84bae357ec",
+      "portable_sha256": "81c8e704a82ee3653907720688d784eaeac41b2a667460a6701ceee668167638",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_independent_dense_ranks_fixed/status.json",
+      "raw_sha256": "b4a92391ab8b7b548202d7c151bb6ea290813cc90ad17fea36b137ef6a426513",
+      "portable_sha256": "7c80c672895b75a33bc9c83d21a858786c6c0c54542707c36f7d6e6aa55172d4",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_independent_dense_ranks_fixed/command.txt",
+      "raw_sha256": "4306752ceee2d4b9f845824e0bdd09fc4f412e3e00ecf9671cee1af92a9410d4",
+      "portable_sha256": "01ea6ff5b0ab78600119d226b593dada2a0827c051d013670787f2f141a4904f",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_independent_dense_ranks/status.json",
+      "raw_sha256": "2745806b61641af7d2a066ef1b4b88affd63aa2041c4439ad0e867c96b893086",
+      "portable_sha256": "4214b9a23023d23b606c9a3b80d3200b218530bdde1aa44754ed57b72ecb6d47",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_independent_dense_ranks/command.txt",
+      "raw_sha256": "4306752ceee2d4b9f845824e0bdd09fc4f412e3e00ecf9671cee1af92a9410d4",
+      "portable_sha256": "01ea6ff5b0ab78600119d226b593dada2a0827c051d013670787f2f141a4904f",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_independent_dense_ranks/stderr.txt",
+      "raw_sha256": "fc3c3fcab7f4427fbec5b1c965cc4d50ce7a9dd2de8221cf2c240b9e8dfb0387",
+      "portable_sha256": "eb3500c8de18c320a06535fa80fd69be8d8bc080950cf9c54e5d9fba7def35d2",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_final_fixed_map_acceptance/status.json",
+      "raw_sha256": "bbd1f888c1b257005955268161518614cf14f1910273496fcd0214cf044564ec",
+      "portable_sha256": "17de004fdbe05ba92a0ae253df0253f85186c50d30bbd96baa2c4177bcb4a4d7",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_final_fixed_map_acceptance/command.txt",
+      "raw_sha256": "76ba25b66a35ab28b84c2fc901b6f619f56f30488a562f7d9c612f8c0f97c03f",
+      "portable_sha256": "3bbfd4efa398f2011be2bea9b7f33d99b672c18c2885e9b673361760fa5d25e1",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_fixed_map_diagnostic/status.json",
+      "raw_sha256": "b672023edb6a3953cf2d0d9f9f391a66f3baa1093a37ae8da7c0009359b1113e",
+      "portable_sha256": "bc5700e844773f630c2d9090f183dd4c073cd27ccea763ca5ec22cf2c5d07c2a",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_fixed_map_diagnostic/command.txt",
+      "raw_sha256": "8888ce416ad400124a8261a6111302b5cdfe4db7d5692d8b186952563fd9ae06",
+      "portable_sha256": "374c37d8c7ce58d683b433feac0d3e389add379d9450649abd720162b376f9a3",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_final_explicit_grid_control/status.json",
+      "raw_sha256": "e99f6e0359eaa093d10d0b4922159f0ba3d6eeaaebb20355b2ebe8647ebeb713",
+      "portable_sha256": "db2be2d8f651f94b4c4ae4c73e50b11f5cccc05f3a353933c011191bac23d639",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_final_explicit_grid_control/command.txt",
+      "raw_sha256": "e0d352cf8c5cbd0aa127b24fd4ea2c926079328c2d5213f46328fa63b6080ec3",
+      "portable_sha256": "a7758818ae8aacdd127bd6ece36b05e63ccf17a716fc65a87c8673dea8285cb6",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t2-source-preservation-03/stderr.txt",
+      "raw_sha256": "70a326e9344f61aeeca160258ff0d557792a66ebd3630b8d4f28a090472f912c",
+      "portable_sha256": "02780bd11082d456c82fda08415989216e49bc46d2536f88bdce4012017385b3",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_frozen_verify/status.json",
+      "raw_sha256": "ff3bf37ff7be259284f136730082d7a6073c14d2676b9d19f7978885438536a0",
+      "portable_sha256": "e144419f335b2ca8185ee15a3310117a6e8f2de8014c88928551ef8fb714eb8b",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/r1_frozen_verify/command.txt",
+      "raw_sha256": "3bb0af15d388b0e250c7d2a442503dc94dabb3897bc146263026357dd8bfe2cf",
+      "portable_sha256": "d0f83ce4c1625aaf04939312ecbf05e3c08366728f291043bb1efc302f9e347b",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_equality_diagnostic/status.json",
+      "raw_sha256": "1dfe6e3ca2331adf284fa6bcaa9646e6204aa2685b5c0ac0ce983708483e8655",
+      "portable_sha256": "43a8f8fcf6cf28c9ff1637d2c18c46e0ddfe8db4d7a959250472744dfe191d04",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_equality_diagnostic/command.txt",
+      "raw_sha256": "afe97163e51ddadccdc5e90d631fbcc57d0d16d290684ffac43381d4104c93b6",
+      "portable_sha256": "96c5c1256a9e64f07397f8f22b787865851a76e2b4a1a19f836161d4baa5b547",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_final_dense_rank_acceptance/status.json",
+      "raw_sha256": "e742232796f67e4b68a4bd91f74b7254f37c1651ed2d398308f62bac21f0b1fb",
+      "portable_sha256": "57a6b9d6614e8599375fc5febe7b5f2d08806fe3a58404bbab742382b79bfece",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_final_dense_rank_acceptance/command.txt",
+      "raw_sha256": "57e7b650c9043b345a9319f1ed6089ae4f09e6644e09e4f4b9b2db90b951b211",
+      "portable_sha256": "f00732768dd140b7e4ceee01afb14b9ef9ece3ccbb2055f53726330fe782d020",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_compile_independent_rref/status.json",
+      "raw_sha256": "c22504fe688c9bd51a23cd61f316cd82e447c2e779f9b7381a96e0ac9908d25a",
+      "portable_sha256": "166635f7c9a81249ce68e99d258194cfbc0adec759d0ba90f656ab0845c87a58",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t1_compile_independent_rref/command.txt",
+      "raw_sha256": "1188f7846b7a3d2056c8f03b6250fa043312a2281f97a53105892cfaf7c5df6a",
+      "portable_sha256": "a52750760b785994abda9be9157dbf15d491b02973b2d18e7b4204fba049758a",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_full/status.json",
+      "raw_sha256": "0710684e910eec373fb83c24a1579f890d3e35dbf7febed192fb863242289f4e",
+      "portable_sha256": "15428f27fdd39bd12fb518ade35790d9aa20dd9b413cc72cf41181167a22e8f2",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/t4_full/command.txt",
+      "raw_sha256": "cdeaccb701087903364dd2c72f4612e1ba2d93da9b7ad5565bb3b5a826e908dc",
+      "portable_sha256": "d1d0b55f24dba04ce3a9ce2e4c789b4ea90bf4b3884553c0efad598a008985ed",
+      "transform": "Replace execution-root prefix with . and worktree prefix with ..; mathematical data unchanged. Original bytes are in raw_execution_evidence.zip at same relative path."
+    },
+    {
+      "path": "runs/T3_saved_artifact_replay/command.txt",
+      "raw_sha256": "95cd368d2a13e076cd60b311884c86c2b275fc8a9b4e712f3fdadccaa2d8f662",
+      "portable_sha256": "459ffcfa518ab4132013fd80d48f2b8aeddf75fe4efb4a1b47b815f0d148d5d2",
+      "transform": "Extract the inline Python command body verbatim to code/replay_T3_executed.py and represent command as equivalent portable file invocation. Raw executed command is unchanged in archive. This avoids a static Windows-path false positive on colon followed by JSON-escaped newline."
+    },
+    {
+      "path": "runs/T3_saved_artifact_replay/status.json",
+      "raw_sha256": "6b8d25ca82bf4e87a197e150b200627983774bef46cf41b5aa404de605c28834",
+      "portable_sha256": "c86ffc02c5d54d4aa960a7fe77bb48b4eec4aea305d7a3912331df7da2715081",
+      "transform": "Extract the inline Python command body verbatim to code/replay_T3_executed.py and represent command as equivalent portable file invocation. Raw executed command is unchanged in archive. This avoids a static Windows-path false positive on colon followed by JSON-escaped newline."
+    }
+  ],
+  "warning": "Readable command/log/metadata files are explicitly normalized projections. Their embedded hash fields refer to unchanged scientific artifacts or original executed sources. Raw archive is immutable original execution evidence."
+}

@@ -1,0 +1,24 @@
+FROZEN TOP LEVEL KEYS ['schema', 'arithmetic', 'fixed_rank_one_coefficient_grid', 'proper_grid', 'rank_one_factor_vectors', 'line_order', 'power_support_semantics', 'character_equation_semantics', 'character_witness_semantics', 'physical_scope', 'equivalence', 'summary', 'counterexamples', 'equivalence_classes', 'all_cases']
+{
+  "physical_n3_cases": 973,
+  "forbidden_rank_two_count": 35,
+  "abstract_orbits": 44,
+  "physical_orbits": 37,
+  "B_orbits": 9,
+  "physical_rank_hist": {
+    "2": 525,
+    "4": 448
+  },
+  "minimal_qubit_hist": {
+    "4": 51,
+    "3": 693,
+    "2": 280
+  },
+  "all_anti_physical_cases": 30,
+  "physical_lambda_hist": {
+    "2": 525,
+    "1": 16,
+    "4": 432
+  }
+}
+CPU seconds 2.1928748590000002

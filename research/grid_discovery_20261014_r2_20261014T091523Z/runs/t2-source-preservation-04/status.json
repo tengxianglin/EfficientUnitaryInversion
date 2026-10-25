@@ -1,0 +1,29 @@
+{
+  "run_id": "t2-source-preservation-04",
+  "group": "T2",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:29:48.459253+00:00",
+  "end_utc": "2026-10-14T09:29:48.491832+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "results/T2_recover_sources.py"
+  ],
+  "cpu_seconds": 0.025255,
+  "wall_seconds": 0.032588268630206585,
+  "budget": {
+    "group_cpu_seconds": 300,
+    "remaining_before": 299.591657,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t2-source-preservation-04/stdout.txt",
+    "runs/t2-source-preservation-04/stderr.txt",
+    "runs/t2-source-preservation-04/command.txt",
+    "runs/t2-source-preservation-04/environment.txt"
+  ]
+}

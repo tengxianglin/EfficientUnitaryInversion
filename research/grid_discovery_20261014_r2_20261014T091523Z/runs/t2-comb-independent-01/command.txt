@@ -1,0 +1,1 @@
+["python", "code/audit_comb_indices.py", "--dims", "2", "4", "--targets", "transpose", "adjugate2", "--certificates", "../grid_discovery_20261014_r1/results/comb_certificates.json", "--output", "results/T2"]

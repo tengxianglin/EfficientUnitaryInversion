@@ -1,0 +1,6 @@
+{
+  "failed_source_sha256": "8ba8bc40262be54baa73831aebb5c9cd70d85de28a0d2eff516dbe7423e606c1",
+  "repair": "Test reader expected cases; actual calibration schema has examples. Scientific outputs unchanged.",
+  "original_result": "75 passed; 1 KeyError in test reader",
+  "fixed_source_sha256": "ecfd6f4df745cc19799920ab5f44c144d2664ee0413acd707ed01516f39e50be"
+}

@@ -1,0 +1,358 @@
+{
+  "B": 59,
+  "q": 13,
+  "grid": [
+    [
+      "YII",
+      "XII",
+      "ZII"
+    ],
+    [
+      "ZYI",
+      "YIX",
+      "XYX"
+    ],
+    [
+      "XYI",
+      "ZIX",
+      "YYX"
+    ]
+  ],
+  "parameter_order": "row-major nine independent real coefficients",
+  "star_witness": "YXI",
+  "star_generator_residuals": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "dagger_conjugators": [
+    "III",
+    "YII",
+    "XII",
+    "ZII"
+  ],
+  "dagger_lcu_coefficients": [
+    "-1/2",
+    "1/2",
+    "1/2",
+    "1/2"
+  ],
+  "star": {
+    "ordered_gates": [
+      {
+        "gate": "Y",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "ORACLE_FWD",
+        "qubits": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "gate": "Y",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          1
+        ]
+      }
+    ],
+    "cost": {
+      "one_qubit": 4,
+      "two_qubit": 0,
+      "by_primitive": {
+        "Y": 2,
+        "X": 2
+      },
+      "forward_oracle_calls": 1
+    },
+    "A": 0,
+    "workspace": 3,
+    "K": 1,
+    "P": 1,
+    "Q": 1,
+    "success_probability": 1,
+    "postselection": null
+  },
+  "dagger": {
+    "ordered_gates": [
+      {
+        "gate": "H",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "H",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "Sdag",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          0,
+          2
+        ]
+      },
+      {
+        "gate": "S",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          1,
+          2
+        ]
+      },
+      {
+        "gate": "ORACLE_FWD",
+        "qubits": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          1,
+          2
+        ]
+      },
+      {
+        "gate": "Sdag",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          0,
+          2
+        ]
+      },
+      {
+        "gate": "S",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "CZ",
+        "qubits": [
+          0,
+          1
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "H",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "H",
+        "qubits": [
+          1
+        ]
+      }
+    ],
+    "cost": {
+      "one_qubit": 12,
+      "two_qubit": 5,
+      "by_primitive": {
+        "H": 4,
+        "Sdag": 2,
+        "CX": 4,
+        "S": 2,
+        "X": 4,
+        "CZ": 1
+      },
+      "forward_oracle_calls": 1
+    },
+    "A": 2,
+    "workspace": 5,
+    "K": 1,
+    "P": 1,
+    "Q": 1,
+    "success_probability": 0.25,
+    "postselection": {
+      "ancillas": [
+        0,
+        1
+      ],
+      "outcome": "00"
+    },
+    "wire_order": [
+      "ancA",
+      "ancD",
+      "q0",
+      "q1",
+      "q2"
+    ]
+  },
+  "samples": [
+    {
+      "sample": 0,
+      "coefficients": [
+        -1,
+        0,
+        2,
+        4,
+        4,
+        3,
+        -1,
+        -4,
+        -1
+      ],
+      "theta": 0.137,
+      "residuals": {
+        "dagger_success_block": 7.012060430444545e-16,
+        "dagger_probability_operator": 6.431032798130157e-16,
+        "dagger_reference_Choi": 2.3173858339725227e-16,
+        "full_unitarity": 5.426441951523603e-15,
+        "star_success_block": 6.246931686687983e-16,
+        "star_reference_Choi": 3.239219928964703e-16,
+        "star_probability_operator": 6.815316039633565e-16
+      }
+    },
+    {
+      "sample": 1,
+      "coefficients": [
+        -4,
+        -3,
+        -2,
+        -3,
+        4,
+        -2,
+        2,
+        3,
+        2
+      ],
+      "theta": 0.137,
+      "residuals": {
+        "dagger_success_block": 6.911866316469136e-16,
+        "dagger_probability_operator": 6.334162773220975e-16,
+        "dagger_reference_Choi": 2.2621970908065125e-16,
+        "full_unitarity": 2.808317235876018e-15,
+        "star_success_block": 8.420970285681931e-16,
+        "star_reference_Choi": 4.1777666704496813e-16,
+        "star_probability_operator": 1.0701155474570946e-15
+      }
+    },
+    {
+      "sample": 2,
+      "coefficients": [
+        4,
+        -3,
+        -3,
+        -4,
+        4,
+        2,
+        -4,
+        3,
+        2
+      ],
+      "theta": 0.137,
+      "residuals": {
+        "dagger_success_block": 7.337039549985657e-16,
+        "dagger_probability_operator": 5.927330076360983e-16,
+        "dagger_reference_Choi": 2.3833689873356035e-16,
+        "full_unitarity": 3.697878636312813e-15,
+        "star_success_block": 8.440958375244234e-16,
+        "star_reference_Choi": 4.583238348680234e-16,
+        "star_probability_operator": 8.859463072148142e-16
+      }
+    }
+  ],
+  "raw_files": [
+    {
+      "path": "B59_q13_sample0_dagger_circuit.npy",
+      "sha256": "aa3f1c15656ee16109332aba7e8cd554a2e7f78ac4e2662569c15025888ec933"
+    },
+    {
+      "path": "B59_q13_sample0_raw.npz",
+      "sha256": "dbf503d66ffe04e17ebd8e39ffcdf381cb517b3ecefb91a95528469e93ae86aa"
+    },
+    {
+      "path": "B59_q13_sample1_dagger_circuit.npy",
+      "sha256": "0a5f9d7fa295fbbee11df62dc8ac66f43ee9c1107bdf7d578afda22fbe81b21b"
+    },
+    {
+      "path": "B59_q13_sample1_raw.npz",
+      "sha256": "9231adb8aa767037ecea3889663a670691f9d4e1546dcfd60ba1d1cfefd7d397"
+    },
+    {
+      "path": "B59_q13_sample2_dagger_circuit.npy",
+      "sha256": "5a1bc41af3cb6a1740691a9293c3d96af0d6c09a71ab15222014381c76866ff4"
+    },
+    {
+      "path": "B59_q13_sample2_raw.npz",
+      "sha256": "84b980b0c97a8bd2d3df3118f3067419ecd5c18d2fa6507205d23a15f0343548"
+    }
+  ],
+  "query_contract": "one unmodified uncontrolled original 8x8 forward U",
+  "gate_contract": "all-to-all known H,X,Y,Z,S,Sdag,CX,CZ; CY fully decomposed; no hardware routing claim",
+  "Choi_contract": "normalized maximally entangled physical system/reference, dimension 8 each",
+  "limitations": [
+    "Construction counts only; no gate/ancilla optimality",
+    "No multi-controlled gate hidden in counts",
+    "No target architecture or SWAP routing assumed"
+  ]
+}

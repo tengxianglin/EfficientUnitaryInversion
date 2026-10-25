@@ -1,0 +1,1 @@
+["g++", "-O2", "-std=c++17", "./code/rref_census.cpp", "-o", "./code/rref_census"]

@@ -1,0 +1,20 @@
+{
+  "host": "quair07-System-Product-Name",
+  "device": "CPU",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:09:02) [GCC 11.2.0]",
+  "affinity": [
+    0
+  ],
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "limits": {
+    "cpu_remaining": 40,
+    "wall_remaining": 100,
+    "address_space_bytes": 2147483648,
+    "disk_bytes": 100663296
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "verify_frozen",
+    "command": [
+      "/opt/anaconda3/bin/python",
+      "../research/pro_handoff_20261014/verify_bundle.py"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 1.8209867253899574,
+    "cpu_seconds": 0.03508699999999999,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/logs/verify_frozen.stdout.txt",
+    "stderr": "./results/r1_fresh/logs/verify_frozen.stderr.txt"
+  },
+  {
+    "id": "compile",
+    "command": [
+      "/usr/bin/c++",
+      "-O2",
+      "-std=c++17",
+      "../research/grid_discovery_20261014_r1/code/physical_census.cpp",
+      "-o",
+      "./results/r1_fresh/physical_census"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 1.972475172020495,
+    "cpu_seconds": 0.304232,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/logs/compile.stdout.txt",
+    "stderr": "./results/r1_fresh/logs/compile.stderr.txt"
+  },
+  {
+    "id": "physical_n2",
+    "command": [
+      "./results/r1_fresh/physical_census",
+      "2"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.00880683958530426,
+    "cpu_seconds": 0.004640000000000033,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/physical_n2.json",
+    "stderr": "./results/r1_fresh/logs/physical_n2.stderr.txt"
+  },
+  {
+    "id": "physical_n3",
+    "command": [
+      "./results/r1_fresh/physical_census",
+      "3"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.11414769664406776,
+    "cpu_seconds": 0.09137400000000004,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/physical_n3.json",
+    "stderr": "./results/r1_fresh/logs/physical_n3.stderr.txt"
+  },
+  {
+    "id": "exact",
+    "command": [
+      "/opt/anaconda3/bin/python",
+      "../research/grid_discovery_20261014_r1/code/grid_check.py",
+      "--input",
+      "../research/pro_handoff_20261014",
+      "--output",
+      "./results/r1_fresh/exact",
+      "--physical2",
+      "./results/r1_fresh/physical_n2.json",
+      "--physical3",
+      "./results/r1_fresh/physical_n3.json"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 2.41839412227273,
+    "cpu_seconds": 2.2313229999999997,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/logs/exact.stdout.txt",
+    "stderr": "./results/r1_fresh/logs/exact.stderr.txt"
+  },
+  {
+    "id": "validation",
+    "command": [
+      "/opt/anaconda3/bin/python",
+      "../research/grid_discovery_20261014_r1/code/validate_predictions.py",
+      "--exact",
+      "./results/r1_fresh/exact",
+      "--frozen",
+      "../research/pro_handoff_20261014",
+      "--output",
+      "./results/r1_fresh/validation",
+      "--seed",
+      "20261014"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 10.393862289376557,
+    "cpu_seconds": 5.181547,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/logs/validation.stdout.txt",
+    "stderr": "./results/r1_fresh/logs/validation.stderr.txt"
+  },
+  {
+    "id": "comb",
+    "command": [
+      "/opt/anaconda3/bin/python",
+      "../research/grid_discovery_20261014_r1/code/comb_certificate.py",
+      "--output",
+      "./results/r1_fresh/comb_certificates.json"
+    ],
+    "status": "passed",
+    "returncode": 0,
+    "wall_seconds": 0.31595219951123,
+    "cpu_seconds": 0.07543900000000031,
+    "timeout_seconds": 40,
+    "stdout": "./results/r1_fresh/logs/comb.stdout.txt",
+    "stderr": "./results/r1_fresh/logs/comb.stderr.txt"
+  }
+]

@@ -1,0 +1,1 @@
+{"status": "recorded", "output": "/mnt/data/grid_discovery_20261014_r1/environment.json", "gpu_used": false}

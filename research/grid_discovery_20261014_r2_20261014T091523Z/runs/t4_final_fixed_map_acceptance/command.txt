@@ -1,0 +1,1 @@
+["python", "./code/t4_fixed_map.py", "--input", "./results/T4_final", "--output", "./results/T4_final_fixed_maps.json"]

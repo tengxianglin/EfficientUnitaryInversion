@@ -1,0 +1,1 @@
+{"status": "exact-finite", "cases": 3, "all_checks": true, "cpu_seconds": 0.0071134250000000065}

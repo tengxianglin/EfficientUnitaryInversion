@@ -1,0 +1,46 @@
+{
+  "status": "matched",
+  "interfaces": [
+    {
+      "interface": "prompt to pinned grid/C",
+      "status": "matched"
+    },
+    {
+      "interface": "saved whole bases to representation",
+      "status": "matched"
+    },
+    {
+      "interface": "source to final run snapshot",
+      "status": "matched"
+    },
+    {
+      "interface": "candidate to independent dense checks",
+      "status": "matched"
+    },
+    {
+      "interface": "physical E/K to parity map",
+      "status": "matched"
+    },
+    {
+      "interface": "phase tensor indices to16 matrix units",
+      "status": "matched"
+    },
+    {
+      "interface": "analytic corner to normalized known bound",
+      "status": "matched"
+    }
+  ],
+  "deviations": [
+    {
+      "priority": "P2",
+      "issue": "first producer omitted serialized negative W residuals",
+      "resolution": "single bounded repair, all versions retained"
+    },
+    {
+      "priority": "P2",
+      "issue": "discovery fourth source-open for same-source body",
+      "resolution": "reported; no more fetches; no scientific impact"
+    }
+  ],
+  "scope": "No P0/P1 mismatch; no general optimum or novelty claims."
+}

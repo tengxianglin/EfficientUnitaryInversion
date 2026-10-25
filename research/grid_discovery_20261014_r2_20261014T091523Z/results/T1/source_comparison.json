@@ -1,0 +1,15 @@
+{
+  "source": "../research/grid_discovery_20261014_r1/results/exact/embedding1024.json",
+  "sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f",
+  "schema": [
+    "B_orbits",
+    "cases",
+    "forbidden_rank_two",
+    "orbits",
+    "schema",
+    "summary"
+  ],
+  "explicit_type_comparisons": [],
+  "state": "schema_requires_manual_comparison",
+  "independent_n3_type_count": 973
+}

@@ -1,0 +1,33 @@
+{
+  "run_id": "t4_final_dense_rank_acceptance",
+  "group": "T4",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:24:18.276677+00:00",
+  "end_utc": "2026-10-14T09:24:22.205247+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./code/verify_t4.py",
+    "--input",
+    "./results/T4_final",
+    "--output",
+    "./results/T4_final_independent_verification.json"
+  ],
+  "cpu_seconds": 3.8960909999999997,
+  "wall_seconds": 3.92861788533628,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 472.304715,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t4_final_dense_rank_acceptance/stdout.txt",
+    "runs/t4_final_dense_rank_acceptance/stderr.txt",
+    "runs/t4_final_dense_rank_acceptance/command.txt",
+    "runs/t4_final_dense_rank_acceptance/environment.txt"
+  ]
+}

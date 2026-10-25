@@ -1,0 +1,1 @@
+["python", "./code/audit_rref.py", "--n", "3", "--all-ordered-bases", "--source", "../research/grid_discovery_20261014_r1/results", "--output", "./results/T1_final"]

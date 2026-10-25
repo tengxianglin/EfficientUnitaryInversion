@@ -1,0 +1,5 @@
+# Actually used with Python 3.13.5; no automatic installation.
+numpy==2.3.5
+scipy==1.17.0
+sympy==1.14.0
+pytest==9.0.2
