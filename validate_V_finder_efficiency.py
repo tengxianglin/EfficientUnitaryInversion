@@ -33,6 +33,7 @@ from utils.hamiltonian_utils import (
     generate_qubit_ops,
     find_pauli_mapping_operators,
     is_commuting,
+    certify_one_slot_pauli_dagger,
 )
 
 # import quairkit as qk
@@ -99,6 +100,12 @@ def main():
     print(f"Generating Pauli support of size {target_count} for mode='{mode}'...")
     pauli_support = generate_1slot_paulis(V, num_qubits, target_count, mode)
     print(f"Pauli support generated, size: {len(pauli_support)}")
+
+    if mode == "dagger":
+        assert certify_one_slot_pauli_dagger(list(pauli_support), V), (
+            "Generated support failed the exact one-slot dagger certificate"
+        )
+        print("Exact one-slot dagger certificate passed")
 
     print(f"Running find_pauli_mapping_operators(mode='{mode}')...")
     start_time = time.time()
