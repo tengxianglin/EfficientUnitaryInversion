@@ -46,3 +46,8 @@ $V H(\theta)V=-H(\theta)$. The Pauli operators are linearly independent, and the
 This lemma proves the exact condition implemented by the mode='dagger' branch of the Pauli mapping search. It applies to a one-slot protocol whose only free operation is Pauli conjugation by $V$. It does not by itself establish optimality among multi-slot combs, ancilla-assisted protocols, transpose, or complex-conjugation targets. Those claims require separate lower bounds.
 
 The repaired type-1.2 classifier is recorded in commit b270a30ec9099613c6f4ddba4f99cc215b05e68b.
+## Certification boundary
+
+`pauli_gate_solutions` samples a finite random set of Hamiltonian parameters and accepts candidates using a floating-point `torch.isclose` test. That procedure is a finite numerical check, not an exact certificate for all coefficients and times. A candidate found this way must be reported as a conjectured protocol until it is covered by an algebraic proof or a certified symbolic identity check.
+
+For the one-slot dagger target, the lemma above supplies such a certificate. For multi-slot, transpose, and complex-conjugation searches, the repository currently needs an explicit symbolic or representation-theoretic certification step before claiming exactness or optimality.
