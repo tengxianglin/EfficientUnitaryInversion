@@ -509,6 +509,23 @@ def is_commuting(pauli_a: str, pauli_b: str) -> bool:
     return anticommute_count % 2 == 0
 
 
+def certify_one_slot_pauli_dagger(
+    pauli_support: List[str], base_pauli: str
+) -> bool:
+    """
+    Certify exact one-slot Pauli conjugation for arbitrary coefficients and time.
+
+    The protocol V U(t) V = U(t)^dagger is exact for every Hamiltonian
+    coefficient vector and every real time when every supported Pauli term
+    anticommutes with the Pauli operator V represented by base_pauli.
+
+    This is an algebraic certificate. It does not test sampled unitaries.
+    """
+    if not pauli_support:
+        return False
+    return all(not is_commuting(base_pauli, term) for term in pauli_support)
+
+
 def is_type_1(pauli_support: List[str]) -> bool:
     """
     Check if list of Pauli strings satisfies type-1 Hamiltonian conditions.
