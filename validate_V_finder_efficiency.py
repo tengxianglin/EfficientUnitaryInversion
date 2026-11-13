@@ -1,4 +1,4 @@
-"""
+r"""
     For unitaries satisfying Theorem 1 and Theorem 5, which can be
     transformed to their inverse, transpose, or conjugate by a Pauli
     operator `V`, this script validates the efficiency of the algorithm
@@ -24,7 +24,7 @@ Parameters for tuning:
                 1: Sort by row-sum (number of nonzero entries), then by
                      first-one position.
                 2: Sort by first-one position, then by row-sum.
-"""
+r"""
 
 import time
 from typing import Set
@@ -53,7 +53,7 @@ V = generate_random_pauli(NUM_QUBITS)
 def generate_1slot_paulis(
     base_pauli: str, num_qubits: int, target_count: int, mode: str
 ) -> Set[str]:
-    """
+    r"""
     Generate all Pauli terms and filter by mode-specific (anti)commutation.
 
     Args:
@@ -63,7 +63,7 @@ def generate_1slot_paulis(
 
     Returns:
         A set of Pauli strings meeting the specified criteria.
-    """
+    r"""
     valid_items: Set[str] = set()
     while len(valid_items) < target_count:
         candidates = generate_qubit_ops(num_qubits, target_count)
