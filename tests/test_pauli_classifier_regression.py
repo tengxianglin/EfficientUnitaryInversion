@@ -12,6 +12,7 @@ def load_classifier_namespace():
     tree = ast.parse(source_path.read_text(encoding="utf-8"))
     wanted = {
         "multiply_paulis",
+        "_pauli_y_parity",
         "is_commuting",
         "is_type_1",
         "is_type_1_2",
