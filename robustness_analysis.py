@@ -1,4 +1,4 @@
-"""Robustness analysis of unitary inversion via Choi-state fidelity metrics.
+r"""Robustness analysis of unitary inversion via Choi-state fidelity metrics.
 
 This script implements five Monte-Carlo noise-simulation routines corresponding
 to the comb-circuit protocols in our paper:
@@ -12,7 +12,7 @@ to the comb-circuit protocols in our paper:
 Usage:
     Call any function with (delta, size, num_qubits) to estimate the
     average Choi-state fidelity of the V-U-V… sequence versus U^\dagger under noise.
-"""
+r"""
 
 SAMPLE_SIZE = 10000  # Number of Monte Carlo samples
 
@@ -40,7 +40,7 @@ qk.set_dtype("complex128")
 def comb_1slot_noise_simulation(
     delta: float, size: int = 1000, num_qubits: int = 3
 ) -> float:
-    """
+    r"""
     2a: Single-slot comb for inversion of specific unitaries (VUV inversion, Thm. 1slot).
 
     Compute the average Choi-state fidelity between V U V and U^\dagger for a randomly perturbed unitary.
@@ -51,7 +51,7 @@ def comb_1slot_noise_simulation(
 
     Returns:
         Mean fidelity of Choi states between V U V and U^\dagger.
-    """
+    r"""
     # 1. Build anti-commuting set S: all Paulis that anti-commute with the chosen base V (excluding V itself)
     #    and commuting set S' (all others, excluding V itself)
     omega = create_pauli_complete_set(num_qubits)
@@ -86,7 +86,7 @@ def comb_1slot_noise_simulation(
 def comb_3slot_a_noise_simulation(
     delta: float, size: int = 1000, num_qubits: int = 3
 ) -> float:
-    """
+    r"""
     3a: Three-slot comb for H = sum_{i<j} Y_i Y_j + sum_i Y_i on 3 qubits.
 
     Compute the average Choi-state fidelity of the sequence V0 U V1 U V0 U V1 under noise.
@@ -97,7 +97,7 @@ def comb_3slot_a_noise_simulation(
 
     Returns:
         Mean fidelity of Choi states between the comb with noisy U and U^\dagger.
-    """
+    r"""
     # 1. Build anti-commute set S: all non-empty combinations of Y_i (single and two-qubit terms)
     S = [
         ",".join([f"Y{i}" for i in idxs])
@@ -133,7 +133,7 @@ def comb_3slot_a_noise_simulation(
 def comb_3slot_b_noise_simulation(
     delta: float, size: int = 1000, num_qubits: int = 3
 ) -> float:
-    """
+    r"""
     3b: Three-slot comb for H = Z_0 X_1 Z_2 + sum_i X_i X_{i+1} + sum_i X_i.
 
     Compute the average Choi-state fidelity of the sequence V0 U V1 U V0 U V1 under noise.
@@ -144,7 +144,7 @@ def comb_3slot_b_noise_simulation(
 
     Returns:
         Mean fidelity of Choi states between the comb with noisy U and U^\dagger.
-    """
+    r"""
     # Build anti-commute set S (custom): ['Z0,X1,Z2'] plus all X_i X_{i+1} and X_i terms
     S = (
         ["Z0,X1,Z2"]
@@ -181,7 +181,7 @@ def comb_3slot_b_noise_simulation(
 def comb_recurrence_7slot_noise_simulation(
     delta: float, size: int = 1000, num_qubits: int = 3
 ) -> float:
-    """
+    r"""
     2c: Symmetric 7-slot comb via recurrence (Fig.2c).
 
     Compute the average Choi-state fidelity of the symmetric 7-slot comb
@@ -193,7 +193,7 @@ def comb_recurrence_7slot_noise_simulation(
 
     Returns:
         Mean fidelity of Choi states between the comb with noisy U and U^\dagger.
-    """
+    r"""
     # 1. Build anti-commute set S: all non-empty combinations of Y_i
     S = [
         ",".join([f"Y{i}" for i in idxs])
@@ -236,7 +236,7 @@ def comb_recurrence_7slot_noise_simulation(
 def comb_recurrence_15slot_noise_simulation(
     delta: float, size: int = 1000, num_qubits: int = 4
 ) -> float:
-    """
+    r"""
     2c-extension: 15-slot comb via recurrence.
 
     Compute the average Choi-state fidelity of the 15-slot comb
@@ -248,7 +248,7 @@ def comb_recurrence_15slot_noise_simulation(
 
     Returns:
         Mean fidelity of Choi states between the comb with noisy U and U^\dagger.
-    """
+    r"""
     # 1. Build anti-commute set S: all non-empty combinations of Y_i for 4 qubits
     S = [
         ",".join([f"Y{i}" for i in idxs])
