@@ -19,6 +19,9 @@ def load_classifier_namespace():
         "is_type_2_2",
         "is_type_2_2_1",
         "H_type",
+        "certify_one_slot_pauli_dagger",
+        "certify_one_slot_pauli_transpose",
+        "certify_one_slot_pauli_conj",
     }
     nodes = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in wanted]
     namespace = {"itertools": itertools, "List": List}
@@ -33,6 +36,22 @@ class PauliClassifierRegressionTest(unittest.TestCase):
         self.assertTrue(ns["is_type_1"](support))
         self.assertTrue(ns["is_type_1_2"](support))
         self.assertEqual(ns["H_type"](support), "1.2")
+
+    def test_one_slot_target_certificates(self):
+        ns = load_classifier_namespace()
+        support = ["X0", "Y0"]
+        self.assertTrue(ns["certify_one_slot_pauli_dagger"](
+            support, "Z0"
+        ))
+        self.assertTrue(ns["certify_one_slot_pauli_transpose"](
+            support, "X0"
+        ))
+        self.assertTrue(ns["certify_one_slot_pauli_conj"](
+            support, "Y0"
+        ))
+        self.assertFalse(ns["certify_one_slot_pauli_transpose"](
+            support, "Z0"
+        ))
 
     def test_type_1_without_odd_identity_product(self):
         ns = load_classifier_namespace()
