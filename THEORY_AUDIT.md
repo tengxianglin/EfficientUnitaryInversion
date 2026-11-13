@@ -49,7 +49,9 @@ For the other one-slot targets, let y(P) be the parity of Y factors in P. Transp
 
 These one-slot certificates do not establish optimality among multi-slot combs or ancilla-assisted protocols.
 
-The repaired type-1.2 classifier is recorded in commit b270a30ec9099613c6f4ddba4f99cc215b05e68b.## Certification boundary
+The repaired type-1.2 classifier is recorded in commit b270a30ec9099613c6f4ddba4f99cc215b05e68b.
+
+## Certification boundary
 
 `pauli_gate_solutions` samples a finite random set of Hamiltonian parameters and accepts candidates using a floating-point `torch.isclose` test. That procedure is a finite numerical check, not an exact certificate for all coefficients and times. A candidate found this way must be reported as a conjectured protocol until it is covered by an algebraic proof or a certified symbolic identity check.
 
