@@ -34,6 +34,8 @@ from utils.hamiltonian_utils import (
     find_pauli_mapping_operators,
     is_commuting,
     certify_one_slot_pauli_dagger,
+    certify_one_slot_pauli_transpose,
+    certify_one_slot_pauli_conj,
 )
 
 # import quairkit as qk
@@ -102,10 +104,16 @@ def main():
     print(f"Pauli support generated, size: {len(pauli_support)}")
 
     if mode == "dagger":
-        assert certify_one_slot_pauli_dagger(list(pauli_support), V), (
-            "Generated support failed the exact one-slot dagger certificate"
-        )
-        print("Exact one-slot dagger certificate passed")
+        certificate = certify_one_slot_pauli_dagger(list(pauli_support), V)
+    elif mode == "transpose":
+        certificate = certify_one_slot_pauli_transpose(list(pauli_support), V)
+    elif mode == "conj":
+        certificate = certify_one_slot_pauli_conj(list(pauli_support), V)
+    else:
+        raise ValueError(f"Unknown mode: {mode}")
+
+    assert certificate, f"Generated support failed the exact one-slot {mode} certificate"
+    print(f"Exact one-slot {mode} certificate passed")
 
     print(f"Running find_pauli_mapping_operators(mode='{mode}')...")
     start_time = time.time()
