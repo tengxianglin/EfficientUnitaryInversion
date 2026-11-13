@@ -541,7 +541,7 @@ def is_type_1_2(pauli_support: List[str]) -> bool:
         for combo in itertools.combinations(pauli_support, count):
             product = combo[0]
             for term in combo[1:]:
-                product = multiply_pauli_support(product, term)
+                product = multiply_paulis(product, term)
             if product == "":
                 return True
     return False
