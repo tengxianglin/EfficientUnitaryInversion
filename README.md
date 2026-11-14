@@ -58,6 +58,17 @@ We develop structured Hamiltonian ansätze and quantum‐comb protocols to inver
 
 See the [QuAIRKit installation guide](https://github.com/QuAIR/QuAIRKit) for detailed Python version requirements and installation instructions.
 
+## Verification
+
+The repository includes dependency-light regression tests for the Pauli taxonomy and the exact one-slot certificates.
+
+```bash
+python -m compileall -q .
+python -m unittest tests/test_pauli_classifier_regression.py
+```
+
+These checks do not require QuAIRKit. The numerical comb searches and noise simulations require the dependencies listed below and should be reported as finite numerical evidence unless an algebraic certificate is available.
+
 ## Usage
 
 ### 1. Search for Optimal Comb Configurations
