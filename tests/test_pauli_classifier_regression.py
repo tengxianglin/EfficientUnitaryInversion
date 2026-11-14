@@ -23,6 +23,7 @@ def load_classifier_namespace():
         "certify_one_slot_pauli_dagger",
         "certify_one_slot_pauli_transpose",
         "certify_one_slot_pauli_conj",
+        "certify_uniform_pauli_word_dagger",
     }
     nodes = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in wanted]
     namespace = {"itertools": itertools, "List": List}
@@ -52,6 +53,12 @@ class PauliClassifierRegressionTest(unittest.TestCase):
         ))
         self.assertFalse(ns["certify_one_slot_pauli_transpose"](
             support, "Z0"
+        ))
+
+    def test_uniform_character_multi_slot_certificate(self):
+        ns = load_classifier_namespace()
+        self.assertTrue(ns["certify_uniform_pauli_word_dagger"](
+            ["X0"], ["X0", "Z0", "X0", "Z0"]
         ))
 
     def test_type_1_without_odd_identity_product(self):
