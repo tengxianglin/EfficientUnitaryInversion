@@ -51,6 +51,18 @@ These one-slot certificates do not establish optimality among multi-slot combs o
 
 The repaired type-1.2 classifier is recorded in commit b270a30ec9099613c6f4ddba4f99cc215b05e68b.
 
+## Uniform-character multi-slot subclass
+
+For a Pauli word
+\[
+V_0 U V_1 U \cdots U V_m,
+\]
+assume each $V_j$ for $j\ge 1$ either commutes with every support term or anticommutes with every support term. Write that common sign as $s_j\in\{+1,-1\}$. If $V_0\cdots V_m$ is identity up to phase, the word equals a signed power $U^{a_m}$, where
+\[
+a_0=0,\qquad a_j=(a_{j-1}+1)s_j.
+\]
+Therefore $a_m=-1$ is an exact certificate for inversion in this restricted multi-slot subclass. The implementation is `certify_uniform_pauli_word_dagger`. It does not cover words whose commutation character varies across the Hamiltonian support.
+
 ## Certification boundary
 
 `pauli_gate_solutions` samples a finite random set of Hamiltonian parameters and accepts candidates using a floating-point `torch.isclose` test. That procedure is a finite numerical check, not an exact certificate for all coefficients and times. A candidate found this way must be reported as a conjectured protocol until it is covered by an algebraic proof or a certified symbolic identity check.
