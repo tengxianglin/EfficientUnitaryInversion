@@ -60,6 +60,9 @@ class PauliClassifierRegressionTest(unittest.TestCase):
         self.assertTrue(ns["certify_uniform_pauli_word_dagger"](
             ["X0"], ["X0", "Z0", "X0", "Z0"]
         ))
+        self.assertFalse(ns["certify_uniform_pauli_word_dagger"](
+            ["X0", "Y0"], ["X0", "Z0", "X0", "Z0"]
+        ))
 
     def test_type_1_without_odd_identity_product(self):
         ns = load_classifier_namespace()
