@@ -61,7 +61,7 @@ assume each $V_j$ for $j\ge 1$ either commutes with every support term or antico
 \[
 a_0=0,\qquad a_j=(a_{j-1}+1)s_j.
 \]
-Therefore $a_m=-1$ is an exact certificate for inversion in this restricted multi-slot subclass. The implementation is `certify_uniform_pauli_word_dagger`. It does not cover words whose commutation character varies across the Hamiltonian support.
+Therefore $a_m=-1$ is an exact certificate for inversion in this restricted multi-slot subclass. The implementation is `certify_uniform_pauli_word_dagger`. This is a sufficient certificate and is intentionally conservative. A word rejected by the certificate can still work for a special fixed Hamiltonian, but that does not establish a uniform identity over arbitrary coefficients. It does not cover words whose commutation character varies across the Hamiltonian support.
 
 ## Certification boundary
 
