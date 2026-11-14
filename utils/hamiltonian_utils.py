@@ -545,6 +545,34 @@ def certify_one_slot_pauli_conj(
         is_commuting(base_pauli, term) == (_pauli_y_parity(term) == 1)
         for term in pauli_support
     )
+def certify_uniform_pauli_word_dagger(
+    pauli_support: List[str], pauli_word: List[str]
+) -> bool:
+    """Certify a uniform-character Pauli word for exact U-dagger inversion.
+
+    The word is V0 U V1 U ... U Vm. The certificate applies when each
+    Vj for j >= 1 commutes or anticommutes uniformly with every support
+    term, the Pauli product V0...Vm is identity up to phase, and the
+    induced signed exponent is -1.
+    """
+    if not pauli_support or len(pauli_word) < 2:
+        return False
+
+    product = ""
+    for gate in pauli_word:
+        product = multiply_paulis(product, gate)
+    if product != "":
+        return False
+
+    exponent = 0
+    for gate in pauli_word[1:]:
+        signs = [not is_commuting(gate, term) for term in pauli_support]
+        if not signs or any(sign != signs[0] for sign in signs):
+            return False
+        sign = -1 if signs[0] else 1
+        exponent = (exponent + 1) * sign
+    return exponent == -1
+
 def is_type_1(pauli_support: List[str]) -> bool:
     """
     Check if list of Pauli strings satisfies type-1 Hamiltonian conditions.
