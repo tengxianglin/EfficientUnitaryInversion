@@ -40,9 +40,44 @@ $$
 
 Apply the intertwiner with $g=g^{(s)}$ for each $s$. Every term of $W_s$ lies in the same parity sector on all three query registers, so in that branch the physical oracle acts as $(g^{(s)}|_{S_s})^{\otimes3}$. Combine the two encodings into $W=W_+\oplus W_-$. The images are orthogonal and their intertwining identities have no relative phase, giving $U^{\otimes3}W=W\overline U$ on the whole input space. Since $H$ is real symmetric in the physical basis, $\overline U=U^\dagger$.
 
-Extend $W$ to a fixed unitary on the data register and two blank $n$-qubit registers. Encode, make one forward call on each register, and decode with the inverse fixed unitary. The three calls can also be made sequentially on the three registers. This counts oracle calls and workspace qubits. It leaves the cost of compiling the known encoding gates open.
+Extend $W$ to a fixed unitary on the data register and two blank $n$-qubit registers. Encode, make one forward call on each register, and decode with the inverse fixed unitary. The three calls can also be made sequentially on the three registers. The next section gives an explicit gate decomposition.
 
 For the matching lower bound, the commuting restriction sets all $h_j=0$. The odd-cycle edge signs then give the three-call lower bound, which [the heralded slice theorem](THEORY_HERALDED_COMMUTING.md#restricting-a-heralded-converse-to-a-commuting-slice) transfers to the full linear promise. Combined with the [system-only Pauli lower bound](THEORY_ODD_CYCLE_PAULI.md), the result separates a three-call coherent encoding from Pauli-only control, which requires at least five calls.
+
+## Linear-size encoder on exactly three registers
+
+This construction uses the same three $n$-qubit registers and no additional work qubits. All-to-all connectivity and exact one-qubit rotations are assumed. One encoder uses at most $40n-19$ CNOTs after expansion, $O(n)$ one-qubit gates and $O(n)$ depth. Its inverse has the same cost. In the physical basis the Hadamards used to conjugate the oracle or change the input and output basis add only one-qubit gates. These are compilation upper bounds.
+
+Write the encoder in the Hadamard-rotated basis, so the parity bit of a computational state $x$ is $q=\bigoplus_i x_i$. Call the data register $A$ and the blank registers $B,C$. In this section use $\Gamma=b_0\cdots b_{n-1}$ for the charge-conjugation Pauli to distinguish it from register $C$. Index the Majoranas by a site $j$ and type bit $t$, with $\gamma_{j,0}=a_j$ and $\gamma_{j,1}=b_j$. Let $e_j$ denote the site unit bit string, let $d_j=\mathbf1\oplus e_j$, and let $z_0$ have a one at each even site. Set $\ell_j=z_0\oplus\mathbf1_{i<j}$.
+
+In the rotated basis $a_j=X_j\prod_{i<j} Z_i$ and $b_j=-Y_j\prod_{i<j}Z_i$. Thus $\Gamma$ flips all bits and has $Z$ exponent $z_0$. Commuting the Pauli factors into $X$-then-$Z$ order gives
+$
+\gamma_{j,t}\Gamma=\alpha_j i^t X^{d_j}Z^{\ell_j\oplus t e_j},
+\qquad \alpha_j^2=-1 .
+$
+The same factor is used on $A$ and $B$ in $W$. Their product contributes the common overall minus sign and the relative sign $(-1)^t$. It follows that the desired output on $|x\rangle$, up to the common overall sign, is the uniform sum over $j,t$ and the strings $y$ of parity $q$ of
+$
+(-1)^{t+(\ell_j\oplus t e_j)\cdot(x\oplus y)}
+|x\oplus d_j\rangle_A\, |y\oplus d_j\rangle_B\, |y\rangle_C .
+$
+There are $2n\,2^{n-1}$ summands with this normalization.
+
+The gate list in [odd_cycle_encoder.py](odd_cycle_encoder.py) implements that expression as follows.
+
+1. Prepare the uniform one-excitation state $\sum_j |e_j\rangle_B/\sqrt n$ using $n-1$ adjacent two-level rotations in the $\{|10\rangle,|01\rangle\}$ subspace. Use the last wire of $C$ for $t$ and prepare it in $Z|+\rangle$ to supply $(-1)^t$.
+2. Apply the phase $(-1)^{(\ell_j\oplus t e_j)\cdot x}$ to $A$ and flip the bits indicated by $d_j$. To apply the prefix part of $\ell_j$ use a descending suffix-XOR scan on $B$, apply one CZ per prefix wire and undo the scan. The $t e_j$ part uses one CCZ per site.
+3. Prepare the characters of $C$ in Fourier coordinates. Its first $n-1$ bits should hold $t e_j$ if $j<n-1$, and $t\mathbf1$ otherwise. In the last-site case add the phase $(-1)^{tq}$, temporarily computing $q$ in the last wire of $A$ and undoing that computation. Transfer $t$ into those Fourier labels using Toffoli gates conditioned on $B$. The type bit can now be reset by XORing back the addressed label bit, taking the first label bit when $j=n-1$. This leaves the last wire of $C$ at zero. Apply Hadamards to the labels and set that last wire to $q$ XOR the other $C$ bits. The parity of $A$ is still $q$ because $n-1$ is even. At this point $C$ has the required phase $(-1)^{t y_j}$. Apply the fixed and prefix $Z$ phases $\ell_j$ on $C$ with a second suffix scan on $B$.
+4. Complement $B$ and XOR $C$ into it. This produces $d_j\oplus y$ and consumes the site label in the output registers. There is no separate label register to discard.
+
+The counted macros are $10n-7$ CNOTs, $2n-2$ CZs, $3n-2$ Toffolis, $n+1$ CCZs and $n-1$ two-level rotations, plus one-qubit gates. A rotation on $\{|10\rangle,|01\rangle\}$ is a controlled $R_y$ conjugated by two CNOTs, costing four CNOTs in total. CZ costs one CNOT and Toffoli or CCZ costs six using exact ancilla-free decompositions with single-qubit gates. See [Barenco et al., Phys. Rev. A 52, 3457 (1995)](https://doi.org/10.1103/PhysRevA.52.3457). Thus the total CNOT upper bound including the decoder is $80n-38$. The exact single-qubit angles for the uniform site state are allowed in this gate model. A finite discrete gate set would require a separate synthesis and precision analysis.
+
+Run the stand-alone verifier with:
+
+~~~bash
+python odd_cycle_encoder.py
+~~~
+
+It compares every basis column of the emitted gate list against a separate Majorana-monomial calculation for $n=3,5,7$ with tolerance $10^{-12}$. Using a single prescribed overall phase in this check tests both parity sectors together, including the relative phase needed for coherent inputs.
 
 ## Reproduction
 
