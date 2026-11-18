@@ -27,7 +27,7 @@ The first branch includes \(c=\gamma=0\), and all quantities are independent of 
 \]
 At the first admissible ring size \(n=21\), \(C_{21}=23.498048879555\ldots\). The plus-to-minus coherence alone gives leading coefficient six. The stronger coefficient comes from a reference-entangled input in the plus sector. Among odd sizes the branch changes at \(n=83\), and \(C_n\to6\) as \(n\to\infty\).
 
-The formulas concern the stated construction. They do not establish an optimal second-order coefficient over all six-query protocols.
+The formulas concern the stated construction. [Balancing the two parity choices](THEORY_ODD_CYCLE_BALANCED_SIX_QUERY.md) gives a strictly smaller quadratic coefficient at every allowed finite ring size, with the same six queries. The optimal second-order coefficient over all six-query protocols remains open.
 
 ## Bell projectors and the reduced channel
 
