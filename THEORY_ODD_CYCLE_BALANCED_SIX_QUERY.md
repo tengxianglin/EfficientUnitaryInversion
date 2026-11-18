@@ -19,7 +19,7 @@ relative to the intended inverse, uniformly in \(H\), without a factor of one ha
  {\cal E}^{\rm bal}_n(\epsilon)
  =[6+24(1-f_n)]\epsilon^2+O(\epsilon^4).
 \]
-At \(n=21\) the coefficient is \(11.874512219889\ldots\), compared with \(23.498048879555\ldots\) for the prior unbalanced protocol. The balanced construction retains the six-query optimum for first-order suppression on these ring lengths. Optimal second-order error over all six-query protocols remains open.
+At \(n=21\) the coefficient is \(11.874512219889\ldots\), compared with \(23.498048879555\ldots\) for the prior unbalanced protocol. The balanced construction retains the six-query optimum for first-order suppression on these ring lengths. A [fixed-encoder recovery bound](THEORY_ODD_CYCLE_SIX_QUERY_DECODER_BOUND.md) shows that changing only the decoder cannot make this classical balanced encoder cubic on the physical Ising promise. On the independent Gaussian-group promise at \(n=21\), its attained quadratic coefficient is within a factor of \(1.018\) of the best possible fixed recovery for that encoder. Optimal second-order error over all six-query protocols remains open.
 
 ## Circuit implementation and full reduced channel
 
