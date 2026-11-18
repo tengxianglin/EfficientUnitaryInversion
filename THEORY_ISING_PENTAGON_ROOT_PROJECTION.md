@@ -27,7 +27,7 @@ The Gram matrices \(G=5^8AA^{\mathsf T}\) and \(H=5^8BB^{\mathsf T}\) are intege
 
 Put \(L=\max_i\sum_j G_{ij}\), \(Z=G/L\), and \(p(z)=34z-244z^2+506z^3-316z^4\). The columns of \(p(Z)B\) are in \(\operatorname{col}(A)\) because \(p(0)=0\) and \(G\) has that column space. The least-squares variational identity gives
 \[
- \mathcal F\ \ge\ 
+ \mathcal F\ \ge\
  \frac{2\operatorname{Tr}[p(Z)H]-\operatorname{Tr}[p(Z)^2H]}{\operatorname{Tr}H}.
 \]
 The right-hand side is rational. The [verifier](verify_ising_pentagon_root_projection.py) computes the eight integer moments \(\operatorname{Tr}(G^kH)\) using modular products and Chinese remaindering. It uses \(0\le\operatorname{Tr}(G^kH)\le L^k\operatorname{Tr}H\), from positivity and the maximum row-sum bound. Every binary64 product used for modular matrix multiplication is an integer dot product of nonnegative residues whose total is strictly below \(2^{53}\). The verifier checks that bound at every modulus. The returned bound is certified by exact rational comparison with \(19/25\), independent of any eigensolver or singular-value cutoff.
