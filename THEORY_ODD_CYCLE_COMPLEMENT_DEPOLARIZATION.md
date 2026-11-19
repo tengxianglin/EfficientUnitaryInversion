@@ -128,6 +128,8 @@ The argument does not assert that every replacement rule attains this value: a n
 
 ## Implications and next step
 
+**Subsequent result:** the [program-supported Pauli twirl](THEORY_ODD_CYCLE_PROGRAM_TWIRL.md) retains data information and certifiably beats this replacement-class optimum by a factor of \(D^2/s=1/(1-f)\) in the quadratic gain, where \(s=\binom{2n}{n}/2\). The absolute improvement remains exponentially small.
+
 The edge obstruction covered only diagonal complementary correction channels. Complete depolarization uses the full logical Pauli group and escapes that premise. The constant complementary-probability identity supplies a uniform guarantee, so this establishes a strict minimax gain over the old balanced decoder on the full physical family. The gain is smaller than the fixed-diagonal test-family gain by another factor of \(D\); it is a proof of principle.
 
 The replacement-class theorem shows that preparing a different state after discarding the data cannot improve the guarantee, even with label-dependent preparation. The next step must retain or measure data information, or coherently process data and program, while obtaining a full-family error certificate. The shared-projector and protected-space symmetries can constrain such a channel without full exponential register simulation. The physical pentagon six-versus-seven problem and the optimal quadratic error over all six-query encoders remain open.
