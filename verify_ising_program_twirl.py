@@ -31,7 +31,7 @@ def complementary_weight(n):
     return r*(D*D-r)-S
 
 
-def verify_effect(n):
+def verify_effect(n, callback=None):
     size = 2**n
     basis = [x for x in range(size) if x.bit_count() % 2 == 0]
     D = len(basis)
@@ -128,6 +128,8 @@ def verify_effect(n):
         np.testing.assert_allclose(effect, beta*np.eye(D), atol=2e-12, rtol=0)
 
         corrected = np.einsum('rji,rjk->rik', operators.conj(), kraus)
+        if callback is not None:
+            callback(n, sample, V, Q, operators, corrected, protected)
         for a in corrected:
             vector = (V@a.conj().T).reshape(-1)
             defect = np.linalg.norm(vector-protected@vector)
