@@ -2,9 +2,10 @@
 
 p=0.6 is a valid encoder mixture at this size. Its linear drift need not
 vanish. The check verifies that the added recovery preserves that derivative
-and shows that entanglement infidelity at nonzero H can increase.
+and compares full correction with the optional selective correction rule.
 """
 
+import argparse
 from itertools import product
 
 import numpy as np
@@ -45,7 +46,7 @@ PROTECTED = {
 BELL = [pauli.reshape(D, D)/np.sqrt(D) for pauli in PAULIS]
 
 
-def kraus(hamiltonian, epsilon, corrected):
+def kraus(hamiltonian, epsilon, corrected, selective=False):
     target = expm(1j*hamiltonian)
     a = np.exp(-6j*epsilon)
     b = np.exp(2j*epsilon)-a
@@ -58,20 +59,23 @@ def kraus(hamiltonian, epsilon, corrected):
         joint = (np.kron(target, target) @ amplitude).reshape(D, D, D, D)
         for label, pauli in enumerate(PAULIS):
             matrix = np.einsum("er,aeir->ai", BELL[label].conj(), joint)/np.sqrt(D)
-            if corrected and (flag == 1 or label not in PROTECTED):
+            if corrected and (
+                (flag == 0 and label not in PROTECTED)
+                or (flag == 1 and not selective)
+            ):
                 matrix = pauli.conj().T @ matrix
             result.append(matrix)
     return result
 
 
-def choi(hamiltonian, epsilon, corrected):
+def choi(hamiltonian, epsilon, corrected, selective=False):
     return sum(
         np.outer(matrix.reshape(-1), matrix.reshape(-1).conj())/D
-        for matrix in kraus(hamiltonian, epsilon, corrected)
+        for matrix in kraus(hamiltonian, epsilon, corrected, selective)
     )
 
 
-def verify():
+def verify(selective=False):
     rng = np.random.default_rng(20261119)
     ratios = []
     for sample in range(10):
@@ -85,16 +89,16 @@ def verify():
                 flipped = row ^ (1 << k) ^ (1 << ((k+1) % 3))
                 hamiltonian[PARITY_BASIS.index(flipped), column] += edges[k]
         for corrected in (False, True):
-            operators = kraus(hamiltonian, 0.013, corrected)
+            operators = kraus(hamiltonian, 0.013, corrected, selective)
             np.testing.assert_allclose(
                 sum(k.conj().T @ k for k in operators), np.eye(D), atol=1e-12
             )
         np.testing.assert_allclose(
-            choi(hamiltonian, 0, False), choi(hamiltonian, 0, True), atol=1e-12
+            choi(hamiltonian, 0, False, selective), choi(hamiltonian, 0, True, selective), atol=1e-12
         )
         step = 1e-5
         derivative_change = (
-            choi(hamiltonian, step, True)-choi(hamiltonian, -step, True)
+            choi(hamiltonian, step, True, selective)-choi(hamiltonian, -step, True, selective)
             -choi(hamiltonian, step, False)+choi(hamiltonian, -step, False)
         )/(2*step)
         assert np.linalg.norm(derivative_change) < 1e-7
@@ -102,15 +106,23 @@ def verify():
         infidelities = []
         for corrected in (False, True):
             infidelity = 1-np.vdot(
-                target, choi(hamiltonian, 0.001, corrected) @ target
+                target, choi(hamiltonian, 0.001, corrected, selective) @ target
             ).real
             infidelities.append(infidelity)
         ratio = infidelities[1]/infidelities[0]
         ratios.append(ratio)
         print(sample, "new/old entanglement infidelity", f"{ratio:.9f}")
-    assert min(ratios) > 1
-    print("All ideal and derivative checks passed; nonzero-H infidelity can increase.")
+    if selective:
+        assert max(ratios) <= 1+1e-8
+        print("Selective correction passed exactness and derivative checks; sampled infidelity decreased.")
+    else:
+        assert min(ratios) > 1
+        print("All ideal and derivative checks passed; nonzero-H infidelity can increase.")
 
 
 if __name__ == "__main__":
-    verify()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--selective", action="store_true",
+                        help="correct only ideal-flag syndromes outside the physical program span")
+    args = parser.parse_args()
+    verify(args.selective)
