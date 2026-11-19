@@ -21,7 +21,7 @@ The [old balanced inverse decoder](THEORY_ODD_CYCLE_BALANCED_SIX_QUERY.md) has t
 \]
 Thus the new recovery has strictly larger worst-case error whenever \(\sin(4\epsilon)\ne0\), at every admitted finite ring length. Its identity-oracle improvement remains valid. The difference of the worst-case errors is exactly
 \(\frac32(f_n-\frac34)\sin^2(4\epsilon)\).
-This resolves the proposed uniform-improvement test for this recovery.
+This resolves the proposed uniform-improvement test for this recovery. A [selective variant](THEORY_ODD_CYCLE_SELECTIVE_SYNDROME.md), which leaves the orthogonal flag branch uncorrected, is pointwise no worse than the old decoder over the full physical family and strictly better at the identity oracle; its minimax error equals the old value.
 
 ## 1. Residual Kraus decomposition at an arbitrary physical oracle
 
