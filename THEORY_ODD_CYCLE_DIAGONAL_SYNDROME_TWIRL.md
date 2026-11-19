@@ -26,7 +26,7 @@ Uniform \(\mu(T)=1/D\) therefore strictly improves all \(D\) field-Pauli oracles
 \]
 At \(n=21\), the coefficient decreases from \(11.874512219889\ldots\) to \(11.874508493827\ldots\). The guaranteed test-family gain is \(3.7260622\times10^{-6}\). Its exponential \(1/D\) factor limits this fixed-distribution approach.
 
-These are exact field-Pauli errors and a uniform pointwise upper bound on the full physical family. The full-family worst-case coefficient for this modified decoder remains open. Improving the old maximizers alone does not prove a smaller supremum.
+These are exact field-Pauli errors and a uniform pointwise upper bound on the full physical family. The [edge-oracle converse](THEORY_ODD_CYCLE_EDGE_ORACLE_CONVERSE.md) determines the full-family worst case for this modified decoder and the larger selective diagonal-channel class. It equals the old balanced error, attained by \(H=(\pi/2)Z_0Z_1\). The field-Pauli improvements alone therefore do not lower the full-family supremum.
 
 ## 1. Uniform pointwise safety of the random correction
 
@@ -64,7 +64,7 @@ The only dependence on the fixed random distribution is through \(\mu(T)\), with
 
 ## Implication and next step
 
-The Pauli-field counterexample is not an invariant of all pointwise-safe recovery rules: this decoder reduces its error while preserving the safety proof for the entire physical family. However, fixed syndrome-independent diagonal guessing has a small guaranteed gain. The [syndrome-conditioned optimization](THEORY_ODD_CYCLE_CONDITIONAL_SYNDROME.md) is now solved analytically using the explicit integer likelihoods \(a_{TR}^2\). A maximum-likelihood rule attains the same optimal gain on all field-Pauli hypotheses and removes the exponential fixed-distribution limitation. At \(n=21\) its quadratic gain is \(0.148358524720\ldots\). Testing non-Pauli physical oracles remains necessary to determine its full-family minimax value. The full physical pentagon query minimum and all-encoder quadratic optimum remain open.
+The Pauli-field counterexample is not an invariant of all pointwise-safe recovery rules: this decoder reduces its error while preserving the safety proof for the entire physical family. However, fixed syndrome-independent diagonal guessing has a small guaranteed gain. The [syndrome-conditioned optimization](THEORY_ODD_CYCLE_CONDITIONAL_SYNDROME.md) is now solved analytically using the explicit integer likelihoods \(a_{TR}^2\). A maximum-likelihood rule attains the same optimal gain on all field-Pauli hypotheses and removes the exponential fixed-distribution limitation. At \(n=21\) its quadratic gain is \(0.148358524720\ldots\). The [edge-oracle converse](THEORY_ODD_CYCLE_EDGE_ORACLE_CONVERSE.md) fixes the full-family minimax value at the old balanced bound for both rules. The full physical pentagon query minimum and all-encoder quadratic optimum remain open.
 
 The [EUI manuscript and Appendix B](https://arxiv.org/html/2506.20570v1) provide the structured inversion setting. This decoder uses the [exact physical program span](THEORY_ODD_CYCLE_PROGRAM_SPAN_THEOREM.md) and the [selective residual-channel identity](THEORY_ODD_CYCLE_SELECTIVE_SYNDROME.md).
 
