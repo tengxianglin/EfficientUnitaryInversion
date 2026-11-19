@@ -21,7 +21,7 @@ For the physical fully fielded Ising promise, the same fixed plus-program encode
 \]
 Out-of-range binomial coefficients in the inner sum are zero. In fact its finite-drift diamond error is at least
 \( (B_n/16)\sin^2(4\epsilon)\).
-At \(n=21\), \(B_{21}=0.100884111690\ldots>0\). The classical balanced encoder has at least half this coefficient. Thus changing only the fixed recovery cannot yield cubic suppression for these encoders on the physical promise either.
+At \(n=21\), \(B_{21}=0.100884111690\ldots>0\). The [physical program-span refinement](THEORY_ODD_CYCLE_PHYSICAL_PROGRAM_SPAN.md) strengthens this coefficient to \(2.249999602402\ldots\) using independently rotated physical root tori. The classical balanced encoder has at least half this coefficient. Thus changing only the fixed recovery cannot yield cubic suppression for these encoders on the physical promise either.
 
 The recovery can keep both the program and its purifying register, the coherent split flag, and all ideal scratch registers. The statement fixes the encoder and the group promise. A general physical Ising decoder and a new encoder require further analysis.
 
