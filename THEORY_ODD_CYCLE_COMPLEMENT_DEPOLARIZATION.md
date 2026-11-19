@@ -89,17 +89,54 @@ with \(\mathcal N_H\) trace preserving and completely positive. The cross-parity
 
 The balanced two-sector norm bound is at most \(|1-g|+\gamma'/2\), because \(\gamma'\le\gamma\le2|1-g|\). At \(H=0\), and at the physical edge Pauli oracle, all unmodified residuals are mixtures of nonidentity Paulis after removing the target. The depolarizing part contributes a uniform nonidentity Pauli mixture once its identity component is removed. Thus \(\mathcal N_H\) contains only nonidentity Paulis at those oracles, and the equal two-sector Bell input attains the bound. This proves the exact physical supremum and its strict reduction for \(\sin(4\epsilon)\ne0\).
 
+## 3. Optimality among complementary data-replacement recoveries
+
+**Restricted minimax theorem.** Fix the encoder, protected-program treatment, orthogonal-flag treatment and fair orientation choice above. On each ideal-flag complementary Bell label \(R\), discard the selected-sector data and prepare an arbitrary density matrix \(\tau_{R,s}\), where \(s\) is the orientation. The states may depend on the label and orientation. Then, at every fixed drift,
+\[
+ \inf_{\{\tau_{R,s}\}}\sup_{H\text{ physical}}\mathcal E_H(\epsilon)
+ = |1-g|+\frac{\gamma'}2.
+\]
+The maximally mixed choice attains the infimum. Thus changing the prepared state or conditioning that state on the program label cannot enlarge the guaranteed gain. This is a statement about this replacement class, not all channels on the complementary data or coherent processing of its program.
+
+**Proof.** It suffices to use the legal identity oracle \(H=0\). In either parity sector, its complementary Kraus amplitude before replacement is \(pb\,a_R P_R/D^2\), up to an immaterial phase. Its trace effect is a scalar multiple of the identity. On a normalized maximally entangled data-reference state, replacement therefore gives the subnormalized product state
+\[
+ p^2|b|^2\frac{a_R^2}{D^4}\,
+          \tau_{R,s}\otimes\frac{I_{\rm ref}}D .
+\]
+Every density matrix has the same Bell overlap:
+\[
+ \langle\Phi|\tau\otimes I/D|\Phi\rangle=\frac1{D^2}.
+\]
+At the identity oracle all unmodified residual Kraus operators are nonidentity Paulis, hence have zero Bell overlap. Let \(u_+,u_-\) be normalized sector Bell states with disjoint reference supports and input \((u_++u_-)/\sqrt2\). Pinch the output error into their two-dimensional span and its orthogonal complement. The compressed error on their span is, independently of all the prepared states,
+\[
+ A=\begin{pmatrix}
+ -\gamma'/4&(g-1)/2\\
+ (\bar g-1)/2&-\gamma'/4
+ \end{pmatrix}.
+\]
+The complementary compression is positive, with trace \(\gamma'/2\): the only negative and coherence terms before pinching lie in the two-dimensional span. Because \(|1-g|\ge\gamma'/2\), we have \(\|A\|_1=|1-g|\). Pinching contracts the trace norm of a Hermitian matrix, so the actual error on this input is at least \(|1-g|+\gamma'/2\). This lower-bounds the diamond error at \(H=0\), and hence the physical supremum, for every label-conditioned replacement rule. Section 2 gives a matching uniform upper bound for \(\tau_{R,s}=I/D\), proving the theorem.
+
+Since \(M\le r(D^2-r)\), the best replacement-class quadratic gain also obeys
+\[
+ 0<\Delta C=\frac{18M}{r^2D^2}
+ \le\frac{18(1-f)}{fD^2}
+ =O\!\left(\frac{1}{\sqrt n\,4^{n-1}}\right),
+\]
+where the last estimate uses the central-binomial asymptotic. Thus exponential suppression is unavoidable within this replacement class for the fixed encoder; tuning the prepared states cannot change that scaling.
+
+The argument does not assert that every replacement rule attains this value: a nonuniform rule can retain off-diagonal Bell coherences between the two pinched subspaces and can have a larger error. Allowing additional measurement of the data, quantum data processing, or coherent joint data-program recovery leaves the stated class.
+
 ## Implications and next step
 
 The edge obstruction covered only diagonal complementary correction channels. Complete depolarization uses the full logical Pauli group and escapes that premise. The constant complementary-probability identity supplies a uniform guarantee, so this establishes a strict minimax gain over the old balanced decoder on the full physical family. The gain is smaller than the fixed-diagonal test-family gain by another factor of \(D\); it is a proof of principle.
 
-The next step is to replace complete depolarization by a more informative non-diagonal recovery while retaining a certified identity component in the residual channel. The shared-projector and protected-space symmetries can constrain such a channel without full exponential register simulation. The physical pentagon six-versus-seven problem and the optimal quadratic error over all six-query encoders remain open.
+The replacement-class theorem shows that preparing a different state after discarding the data cannot improve the guarantee, even with label-dependent preparation. The next step must retain or measure data information, or coherently process data and program, while obtaining a full-family error certificate. The shared-projector and protected-space symmetries can constrain such a channel without full exponential register simulation. The physical pentagon six-versus-seven problem and the optimal quadratic error over all six-query encoders remain open.
 
 The [EUI manuscript and robustness appendix](https://arxiv.org/html/2506.20570v1) give the physical setting. This proof uses the [physical program-span theorem](THEORY_ODD_CYCLE_PROGRAM_SPAN_THEOREM.md), the [selective residual decomposition](THEORY_ODD_CYCLE_SELECTIVE_SYNDROME.md), and the [balanced diamond-norm argument](THEORY_ODD_CYCLE_BALANCED_SIX_QUERY.md).
 
 ## Verification
 
-The script reconstructs the actual shared projector and balanced program space at three and five sites. It checks the exact protected-projector matrix-unit zeros, the shared-projector weight-conservation support, and the constant-probability identity for seeded noncommuting physical Hamiltonians and diagonal fields. These sizes check the dimension-independent identity; the first-order-canceling decoder requires \(n\ge21\). The long-ring coefficient improvement is evaluated by exact fractions.
+The script reconstructs the actual shared projector and balanced program space at three and five sites. It checks the exact protected-projector matrix-unit zeros, the shared-projector weight-conservation support, and the constant-probability identity for seeded noncommuting physical Hamiltonians and diagonal fields. These sizes check the dimension-independent identity; the first-order-canceling decoder requires \(n\ge21\). The long-ring coefficient improvement is evaluated by exact fractions. A second script below checks the replacement-class Bell-input lower bound in admissible small Bell-projector surrogate circuits; it does not simulate a physical 21-site circuit.
 
 ~~~python
 from fractions import Fraction
@@ -224,4 +261,90 @@ for n in (21, 23, 83):
     assert 0 < gain < old
     print(n, "strict full-family quadratic gain", f"{float(gain):.12g}",
           "new coefficient", f"{float(old-gain):.12f}")
+~~~
+
+
+### Replacement-class pinching verification
+
+This check uses logical dimension four and shared Bell-projector ranks 12, 13 and 15, so the split probability is valid. It reconstructs the balanced error output from the projector's Pauli weights, replaces each complementary ideal-flag outcome separately, and checks both orientation-dependent and label-dependent preparations. The uniform reset saturates the predicted bound. Random preparations test only the stated finite examples; the theorem rests on the preceding Bell-overlap proof.
+
+~~~python
+from itertools import product
+import numpy as np
+
+single = (np.eye(2), np.array([[0, 1], [1, 0]]),
+          np.array([[0, -1j], [1j, 0]]), np.diag([1, -1]))
+paulis = [np.kron(a, b) for a, b in product(single, repeat=2)]
+d, full = 4, 8
+protected = {i for i, p in enumerate(paulis) if np.array_equal(p, p.T)}
+rng = np.random.default_rng(202611200235)
+tol = 3e-11
+
+def bell(operator, sector):
+    matrix = np.zeros((full, full), complex)
+    matrix[sector*d:(sector+1)*d, sector*d:(sector+1)*d] = operator/np.sqrt(d)
+    return matrix.reshape(-1)
+
+u = [bell(np.eye(d), sector) for sector in (0, 1)]
+basis = np.column_stack(u)
+projector = basis@basis.conj().T
+complement = np.eye(full*full)-projector
+for rank in (12, 13, 15):
+    f, p = rank/(d*d), 3*d*d/(4*rank)
+    amplitudes = np.array([
+        sum(round(np.trace(a@b@a@b).real/d) for b in paulis[:rank])
+        for a in paulis
+    ])
+    weights = amplitudes**2/d**4
+    assert abs(weights[0]-f*f) < tol
+    assert abs(weights[1:].sum()-f*(1-f)) < tol
+    outside = [i for i in range(len(paulis)) if i not in protected]
+    for eps in (0.013, 0.17, 0.41):
+        b = np.exp(2j*eps)-np.exp(-6j*eps)
+        g = (np.exp(-6j*eps)+3*np.exp(2j*eps))/4
+        gamma = 3*(1-f)*np.sin(4*eps)**2
+        delta = p*p*abs(b)**2*weights[outside].sum()
+        gamma_prime = gamma-delta/d**2
+        predicted = abs(1-g)+gamma_prime/2
+        expected_block = np.array([
+            [-gamma_prime/4, (g-1)/2],
+            [(g.conjugate()-1)/2, -gamma_prime/4],
+        ])
+        original = -gamma/4*projector
+        original += (g-1)/2*np.outer(u[0], u[1].conj())
+        original += (g.conjugate()-1)/2*np.outer(u[1], u[0].conj())
+        for sector in (0, 1):
+            for label in range(1, len(paulis)):
+                vector = bell(paulis[label], sector)
+                original += p*abs(b)**2*weights[label]/4*np.outer(vector, vector.conj())
+        for rule in ('uniform', 'pure', 'mixed'):
+            change = original.copy()
+            for sector in (0, 1):
+                indices = [(sector*d+i)*full+sector*d+j
+                           for i in range(d) for j in range(d)]
+                for label in outside:
+                    if rule == 'uniform':
+                        state = np.eye(d)/d
+                    else:
+                        columns = 1 if rule == 'pure' else d
+                        z = rng.normal(size=(d, columns))+1j*rng.normal(size=(d, columns))
+                        state = z@z.conj().T
+                        state /= np.trace(state)
+                    vector = bell(paulis[label], sector)
+                    mass = p*p*abs(b)**2*weights[label]/4
+                    change -= mass*np.outer(vector, vector.conj())
+                    change[np.ix_(indices, indices)] += mass*np.kron(state, np.eye(d)/d)
+            assert abs(np.trace(change)) < tol
+            np.testing.assert_allclose(basis.conj().T@change@basis, expected_block, atol=tol, rtol=0)
+            other = complement@change@complement
+            assert np.linalg.eigvalsh(other).min() > -tol
+            assert abs(np.trace(other).real-gamma_prime/2) < tol
+            pinched = projector@change@projector+other
+            pinched_norm = abs(np.linalg.eigvalsh(pinched)).sum()
+            actual_norm = abs(np.linalg.eigvalsh(change)).sum()
+            assert abs(pinched_norm-predicted) < tol
+            assert actual_norm >= predicted-tol
+            if rule == 'uniform':
+                assert abs(actual_norm-predicted) < tol
+    print('Replacement minimax Bell certificate verified at rank', rank)
 ~~~
