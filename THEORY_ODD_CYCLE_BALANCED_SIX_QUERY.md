@@ -10,7 +10,7 @@ For every odd \(n\ge21\), the resulting deterministic decoded channel has exact 
 \[
  \boxed{\quad
  {\cal E}^{\rm bal}_n(\epsilon)
- =1-\cos^3(2\epsilon)
+ =\left|1-\tfrac14e^{-6i\epsilon}-\tfrac34e^{2i\epsilon}\right|
   +\frac32(1-f_n)\sin^2(4\epsilon)
  \quad}
 \]
@@ -31,25 +31,25 @@ Define
 \[
  \gamma=3(1-f_n)\sin^2(4\epsilon),\qquad
  g=\tfrac14 e^{-6i\epsilon}+\tfrac34 e^{2i\epsilon},\qquad
- c_0=1-\operatorname{Re}g .
+ c=|1-g|,\qquad c_0=1-\operatorname{Re}g .
 \]
 Let \(\mathcal N_+\) and \(\mathcal N_-\) be the nonidentity logical Pauli channels obtained from \(Q_+\) and \(Q_-\), respectively. Their detailed Pauli weights may differ, but they are normalized mixtures with no identity component. Removing the ideal inverse, the balanced error channel acts as follows:
 \[
  \rho_{++}\mapsto \rho_{++}+\tfrac{\gamma}{2}(\mathcal N_+-\mathrm{id})(\rho_{++}),\qquad
  \rho_{--}\mapsto \rho_{--}+\tfrac{\gamma}{2}(\mathcal N_--\mathrm{id})(\rho_{--}),
 \]
-and \(\rho_{+-}\mapsto(\operatorname{Re}g)\rho_{+-}\). For the mirror, reversing both charge signs replaces \(g\) by \(\bar g\) on this coherence. The average removes its imaginary part exactly. The identity \(\operatorname{Re}g=\cos^3(2\epsilon)\) follows from the triple-angle formula.
+and \(\rho_{+-}\mapsto g\rho_{+-}\). The mirror's selected minus block has amplitude \(\bar g\); its contribution to a plus-to-minus coherence is its complex conjugate, again \(g\). Both orientations therefore have the same coherence factor. The identity \(\operatorname{Re}g=\cos^3(2\epsilon)\) follows from the triple-angle formula.
 
 ## Diamond-norm maximization
 
 For a pure input with a reference, let \(u,v\) be its plus and minus components, with \(\|u\|^2=t\), \(\|v\|^2=1-t\). The error operator is a positive Pauli-noise output with total trace \(\gamma/2\), plus an operator in the two-dimensional span of \(u,v\). In the normalized basis of those two vectors, the latter matrix is
 \[
  \begin{pmatrix}
- -\frac{\gamma}{2}t&-c_0\sqrt{t(1-t)}\\
- -c_0\sqrt{t(1-t)}&-\frac{\gamma}{2}(1-t)
+ -\frac{\gamma}{2}t&(g-1)\sqrt{t(1-t)}\\
+ (\bar g-1)\sqrt{t(1-t)}&-\frac{\gamma}{2}(1-t)
  \end{pmatrix}.
 \]
-We have \(c_0\ge\gamma/2\). To prove it, put \(x=\cos(2\epsilon)\). Since \(f_n\ge3/4\),
+We have \(c\ge c_0\ge\gamma/2\). To prove it, put \(x=\cos(2\epsilon)\). Since \(f_n\ge3/4\),
 \[
  c_0-\gamma/2
  \ge 1-x^3-\tfrac32x^2(1-x^2)
@@ -57,12 +57,12 @@ We have \(c_0\ge\gamma/2\). To prove it, put \(x=\cos(2\epsilon)\). Since \(f_n\
 \]
 The two-dimensional matrix therefore has nonpositive determinant. Its trace norm is
 \[
- \sqrt{\tfrac{\gamma^2}{4}(2t-1)^2+4c_0^2t(1-t)}
- \ \le\ c_0,
+ \sqrt{\tfrac{\gamma^2}{4}(2t-1)^2+4c^2t(1-t)}
+ \ \le\ c,
 \]
-with equality at \(t=1/2\). The total trace norm is at most \(\gamma/2+c_0\). For a difference of channels it suffices to consider such reference-assisted pure inputs.
+with equality at \(t=1/2\). The total trace norm is at most \(\gamma/2+c\). For a difference of channels it suffices to consider such reference-assisted pure inputs.
 
-Take equal superposition of a maximally entangled plus input and a maximally entangled minus input, with the two reference spaces orthogonal. Every nonidentity Pauli maps its Bell vector to an orthogonal vector in the same parity block. The positive noise output is then orthogonal to the two-dimensional span above, and the norm equals \(\gamma/2+c_0\). A reference of dimension \(2D\), equal to the data dimension, suffices. This proves the exact formula. Its Taylor series contains only even powers.
+Take equal superposition of a maximally entangled plus input and a maximally entangled minus input, with the two reference spaces orthogonal. Every nonidentity Pauli maps its Bell vector to an orthogonal vector in the same parity block. The positive noise output is then orthogonal to the two-dimensional span above, and the norm equals \(\gamma/2+c_0\). A reference of dimension \(2D\), equal to the data dimension, suffices. This proves the exact formula. The norm is even in the drift, and its Taylor series about zero contains only even powers.
 
 Balancing is also guaranteed to be no worse than either orientation at every drift. Each orientation has the same exact error, since its noise weight and cross-sector magnitude agree. Convexity of the diamond norm bounds the error of their average by that common value. The explicit formula quantifies the improvement, including the smaller leading coefficient.
 
@@ -80,6 +80,8 @@ The deterministic [seven-query recovery](THEORY_ODD_CYCLE_DETERMINISTIC_RECOVERY
 The [EUI manuscript and robustness appendix](https://arxiv.org/html/2506.20570v1) motivate quantitative noise comparisons. The use of a reference in the exact norm follows standard channel-discrimination theory as presented by [Watrous, Chapter 3](https://cs.uwaterloo.ca/~watrous/TQI/).
 
 ## Verification
+
+**Correction of the earlier finite-drift formula.** The previous version used \(1-\operatorname{Re}g\) in place of \(|1-g|\), incorrectly discarding the imaginary coherence. The selected-minus-block conjugation above gives the corrected formula. The previously reported quadratic coefficients agree with this correction. The new Kraus-level check in [program-syndrome recovery](THEORY_ODD_CYCLE_PROGRAM_SYNDROME_RECOVERY.md) tests both parity orientations before taking their average.
 
 The script checks exact leading coefficients and the polynomial inequality, then tests the complete finite-drift formula with logical two-qubit Pauli Bell projectors of ranks 12, 13 and 15. The two sector projectors are chosen differently. It verifies that the error output on the proposed maximizing input has the stated norm and that sampled reference weights obey the bound. These are finite matrix checks of the norm argument; the all-length statement follows from the formulas above.
 
@@ -129,17 +131,17 @@ for rank in (12, 13, 15):
     for eps in (0.001, 0.013, 0.17, 0.41, 1.2):
         gamma = 3*float(1-f)*np.sin(4*eps)**2
         g = (np.exp(-6j*eps)+3*np.exp(2j*eps))/4
-        c0 = 1-g.real
-        assert c0 >= gamma/2-tolerance
-        formula = c0+gamma/2
-        assert abs(formula-(1-np.cos(2*eps)**3+gamma/2)) < tolerance
+        c0, c = 1-g.real, abs(1-g)
+        assert c >= c0-tolerance and c0 >= gamma/2-tolerance
+        formula = c+gamma/2
         for t in (*np.linspace(0, 1, 9), 0.5):
             u, v = np.zeros(2*dim*refdim, complex), np.zeros(2*dim*refdim, complex)
             for i in range(dim):
                 u[i*refdim+i] = np.sqrt(t/dim)
                 v[(dim+i)*refdim+dim+i] = np.sqrt((1-t)/dim)
             change = -gamma/2*(np.outer(u, u.conj())+np.outer(v, v.conj()))
-            change -= c0*(np.outer(u, v.conj())+np.outer(v, u.conj()))
+            change += (g-1)*np.outer(u, v.conj())
+            change += (g.conjugate()-1)*np.outer(v, u.conj())
             for sector, vector in enumerate((u, v)):
                 for p, probability in zip(paulis[1:], sector_weights[sector]):
                     transformed = vector.reshape(2*dim, refdim).copy()
@@ -150,7 +152,7 @@ for rank in (12, 13, 15):
                     change += gamma/2*probability*np.outer(transformed, transformed.conj())
             observed = float(np.abs(np.linalg.eigvalsh(change)).sum())
             bound = gamma/2+np.sqrt(
-                gamma*gamma/4*(2*t-1)**2+4*c0*c0*t*(1-t)
+                gamma*gamma/4*(2*t-1)**2+4*c*c*t*(1-t)
             )
             assert abs(observed-bound) < tolerance
             assert observed <= formula+tolerance
