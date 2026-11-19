@@ -27,7 +27,7 @@ There is also an all-length ceiling
 \[
  \dim\mathcal V_n\le\frac12\binom{2n}{n}.
 \]
-Exact modular resolvent checks saturate that ceiling at \(n=3,5,7\), giving dimensions \(10,126,1716\). The full complex symmetric matrix spaces have dimensions \(10,136,2080\), respectively. Thus the physical program space at five and seven sites is strictly smaller than the whole symmetric space. Saturation of the displayed ceiling for arbitrary odd lengths remains a conjecture.
+Exact modular resolvent checks saturate that ceiling at \(n=3,5,7\), giving dimensions \(10,126,1716\). The full complex symmetric matrix spaces have dimensions \(10,136,2080\), respectively. Thus the physical program space at five and seven sites is strictly smaller than the whole symmetric space. The [all-length span theorem](THEORY_ODD_CYCLE_PROGRAM_SPAN_THEOREM.md) now proves saturation of the displayed ceiling for every odd length using only the open-chain subfamily.
 
 ## 1. Matrix units supplied by physical root tori
 
@@ -74,15 +74,15 @@ and include seven sites with
 ~~~bash
 python verify_ising_program_span.py --sizes 3 5 7
 ~~~
-These certificates establish the span equality at those lengths. They do not assume that the physical oracles form a group. At larger lengths, the known lower and upper dimensions differ. Proving equality with the balanced Clifford span is a focused next problem.
+These certificates establish the span equality at those lengths without assuming that the physical oracles form a group. The [analytic all-length theorem](THEORY_ODD_CYCLE_PROGRAM_SPAN_THEOREM.md) proves equality at every odd length by additive-compound positivity and Pauli coefficient separation.
 
-If that equality holds for a particular larger \(n\), the fixed-encoder floor strengthens further to
+Using that all-length equality, the fixed-encoder floor strengthens further to
 \[
  B_n^{\rm balanced\ span}
   =\frac{72}{r^2}
      \left[\frac12\sum_{k=0}^n\binom nk^2 a_k^2-r^2\right],
 \]
-since precisely the balanced logical Pauli monomials lie in the ideal-program span. At \(n=21\) this conditional coefficient is \(7.707127796320\ldots\). The proven unconditional coefficient at that size is \(B_{21}^{(2)}=2.249999602402\ldots\). The next step is an all-length proof of physical span saturation, or a physically certified family whose resolvents add higher-flip balanced monomials beyond Section 1.
+since precisely the balanced logical Pauli monomials lie in the ideal-program span. At \(n=21\) this proven coefficient is \(7.707127796320\ldots\), strengthening the earlier two-flip bound \(B_{21}^{(2)}=2.249999602402\ldots\). The next step is to optimize recovery on the complementary program subspace while preserving exact ideal outputs, or to improve the encoder itself.
 
 The [EUI preprint and robustness appendix](https://arxiv.org/html/2506.20570v1) give the physical inversion setting. [Pfeuty's Ising solution](https://doi.org/10.1016/0003-4916(70)90270-8) supplies the quadratic-fermion context. The span bound here follows directly from the SVD of the two Majorana frames; it is narrower than a group-generation argument.
 
