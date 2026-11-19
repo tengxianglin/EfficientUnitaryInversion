@@ -20,7 +20,7 @@ where
 \]
 An attaining rule is to choose uniformly among the field labels \(T\) maximizing \(a_{TR}^2\) for the observed syndrome \(R\). It gives exactly the same gain \(W_n\) on every field-Pauli oracle. This rule preserves exact ideal inversion, first-order drift cancellation, and the pointwise no-worse bound relative to the old balanced inverse decoder on *every* physical Hamiltonian.
 
-At \(n=21\), the field-Pauli quadratic coefficient is reduced by \(18W_n/r^2=0.148358524720\ldots\), from \(11.874512219889\ldots\) to \(11.726153695169\ldots\). The previous syndrome-independent twirl gave a gain of \(3.7260622\times10^{-6}\). This proves a larger improvement on the entire field-Pauli family; the new full physical-family supremum remains to be determined.
+At \(n=21\), the field-Pauli quadratic coefficient is reduced by \(18W_n/r^2=0.148358524720\ldots\), from \(11.874512219889\ldots\) to \(11.726153695169\ldots\). The previous syndrome-independent twirl gave a gain of \(3.7260622\times10^{-6}\). This proves a larger improvement on the entire field-Pauli family. The [edge-oracle converse](THEORY_ODD_CYCLE_EDGE_ORACLE_CONVERSE.md) now determines the full physical-family supremum: it equals the old balanced decoder's error, attained by \(H=(\pi/2)Z_0Z_1\).
 
 ## 1. Exact finite optimization
 
@@ -83,7 +83,7 @@ The displayed asymptotic is for this lower bound, using the central-binomial est
 
 All correction operations still occur only on ideal-flag syndromes where the ideal physical program amplitude vanishes. Their random probabilities may depend on the label, but Kraus completeness and the zero contraction with the ideal program remain true separately for every label. The [selective residual identity](THEORY_ODD_CYCLE_SELECTIVE_SYNDROME.md#1-the-recovery-and-its-residual-channels) therefore holds with the old noise weight and a new CPTP residual channel. It gives the same pointwise upper bound as the old balanced decoder for all physical \(H,\epsilon\). Exact ideal inversion and zero first derivative are preserved.
 
-The strict decrease of every field-Pauli error removes the previous explicit maximizers. Another non-Pauli physical Hamiltonian may still saturate the old upper bound. The next verification should optimize over non-Pauli oracles using the residual Kraus description and this fixed maximum-likelihood rule. Its syndrome probabilities are explicit and need no numerical fitting. The global six-query quadratic optimum and the physical pentagon query minimum remain open.
+The strict decrease of every field-Pauli error removes those explicit maximizers. The [physical edge oracle](THEORY_ODD_CYCLE_EDGE_ORACLE_CONVERSE.md) still saturates the old upper bound for this rule and, more generally, every selective syndrome decoder whose additional channel is diagonal in the occupation basis. A further minimax improvement requires non-diagonal action, a different coherent treatment of syndromes or flags, or a changed encoder. The global six-query quadratic optimum and the physical pentagon query minimum remain open.
 
 The [EUI manuscript and Appendix B](https://arxiv.org/html/2506.20570v1) motivate the structured inversion and noise objective. The exact optimization here uses the [physical program span](THEORY_ODD_CYCLE_PROGRAM_SPAN_THEOREM.md) and the integer Pauli weights of the [fixed diagonal twirl](THEORY_ODD_CYCLE_DIAGONAL_SYNDROME_TWIRL.md).
 
