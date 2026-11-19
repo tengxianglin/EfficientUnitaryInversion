@@ -55,6 +55,14 @@ This proves the identity for all diagonal mode phases.
 
 For a general physical \(V\), the bipartite Majorana coefficient matrix has a real signed SVD. The diagonalizing frame lies in \(\mathrm{SO}(n)\times\mathrm{SO}(n)\), acting separately on the \(a\) and \(b\) frames. Its spin representation \(G\) is real orthogonal in the field parity basis, since the \(aa\) and \(bb\) generators are real antisymmetric. Thus \(V=GV_{\rm diag}G^{\mathsf T}\). The protected program space is invariant under \(G\otimes G\), as conjugation by \(G\) preserves the two separate Majorana counts. The shared projector is invariant under the corresponding two-copy Gaussian action. The Bell program is invariant under \(G\otimes G\) as well. The complementary data effect therefore transforms by \(G(\beta I)G^{\mathsf T}=\beta I\), proving the identity. Signed singular values include singular matrices and all field signs by continuity.
 
+To verify strict positivity at every odd size analytically, choose any two distinct \(a\)-Majoranas, or any two distinct \(b\)-Majoranas. Each resulting degree-two Pauli lies outside the balanced protected space. There are \(2\binom n2=n(n-1)\) distinct such sector Paulis for odd \(n\ge3\), and their shared-projector coefficient is
+\[
+ a_1=[x^{\text{odd}\le n-2}](1-x)^2(1+x)^{2n-2}
+ =\binom{2n-3}{n-2}-\binom{2n-3}{n-3}
+ =\frac1n\binom{2n-2}{n-1}>0.
+\]
+Here the bracket denotes the sum of the indicated odd coefficients. Consequently \(M=\sum_{P\notin\mathcal S}a_P^2\ge n(n-1)a_1^2>0\). This positivity argument is independent of the finite numerical checks.
+
 ## 2. A uniform identity component after depolarization
 
 In the ideal-flag branch, each complementary amplitude is \(pbL_R\), because the ideal program has no support there. The completely positive map formed by these outcomes has trace effect \(p^2|b|^2\beta I\), where \(b=e^{2i\epsilon}-e^{-6i\epsilon}\). Complete depolarization of its data output gives
@@ -209,6 +217,8 @@ for n in (3, 5):
 for n in (21, 23, 83):
     D = 2**(n-1)
     r = D*D-comb(2*n, n)//2
+    assert coefficients(n)[1] == comb(2*n-2, n-1)//n
+    assert complementary_weight(n) >= n*(n-1)*coefficients(n)[1]**2 > 0
     gain = Fraction(18*complementary_weight(n), r*r*D*D)
     old = 6+24*Fraction(D*D-r, D*D)
     assert 0 < gain < old
