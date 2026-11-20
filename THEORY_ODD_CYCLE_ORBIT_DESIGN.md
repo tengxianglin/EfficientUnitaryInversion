@@ -95,6 +95,8 @@ The exact row-max sum is 35360192, and \(35360192/1716=8840048/429\). Radial ML 
 
 ## 4. Reproducibility and evidence status
 
+**Subsequent result:** the [joint-parity diamond converse](THEORY_JOINT_PARITY_DIAMOND_CONVERSE.md) uses modified, exactly gapped seed designs to make the same ensemble uniform in both physical parity sectors. A Bell-input pinching argument then upgrades the restricted result to full diamond minimax error for valid split probabilities at five and seven sites. The admissible long-ring theorem still requires a joint ensemble construction.
+
 Files:
 
 - [ising_cycle_program_orbits.py](ising_cycle_program_orbits.py): sparse Pauli representation, physical cycle bilinears, signed dihedral coupling maps, floating and ball orbit masses;
