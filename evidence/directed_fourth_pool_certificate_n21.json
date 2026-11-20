@@ -1,0 +1,25 @@
+{
+  "base_commit": "9a95c61a289ecd49bfeab4bd4473a1a70ac95c60",
+  "fourth_orbits": 49,
+  "distinct_quartets": 2058,
+  "target_score": "-505837519/533000000",
+  "pool_bound": "-6/5",
+  "target_minus_pool_bound": "133762481/533000000",
+  "witness_precision_bits": 192,
+  "witness_score": "[0.064634182899040801543102197020054618125681679581782 +/- 5.99e-52]",
+  "witness_minus_target": "[1.013672680084781889723214767376527413622867420669962 +/- 4.87e-52]",
+  "witness_floor": "1/20",
+  "identity_score": "-100315369/200000",
+  "witness_status": "Certified gapped physical column above target; connected path and nonidentity imply non-Pauli program.",
+  "finite_gradient_check_max_error": 4.42873016037737e-10,
+  "finite_pool_certificate": {
+    "columns": 1600,
+    "precision_bits": 128,
+    "couplings_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+    "parameter_interpretation": "IEEE-754 binary64 coupling values interpreted exactly as rational numbers",
+    "all_scores_strictly_below": "-6/5",
+    "largest_midpoint_index": 303,
+    "largest_midpoint_score": "[-1.21335767072456497192781268331801942 +/- 5.64e-36]",
+    "status": "Certified finite-pool convex-hull separation; no global physical upper bound."
+  }
+}

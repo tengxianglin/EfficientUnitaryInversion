@@ -1,0 +1,509 @@
+{
+  "base_commit": "9a95c61a289ecd49bfeab4bd4473a1a70ac95c60",
+  "n": 21,
+  "terms": [
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "coefficient": "-19142419/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "coefficient": "-6373569/500000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        37
+      ],
+      "coefficient": "-5370699/500000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        8
+      ],
+      "coefficient": "-29859521/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        9,
+        10
+      ],
+      "coefficient": "-30950841/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        10,
+        11
+      ],
+      "coefficient": "-74209/500000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "coefficient": "-3532861/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        32
+      ],
+      "coefficient": "-14046519/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "coefficient": "-2441/2500"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        14,
+        15
+      ],
+      "coefficient": "-8129461/500000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        14,
+        29
+      ],
+      "coefficient": "-246813/250000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        16,
+        17
+      ],
+      "coefficient": "-449041/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        17,
+        18
+      ],
+      "coefficient": "-18789369/1000000"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        21,
+        22
+      ],
+      "coefficient": "-8957/12500"
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        37
+      ],
+      "coefficient": "13581241/1000000"
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        9
+      ],
+      "coefficient": "-720261/31250"
+    },
+    {
+      "indices": [
+        0,
+        2,
+        12,
+        18
+      ],
+      "coefficient": "-2250801/1000000"
+    },
+    {
+      "indices": [
+        0,
+        2,
+        15,
+        29
+      ],
+      "coefficient": "-22593473/1000000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        10
+      ],
+      "coefficient": "-20243077/1000000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        38
+      ],
+      "coefficient": "-971251/250000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        10,
+        35
+      ],
+      "coefficient": "-7078837/500000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        13,
+        29
+      ],
+      "coefficient": "2130337/1000000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        13,
+        32
+      ],
+      "coefficient": "-551313/500000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        16,
+        19
+      ],
+      "coefficient": "-3467519/250000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        19,
+        22
+      ],
+      "coefficient": "-10360751/500000"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        21,
+        24
+      ],
+      "coefficient": "-204399/31250"
+    },
+    {
+      "indices": [
+        0,
+        4,
+        13,
+        17
+      ],
+      "coefficient": "-4146233/500000"
+    },
+    {
+      "indices": [
+        0,
+        4,
+        13,
+        33
+      ],
+      "coefficient": "-1341793/500000"
+    },
+    {
+      "indices": [
+        0,
+        4,
+        15,
+        19
+      ],
+      "coefficient": "-4361701/1000000"
+    },
+    {
+      "indices": [
+        0,
+        4,
+        15,
+        31
+      ],
+      "coefficient": "-269498/15625"
+    },
+    {
+      "indices": [
+        0,
+        5,
+        11,
+        16
+      ],
+      "coefficient": "-2035119/250000"
+    },
+    {
+      "indices": [
+        0,
+        5,
+        17,
+        30
+      ],
+      "coefficient": "-9415003/1000000"
+    },
+    {
+      "indices": [
+        0,
+        5,
+        18,
+        23
+      ],
+      "coefficient": "-794061/40000"
+    },
+    {
+      "indices": [
+        0,
+        5,
+        19,
+        24
+      ],
+      "coefficient": "-9277197/500000"
+    },
+    {
+      "indices": [
+        0,
+        5,
+        20,
+        25
+      ],
+      "coefficient": "-5630163/250000"
+    },
+    {
+      "indices": [
+        0,
+        6,
+        13,
+        19
+      ],
+      "coefficient": "-3175727/1000000"
+    },
+    {
+      "indices": [
+        0,
+        6,
+        19,
+        25
+      ],
+      "coefficient": "-875721/200000"
+    },
+    {
+      "indices": [
+        0,
+        7,
+        14,
+        21
+      ],
+      "coefficient": "-194653/250000"
+    },
+    {
+      "indices": [
+        0,
+        7,
+        15,
+        22
+      ],
+      "coefficient": "-17315381/1000000"
+    },
+    {
+      "indices": [
+        0,
+        7,
+        15,
+        34
+      ],
+      "coefficient": "-2864137/250000"
+    },
+    {
+      "indices": [
+        0,
+        7,
+        16,
+        23
+      ],
+      "coefficient": "-4149731/500000"
+    },
+    {
+      "indices": [
+        0,
+        7,
+        16,
+        33
+      ],
+      "coefficient": "-1027561/125000"
+    },
+    {
+      "indices": [
+        0,
+        7,
+        21,
+        28
+      ],
+      "coefficient": "-323749/125000"
+    },
+    {
+      "indices": [
+        0,
+        8,
+        17,
+        25
+      ],
+      "coefficient": "-967911/125000"
+    },
+    {
+      "indices": [
+        0,
+        8,
+        21,
+        29
+      ],
+      "coefficient": "-2249231/250000"
+    },
+    {
+      "indices": [
+        0,
+        9,
+        19,
+        28
+      ],
+      "coefficient": "-1481681/500000"
+    },
+    {
+      "indices": [
+        0,
+        9,
+        20,
+        31
+      ],
+      "coefficient": "-9358509/1000000"
+    },
+    {
+      "indices": [
+        0,
+        9,
+        21,
+        30
+      ],
+      "coefficient": "-3302911/200000"
+    },
+    {
+      "indices": [
+        0,
+        10,
+        21,
+        31
+      ],
+      "coefficient": "-16669283/1000000"
+    }
+  ],
+  "pool_bound": "-6/5",
+  "target_score": "-505837519/533000000",
+  "witness_couplings": [
+    "21.744646",
+    "20.267759",
+    "19.571452",
+    "17.731905",
+    "19.468039",
+    "15.584677",
+    "19.200956",
+    "20.931152",
+    "20.674687",
+    "23.06551",
+    "19.812501",
+    "22.410598",
+    "23.304666",
+    "19.933789",
+    "21.396487",
+    "22.464512",
+    "22.010086",
+    "19.31806",
+    "20.633111",
+    "22.427597",
+    "20.47845",
+    "22.427597",
+    "20.633111",
+    "19.31806",
+    "22.010086",
+    "22.464512",
+    "21.396487",
+    "19.933789",
+    "23.304666",
+    "22.410598",
+    "19.812501",
+    "23.06551",
+    "20.674687",
+    "20.931152",
+    "19.200956",
+    "15.584677",
+    "19.468039",
+    "17.731905",
+    "19.571452",
+    "20.267759",
+    "21.744646",
+    "0.0"
+  ],
+  "witness_floor": "1/20",
+  "witness_precision_bits": 192,
+  "pool_precision_bits": 128,
+  "pool_couplings_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+  "discovery": {
+    "dual": "L1-normalized highs-ipm on the prior reduced/scaled 1600-column pool; coefficients rounded to 1e-6",
+    "pricing": "L-BFGS-B from the old maximizing seed; 61 iterations; coefficients rounded to 1e-6",
+    "gradient_check_coordinates": [
+      0,
+      20,
+      40
+    ],
+    "status": "Discovery only; fixed data and interval verification define the certificate.",
+    "start_pool_index": 303
+  },
+  "pool_parameter_interpretation": "IEEE-754 binary64 coupling values interpreted exactly as rational numbers"
+}

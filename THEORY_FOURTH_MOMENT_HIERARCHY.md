@@ -239,3 +239,7 @@ there are no manuscript TeX/PDF sources in this repository. Its broader
 robustness promise is not silently replaced by this fixed static-oracle
 moment problem. Standard determinant identities and generic numerical
 methods are not asserted as literature-wide EUI novelties.
+
+## Follow-up: certified finite separation, but not a global bound
+
+The [directed pricing study](THEORY_DIRECTED_FOURTH_PRICING.md) supplies a rational 49-orbit separator certified on all 1600 exact binary64 inputs, upgrading the finite-pool failure to a verified separation. It also finds a new connected gapped physical seed whose certified score exceeds the target, so that separator cannot be a general physical no-go. The 1601-column continuation remains numerically infeasible; full uniformity stays open.

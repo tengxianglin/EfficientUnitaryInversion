@@ -1,0 +1,511 @@
+{
+  "base_commit": "9a95c61a289ecd49bfeab4bd4473a1a70ac95c60",
+  "columns": 1601,
+  "full_feature_count": 1461,
+  "new_column_sha256_le_f64": "80b11883cf8ab85639c85800aa6dd71e0665c4f5e0948e4d5153d647f6a1e231",
+  "primal_status": 2,
+  "primal_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)",
+  "dual_status": 0,
+  "dual_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "status": "Finite numerical augmentation only; full uniformity remains unresolved.",
+  "normalized_finite_pool_dual_gap": 0.24710427130220025,
+  "next_second_direction": [],
+  "next_fourth_direction": [
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        40
+      ],
+      "coefficient": -3.597706456563804
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "coefficient": -6.750904188872607
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "coefficient": -0.6732218394692275
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "coefficient": -19.73449003340931
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        37
+      ],
+      "coefficient": -9.937678735598803
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        8
+      ],
+      "coefficient": -13.082365584671535
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        9
+      ],
+      "coefficient": -21.819681646440465
+    },
+    {
+      "indices": [
+        0,
+        1,
+        9,
+        10
+      ],
+      "coefficient": -30.842148026692552
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "coefficient": -18.65708183690156
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        32
+      ],
+      "coefficient": -5.659056531676489
+    },
+    {
+      "indices": [
+        0,
+        1,
+        12,
+        13
+      ],
+      "coefficient": -5.954067218435958
+    },
+    {
+      "indices": [
+        0,
+        1,
+        14,
+        15
+      ],
+      "coefficient": -12.02210669661734
+    },
+    {
+      "indices": [
+        0,
+        1,
+        17,
+        18
+      ],
+      "coefficient": -10.365800378336248
+    },
+    {
+      "indices": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "coefficient": -10.161996593745
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        7
+      ],
+      "coefficient": -3.2117990686152713
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        9
+      ],
+      "coefficient": 5.170857542249978
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        37
+      ],
+      "coefficient": 19.296867763693818
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        9
+      ],
+      "coefficient": -19.98316720284202
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        36
+      ],
+      "coefficient": 6.2768851215431205
+    },
+    {
+      "indices": [
+        0,
+        2,
+        15,
+        29
+      ],
+      "coefficient": -24.27934666920502
+    },
+    {
+      "indices": [
+        0,
+        3,
+        6,
+        9
+      ],
+      "coefficient": -2.933655750475176
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        10
+      ],
+      "coefficient": -14.662473890269393
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        38
+      ],
+      "coefficient": -4.279512251819655
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        34
+      ],
+      "coefficient": 5.408837780968725
+    },
+    {
+      "indices": [
+        0,
+        3,
+        10,
+        35
+      ],
+      "coefficient": -8.559359045007511
+    },
+    {
+      "indices": [
+        0,
+        3,
+        12,
+        15
+      ],
+      "coefficient": -4.2068518476714996
+    },
+    {
+      "indices": [
+        0,
+        3,
+        13,
+        32
+      ],
+      "coefficient": -15.256066140678334
+    },
+    {
+      "indices": [
+        0,
+        3,
+        14,
+        30
+      ],
+      "coefficient": 6.926141673578239
+    },
+    {
+      "indices": [
+        0,
+        3,
+        17,
+        20
+      ],
+      "coefficient": -8.937642596335696
+    },
+    {
+      "indices": [
+        0,
+        3,
+        19,
+        22
+      ],
+      "coefficient": -18.460486515178065
+    },
+    {
+      "indices": [
+        0,
+        3,
+        21,
+        24
+      ],
+      "coefficient": -0.12269433316554915
+    },
+    {
+      "indices": [
+        0,
+        4,
+        12,
+        34
+      ],
+      "coefficient": 3.3569867369752986
+    },
+    {
+      "indices": [
+        0,
+        4,
+        13,
+        17
+      ],
+      "coefficient": -9.379154631135329
+    },
+    {
+      "indices": [
+        0,
+        4,
+        15,
+        19
+      ],
+      "coefficient": -9.268550149058607
+    },
+    {
+      "indices": [
+        0,
+        5,
+        11,
+        16
+      ],
+      "coefficient": -1.2745420242945245
+    },
+    {
+      "indices": [
+        0,
+        5,
+        16,
+        21
+      ],
+      "coefficient": -17.825924746779254
+    },
+    {
+      "indices": [
+        0,
+        5,
+        17,
+        30
+      ],
+      "coefficient": -3.511617578725575
+    },
+    {
+      "indices": [
+        0,
+        5,
+        18,
+        23
+      ],
+      "coefficient": -11.117584417853184
+    },
+    {
+      "indices": [
+        0,
+        5,
+        19,
+        24
+      ],
+      "coefficient": -14.598505617733379
+    },
+    {
+      "indices": [
+        0,
+        5,
+        20,
+        25
+      ],
+      "coefficient": -7.8540843680844485
+    },
+    {
+      "indices": [
+        0,
+        5,
+        21,
+        26
+      ],
+      "coefficient": -6.148502990874827
+    },
+    {
+      "indices": [
+        0,
+        6,
+        14,
+        22
+      ],
+      "coefficient": 9.994440412296848
+    },
+    {
+      "indices": [
+        0,
+        6,
+        17,
+        23
+      ],
+      "coefficient": -2.343464510361325
+    },
+    {
+      "indices": [
+        0,
+        6,
+        19,
+        25
+      ],
+      "coefficient": -2.8732530798699236
+    },
+    {
+      "indices": [
+        0,
+        7,
+        14,
+        21
+      ],
+      "coefficient": -6.0591208092770605
+    },
+    {
+      "indices": [
+        0,
+        7,
+        15,
+        22
+      ],
+      "coefficient": -9.334079151021768
+    },
+    {
+      "indices": [
+        0,
+        7,
+        16,
+        23
+      ],
+      "coefficient": -3.9142198186932835
+    },
+    {
+      "indices": [
+        0,
+        7,
+        21,
+        28
+      ],
+      "coefficient": -17.022742702311433
+    },
+    {
+      "indices": [
+        0,
+        8,
+        16,
+        27
+      ],
+      "coefficient": 14.204932394370946
+    },
+    {
+      "indices": [
+        0,
+        8,
+        18,
+        26
+      ],
+      "coefficient": 3.4976481376925403
+    },
+    {
+      "indices": [
+        0,
+        8,
+        21,
+        29
+      ],
+      "coefficient": -5.955286098080621
+    },
+    {
+      "indices": [
+        0,
+        9,
+        18,
+        27
+      ],
+      "coefficient": -3.527947406243966
+    },
+    {
+      "indices": [
+        0,
+        9,
+        20,
+        31
+      ],
+      "coefficient": -10.759348919815727
+    },
+    {
+      "indices": [
+        0,
+        9,
+        21,
+        30
+      ],
+      "coefficient": -8.541880122748525
+    },
+    {
+      "indices": [
+        0,
+        10,
+        21,
+        31
+      ],
+      "coefficient": -13.405232214973735
+    }
+  ],
+  "next_direction_status": "Floating suggestion only; needs rational freezing and independent verification."
+}

@@ -1,0 +1,15 @@
+{
+  "base_commit": "9a95c61a289ecd49bfeab4bd4473a1a70ac95c60",
+  "fourth_orbits": 49,
+  "distinct_quartets": 2058,
+  "target_score": "-505837519/533000000",
+  "pool_bound": "-6/5",
+  "target_minus_pool_bound": "133762481/533000000",
+  "witness_precision_bits": 192,
+  "witness_score": "[0.064634182899040801543102197020054618125681679581782 +/- 5.99e-52]",
+  "witness_minus_target": "[1.013672680084781889723214767376527413622867420669962 +/- 4.87e-52]",
+  "witness_floor": "1/20",
+  "identity_score": "-100315369/200000",
+  "witness_status": "Certified gapped physical column above target; connected path and nonidentity imply non-Pauli program.",
+  "finite_gradient_check_max_error": 4.42873016037737e-10
+}
