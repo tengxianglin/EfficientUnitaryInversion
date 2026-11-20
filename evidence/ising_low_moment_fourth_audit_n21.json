@@ -1,0 +1,15 @@
+{
+  "status": "Finite floating diagnostic; exact selected witnesses are certified separately.",
+  "orbits": 1440,
+  "quartets": 111930,
+  "max_abs_residual": 0.012939231640953806,
+  "worst_probe": [
+    0,
+    2,
+    21,
+    23
+  ],
+  "worst_moment": 0.014815404248833732,
+  "worst_target": 0.001876172607879925,
+  "orbits_with_abs_residual_above_1e-8": 1439
+}

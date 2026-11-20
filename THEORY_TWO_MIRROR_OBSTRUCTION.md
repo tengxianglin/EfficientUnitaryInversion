@@ -152,3 +152,7 @@ This is a finite floating diagnostic, separate from the exact theorem.
 The next concrete search should include the length-41, 5/4 seed and its
 dihedral images when solving all 22 constraints. This avoids repeatedly
 searching a perfect-transfer family now known to be impossible.
+
+## Follow-up: reduced physical feasibility is certified
+
+The [n=21 low-moment certificate](THEORY_LOW_MOMENT_DESIGN_N21.md) constructs a positive gapped physical ensemble satisfying all 21 degree-two conditions and the consecutive fourth-order probe. It uses fractional and general gapped seeds beyond the perfect-mirror theorem. A distant fourth-order probe is certified to fail by more than 1/100, so full joint uniformity remains unresolved.
