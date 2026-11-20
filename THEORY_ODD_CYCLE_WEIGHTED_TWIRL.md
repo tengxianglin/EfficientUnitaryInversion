@@ -29,7 +29,7 @@ Define
  \le |1-g|+\frac32(1-f)\sin^2(4\epsilon)
        -\frac{9M^2}{8r^2L}\sin^2(4\epsilon).
 \]
-This is an upper bound; its attainment is not proved. The guaranteed quadratic-coefficient reduction is
+This synthesis argument gives an upper bound and does not establish attainment. The subsequent [radial recovery theorem](THEORY_ODD_CYCLE_RADIAL_RECOVERY.md) determines this decoder's exact physical supremum and supplies a better ML decoder with an inverse-cube gain guarantee; the bounds here remain valid. The guaranteed quadratic-coefficient reduction from this argument is
 \[
  \Delta C_{\rm cert}=\frac{18M^2}{r^2L}.
 \]
@@ -137,4 +137,4 @@ The physical checks reuse the uniform verifier through an optional callback; its
 
 The [EUI manuscript and robustness appendix](https://arxiv.org/html/2506.20570v1) supply the physical setting. The prior uniform-twirl note distinguishes the established approximate-transpose channel from its EUI support application. Neither that channel nor Cauchy--Schwarz is claimed as new; this note records the EUI certificate and its combinatorial optimization without claiming literature-wide originality.
 
-The next high-value question is whether the support-only relaxation is the main loss: evaluate the actual Choi target-component weight at identity, field, edge and seeded noncommuting oracles, then use the physical Gaussian constraints to sharpen the certificate. Improving this same relaxed certificate by merely retuning its Pauli probabilities is now ruled out. The exact worst-case diamond error, unrestricted six-query optimum and pentagon six-versus-seven query question remain open.
+The [radial cross-effect proof](THEORY_ODD_CYCLE_RADIAL_RECOVERY.md) now resolves the Choi gap for this rule and optimizes the larger radial class, giving a polynomial rather than exponentially small gain guarantee. The next high-value question is whether non-radial or coherent recovery can improve that identity-attained optimum. Improving this same relaxed certificate by merely retuning its Pauli probabilities is now ruled out. The exact worst-case error of this absolute-weight decoder is now resolved by the linked radial theorem. Unrestricted six-query optimality and the pentagon six-versus-seven query question remain open.
