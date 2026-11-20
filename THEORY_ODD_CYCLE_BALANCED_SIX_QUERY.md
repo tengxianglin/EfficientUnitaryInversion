@@ -62,7 +62,7 @@ The two-dimensional matrix therefore has nonpositive determinant. Its trace norm
 \]
 with equality at \(t=1/2\). The total trace norm is at most \(\gamma/2+c\). For a difference of channels it suffices to consider such reference-assisted pure inputs.
 
-Take equal superposition of a maximally entangled plus input and a maximally entangled minus input, with the two reference spaces orthogonal. Every nonidentity Pauli maps its Bell vector to an orthogonal vector in the same parity block. The positive noise output is then orthogonal to the two-dimensional span above, and the norm equals \(\gamma/2+c_0\). A reference of dimension \(2D\), equal to the data dimension, suffices. This proves the exact formula. The norm is even in the drift, and its Taylor series about zero contains only even powers.
+Take equal superposition of a maximally entangled plus input and a maximally entangled minus input, with the two reference spaces orthogonal. Every nonidentity Pauli maps its Bell vector to an orthogonal vector in the same parity block. The positive noise output is then orthogonal to the two-dimensional span above, and the norm equals \(\gamma/2+c\). A reference of dimension \(2D\), equal to the data dimension, suffices. This proves the exact formula. The norm is even in the drift, and its Taylor series about zero contains only even powers.
 
 Balancing is also guaranteed to be no worse than either orientation at every drift. Each orientation has the same exact error, since its noise weight and cross-sector magnitude agree. Convexity of the diamond norm bounds the error of their average by that common value. The explicit formula quantifies the improvement, including the smaller leading coefficient.
 
