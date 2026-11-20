@@ -212,3 +212,7 @@ them, are required before claiming the full joint uniform ensemble.
 ## 6. Follow-up: the two-mirror screen is now excluded
 
 The [exact fourth-order obstruction](THEORY_TWO_MIRROR_OBSTRUCTION.md) completes the proposed next screen at n=21 and strengthens it to all two-segment placements with both idle gaps. A single fourth-order probe together with the 21 degree-two conditions has an exact separating certificate over all 12,342 configurations. The earlier degree-two certificate remains valid; the general physical uniform-ensemble question remains unresolved.
+
+## 7. Positive probability representation and sampling
+
+The [program/DPP correspondence](THEORY_PROGRAM_DPP.md) derives each program mass as the sum of two complementary projection determinants and gives an efficient classical sampler. Full uniformity is equivalent to a complement-symmetrized half-filling distribution being uniform. This applies established DPP tools, with the Gaussian Pauli-sampling prior art explicitly cited; it does not itself solve the physical uniform-design problem.

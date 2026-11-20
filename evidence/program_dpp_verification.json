@@ -1,0 +1,60 @@
+{
+  "base_commit": "d5b58da9529823fefb77e4a66f8915cadf6dd8d8",
+  "exact_sampler_check": {
+    "N": 6,
+    "subsets": 20,
+    "ordered_paths": 120,
+    "normalization": "1",
+    "status": "Exact rational Schur-sampling law verified."
+  },
+  "finite_checks": [
+    {
+      "n": 3,
+      "gapped": false,
+      "all_program_labels": 10,
+      "max_mass_identity_error": 5.551115123125783e-16,
+      "dpp_normalization": 1.0
+    },
+    {
+      "n": 3,
+      "gapped": true,
+      "all_program_labels": 10,
+      "max_mass_identity_error": 3.1086244689504383e-15,
+      "dpp_normalization": 0.9999999999999996
+    },
+    {
+      "n": 5,
+      "gapped": false,
+      "all_program_labels": 126,
+      "max_mass_identity_error": 5.6066262743570405e-15,
+      "dpp_normalization": 0.9999999999999899
+    },
+    {
+      "n": 5,
+      "gapped": true,
+      "all_program_labels": 126,
+      "max_mass_identity_error": 5.204170427930421e-16,
+      "dpp_normalization": 0.9999999999999949
+    },
+    {
+      "n": 7,
+      "gapped": false,
+      "all_program_labels": 1716,
+      "max_mass_identity_error": 4.163336342344337e-16,
+      "dpp_normalization": 0.9999999999999998
+    },
+    {
+      "n": 7,
+      "gapped": true,
+      "all_program_labels": 1716,
+      "max_mass_identity_error": 3.3306690738754696e-16,
+      "dpp_normalization": 0.9999999999999948
+    }
+  ],
+  "finite_sampler_histogram": {
+    "n": 3,
+    "samples": 40000,
+    "max_absolute_frequency_error": 0.0026604946413346375,
+    "status": "Finite floating diagnostic, not a sampling-error certificate."
+  }
+}
