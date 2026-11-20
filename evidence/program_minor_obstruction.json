@@ -1,0 +1,282 @@
+{
+  "base_commit": "c294b68b6bcbc787684405d13780fb68551bf3d2",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "fourier_checks": [
+    {
+      "n": 3,
+      "characters": 16,
+      "max_error": 4.829470157119431e-15
+    },
+    {
+      "n": 5,
+      "characters": 256,
+      "max_error": 4.107825191113079e-15
+    }
+  ],
+  "mirror_checks": [
+    {
+      "n": 5,
+      "lengths": 10,
+      "target": "0",
+      "sharp_upper": "-1/10",
+      "gap": "1/10"
+    },
+    {
+      "n": 7,
+      "lengths": 14,
+      "target": "2/13",
+      "sharp_upper": "1/14",
+      "gap": "15/182"
+    },
+    {
+      "n": 9,
+      "lengths": 18,
+      "target": "4/17",
+      "sharp_upper": "1/6",
+      "gap": "7/102"
+    },
+    {
+      "n": 11,
+      "lengths": 22,
+      "target": "2/7",
+      "sharp_upper": "5/22",
+      "gap": "9/154"
+    },
+    {
+      "n": 13,
+      "lengths": 26,
+      "target": "8/25",
+      "sharp_upper": "7/26",
+      "gap": "33/650"
+    },
+    {
+      "n": 15,
+      "lengths": 30,
+      "target": "10/29",
+      "sharp_upper": "3/10",
+      "gap": "13/290"
+    },
+    {
+      "n": 17,
+      "lengths": 34,
+      "target": "4/11",
+      "sharp_upper": "11/34",
+      "gap": "15/374"
+    },
+    {
+      "n": 19,
+      "lengths": 38,
+      "target": "14/37",
+      "sharp_upper": "13/38",
+      "gap": "51/1406"
+    },
+    {
+      "n": 21,
+      "lengths": 42,
+      "target": "16/41",
+      "sharp_upper": "5/14",
+      "gap": "19/574"
+    },
+    {
+      "n": 23,
+      "lengths": 46,
+      "target": "2/5",
+      "sharp_upper": "17/46",
+      "gap": "7/230"
+    },
+    {
+      "n": 25,
+      "lengths": 50,
+      "target": "20/49",
+      "sharp_upper": "19/50",
+      "gap": "69/2450"
+    },
+    {
+      "n": 27,
+      "lengths": 54,
+      "target": "22/53",
+      "sharp_upper": "7/18",
+      "gap": "25/954"
+    },
+    {
+      "n": 29,
+      "lengths": 58,
+      "target": "8/19",
+      "sharp_upper": "23/58",
+      "gap": "27/1102"
+    },
+    {
+      "n": 31,
+      "lengths": 62,
+      "target": "26/61",
+      "sharp_upper": "25/62",
+      "gap": "87/3782"
+    },
+    {
+      "n": 33,
+      "lengths": 66,
+      "target": "28/65",
+      "sharp_upper": "9/22",
+      "gap": "31/1430"
+    },
+    {
+      "n": 35,
+      "lengths": 70,
+      "target": "10/23",
+      "sharp_upper": "29/70",
+      "gap": "33/1610"
+    },
+    {
+      "n": 37,
+      "lengths": 74,
+      "target": "32/73",
+      "sharp_upper": "31/74",
+      "gap": "105/5402"
+    },
+    {
+      "n": 39,
+      "lengths": 78,
+      "target": "34/77",
+      "sharp_upper": "11/26",
+      "gap": "37/2002"
+    },
+    {
+      "n": 41,
+      "lengths": 82,
+      "target": "4/9",
+      "sharp_upper": "35/82",
+      "gap": "13/738"
+    },
+    {
+      "n": 101,
+      "lengths": 202,
+      "target": "32/67",
+      "sharp_upper": "95/202",
+      "gap": "99/13534"
+    }
+  ],
+  "two_segment_screen": {
+    "n": 21,
+    "denominator": 8077,
+    "atoms": [
+      [
+        1,
+        1,
+        13
+      ],
+      [
+        1,
+        39,
+        84
+      ],
+      [
+        1,
+        41,
+        588
+      ],
+      [
+        3,
+        35,
+        84
+      ],
+      [
+        3,
+        38,
+        252
+      ],
+      [
+        4,
+        37,
+        168
+      ],
+      [
+        5,
+        36,
+        420
+      ],
+      [
+        6,
+        35,
+        504
+      ],
+      [
+        7,
+        34,
+        252
+      ],
+      [
+        8,
+        33,
+        672
+      ],
+      [
+        9,
+        32,
+        420
+      ],
+      [
+        10,
+        31,
+        252
+      ],
+      [
+        11,
+        30,
+        588
+      ],
+      [
+        12,
+        29,
+        420
+      ],
+      [
+        13,
+        28,
+        420
+      ],
+      [
+        14,
+        27,
+        336
+      ],
+      [
+        15,
+        26,
+        252
+      ],
+      [
+        16,
+        25,
+        504
+      ],
+      [
+        17,
+        24,
+        840
+      ],
+      [
+        18,
+        23,
+        336
+      ],
+      [
+        20,
+        21,
+        672
+      ]
+    ],
+    "degree2_all_exact": true,
+    "degree4_probe": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "degree4_moment": "1/41",
+    "degree4_target": "1/533",
+    "degree4_residual": "12/533",
+    "status": "Necessary degree-two screen passed; full uniformity disproved for this frozen ensemble."
+  }
+}
