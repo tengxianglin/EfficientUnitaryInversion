@@ -235,3 +235,7 @@ The manuscript and Appendix B at
 [arXiv:2506.20570v1](https://arxiv.org/html/2506.20570v1) were rechecked;
 no manuscript TeX/PDF is present in the repository. Its broader robustness
 promise remains distinct from this static program-design problem.
+
+## Follow-up: full moments reject the six screening seeds
+
+The [fourth-moment hierarchy and seed-pool audit](THEORY_FOURTH_MOMENT_HIERARCHY.md) certifies that all six fixed screening seeds, and any positive mixture of their dihedral images, fail a distance-two moment. Thus the near-target matching-mass observations do not yield a uniform construction. It also provides exact fourth/second-order dependency reduction and a separately labeled 1600-column numerical full-fourth-order experiment.

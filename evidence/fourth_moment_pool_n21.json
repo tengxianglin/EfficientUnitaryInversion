@@ -1,0 +1,18 @@
+{
+  "base_commit": "13a15652b9c752207869aeedbf95b6e0a85151e2",
+  "n": 21,
+  "seed_count": 1600,
+  "rng_seed": 202611210435,
+  "recipe": "320 each at relative disorder 0,.02,.1,.3,.7; log-uniform scale 3..500; wrap zero",
+  "full_feature_count": 1461,
+  "reduced_equations_including_normalization": 1314,
+  "couplings_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+  "features_sha256_le_f64": "3825a5cce52e221f96c10319b8c5e57eb9c11c793ebb21b6c4a5c8f085badad5",
+  "max_hierarchy_defect": 4.531652830763733e-12,
+  "max_second_relation_defect": 3.930411551777979e-12,
+  "solver": "scipy.linprog highs-ipm, scaled rows, 120-second limit",
+  "solver_status": 2,
+  "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)",
+  "solver_success": false,
+  "status": "Finite numerical convex-hull diagnostic only; not an exact certificate or general physical no-go."
+}
