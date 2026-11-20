@@ -12,7 +12,8 @@ At \(n=5\), let \(D=16\), \(s=126\), and let \(V\) be the selected-sector invers
 \[
  \kappa_H(q)=\sup\{\kappa\ge0:
  J_{H,q}-\kappa|V\rangle\!\rangle\langle\!\langle V|\succeq0\},
- \qquad K_5=\sup_q\inf_{H\ {m physical}}\kappa_H(q).
+ \qquad K_5=\sup_q\inf_{H\ {
+m physical}}\kappa_H(q).
 \]
 
 **Computer-assisted theorem.** In this stochastic Pauli correction class,
@@ -102,4 +103,4 @@ The [manuscript robustness appendix](https://arxiv.org/html/2506.20570v1) motiva
 
 The theorem rules out improving this five-site **uniform CP target component** by stochastic Pauli reweighting alone. It does not rule out a better full diamond error with a different decomposition, non-Pauli CPTP corrections, coherent program processing, or a different encoder. It also does not prove the same converse for the admissible long rings \(n\ge21\).
 
-The next high-value theoretical question is whether a physical ensemble with uniform diagonal program moments exists for general odd rings, preferably by an analytic construction. The ensemble lemma would then upgrade radial ML to an all-Pauli CP converse there without enumerating exponentially many labels. If that construction fails, the alternative is to exploit the obstruction or leave the Pauli correction class.
+The [physical dihedral reduction and seven-site certificate](THEORY_ODD_CYCLE_ORBIT_DESIGN.md) now establish the next finite case using only 85 orbit moments instead of 1716 labels. The next high-value theoretical question is whether a physical ensemble with uniform diagonal program moments exists for general odd rings, preferably by an analytic construction. The ensemble lemma would then upgrade radial ML to an all-Pauli CP converse there without enumerating exponentially many labels. If that construction fails, the alternative is to exploit the obstruction or leave the Pauli correction class.
