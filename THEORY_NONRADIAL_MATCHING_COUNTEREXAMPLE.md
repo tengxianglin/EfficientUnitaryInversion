@@ -8,7 +8,7 @@ This is a **small-system complementary-map diagnostic**. Five sites do not satis
 
 Use the occupation basis in the selected plus-parity block, of dimension \(D=16\). The physical Majorana graph is a ten-cycle: its alternating edges represent the local fields and Ising couplings, with known convention-dependent signs. Every matching of that graph generates a legal unitary block: set its disjoint bilinear coefficients to \(\pi/2\) and all other coefficients to zero. The bilinears commute, and their exponential is their Majorana monomial up to phase.
 
-Identify full Majorana complements in the selected parity block. The matchings generate **91 distinct balanced Pauli labels**, denoted \(\mathcal B\), among the 126 balanced program labels. This is an explicitly realizable subset; it is not asserted to enumerate every possible physical Pauli oracle. There are 130 complementary program labels \(R\).
+Identify full Majorana complements in the selected parity block. The matchings generate **91 distinct balanced Pauli labels**, denoted \(\mathcal B\), among the 126 balanced program labels. The [later all-length classification](THEORY_PURE_PAULI_CLASSIFICATION.md) proves that these are **all** pure logical Pauli oracles obtainable in a selected parity sector from a single static physical Ising exponential, up to phase. They remain a proper subset of the 126 balanced program labels; non-Pauli physical oracles can have support outside this set. There are 130 complementary program labels \(R\).
 
 For a rule applying \(R^\dagger\) followed by \(T\in\mathcal B\), let \(q_R(T)\) be its conditional distribution. The target component at a Pauli oracle \(B\in\mathcal B\) is proportional to
 \[

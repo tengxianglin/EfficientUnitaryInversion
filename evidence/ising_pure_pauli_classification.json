@@ -1,0 +1,95 @@
+{
+  "base_commit": "1d339a919d837269161dc6ac2732c137d809ed90",
+  "exact_enumerations": [
+    {
+      "n": 3,
+      "all_logical_paulis_checked": 16,
+      "balanced_labels_checked": 10,
+      "all_cycle_matchings": 18,
+      "pure_pauli_classes": 10,
+      "both_covers": 14
+    },
+    {
+      "n": 5,
+      "all_logical_paulis_checked": 256,
+      "balanced_labels_checked": 126,
+      "all_cycle_matchings": 123,
+      "pure_pauli_classes": 91,
+      "both_covers": 62
+    },
+    {
+      "n": 7,
+      "all_logical_paulis_checked": 4096,
+      "balanced_labels_checked": 1716,
+      "all_cycle_matchings": 843,
+      "pure_pauli_classes": 715,
+      "both_covers": 254
+    },
+    {
+      "n": 9,
+      "all_logical_paulis_checked": 65536,
+      "balanced_labels_checked": 24310,
+      "all_cycle_matchings": 5778,
+      "pure_pauli_classes": 5266,
+      "both_covers": 1022
+    }
+  ],
+  "unrealizable_balanced_label_indices": [
+    0,
+    2,
+    3,
+    5
+  ],
+  "all_n_formula_checks": [
+    {
+      "n": 3,
+      "pure_pauli_classes": 10,
+      "balanced_classes": 10,
+      "pure_atom_weight_upper": "1",
+      "non_pure_atom_weight_lower": "0"
+    },
+    {
+      "n": 5,
+      "pure_pauli_classes": 91,
+      "balanced_classes": 126,
+      "pure_atom_weight_upper": "13/18",
+      "non_pure_atom_weight_lower": "5/18"
+    },
+    {
+      "n": 7,
+      "pure_pauli_classes": 715,
+      "balanced_classes": 1716,
+      "pure_atom_weight_upper": "5/12",
+      "non_pure_atom_weight_lower": "7/12"
+    },
+    {
+      "n": 9,
+      "pure_pauli_classes": 5266,
+      "balanced_classes": 24310,
+      "pure_atom_weight_upper": "2633/12155",
+      "non_pure_atom_weight_lower": "9522/12155"
+    },
+    {
+      "n": 11,
+      "pure_pauli_classes": 37555,
+      "balanced_classes": 352716,
+      "pure_atom_weight_upper": "5365/50388",
+      "non_pure_atom_weight_lower": "45023/50388"
+    },
+    {
+      "n": 21,
+      "pure_pauli_classes": 596977426,
+      "balanced_classes": 269128937220,
+      "pure_atom_weight_upper": "298488713/134564468610",
+      "non_pure_atom_weight_lower": "134265979897/134564468610"
+    },
+    {
+      "n": 51,
+      "pure_pauli_classes": 2073666128420899482130,
+      "balanced_classes": 199804427433372226016001220056,
+      "pure_atom_weight_upper": "1036833064210449741065/99902213716686113008000610028",
+      "non_pure_atom_weight_lower": "99902212679853048797550868963/99902213716686113008000610028"
+    }
+  ],
+  "status": "Finite exact consistency checks of an analytic all-odd-n classification."
+}
