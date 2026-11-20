@@ -1,0 +1,162 @@
+{
+  "base_commit": "7468a5fbb07c6c00bdd2b16fce226409312248af",
+  "status": "Finite floating diagnostic; not a full moment design or interval certificate.",
+  "cases": [
+    {
+      "length": 10,
+      "time_factor": "1/8",
+      "score": -52.98633356189485
+    },
+    {
+      "length": 10,
+      "time_factor": "1/4",
+      "score": -105.66842517201694
+    },
+    {
+      "length": 10,
+      "time_factor": "1/2",
+      "score": -41.98525581521744
+    },
+    {
+      "length": 10,
+      "time_factor": "3/4",
+      "score": -65.11330020601233
+    },
+    {
+      "length": 10,
+      "time_factor": "5/4",
+      "score": -40.75720860016292
+    },
+    {
+      "length": 10,
+      "time_factor": "3/2",
+      "score": -70.13372204936495
+    },
+    {
+      "length": 21,
+      "time_factor": "1/8",
+      "score": -129.11953563907454
+    },
+    {
+      "length": 21,
+      "time_factor": "1/4",
+      "score": -62.460739560956256
+    },
+    {
+      "length": 21,
+      "time_factor": "1/2",
+      "score": -53.29616430372665
+    },
+    {
+      "length": 21,
+      "time_factor": "3/4",
+      "score": -43.5155129042398
+    },
+    {
+      "length": 21,
+      "time_factor": "5/4",
+      "score": -43.515512904239756
+    },
+    {
+      "length": 21,
+      "time_factor": "3/2",
+      "score": -53.2961643037238
+    },
+    {
+      "length": 30,
+      "time_factor": "1/8",
+      "score": -137.6964006033236
+    },
+    {
+      "length": 30,
+      "time_factor": "1/4",
+      "score": -68.47270248262846
+    },
+    {
+      "length": 30,
+      "time_factor": "1/2",
+      "score": -41.93055987947513
+    },
+    {
+      "length": 30,
+      "time_factor": "3/4",
+      "score": -33.898995520426595
+    },
+    {
+      "length": 30,
+      "time_factor": "5/4",
+      "score": -34.67647361436232
+    },
+    {
+      "length": 30,
+      "time_factor": "3/2",
+      "score": -39.02796611851022
+    },
+    {
+      "length": 41,
+      "time_factor": "1/8",
+      "score": -54.275966860236636
+    },
+    {
+      "length": 41,
+      "time_factor": "1/4",
+      "score": -19.909642757470706
+    },
+    {
+      "length": 41,
+      "time_factor": "1/2",
+      "score": 9.296488871229762
+    },
+    {
+      "length": 41,
+      "time_factor": "3/4",
+      "score": 13.33169072178709
+    },
+    {
+      "length": 41,
+      "time_factor": "5/4",
+      "score": 13.331690721787323
+    },
+    {
+      "length": 41,
+      "time_factor": "3/2",
+      "score": 9.29648887123282
+    },
+    {
+      "length": 42,
+      "time_factor": "1/8",
+      "score": -52.89541454712074
+    },
+    {
+      "length": 42,
+      "time_factor": "1/4",
+      "score": -15.852620360829102
+    },
+    {
+      "length": 42,
+      "time_factor": "1/2",
+      "score": 11.806011955057885
+    },
+    {
+      "length": 42,
+      "time_factor": "3/4",
+      "score": 11.082612710478891
+    },
+    {
+      "length": 42,
+      "time_factor": "5/4",
+      "score": 11.082612710479031
+    },
+    {
+      "length": 42,
+      "time_factor": "3/2",
+      "score": 11.806011955060278
+    }
+  ],
+  "best": {
+    "length": 41,
+    "time_factor": "5/4",
+    "score": 13.331690721787323
+  },
+  "uniform_target_score": 1.3639774859287055
+}

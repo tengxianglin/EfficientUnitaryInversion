@@ -1,0 +1,49 @@
+{
+  "base_commit": "7468a5fbb07c6c00bdd2b16fce226409312248af",
+  "n": 21,
+  "N": 42,
+  "columns": 12342,
+  "feature_denominator": 42,
+  "coefficients": [
+    -209,
+    198,
+    -201,
+    209,
+    -3,
+    0,
+    6,
+    11,
+    181,
+    -12,
+    15,
+    -36,
+    42,
+    -52,
+    44,
+    -23,
+    206,
+    -209,
+    54,
+    -19,
+    4,
+    -209
+  ],
+  "fourth_probe": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "max_integer_score": -126,
+  "class_upper": "-3",
+  "target_score": "727/533",
+  "gap": "2326/533",
+  "saturated_columns": 120,
+  "maximizer": [
+    1,
+    1,
+    0
+  ],
+  "integer_rows_sha256_le_i64": "cbc77d0db20ee3d6510a92ebc35c4892e2f916fdf16211979e40b638fb745b69",
+  "status": "Exact finite-family convex-hull separation; general physical designs unresolved."
+}

@@ -208,3 +208,7 @@ probe. A positive solution must then be tested against all degree-four
 orbits; a negative result needs an exact dual certificate for that seed
 pool. Ultimately all even minors, or an analytic implication controlling
 them, are required before claiming the full joint uniform ensemble.
+
+## 6. Follow-up: the two-mirror screen is now excluded
+
+The [exact fourth-order obstruction](THEORY_TWO_MIRROR_OBSTRUCTION.md) completes the proposed next screen at n=21 and strengthens it to all two-segment placements with both idle gaps. A single fourth-order probe together with the 21 degree-two conditions has an exact separating certificate over all 12,342 configurations. The earlier degree-two certificate remains valid; the general physical uniform-ensemble question remains unresolved.
