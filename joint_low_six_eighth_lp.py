@@ -69,4 +69,4 @@ def run():
       'selected_eighth_rows':EIGHTH_ROWS,
       'scope':'Finite LP over frozen 83-column pool and 256 sixth rows; no complete sixth/eighth certification, exact feasibility, or physical global optimum.'}
 
-if __name__=='__main__': print(json.dumps(run(),indent=2)+'\n')
+if __name__=='__main__': print(json.dumps(run(),indent=2))
