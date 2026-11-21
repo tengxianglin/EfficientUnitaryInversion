@@ -1,0 +1,18 @@
+{
+  "base_commit": "0e03837f17d3196856f28e4fc679fe34dbc03485",
+  "precision_bits": 128,
+  "certified_columns": 1639,
+  "nonzero_low_coefficients": 65,
+  "nonzero_sixth_coefficients": 1,
+  "principal_determinants_per_column": 3171,
+  "target_functional": "-28043981/250000",
+  "low_coefficient_l1": "101696293/500000",
+  "sixth_coefficient_l1": "1",
+  "low_cap": "109/500",
+  "strict_pool_upper": "-316893/2000",
+  "exact_conditional_lower": "482748063/250000000",
+  "sixth_strict_error_lower": "193/100",
+  "largest_midpoint_column": 1614,
+  "largest_midpoint_score": "[-158.4466898299418537495989539683788 +/- 2.93e-32]",
+  "scope": "If a mixture of this pool and its signed dihedral/gauge images has G24<=cap, its tested sixth error exceeds the stated bound. Other physical seeds are not excluded."
+}

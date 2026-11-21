@@ -1,5 +1,7 @@
 # A certified sixth-order boundary of the low-moment construction
 
+Follow-up: [certified finite-pool weight-repair obstruction](THEORY_FIXED_POOL_SIXTH_TRADEOFF.md).
+
 2026-11-21; base `9477d4f5d7938e63bc2d242b1417f430f01795dd`;
 Issue #3. Follows the [complete low-order certificate](THEORY_CERTIFIED_LOW_MOMENT_ENSEMBLE.md).
 

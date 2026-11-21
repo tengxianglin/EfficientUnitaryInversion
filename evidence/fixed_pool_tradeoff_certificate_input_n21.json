@@ -1,0 +1,11 @@
+{
+  "base_commit": "0e03837f17d3196856f28e4fc679fe34dbc03485",
+  "precision_bits": 128,
+  "pool_upper": "-316893/2000",
+  "sixth_error_lower": "193/100",
+  "source_sha256": {
+    "fixed_pool_tradeoff_n21.json": "3380b3345d5c5ad6d403f79b03cca6e56991b6136bd28ab6495e8688ecfa7ed6",
+    "sixth_moment_screen_n21.json": "b8310236d0da49708821f1ed379ad946441a079064f4ba1279dc5e5dfc58a863",
+    "full_low_moment_certificate_input_n21.json": "ffa928e22ed90a91df3a2dbef75091c4a5843cb9a24c2df4d093ecf594e05eb7"
+  }
+}
