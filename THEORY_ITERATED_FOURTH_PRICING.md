@@ -1,5 +1,7 @@
 # Iterated physical pricing and a reflection-averaging counterexample
 
+Follow-up: [six-column batch and explicit approximate mixture](THEORY_BATCH_FOURTH_PRICING.md).
+
 Date: 2026-11-21. Base commit: `a1207766abb8c3470016d7addbb6bc31305ae5ed`.
 Issue #3. This continues the [certified first pricing step](THEORY_DIRECTED_FOURTH_PRICING.md)
 for the [complete second/fourth system](THEORY_FOURTH_MOMENT_HIERARCHY.md).
