@@ -1,5 +1,7 @@
 # Certified physical escape and a low/sixth-moment repair ensemble
 
+Full-order diagnostic: [exhaustive sixth audit and certified untested rows](THEORY_COMPLETE_SIXTH_AUDIT.md).
+
 2026-11-21; base `2c458d8d9cb27f1e1c904970f1417606e1949dd8`; Issue #3.
 Continues the [fixed-pool tradeoff certificate](THEORY_FIXED_POOL_SIXTH_TRADEOFF.md).
 

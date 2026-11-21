@@ -1,0 +1,40 @@
+{
+  "base_commit": "301e20b14aed72f362764624447482e29e1ccaa4",
+  "precision_bits": 128,
+  "source_sha256": {
+    "complete_sixth_audit_n21.json": "77ebea739f2f9f6820e7e7842ed14e64ebca07a017858d9e8918621ed1430868",
+    "sixth_escape_ensemble_certificate_input_n21.json": "e53f36831263bfab5e19343fc9f2e195405481205353e8252ff3d5c5a6edb569",
+    "sixth_escape_ensemble_certificate_n21.json": "73c3f12ed2f6f19ec400ad7242b03078a24044a7f9ccf595a59913d1d82b6757"
+  },
+  "cases": [
+    {
+      "selection": "repair_outside_max",
+      "indices": [
+        0,
+        4,
+        12,
+        20,
+        28,
+        32
+      ],
+      "outside_original_256": true,
+      "repair_error_lower": "28/25",
+      "repair_error_upper": "9/8",
+      "repair_moment_positive": true
+    },
+    {
+      "selection": "outside_largest_increase",
+      "indices": [
+        0,
+        5,
+        14,
+        19,
+        28,
+        33
+      ],
+      "outside_original_256": true,
+      "repair_error_lower": "37/50",
+      "reference_error_upper": "23/200"
+    }
+  ]
+}

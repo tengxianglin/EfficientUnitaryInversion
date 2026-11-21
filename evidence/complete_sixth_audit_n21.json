@@ -1,0 +1,99 @@
+{
+  "base_commit": "301e20b14aed72f362764624447482e29e1ccaa4",
+  "reference_seed_orbits": 70,
+  "repair_seed_orbits": 83,
+  "sixth_orbits": 63133,
+  "six_sets": 5245786,
+  "burnside": {
+    "rotations_fixed_sum": 5247312,
+    "reflections_fixed_sum": 55860,
+    "orbits": 63133
+  },
+  "small_orbit_checks": [
+    {
+      "N": 10,
+      "sixth_orbits": 16
+    },
+    {
+      "N": 14,
+      "sixth_orbits": 126
+    }
+  ],
+  "reference_vector_sha256_le_f64": "305f6370b98bcff79733c9785013051b4ec8ad651aba1c83f80e3185058175c7",
+  "repair_vector_sha256_le_f64": "208f07f13c27cb3911b98e64bcc413ca970849863040c9b8dc48394067b501ca",
+  "outside_original_256_over_155": 0,
+  "selected": {
+    "reference_global_max": {
+      "orbit_index": 0,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "target": "5/19721",
+      "reference_moment": 0.0008112333109988363,
+      "repair_moment": 0.0006461693461353836,
+      "reference_relative_error": 2.1996664252416105,
+      "repair_relative_error": 1.5486211350271804,
+      "in_original_256": true
+    },
+    "repair_global_max": {
+      "orbit_index": 0,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "target": "5/19721",
+      "reference_moment": 0.0008112333109988363,
+      "repair_moment": 0.0006461693461353836,
+      "reference_relative_error": 2.1996664252416105,
+      "repair_relative_error": 1.5486211350271804,
+      "in_original_256": true
+    },
+    "repair_outside_max": {
+      "orbit_index": 62480,
+      "indices": [
+        0,
+        4,
+        12,
+        20,
+        28,
+        32
+      ],
+      "target": "-5/19721",
+      "reference_moment": 4.008712893331696e-05,
+      "repair_moment": 3.142027642527611e-05,
+      "reference_relative_error": 1.1581116539387888,
+      "repair_relative_error": 1.123927854276574,
+      "in_original_256": false
+    },
+    "outside_largest_increase": {
+      "orbit_index": 63079,
+      "indices": [
+        0,
+        5,
+        14,
+        19,
+        28,
+        33
+      ],
+      "target": "5/19721",
+      "reference_moment": 0.0002824640571302342,
+      "repair_moment": 0.00044172115102907847,
+      "reference_relative_error": 0.11409473413306981,
+      "repair_relative_error": 0.7422365638888914,
+      "in_original_256": false
+    }
+  },
+  "sixth_elementary_symmetric_target": -1330,
+  "reference_signed_minor_sum": -1329.9999999998295,
+  "repair_signed_minor_sum": -1329.9999999998286,
+  "status": "Exhaustive floating sixth-order audit; no interval global maximum or complete sixth upper certificate."
+}

@@ -1,0 +1,47 @@
+{
+  "base_commit": "301e20b14aed72f362764624447482e29e1ccaa4",
+  "precision_bits": 128,
+  "certified_probes": [
+    {
+      "indices": [
+        0,
+        4,
+        12,
+        20,
+        28,
+        32
+      ],
+      "orbit_size": 42,
+      "outside_original_256": true,
+      "target": "-5/19721",
+      "reference_moment": "[4.00871289334926553604363172374886e-5 +/- 9.27e-38]",
+      "repair_moment": "[3.14202764254017740970140891763563e-5 +/- 7.15e-38]",
+      "reference_relative_error": "[1.158111653939481731272632922448102 +/- 6.11e-34]",
+      "repair_relative_error": "[1.123927854277069677393442970529384 +/- 6.43e-34]",
+      "repair_strict_lower": "28/25",
+      "repair_strict_upper": "9/8",
+      "opposite_target_sign": true
+    },
+    {
+      "indices": [
+        0,
+        5,
+        14,
+        19,
+        28,
+        33
+      ],
+      "orbit_size": 14,
+      "outside_original_256": true,
+      "target": "5/19721",
+      "reference_moment": "[0.0002824640571302171709911333188906129 +/- 5.88e-38]",
+      "repair_moment": "[0.0004417211510291568261432489740735323 +/- 6.18e-38]",
+      "reference_relative_error": "[0.114094734133002565823228036368355 +/- 4.06e-34]",
+      "repair_relative_error": "[0.742236563889200353674202603540826 +/- 1.46e-34]",
+      "repair_strict_lower": "37/50",
+      "reference_strict_upper": "23/200",
+      "strict_error_increase_lower": "5/8"
+    }
+  ],
+  "scope": "Only the frozen row inequalities are interval-certified. Exhaustive floating maxima are not exact/global upper certificates; no uniformity or physical no-go theorem follows."
+}
