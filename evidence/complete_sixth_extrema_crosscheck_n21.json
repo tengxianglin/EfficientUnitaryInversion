@@ -1,0 +1,112 @@
+{
+  "input_sha256": "26c9b45e0104c6a074cec88d508ab9121d6774dd0163662815fc5496308a0617",
+  "precision_bits": 128,
+  "checked_rows": [
+    {
+      "shard": 0,
+      "probe": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "residual_128_bits": "[1.548621135027835614323148142986884 +/- 5.61e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 1,
+      "probe": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9
+      ],
+      "residual_128_bits": "[0.773383672539740029546692078415378 +/- 2.48e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 2,
+      "probe": [
+        0,
+        1,
+        6,
+        8,
+        35,
+        37
+      ],
+      "residual_128_bits": "[0.860109308894481667570368827139737 +/- 2.41e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 3,
+      "probe": [
+        0,
+        1,
+        8,
+        9,
+        16,
+        35
+      ],
+      "residual_128_bits": "[0.712125828787245640891774602955247 +/- 1.78e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 4,
+      "probe": [
+        0,
+        1,
+        14,
+        15,
+        28,
+        29
+      ],
+      "residual_128_bits": "[0.944995667398549493262595451297555 +/- 2.58e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 5,
+      "probe": [
+        0,
+        2,
+        6,
+        14,
+        22,
+        34
+      ],
+      "residual_128_bits": "[0.672472198625045567820623355534986 +/- 3.12e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 6,
+      "probe": [
+        0,
+        2,
+        8,
+        10,
+        16,
+        18
+      ],
+      "residual_128_bits": "[1.020180497771415177161328915418754 +/- 2.05e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    },
+    {
+      "shard": 7,
+      "probe": [
+        0,
+        7,
+        14,
+        21,
+        28,
+        35
+      ],
+      "residual_128_bits": "[1.548613790376005983628969017544790 +/- 4.06e-34]",
+      "contained_in_reported_64_bit_enclosure": true
+    }
+  ],
+  "complete_norm_strict_lower": "7743/5000",
+  "scope": "Higher-precision subset consistency check; the separate complete pass supplies the global upper certificate."
+}

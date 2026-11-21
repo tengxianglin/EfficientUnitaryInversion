@@ -1,5 +1,7 @@
 # Exhaustive sixth-order audit: coverage, numerical maximum, and certified rows
 
+Certified follow-up: [complete sixth-order interval bound](THEORY_COMPLETE_SIXTH_CERTIFICATE.md). The full upper bound listed as pending below is now proved for the fixed ensemble; the other limitations remain.
+
 2026-11-22; base `301e20b14aed72f362764624447482e29e1ccaa4`; Issue #3.
 Follow-up to the [certified low/selected-sixth repair](THEORY_SIXTH_PRICING_ESCAPE.md).
 

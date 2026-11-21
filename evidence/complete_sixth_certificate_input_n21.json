@@ -1,0 +1,12 @@
+{
+  "base_commit": "72521b5e8971e8ed92a1be4203da01c7fad1f887",
+  "precision_bits": 64,
+  "sixth_error_upper": "31/20",
+  "expected_seed_orbits": 83,
+  "expected_sixth_orbits": 63133,
+  "expected_six_sets": 5245786,
+  "source_sha256": {
+    "sixth_escape_ensemble_certificate_input_n21.json": "e53f36831263bfab5e19343fc9f2e195405481205353e8252ff3d5c5a6edb569",
+    "sixth_escape_ensemble_certificate_n21.json": "73c3f12ed2f6f19ec400ad7242b03078a24044a7f9ccf595a59913d1d82b6757"
+  }
+}
