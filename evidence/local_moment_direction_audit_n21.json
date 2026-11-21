@@ -1,0 +1,45 @@
+{
+  "fixed_weight_replacements": [
+    {
+      "radius": 0.001,
+      "all_row_residual": 0.23452124997187682,
+      "change_from_baseline": 0.00012577886653308834
+    },
+    {
+      "radius": 0.01,
+      "all_row_residual": 0.2356347117328899,
+      "change_from_baseline": 0.0012392406275461842
+    },
+    {
+      "radius": 0.1,
+      "all_row_residual": 0.2524239598092343,
+      "change_from_baseline": 0.018028488703890594
+    }
+  ],
+  "base_commit": "47c88cf7ce88a39f209e38d3f2b06c469452f75c",
+  "baseline_residual": 0.23439547110534373,
+  "jvp_checks": [
+    {
+      "column": 630,
+      "jvp_finite_difference_defect": 4.569695316591904e-12
+    },
+    {
+      "column": 573,
+      "jvp_finite_difference_defect": 3.4025296469231137e-11
+    },
+    {
+      "column": 264,
+      "jvp_finite_difference_defect": 1.061609350774817e-11
+    },
+    {
+      "column": 726,
+      "jvp_finite_difference_defect": 6.58126331209985e-12
+    }
+  ],
+  "near_active_tolerance": 1e-08,
+  "near_active_rows": 67,
+  "near_active_signed_slope_min": -0.25455497169765134,
+  "near_active_signed_slope_max": 0.12593075723208863,
+  "near_active_positive_slopes": 17,
+  "status": "Floating near-active-set diagnostic, not a certified exact directional derivative of the optimized value."
+}

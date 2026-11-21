@@ -1,5 +1,7 @@
 # A six-column pricing batch and an explicit approximate mixture
 
+Follow-up: [support deformation and all-row corrective weights](THEORY_LOCAL_MOMENT_STEP.md).
+
 Date: 2026-11-21. Base: `6a7d4f6b54f0343fe711eeb681738357dd728d8c`.
 Issue #3; continuation of [iterated pricing](THEORY_ITERATED_FOURTH_PRICING.md).
 
