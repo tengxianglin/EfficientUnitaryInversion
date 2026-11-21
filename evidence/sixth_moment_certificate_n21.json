@@ -1,0 +1,60 @@
+{
+  "base_commit": "9477d4f5d7938e63bc2d242b1417f430f01795dd",
+  "precision_bits": 128,
+  "certified_orbits": [
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "orbit_size": 42,
+      "target": "5/19721",
+      "old_moment": "[0.0008380491803344729156303930660369577 +/- 6.68e-38]",
+      "new_moment": "[0.0008112333109989903014348490407153079 +/- 6.26e-38]",
+      "old_relative_error": "[2.305433577075228073829396331062969 +/- 5.86e-34]",
+      "new_relative_error": "[2.199666425242217546919331586389317 +/- 6.67e-34]"
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        9,
+        14,
+        22
+      ],
+      "orbit_size": 84,
+      "target": "5/19721",
+      "old_moment": "[0.0002546680798251310141831648754172810 +/- 7.78e-38]",
+      "new_moment": "[0.0002713203252856499714312052215181101 +/- 7.24e-38]",
+      "old_relative_error": "[0.004461840446281746141238901620840 +/- 5.87e-34]",
+      "new_relative_error": "[0.070141626991660617318959634711730 +/- 2.09e-34]"
+    }
+  ],
+  "outlier_new_strict_lower": "219/100",
+  "tradeoff_old_strict_upper": "1/200",
+  "tradeoff_new_strict_lower": "7/100",
+  "tradeoff_strict_increase_lower": "13/200",
+  "exact_target_hierarchy_checks": [
+    {
+      "n": 5,
+      "Q_signed_target_sum": "-5/21",
+      "normalized_ratio": "1"
+    },
+    {
+      "n": 7,
+      "Q_signed_target_sum": "-15/143",
+      "normalized_ratio": "9/5"
+    },
+    {
+      "n": 21,
+      "Q_signed_target_sum": "-5/533",
+      "normalized_ratio": "37/5"
+    }
+  ],
+  "scope": "Certified two-orbit sixth-order lower bounds/tradeoff; no complete sixth-order maximum, exact low-order counterexample, or global physical no-go."
+}

@@ -1,0 +1,25 @@
+{
+  "base_commit": "9477d4f5d7938e63bc2d242b1417f430f01795dd",
+  "precision_bits": 128,
+  "prior_input_sha256": "ffa928e22ed90a91df3a2dbef75091c4a5843cb9a24c2df4d093ecf594e05eb7",
+  "screen_sha256": "b8310236d0da49708821f1ed379ad946441a079064f4ba1279dc5e5dfc58a863",
+  "outlier_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "outlier_new_relative_error_lower": "219/100",
+  "tradeoff_indices": [
+    0,
+    2,
+    6,
+    9,
+    14,
+    22
+  ],
+  "tradeoff_old_relative_error_upper": "1/200",
+  "tradeoff_new_relative_error_lower": "7/100"
+}

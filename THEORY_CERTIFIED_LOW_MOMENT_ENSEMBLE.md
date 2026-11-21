@@ -1,5 +1,7 @@
 # A certified n=21 low-moment ensemble and strict improvement
 
+Higher-order boundary: [certified sixth-order audit and hierarchy](THEORY_SIXTH_MOMENT_AUDIT.md).
+
 2026-11-21; base `32da6c3dacd9fc175920e782c5b4d3c1776a4611`;
 Issue #3. Follow-up to the [all-row linearization study](THEORY_LINEARIZED_MOMENT_STEP.md).
 

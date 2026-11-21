@@ -1,0 +1,4107 @@
+{
+  "base_commit": "9477d4f5d7938e63bc2d242b1417f430f01795dd",
+  "rng_seed": 202611211836,
+  "orbits_screened": 256,
+  "distinct_six_sets": 21091,
+  "status": "Finite floating screen of 256 orbits; no full sixth-order maximum or optimality claim.",
+  "worst_new_index": 0,
+  "largest_increase_index": 174,
+  "records": [
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0008380491803342753,
+      "new_moment": 0.0008112333109988363,
+      "old_relative_residual": 2.305433577074449,
+      "new_relative_residual": 2.1996664252416105,
+      "change_in_relative_residual": -0.10576715183283847
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        12,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00026470771344168267,
+      "new_moment": -0.00026196163749013496,
+      "old_relative_residual": 0.044060163356684855,
+      "new_relative_residual": 0.03322909058859038,
+      "change_in_relative_residual": -0.010831072768094474
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        23,
+        38
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00015895494359420448,
+      "new_moment": -0.00016914291332005012,
+      "old_relative_residual": 0.3730499114757387,
+      "new_relative_residual": 0.33286652128305827,
+      "change_in_relative_residual": -0.04018339019268041
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        35,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00017414625580283437,
+      "new_moment": -0.00019920152835607797,
+      "old_relative_residual": 0.31313233786246064,
+      "new_relative_residual": 0.21430933185795722,
+      "change_in_relative_residual": -0.09882300600450342
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        5,
+        13,
+        39
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001775394494653875,
+      "new_moment": -0.00017936019099687293,
+      "old_relative_residual": 0.29974890341861854,
+      "new_relative_residual": 0.29256753467013374,
+      "change_in_relative_residual": -0.0071813687484847955
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        5,
+        17,
+        39
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00029584349550084284,
+      "new_moment": -0.0002970589732807704,
+      "old_relative_residual": 0.1668659149544244,
+      "new_relative_residual": 0.1716600024140146,
+      "change_in_relative_residual": 0.004794087459590202
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        7,
+        17,
+        22
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022439457557642668,
+      "new_moment": 0.00023111478012083938,
+      "old_relative_residual": 0.11494291501145783,
+      "new_relative_residual": 0.08843708424738524,
+      "change_in_relative_residual": -0.02650583076407259
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        8,
+        23,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00023175624481176166,
+      "new_moment": 0.0002401283448375531,
+      "old_relative_residual": 0.08590701921344958,
+      "new_relative_residual": 0.05288578229172295,
+      "change_in_relative_residual": -0.03302123692172663
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        9,
+        16,
+        21
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002361631657339876,
+      "new_moment": 0.00023417637516131448,
+      "old_relative_residual": 0.06852524171200602,
+      "new_relative_residual": 0.07636154108874338,
+      "change_in_relative_residual": 0.007836299376737355
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002650988133197357,
+      "new_moment": 0.0002637892332561917,
+      "old_relative_residual": 0.04560273949570156,
+      "new_relative_residual": 0.04043749380907141,
+      "change_in_relative_residual": -0.0051652456866301474
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        10,
+        12,
+        22
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00021223979740248245,
+      "new_moment": 0.00021758946243203615,
+      "old_relative_residual": 0.16288379108512868,
+      "new_relative_residual": 0.14178364227556295,
+      "change_in_relative_residual": -0.021100148809565733
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        12,
+        13,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022965240043509662,
+      "new_moment": -0.00023439353816222323,
+      "old_relative_residual": 0.09420500220389184,
+      "new_relative_residual": 0.07550500678055908,
+      "change_in_relative_residual": -0.01869999542333277
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        12,
+        23,
+        27
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00023454437105265637,
+      "new_moment": 0.00023434835004281982,
+      "old_relative_residual": 0.07491009169411268,
+      "new_relative_residual": 0.07568323776111002,
+      "change_in_relative_residual": 0.0007731460669973406
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        13,
+        19,
+        20
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002620158291826825,
+      "new_moment": 0.00026307765199419254,
+      "old_relative_residual": 0.03344283346233647,
+      "new_relative_residual": 0.03763087499549427,
+      "change_in_relative_residual": 0.004188041533157799
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        14,
+        18,
+        28
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002503928160640842,
+      "new_moment": 0.0002441924009780352,
+      "old_relative_residual": 0.012400654880039042,
+      "new_relative_residual": 0.03685633206243358,
+      "change_in_relative_residual": 0.024455677182394536
+    },
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        14,
+        21,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00029677522053915247,
+      "new_moment": -0.00029566728175401774,
+      "old_relative_residual": 0.17054082485052524,
+      "new_relative_residual": 0.16617089269419685,
+      "change_in_relative_residual": -0.004369932156328388
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        13,
+        15
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0003049773517287955,
+      "new_moment": -0.00030312300929973,
+      "old_relative_residual": 0.20289167068871533,
+      "new_relative_residual": 0.1955777732799952,
+      "change_in_relative_residual": -0.007313897408720127
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        5,
+        8,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00020341319144905924,
+      "new_moment": -0.00020777142873409005,
+      "old_relative_residual": 0.1976976902866205,
+      "new_relative_residual": 0.180507930787002,
+      "change_in_relative_residual": -0.017189759499618484
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        5,
+        10,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024199650312696722,
+      "new_moment": 0.00024240493923969223,
+      "old_relative_residual": 0.04551739236661584,
+      "new_relative_residual": 0.04390643865080587,
+      "change_in_relative_residual": -0.001610953715809972
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        6,
+        21,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023940987536025954,
+      "new_moment": -0.00023168862674169622,
+      "old_relative_residual": 0.055719569604064274,
+      "new_relative_residual": 0.08617371840540172,
+      "change_in_relative_residual": 0.030454148801337448
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        6,
+        29,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002628237030293485,
+      "new_moment": 0.0002658520219322171,
+      "old_relative_residual": 0.03662924948835651,
+      "new_relative_residual": 0.04857354490505086,
+      "change_in_relative_residual": 0.011944295416694346
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        7,
+        9,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00017410433419608518,
+      "new_moment": -0.0001827636467098518,
+      "old_relative_residual": 0.3132976850638008,
+      "new_relative_residual": 0.2791436246470025,
+      "change_in_relative_residual": -0.034154060416798304
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        7,
+        9,
+        39
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024005939330825788,
+      "new_moment": 0.0002528745263942517,
+      "old_relative_residual": 0.053157740913569194,
+      "new_relative_residual": 0.00261229299579241,
+      "change_in_relative_residual": -0.050545447917776785
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        7,
+        10,
+        27
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00019251500194178976,
+      "new_moment": -0.00019464202578175593,
+      "old_relative_residual": 0.2406823293411928,
+      "new_relative_residual": 0.2322929219115982,
+      "change_in_relative_residual": -0.008389407429594598
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        8,
+        22,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00030942266814874944,
+      "new_moment": 0.00029916545205382894,
+      "old_relative_residual": 0.22042488771229762,
+      "new_relative_residual": 0.1799683759907122,
+      "change_in_relative_residual": -0.04045651172158543
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        9,
+        17,
+        28
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023831857559032104,
+      "new_moment": -0.00023368066247742863,
+      "old_relative_residual": 0.060023874156655686,
+      "new_relative_residual": 0.07831673105652595,
+      "change_in_relative_residual": 0.018292856899870265
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        9,
+        19,
+        21
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026618735420111156,
+      "new_moment": 0.0002584799454231517,
+      "old_relative_residual": 0.04989616244002429,
+      "new_relative_residual": 0.019496600737995008,
+      "change_in_relative_residual": -0.03039956170202928
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        9,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002836356215916996,
+      "new_moment": 0.0002920023690981355,
+      "old_relative_residual": 0.11871561868198173,
+      "new_relative_residual": 0.1517157441968661,
+      "change_in_relative_residual": 0.03300012551488436
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        10,
+        11,
+        15
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001744798825181143,
+      "new_moment": -0.00017065935060373325,
+      "old_relative_residual": 0.3118164473720535,
+      "new_relative_residual": 0.3268853893487553,
+      "change_in_relative_residual": 0.015068941976701777
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        10,
+        14,
+        38
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00018440977393985024,
+      "new_moment": -0.00018630468166717066,
+      "old_relative_residual": 0.27265096962644264,
+      "new_relative_residual": 0.26517707456834544,
+      "change_in_relative_residual": -0.007473895058097202
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        12,
+        13,
+        24
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002444116794965401,
+      "new_moment": 0.0002364938302309618,
+      "old_relative_residual": 0.03599145372974656,
+      "new_relative_residual": 0.06722103480304038,
+      "change_in_relative_residual": 0.03122958107329382
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        12,
+        17,
+        36
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002555629055185213,
+      "new_moment": 0.0002500375388363134,
+      "old_relative_residual": 0.007991211946151808,
+      "new_relative_residual": 0.013801939321812638,
+      "change_in_relative_residual": 0.0058107273756608305
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        12,
+        29,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022267228329628808,
+      "new_moment": 0.00021709393327223444,
+      "old_relative_residual": 0.12173598022278051,
+      "new_relative_residual": 0.14373810838765286,
+      "change_in_relative_residual": 0.022002128164872348
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        13,
+        18,
+        30
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003277650185632061,
+      "new_moment": 0.0003280830609106867,
+      "old_relative_residual": 0.29277078621699754,
+      "new_relative_residual": 0.29402520884393063,
+      "change_in_relative_residual": 0.0012544226269330938
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        14,
+        17,
+        19
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00018222141325527304,
+      "new_moment": -0.00020025630325970205,
+      "old_relative_residual": 0.2812823018385521,
+      "new_relative_residual": 0.21014908868308313,
+      "change_in_relative_residual": -0.07113321315546894
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        17,
+        21,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00019545547392573067,
+      "new_moment": -0.00019919196069819085,
+      "old_relative_residual": 0.22908451974213304,
+      "new_relative_residual": 0.21434706861419558,
+      "change_in_relative_residual": -0.014737451127937451
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        17,
+        28,
+        39
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00021599226005879918,
+      "new_moment": -0.0002226528135908592,
+      "old_relative_residual": 0.14808332787608422,
+      "new_relative_residual": 0.12181277263493308,
+      "change_in_relative_residual": -0.02627055524115114
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        18,
+        21,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00020723074273186327,
+      "new_moment": -0.00020452410452174153,
+      "old_relative_residual": 0.18264050451698485,
+      "new_relative_residual": 0.193316026945347,
+      "change_in_relative_residual": 0.010675522428362144
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        19,
+        26,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002409398778517119,
+      "new_moment": -0.0002475026616382756,
+      "old_relative_residual": 0.049684933777277916,
+      "new_relative_residual": 0.023800001966313274,
+      "change_in_relative_residual": -0.025884931810964643
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        20,
+        34,
+        39
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00021914867892413307,
+      "new_moment": 0.00022189244633285388,
+      "old_relative_residual": 0.1356337805874343,
+      "new_relative_residual": 0.12481181317395768,
+      "change_in_relative_residual": -0.01082196741347663
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        25,
+        29,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002850070857532462,
+      "new_moment": -0.0002880579973189376,
+      "old_relative_residual": 0.12412494762795366,
+      "new_relative_residual": 0.13615835302535373,
+      "change_in_relative_residual": 0.012033405397400068
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        25,
+        35,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00024608043387063964,
+      "new_moment": -0.00024087778622707405,
+      "old_relative_residual": 0.029409552727423068,
+      "new_relative_residual": 0.04992983556317447,
+      "change_in_relative_residual": 0.020520282835751403
+    },
+    {
+      "indices": [
+        0,
+        1,
+        3,
+        26,
+        32,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025201690945246736,
+      "new_moment": 0.0002522301583594007,
+      "old_relative_residual": 0.005994905737578164,
+      "new_relative_residual": 0.005153809398851606,
+      "change_in_relative_residual": -0.0008410963387265585
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        10
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002425981062174377,
+      "new_moment": -0.0002455156956369224,
+      "old_relative_residual": 0.043144549457182206,
+      "new_relative_residual": 0.03163699326885067,
+      "change_in_relative_residual": -0.011507556188331533
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        17,
+        19
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.000312001545278783,
+      "new_moment": -0.00030688640707026186,
+      "old_relative_residual": 0.23059649488857606,
+      "new_relative_residual": 0.2104213667665269,
+      "change_in_relative_residual": -0.020175128122049163
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        6,
+        9,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00016201156020513786,
+      "new_moment": -0.00017379141745454542,
+      "old_relative_residual": 0.3609940042388952,
+      "new_relative_residual": 0.3145318912757819,
+      "change_in_relative_residual": -0.04646211296311331
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        6,
+        31,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002238880569225217,
+      "new_moment": 0.00022837861937348666,
+      "old_relative_residual": 0.11694072588618984,
+      "new_relative_residual": 0.09922904946709385,
+      "change_in_relative_residual": -0.01771167641909599
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        6,
+        31,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00030353475093651105,
+      "new_moment": 0.0002956620488080342,
+      "old_relative_residual": 0.19720176464378697,
+      "new_relative_residual": 0.16615025290864854,
+      "change_in_relative_residual": -0.031051511735138426
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        6,
+        31,
+        38
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00020075086263890895,
+      "new_moment": -0.0002083555321187815,
+      "old_relative_residual": 0.20819844757961525,
+      "new_relative_residual": 0.17820411021710192,
+      "change_in_relative_residual": -0.029994337362513335
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        8,
+        19,
+        37
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025514890178101934,
+      "new_moment": 0.00025505233814340577,
+      "old_relative_residual": 0.006358298404696552,
+      "new_relative_residual": 0.0059774321052211005,
+      "change_in_relative_residual": -0.0003808662994754519
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        8,
+        21,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00024242858196388994,
+      "new_moment": -0.0002527284799759394,
+      "old_relative_residual": 0.043813187018025244,
+      "new_relative_residual": 0.0031883292788997993,
+      "change_in_relative_residual": -0.04062485773912544
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        9,
+        10,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00025043771729940575,
+      "new_moment": -0.0002479739603261396,
+      "old_relative_residual": 0.012223555427683793,
+      "new_relative_residual": 0.021941105681640156,
+      "change_in_relative_residual": 0.009717550253956363
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        9,
+        26,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00020760681431516523,
+      "new_moment": -0.0002189187240928653,
+      "old_relative_residual": 0.18115720297812524,
+      "new_relative_residual": 0.13654076843292062,
+      "change_in_relative_residual": -0.044616434545204614
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        9,
+        34,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002760937022318458,
+      "new_moment": -0.00026065230741976765,
+      "old_relative_residual": 0.08896878034284625,
+      "new_relative_residual": 0.028064830925047614,
+      "change_in_relative_residual": -0.060903949417798635
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        10,
+        20,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00019280045443282435,
+      "new_moment": -0.00019519128468068627,
+      "old_relative_residual": 0.23955644762605416,
+      "new_relative_residual": 0.23012653496243715,
+      "change_in_relative_residual": -0.009429912663617007
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        11,
+        22,
+        28
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002743449168496701,
+      "new_moment": -0.0002668205093569806,
+      "old_relative_residual": 0.08207122103846896,
+      "new_relative_residual": 0.05239345300580298,
+      "change_in_relative_residual": -0.02967776803266598
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        11,
+        22,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00029674560221414835,
+      "new_moment": -0.00029171415130635226,
+      "old_relative_residual": 0.170424004253044,
+      "new_relative_residual": 0.15057895558251466,
+      "change_in_relative_residual": -0.01984504867052933
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        11,
+        27,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.000248288944159314,
+      "new_moment": -0.00023838844430695328,
+      "old_relative_residual": 0.020698746446833727,
+      "new_relative_residual": 0.05974829796451479,
+      "change_in_relative_residual": 0.039049551517681066
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        12,
+        19,
+        37
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025764894240739894,
+      "new_moment": 0.00025701200997433905,
+      "old_relative_residual": 0.01621895864326297,
+      "new_relative_residual": 0.013706769740788138,
+      "change_in_relative_residual": -0.0025121889024748312
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        12,
+        26,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002352295961980338,
+      "new_moment": -0.0002273360257929632,
+      "old_relative_residual": 0.072207426675715,
+      "new_relative_residual": 0.10334124706739453,
+      "change_in_relative_residual": 0.03113382039167953
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        13,
+        16,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022599190312636545,
+      "new_moment": 0.00023289544648265627,
+      "old_relative_residual": 0.10864273568898933,
+      "new_relative_residual": 0.0814137799831071,
+      "change_in_relative_residual": -0.027228955705882227
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        13,
+        17,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002168602652035619,
+      "new_moment": -0.00021534928179423317,
+      "old_relative_residual": 0.14465974198411113,
+      "new_relative_residual": 0.15061936274718546,
+      "change_in_relative_residual": 0.005959620763074325
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        13,
+        19,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00027857955779800824,
+      "new_moment": 0.0002580137735012511,
+      "old_relative_residual": 0.09877349186690416,
+      "new_relative_residual": 0.017657925443634596,
+      "change_in_relative_residual": -0.08111556642326957
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        13,
+        19,
+        39
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002635023920888389,
+      "new_moment": -0.00025858361656093,
+      "old_relative_residual": 0.039306134876798536,
+      "new_relative_residual": 0.01990550043962027,
+      "change_in_relative_residual": -0.019400634437178266
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        13,
+        27,
+        36
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0001994543632678504,
+      "new_moment": 0.0002084210697910652,
+      "old_relative_residual": 0.21331210039894438,
+      "new_relative_residual": 0.17794561653008056,
+      "change_in_relative_residual": -0.03536648386886382
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        14,
+        22,
+        27
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00030317261284870553,
+      "new_moment": -0.00028551884686645696,
+      "old_relative_residual": 0.19577341959786443,
+      "new_relative_residual": 0.12614343581067963,
+      "change_in_relative_residual": -0.0696299837871848
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        15,
+        18,
+        26
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022845987383018608,
+      "new_moment": -0.00022660618921362442,
+      "old_relative_residual": 0.09890856563898,
+      "new_relative_residual": 0.10621986850362253,
+      "change_in_relative_residual": 0.00731130286464253
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        15,
+        19,
+        39
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00021768248982607499,
+      "new_moment": -0.00021675238935531775,
+      "old_relative_residual": 0.14141672362799498,
+      "new_relative_residual": 0.14508522590475567,
+      "change_in_relative_residual": 0.003668502276760688
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        16,
+        17,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002986045525708629,
+      "new_moment": -0.0003098202522367368,
+      "old_relative_residual": 0.17775607624999742,
+      "new_relative_residual": 0.22199303887213737,
+      "change_in_relative_residual": 0.04423696262213994
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        16,
+        23,
+        37
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025849861171124656,
+      "new_moment": 0.0002514441728224948,
+      "old_relative_residual": 0.019570224311498755,
+      "new_relative_residual": 0.008253893553516,
+      "change_in_relative_residual": -0.011316330757982754
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        17,
+        23,
+        38
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002314433340325506,
+      "new_moment": 0.0002263310513813728,
+      "old_relative_residual": 0.08714120190881386,
+      "new_relative_residual": 0.1073050671415894,
+      "change_in_relative_residual": 0.020163865232775538
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        21,
+        27,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00020226892299471925,
+      "new_moment": 0.00020379065277214008,
+      "old_relative_residual": 0.20221091392422827,
+      "new_relative_residual": 0.19620890733612506,
+      "change_in_relative_residual": -0.006002006588103209
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        24,
+        35,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002776140596254515,
+      "new_moment": -0.0002776844016330508,
+      "old_relative_residual": 0.09496537397470597,
+      "new_relative_residual": 0.09524281692107908,
+      "change_in_relative_residual": 0.0002774429463731076
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        26,
+        33,
+        37
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002674192887074703,
+      "new_moment": 0.0002640289916776622,
+      "old_relative_residual": 0.05475515852000434,
+      "new_relative_residual": 0.04138314897503538,
+      "change_in_relative_residual": -0.013372009544968963
+    },
+    {
+      "indices": [
+        0,
+        1,
+        4,
+        29,
+        31,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002513426219266181,
+      "new_moment": -0.0002529081295994313,
+      "old_relative_residual": 0.008654430597032792,
+      "new_relative_residual": 0.0024797552339229103,
+      "change_in_relative_residual": -0.006174675363109882
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        17,
+        24
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024335003505050225,
+      "new_moment": 0.0002497401642380356,
+      "old_relative_residual": 0.04017879175380897,
+      "new_relative_residual": 0.014974844212339987,
+      "change_in_relative_residual": -0.025203947541468985
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        8,
+        14,
+        21
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026681354365766784,
+      "new_moment": 0.0002600778705774211,
+      "old_relative_residual": 0.052365978894573575,
+      "new_relative_residual": 0.025799137131464277,
+      "change_in_relative_residual": -0.0265668417631093
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        8,
+        29,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022885949014530324,
+      "new_moment": -0.00023334022962046957,
+      "old_relative_residual": 0.09733239896889492,
+      "new_relative_residual": 0.07965946633094387,
+      "change_in_relative_residual": -0.017672932637951055
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        9,
+        18,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002971385369604116,
+      "new_moment": -0.00028714396119601326,
+      "old_relative_residual": 0.17197381747925547,
+      "new_relative_residual": 0.13255321174931556,
+      "change_in_relative_residual": -0.03942060572993991
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        10,
+        16,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024314755648975083,
+      "new_moment": 0.00024076400030157837,
+      "old_relative_residual": 0.040977407693124725,
+      "new_relative_residual": 0.050378630010514534,
+      "change_in_relative_residual": 0.00940122231738981
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        10,
+        17,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002024805998694105,
+      "new_moment": -0.00020176026412532797,
+      "old_relative_residual": 0.2013760179950711,
+      "new_relative_residual": 0.20421716623688138,
+      "change_in_relative_residual": 0.002841148241810282
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        11,
+        19,
+        21
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003319204852042532,
+      "new_moment": 0.00031236773758518864,
+      "old_relative_residual": 0.30916077774261563,
+      "new_relative_residual": 0.23204083058350114,
+      "change_in_relative_residual": -0.0771199471591145
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        11,
+        19,
+        23
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00033834425687195944,
+      "new_moment": 0.0003464817451489057,
+      "old_relative_residual": 0.3344974179543825,
+      "new_relative_residual": 0.36659329921631384,
+      "change_in_relative_residual": 0.03209588126193136
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        11,
+        20,
+        28
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024362740105803715,
+      "new_moment": 0.0002478945804739471,
+      "old_relative_residual": 0.0390848047468898,
+      "new_relative_residual": 0.02225419569465783,
+      "change_in_relative_residual": -0.016830609052231972
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        12,
+        15,
+        27
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002617447115357468,
+      "new_moment": -0.0002709714471245819,
+      "old_relative_residual": 0.032373491239292514,
+      "new_relative_residual": 0.06876558174877594,
+      "change_in_relative_residual": 0.03639209050948342
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        12,
+        16,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002732095683086099,
+      "new_moment": 0.0002677724975014232,
+      "old_relative_residual": 0.07759317932281933,
+      "new_relative_residual": 0.05614828464511343,
+      "change_in_relative_residual": -0.021444894677705897
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        12,
+        27,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002424468784030778,
+      "new_moment": -0.00024137073121508482,
+      "old_relative_residual": 0.04374102220258052,
+      "new_relative_residual": 0.04798556194146239,
+      "change_in_relative_residual": 0.004244539738881871
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        12,
+        27,
+        37
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002918827010543439,
+      "new_moment": -0.00029266189199931154,
+      "old_relative_residual": 0.15124374949854327,
+      "new_relative_residual": 0.15431703442368466,
+      "change_in_relative_residual": 0.0030732849251413896
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        13,
+        21,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001964745371524081,
+      "new_moment": -0.00020062437080911754,
+      "old_relative_residual": 0.22506513056347197,
+      "new_relative_residual": 0.20869735665467856,
+      "change_in_relative_residual": -0.016367773908793404
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        14,
+        17,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001923032873567246,
+      "new_moment": -0.0001896922305407846,
+      "old_relative_residual": 0.24151737400760678,
+      "new_relative_residual": 0.2518159043010373,
+      "change_in_relative_residual": 0.010298530293430502
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        14,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002731930742111392,
+      "new_moment": 0.00027444952644720155,
+      "old_relative_residual": 0.07752812330357535,
+      "new_relative_residual": 0.08248382221305241,
+      "change_in_relative_residual": 0.004955698909477058
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        14,
+        27,
+        36
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002407996355206459,
+      "new_moment": 0.0002365245325509784,
+      "old_relative_residual": 0.05023807757946833,
+      "new_relative_residual": 0.06709993871243099,
+      "change_in_relative_residual": 0.016861861132962654
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        15,
+        21,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00023755339886001622,
+      "new_moment": 0.00024279468231599478,
+      "old_relative_residual": 0.06304188421632398,
+      "new_relative_residual": 0.04236921400925332,
+      "change_in_relative_residual": -0.020672670207070656
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        16,
+        17,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0003235079697214494,
+      "new_moment": -0.00033042056086514756,
+      "old_relative_residual": 0.27598013417534084,
+      "new_relative_residual": 0.3032447761643151,
+      "change_in_relative_residual": 0.02726464198897427
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        17,
+        31,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0003276484023797502,
+      "new_moment": -0.00032728147858426755,
+      "old_relative_residual": 0.29231082866621094,
+      "new_relative_residual": 0.29086360783206816,
+      "change_in_relative_residual": -0.0014472208341427817
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        18,
+        21,
+        28
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003012934409183911,
+      "new_moment": 0.00029144668801553506,
+      "old_relative_residual": 0.18836158967031827,
+      "new_relative_residual": 0.14952402687087346,
+      "change_in_relative_residual": -0.03883756279944481
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        19,
+        21,
+        24
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00018329833590624046,
+      "new_moment": -0.00019749168934721993,
+      "old_relative_residual": 0.2770347035186063,
+      "new_relative_residual": 0.2210532788766951,
+      "change_in_relative_residual": -0.05598142464191122
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        21,
+        24,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00027737818452373863,
+      "new_moment": -0.0002757036206362584,
+      "old_relative_residual": 0.09403503539852996,
+      "new_relative_residual": 0.08743022051353043,
+      "change_in_relative_residual": -0.0066048148849995325
+    },
+    {
+      "indices": [
+        0,
+        1,
+        5,
+        24,
+        32,
+        36
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001832108382228135,
+      "new_moment": -0.00019452918596387145,
+      "old_relative_residual": 0.2773798118815789,
+      "new_relative_residual": 0.23273798472129817,
+      "change_in_relative_residual": -0.04464182716028073
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        9,
+        16,
+        24
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00026183292765462763,
+      "new_moment": -0.0002735997105553101,
+      "old_relative_residual": 0.03272143325538236,
+      "new_relative_residual": 0.07913197837225411,
+      "change_in_relative_residual": 0.046410545116871746
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        9,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002410215528500012,
+      "new_moment": 0.00024363539640853688,
+      "old_relative_residual": 0.049362791249025234,
+      "new_relative_residual": 0.039053269485448794,
+      "change_in_relative_residual": -0.01030952176357644
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        10,
+        30,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00018267494969611374,
+      "new_moment": 0.00018345281821207976,
+      "old_relative_residual": 0.27949346340858816,
+      "new_relative_residual": 0.27642539440791497,
+      "change_in_relative_residual": -0.0030680690006731903
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        12,
+        24,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001744982339131811,
+      "new_moment": -0.00017006342383407683,
+      "old_relative_residual": 0.3117440657996311,
+      "new_relative_residual": 0.3292358437136341,
+      "change_in_relative_residual": 0.017491777914003026
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        13,
+        28,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00025016841005326955,
+      "new_moment": -0.0002481353527792016,
+      "old_relative_residual": 0.013285757067894196,
+      "new_relative_residual": 0.021304541568272994,
+      "change_in_relative_residual": 0.008018784500378798
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        15,
+        17,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002977322554553001,
+      "new_moment": -0.00030077490427116366,
+      "old_relative_residual": 0.17431556196679462,
+      "new_relative_residual": 0.1863163774263238,
+      "change_in_relative_residual": 0.012000815459529163
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        15,
+        18,
+        22
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023042034676741045,
+      "new_moment": -0.00022057950683447125,
+      "old_relative_residual": 0.09117606827997966,
+      "new_relative_residual": 0.12999030914347845,
+      "change_in_relative_residual": 0.038814240863498786
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        15,
+        18,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002190328292016545,
+      "new_moment": -0.0002185988225186492,
+      "old_relative_residual": 0.1360907150628343,
+      "new_relative_residual": 0.1378025242219438,
+      "change_in_relative_residual": 0.001711809159109512
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        17,
+        19,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002973005920904208,
+      "new_moment": -0.00028766496675384845,
+      "old_relative_residual": 0.17261299532303787,
+      "new_relative_residual": 0.13460816187052912,
+      "change_in_relative_residual": -0.03800483345250874
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        21,
+        23,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023310229549347602,
+      "new_moment": -0.0002320606144838504,
+      "old_relative_residual": 0.08059792611463182,
+      "new_relative_residual": 0.08470652435279716,
+      "change_in_relative_residual": 0.00410859823816534
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        23,
+        30,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00021406375242374314,
+      "new_moment": -0.00022532841125747424,
+      "old_relative_residual": 0.15568974769027225,
+      "new_relative_residual": 0.11125968031827006,
+      "change_in_relative_residual": -0.04443006737200218
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        24,
+        27,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002120332821443575,
+      "new_moment": -0.00020455085329373,
+      "old_relative_residual": 0.1636983285662251,
+      "new_relative_residual": 0.19321052443887005,
+      "change_in_relative_residual": 0.029512195872644947
+    },
+    {
+      "indices": [
+        0,
+        1,
+        6,
+        25,
+        33,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002606067406565706,
+      "new_moment": -0.0002521030014167282,
+      "old_relative_residual": 0.027885106497645876,
+      "new_relative_residual": 0.005655341812140488,
+      "change_in_relative_residual": -0.022229764685505388
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        9,
+        15,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022200713021437957,
+      "new_moment": -0.0002239000521139251,
+      "old_relative_residual": 0.12435947700844406,
+      "new_relative_residual": 0.11689341445225658,
+      "change_in_relative_residual": -0.0074660625561874805
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        9,
+        19,
+        23
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003211484487331541,
+      "new_moment": 0.0003089800285172732,
+      "old_relative_residual": 0.26667371149330643,
+      "new_relative_residual": 0.2186790284778291,
+      "change_in_relative_residual": -0.047994683015477324
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        10,
+        22,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002757960039033981,
+      "new_moment": -0.00027048068882684243,
+      "old_relative_residual": 0.0877945985957828,
+      "new_relative_residual": 0.066829932870832,
+      "change_in_relative_residual": -0.0209646657249508
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        13,
+        20,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00032917874223625115,
+      "new_moment": -0.0003197882450065812,
+      "old_relative_residual": 0.2983467951282219,
+      "new_relative_residual": 0.2613087959549577,
+      "change_in_relative_residual": -0.03703799917326417
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        15,
+        23,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00024191889940642478,
+      "new_moment": -0.00024187169069133207,
+      "old_relative_residual": 0.04582347696117932,
+      "new_relative_residual": 0.04600967757524801,
+      "change_in_relative_residual": 0.0001862006140686892
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        17,
+        22,
+        26
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00015013298196596314,
+      "new_moment": 0.0001568753461788413,
+      "old_relative_residual": 0.40784549252984814,
+      "new_relative_residual": 0.3812522596014141,
+      "change_in_relative_residual": -0.02659323292843402
+    },
+    {
+      "indices": [
+        0,
+        1,
+        7,
+        18,
+        30,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003535485026098589,
+      "new_moment": 0.0003492532078909093,
+      "old_relative_residual": 0.39446600399380566,
+      "new_relative_residual": 0.37752450256332454,
+      "change_in_relative_residual": -0.01694150143048112
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        16,
+        27
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003040554078230788,
+      "new_moment": 0.0003009632743911014,
+      "old_relative_residual": 0.19925533953578756,
+      "new_relative_residual": 0.18705934685338213,
+      "change_in_relative_residual": -0.012195992682405427
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003900511795553113,
+      "new_moment": 0.00037402489064282054,
+      "old_relative_residual": 0.538439862402059,
+      "new_relative_residual": 0.4752289736734129,
+      "change_in_relative_residual": -0.06321088872864611
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        11,
+        22,
+        27
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00031826653264709683,
+      "new_moment": 0.00031045077031233517,
+      "old_relative_residual": 0.2553068580666794,
+      "new_relative_residual": 0.22447992826591245,
+      "change_in_relative_residual": -0.030826929800766956
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        11,
+        23,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023371038497890093,
+      "new_moment": -0.00023793175453580798,
+      "old_relative_residual": 0.0781994995662189,
+      "new_relative_residual": 0.061549573759866125,
+      "change_in_relative_residual": -0.016649925806352772
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        11,
+        23,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00027014164458148167,
+      "new_moment": 0.00027514098371742696,
+      "old_relative_residual": 0.06549267455828008,
+      "new_relative_residual": 0.08521106797827549,
+      "change_in_relative_residual": 0.019718393419995414
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        11,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022948784142067931,
+      "new_moment": 0.00022332601348520079,
+      "old_relative_residual": 0.0948540558685566,
+      "new_relative_residual": 0.119157537611671,
+      "change_in_relative_residual": 0.024303481743114405
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        12,
+        21,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002978161190813107,
+      "new_moment": 0.00029216823818552495,
+      "old_relative_residual": 0.17464633688050568,
+      "new_relative_residual": 0.15236996505134756,
+      "change_in_relative_residual": -0.02227637182915812
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        17,
+        24,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002640889460744392,
+      "new_moment": 0.0002596590766967209,
+      "old_relative_residual": 0.04161962110680323,
+      "new_relative_residual": 0.0241473303072066,
+      "change_in_relative_residual": -0.01747229079959663
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        24,
+        26,
+        28
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002669459688527201,
+      "new_moment": 0.0002584823746600882,
+      "old_relative_residual": 0.05288829034889867,
+      "new_relative_residual": 0.019506182134319948,
+      "change_in_relative_residual": -0.03338210821457872
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        24,
+        26,
+        30
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025193296413495385,
+      "new_moment": 0.0002505210020613464,
+      "old_relative_residual": 0.006326002858914949,
+      "new_relative_residual": 0.01189506366963748,
+      "change_in_relative_residual": 0.005569060810722531
+    },
+    {
+      "indices": [
+        0,
+        1,
+        9,
+        12,
+        21,
+        26
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002475249286111543,
+      "new_moment": 0.00025825676184977397,
+      "old_relative_residual": 0.023712176571885235,
+      "new_relative_residual": 0.018616320087878557,
+      "change_in_relative_residual": -0.005095856484006678
+    },
+    {
+      "indices": [
+        0,
+        1,
+        9,
+        14,
+        22,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002877294572425596,
+      "new_moment": 0.00028545105863352576,
+      "old_relative_residual": 0.13486252525610362,
+      "new_relative_residual": 0.12587606546235236,
+      "change_in_relative_residual": -0.008986459793751261
+    },
+    {
+      "indices": [
+        0,
+        1,
+        9,
+        19,
+        25,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001949167060476527,
+      "new_moment": -0.000192851835787653,
+      "old_relative_residual": 0.23120952800684821,
+      "new_relative_residual": 0.23935378928633902,
+      "change_in_relative_residual": 0.008144261279490805
+    },
+    {
+      "indices": [
+        0,
+        1,
+        9,
+        22,
+        30,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003363345648032008,
+      "new_moment": 0.0003492995674258737,
+      "old_relative_residual": 0.3265707904967848,
+      "new_relative_residual": 0.37770735384113124,
+      "change_in_relative_residual": 0.051136563344346464
+    },
+    {
+      "indices": [
+        0,
+        1,
+        10,
+        12,
+        17,
+        28
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002260334722803832,
+      "new_moment": -0.00022206704534626412,
+      "old_relative_residual": 0.10847877863171253,
+      "new_relative_residual": 0.12412315974526499,
+      "change_in_relative_residual": 0.015644381113552458
+    },
+    {
+      "indices": [
+        0,
+        1,
+        10,
+        12,
+        21,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002709870555360561,
+      "new_moment": 0.00027079057797663864,
+      "old_relative_residual": 0.06882714444531254,
+      "new_relative_residual": 0.06805219765545818,
+      "change_in_relative_residual": -0.000774946789854361
+    },
+    {
+      "indices": [
+        0,
+        1,
+        10,
+        12,
+        24,
+        26
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00028565795021865054,
+      "new_moment": 0.00028632639249189114,
+      "old_relative_residual": 0.12669208725240155,
+      "new_relative_residual": 0.12932855726651712,
+      "change_in_relative_residual": 0.0026364700141155717
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        14,
+        18,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026810955270497103,
+      "new_moment": 0.0002654370654309116,
+      "old_relative_residual": 0.0574776977789468,
+      "new_relative_residual": 0.046936873472601594,
+      "change_in_relative_residual": -0.010540824306345203
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        15,
+        18,
+        20
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00023259594386200238,
+      "new_moment": 0.00023231449910651115,
+      "old_relative_residual": 0.08259507821949015,
+      "new_relative_residual": 0.08370515262409865,
+      "change_in_relative_residual": 0.001110074404608502
+    },
+    {
+      "indices": [
+        0,
+        1,
+        11,
+        16,
+        25,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00032696804684950856,
+      "new_moment": 0.00030772142743075356,
+      "old_relative_residual": 0.28962737038383174,
+      "new_relative_residual": 0.21371485407237825,
+      "change_in_relative_residual": -0.07591251631145349
+    },
+    {
+      "indices": [
+        0,
+        1,
+        12,
+        14,
+        24,
+        26
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002321617396724259,
+      "new_moment": 0.00024091703412402343,
+      "old_relative_residual": 0.08430766638401774,
+      "new_relative_residual": 0.049775034008026735,
+      "change_in_relative_residual": -0.034532632375991
+    },
+    {
+      "indices": [
+        0,
+        1,
+        12,
+        15,
+        20,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022458972112297275,
+      "new_moment": -0.00022804438356934287,
+      "old_relative_residual": 0.11417322194677082,
+      "new_relative_residual": 0.10054734232579778,
+      "change_in_relative_residual": -0.013625879620973044
+    },
+    {
+      "indices": [
+        0,
+        1,
+        12,
+        18,
+        28,
+        30
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003261888243160815,
+      "new_moment": 0.00032619085699234993,
+      "old_relative_residual": 0.28655396086748863,
+      "new_relative_residual": 0.2865619781492267,
+      "change_in_relative_residual": 8.01728173804861e-06
+    },
+    {
+      "indices": [
+        0,
+        1,
+        13,
+        16,
+        18,
+        26
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002454563844084277,
+      "new_moment": -0.00023568119584883355,
+      "old_relative_residual": 0.03187092861627946,
+      "new_relative_residual": 0.07042622733303064,
+      "change_in_relative_residual": 0.03855529871675118
+    },
+    {
+      "indices": [
+        0,
+        1,
+        14,
+        19,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.000316126929464176,
+      "new_moment": 0.00031404843808782804,
+      "old_relative_residual": 0.24686783519260305,
+      "new_relative_residual": 0.23866984950601144,
+      "change_in_relative_residual": -0.008197985686591608
+    },
+    {
+      "indices": [
+        0,
+        1,
+        15,
+        21,
+        25,
+        27
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002663950596765849,
+      "new_moment": 0.0002639676101501617,
+      "old_relative_residual": 0.050715394376386266,
+      "new_relative_residual": 0.04114104795426792,
+      "change_in_relative_residual": -0.009574346422118345
+    },
+    {
+      "indices": [
+        0,
+        1,
+        15,
+        23,
+        25,
+        27
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022298648691669416,
+      "new_moment": 0.00023385118973458992,
+      "old_relative_residual": 0.12049669830317483,
+      "new_relative_residual": 0.07764413744883039,
+      "change_in_relative_residual": -0.04285256085434444
+    },
+    {
+      "indices": [
+        0,
+        1,
+        16,
+        19,
+        22,
+        26
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00028246397765256193,
+      "new_moment": -0.0002714027106449392,
+      "old_relative_residual": 0.11409442065723484,
+      "new_relative_residual": 0.07046657132576917,
+      "change_in_relative_residual": -0.04362784933146567
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0001480074535373609,
+      "new_moment": -0.0001486124076300294,
+      "old_relative_residual": 0.4162290017579411,
+      "new_relative_residual": 0.413842941825638,
+      "change_in_relative_residual": -0.002386059932303064
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        20
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002350889839086182,
+      "new_moment": -0.0002226979304756067,
+      "old_relative_residual": 0.07276202966762801,
+      "new_relative_residual": 0.12163482261811202,
+      "change_in_relative_residual": 0.04887279295048401
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        7,
+        19,
+        23
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00012205824490146627,
+      "new_moment": 0.0001256906812076409,
+      "old_relative_residual": 0.5185778704596367,
+      "new_relative_residual": 0.5042508151808227,
+      "change_in_relative_residual": -0.01432705527881395
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        7,
+        24,
+        38
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022732072999896203,
+      "new_moment": 0.00023167391580936888,
+      "old_relative_residual": 0.10340157673809389,
+      "new_relative_residual": 0.0862317412646872,
+      "change_in_relative_residual": -0.017169835473406683
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        21
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00021815220225222497,
+      "new_moment": 0.00023382862563672664,
+      "old_relative_residual": 0.13956408387677421,
+      "new_relative_residual": 0.07773313476362272,
+      "change_in_relative_residual": -0.0618309491131515
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        22
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00019082820860802496,
+      "new_moment": -0.00019545531006830063,
+      "old_relative_residual": 0.2473353796082279,
+      "new_relative_residual": 0.2290851660286086,
+      "change_in_relative_residual": -0.018250213579619312
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        8,
+        18,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00021918024032753416,
+      "new_moment": 0.00022034725902386255,
+      "old_relative_residual": 0.13550929610013973,
+      "new_relative_residual": 0.1309063409580813,
+      "change_in_relative_residual": -0.00460295514205844
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        12,
+        15,
+        22
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003106226662702186,
+      "new_moment": 0.0003076207415762743,
+      "old_relative_residual": 0.22515792030299633,
+      "new_relative_residual": 0.2133177289251411,
+      "change_in_relative_residual": -0.011840191377855247
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        12,
+        31,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0003147744477573602,
+      "new_moment": -0.0003119047852974336,
+      "old_relative_residual": 0.24153337684458015,
+      "new_relative_residual": 0.23021485417013762,
+      "change_in_relative_residual": -0.011318522674442527
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        13,
+        27,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022757166472613783,
+      "new_moment": 0.0002375240970928985,
+      "old_relative_residual": 0.10241183998716712,
+      "new_relative_residual": 0.06315745624618968,
+      "change_in_relative_residual": -0.039254383740977436
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        14,
+        20,
+        22
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023006355804825214,
+      "new_moment": -0.00023229446070637346,
+      "old_relative_residual": 0.09258331434608387,
+      "new_relative_residual": 0.08378418808192173,
+      "change_in_relative_residual": -0.008799126264162141
+    },
+    {
+      "indices": [
+        0,
+        2,
+        4,
+        16,
+        19,
+        24
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002582888016889039,
+      "new_moment": 0.00024381622102252282,
+      "old_relative_residual": 0.018742691621374905,
+      "new_relative_residual": 0.03834006104296544,
+      "change_in_relative_residual": 0.019597369421590533
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        8,
+        21,
+        38
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002796197972122407,
+      "new_moment": -0.0002740223962910189,
+      "old_relative_residual": 0.1028764041645199,
+      "new_relative_residual": 0.08079913545103679,
+      "change_in_relative_residual": -0.022077268713483117
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        9,
+        21,
+        38
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0001747919734542758,
+      "new_moment": 0.00018714168493734156,
+      "old_relative_residual": 0.31058549830164534,
+      "new_relative_residual": 0.26187576627013737,
+      "change_in_relative_residual": -0.04870973203150797
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        9,
+        22,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002940691182980619,
+      "new_moment": -0.00029228566896963667,
+      "old_relative_residual": 0.15986741639121574,
+      "new_relative_residual": 0.15283313555004102,
+      "change_in_relative_residual": -0.007034280841174717
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        9,
+        35,
+        39
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00024020782235839778,
+      "new_moment": -0.0002421741102073697,
+      "old_relative_residual": 0.05257230705400741,
+      "new_relative_residual": 0.04481687452009234,
+      "change_in_relative_residual": -0.0077554325339150715
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        10,
+        12,
+        18
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026430090592004853,
+      "new_moment": 0.00027425371709840487,
+      "old_relative_residual": 0.04245563312985549,
+      "new_relative_residual": 0.08171151097952857,
+      "change_in_relative_residual": 0.03925587784967308
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        11,
+        15,
+        23
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002698249074917626,
+      "new_moment": -0.0002643262813857747,
+      "old_relative_residual": 0.06424340012901017,
+      "new_relative_residual": 0.04255571904177268,
+      "change_in_relative_residual": -0.02168768108723749
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        12,
+        16,
+        27
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00026777651267778223,
+      "new_moment": -0.0002625259448283772,
+      "old_relative_residual": 0.05616412130370875,
+      "new_relative_residual": 0.035454831592085456,
+      "change_in_relative_residual": -0.020709289711623294
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        13,
+        17,
+        24
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002765450697627412,
+      "new_moment": 0.00026845878452853134,
+      "old_relative_residual": 0.09074906415820397,
+      "new_relative_residual": 0.05885513793743339,
+      "change_in_relative_residual": -0.03189392622077058
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        13,
+        20,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026037181122291286,
+      "new_moment": 0.0002636901483217199,
+      "old_relative_residual": 0.026958497825412986,
+      "new_relative_residual": 0.04004668301052765,
+      "change_in_relative_residual": 0.013088185185114662
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        14,
+        28,
+        36
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002388993061467653,
+      "new_moment": 0.00024561541450459035,
+      "old_relative_residual": 0.05773335669592827,
+      "new_relative_residual": 0.031243682110994698,
+      "change_in_relative_residual": -0.026489674584933575
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        15,
+        20,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002520460622458965,
+      "new_moment": 0.00025918373558762013,
+      "old_relative_residual": 0.005879921289734965,
+      "new_relative_residual": 0.022272489904691373,
+      "change_in_relative_residual": 0.01639256861495641
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        15,
+        28,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00029366667616589334,
+      "new_moment": -0.0002842726704786094,
+      "old_relative_residual": 0.1582801041335166,
+      "new_relative_residual": 0.12122826690173123,
+      "change_in_relative_residual": -0.03705183723178536
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        16,
+        23,
+        26
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022338041807983209,
+      "new_moment": -0.00023789801317516385,
+      "old_relative_residual": 0.11894295500952623,
+      "new_relative_residual": 0.0616826564345187,
+      "change_in_relative_residual": -0.05726029857500753
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        16,
+        32,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002911134612608913,
+      "new_moment": 0.00030479180030256527,
+      "old_relative_residual": 0.1482097139052076,
+      "new_relative_residual": 0.20215981875337802,
+      "change_in_relative_residual": 0.05395010484817042
+    },
+    {
+      "indices": [
+        0,
+        2,
+        5,
+        28,
+        33,
+        38
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023770833264566453,
+      "new_moment": -0.0002303722950223979,
+      "old_relative_residual": 0.06243079437896988,
+      "new_relative_residual": 0.09136559397265813,
+      "change_in_relative_residual": 0.02893479959368825
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        9,
+        14,
+        22
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025466807982506474,
+      "new_moment": 0.0002713203252856007,
+      "old_relative_residual": 0.004461840446020409,
+      "new_relative_residual": 0.07014162699146645,
+      "change_in_relative_residual": 0.06567978654544604
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        9,
+        15,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003119021841165731,
+      "new_moment": 0.00031386750428853254,
+      "old_relative_residual": 0.23020459459258763,
+      "new_relative_residual": 0.23795621041483014,
+      "change_in_relative_residual": 0.0077516158222425136
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        9,
+        18,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00024318333733028554,
+      "new_moment": -0.00023755126176383667,
+      "old_relative_residual": 0.04083628090188773,
+      "new_relative_residual": 0.06305031335107535,
+      "change_in_relative_residual": 0.02221403244918762
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        10,
+        13,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002720333848401712,
+      "new_moment": -0.00026295877177933053,
+      "old_relative_residual": 0.07295407648660335,
+      "new_relative_residual": 0.03716198765203556,
+      "change_in_relative_residual": -0.03579208883456779
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        14,
+        20,
+        38
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00013380178250455008,
+      "new_moment": -0.0001377669177684933,
+      "old_relative_residual": 0.47225900944555355,
+      "new_relative_residual": 0.4566197229375087,
+      "change_in_relative_residual": -0.01563928650804486
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        14,
+        22,
+        28
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00015496551256995883,
+      "new_moment": -0.00015297164566222194,
+      "old_relative_residual": 0.38878502532156833,
+      "new_relative_residual": 0.3966492351790642,
+      "change_in_relative_residual": 0.007864209857495863
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        15,
+        17,
+        22
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00019477622363358064,
+      "new_moment": -0.000200640337851506,
+      "old_relative_residual": 0.2317636187444312,
+      "new_relative_residual": 0.20863437944608998,
+      "change_in_relative_residual": -0.02312923929834121
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        15,
+        24,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002458507880213957,
+      "new_moment": -0.00024243070418191901,
+      "old_relative_residual": 0.030315321886011094,
+      "new_relative_residual": 0.04380481656567496,
+      "change_in_relative_residual": 0.013489494679663868
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        15,
+        28,
+        37
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023001418610689385,
+      "new_moment": -0.0002371337104359273,
+      "old_relative_residual": 0.09277804715718922,
+      "new_relative_residual": 0.06469721929861544,
+      "change_in_relative_residual": -0.028080827858573784
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        16,
+        21,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00030727694425446226,
+      "new_moment": 0.000310836207062144,
+      "old_relative_residual": 0.21196172352845014,
+      "new_relative_residual": 0.22600016789450847,
+      "change_in_relative_residual": 0.014038444366058334
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        21,
+        27,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022480930003454912,
+      "new_moment": -0.00022103370294356738,
+      "old_relative_residual": 0.1133071588037313,
+      "new_relative_residual": 0.1281988688499815,
+      "change_in_relative_residual": 0.0148917100462502
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        21,
+        30,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00023132634881023662,
+      "new_moment": 0.0002421446864529263,
+      "old_relative_residual": 0.08760261502266466,
+      "new_relative_residual": 0.04493292769236798,
+      "change_in_relative_residual": -0.04266968733029668
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        23,
+        28,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00027328028960648895,
+      "new_moment": -0.00026802699282998547,
+      "old_relative_residual": 0.07787211826591378,
+      "new_relative_residual": 0.05715206512002877,
+      "change_in_relative_residual": -0.020720053145885015
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        23,
+        30,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00028105316662200815,
+      "new_moment": -0.0002740560969366079,
+      "old_relative_residual": 0.10852989979052462,
+      "new_relative_residual": 0.08093205753736891,
+      "change_in_relative_residual": -0.027597842253155702
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        9,
+        21,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002853543648254839,
+      "new_moment": -0.0002805732110145465,
+      "old_relative_residual": 0.12549468574467357,
+      "new_relative_residual": 0.10663685888357435,
+      "change_in_relative_residual": -0.018857826861099214
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        11,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002661544448084267,
+      "new_moment": 0.0002604436627401555,
+      "old_relative_residual": 0.04976636121339662,
+      "new_relative_residual": 0.027241894579721468,
+      "change_in_relative_residual": -0.022524466633675154
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        12,
+        30,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00033400615251280027,
+      "new_moment": 0.0003233762536902961,
+      "old_relative_residual": 0.3173870667409869,
+      "new_relative_residual": 0.2754606198052659,
+      "change_in_relative_residual": -0.04192644693572095
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        14,
+        26,
+        29
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00021991616715337094,
+      "new_moment": -0.0002255349819692246,
+      "old_relative_residual": 0.1326066535136743,
+      "new_relative_residual": 0.11044492411698427,
+      "change_in_relative_residual": -0.02216172939669002
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        15,
+        23,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.000203692201505942,
+      "new_moment": -0.00020024244148655502,
+      "old_relative_residual": 0.1965972188202635,
+      "new_relative_residual": 0.21020376228872964,
+      "change_in_relative_residual": 0.013606543468466153
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        15,
+        23,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022038638282765194,
+      "new_moment": -0.00022405419094590823,
+      "old_relative_residual": 0.13075202885117515,
+      "new_relative_residual": 0.11628546007114869,
+      "change_in_relative_residual": -0.01446656878002646
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        20,
+        28,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022673216516451696,
+      "new_moment": -0.00022294714463177458,
+      "old_relative_residual": 0.10572299415811215,
+      "new_relative_residual": 0.12065187214335464,
+      "change_in_relative_residual": 0.014928877985242492
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        22,
+        26,
+        36
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025657073271016854,
+      "new_moment": 0.00025538554829953003,
+      "old_relative_residual": 0.011966283955446837,
+      "new_relative_residual": 0.0072916796030064015,
+      "change_in_relative_residual": -0.004674604352440436
+    },
+    {
+      "indices": [
+        0,
+        2,
+        7,
+        23,
+        30,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026367021779869973,
+      "new_moment": 0.00026593649130067265,
+      "old_relative_residual": 0.039968073041631545,
+      "new_relative_residual": 0.04890670898811315,
+      "change_in_relative_residual": 0.008938635946481602
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        11,
+        16,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00023046174266446706,
+      "new_moment": -0.00023019492952151626,
+      "old_relative_residual": 0.09101279458280896,
+      "new_relative_residual": 0.0920651589812355,
+      "change_in_relative_residual": 0.0010523643984265418
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        12,
+        27,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002655563835880633,
+      "new_moment": 0.00026278801845939126,
+      "old_relative_residual": 0.047407488148039315,
+      "new_relative_residual": 0.03648850240753108,
+      "change_in_relative_residual": -0.010918985740508237
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        13,
+        22,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002958719154020715,
+      "new_moment": 0.00029073247257334567,
+      "old_relative_residual": 0.16697800872885044,
+      "new_relative_residual": 0.14670701832379007,
+      "change_in_relative_residual": -0.020270990405060363
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        13,
+        33,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00019655978466378115,
+      "new_moment": 0.00019713951871395196,
+      "old_relative_residual": 0.22472889732911436,
+      "new_relative_residual": 0.22244231028843064,
+      "change_in_relative_residual": -0.002286587040683713
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        14,
+        21,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00021753974338027215,
+      "new_moment": -0.00021983267613498694,
+      "old_relative_residual": 0.14197974415953052,
+      "new_relative_residual": 0.13293595878838446,
+      "change_in_relative_residual": -0.009043785371146057
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        15,
+        19,
+        22
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022854621556448924,
+      "new_moment": -0.00022517039233610597,
+      "old_relative_residual": 0.0985680165705415,
+      "new_relative_residual": 0.11188293854793076,
+      "change_in_relative_residual": 0.01331492197738926
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        15,
+        20,
+        36
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00025306120965256073,
+      "new_moment": 0.00026847703981150146,
+      "old_relative_residual": 0.0018759768883699099,
+      "new_relative_residual": 0.05892714042452415,
+      "change_in_relative_residual": 0.05705116353615424
+    },
+    {
+      "indices": [
+        0,
+        2,
+        8,
+        16,
+        24,
+        28
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00015635688295305997,
+      "new_moment": -0.00015062886046148216,
+      "old_relative_residual": 0.38329718225654086,
+      "new_relative_residual": 0.40588964856782206,
+      "change_in_relative_residual": 0.0225924663112812
+    },
+    {
+      "indices": [
+        0,
+        2,
+        9,
+        17,
+        20,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003026397514676399,
+      "new_moment": 0.00030097181493049513,
+      "old_relative_residual": 0.1936717077386654,
+      "new_relative_residual": 0.18709303244885897,
+      "change_in_relative_residual": -0.006578675289806435
+    },
+    {
+      "indices": [
+        0,
+        2,
+        9,
+        17,
+        30,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00021178597688512445,
+      "new_moment": 0.00021703021547462794,
+      "old_relative_residual": 0.16467374996969208,
+      "new_relative_residual": 0.14398942412497243,
+      "change_in_relative_residual": -0.02068432584471966
+    },
+    {
+      "indices": [
+        0,
+        2,
+        9,
+        19,
+        22,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00025016464760637866,
+      "new_moment": -0.00025632677878085374,
+      "old_relative_residual": 0.013300596910921208,
+      "new_relative_residual": 0.011004080867443393,
+      "change_in_relative_residual": -0.0022965160434778153
+    },
+    {
+      "indices": [
+        0,
+        2,
+        9,
+        23,
+        26,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00024502245892195704,
+      "new_moment": -0.0002496701934822725,
+      "old_relative_residual": 0.033582417520017,
+      "new_relative_residual": 0.015250822867220818,
+      "change_in_relative_residual": -0.018331594652796178
+    },
+    {
+      "indices": [
+        0,
+        2,
+        10,
+        21,
+        24,
+        29
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002158931586507566,
+      "new_moment": -0.00021990630777173753,
+      "old_relative_residual": 0.14847420364968572,
+      "new_relative_residual": 0.13264554088671276,
+      "change_in_relative_residual": -0.015828662762972956
+    },
+    {
+      "indices": [
+        0,
+        2,
+        11,
+        14,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0001812602296562134,
+      "new_moment": 0.00018770881797862299,
+      "old_relative_residual": 0.285073402189963,
+      "new_relative_residual": 0.25963888012871517,
+      "change_in_relative_residual": -0.025434522061247855
+    },
+    {
+      "indices": [
+        0,
+        2,
+        11,
+        15,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024443270499300527,
+      "new_moment": 0.00025322217581800484,
+      "old_relative_residual": 0.03590852496658857,
+      "new_relative_residual": 0.001241094138625227,
+      "change_in_relative_residual": -0.03466743082796334
+    },
+    {
+      "indices": [
+        0,
+        2,
+        15,
+        18,
+        23,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00014843541027006348,
+      "new_moment": 0.00015235526225640717,
+      "old_relative_residual": 0.41454105481281556,
+      "new_relative_residual": 0.3990803746082788,
+      "change_in_relative_residual": -0.01546068020453678
+    },
+    {
+      "indices": [
+        0,
+        2,
+        15,
+        20,
+        23,
+        28
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0003112154905015053,
+      "new_moment": -0.0003118818643229985,
+      "old_relative_residual": 0.22749613763603727,
+      "new_relative_residual": 0.23012444926277076,
+      "change_in_relative_residual": 0.0026283116267334927
+    },
+    {
+      "indices": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0005696468098560618,
+      "new_moment": 0.0005451881091194012,
+      "old_relative_residual": 1.2468009474342792,
+      "new_relative_residual": 1.1503309399887423,
+      "change_in_relative_residual": -0.09647000744553691
+    },
+    {
+      "indices": [
+        0,
+        3,
+        6,
+        9,
+        15,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002796444310976979,
+      "new_moment": 0.0002735978189434606,
+      "old_relative_residual": 0.10297356513554018,
+      "new_relative_residual": 0.07912451747679743,
+      "change_in_relative_residual": -0.023849047658742753
+    },
+    {
+      "indices": [
+        0,
+        3,
+        6,
+        13,
+        16,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00034789002427625544,
+      "new_moment": 0.0003459621344342705,
+      "old_relative_residual": 0.3721478337504068,
+      "new_relative_residual": 0.36454385063564987,
+      "change_in_relative_residual": -0.007603983114756907
+    },
+    {
+      "indices": [
+        0,
+        3,
+        6,
+        15,
+        20,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022475625770214324,
+      "new_moment": 0.00022862895483047947,
+      "old_relative_residual": 0.1135163683712066,
+      "new_relative_residual": 0.0982416763576228,
+      "change_in_relative_residual": -0.015274692013583793
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        14,
+        17,
+        25
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002068795175422646,
+      "new_moment": -0.00020766807876236508,
+      "old_relative_residual": 0.18402580690979997,
+      "new_relative_residual": 0.1809155637454796,
+      "change_in_relative_residual": -0.0031102431643203754
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        14,
+        20,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002408488050002164,
+      "new_moment": -0.00023845921881156834,
+      "old_relative_residual": 0.05004414331814637,
+      "new_relative_residual": 0.059469149163412095,
+      "change_in_relative_residual": 0.009425005845265726
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        14,
+        32,
+        37
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002397567884123026,
+      "new_moment": 0.00023392955309300238,
+      "old_relative_residual": 0.054351275144196,
+      "new_relative_residual": 0.07733505669057997,
+      "change_in_relative_residual": 0.022983781546383968
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        15,
+        25,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003342939349188975,
+      "new_moment": 0.00033674885354115214,
+      "old_relative_residual": 0.3185221381071156,
+      "new_relative_residual": 0.32820482813701235,
+      "change_in_relative_residual": 0.009682690029896746
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        16,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002042580429467906,
+      "new_moment": 0.00020404747241358878,
+      "old_relative_residual": 0.19436542700926848,
+      "new_relative_residual": 0.19519595930632308,
+      "change_in_relative_residual": 0.0008305322970545981
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        18,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002805000392236247,
+      "new_moment": 0.0002740275793094364,
+      "old_relative_residual": 0.10634825470582067,
+      "new_relative_residual": 0.08081957831227911,
+      "change_in_relative_residual": -0.02552867639354156
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        19,
+        23,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024535748753582934,
+      "new_moment": 0.0002577579749629949,
+      "old_relative_residual": 0.032260997661181866,
+      "new_relative_residual": 0.016649004849044517,
+      "change_in_relative_residual": -0.015611992812137349
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        25,
+        30,
+        37
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00025621554113932146,
+      "new_moment": -0.0002538521535124506,
+      "old_relative_residual": 0.010565337361711776,
+      "new_relative_residual": 0.0012436638838076264,
+      "change_in_relative_residual": -0.00932167347790415
+    },
+    {
+      "indices": [
+        0,
+        3,
+        7,
+        26,
+        31,
+        34
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026051065951533485,
+      "new_moment": 0.0002512878380815478,
+      "old_relative_residual": 0.02750614326038379,
+      "new_relative_residual": 0.00887050903875916,
+      "change_in_relative_residual": -0.018635634221624633
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        12,
+        22,
+        33
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00026252593511624247,
+      "new_moment": -0.00025971870101348124,
+      "old_relative_residual": 0.03545479328548361,
+      "new_relative_residual": 0.024382500537372776,
+      "change_in_relative_residual": -0.011072292748110831
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        12,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00028444341968090743,
+      "new_moment": 0.000282078179281402,
+      "old_relative_residual": 0.12190173590543517,
+      "new_relative_residual": 0.11257275472170589,
+      "change_in_relative_residual": -0.009328981183729282
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        15,
+        30,
+        33
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002746435696097695,
+      "new_moment": 0.00026544042530650907,
+      "old_relative_residual": 0.08324916725485289,
+      "new_relative_residual": 0.046950125493933126,
+      "change_in_relative_residual": -0.03629904176091976
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        16,
+        24,
+        29
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00025182170607319525,
+      "new_moment": -0.0002454073134582474,
+      "old_relative_residual": 0.006764826906103248,
+      "new_relative_residual": 0.03206447425798044,
+      "change_in_relative_residual": 0.02529964735187719
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        17,
+        21,
+        37
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0002022300493449112,
+      "new_moment": -0.00022074688164225333,
+      "old_relative_residual": 0.20236423937380116,
+      "new_relative_residual": 0.12933014942662435,
+      "change_in_relative_residual": -0.0730340899471768
+    },
+    {
+      "indices": [
+        0,
+        3,
+        8,
+        17,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022615856301449054,
+      "new_moment": 0.00022977238042346798,
+      "old_relative_residual": 0.10798539575824637,
+      "new_relative_residual": 0.09373177713375755,
+      "change_in_relative_residual": -0.014253618624488817
+    },
+    {
+      "indices": [
+        0,
+        3,
+        9,
+        14,
+        19,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00023076402421747086,
+      "new_moment": 0.00023200957595329423,
+      "old_relative_residual": 0.08982053568145139,
+      "new_relative_residual": 0.08490783052501683,
+      "change_in_relative_residual": -0.004912705156434563
+    },
+    {
+      "indices": [
+        0,
+        3,
+        9,
+        15,
+        26,
+        30
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00022507247265751124,
+      "new_moment": 0.00022236001361162683,
+      "old_relative_residual": 0.11226915334424413,
+      "new_relative_residual": 0.12296763431302139,
+      "change_in_relative_residual": 0.010698480968777263
+    },
+    {
+      "indices": [
+        0,
+        3,
+        9,
+        16,
+        22,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.000315929945010641,
+      "new_moment": -0.0003109288425309556,
+      "old_relative_residual": 0.24609088911097024,
+      "new_relative_residual": 0.22636554071059525,
+      "change_in_relative_residual": -0.019725348400374987
+    },
+    {
+      "indices": [
+        0,
+        3,
+        9,
+        20,
+        28,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00026592346304643095,
+      "new_moment": 0.0002595168545342323,
+      "old_relative_residual": 0.048855322947733,
+      "new_relative_residual": 0.023586377653919004,
+      "change_in_relative_residual": -0.025268945293814
+    },
+    {
+      "indices": [
+        0,
+        3,
+        9,
+        21,
+        24,
+        35
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.0003112985819630263,
+      "new_moment": -0.000311621778667937,
+      "old_relative_residual": 0.22782386697856852,
+      "new_relative_residual": 0.2290986194220771,
+      "change_in_relative_residual": 0.001274752443508581
+    },
+    {
+      "indices": [
+        0,
+        3,
+        10,
+        14,
+        27,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0003199311350092457,
+      "new_moment": 0.0003310359895952019,
+      "old_relative_residual": 0.2618723827034671,
+      "new_relative_residual": 0.3056721501613953,
+      "change_in_relative_residual": 0.04379976745792824
+    },
+    {
+      "indices": [
+        0,
+        3,
+        10,
+        16,
+        25,
+        34
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00019355483085219355,
+      "new_moment": -0.00020127515553088353,
+      "old_relative_residual": 0.23658103615277817,
+      "new_relative_residual": 0.20613053155508915,
+      "change_in_relative_residual": -0.030450504597689027
+    },
+    {
+      "indices": [
+        0,
+        3,
+        10,
+        19,
+        23,
+        27
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00022263480699277201,
+      "new_moment": -0.00022532837847965103,
+      "old_relative_residual": 0.12188379425910856,
+      "new_relative_residual": 0.11125980960056035,
+      "change_in_relative_residual": -0.010623984658548205
+    },
+    {
+      "indices": [
+        0,
+        3,
+        10,
+        19,
+        24,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00028693568214813793,
+      "new_moment": 0.00028189587042707585,
+      "old_relative_residual": 0.1317317175286857,
+      "new_relative_residual": 0.11185369213847263,
+      "change_in_relative_residual": -0.019878025390213078
+    },
+    {
+      "indices": [
+        0,
+        3,
+        12,
+        16,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00027573261510444784,
+      "new_moment": 0.0002707942683704666,
+      "old_relative_residual": 0.08754458049496325,
+      "new_relative_residual": 0.06806675330679451,
+      "change_in_relative_residual": -0.019477827188168734
+    },
+    {
+      "indices": [
+        0,
+        3,
+        12,
+        17,
+        22,
+        32
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00029902196668465985,
+      "new_moment": -0.00029143840668595367,
+      "old_relative_residual": 0.17940244099763544,
+      "new_relative_residual": 0.14949136365073853,
+      "change_in_relative_residual": -0.029911077346896908
+    },
+    {
+      "indices": [
+        0,
+        3,
+        12,
+        17,
+        23,
+        31
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00025261424712694105,
+      "new_moment": -0.00024851436202172783,
+      "old_relative_residual": 0.003638886481919034,
+      "new_relative_residual": 0.019809653313901013,
+      "change_in_relative_residual": 0.01617076683198198
+    },
+    {
+      "indices": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00014471955532354775,
+      "new_moment": -0.00014880863540214556,
+      "old_relative_residual": 0.42919712989286296,
+      "new_relative_residual": 0.41306898024685745,
+      "change_in_relative_residual": -0.016128149646005507
+    },
+    {
+      "indices": [
+        0,
+        4,
+        8,
+        12,
+        18,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00013456488252029666,
+      "new_moment": -0.0001397887040693595,
+      "old_relative_residual": 0.46924919036344587,
+      "new_relative_residual": 0.4486453934096323,
+      "change_in_relative_residual": -0.02060379695381359
+    },
+    {
+      "indices": [
+        0,
+        4,
+        8,
+        14,
+        19,
+        30
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002533743081176279,
+      "new_moment": 0.00026954241624107075,
+      "old_relative_residual": 0.0006410539224520581,
+      "new_relative_residual": 0.0631291981380313,
+      "change_in_relative_residual": 0.06248814421557925
+    },
+    {
+      "indices": [
+        0,
+        4,
+        9,
+        15,
+        25,
+        37
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.000279389928036322,
+      "new_moment": -0.0002859666312523098,
+      "old_relative_residual": 0.1019697541608613,
+      "new_relative_residual": 0.12790958698536029,
+      "change_in_relative_residual": 0.02593983282449898
+    },
+    {
+      "indices": [
+        0,
+        4,
+        9,
+        18,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002511541561970168,
+      "new_moment": 0.0002535182577202449,
+      "old_relative_residual": 0.009397777127726213,
+      "new_relative_residual": 7.328789981008452e-05,
+      "change_in_relative_residual": -0.009324489227916129
+    },
+    {
+      "indices": [
+        0,
+        4,
+        10,
+        16,
+        25,
+        30
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0002934312941324891,
+      "new_moment": 0.0002987916867113654,
+      "old_relative_residual": 0.15735171031736367,
+      "new_relative_residual": 0.17849417072696755,
+      "change_in_relative_residual": 0.02114246040960388
+    },
+    {
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0004393850828088586,
+      "new_moment": 0.0004363180564975775,
+      "old_relative_residual": 0.7330226436147003,
+      "new_relative_residual": 0.7209256784377452,
+      "change_in_relative_residual": -0.012096965176955021
+    },
+    {
+      "indices": [
+        0,
+        5,
+        11,
+        16,
+        22,
+        31
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00029040121134404825,
+      "new_moment": 0.00028642871553805516,
+      "old_relative_residual": 0.14540045778319516,
+      "new_relative_residual": 0.12973213982519724,
+      "change_in_relative_residual": -0.015668317957997918
+    },
+    {
+      "indices": [
+        0,
+        5,
+        11,
+        17,
+        24,
+        32
+      ],
+      "target": "5/19721",
+      "old_moment": 0.00024195953549017922,
+      "new_moment": 0.00023709346942873125,
+      "old_relative_residual": 0.04566320011963505,
+      "new_relative_residual": 0.06485593787919813,
+      "change_in_relative_residual": 0.01919273775956308
+    },
+    {
+      "indices": [
+        0,
+        6,
+        12,
+        18,
+        24,
+        30
+      ],
+      "target": "-5/19721",
+      "old_moment": -0.00018934073802611375,
+      "new_moment": -0.0001784354259523234,
+      "old_relative_residual": 0.2532022610774021,
+      "new_relative_residual": 0.29621499295884607,
+      "change_in_relative_residual": 0.043012731881443944
+    },
+    {
+      "indices": [
+        0,
+        7,
+        14,
+        21,
+        28,
+        35
+      ],
+      "target": "5/19721",
+      "old_moment": 0.0006162379723709929,
+      "new_moment": 0.0006250193497215361,
+      "old_relative_residual": 1.4305658106256705,
+      "new_relative_residual": 1.4652013191716828,
+      "change_in_relative_residual": 0.034635508546012383
+    }
+  ]
+}
