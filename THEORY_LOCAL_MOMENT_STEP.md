@@ -1,5 +1,7 @@
 # Support deformation with full corrective weights
 
+Follow-up: [all-row bounded linearization and analytic remainder bound](THEORY_LINEARIZED_MOMENT_STEP.md).
+
 2026-11-21; base `47c88cf7ce88a39f209e38d3f2b06c469452f75c`; Issue #3.
 Continuation of the [all-row norm audit](THEORY_BATCH_FOURTH_PRICING.md).
 

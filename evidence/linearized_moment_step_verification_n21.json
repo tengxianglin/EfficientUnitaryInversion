@@ -1,0 +1,30 @@
+{
+  "base_commit": "5a0dc205791de699a6f6374656ded6c3fc51a67a",
+  "baseline_residual": 0.22623030742241432,
+  "trials": [
+    {
+      "radius": 0.001,
+      "actual_residual": 0.2261552372449922,
+      "max_model_defect": 6.768023400882672e-07,
+      "exact_ideal_taylor_bound": "147095097642375871546951058155612880871604690917497/8711228593176024664662389950253266213273600000000000"
+    },
+    {
+      "radius": 0.01,
+      "actual_residual": 0.22553928615522226,
+      "max_model_defect": 6.934197739855152e-05,
+      "exact_ideal_taylor_bound": "14709509764183751710098145915051651172190732597631097/8711228593176024664662389950253266213273600000000000"
+    },
+    {
+      "radius": 0.1,
+      "actual_residual": 0.22473246653062287,
+      "max_model_defect": 0.006711644960204349,
+      "exact_ideal_taylor_bound": "1470950976417837318013993573455957243015364640165725793/8711228593176024664662389950253266213273600000000000"
+    }
+  ],
+  "status": "Finite floating replay; rational remainder bounds apply to exact ideal moments, not floating evaluation errors.",
+  "final_replay": {
+    "columns": 1639,
+    "evaluated_all_row_residual": 0.21740426994709916,
+    "new_weight": 0.2584816545888889
+  }
+}
