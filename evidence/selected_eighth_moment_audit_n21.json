@@ -1,0 +1,112 @@
+{
+  "base_commit": "334d1ef5e1819bc1ab72a1f770b362d687436e5d",
+  "precision_bits": 128,
+  "input_sha256": "26c9b45e0104c6a074cec88d508ab9121d6774dd0163662815fc5496308a0617",
+  "target_magnitude": "1/19721",
+  "cases": [
+    {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "orbit_size": 42,
+      "target": "1/19721",
+      "moment": "[0.0003651965683381844983000808184368618 +/- 8.06e-38]",
+      "relative_error": "[6.20204152419733649097589382039335 +/- 2.53e-33]",
+      "absolute_error_strict_lower": "6"
+    },
+    {
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35
+      ],
+      "orbit_size": 42,
+      "target": "1/19721",
+      "moment": "[0.0001068386213517012442550789313484043 +/- 4.85e-38]",
+      "relative_error": "[1.106964451676900237954411605121882 +/- 9.54e-34]",
+      "absolute_error_strict_lower": "1"
+    },
+    {
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        16,
+        17,
+        24,
+        25
+      ],
+      "orbit_size": 42,
+      "target": "1/19721",
+      "moment": "[9.74339391454358301100619034987267e-5 +/- 2.20e-38]",
+      "relative_error": "[0.921494713887140005600530798898389 +/- 5.70e-34]",
+      "absolute_error_strict_lower": "9/10"
+    },
+    {
+      "indices": [
+        0,
+        4,
+        12,
+        16,
+        20,
+        28,
+        32,
+        36
+      ],
+      "orbit_size": 84,
+      "target": "1/19721",
+      "moment": "[-5.16123202802691589885868365459427e-5 +/- 8.67e-38]",
+      "relative_error": "[-2.01784656824718808441392100352254 +/- 5.73e-33]",
+      "absolute_error_strict_lower": "2"
+    },
+    {
+      "indices": [
+        0,
+        2,
+        6,
+        14,
+        22,
+        30,
+        34,
+        40
+      ],
+      "orbit_size": 84,
+      "target": "1/19721",
+      "moment": "[-1.47136423217488860121994552123239e-5 +/- 6.97e-38]",
+      "relative_error": "[-1.29016774022720978104658545624224 +/- 1.32e-33]",
+      "absolute_error_strict_lower": "6/5"
+    },
+    {
+      "indices": [
+        0,
+        3,
+        9,
+        14,
+        21,
+        27,
+        33,
+        39
+      ],
+      "orbit_size": 84,
+      "target": "1/19721",
+      "moment": "[3.42692174249924983033318956799924e-5 +/- 5.42e-38]",
+      "relative_error": "[-0.324176763161722940959991685294870 +/- 9.48e-34]",
+      "absolute_error_strict_lower": "3/10"
+    }
+  ],
+  "scope": "Six fixed eighth-order rows only; no complete degree-eight upper bound or optimization claim."
+}
+
