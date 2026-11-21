@@ -1,0 +1,18 @@
+{
+  "base_commit": "32da6c3dacd9fc175920e782c5b4d3c1776a4611",
+  "precision_bits": 128,
+  "n": 21,
+  "old_lower_feature_index": 1357,
+  "old_scaled_residual_lower": "226230/1000000",
+  "new_scaled_residual_upper": "217405/1000000",
+  "source_sha256": {
+    "directed_fourth_pricing_n21.json": "78a92781eb8ce9d96fb691dd37e0fe54ad961a3606a720957e36f0e0e5a97a77",
+    "iterated_fourth_pricing_n21.json": "f73c4486dafebf227b9f1e4bb3159d21c1e79c098a7a47e07a7a72b16e36c131",
+    "batch_fourth_pricing_n21.json": "baadde1bb9b08fd35cfe3daaab2287d8ebbfe55f2a221aac1226c107428b05f9",
+    "local_moment_step_n21.json": "472f360b0c30688e7d3764235ef5703bf618c0ef77846a71147b60d773d88847",
+    "linearized_moment_step_n21.json": "c50f1bac4581d4816506e1d6b63d36148610f5ed105e2d69ef13284ae2101699"
+  },
+  "pool_couplings_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+  "couplings_interpretation": "All source parameters converted to binary64, then exactly to rationals via Fraction.from_float.",
+  "probability_interpretation": "Positive source binary64 weights converted exactly, then divided by their exact rational sum."
+}

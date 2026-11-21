@@ -1,5 +1,7 @@
 # All-row bounded linearization and an analytic remainder bound
 
+Certified follow-up: [complete n=21 low-moment ensemble and strict improvement](THEORY_CERTIFIED_LOW_MOMENT_ENSEMBLE.md).
+
 2026-11-21; base `5a0dc205791de699a6f6374656ded6c3fc51a67a`; Issue #3.
 This follows the [scalar-versus-minimax descent audit](THEORY_LOCAL_MOMENT_STEP.md).
 The unresolved question remains physical joint uniformity at n=21.
