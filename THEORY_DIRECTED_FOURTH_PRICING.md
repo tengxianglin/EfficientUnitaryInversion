@@ -1,5 +1,10 @@
 # A certified finite-pool separator and a physical column beyond it
 
+Continuation: [eight further pricing steps and a certified reflection-averaging
+counterexample](THEORY_ITERATED_FOURTH_PRICING.md). The enlarged pool remains
+numerically infeasible; the original finite-pool certificate below retains
+its original scope.
+
 Date: 2026-11-21. Base: `9a95c61a289ecd49bfeab4bd4473a1a70ac95c60`.
 Related: Issue #3, [complete fourth-order system](THEORY_FOURTH_MOMENT_HIERARCHY.md),
 [pure-Pauli classification](THEORY_PURE_PAULI_CLASSIFICATION.md), and

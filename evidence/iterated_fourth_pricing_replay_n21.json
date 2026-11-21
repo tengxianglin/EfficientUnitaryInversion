@@ -1,0 +1,142 @@
+{
+  "base_commit": "a1207766abb8c3470016d7addbb6bc31305ae5ed",
+  "certified_new_columns": [
+    {
+      "round": 0,
+      "fourth_terms": 55,
+      "target_score": "-437812631/533000000",
+      "witness_score": "[8.70927341907144808688414830326033860947968019231411 +/- 1.63e-51]",
+      "pricing_margin": "[9.53068548473748936268152166160930671454534623358991 +/- 4.26e-51]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 1,
+      "fourth_terms": 56,
+      "target_score": "-114611579/133250000",
+      "witness_score": "[20.247048845216981161518041610276097095328101725335501 +/- 5.68e-52]",
+      "pricing_margin": "[21.107173265479645326621231103709492967748364389500604 +/- 3.79e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 2,
+      "fourth_terms": 59,
+      "target_score": "-8174533/10660000",
+      "witness_score": "[27.321070564167110807633088767873497838487184000341677 +/- 2.93e-52]",
+      "pricing_margin": "[28.087912309007636135963295146860364630232024525670007 +/- 3.93e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 3,
+      "fourth_terms": 60,
+      "target_score": "-422968473/533000000",
+      "witness_score": "[22.427257242478550271728409785121590864667334573123436 +/- 4.14e-52]",
+      "pricing_margin": "[23.220819105517949896493888209136600245530373972748202 +/- 4.70e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 4,
+      "fourth_terms": 62,
+      "target_score": "-100706257/133250000",
+      "witness_score": "[18.776632277510859144039164485207846444007470921822045 +/- 4.83e-52]",
+      "pricing_margin": "[19.532401560812922933907832402656251697290772985611913 +/- 7.96e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 5,
+      "fourth_terms": 64,
+      "target_score": "-200375459/266500000",
+      "witness_score": "[16.119555864788973507373278567133293234678189762101537 +/- 5.90e-52]",
+      "pricing_margin": "[16.871433759723307466097481193774944266573124096060261 +/- 3.88e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 6,
+      "fourth_terms": 63,
+      "target_score": "-173819117/266500000",
+      "witness_score": "[15.185124118451887941356448081838596376050468671892018 +/- 4.74e-52]",
+      "pricing_margin": "[15.837353450534439536103164779774806507382551223486764 +/- 5.79e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "round": 7,
+      "fourth_terms": 65,
+      "target_score": "-78752613/106600000",
+      "witness_score": "[19.236504716208479748520712670702912192276661018370582 +/- 4.65e-52]",
+      "pricing_margin": "[19.975272192756322150021650757006852154753208860772083 +/- 4.03e-52]",
+      "certified_margin_floor": "1",
+      "connected_path": true,
+      "non_pauli_by_connected_path_test": true
+    }
+  ],
+  "reflection_averaging_counterexample": {
+    "precision_bits": 192,
+    "target_score": "-437812631/533000000",
+    "positive_seed_score": "[8.70927341907144808688414830326033860947968019231411 +/- 1.63e-51]",
+    "reflected_seed_score": "[8.70927341907144808688414830326033860947968019231411 +/- 1.63e-51]",
+    "oracle_mixture_score": "[8.70927341907144808688414830326033860947968019231411 +/- 1.63e-51]",
+    "averaged_generator_score": "[-3.749477674314347721469425240168156566847073621573792 +/- 9.12e-52]",
+    "mixture_minus_generator_average": "[12.45875109338579580835357354342849517632675381388790 +/- 2.34e-51]",
+    "certified_loss_floor": "11",
+    "status": "Certified failure of parameter averaging to preserve reflection-averaged program moments."
+  },
+  "scope": "Certified individual physical columns and a symmetry counterexample; no full uniform design.",
+  "numerical_prefix_checks": {
+    "columns": 1609,
+    "steps": [
+      {
+        "round": 0,
+        "rounded_direction_finite_pool_gap": 0.24710425944341918
+      },
+      {
+        "round": 1,
+        "rounded_direction_finite_pool_gap": 0.2395164133756642
+      },
+      {
+        "round": 2,
+        "rounded_direction_finite_pool_gap": 0.23413525837219362
+      },
+      {
+        "round": 3,
+        "rounded_direction_finite_pool_gap": 0.23150405355211479
+      },
+      {
+        "round": 4,
+        "rounded_direction_finite_pool_gap": 0.2308802846906427
+      },
+      {
+        "round": 5,
+        "rounded_direction_finite_pool_gap": 0.229480676615622
+      },
+      {
+        "round": 6,
+        "rounded_direction_finite_pool_gap": 0.22842218172052364
+      },
+      {
+        "round": 7,
+        "rounded_direction_finite_pool_gap": 0.22697558408277196
+      }
+    ],
+    "status": "Finite floating checks; prefix inequalities are not interval-certified here."
+  },
+  "numerical_final_replay": {
+    "normalized_dual_gap": 0.22447532395677383,
+    "primal": {
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)"
+    }
+  }
+}
