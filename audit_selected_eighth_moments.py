@@ -49,4 +49,4 @@ def verify():
             'target_magnitude':str(magnitude),'cases':rows,
             'scope':'Six fixed eighth-order rows only; no complete degree-eight upper bound or optimization claim.'}
 
-if __name__=='__main__': print(json.dumps(verify(),indent=2)+'\n')
+if __name__=='__main__': print(json.dumps(verify(),indent=2))
