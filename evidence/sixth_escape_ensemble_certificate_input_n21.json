@@ -1,0 +1,14 @@
+{
+  "base_commit": "2c458d8d9cb27f1e1c904970f1417606e1949dd8",
+  "precision_bits": 128,
+  "reference_mix_weight": "1/100000",
+  "low_error_upper": "109/500",
+  "tested_sixth_error_upper": "31/20",
+  "source_sha256": {
+    "sixth_pricing_escape_n21.json": "3d1d0a7787eb3169ba678fca5dd6623b9ef75588d714a26b4a1ece37ed89b53c",
+    "sixth_pricing_escape_reweight_n21.json": "b3fa4081097330069158579f386c93c0f8656ef2130fb5f6eb628a99671f2e56",
+    "sixth_moment_screen_n21.json": "b8310236d0da49708821f1ed379ad946441a079064f4ba1279dc5e5dfc58a863",
+    "fixed_pool_tradeoff_certificate_n21.json": "1a78d93d7cae1e5de1860db63efa255fa3543c05cd40ddfddb663a830921bfc4",
+    "full_low_moment_certificate_input_n21.json": "ffa928e22ed90a91df3a2dbef75091c4a5843cb9a24c2df4d093ecf594e05eb7"
+  }
+}

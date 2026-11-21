@@ -1,5 +1,7 @@
 # Certified obstruction to repairing the sixth moment by weights alone
 
+Certified escape: [new physical columns and a low/sixth repair ensemble](THEORY_SIXTH_PRICING_ESCAPE.md).
+
 2026-11-21; base `0e03837f17d3196856f28e4fc679fe34dbc03485`; Issue #3.
 Follows the [sixth-order audit](THEORY_SIXTH_MOMENT_AUDIT.md).
 

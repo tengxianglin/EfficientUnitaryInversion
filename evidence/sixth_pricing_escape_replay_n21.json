@@ -1,0 +1,7 @@
+{
+  "columns": 1641,
+  "replayed_low_error": 0.21800000000000863,
+  "replayed_sixth_error": 1.5486146245091734,
+  "new_weight": 0.00017720834829388412,
+  "status": "Frozen floating weights/features reproduced; no interval or LP optimality certificate."
+}

@@ -1,0 +1,22 @@
+{
+  "base_commit": "2c458d8d9cb27f1e1c904970f1417606e1949dd8",
+  "precision_bits": 192,
+  "old_pool_upper": "-316893/2000",
+  "necessary_repair_threshold": "-39378876937/250000000",
+  "identity_functional": "-28745015663/500000",
+  "certified_candidates": [
+    {
+      "start": 0,
+      "functional_value": "[3788.4252101494142251608303580880483416403449890585088 +/- 7.19e-50]",
+      "strict_floor": "3700",
+      "non_pauli_by_connected_path_test": true
+    },
+    {
+      "start": 1,
+      "functional_value": "[3728.7163586105760378974254942033049004646045068931127 +/- 6.50e-50]",
+      "strict_floor": "3700",
+      "non_pauli_by_connected_path_test": true
+    }
+  ],
+  "scope": "Physical columns outside the old finite moment hull; crossing a necessary scalar threshold does not prove a uniform or repaired ensemble."
+}
