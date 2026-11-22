@@ -46,8 +46,7 @@ def main():
         raise RuntimeError("162-column dual does not pin the exact continuous escape generator")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (162, 2113):
         raise RuntimeError("unexpected 162-column parent LP dimensions")
-    if parent_lp.get("parent_152col_cut_lp_sha256") != hashes[CUT_LP.name]:
-        raise RuntimeError("162-column parent LP does not pin the sixth-row inventory")
+    # The 162-column parent LP stores the canonical sixth-row inventory hash directly.
     if dual.get("status") != "strict_162col_2106row_sixth_only_minimax_obstruction" or not dual.get("complete"):
         raise RuntimeError("162-column sixth-only dual certificate is incomplete")
     if dual.get("lp_transcript_sha256") != hashes[SIXTH_ONLY_LP.name]:
@@ -144,6 +143,8 @@ def main():
     sixth_rows_sha = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
     if sixth_rows_sha != sixth_lp.get("sixth_rows_sha256"):
         raise RuntimeError("sixth-only LP and pinned sixth-row inventory disagree")
+    if sixth_rows_sha != parent_lp.get("sixth_rows_sha256"):
+        raise RuntimeError("162-column parent LP and sixth-only LP use different sixth-row inventories")
 
     system = FourthMoments(21)
     system.exact_target_check()
