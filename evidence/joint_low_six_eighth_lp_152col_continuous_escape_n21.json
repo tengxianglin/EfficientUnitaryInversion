@@ -209,232 +209,232 @@
     "selected_eighth": 7
   },
   "solver": "scipy.optimize.linprog(method=highs), binary64 discovery only",
-  "baseline_parent_max": 0.3437890063766338,
-  "expanded_lp_objective": 0.329769894504226,
-  "expanded_recomputed_max": 0.32976989450425376,
+  "baseline_parent_max": 0.3437890063766349,
+  "expanded_lp_objective": 0.3297698945042291,
+  "expanded_recomputed_max": 0.3297698945042362,
   "expanded_block_maxima": {
-    "low": 0.32976989450425376,
-    "sixth": 0.32976989450424354,
+    "low": 0.32976989450423355,
+    "sixth": 0.3297698945042362,
     "selected_eighth": 0.3297698945042302
   },
   "baseline_block_maxima": {
-    "low": 0.3437890063750204,
-    "sixth": 0.34378900637595633,
-    "selected_eighth": 0.3437890063766338
+    "low": 0.34378900637502174,
+    "sixth": 0.3437890063759461,
+    "selected_eighth": 0.3437890063766349
   },
-  "continuous_escape_weight": 4.7680963914076315e-05,
+  "continuous_escape_weight": 4.768096391407056e-05,
   "continuous_escape_in_support": true,
   "positive_support": [
     {
       "column": 3,
-      "weight": 0.0029452329426080336
+      "weight": 0.0029452329426061887
     },
     {
       "column": 6,
-      "weight": 0.016747469136017143
+      "weight": 0.01674746913603382
     },
     {
       "column": 16,
-      "weight": 0.011759875493994187
+      "weight": 0.01175987549398976
     },
     {
       "column": 74,
-      "weight": 0.012227035790620597
+      "weight": 0.012227035790614729
     },
     {
       "column": 99,
-      "weight": 0.012928005552995754
+      "weight": 0.012928005552995015
     },
     {
       "column": 107,
-      "weight": 0.01291357788194097
+      "weight": 0.012913577881936799
     },
     {
       "column": 116,
-      "weight": 0.004028619475725696
+      "weight": 0.0040286194757221585
     },
     {
       "column": 120,
-      "weight": 0.05636096011653083
+      "weight": 0.05636096011652877
     },
     {
       "column": 160,
-      "weight": 0.03374146726091347
+      "weight": 0.03374146726092525
     },
     {
       "column": 178,
-      "weight": 0.009261874262611464
+      "weight": 0.009261874262617783
     },
     {
       "column": 199,
-      "weight": 0.03264734976002831
+      "weight": 0.0326473497600261
     },
     {
       "column": 230,
-      "weight": 0.010683602730866042
+      "weight": 0.010683602730864819
     },
     {
       "column": 274,
-      "weight": 0.03615841115135664
+      "weight": 0.03615841115137571
     },
     {
       "column": 278,
-      "weight": 0.0012517069229928757
+      "weight": 0.001251706922991408
     },
     {
       "column": 283,
-      "weight": 0.0210049087421607
+      "weight": 0.021004908742163448
     },
     {
       "column": 340,
-      "weight": 0.009113622470627688
+      "weight": 0.00911362247063058
     },
     {
       "column": 367,
-      "weight": 0.008384658743465017
+      "weight": 0.008384658743451788
     },
     {
       "column": 368,
-      "weight": 0.000811436831370137
+      "weight": 0.0008114368313488561
     },
     {
       "column": 397,
-      "weight": 0.022984186095662443
+      "weight": 0.022984186095667943
     },
     {
       "column": 405,
-      "weight": 0.039125318927614554
+      "weight": 0.03912531892762484
     },
     {
       "column": 415,
-      "weight": 0.022222609022920177
+      "weight": 0.022222609022933822
     },
     {
       "column": 422,
-      "weight": 0.008244557514826197
+      "weight": 0.008244557514838626
     },
     {
       "column": 432,
-      "weight": 0.005967010403121672
+      "weight": 0.005967010403112343
     },
     {
       "column": 433,
-      "weight": 0.010661683391265555
+      "weight": 0.010661683391305382
     },
     {
       "column": 439,
-      "weight": 0.0032469111881913565
+      "weight": 0.00324691118819382
     },
     {
       "column": 445,
-      "weight": 0.0270909617905237
+      "weight": 0.027090961790505595
     },
     {
       "column": 474,
-      "weight": 0.029294062281071172
+      "weight": 0.029294062281059772
     },
     {
       "column": 475,
-      "weight": 0.007552256729339913
+      "weight": 0.007552256729348317
     },
     {
       "column": 494,
-      "weight": 0.01980242308925152
+      "weight": 0.01980242308925501
     },
     {
       "column": 511,
-      "weight": 0.010079154011709258
+      "weight": 0.010079154011680124
     },
     {
       "column": 521,
-      "weight": 0.00368458982724791
+      "weight": 0.0036845898272479605
     },
     {
       "column": 563,
-      "weight": 0.016201759382687236
+      "weight": 0.01620175938267799
     },
     {
       "column": 569,
-      "weight": 0.0598251082032673
+      "weight": 0.05982510820326716
     },
     {
       "column": 571,
-      "weight": 0.010155350666739322
+      "weight": 0.01015535066674046
     },
     {
       "column": 617,
-      "weight": 0.03729378701320716
+      "weight": 0.037293787013208825
     },
     {
       "column": 634,
-      "weight": 0.0010552734053996136
+      "weight": 0.0010552734054010565
     },
     {
       "column": 698,
-      "weight": 0.023207873474321985
+      "weight": 0.023207873474321142
     },
     {
       "column": 700,
-      "weight": 0.009116846794868898
+      "weight": 0.009116846794888703
     },
     {
       "column": 755,
-      "weight": 0.01904985700375103
+      "weight": 0.019049857003743665
     },
     {
       "column": 817,
-      "weight": 0.0055850303871004345
+      "weight": 0.005585030387093281
     },
     {
       "column": 889,
-      "weight": 0.02040495338241678
+      "weight": 0.020404953382405853
     },
     {
       "column": 902,
-      "weight": 0.0051554958960913526
+      "weight": 0.005155495896098788
     },
     {
       "column": 904,
-      "weight": 0.0018467751555754461
+      "weight": 0.001846775155581135
     },
     {
       "column": 906,
-      "weight": 0.010371423017642128
+      "weight": 0.010371423017643695
     },
     {
       "column": 916,
-      "weight": 0.0434024762371329
+      "weight": 0.04340247623712146
     },
     {
       "column": 974,
-      "weight": 0.000409903917119978
+      "weight": 0.00040990391711657906
     },
     {
       "column": 1635,
-      "weight": 0.08976713041188313
+      "weight": 0.08976713041187971
     },
     {
       "column": 1636,
-      "weight": 0.06755578649407538
+      "weight": 0.06755578649407808
     },
     {
       "column": 1637,
-      "weight": 0.03287409810040354
+      "weight": 0.03287409810040056
     },
     {
       "column": 1638,
-      "weight": 0.04374785055283173
+      "weight": 0.04374785055282124
     },
     {
       "column": "continuous_escape",
-      "weight": 4.7680963914076315e-05
+      "weight": 4.768096391407056e-05
     }
   ],
   "dual_discovery": {
-    "z_l1_norm": 0.9999999999999911,
-    "objective": 0.32976989450422345,
-    "primal_dual_gap": 2.55351295663786e-15
+    "z_l1_norm": 0.9999999999999938,
+    "objective": 0.32976989450422844,
+    "primal_dual_gap": 6.661338147750939e-16
   },
   "finite_candidate_below_one_third": true,
   "scope": "Binary64 reoptimization over the 151 pinned canonical columns plus one exact-rational continuous-family escape, on the same 1,779 selected rows. This is discovery evidence only; no exact probabilities, full sixth/eighth audit, or operational channel guarantee is certified by this LP."
-}
+}\n
