@@ -288,4 +288,24 @@ The binary64 HiGHS LP returns objective 0.5078909209101226 and independently rec
 
 Evidence: `evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json`; complete scan with all 334 rows: `evidence/candidate_152col_complete_sixth_binary64_n21.json`; cutting-plane run: [45057108860](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45057108860); implementation commit: [074ac3b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/074ac3bdd4c45044ed86482f658338738c0f4a25).
 
-The follow-up stores the full HiGHS dual and independently certifies its rationalization with 128-bit Arb on all 152 columns. If successful, it will prove a finite-pool minimax lower bound for this 152-column pool on these 2,113 rows; it will not rule out additional physical generators.
+The follow-up has now stored the full HiGHS dual and independently certified its rationalization with 128-bit Arb on all 152 columns. The exact finite-pool lower bound and its scope are recorded in THEORY_152COL_2113ROW_MINIMAX_OBSTRUCTION.md.
+
+
+## Strict 152-column / 2,113-row minimax obstruction (2026-11-23)
+
+The cutting-plane LP's rationalized dual is now a complete 128-bit Arb certificate. The exact dual has \(\|z\|_1=36893488147393554485/36893488147419103232<1\), uses only 40 nonzero coordinates (one low-order, 37 sixth-order, two eighth-order), and passes all 152 physical-column inequalities. With slack \(\delta=10^{-9}\), the strict lower bound is
+\[
+\eta_{152,2113}\ge
+\frac{36597397722434817858556439}{72057594037927936000000000}
+=0.5078909199101425\ldots>\frac13.
+\]
+The exact gap above \(1/3\) is \(0.17455758657680914\ldots\); the maximum Arb upper endpoint of the column inequalities after slack is \(-7.9784600657124487\times10^{-10}\).
+
+This proves that **no probability reweighting of these fixed 152 generators** can satisfy even the 2,113-row subset, and therefore cannot satisfy the complete sixth-order objective on that same fixed pool. It does not rule out adding further physical generators or the unrestricted continuous family.
+
+Evidence:
+- Strict certificate: evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json
+- LP transcript with dual multipliers: evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json
+- Arb verifier: verify_152col_full_sixth_cut_dual.py
+- Successful conflict-safe workflow: [45058397922](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45058397922)
+- Certificate commit: [d27ff52](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d27ff52bd8c21315e4534fd56bf5942630cc3c73)
