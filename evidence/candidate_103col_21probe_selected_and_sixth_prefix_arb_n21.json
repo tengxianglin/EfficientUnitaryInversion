@@ -1,0 +1,123 @@
+{
+  "status": "prefix_strict_violation",
+  "complete": false,
+  "candidate_input_sha256": "8e189597b307a70d50ec7178dbc16b7096eb03cf7c16de1ff81fc25ff3b09233",
+  "lp_transcript_sha256": "ca1ad46ce1a82716249c0fe526bece280e93bac82faa45b9e6c079d693004bc3",
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 44,
+  "exact_probability_sum": "1",
+  "selected_blocks": {
+    "low": {
+      "label": "all 1,461 second/fourth rows",
+      "rows": 1461,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.31880526365163125,
+      "worst_row": {
+        "row": 1444,
+        "order": 4,
+        "error_interval": "[0.3188052636516312503303300074232776 +/- 8.62e-35]"
+      },
+      "failures": [],
+      "passed": true
+    },
+    "sixth_selected": {
+      "label": "277 selected sixth rows",
+      "rows": 277,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3188052636531463,
+      "worst_row": {
+        "row": 178,
+        "indices": [
+          0,
+          2,
+          6,
+          14,
+          20,
+          38
+        ],
+        "target": "-5/19721",
+        "orbit_size": 84,
+        "error_interval": "[0.318805263653146329486568525499423 +/- 5.66e-34]"
+      },
+      "failures": [],
+      "passed": true
+    },
+    "eighth_selected": {
+      "label": "seven selected eighth rows",
+      "rows": 7,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3188052636548239,
+      "worst_row": {
+        "row": 3,
+        "indices": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          28,
+          32,
+          36
+        ],
+        "target": "1/19721",
+        "orbit_size": 84,
+        "error_interval": "[-0.31880526365482394554412036334767 +/- 5.12e-33]"
+      },
+      "failures": [],
+      "passed": true
+    }
+  },
+  "sixth_prefix": {
+    "status": "strict_violation",
+    "complete": false,
+    "candidate_input_sha256": "8e189597b307a70d50ec7178dbc16b7096eb03cf7c16de1ff81fc25ff3b09233",
+    "lp_transcript_sha256": "ca1ad46ce1a82716249c0fe526bece280e93bac82faa45b9e6c079d693004bc3",
+    "precision_bits": 128,
+    "interval_backend": "python-flint 0.8.0 / Arb",
+    "support_size": 44,
+    "requested_orbits": 1024,
+    "expected_sixth_orbits": 63133,
+    "evaluated_orbits": 378,
+    "evaluated_six_sets": 30870,
+    "principal_minor_determinant_evaluations": 1358280,
+    "canonical_key_sha256": "2d43423c99e7a3d7fd0b2a29e5009137127670c986dbbcc99bfb003eef249a14",
+    "full_canonical_key_sha256": "766e648326599273bb16fd8e857b53f0fbd7b37fe97432d65853bdbf9f811021",
+    "burnside": {
+      "rotations_fixed_sum": 5247312,
+      "reflections_fixed_sum": 55860,
+      "orbits": 63133
+    },
+    "worst_midpoint": null,
+    "worst_row": null,
+    "failure": {
+      "status": "strict_violation",
+      "failure_orbit_index": 377,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        40
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        1,
+        35,
+        2
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.448567317119122352121606961738394 +/- 2.46e-34]",
+      "absolute_error_lower": "[0.44856731711912235212160696173839385933 +/- 4.28e-39]",
+      "absolute_error_upper": "[0.44856731711912235212160696173839424592 +/- 8.97e-40]",
+      "evaluated_orbits": 378,
+      "evaluated_six_sets": 30870
+    },
+    "scope": "128-bit Arb audit of the first 1,024 canonical dihedral sixth-order orbits for this exact rational candidate only. A prefix pass is not a complete sixth-order certificate; a strict violation rejects this candidate only. No full eighth-order maximum or operational inversion/channel-error bound follows."
+  },
+  "scope": "Exact-rational 103-column / 21-probe LP candidate independently checked with 128-bit Arb on all 1,461 low rows, 277 selected sixth rows, and seven selected eighth rows. The first 1,024 sixth-order orbits are additionally audited if selected rows pass. No complete sixth/eighth maximum, global physical optimum, or operational channel-error theorem."
+}
