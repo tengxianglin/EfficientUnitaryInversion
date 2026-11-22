@@ -15,12 +15,12 @@ Let \(\mathcal P_{182}\) be the fixed set of 182 physical 42-site path generator
    (544,420,398,352,629,668,347,425,296,844).
    \]
 
-Canonical indices are zero-based in the frozen 1,641-column canonical pool. For each coupling vector (c=(c_0,ldots,c_{40},0)), the path-skew generator is the (42\times42) real matrix
+Canonical indices are zero-based in the frozen 1,641-column canonical pool. For each coupling vector \(c=(c_0,\ldots,c_{40},0)\), the path-skew generator is the \(42\times42\) real matrix
 \[
 K(c)_{j,j+1}=2c_j,\qquad K(c)_{j+1,j}=-2c_j
 \quad (j=0,\ldots,40),
 \]
-with all other entries zero, and (R(c)=e^{K(c)}).
+with all other entries zero, and \(R(c)=e^{K(c)}\).
 
 Let \(\mathcal R\) be the 2,106-row normalized constraint inventory used by the LP: all 1,461 second-/fourth-order rows and 645 pinned sixth-order \(D_{42}\)-orbit rows. For \(c\in\mathcal P_{182}\), write \(a(c)\in\mathbb R^{2106}\) for its normalized feature column, and let \(y\in\mathbb Q^{2106}\) be the exact normalized target. For \(p\in\Delta(\mathcal P_{182})\), define the selected-row residual
 \[
