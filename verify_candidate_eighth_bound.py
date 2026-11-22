@@ -24,6 +24,7 @@ N = 42
 K = 8
 PRECISION_BITS = 128
 STRICT_UPPER = Fraction(1, 3)
+EXPECTED_INPUT_SHA256 = "5ae3afde386225dc1a398643303684ac1589fc2abfcf3cf2ff177ace4b640059"
 
 BANK = None
 ARB = None
@@ -43,7 +44,8 @@ def initialize_worker(cfg, input_sha256, precision_bits):
 
     ctx.prec = precision_bits
     raw = (ROOT / "evidence/candidate_joint_input_n21.json").read_bytes()
-    if hashlib.sha256(raw).hexdigest() != input_sha256:
+    actual_input_sha256 = hashlib.sha256(raw).hexdigest()
+    if actual_input_sha256 != input_sha256 or input_sha256 != EXPECTED_INPUT_SHA256:
         raise RuntimeError("candidate input SHA256 mismatch")
     source = ROOT / "evidence/joint_low_six_eighth_lp_n21.json"
     if hashlib.sha256(source.read_bytes()).hexdigest() != cfg["source_sha256"]:
@@ -157,6 +159,8 @@ def run(workers=8, limit_tasks=None, precision_bits=PRECISION_BITS):
     raw = (ROOT / "evidence/candidate_joint_input_n21.json").read_bytes()
     cfg = json.loads(raw)
     input_sha256 = hashlib.sha256(raw).hexdigest()
+    if input_sha256 != EXPECTED_INPUT_SHA256:
+        raise RuntimeError("candidate input is not the pinned 29-column witness")
     selected = records if limit_tasks is None else records[:limit_tasks]
 
     results = []
