@@ -183,7 +183,7 @@ def main():
         raise RuntimeError("expanded LP does not pin the canonical physical column pool")
     columns = sorted(set(int(x) for x in lp["base_columns"]) | set(int(x) for x in lp["added_arb_positive_columns"]))
     if len(columns) != 143 or len(set(columns)) != 143:
-        raise RuntimeError("expanded physical pool does not contain 133 distinct columns")
+        raise RuntimeError("expanded physical pool does not contain 143 distinct columns")
 
     base_lhs, column_hash = build_column_dual_lhs(
         columns, all_columns, z, lam,
