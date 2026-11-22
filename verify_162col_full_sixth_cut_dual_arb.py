@@ -237,7 +237,7 @@ def main():
     if len(physical_columns) != 162:
         raise RuntimeError("wrong physical column count")
 
-    system, low_scales, sixth_rows, eighth_rows, y, row_blocks = load_exact_design(lp)
+    system, low_scales, sixth_rows, eighth_rows, y, row_blocks = load_exact_design(parent_lp)
     sixth_hash = sha(json.dumps([list(x) for x in sixth_rows], separators=(",", ":")).encode())
     eighth_hash = sha(json.dumps([list(x) for x in eighth_rows], separators=(",", ":")).encode())
     if sixth_hash != lp.get("sixth_rows_sha256") or eighth_hash != lp.get("eighth_rows_sha256"):
