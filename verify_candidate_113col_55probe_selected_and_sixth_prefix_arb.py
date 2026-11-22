@@ -430,7 +430,7 @@ def main():
         "selected_blocks": selected,
         "sixth_prefix": prefix,
         "parent_complete_sixth_audit_sha256": audit_sha,
-        "parent_prefix_audit_sha256": previous_candidate.get("parent_prefix_audit_sha256"),
+        "parent_prefix_audit_sha256": candidate.get("parent_prefix_audit_sha256"),
         "parent_full_audit_sha256": prefix_audit_sha,
         "scope": (
             "Exact-rational 113-column cutting-plane candidate independently checked with 128-bit Arb "
