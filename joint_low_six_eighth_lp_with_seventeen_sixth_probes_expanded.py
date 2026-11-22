@@ -309,8 +309,8 @@ def run():
         ],
         "scope": (
             "Finite binary64 minimax LP over the expanded 93-column physical pool (83 certified-pool columns plus ten 128-bit Arb-priced legal columns), "
-            "all 1461 low rows, 256 screened sixth rows, fifteen Arb-certified sixth "
-            "separators from four parent candidates, and seven selected eighth rows. "
+            "all 1461 low rows, 256 screened sixth rows, seventeen Arb-certified sixth "
+            "separators from five parent candidates, and seven selected eighth rows. "
             "The ten added columns violate the old 83-column dual inequalities; this LP is still finite binary64 discovery. No exact feasibility, complete sixth/eighth maximum, or physical global "
             "optimum is implied."
         ),

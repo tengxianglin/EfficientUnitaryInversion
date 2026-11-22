@@ -1,4 +1,4 @@
-"""128-bit Arb sixth-order prefix/full verifier for the 15-probe exact candidate."""
+"""128-bit Arb sixth-order prefix/full verifier for the 17-probe exact candidate."""
 import argparse
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import hashlib
@@ -72,7 +72,7 @@ def load_exact_candidate():
         raise RuntimeError("candidate parent-input hash mismatch")
     if lp["parent_candidate_input_sha256"] != EXPECTED_PARENT_CANDIDATE_SHA256:
         raise RuntimeError("LP transcript parent-input hash mismatch")
-    if candidate["source_file"] != "evidence/joint_low_six_eighth_lp_with_fifteen_sixth_probes_n21.json":
+    if candidate["source_file"] != "evidence/joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded_n21.json":
         raise RuntimeError("candidate source-file path mismatch")
 
     expected_prefix_shas = [expected for _, expected in PREFIXES]

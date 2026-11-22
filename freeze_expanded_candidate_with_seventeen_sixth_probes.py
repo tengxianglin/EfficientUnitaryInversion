@@ -28,7 +28,7 @@ def main():
         "sixth_certified_probes": 17,
         "selected_eighth": 7,
     }
-    if lp["columns"] != 93 or lp["rows"] != 1739 or lp["row_blocks"] != expected_blocks:
+    if lp["columns"] != 93 or lp["rows"] != 1741 or lp["row_blocks"] != expected_blocks:
         raise RuntimeError("unexpected LP dimensions or row blocks")
     if lp["parent_candidate_input_sha256"] != PARENT_CANDIDATE_SHA256:
         raise RuntimeError("LP transcript refers to a different parent candidate")
@@ -37,7 +37,7 @@ def main():
     if not lp["finite_candidate_below_cap"] or not lp["lp_max"] < 1 / 3:
         raise RuntimeError("finite LP objective is not strictly below 1/3")
     if len(lp["sixth_probe_rows"]) != 17 or len(lp["sixth_probe_targets"]) != 17:
-        raise RuntimeError("LP transcript does not contain fifteen sixth-order probes")
+        raise RuntimeError("LP transcript does not contain seventeen sixth-order probes")
 
     raw_weights = [
         (int(column), Fraction.from_float(float(weight)))
@@ -58,7 +58,7 @@ def main():
 
     candidate = {
         "base_commit": os.environ.get("GITHUB_SHA", "unknown"),
-        "source_file": "evidence/joint_low_six_eighth_lp_with_fifteen_sixth_probes_n21.json",
+        "source_file": "evidence/joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded_n21.json",
         "source_sha256": source_sha,
         "parent_candidate_input_sha256": PARENT_CANDIDATE_SHA256,
         "sixth_prefix_transcript_git_blob_sha1s": PREFIX_BLOBS,

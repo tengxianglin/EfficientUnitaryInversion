@@ -1,4 +1,4 @@
-"""128-bit Arb checks for the exact candidate with fifteen sixth-order separators."""
+"""128-bit Arb checks for the exact candidate with seventeen sixth-order separators."""
 import hashlib
 import json
 from fractions import Fraction
