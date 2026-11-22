@@ -356,7 +356,7 @@ def main():
         "selected_blocks": selected,
         "sixth_prefix": prefix,
         "scope": (
-            "Exact-rational 103-column / 38-probe LP candidate independently checked with 128-bit Arb "
+            "Exact-rational 113-column / 38-probe LP candidate independently checked with 128-bit Arb "
             "on all 1,461 low rows, 294 selected sixth rows, and seven selected eighth rows. The first "
             "1,024 sixth-order orbits are additionally audited if selected rows pass. No complete "
             "sixth/eighth maximum, global physical optimum, or operational channel-error theorem."
