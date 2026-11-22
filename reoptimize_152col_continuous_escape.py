@@ -24,6 +24,7 @@ DUAL_CERT = ROOT / "evidence/55probe_151col_dual_certificate_n21.json"
 ESCAPE_CERT = ROOT / "evidence/continuous_path_dual_escape_arb_n21.json"
 SIXTH_SCREEN = ROOT / "evidence/sixth_moment_screen_n21.json"
 OUTPUT = ROOT / "evidence/joint_low_six_eighth_lp_152col_continuous_escape_n21.json"
+CANDIDATE_OUTPUT = ROOT / "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
 
 
 def sha(raw):
@@ -185,9 +186,58 @@ def main():
             "is certified by this LP."
         ),
     }
-    OUTPUT.write_text(json.dumps(transcript, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(transcript, indent=2) + "\\n")
+    lp_out_sha = sha(OUTPUT.read_bytes())
+    candidate_written = False
+    if result.fun < 1 / 3:
+        raw_weights = []
+        for j, weight in enumerate(result.x[:-1]):
+            if weight > 1e-10:
+                column = base_columns[j] if j < 151 else 1641
+                raw_weights.append((int(column), Fraction.from_float(float(weight))))
+        total = sum((weight for _, weight in raw_weights), Fraction(0))
+        exact_probabilities = [
+            {"column": column, "probability": str(weight / total)}
+            for column, weight in raw_weights
+        ]
+        if sum((Fraction(row["probability"]) for row in exact_probabilities), Fraction(0)) != 1:
+            raise RuntimeError("rationalized candidate probabilities do not sum to one")
+        candidate = {
+            "source_file": "evidence/joint_low_six_eighth_lp_152col_continuous_escape_n21.json",
+            "source_sha256": lp_out_sha,
+            "parent_lp_sha256": parent_sha,
+            "parent_dual_certificate_sha256": dual_sha,
+            "continuous_escape_arb_certificate_sha256": escape_sha,
+            "canonical_all_columns_sha256_le_f64": all_sha,
+            "candidate_sha256": CANDIDATE_SHA256,
+            "base_columns": base_columns,
+            "escape_column_index": 1641,
+            "escape_couplings_exact": [str(x) for x in COUPLINGS],
+            "columns": [row["column"] for row in exact_probabilities],
+            "exact_probabilities": exact_probabilities,
+            "exact_probability_sum": "1",
+            "support_size": len(exact_probabilities),
+            "precision_bits": 64,
+            "finite_lp_objective": repr(float(result.fun)),
+            "sixth_probe_rows": parent["sixth_probe_rows"],
+            "sixth_probe_targets": parent["sixth_probe_targets"],
+            "sixth_full_audit_separator_rows": parent["sixth_full_audit_separator_rows"],
+            "sixth_full_audit_separator_targets": parent["sixth_full_audit_separator_targets"],
+            "sixth_prefix_separator_rows": parent["sixth_prefix_separator_rows"],
+            "sixth_prefix_separator_targets": parent["sixth_prefix_separator_targets"],
+            "sixth_additional_full_audit_separator_rows": parent["sixth_additional_full_audit_separator_rows"],
+            "sixth_additional_full_audit_separator_targets": parent["sixth_additional_full_audit_separator_targets"],
+            "selected_eighth_rows": parent["selected_eighth_rows"],
+            "scope": "Exact rational probabilities obtained by normalizing the binary64 152-column HiGHS weights. This is only a selected-row candidate input; strict Arb verification is required.",
+        }
+        CANDIDATE_OUTPUT.write_text(json.dumps(candidate, indent=2) + "\\n")
+        candidate_written = True
+    elif CANDIDATE_OUTPUT.exists():
+        CANDIDATE_OUTPUT.unlink()
     print(json.dumps({
         "output": str(OUTPUT.relative_to(ROOT)),
+        "lp_sha256": lp_out_sha,
+        "candidate_output": str(CANDIDATE_OUTPUT.relative_to(ROOT)) if candidate_written else None,
         "columns": n,
         "rows": m,
         "expanded_lp_objective": float(result.fun),
