@@ -25,6 +25,7 @@ K = 8
 PRECISION_BITS = 128
 STRICT_UPPER = Fraction(1, 3)
 EXPECTED_INPUT_SHA256 = "5ae3afde386225dc1a398643303684ac1589fc2abfcf3cf2ff177ace4b640059"
+EXPECTED_KEY_SHA256 = "d395d745428d5b7b35319aa368d701716e7323d0f599e6314fc8ec59c6af83db"
 
 BANK = None
 ARB = None
@@ -156,6 +157,8 @@ def audit_task(record):
 
 def run(workers=8, limit_tasks=None, precision_bits=PRECISION_BITS):
     summary, records = enumeration_summary(N, K)
+    if summary["canonical_key_sha256"] != EXPECTED_KEY_SHA256:
+        raise RuntimeError("canonical eighth-orbit key SHA256 mismatch")
     raw = (ROOT / "evidence/candidate_joint_input_n21.json").read_bytes()
     cfg = json.loads(raw)
     input_sha256 = hashlib.sha256(raw).hexdigest()
@@ -237,6 +240,8 @@ if __name__ == "__main__":
 
     if args.enumeration_only:
         summary, _ = enumeration_summary(N, K)
+        if summary["canonical_key_sha256"] != EXPECTED_KEY_SHA256:
+            raise RuntimeError("canonical eighth-orbit key SHA256 mismatch")
         result = {
             "base_commit": "0f1a4f2c7a2828ff1d6ca06f69ee1542b1e14f34",
             "candidate_input_sha256": hashlib.sha256(
