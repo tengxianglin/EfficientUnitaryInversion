@@ -1,0 +1,390 @@
+{
+  "status": "complete_sixth_binary64_violations_found",
+  "complete": true,
+  "precision": "IEEE-754 binary64; not interval arithmetic",
+  "candidate_input_sha256": "78f396b6efba5b6d230322c253294a0b0c834319d42b8e796e732088938d5d65",
+  "lp_transcript_sha256": "3dd87cd842b7ecfb950c7ec153cfe011bc1764d4bf6a13924ff2b304a6848ddb",
+  "continuous_escape_arb_certificate_sha256": "9e85d7f617baaa5bee371297e9f94716c21c7404f8349def2ef376dafb20d59e",
+  "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
+  "candidate_support_size": 51,
+  "exact_probability_sum": "1",
+  "escape_column_probability": "3518234154042985/73786976294838235277",
+  "sixth_orbits": 63133,
+  "six_subsets": 5245786,
+  "burnside": {
+    "rotations_fixed_sum": 5247312,
+    "reflections_fixed_sum": 55860,
+    "orbits": 63133
+  },
+  "normalized_error_scale": "5/19721",
+  "maximum_normalized_error": 0.8390979517059564,
+  "maximum_orbit_index": 30283,
+  "maximum_indices": [
+    0,
+    1,
+    8,
+    18,
+    25,
+    35
+  ],
+  "maximum_target": "5/19721",
+  "maximum_mixture_moment": 0.0004662790811079449,
+  "violating_orbit_count_at_or_above_one_third": 334,
+  "top_25": [
+    {
+      "orbit_index": 30283,
+      "indices": [
+        0,
+        1,
+        8,
+        18,
+        25,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004662790811079449,
+      "normalized_error": 0.8390979517059564
+    },
+    {
+      "orbit_index": 38154,
+      "indices": [
+        0,
+        2,
+        4,
+        21,
+        23,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00045081846661283086,
+      "normalized_error": 0.7781181960143276
+    },
+    {
+      "orbit_index": 33595,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004493703138669685,
+      "normalized_error": 0.7724063919540972
+    },
+    {
+      "orbit_index": 60808,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004477415838065982,
+      "normalized_error": 0.7659823548499848
+    },
+    {
+      "orbit_index": 11313,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00044567648330599765,
+      "normalized_error": 0.757837185455516
+    },
+    {
+      "orbit_index": 62742,
+      "indices": [
+        0,
+        5,
+        10,
+        19,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004428619525742428,
+      "normalized_error": 0.7467361133433286
+    },
+    {
+      "orbit_index": 54294,
+      "indices": [
+        0,
+        3,
+        6,
+        19,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004385509586528986,
+      "normalized_error": 0.7297326911187628
+    },
+    {
+      "orbit_index": 34329,
+      "indices": [
+        0,
+        1,
+        11,
+        21,
+        22,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004332883092758045,
+      "normalized_error": 0.7089757494456282
+    },
+    {
+      "orbit_index": 58485,
+      "indices": [
+        0,
+        3,
+        9,
+        18,
+        27,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004314586282253775,
+      "normalized_error": 0.7017591214465341
+    },
+    {
+      "orbit_index": 60033,
+      "indices": [
+        0,
+        3,
+        13,
+        16,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004313183409193631,
+      "normalized_error": 0.701205800254152
+    },
+    {
+      "orbit_index": 34429,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        27,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004299589770635644,
+      "normalized_error": 0.6958441973341108
+    },
+    {
+      "orbit_index": 59812,
+      "indices": [
+        0,
+        3,
+        12,
+        15,
+        24,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042648127455102887,
+      "normalized_error": 0.6821274430841682
+    },
+    {
+      "orbit_index": 17133,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        11
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004250414544771879,
+      "normalized_error": 0.6764485047489246
+    },
+    {
+      "orbit_index": 63118,
+      "indices": [
+        0,
+        6,
+        13,
+        19,
+        26,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042459208408581253,
+      "normalized_error": 0.6746760980512619
+    },
+    {
+      "orbit_index": 62760,
+      "indices": [
+        0,
+        5,
+        10,
+        21,
+        26,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042260308239815,
+      "normalized_error": 0.6668310775947833
+    },
+    {
+      "orbit_index": 51694,
+      "indices": [
+        0,
+        2,
+        11,
+        13,
+        22,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00041903914308769074,
+      "normalized_error": 0.6527741881664699
+    },
+    {
+      "orbit_index": 32444,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004156746998059753,
+      "normalized_error": 0.6395041509747279
+    },
+    {
+      "orbit_index": 3346,
+      "indices": [
+        0,
+        1,
+        2,
+        11,
+        12,
+        13
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004126740778799741,
+      "normalized_error": 0.6276690979741939
+    },
+    {
+      "orbit_index": 60792,
+      "indices": [
+        0,
+        4,
+        8,
+        21,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004114729774770111,
+      "normalized_error": 0.6229317177648273
+    },
+    {
+      "orbit_index": 56760,
+      "indices": [
+        0,
+        3,
+        8,
+        13,
+        32,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040827511182171426,
+      "normalized_error": 0.6103186960472055
+    },
+    {
+      "orbit_index": 23353,
+      "indices": [
+        0,
+        1,
+        6,
+        11,
+        32,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004077769949256326,
+      "normalized_error": 0.6083540233856802
+    },
+    {
+      "orbit_index": 27293,
+      "indices": [
+        0,
+        1,
+        7,
+        14,
+        29,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040754325274032656,
+      "normalized_error": 0.6074320974583961
+    },
+    {
+      "orbit_index": 55913,
+      "indices": [
+        0,
+        3,
+        7,
+        19,
+        26,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040652255731892835,
+      "normalized_error": 0.6034062705773173
+    },
+    {
+      "orbit_index": 63039,
+      "indices": [
+        0,
+        5,
+        12,
+        20,
+        27,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040626049062338554,
+      "normalized_error": 0.6023726271167573
+    },
+    {
+      "orbit_index": 57458,
+      "indices": [
+        0,
+        3,
+        8,
+        19,
+        26,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040550422653350674,
+      "normalized_error": 0.5993897702934574
+    }
+  ],
+  "moments_sha256_le_f64": "7a1ea8825f4efa2b34511db91a1dea1d993ef51dd2bca8721eed231e73fc7c80",
+  "errors_sha256_le_f64": "248b5b2f28bca95547f4095fb2d3ac7ca8e3e4e412cf88e4ac3a365711b73e2d",
+  "sixth_elementary_symmetric_signed_sum": -1329.9999999999989,
+  "expected_signed_sum": -1330,
+  "scope": "Complete binary64 scan of all 63,133 sixth-order dihedral orbits / 5,245,786 six-subsets for the exact-rational 51-support candidate after converting its probabilities and rotation matrices to binary64. A passing screen is not a rigorous interval certificate; a failing screen gives explicit rows for LP repair."
+}
