@@ -251,3 +251,27 @@ giving a certified margin to \(1/3\) of
 Evidence: evidence/candidate_152col_selected_rows_arb_n21.json; exact input: evidence/candidate_joint_input_152col_continuous_escape_n21.json; LP: evidence/joint_low_six_eighth_lp_152col_continuous_escape_n21.json; verifier: verify_152col_continuous_escape_candidate_arb.py; commit [55ec898](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/55ec8985979af1563022d4f6e5ce1404d4b3148b).
 
 This is a strict exact-probability result on the pinned 1,779 rows, not a complete sixth/eighth-order orbit certificate: only 311 of 63,133 sixth orbits and seven selected eighth orbits were checked. It also does not imply full continuous-family optimality or an operational Choi/diamond-norm bound. The next task is a complete sixth-order audit of this exact mixture.
+
+
+## 152-column candidate fails the complete sixth-order domain (2026-11-23)
+
+The exact 51-support rational candidate that passes the pinned 1,779-row Arb audit is **not** a complete sixth-order witness. The complete binary64 screen covers all 63,133 dihedral orbits / 5,245,786 six-subsets and finds 334 orbits with normalized absolute residual at least 1/3. The largest screen residual is 0.8390979517059564 at orbit representative (0,1,8,18,25,35), orbit index 30,283 (orbit size 42).
+
+This worst row has been independently recomputed using 128-bit Arb, the exact rational candidate probabilities, and exact rational path couplings. The normalized absolute residual is enclosed by
+
+\[
+[0.839097951705338056452886319837567\pm2.78\times10^{-34}]>\frac13.
+\]
+
+Therefore the candidate's rigorous scope remains exactly the pinned 1,779 rows (1,461 complete second/fourth, 311 selected sixth, and seven selected eighth rows); it must not be described as satisfying all sixth-order constraints.
+
+Evidence:
+- Full binary64 scan: `evidence/candidate_152col_complete_sixth_binary64_n21.json`
+- Strict one-row counterexample: `evidence/candidate_152col_sixth_counterexample_arb_n21.json`
+- Verifier: `verify_152col_sixth_counterexample_arb.py`
+- Arb workflow: [45056852005](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45056852005)
+- Strict counterexample verifier commit: [5f2ca63](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5f2ca63d07ab12ff48659b4491c0dc8015fc4ace)
+
+A cutting-plane workflow now persists all 334 violating orbit representatives, deduplicates them against the original 311 sixth rows, and reoptimizes the same 152 physical generators. This is a finite discovery LP; any resulting candidate needs exact-probability Arb verification and another complete-sixth scan. Workflow: [45057108860](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45057108860); implementation commit: [074ac3b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/074ac3bdd4c45044ed86482f658338738c0f4a25).
+
+The counterexample is candidate-specific. It does not prove infeasibility for other mixtures or for the full continuous physical family.
