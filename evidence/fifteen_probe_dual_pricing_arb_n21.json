@@ -1,8 +1,8 @@
 {
   "status": "arb_positive_columns_found",
-  "dual_certificate_sha256": "547503193d8008e94ceefc1c28f2936cdbc2a4074b488f6bacc3ecb1f1c19e15",
-  "lp_transcript_sha256": "ce1210e1f983ddf981d0f17e88515d31ed61d42d48f195f559d862de45d7a1c3",
-  "pricing_screen_sha256": "d56a3149665740e5f4c8405c18f49c488c61837250a5273e5f7509fbfe724d2b",
+  "dual_certificate_sha256": "fb021968647a35ff91dff4c6fad81f7241add62ad2b92f0ade1d325fed69be27",
+  "lp_transcript_sha256": "d8e9067794416c6a3e962f0df5bcfec50bb31a06eddcef60098dc4e73bffc342",
+  "pricing_screen_sha256": "d1218c8752da44fb3ca9a3f1cb437c26c0731ec4aba78b34209996ebaa69e2f2",
   "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
   "precision_bits": 128,
   "interval_backend": "python-flint 0.8.0 / Arb",

@@ -1,0 +1,69 @@
+{
+  "candidate_input_sha256": "0c7425d053162e48afd9c10e85b20ac39e54c8896ceb9bad03da3647abada4e6",
+  "lp_transcript_sha256": "024c63ebef372c66e9efe126289db82616417faa90fd1d1251b4f97342e72d11",
+  "parent_candidate_input_sha256": "ac789d6fa678a4759c13d3d5588253e57d63e5a448946bdd9bb915369d401d80",
+  "sixth_prefix_transcript_git_blob_sha1s": [
+    "6604c6727b075b79ceca438b01faadbbb0ebbd19",
+    "4827a61b30abdfdab2675eac6df557e71081294e",
+    "6b655f83d87b9ea24f9394355ef1aa8c4633136e",
+    "8578b04b4af392e34b57673a24e83c0c710f8563"
+  ],
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 42,
+  "exact_probability_sum": "1",
+  "certified_blocks": {
+    "low_all_rows": {
+      "rows": 1461,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3298960040435483,
+      "worst_row": {
+        "row": 450,
+        "order": 4,
+        "error_interval": "[-0.3298960040435483134511455801830605 +/- 6.36e-35]"
+      }
+    },
+    "sixth_screen_and_fifteen_probes": {
+      "rows": 271,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.32989600404627833,
+      "worst_row": {
+        "row": 178,
+        "source": "screen",
+        "indices": [
+          0,
+          2,
+          6,
+          14,
+          20,
+          38
+        ],
+        "target": "-5/19721",
+        "error_interval": "[0.329896004046278343156361253257378 +/- 6.66e-34]",
+        "orbit_size": 84
+      }
+    },
+    "eighth_selected_only": {
+      "rows": 7,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.32989600404814007,
+      "worst_row": {
+        "row": 3,
+        "indices": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          28,
+          32,
+          36
+        ],
+        "target": "1/19721",
+        "error_interval": "[-0.32989600404814007265382090251147 +/- 3.44e-33]",
+        "orbit_size": 84
+      }
+    }
+  },
+  "scope": "Arb certification of all 1461 low rows, 271 selected sixth rows (256 screen plus fifteen strict separators), and seven selected eighth rows for this exact rational candidate. This is not a complete sixth/eighth maximum or an operational inversion bound."
+}
