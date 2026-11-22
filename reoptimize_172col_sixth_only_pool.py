@@ -12,7 +12,7 @@ from ising_fourth_moments import FourthMoments
 from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import matrix, orbit_minor
 
-CANDIDATE_IN = ROOT / "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
+ESCAPE_CERT = ROOT / "evidence/continuous_path_dual_escape_arb_n21.json"
 PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_162col_full_sixth_cuts_n21.json"
 CUT_LP = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
 DUAL_CERT = ROOT / "evidence/55probe_162col_sixth_only_dual_certificate_n21.json"
@@ -31,21 +31,19 @@ def sha(raw):
 
 def main():
     paths = (
-        CANDIDATE_IN, PARENT_LP, CUT_LP, DUAL_CERT, SIXTH_ONLY_LP,
+        ESCAPE_CERT, PARENT_LP, CUT_LP, DUAL_CERT, SIXTH_ONLY_LP,
         PRICING_SCREEN, PRICING_ARB,
     )
     raw = [path.read_bytes() for path in paths]
-    candidate, parent_lp, cut_lp, dual, sixth_lp, screen, pricing = [
+    escape, parent_lp, cut_lp, dual, sixth_lp, screen, pricing = [
         json.loads(value) for value in raw
     ]
     hashes = {path.name: sha(value) for path, value in zip(paths, raw)}
 
-    if parent_lp.get("parent_candidate_sha256") != hashes[CANDIDATE_IN.name]:
-        raise RuntimeError("162-column physical-pool LP does not pin the exact 152-column candidate")
-    if parent_lp.get("parent_lp_sha256") != candidate.get("source_sha256"):
-        raise RuntimeError("162-column parent LP does not pin the candidate source LP")
-    if parent_lp.get("parent_dual_certificate_sha256") != candidate.get("parent_dual_certificate_sha256"):
-        raise RuntimeError("162-column parent LP and candidate disagree on their parent dual")
+    if escape.get("status") != "certified_continuous_path_dual_escape" or not escape.get("complete") or not escape.get("strictly_positive"):
+        raise RuntimeError("continuous path generator lacks its strict Arb certificate")
+    if dual.get("continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_CERT.name]:
+        raise RuntimeError("162-column dual does not pin the exact continuous escape generator")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (162, 2113):
         raise RuntimeError("unexpected 162-column parent LP dimensions")
     if parent_lp.get("parent_152col_cut_lp_sha256") != hashes[CUT_LP.name]:
@@ -92,11 +90,15 @@ def main():
     if all_sha != screen.get("canonical_all_columns_sha256_le_f64"):
         raise RuntimeError("pricing screen and canonical physical pool hashes disagree")
 
-    base_columns = [int(x) for x in candidate["base_columns"]]
+    base_columns = [int(x) for x in parent_lp["base_columns"]]
     old_added = [int(x) for x in parent_lp["added_canonical_columns"]]
-    escape_couplings = [Fraction(x) for x in candidate["escape_couplings_exact"]]
+    escape_couplings = [Fraction(x) for x in escape["candidate_couplings_exact"]]
     if len(base_columns) != 151 or len(set(base_columns)) != 151:
         raise RuntimeError("malformed original 151-column canonical base")
+    if parent_lp.get("column_order") != base_columns + [1641] + old_added:
+        raise RuntimeError("parent LP physical column ordering is inconsistent")
+    if dual.get("columns") != parent_lp.get("column_order"):
+        raise RuntimeError("sixth-only dual and parent LP physical inventories disagree")
     if len(old_added) != 10 or len(set(old_added)) != 10:
         raise RuntimeError("malformed ten-column extension already in the 162-column pool")
     if set(base_columns) & set(old_added):
@@ -202,7 +204,7 @@ def main():
     matrix_sha = sha(np.asarray(A, dtype="<f8").tobytes() + np.asarray(y, dtype="<f8").tobytes())
     transcript = {
         "status": "172col_sixth_only_lp_candidate_below_one_third" if result.fun < 1 / 3 else "172col_sixth_only_lp_above_one_third",
-        "parent_candidate_sha256": hashes[CANDIDATE_IN.name],
+        "continuous_escape_arb_certificate_sha256": hashes[ESCAPE_CERT.name],
         "parent_162col_lp_sha256": hashes[PARENT_LP.name],
         "parent_sixth_only_dual_certificate_sha256": hashes[DUAL_CERT.name],
         "parent_sixth_only_lp_sha256": hashes[SIXTH_ONLY_LP.name],
@@ -265,7 +267,7 @@ def main():
         next_candidate = {
             "source_file": str(LP_OUT.relative_to(ROOT)),
             "source_sha256": lp_out_sha,
-            "parent_candidate_sha256": hashes[CANDIDATE_IN.name],
+            "continuous_escape_arb_certificate_sha256": hashes[ESCAPE_CERT.name],
             "parent_162col_lp_sha256": hashes[PARENT_LP.name],
             "parent_sixth_only_dual_certificate_sha256": hashes[DUAL_CERT.name],
             "parent_sixth_only_lp_sha256": hashes[SIXTH_ONLY_LP.name],
