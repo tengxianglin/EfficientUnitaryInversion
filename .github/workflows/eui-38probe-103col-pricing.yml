@@ -1,0 +1,61 @@
+name: EUI price remaining canonical columns against the 103-column 38-probe dual
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-38probe-103col-pricing.yml"
+      - "price_unused_columns_against_38probe_103col_dual.py"
+      - "verify_38probe_103col_dual_pricing_arb.py"
+      - "evidence/38probe_103col_dual_certificate_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  price-remaining-columns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Verify frozen pool and exact orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Screen all unused canonical physical columns
+        run: python price_unused_columns_against_38probe_103col_dual.py
+      - name: Arb-certify the top ten positive reduced-cost candidates
+        run: python verify_38probe_103col_dual_pricing_arb.py
+      - name: Commit dual-pricing evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          for f in evidence/38probe_103col_dual_pricing_screen_n21.json evidence/38probe_103col_dual_pricing_arb_n21.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Record 103-column 38-probe dual-pricing evidence"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload dual-pricing evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-38probe-103col-pricing
+          path: |
+            evidence/38probe_103col_dual_pricing_screen_n21.json
+            evidence/38probe_103col_dual_pricing_arb_n21.json
+          if-no-files-found: warn
