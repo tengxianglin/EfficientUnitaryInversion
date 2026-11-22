@@ -1,0 +1,58 @@
+name: EUI complete sixth-order Arb audit for the 113-column 38-probe candidate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-113col-38probe-complete-sixth.yml"
+      - "verify_113col_38probe_complete_sixth_arb.py"
+      - "evidence/candidate_joint_input_113col_38probe_n21.json"
+      - "evidence/joint_low_six_eighth_lp_113col_38probe_n21.json"
+      - "evidence/candidate_113col_38probe_selected_and_sixth_prefix_arb_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  complete-sixth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned interval stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5"
+      - name: Verify frozen pool and exact orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Audit all 63,133 sixth-order dihedral orbits with 128-bit Arb
+        run: python verify_113col_38probe_complete_sixth_arb.py --workers 8
+      - name: Commit complete sixth-order evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          if [ -f evidence/candidate_113col_38probe_complete_sixth_arb_n21.json ]; then
+            git add evidence/candidate_113col_38probe_complete_sixth_arb_n21.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Record complete sixth-order Arb audit for 113-column candidate"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload complete sixth-order evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-113col-38probe-complete-sixth
+          path: evidence/candidate_113col_38probe_complete_sixth_arb_n21.json
+          if-no-files-found: warn
