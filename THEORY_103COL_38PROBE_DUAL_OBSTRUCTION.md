@@ -60,3 +60,31 @@ python verify_38probe_103col_dual_pricing_arb.py
 ```
 
 The scripts pin the LP and dual-certificate hashes, row dimensions, canonical-column hash, and 103-column index hash. The Arb stage checks the exact matrix exponential and normalized feature functional for the leading screened candidates.
+
+
+## Verified pricing against the unused canonical pool
+
+The binary64 screen evaluated all 1,538 columns outside the certified 103-column pool in the frozen 1,641-column canonical path family. It found 40 positive reduced-cost scores. The ten largest were recomputed with 128-bit Arb; all ten intervals have strictly positive lower endpoints:
+
+| Column | Arb lower endpoint |
+|---:|---:|
+| 74 | 0.24633183683563614579115463477048533607 |
+| 116 | 0.24267624818638682029046071525046840315 |
+| 698 | 0.18223195852410069101452353622317281502 |
+| 904 | 0.17210547925739780862011500740373155105 |
+| 46 | 0.16474895746966786986227884278048928067 |
+| 16 | 0.15124831741664450756631131751484437007 |
+| 590 | 0.14920927035533400484332797646175297890 |
+| 397 | 0.14820669364551232613756823226056142352 |
+| 349 | 0.14388545257164526436827787732854667231 |
+| 6 | 0.12789343620280805565068851263423761370 |
+
+The evidence chain is pinned by:
+
+- parent LP SHA256: `ca2b8dedca8ac814cc2ccf6b0800c5fad345c5a23a03cd53626239b59768d85e`;
+- dual certificate SHA256: `ff6a634dd4bbe0dd0f427904a26137241560e6deb7b144c764efb80f6f56a913`;
+- pricing screen SHA256: `2491641b5b40e5f9e86e992829eb429a629645963b8e162e8089cb4ff40d95a3`;
+- Arb pricing SHA256: `37dc2592c7e8d46b3af3896fd27ab135819b63d2d2b5a87e3a8872ff2e6aebe8`;
+- canonical 1,641-column pool SHA256 (little-endian float64): `f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98`.
+
+These ten columns were added to form a 113-column pool. The resulting finite HiGHS objective is 0.32622919649179943, and the exact rational candidate has 46 positive weights. Its 128-bit Arb selected-row audit and first 1,024 sixth-orbit prefix pass; see `evidence/candidate_113col_38probe_selected_and_sixth_prefix_arb_n21.json`. The complete 63,133-orbit sixth audit is a separate, still-running verification and must not be inferred from the prefix.
