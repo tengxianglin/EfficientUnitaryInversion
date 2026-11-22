@@ -2,6 +2,8 @@
 from itertools import combinations
 from fractions import Fraction
 from math import comb
+import hashlib
+from pathlib import Path
 import numpy as np
 from verify_ising_minor_obstruction import rotation
 
@@ -87,6 +89,13 @@ class FourthMoments:
 
 
 def seed_pool(count=1600):
+    frozen=Path(__file__).resolve().parent/'evidence/seed_pool_n21_frozen.npy'
+    if count==1600 and frozen.exists():
+        rows=np.load(frozen,allow_pickle=False)
+        digest=hashlib.sha256(rows.astype('<f8',copy=False).tobytes()).hexdigest()
+        if rows.shape!=(1600,42) or digest!='93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315':
+            raise RuntimeError('frozen seed-pool shape or SHA256 mismatch')
+        return rows
     rng=np.random.default_rng(202611210435);rows=[]
     for k in range(count):
         sigma=(0,.02,.1,.3,.7)[min(k//320,4)]
