@@ -55,7 +55,7 @@ column intervals are frozen in the certificate JSON.
 
 The dual vector is sparse: only 34 of its 1,739 row multipliers are nonzero
 (14 low-order, 16 sixth-order, and 4 selected eighth-order rows). This makes
-it possible to price the remaining 1,556 canonical physical columns against
+it possible to price the remaining 1,558 canonical physical columns against
 the same separator without rebuilding the full feature matrix.
 
 ## Theorem: obstruction for the frozen pool
