@@ -91,3 +91,28 @@ The finite-pool dual certificate is a minimax theorem for a pinned finite set of
 4. If no such bridge is available, present the moment-dual result as a distinct auxiliary theorem rather than using it to support Appendix B's robustness claim.
 
 The 113-column lower bound is restricted to its pinned rows and columns. It must not be presented as a lower bound over the full canonical pool or over all physical generators.
+
+
+## 133-column dual certification completed (2026-11-22 correction)
+
+The status above saying that the 133-column Arb dual audit was running is superseded. Workflow [45019181024](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45019181024) completed successfully. Commit [e40cf6b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e40cf6b4d12b2178c4433e21c47f927d2856d42c) records the complete 128-bit Arb certificate in `evidence/55probe_133col_dual_certificate_n21.json`.
+
+For the exact 133 pinned columns and the same 1,779 rows, the certificate proves
+\[
+\min_{p\in\Delta_{133}}\|Ap-y\|_\infty
+\ge
+\frac{3938686025482020591204251}
+{11258999068426240000000000}
+=0.3498255929807588\ldots
+>\frac13.
+\]
+The exact dual has
+\[
+\|z\|_1=\frac{1152921504606846859}{1152921504606846976}<1,
+\qquad \delta=10^{-10},
+\]
+and all 133 column inequalities have strictly negative 128-bit Arb upper endpoints; the largest is below `-8.2976879635052549e-11`. The exact gap above (1/3) is `557059008019821773612753/33776997205278720000000000`.
+
+This is a finite-pool minimax theorem only. The 1,779 rows still contain 311 selected sixth-order rows and seven selected eighth-order rows, not the complete moment domains. It gives no all-physical-family no-go and no operational Choi/diamond-norm guarantee. The formal statement and proof are in `THEORY_55PROBE_133COL_DUAL_OBSTRUCTION.md`.
+
+A new pricing workflow was added in commit `038cec576a6c7dbea991f2a9bdd99da5445b511f`; run [45023408185](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45023408185) screens the remaining 1,508 canonical columns and Arb-checks the top ten positive candidates.
