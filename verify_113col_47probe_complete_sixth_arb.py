@@ -57,6 +57,8 @@ def load_exact_candidate():
     old_candidate_sha = sha256(old_candidate_raw)
     old_lp_raw = OLD_LP_PATH.read_bytes()
     old_lp_sha = sha256(old_lp_raw)
+    old_candidate = json.loads(old_candidate_raw)
+    old_lp = json.loads(old_lp_raw)
     audit_raw = AUDIT_PATH.read_bytes()
     audit_sha = sha256(audit_raw)
     audit = json.loads(audit_raw)
