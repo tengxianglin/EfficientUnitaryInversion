@@ -51,7 +51,7 @@ def main():
         raise RuntimeError("parent dual does not pin its 172-column physical inventory")
     if parent.get("parent_172col_dual_certificate_sha256") != hashes[PARENT_172_DUAL.name]:
         raise RuntimeError("parent LP does not pin the exact 172-column dual")
-    if dual.get("parent_172col_dual_certificate_sha256") != hashes["55probe_172col_sixth_only_dual_certificate_n21.json"]:
+    if dual.get("parent_172col_dual_certificate_sha256") != hashes[PARENT_172_DUAL.name]:
         raise RuntimeError("parent dual does not pin the exact 172-column dual")
     if parent.get("parent_162col_lp_sha256") != hashes[PARENT_162_LP.name]:
         raise RuntimeError("parent LP does not pin its 162-column ancestor")
