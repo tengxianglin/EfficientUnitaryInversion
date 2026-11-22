@@ -2,13 +2,14 @@
 import argparse
 import hashlib
 import json
-from pathlib import Path
-
 from fractions import Fraction
+from importlib.metadata import version
+from pathlib import Path
 
 import verify_candidate_eighth_bound as audit
 
 PROBE = (0, 1, 3, 14, 19, 24, 29, 40)
+CERTIFIED_ERROR_LOWER_BOUND = Fraction(1877, 2000)
 
 
 def run(precision_bits=128):
@@ -31,14 +32,18 @@ def run(precision_bits=128):
     target = audit.target_eighth(PROBE)
     error = (moment - audit.BALL(target)) / audit.BALL(abs(target))
     absolute_error = abs(error)
-    strict = absolute_error.lower() > audit.CAP
+    strict = absolute_error.lower() > audit.BALL(CERTIFIED_ERROR_LOWER_BOUND)
     if not strict:
-        raise RuntimeError("Arb interval did not strictly certify error > 1/3")
+        raise RuntimeError(
+            "Arb interval did not strictly certify the strengthened rational lower bound"
+        )
 
     return {
-        "base_commit": "3518a8769bf6e9d325a1915c306af5a636a00ddf",
+        "enumeration_base_commit": "3518a8769bf6e9d325a1915c306af5a636a00ddf",
+        "candidate_base_commit": cfg["base_commit"],
         "candidate_input_sha256": input_sha,
         "canonical_eighth_key_sha256": audit.EXPECTED_KEY_SHA256,
+        "interval_backend": f"python-flint {version('python-flint')} / Arb",
         "precision_bits": precision_bits,
         "support_size": len(audit.BANK),
         "indices": list(PROBE),
@@ -48,7 +53,8 @@ def run(precision_bits=128):
         "moment_interval": str(moment),
         "relative_error_interval": str(error),
         "absolute_error_lower": str(absolute_error.lower()),
-        "strict_upper": "1/3",
+        "certified_error_lower_bound": str(CERTIFIED_ERROR_LOWER_BOUND),
+        "failed_cap": "1/3",
         "strict_violation": True,
         "principal_minor_determinant_evaluations": len(group_orbit) * len(audit.BANK),
         "scope": (
