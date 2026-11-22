@@ -116,7 +116,7 @@ jobs:
         if: steps.prefix.outputs.passed == 'true'
         run: |
           python verify_candidate_35_fifteen_probe_sixth_bound.py --workers 8 \
-            --output evidence/candidate_complete_sixth_bound_15probe_n21.json
+            evidence/candidate_complete_sixth_bound_15probe_n21.json \
       - name: Commit LP, exact candidate, and Arb evidence
         if: always()
         run: |
