@@ -17,7 +17,7 @@
     "orbits": 63133
   },
   "normalized_error_scale": "5/19721",
-  "maximum_normalized_error": 0.8390979517059564,
+  "maximum_normalized_error": 0.8390979517059475,
   "maximum_orbit_index": 30283,
   "maximum_indices": [
     0,
@@ -28,246 +28,78 @@
     35
   ],
   "maximum_target": "5/19721",
-  "maximum_mixture_moment": 0.0004662790811079449,
+  "maximum_mixture_moment": 0.0004662790811079426,
   "violating_orbit_count_at_or_above_one_third": 334,
-  "top_25": [
+  "violating_orbits": [
     {
-      "orbit_index": 30283,
+      "orbit_index": 1048,
       "indices": [
         0,
         1,
-        8,
-        18,
-        25,
-        35
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004662790811079449,
-      "normalized_error": 0.8390979517059564
-    },
-    {
-      "orbit_index": 38154,
-      "indices": [
-        0,
         2,
-        4,
-        21,
-        23,
-        25
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.00045081846661283086,
-      "normalized_error": 0.7781181960143276
-    },
-    {
-      "orbit_index": 33595,
-      "indices": [
-        0,
-        1,
-        11,
-        12,
-        22,
-        23
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004493703138669685,
-      "normalized_error": 0.7724063919540972
-    },
-    {
-      "orbit_index": 60808,
-      "indices": [
-        0,
-        4,
-        9,
-        13,
-        18,
-        37
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004477415838065982,
-      "normalized_error": 0.7659823548499848
-    },
-    {
-      "orbit_index": 11313,
-      "indices": [
-        0,
-        1,
-        4,
         5,
         8,
-        9
+        36
       ],
-      "target": "5/19721",
-      "mixture_moment": 0.00044567648330599765,
-      "normalized_error": 0.757837185455516
+      "target": "-5/19721",
+      "mixture_moment": -0.0001675133860730013,
+      "normalized_error": 0.3392937026508682
     },
     {
-      "orbit_index": 62742,
-      "indices": [
-        0,
-        5,
-        10,
-        19,
-        24,
-        29
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004428619525742428,
-      "normalized_error": 0.7467361133433286
-    },
-    {
-      "orbit_index": 54294,
-      "indices": [
-        0,
-        3,
-        6,
-        19,
-        22,
-        25
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004385509586528986,
-      "normalized_error": 0.7297326911187628
-    },
-    {
-      "orbit_index": 34329,
+      "orbit_index": 2403,
       "indices": [
         0,
         1,
+        2,
+        8,
+        9,
+        10
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003388097574446314,
+      "normalized_error": 0.33633344531311526
+    },
+    {
+      "orbit_index": 3081,
+      "indices": [
+        0,
+        1,
+        2,
+        10,
         11,
-        21,
-        22,
+        12
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034457899172978174,
+      "normalized_error": 0.3590884591806052
+    },
+    {
+      "orbit_index": 3099,
+      "indices": [
+        0,
+        1,
+        2,
+        10,
+        11,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034150989700891364,
+      "normalized_error": 0.34698333578255725
+    },
+    {
+      "orbit_index": 3323,
+      "indices": [
+        0,
+        1,
+        2,
+        10,
+        26,
         32
       ],
       "target": "5/19721",
-      "mixture_moment": 0.0004332883092758045,
-      "normalized_error": 0.7089757494456282
-    },
-    {
-      "orbit_index": 58485,
-      "indices": [
-        0,
-        3,
-        9,
-        18,
-        27,
-        36
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004314586282253775,
-      "normalized_error": 0.7017591214465341
-    },
-    {
-      "orbit_index": 60033,
-      "indices": [
-        0,
-        3,
-        13,
-        16,
-        26,
-        29
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004313183409193631,
-      "normalized_error": 0.701205800254152
-    },
-    {
-      "orbit_index": 34429,
-      "indices": [
-        0,
-        1,
-        12,
-        13,
-        27,
-        28
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004299589770635644,
-      "normalized_error": 0.6958441973341108
-    },
-    {
-      "orbit_index": 59812,
-      "indices": [
-        0,
-        3,
-        12,
-        15,
-        24,
-        33
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.00042648127455102887,
-      "normalized_error": 0.6821274430841682
-    },
-    {
-      "orbit_index": 17133,
-      "indices": [
-        0,
-        1,
-        5,
-        6,
-        10,
-        11
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004250414544771879,
-      "normalized_error": 0.6764485047489246
-    },
-    {
-      "orbit_index": 63118,
-      "indices": [
-        0,
-        6,
-        13,
-        19,
-        26,
-        35
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.00042459208408581253,
-      "normalized_error": 0.6746760980512619
-    },
-    {
-      "orbit_index": 62760,
-      "indices": [
-        0,
-        5,
-        10,
-        21,
-        26,
-        31
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.00042260308239815,
-      "normalized_error": 0.6668310775947833
-    },
-    {
-      "orbit_index": 51694,
-      "indices": [
-        0,
-        2,
-        11,
-        13,
-        22,
-        33
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.00041903914308769074,
-      "normalized_error": 0.6527741881664699
-    },
-    {
-      "orbit_index": 32444,
-      "indices": [
-        0,
-        1,
-        10,
-        11,
-        23,
-        24
-      ],
-      "target": "5/19721",
-      "mixture_moment": 0.0004156746998059753,
-      "normalized_error": 0.6395041509747279
+      "mixture_moment": 0.0003408836229659288,
+      "normalized_error": 0.3445131857022164
     },
     {
       "orbit_index": 3346,
@@ -280,36 +112,1100 @@
         13
       ],
       "target": "5/19721",
-      "mixture_moment": 0.0004126740778799741,
-      "normalized_error": 0.6276690979741939
+      "mixture_moment": 0.00041267407787997387,
+      "normalized_error": 0.627669097974193
     },
     {
-      "orbit_index": 60792,
+      "orbit_index": 3567,
       "indices": [
         0,
-        4,
-        8,
-        21,
-        25,
-        29
+        1,
+        2,
+        12,
+        13,
+        14
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003617879648253192,
+      "normalized_error": 0.42696409086402415
+    },
+    {
+      "orbit_index": 3748,
+      "indices": [
+        0,
+        1,
+        2,
+        13,
+        14,
+        15
       ],
       "target": "5/19721",
-      "mixture_moment": 0.0004114729774770111,
-      "normalized_error": 0.6229317177648273
+      "mixture_moment": 0.00039636125511792935,
+      "normalized_error": 0.5633280624361371
     },
     {
-      "orbit_index": 56760,
+      "orbit_index": 3759,
       "indices": [
         0,
+        1,
+        2,
+        13,
+        14,
+        26
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00035237661508559433,
+      "normalized_error": 0.3898438452206012
+    },
+    {
+      "orbit_index": 4006,
+      "indices": [
+        0,
+        1,
+        2,
+        15,
+        16,
+        17
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035488630695672084,
+      "normalized_error": 0.39974257189869844
+    },
+    {
+      "orbit_index": 4152,
+      "indices": [
+        0,
+        1,
+        2,
+        17,
+        18,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00038814289941717714,
+      "normalized_error": 0.5309132238812302
+    },
+    {
+      "orbit_index": 4193,
+      "indices": [
+        0,
+        1,
+        2,
+        18,
+        19,
+        20
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003747714572762828,
+      "normalized_error": 0.4781735817891147
+    },
+    {
+      "orbit_index": 4236,
+      "indices": [
+        0,
+        1,
+        2,
+        21,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036846924332385104,
+      "normalized_error": 0.4533163895179334
+    },
+    {
+      "orbit_index": 4237,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003882395273448535,
+      "normalized_error": 0.5312943437535713
+    },
+    {
+      "orbit_index": 4361,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        10,
+        11
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034279003332982077,
+      "normalized_error": 0.3520324494594792
+    },
+    {
+      "orbit_index": 4387,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        11,
+        12
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003426950369227643,
+      "normalized_error": 0.351657764630767
+    },
+    {
+      "orbit_index": 4471,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        15,
+        16
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003600808128447486,
+      "normalized_error": 0.4202307420222574
+    },
+    {
+      "orbit_index": 4473,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        15,
+        18
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034556387323286564,
+      "normalized_error": 0.36297302880506876
+    },
+    {
+      "orbit_index": 4487,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        16,
+        17
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034983011152052294,
+      "normalized_error": 0.37979992585924666
+    },
+    {
+      "orbit_index": 4489,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        16,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003615335018528355,
+      "normalized_error": 0.42596043800795375
+    },
+    {
+      "orbit_index": 4501,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        17,
+        18
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003552948221579803,
+      "normalized_error": 0.40135383755550597
+    },
+    {
+      "orbit_index": 4503,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        17,
+        20
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033932463060272147,
+      "normalized_error": 0.3383642080232541
+    },
+    {
+      "orbit_index": 4523,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        19,
+        20
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036086244301988926,
+      "normalized_error": 0.42331364775904734
+    },
+    {
+      "orbit_index": 4525,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        19,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003507989305409603,
+      "normalized_error": 0.3836211418396557
+    },
+    {
+      "orbit_index": 4537,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036498828079074255,
+      "normalized_error": 0.4395867770948469
+    },
+    {
+      "orbit_index": 4540,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        21,
+        25
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003488053856105266,
+      "normalized_error": 0.375758201925039
+    },
+    {
+      "orbit_index": 4541,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003751639248213112,
+      "normalized_error": 0.4797215522802157
+    },
+    {
+      "orbit_index": 4542,
+      "indices": [
+        0,
+        1,
+        3,
+        4,
+        22,
+        24
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00033978294290053224,
+      "normalized_error": 0.34017188338827936
+    },
+    {
+      "orbit_index": 4929,
+      "indices": [
+        0,
+        1,
+        3,
+        5,
+        20,
+        39
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00016190761259801697,
+      "normalized_error": 0.36140399439090143
+    },
+    {
+      "orbit_index": 5022,
+      "indices": [
+        0,
+        1,
+        3,
+        5,
+        26,
+        33
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0001635674753285503,
+      "normalized_error": 0.35485716380913185
+    },
+    {
+      "orbit_index": 5727,
+      "indices": [
+        0,
+        1,
+        3,
+        7,
+        9,
+        28
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00016884524602203015,
+      "normalized_error": 0.3340405806399086
+    },
+    {
+      "orbit_index": 6689,
+      "indices": [
+        0,
+        1,
         3,
         8,
+        36,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0001685305223452749,
+      "normalized_error": 0.33528191376576666
+    },
+    {
+      "orbit_index": 9354,
+      "indices": [
+        0,
+        1,
+        3,
+        16,
+        19,
+        40
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034170399114812164,
+      "normalized_error": 0.34774888188642145
+    },
+    {
+      "orbit_index": 11313,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004456764833059972,
+      "normalized_error": 0.7578371854555144
+    },
+    {
+      "orbit_index": 11343,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00038645503165001346,
+      "normalized_error": 0.5242559358339832
+    },
+    {
+      "orbit_index": 11344,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        9,
+        10
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035823827167189297,
+      "normalized_error": 0.41296339112828034
+    },
+    {
+      "orbit_index": 11372,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        9,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003729726094868743,
+      "normalized_error": 0.4710785663381296
+    },
+    {
+      "orbit_index": 11373,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        10,
+        11
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003604859508116693,
+      "normalized_error": 0.4218286871913862
+    },
+    {
+      "orbit_index": 11400,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        11,
+        12
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037258785391923785,
+      "normalized_error": 0.469561013428258
+    },
+    {
+      "orbit_index": 11425,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        12,
+        13
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003446532103286423,
+      "normalized_error": 0.35938119217823106
+    },
+    {
+      "orbit_index": 11448,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
         13,
-        32,
+        14
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033935532641311123,
+      "normalized_error": 0.3384852784385934
+    },
+    {
+      "orbit_index": 11488,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        15,
+        16
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003679708812914785,
+      "normalized_error": 0.4513507499898496
+    },
+    {
+      "orbit_index": 11520,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        17,
+        18
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003674631797025367,
+      "normalized_error": 0.44934827338274536
+    },
+    {
+      "orbit_index": 11533,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        18,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037433231712740876,
+      "normalized_error": 0.47644152521392574
+    },
+    {
+      "orbit_index": 11544,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        19,
+        20
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037653393982224024,
+      "normalized_error": 0.48512516544688006
+    },
+    {
+      "orbit_index": 11553,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        20,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036664476177694064,
+      "normalized_error": 0.44612026940060934
+    },
+    {
+      "orbit_index": 11560,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003714081723296249,
+      "normalized_error": 0.46490811330250664
+    },
+    {
+      "orbit_index": 11564,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        21,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034392380180366843,
+      "normalized_error": 0.3565042590740291
+    },
+    {
+      "orbit_index": 11565,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003481490677047978,
+      "normalized_error": 0.3731695528412635
+    },
+    {
+      "orbit_index": 11568,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003984250035381878,
+      "normalized_error": 0.5714678989553205
+    },
+    {
+      "orbit_index": 12995,
+      "indices": [
+        0,
+        1,
+        4,
+        8,
+        35,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003506267769671214,
+      "normalized_error": 0.3829421337137202
+    },
+    {
+      "orbit_index": 14603,
+      "indices": [
+        0,
+        1,
+        4,
+        13,
+        16,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035971668549461224,
+      "normalized_error": 0.4187945509278497
+    },
+    {
+      "orbit_index": 14914,
+      "indices": [
+        0,
+        1,
+        4,
+        14,
+        17,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033949011668474,
+      "normalized_error": 0.33901691822795166
+    },
+    {
+      "orbit_index": 15199,
+      "indices": [
+        0,
+        1,
+        4,
+        15,
+        18,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003596606838353809,
+      "normalized_error": 0.41857366918350936
+    },
+    {
+      "orbit_index": 15459,
+      "indices": [
+        0,
+        1,
+        4,
+        16,
+        19,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034468347468343186,
+      "normalized_error": 0.35950056084639204
+    },
+    {
+      "orbit_index": 17133,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        11
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042504145447719093,
+      "normalized_error": 0.6764485047489366
+    },
+    {
+      "orbit_index": 17161,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        11,
+        12
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034686126082601103,
+      "normalized_error": 0.36809018494995277
+    },
+    {
+      "orbit_index": 17187,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        12,
+        13
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035994317719973415,
+      "normalized_error": 0.4196878795111915
+    },
+    {
+      "orbit_index": 17233,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        14,
+        15
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035864091384301414,
+      "normalized_error": 0.41455149237961647
+    },
+    {
+      "orbit_index": 17253,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        15,
+        16
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003501594853458709,
+      "normalized_error": 0.38109904210118417
+    },
+    {
+      "orbit_index": 17271,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        16,
+        17
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036460462660981816,
+      "normalized_error": 0.4380735682744449
+    },
+    {
+      "orbit_index": 17301,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        18,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003401423639649917,
+      "normalized_error": 0.34158951195072035
+    },
+    {
+      "orbit_index": 17313,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        19,
+        20
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003462863726032075,
+      "normalized_error": 0.3658227108215712
+    },
+    {
+      "orbit_index": 17331,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035103053788486057,
+      "normalized_error": 0.3845346475254672
+    },
+    {
+      "orbit_index": 17337,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000358641494119418,
+      "normalized_error": 0.4145537811058086
+    },
+    {
+      "orbit_index": 18289,
+      "indices": [
+        0,
+        1,
+        5,
+        9,
+        14,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037076403824536623,
+      "normalized_error": 0.46236751964737355
+    },
+    {
+      "orbit_index": 18559,
+      "indices": [
+        0,
+        1,
+        5,
+        9,
+        34,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035968191657927595,
+      "normalized_error": 0.4186574153719803
+    },
+    {
+      "orbit_index": 18925,
+      "indices": [
+        0,
+        1,
+        5,
+        10,
+        33,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035600715617170765,
+      "normalized_error": 0.4041634253724494
+    },
+    {
+      "orbit_index": 19287,
+      "indices": [
+        0,
+        1,
+        5,
+        12,
+        13,
+        31
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034037019389993603,
+      "normalized_error": 0.3424881187801278
+    },
+    {
+      "orbit_index": 19571,
+      "indices": [
+        0,
+        1,
+        5,
+        12,
+        31,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035234634623658743,
+      "normalized_error": 0.38972445882634826
+    },
+    {
+      "orbit_index": 20232,
+      "indices": [
+        0,
+        1,
+        5,
+        15,
+        20,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000349529150958743,
+      "normalized_error": 0.3786128772114743
+    },
+    {
+      "orbit_index": 20572,
+      "indices": [
+        0,
+        1,
+        5,
+        16,
+        31,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003635710763473934,
+      "normalized_error": 0.4339970393293891
+    },
+    {
+      "orbit_index": 21034,
+      "indices": [
+        0,
+        1,
+        5,
+        19,
+        24,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036492304158572696,
+      "normalized_error": 0.43932946062242434
+    },
+    {
+      "orbit_index": 21848,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        12,
+        13
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037933774396187826,
+      "normalized_error": 0.4961839297344403
+    },
+    {
+      "orbit_index": 21872,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        12,
         37
       ],
       "target": "5/19721",
-      "mixture_moment": 0.00040827511182171426,
-      "normalized_error": 0.6103186960472055
+      "mixture_moment": 0.0003598102986386739,
+      "normalized_error": 0.41916377989065773
+    },
+    {
+      "orbit_index": 21873,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        13,
+        14
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003598547433833501,
+      "normalized_error": 0.41933907885260957
+    },
+    {
+      "orbit_index": 21917,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        15,
+        16
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003460159938120803,
+      "normalized_error": 0.36475628279360717
+    },
+    {
+      "orbit_index": 21991,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        19,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003539260838876542,
+      "normalized_error": 0.39595526006968584
+    },
+    {
+      "orbit_index": 22001,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034668066274419344,
+      "normalized_error": 0.3673778699956478
+    },
+    {
+      "orbit_index": 22008,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033939138540768095,
+      "normalized_error": 0.3386275023249753
+    },
+    {
+      "orbit_index": 22012,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        22,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003520763839160457,
+      "normalized_error": 0.3886596734416676
+    },
+    {
+      "orbit_index": 22013,
+      "indices": [
+        0,
+        1,
+        6,
+        7,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000349690231092377,
+      "normalized_error": 0.37924820947455345
+    },
+    {
+      "orbit_index": 23052,
+      "indices": [
+        0,
+        1,
+        6,
+        10,
+        33,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035042904600400885,
+      "normalized_error": 0.38216224324901177
+    },
+    {
+      "orbit_index": 23061,
+      "indices": [
+        0,
+        1,
+        6,
+        11,
+        12,
+        22
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00035352578338692314,
+      "normalized_error": 0.3943763948347023
     },
     {
       "orbit_index": 23353,
@@ -322,8 +1218,120 @@
         37
       ],
       "target": "5/19721",
-      "mixture_moment": 0.0004077769949256326,
-      "normalized_error": 0.6083540233856802
+      "mixture_moment": 0.0004077769949256336,
+      "normalized_error": 0.6083540233856842
+    },
+    {
+      "orbit_index": 25662,
+      "indices": [
+        0,
+        1,
+        7,
+        8,
+        17,
+        18
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037513967263791984,
+      "normalized_error": 0.4796258968184835
+    },
+    {
+      "orbit_index": 25678,
+      "indices": [
+        0,
+        1,
+        7,
+        8,
+        18,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036368657182947955,
+      "normalized_error": 0.43445257660983333
+    },
+    {
+      "orbit_index": 25692,
+      "indices": [
+        0,
+        1,
+        7,
+        8,
+        19,
+        20
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034250863438510434,
+      "normalized_error": 0.3509225557417286
+    },
+    {
+      "orbit_index": 25714,
+      "indices": [
+        0,
+        1,
+        7,
+        8,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000346077855411312,
+      "normalized_error": 0.36500027731329693
+    },
+    {
+      "orbit_index": 25728,
+      "indices": [
+        0,
+        1,
+        7,
+        8,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000353615617190094,
+      "normalized_error": 0.3947307173211689
+    },
+    {
+      "orbit_index": 26222,
+      "indices": [
+        0,
+        1,
+        7,
+        10,
+        20,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003387846294684297,
+      "normalized_error": 0.33623433554938054
+    },
+    {
+      "orbit_index": 26977,
+      "indices": [
+        0,
+        1,
+        7,
+        13,
+        20,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003397637234728032,
+      "normalized_error": 0.3400960781214304
+    },
+    {
+      "orbit_index": 27191,
+      "indices": [
+        0,
+        1,
+        7,
+        14,
+        20,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035791634777377414,
+      "normalized_error": 0.4116936588893201
     },
     {
       "orbit_index": 27293,
@@ -336,8 +1344,1898 @@
         36
       ],
       "target": "5/19721",
-      "mixture_moment": 0.00040754325274032656,
-      "normalized_error": 0.6074320974583961
+      "mixture_moment": 0.0004075432527403234,
+      "normalized_error": 0.6074320974583838
+    },
+    {
+      "orbit_index": 27647,
+      "indices": [
+        0,
+        1,
+        7,
+        16,
+        27,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003501221812261209,
+      "normalized_error": 0.38095190719206606
+    },
+    {
+      "orbit_index": 27808,
+      "indices": [
+        0,
+        1,
+        7,
+        17,
+        29,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003610951484300974,
+      "normalized_error": 0.42423148443799025
+    },
+    {
+      "orbit_index": 28037,
+      "indices": [
+        0,
+        1,
+        7,
+        19,
+        26,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034482467269982307,
+      "normalized_error": 0.3600574740626422
+    },
+    {
+      "orbit_index": 28548,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        16,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036824965341954543,
+      "normalized_error": 0.45245028301737117
+    },
+    {
+      "orbit_index": 28566,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        18,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003388162783460913,
+      "normalized_error": 0.3363591650526535
+    },
+    {
+      "orbit_index": 28580,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        18,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003540052731578577,
+      "normalized_error": 0.39626759838922254
+    },
+    {
+      "orbit_index": 28581,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        19,
+        20
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003457443356054915,
+      "normalized_error": 0.36368480849517976
+    },
+    {
+      "orbit_index": 28594,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        20,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003867813200940383,
+      "normalized_error": 0.5255428827149059
+    },
+    {
+      "orbit_index": 28613,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        21,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003417563733939592,
+      "normalized_error": 0.34795548794045406
+    },
+    {
+      "orbit_index": 28626,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        24,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003589384100446358,
+      "normalized_error": 0.41572487689805254
+    },
+    {
+      "orbit_index": 28629,
+      "indices": [
+        0,
+        1,
+        8,
+        9,
+        25,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00038407203114258087,
+      "normalized_error": 0.5148569052325676
+    },
+    {
+      "orbit_index": 29011,
+      "indices": [
+        0,
+        1,
+        8,
+        11,
+        18,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003406543222017403,
+      "normalized_error": 0.34360877762810416
+    },
+    {
+      "orbit_index": 29144,
+      "indices": [
+        0,
+        1,
+        8,
+        11,
+        32,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003442413301027087,
+      "normalized_error": 0.3577566541911037
+    },
+    {
+      "orbit_index": 29901,
+      "indices": [
+        0,
+        1,
+        8,
+        15,
+        28,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037746181156502904,
+      "normalized_error": 0.48878487717478764
+    },
+    {
+      "orbit_index": 30048,
+      "indices": [
+        0,
+        1,
+        8,
+        16,
+        27,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000345109121091026,
+      "normalized_error": 0.3611793954072249
+    },
+    {
+      "orbit_index": 30203,
+      "indices": [
+        0,
+        1,
+        8,
+        17,
+        33,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003481242347117996,
+      "normalized_error": 0.37307160655028004
+    },
+    {
+      "orbit_index": 30281,
+      "indices": [
+        0,
+        1,
+        8,
+        18,
+        25,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034364394705313137,
+      "normalized_error": 0.35540045596696085
+    },
+    {
+      "orbit_index": 30283,
+      "indices": [
+        0,
+        1,
+        8,
+        18,
+        25,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004662790811079426,
+      "normalized_error": 0.8390979517059475
+    },
+    {
+      "orbit_index": 30760,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        18,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036813074940750663,
+      "normalized_error": 0.45198130181308777
+    },
+    {
+      "orbit_index": 30763,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        18,
+        22
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034021153721301456,
+      "normalized_error": 0.3418623450755721
+    },
+    {
+      "orbit_index": 30768,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        18,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003553487873268417,
+      "normalized_error": 0.40156668697452913
+    },
+    {
+      "orbit_index": 30784,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        19,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000347129252474789,
+      "normalized_error": 0.3691471976110629
+    },
+    {
+      "orbit_index": 30802,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037092369902671834,
+      "normalized_error": 0.4629972537011826
+    },
+    {
+      "orbit_index": 30810,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        21,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003459608888691599,
+      "normalized_error": 0.36453893787774055
+    },
+    {
+      "orbit_index": 30830,
+      "indices": [
+        0,
+        1,
+        9,
+        10,
+        25,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036942400373460543,
+      "normalized_error": 0.45708215553003084
+    },
+    {
+      "orbit_index": 31817,
+      "indices": [
+        0,
+        1,
+        9,
+        16,
+        24,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003422601741840574,
+      "normalized_error": 0.34994257901675935
+    },
+    {
+      "orbit_index": 32048,
+      "indices": [
+        0,
+        1,
+        9,
+        18,
+        25,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003928230049730416,
+      "normalized_error": 0.5493724962146708
+    },
+    {
+      "orbit_index": 32109,
+      "indices": [
+        0,
+        1,
+        9,
+        19,
+        23,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003438806391642535,
+      "normalized_error": 0.35633401699164874
+    },
+    {
+      "orbit_index": 32222,
+      "indices": [
+        0,
+        1,
+        9,
+        20,
+        30,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003525499829727754,
+      "normalized_error": 0.3905276428412208
+    },
+    {
+      "orbit_index": 32225,
+      "indices": [
+        0,
+        1,
+        9,
+        20,
+        31,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034578450903655853,
+      "normalized_error": 0.36384326054199423
+    },
+    {
+      "orbit_index": 32411,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        20,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034321026448578244,
+      "normalized_error": 0.3536899251848232
+    },
+    {
+      "orbit_index": 32424,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        21,
+        22
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036095365667663956,
+      "normalized_error": 0.4236734126640019
+    },
+    {
+      "orbit_index": 32429,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        21,
+        27
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034717130219250855,
+      "normalized_error": 0.36931305010769233
+    },
+    {
+      "orbit_index": 32434,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        21,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00039128463258130536,
+      "normalized_error": 0.5433048478271847
+    },
+    {
+      "orbit_index": 32435,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003402665259040646,
+      "normalized_error": 0.3420792314708116
+    },
+    {
+      "orbit_index": 32443,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        22,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003554622872936156,
+      "normalized_error": 0.4020143535434788
+    },
+    {
+      "orbit_index": 32444,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004156746998059763,
+      "normalized_error": 0.6395041509747318
+    },
+    {
+      "orbit_index": 32451,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        24,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003548806984357083,
+      "normalized_error": 0.39972045077012086
+    },
+    {
+      "orbit_index": 32456,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        25,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035317458314687854,
+      "normalized_error": 0.39299119084791845
+    },
+    {
+      "orbit_index": 32459,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        26,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00039991691095309345,
+      "normalized_error": 0.5773522801811912
+    },
+    {
+      "orbit_index": 32760,
+      "indices": [
+        0,
+        1,
+        10,
+        13,
+        23,
+        33
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003589428846670069,
+      "normalized_error": 0.4157425257036088
+    },
+    {
+      "orbit_index": 33250,
+      "indices": [
+        0,
+        1,
+        10,
+        17,
+        26,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00039929898659090736,
+      "normalized_error": 0.5749150629118569
+    },
+    {
+      "orbit_index": 33256,
+      "indices": [
+        0,
+        1,
+        10,
+        17,
+        26,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003564337575432089,
+      "normalized_error": 0.40584602650192464
+    },
+    {
+      "orbit_index": 33389,
+      "indices": [
+        0,
+        1,
+        10,
+        19,
+        24,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034930110095451227,
+      "normalized_error": 0.3777134023847874
+    },
+    {
+      "orbit_index": 33405,
+      "indices": [
+        0,
+        1,
+        10,
+        19,
+        28,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033980426464910447,
+      "normalized_error": 0.3402559806289979
+    },
+    {
+      "orbit_index": 33469,
+      "indices": [
+        0,
+        1,
+        10,
+        21,
+        22,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003514852182773037,
+      "normalized_error": 0.3863279979293413
+    },
+    {
+      "orbit_index": 33509,
+      "indices": [
+        0,
+        1,
+        10,
+        21,
+        31,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035317019564032787,
+      "normalized_error": 0.39297388564458124
+    },
+    {
+      "orbit_index": 33595,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00044937031386696783,
+      "normalized_error": 0.7724063919540947
+    },
+    {
+      "orbit_index": 33605,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003591585857742009,
+      "normalized_error": 0.41659329401060324
+    },
+    {
+      "orbit_index": 33613,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        24,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003413687538649069,
+      "normalized_error": 0.3464266389939659
+    },
+    {
+      "orbit_index": 33619,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        25,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000357445889707522,
+      "normalized_error": 0.40983807818440826
+    },
+    {
+      "orbit_index": 33623,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        26,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003561590814332285,
+      "normalized_error": 0.4047626489889398
+    },
+    {
+      "orbit_index": 33861,
+      "indices": [
+        0,
+        1,
+        11,
+        14,
+        24,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003402970992971607,
+      "normalized_error": 0.34219981904786134
+    },
+    {
+      "orbit_index": 34090,
+      "indices": [
+        0,
+        1,
+        11,
+        16,
+        27,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003656187585826584,
+      "normalized_error": 0.4420735076017213
+    },
+    {
+      "orbit_index": 34164,
+      "indices": [
+        0,
+        1,
+        11,
+        17,
+        26,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003595030745154255,
+      "normalized_error": 0.4179520265037414
+    },
+    {
+      "orbit_index": 34328,
+      "indices": [
+        0,
+        1,
+        11,
+        20,
+        30,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003445436714628352,
+      "normalized_error": 0.35894914898371466
+    },
+    {
+      "orbit_index": 34329,
+      "indices": [
+        0,
+        1,
+        11,
+        21,
+        22,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004332883092758024,
+      "normalized_error": 0.7089757494456199
+    },
+    {
+      "orbit_index": 34414,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        24,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036738944054938227,
+      "normalized_error": 0.44905743141487364
+    },
+    {
+      "orbit_index": 34420,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        24,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003657568377791861,
+      "normalized_error": 0.4426181195686659
+    },
+    {
+      "orbit_index": 34421,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        25,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003626574892933073,
+      "normalized_error": 0.4303936692706628
+    },
+    {
+      "orbit_index": 34425,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        25,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003482808720878598,
+      "normalized_error": 0.37368941568893665
+    },
+    {
+      "orbit_index": 34429,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        27,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004299589770635484,
+      "normalized_error": 0.6958441973340476
+    },
+    {
+      "orbit_index": 34621,
+      "indices": [
+        0,
+        1,
+        12,
+        15,
+        26,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034172222695416914,
+      "normalized_error": 0.347820807552634
+    },
+    {
+      "orbit_index": 34709,
+      "indices": [
+        0,
+        1,
+        12,
+        16,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003984372886565001,
+      "normalized_error": 0.5715163539189677
+    },
+    {
+      "orbit_index": 34956,
+      "indices": [
+        0,
+        1,
+        13,
+        14,
+        26,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003743041040752688,
+      "normalized_error": 0.4763302472936753
+    },
+    {
+      "orbit_index": 34960,
+      "indices": [
+        0,
+        1,
+        13,
+        14,
+        27,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003608168624828095,
+      "normalized_error": 0.42313386900469724
+    },
+    {
+      "orbit_index": 35041,
+      "indices": [
+        0,
+        1,
+        13,
+        15,
+        28,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034213617641823066,
+      "normalized_error": 0.3494535070287854
+    },
+    {
+      "orbit_index": 35293,
+      "indices": [
+        0,
+        1,
+        14,
+        15,
+        28,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037643501295810296,
+      "normalized_error": 0.4847349781093498
+    },
+    {
+      "orbit_index": 35392,
+      "indices": [
+        0,
+        1,
+        14,
+        17,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034563137231197574,
+      "normalized_error": 0.3632392586728948
+    },
+    {
+      "orbit_index": 36335,
+      "indices": [
+        0,
+        2,
+        4,
+        8,
+        10,
+        26
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0001521756407215329,
+      "normalized_error": 0.3997888378661299
+    },
+    {
+      "orbit_index": 36652,
+      "indices": [
+        0,
+        2,
+        4,
+        8,
+        28,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00015636955404730557,
+      "normalized_error": 0.38324720492661735
+    },
+    {
+      "orbit_index": 36685,
+      "indices": [
+        0,
+        2,
+        4,
+        8,
+        35,
+        37
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034467527591868933,
+      "normalized_error": 0.35946822327849454
+    },
+    {
+      "orbit_index": 37234,
+      "indices": [
+        0,
+        2,
+        4,
+        10,
+        26,
+        34
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0001615161468979192,
+      "normalized_error": 0.36294801340522703
+    },
+    {
+      "orbit_index": 37680,
+      "indices": [
+        0,
+        2,
+        4,
+        13,
+        15,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000340608562540173,
+      "normalized_error": 0.34342829237095035
+    },
+    {
+      "orbit_index": 37711,
+      "indices": [
+        0,
+        2,
+        4,
+        13,
+        17,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034079461383768273,
+      "normalized_error": 0.3441621158985883
+    },
+    {
+      "orbit_index": 37921,
+      "indices": [
+        0,
+        2,
+        4,
+        14,
+        28,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00016625489786677584,
+      "normalized_error": 0.3442574318338627
+    },
+    {
+      "orbit_index": 38154,
+      "indices": [
+        0,
+        2,
+        4,
+        21,
+        23,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00045081846661282636,
+      "normalized_error": 0.7781181960143099
+    },
+    {
+      "orbit_index": 38232,
+      "indices": [
+        0,
+        2,
+        5,
+        7,
+        12,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034214627794020285,
+      "normalized_error": 0.34949334945174815
+    },
+    {
+      "orbit_index": 38338,
+      "indices": [
+        0,
+        2,
+        5,
+        7,
+        19,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003386036383465038,
+      "normalized_error": 0.3355204703662803
+    },
+    {
+      "orbit_index": 40645,
+      "indices": [
+        0,
+        2,
+        5,
+        15,
+        18,
+        39
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035137705946913116,
+      "normalized_error": 0.3859013979581472
+    },
+    {
+      "orbit_index": 43719,
+      "indices": [
+        0,
+        2,
+        6,
+        13,
+        26,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003395212840994531,
+      "normalized_error": 0.3391398487450629
+    },
+    {
+      "orbit_index": 44700,
+      "indices": [
+        0,
+        2,
+        6,
+        19,
+        23,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003664791516473543,
+      "normalized_error": 0.4454670699274949
+    },
+    {
+      "orbit_index": 45053,
+      "indices": [
+        0,
+        2,
+        6,
+        22,
+        32,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003440367528665062,
+      "normalized_error": 0.35694976065607387
+    },
+    {
+      "orbit_index": 45188,
+      "indices": [
+        0,
+        2,
+        6,
+        25,
+        29,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003521464700888178,
+      "normalized_error": 0.3889361073243153
+    },
+    {
+      "orbit_index": 45303,
+      "indices": [
+        0,
+        2,
+        6,
+        30,
+        34,
+        36
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00016315737818392627,
+      "normalized_error": 0.35647466896695795
+    },
+    {
+      "orbit_index": 45367,
+      "indices": [
+        0,
+        2,
+        7,
+        9,
+        16,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033909590853129786,
+      "normalized_error": 0.3374620824291451
+    },
+    {
+      "orbit_index": 45397,
+      "indices": [
+        0,
+        2,
+        7,
+        9,
+        18,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036500335060629544,
+      "normalized_error": 0.4396462154613506
+    },
+    {
+      "orbit_index": 46168,
+      "indices": [
+        0,
+        2,
+        7,
+        12,
+        28,
+        33
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034034957227020154,
+      "normalized_error": 0.342406782948129
+    },
+    {
+      "orbit_index": 46519,
+      "indices": [
+        0,
+        2,
+        7,
+        14,
+        21,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000338830538690061,
+      "normalized_error": 0.33641541070133874
+    },
+    {
+      "orbit_index": 48139,
+      "indices": [
+        0,
+        2,
+        8,
+        12,
+        20,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00015617963862399242,
+      "normalized_error": 0.3839962693392491
+    },
+    {
+      "orbit_index": 48823,
+      "indices": [
+        0,
+        2,
+        8,
+        16,
+        22,
+        28
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0001578226856839884,
+      "normalized_error": 0.3775157631252129
+    },
+    {
+      "orbit_index": 49073,
+      "indices": [
+        0,
+        2,
+        8,
+        18,
+        24,
+        26
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00016010719670782046,
+      "normalized_error": 0.3685051947450145
+    },
+    {
+      "orbit_index": 49174,
+      "indices": [
+        0,
+        2,
+        8,
+        19,
+        25,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034395804665668004,
+      "normalized_error": 0.3566393276232775
+    },
+    {
+      "orbit_index": 49260,
+      "indices": [
+        0,
+        2,
+        8,
+        20,
+        26,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00016597622685024445,
+      "normalized_error": 0.3453565660572658
+    },
+    {
+      "orbit_index": 49273,
+      "indices": [
+        0,
+        2,
+        8,
+        20,
+        28,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00015953541646571216,
+      "normalized_error": 0.37076041037593804
+    },
+    {
+      "orbit_index": 49480,
+      "indices": [
+        0,
+        2,
+        8,
+        25,
+        31,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003512063166092979,
+      "normalized_error": 0.385227953970393
+    },
+    {
+      "orbit_index": 49525,
+      "indices": [
+        0,
+        2,
+        9,
+        11,
+        18,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003796478863308484,
+      "normalized_error": 0.4974071932661323
+    },
+    {
+      "orbit_index": 49575,
+      "indices": [
+        0,
+        2,
+        9,
+        11,
+        23,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000371636962029728,
+      "normalized_error": 0.46581050563765336
+    },
+    {
+      "orbit_index": 49684,
+      "indices": [
+        0,
+        2,
+        9,
+        12,
+        21,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003477642771377117,
+      "normalized_error": 0.37165186188656246
+    },
+    {
+      "orbit_index": 50272,
+      "indices": [
+        0,
+        2,
+        9,
+        16,
+        23,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003480946666480484,
+      "normalized_error": 0.37295498419323264
+    },
+    {
+      "orbit_index": 50479,
+      "indices": [
+        0,
+        2,
+        9,
+        18,
+        25,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003435408070691664,
+      "normalized_error": 0.3549936512422063
+    },
+    {
+      "orbit_index": 50648,
+      "indices": [
+        0,
+        2,
+        9,
+        20,
+        31,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003463246428918248,
+      "normalized_error": 0.3659736564939355
+    },
+    {
+      "orbit_index": 51290,
+      "indices": [
+        0,
+        2,
+        10,
+        16,
+        24,
+        26
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00015425461082725964,
+      "normalized_error": 0.3915889639751225
+    },
+    {
+      "orbit_index": 51590,
+      "indices": [
+        0,
+        2,
+        10,
+        21,
+        23,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000345179388448772,
+      "normalized_error": 0.3614565439196466
+    },
+    {
+      "orbit_index": 51692,
+      "indices": [
+        0,
+        2,
+        11,
+        13,
+        22,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003579445600393832,
+      "normalized_error": 0.41180493370733534
+    },
+    {
+      "orbit_index": 51694,
+      "indices": [
+        0,
+        2,
+        11,
+        13,
+        22,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000419039143087694,
+      "normalized_error": 0.6527741881664828
+    },
+    {
+      "orbit_index": 51708,
+      "indices": [
+        0,
+        2,
+        11,
+        13,
+        24,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00038424397729952954,
+      "normalized_error": 0.5155350952648045
+    },
+    {
+      "orbit_index": 52189,
+      "indices": [
+        0,
+        2,
+        11,
+        20,
+        24,
+        33
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034543093985652093,
+      "normalized_error": 0.3624487129820899
+    },
+    {
+      "orbit_index": 52207,
+      "indices": [
+        0,
+        2,
+        11,
+        21,
+        23,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00039521871844351385,
+      "normalized_error": 0.5588216692849074
+    },
+    {
+      "orbit_index": 52272,
+      "indices": [
+        0,
+        2,
+        12,
+        14,
+        24,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00015072534872019158,
+      "normalized_error": 0.40550907957782034
+    },
+    {
+      "orbit_index": 52628,
+      "indices": [
+        0,
+        2,
+        13,
+        15,
+        26,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037051832247038375,
+      "normalized_error": 0.4613983674876877
+    },
+    {
+      "orbit_index": 52659,
+      "indices": [
+        0,
+        2,
+        13,
+        16,
+        22,
+        26
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000343653927189244,
+      "normalized_error": 0.35543981961981636
+    },
+    {
+      "orbit_index": 53092,
+      "indices": [
+        0,
+        3,
+        6,
+        9,
+        16,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036420963736532924,
+      "normalized_error": 0.43651565169633166
+    },
+    {
+      "orbit_index": 53148,
+      "indices": [
+        0,
+        3,
+        6,
+        9,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035690560640801844,
+      "normalized_error": 0.40770709279450645
+    },
+    {
+      "orbit_index": 53156,
+      "indices": [
+        0,
+        3,
+        6,
+        9,
+        24,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003656857223333269,
+      "normalized_error": 0.44233762602710813
+    },
+    {
+      "orbit_index": 53824,
+      "indices": [
+        0,
+        3,
+        6,
+        13,
+        16,
+        19
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003893880869970746,
+      "normalized_error": 0.5358244927338617
+    },
+    {
+      "orbit_index": 53834,
+      "indices": [
+        0,
+        3,
+        6,
+        13,
+        16,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000362885882952091,
+      "normalized_error": 0.4312944995396375
+    },
+    {
+      "orbit_index": 53882,
+      "indices": [
+        0,
+        3,
+        6,
+        13,
+        19,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035856501319803184,
+      "normalized_error": 0.41425212505567727
+    },
+    {
+      "orbit_index": 53948,
+      "indices": [
+        0,
+        3,
+        6,
+        13,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036768569716598193,
+      "normalized_error": 0.450225926762066
+    },
+    {
+      "orbit_index": 54082,
+      "indices": [
+        0,
+        3,
+        6,
+        15,
+        18,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003547655222637794,
+      "normalized_error": 0.39926617291279887
+    },
+    {
+      "orbit_index": 54174,
+      "indices": [
+        0,
+        3,
+        6,
+        16,
+        19,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003653666918645818,
+      "normalized_error": 0.44107930605228357
+    },
+    {
+      "orbit_index": 54201,
+      "indices": [
+        0,
+        3,
+        6,
+        16,
+        22,
+        29
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034720010793308373,
+      "normalized_error": 0.3694266657096689
+    },
+    {
+      "orbit_index": 54217,
+      "indices": [
+        0,
+        3,
+        6,
+        16,
+        24,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036028266480478866,
+      "normalized_error": 0.4210268865230475
+    },
+    {
+      "orbit_index": 54294,
+      "indices": [
+        0,
+        3,
+        6,
+        19,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00043855095865289714,
+      "normalized_error": 0.729732691118757
+    },
+    {
+      "orbit_index": 54312,
+      "indices": [
+        0,
+        3,
+        6,
+        21,
+        24,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036429011178958103,
+      "normalized_error": 0.4368330589204656
+    },
+    {
+      "orbit_index": 54313,
+      "indices": [
+        0,
+        3,
+        7,
+        10,
+        14,
+        17
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034262030495645464,
+      "normalized_error": 0.3513630068092485
+    },
+    {
+      "orbit_index": 54389,
+      "indices": [
+        0,
+        3,
+        7,
+        10,
+        18,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036021852993584123,
+      "normalized_error": 0.4207739257729451
+    },
+    {
+      "orbit_index": 54393,
+      "indices": [
+        0,
+        3,
+        7,
+        10,
+        18,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035704370449647735,
+      "normalized_error": 0.40825177927500605
+    },
+    {
+      "orbit_index": 54533,
+      "indices": [
+        0,
+        3,
+        7,
+        11,
+        18,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036427110816896196,
+      "normalized_error": 0.43675810484001987
+    },
+    {
+      "orbit_index": 54550,
+      "indices": [
+        0,
+        3,
+        7,
+        11,
+        19,
+        38
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034382144678269343,
+      "normalized_error": 0.35610055040029953
+    },
+    {
+      "orbit_index": 54779,
+      "indices": [
+        0,
+        3,
+        7,
+        12,
+        19,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000345169383660992,
+      "normalized_error": 0.3614170830356848
+    },
+    {
+      "orbit_index": 55098,
+      "indices": [
+        0,
+        3,
+        7,
+        13,
+        29,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035343907639064515,
+      "normalized_error": 0.3940344050999827
+    },
+    {
+      "orbit_index": 55111,
+      "indices": [
+        0,
+        3,
+        7,
+        13,
+        31,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034077144225460335,
+      "normalized_error": 0.3440707225406066
+    },
+    {
+      "orbit_index": 55203,
+      "indices": [
+        0,
+        3,
+        7,
+        14,
+        21,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003424443338365661,
+      "normalized_error": 0.3506689415181841
+    },
+    {
+      "orbit_index": 55690,
+      "indices": [
+        0,
+        3,
+        7,
+        17,
+        25,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003424170445410741,
+      "normalized_error": 0.3505613070789045
     },
     {
       "orbit_index": 55913,
@@ -350,22 +3248,78 @@
         38
       ],
       "target": "5/19721",
-      "mixture_moment": 0.00040652255731892835,
-      "normalized_error": 0.6034062705773173
+      "mixture_moment": 0.0004065225573189252,
+      "normalized_error": 0.6034062705773049
     },
     {
-      "orbit_index": 63039,
+      "orbit_index": 56360,
       "indices": [
         0,
-        5,
-        12,
-        20,
-        27,
-        35
+        3,
+        8,
+        11,
+        19,
+        34
       ],
       "target": "5/19721",
-      "mixture_moment": 0.00040626049062338554,
-      "normalized_error": 0.6023726271167573
+      "mixture_moment": 0.00037146902547279545,
+      "normalized_error": 0.4651481302697999
+    },
+    {
+      "orbit_index": 56396,
+      "indices": [
+        0,
+        3,
+        8,
+        11,
+        25,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003673955953275767,
+      "normalized_error": 0.44908170709102807
+    },
+    {
+      "orbit_index": 56584,
+      "indices": [
+        0,
+        3,
+        8,
+        12,
+        33,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036280245642632497,
+      "normalized_error": 0.43096544863671105
+    },
+    {
+      "orbit_index": 56760,
+      "indices": [
+        0,
+        3,
+        8,
+        13,
+        32,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004082751118217157,
+      "normalized_error": 0.6103186960472112
+    },
+    {
+      "orbit_index": 57066,
+      "indices": [
+        0,
+        3,
+        8,
+        15,
+        30,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034287157204786623,
+      "normalized_error": 0.3523540544711941
     },
     {
       "orbit_index": 57458,
@@ -378,13 +3332,1737 @@
         37
       ],
       "target": "5/19721",
-      "mixture_moment": 0.00040550422653350674,
-      "normalized_error": 0.5993897702934574
+      "mixture_moment": 0.0004055042265335084,
+      "normalized_error": 0.5993897702934641
+    },
+    {
+      "orbit_index": 57516,
+      "indices": [
+        0,
+        3,
+        8,
+        20,
+        25,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036839317433203666,
+      "normalized_error": 0.4530163582004191
+    },
+    {
+      "orbit_index": 57553,
+      "indices": [
+        0,
+        3,
+        8,
+        21,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033953044400761827,
+      "normalized_error": 0.33917597725484805
+    },
+    {
+      "orbit_index": 57739,
+      "indices": [
+        0,
+        3,
+        9,
+        12,
+        18,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035122492761289413,
+      "normalized_error": 0.3853013594907771
+    },
+    {
+      "orbit_index": 57787,
+      "indices": [
+        0,
+        3,
+        9,
+        12,
+        21,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035756653913648564,
+      "normalized_error": 0.41031394366212676
+    },
+    {
+      "orbit_index": 57790,
+      "indices": [
+        0,
+        3,
+        9,
+        12,
+        21,
+        33
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003552000234177075,
+      "normalized_error": 0.40097993236412205
+    },
+    {
+      "orbit_index": 57791,
+      "indices": [
+        0,
+        3,
+        9,
+        12,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003446304339413732,
+      "normalized_error": 0.3592913575515642
+    },
+    {
+      "orbit_index": 57902,
+      "indices": [
+        0,
+        3,
+        9,
+        13,
+        23,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003468283409069992,
+      "normalized_error": 0.3679603422053864
+    },
+    {
+      "orbit_index": 58256,
+      "indices": [
+        0,
+        3,
+        9,
+        16,
+        22,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003408291520791543,
+      "normalized_error": 0.34429834163060047
+    },
+    {
+      "orbit_index": 58319,
+      "indices": [
+        0,
+        3,
+        9,
+        16,
+        29,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037322747699746465,
+      "normalized_error": 0.47208381477340017
+    },
+    {
+      "orbit_index": 58452,
+      "indices": [
+        0,
+        3,
+        9,
+        18,
+        24,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003695908708684893,
+      "normalized_error": 0.45774031287949557
+    },
+    {
+      "orbit_index": 58485,
+      "indices": [
+        0,
+        3,
+        9,
+        18,
+        27,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00043145862822538145,
+      "normalized_error": 0.7017591214465496
+    },
+    {
+      "orbit_index": 58722,
+      "indices": [
+        0,
+        3,
+        9,
+        24,
+        30,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034510028015547216,
+      "normalized_error": 0.36114452498921334
+    },
+    {
+      "orbit_index": 58787,
+      "indices": [
+        0,
+        3,
+        10,
+        13,
+        25,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033988345787696575,
+      "normalized_error": 0.3405683345583284
+    },
+    {
+      "orbit_index": 59088,
+      "indices": [
+        0,
+        3,
+        10,
+        16,
+        29,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00038965977761680145,
+      "normalized_error": 0.5368960948761884
+    },
+    {
+      "orbit_index": 59161,
+      "indices": [
+        0,
+        3,
+        10,
+        17,
+        28,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003526729717492566,
+      "normalized_error": 0.3910127351734179
+    },
+    {
+      "orbit_index": 59210,
+      "indices": [
+        0,
+        3,
+        10,
+        18,
+        25,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034163475851772877,
+      "normalized_error": 0.3474758145456259
+    },
+    {
+      "orbit_index": 59271,
+      "indices": [
+        0,
+        3,
+        10,
+        19,
+        26,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036208356988509026,
+      "normalized_error": 0.4281300163407731
+    },
+    {
+      "orbit_index": 59328,
+      "indices": [
+        0,
+        3,
+        10,
+        21,
+        24,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003418933473462654,
+      "normalized_error": 0.3484957406031402
+    },
+    {
+      "orbit_index": 59357,
+      "indices": [
+        0,
+        3,
+        10,
+        21,
+        31,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003513567212176165,
+      "normalized_error": 0.38582117982652303
+    },
+    {
+      "orbit_index": 59499,
+      "indices": [
+        0,
+        3,
+        11,
+        15,
+        26,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003456945880399712,
+      "normalized_error": 0.3634885941472546
+    },
+    {
+      "orbit_index": 59645,
+      "indices": [
+        0,
+        3,
+        11,
+        17,
+        28,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003918179806749602,
+      "normalized_error": 0.5454084793781782
+    },
+    {
+      "orbit_index": 59699,
+      "indices": [
+        0,
+        3,
+        11,
+        19,
+        23,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003623415204201167,
+      "normalized_error": 0.42914742484102436
+    },
+    {
+      "orbit_index": 59724,
+      "indices": [
+        0,
+        3,
+        11,
+        19,
+        26,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034236974110314,
+      "normalized_error": 0.35037473285900483
+    },
+    {
+      "orbit_index": 59806,
+      "indices": [
+        0,
+        3,
+        12,
+        15,
+        24,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000362434655560319,
+      "normalized_error": 0.4295147684610103
+    },
+    {
+      "orbit_index": 59812,
+      "indices": [
+        0,
+        3,
+        12,
+        15,
+        24,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004264812745510267,
+      "normalized_error": 0.6821274430841596
+    },
+    {
+      "orbit_index": 59821,
+      "indices": [
+        0,
+        3,
+        12,
+        15,
+        27,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003894005117067758,
+      "normalized_error": 0.5358734982738651
+    },
+    {
+      "orbit_index": 59880,
+      "indices": [
+        0,
+        3,
+        12,
+        16,
+        29,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003382737768880667,
+      "normalized_error": 0.3342194308019127
+    },
+    {
+      "orbit_index": 59881,
+      "indices": [
+        0,
+        3,
+        12,
+        16,
+        29,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035903120005830076,
+      "normalized_error": 0.41609085926994993
+    },
+    {
+      "orbit_index": 59963,
+      "indices": [
+        0,
+        3,
+        12,
+        18,
+        27,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003924555526600209,
+      "normalized_error": 0.5479231908016544
+    },
+    {
+      "orbit_index": 60012,
+      "indices": [
+        0,
+        3,
+        12,
+        21,
+        24,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003602509221782542,
+      "normalized_error": 0.4209016872554704
+    },
+    {
+      "orbit_index": 60033,
+      "indices": [
+        0,
+        3,
+        13,
+        16,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004313183409193586,
+      "normalized_error": 0.7012058002541343
+    },
+    {
+      "orbit_index": 60146,
+      "indices": [
+        0,
+        3,
+        14,
+        17,
+        28,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037039715984422223,
+      "normalized_error": 0.46092047785758145
+    },
+    {
+      "orbit_index": 60304,
+      "indices": [
+        0,
+        4,
+        8,
+        13,
+        17,
+        21
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00039881731994082485,
+      "normalized_error": 0.5730152733106014
+    },
+    {
+      "orbit_index": 60316,
+      "indices": [
+        0,
+        4,
+        8,
+        13,
+        17,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034603027494880195,
+      "normalized_error": 0.36481261045306473
+    },
+    {
+      "orbit_index": 60320,
+      "indices": [
+        0,
+        4,
+        8,
+        13,
+        17,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003512161208281763,
+      "normalized_error": 0.38526662377049303
+    },
+    {
+      "orbit_index": 60562,
+      "indices": [
+        0,
+        4,
+        8,
+        15,
+        19,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034593104016687374,
+      "normalized_error": 0.3644212086261835
+    },
+    {
+      "orbit_index": 60574,
+      "indices": [
+        0,
+        4,
+        8,
+        15,
+        19,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037416674599308105,
+      "normalized_error": 0.47578847954591036
+    },
+    {
+      "orbit_index": 60624,
+      "indices": [
+        0,
+        4,
+        8,
+        15,
+        24,
+        35
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003511161143798201,
+      "normalized_error": 0.38487217833688664
+    },
+    {
+      "orbit_index": 60708,
+      "indices": [
+        0,
+        4,
+        8,
+        17,
+        21,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004037488568761041,
+      "normalized_error": 0.5924662412907299
+    },
+    {
+      "orbit_index": 60711,
+      "indices": [
+        0,
+        4,
+        8,
+        17,
+        21,
+        28
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00036047832499830107,
+      "normalized_error": 0.42179860945829917
+    },
+    {
+      "orbit_index": 60742,
+      "indices": [
+        0,
+        4,
+        8,
+        17,
+        25,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000345235200198903,
+      "normalized_error": 0.3616766766245134
+    },
+    {
+      "orbit_index": 60792,
+      "indices": [
+        0,
+        4,
+        8,
+        21,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004114729774770063,
+      "normalized_error": 0.6229317177648084
+    },
+    {
+      "orbit_index": 60804,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003396307957881437,
+      "normalized_error": 0.33957178474759653
+    },
+    {
+      "orbit_index": 60808,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004477415838065994,
+      "normalized_error": 0.7659823548499894
+    },
+    {
+      "orbit_index": 60840,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        21,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033837877783972413,
+      "normalized_error": 0.33463357555544
+    },
+    {
+      "orbit_index": 60852,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        22,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003389629482620643,
+      "normalized_error": 0.3369376605352341
+    },
+    {
+      "orbit_index": 60858,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        23,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003665533787838463,
+      "normalized_error": 0.4457598365992466
+    },
+    {
+      "orbit_index": 60864,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        25,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003461632747552974,
+      "normalized_error": 0.3653371882898442
+    },
+    {
+      "orbit_index": 60887,
+      "indices": [
+        0,
+        4,
+        9,
+        14,
+        19,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037827205008181844,
+      "normalized_error": 0.49198061993270836
+    },
+    {
+      "orbit_index": 60991,
+      "indices": [
+        0,
+        4,
+        9,
+        14,
+        32,
+        37
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00036724550426884834,
+      "normalized_error": 0.4484897179371917
+    },
+    {
+      "orbit_index": 61351,
+      "indices": [
+        0,
+        4,
+        9,
+        18,
+        27,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003569520439662727,
+      "normalized_error": 0.4078902518117728
+    },
+    {
+      "orbit_index": 61368,
+      "indices": [
+        0,
+        4,
+        9,
+        19,
+        23,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036123605258051657,
+      "normalized_error": 0.42478723858807355
+    },
+    {
+      "orbit_index": 61442,
+      "indices": [
+        0,
+        4,
+        9,
+        20,
+        25,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034687285536684265,
+      "normalized_error": 0.36813591613790086
+    },
+    {
+      "orbit_index": 61471,
+      "indices": [
+        0,
+        4,
+        9,
+        20,
+        31,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003429645499538949,
+      "normalized_error": 0.3527207779281523
+    },
+    {
+      "orbit_index": 61474,
+      "indices": [
+        0,
+        4,
+        9,
+        21,
+        25,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003419080436919998,
+      "normalized_error": 0.34855370592998575
+    },
+    {
+      "orbit_index": 61515,
+      "indices": [
+        0,
+        4,
+        9,
+        22,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034104236639278894,
+      "normalized_error": 0.34513930152643824
+    },
+    {
+      "orbit_index": 61593,
+      "indices": [
+        0,
+        4,
+        10,
+        14,
+        20,
+        36
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0001233966436369997,
+      "normalized_error": 0.5132989581669458
+    },
+    {
+      "orbit_index": 61629,
+      "indices": [
+        0,
+        4,
+        10,
+        14,
+        26,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00014760942507748863,
+      "normalized_error": 0.4177989056093693
+    },
+    {
+      "orbit_index": 61822,
+      "indices": [
+        0,
+        4,
+        10,
+        17,
+        23,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034980893508544604,
+      "normalized_error": 0.3797164017640164
+    },
+    {
+      "orbit_index": 62025,
+      "indices": [
+        0,
+        4,
+        10,
+        21,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034939906746296834,
+      "normalized_error": 0.3780998018874398
+    },
+    {
+      "orbit_index": 62062,
+      "indices": [
+        0,
+        4,
+        10,
+        23,
+        29,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003675840016920837,
+      "normalized_error": 0.44982481947391667
+    },
+    {
+      "orbit_index": 62081,
+      "indices": [
+        0,
+        4,
+        11,
+        15,
+        22,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036735764886204316,
+      "normalized_error": 0.4489320386416707
+    },
+    {
+      "orbit_index": 62090,
+      "indices": [
+        0,
+        4,
+        11,
+        15,
+        23,
+        31
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003498116401731015,
+      "normalized_error": 0.379727071170747
+    },
+    {
+      "orbit_index": 62093,
+      "indices": [
+        0,
+        4,
+        11,
+        15,
+        23,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00036382311079028145,
+      "normalized_error": 0.4349911135790282
+    },
+    {
+      "orbit_index": 62239,
+      "indices": [
+        0,
+        4,
+        11,
+        18,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003433520524308269,
+      "normalized_error": 0.35424916519766747
+    },
+    {
+      "orbit_index": 62323,
+      "indices": [
+        0,
+        4,
+        11,
+        20,
+        29,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003469543763677618,
+      "normalized_error": 0.3684574512697261
+    },
+    {
+      "orbit_index": 62349,
+      "indices": [
+        0,
+        4,
+        11,
+        22,
+        29,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003671132715263579,
+      "normalized_error": 0.4479681655542609
+    },
+    {
+      "orbit_index": 62394,
+      "indices": [
+        0,
+        4,
+        12,
+        17,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003483357716038816,
+      "normalized_error": 0.37390595036002994
+    },
+    {
+      "orbit_index": 62480,
+      "indices": [
+        0,
+        4,
+        12,
+        20,
+        28,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00015035880891346902,
+      "normalized_error": 0.4069547858834955
+    },
+    {
+      "orbit_index": 62483,
+      "indices": [
+        0,
+        4,
+        12,
+        21,
+        25,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003491698559393171,
+      "normalized_error": 0.3771957457958547
+    },
+    {
+      "orbit_index": 62496,
+      "indices": [
+        0,
+        4,
+        13,
+        17,
+        26,
+        30
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003491115298783536,
+      "normalized_error": 0.3769656961462023
+    },
+    {
+      "orbit_index": 62499,
+      "indices": [
+        0,
+        4,
+        13,
+        17,
+        26,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003789208521884027,
+      "normalized_error": 0.4945396252014979
+    },
+    {
+      "orbit_index": 62517,
+      "indices": [
+        0,
+        4,
+        13,
+        18,
+        26,
+        31
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034341051397604266,
+      "normalized_error": 0.3544797492243075
+    },
+    {
+      "orbit_index": 62520,
+      "indices": [
+        0,
+        4,
+        13,
+        18,
+        27,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00037064028781539396,
+      "normalized_error": 0.46187942320147696
+    },
+    {
+      "orbit_index": 62546,
+      "indices": [
+        0,
+        4,
+        13,
+        20,
+        26,
+        33
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003556231763235421,
+      "normalized_error": 0.4026489320553148
+    },
+    {
+      "orbit_index": 62605,
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        23,
+        34
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035396679715802995,
+      "normalized_error": 0.3961158413507018
+    },
+    {
+      "orbit_index": 62606,
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003470282272065036,
+      "normalized_error": 0.3687487337478916
+    },
+    {
+      "orbit_index": 62614,
+      "indices": [
+        0,
+        5,
+        10,
+        15,
+        26,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003949781804802107,
+      "normalized_error": 0.557872939450047
+    },
+    {
+      "orbit_index": 62676,
+      "indices": [
+        0,
+        5,
+        10,
+        17,
+        22,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00039296237567217784,
+      "normalized_error": 0.5499222021262039
+    },
+    {
+      "orbit_index": 62723,
+      "indices": [
+        0,
+        5,
+        10,
+        18,
+        23,
+        34
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034209634546670273,
+      "normalized_error": 0.349296405789769
+    },
+    {
+      "orbit_index": 62742,
+      "indices": [
+        0,
+        5,
+        10,
+        19,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00044286195257424557,
+      "normalized_error": 0.7467361133433394
+    },
+    {
+      "orbit_index": 62746,
+      "indices": [
+        0,
+        5,
+        10,
+        19,
+        24,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00033970276720808216,
+      "normalized_error": 0.33985565442211774
+    },
+    {
+      "orbit_index": 62760,
+      "indices": [
+        0,
+        5,
+        10,
+        21,
+        26,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042260308239814724,
+      "normalized_error": 0.6668310775947724
+    },
+    {
+      "orbit_index": 62761,
+      "indices": [
+        0,
+        5,
+        11,
+        16,
+        22,
+        27
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003735031636692352,
+      "normalized_error": 0.47317117814419757
+    },
+    {
+      "orbit_index": 62841,
+      "indices": [
+        0,
+        5,
+        11,
+        18,
+        23,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00034105364026977797,
+      "normalized_error": 0.34518376795205835
+    },
+    {
+      "orbit_index": 62880,
+      "indices": [
+        0,
+        5,
+        11,
+        18,
+        29,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003807340515149783,
+      "normalized_error": 0.5016912459853775
+    },
+    {
+      "orbit_index": 62937,
+      "indices": [
+        0,
+        5,
+        11,
+        21,
+        26,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003399675010890081,
+      "normalized_error": 0.3408998177952659
+    },
+    {
+      "orbit_index": 62971,
+      "indices": [
+        0,
+        5,
+        12,
+        17,
+        24,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035983680859900464,
+      "normalized_error": 0.41926834047619416
+    },
+    {
+      "orbit_index": 62972,
+      "indices": [
+        0,
+        5,
+        12,
+        17,
+        25,
+        30
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003427417914451506,
+      "normalized_error": 0.3518421738179631
+    },
+    {
+      "orbit_index": 63005,
+      "indices": [
+        0,
+        5,
+        12,
+        18,
+        29,
+        34
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00033845379546892034,
+      "normalized_error": 0.3349294600885157
+    },
+    {
+      "orbit_index": 63039,
+      "indices": [
+        0,
+        5,
+        12,
+        20,
+        27,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040626049062338505,
+      "normalized_error": 0.6023726271167554
+    },
+    {
+      "orbit_index": 63043,
+      "indices": [
+        0,
+        5,
+        12,
+        21,
+        26,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00035020983314946596,
+      "normalized_error": 0.3812976239081237
+    },
+    {
+      "orbit_index": 63053,
+      "indices": [
+        0,
+        5,
+        13,
+        18,
+        26,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003674045656020862,
+      "normalized_error": 0.44911708764774855
+    },
+    {
+      "orbit_index": 63079,
+      "indices": [
+        0,
+        5,
+        14,
+        19,
+        28,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0003599454864516353,
+      "normalized_error": 0.41969698766254
+    },
+    {
+      "orbit_index": 63097,
+      "indices": [
+        0,
+        6,
+        12,
+        19,
+        25,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003394042747428385,
+      "normalized_error": 0.3386783404407038
+    },
+    {
+      "orbit_index": 63104,
+      "indices": [
+        0,
+        6,
+        12,
+        19,
+        26,
+        35
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.00034179824683898993,
+      "normalized_error": 0.3481206451823442
+    },
+    {
+      "orbit_index": 63115,
+      "indices": [
+        0,
+        6,
+        13,
+        19,
+        26,
+        32
+      ],
+      "target": "-5/19721",
+      "mixture_moment": -0.0003848652023469287,
+      "normalized_error": 0.5179853310967562
+    },
+    {
+      "orbit_index": 63118,
+      "indices": [
+        0,
+        6,
+        13,
+        19,
+        26,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042459208408581145,
+      "normalized_error": 0.6746760980512576
     }
   ],
-  "moments_sha256_le_f64": "7a1ea8825f4efa2b34511db91a1dea1d993ef51dd2bca8721eed231e73fc7c80",
-  "errors_sha256_le_f64": "248b5b2f28bca95547f4095fb2d3ac7ca8e3e4e412cf88e4ac3a365711b73e2d",
-  "sixth_elementary_symmetric_signed_sum": -1329.9999999999989,
+  "top_25": [
+    {
+      "orbit_index": 30283,
+      "indices": [
+        0,
+        1,
+        8,
+        18,
+        25,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004662790811079426,
+      "normalized_error": 0.8390979517059475
+    },
+    {
+      "orbit_index": 38154,
+      "indices": [
+        0,
+        2,
+        4,
+        21,
+        23,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00045081846661282636,
+      "normalized_error": 0.7781181960143099
+    },
+    {
+      "orbit_index": 33595,
+      "indices": [
+        0,
+        1,
+        11,
+        12,
+        22,
+        23
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00044937031386696783,
+      "normalized_error": 0.7724063919540947
+    },
+    {
+      "orbit_index": 60808,
+      "indices": [
+        0,
+        4,
+        9,
+        13,
+        18,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004477415838065994,
+      "normalized_error": 0.7659823548499894
+    },
+    {
+      "orbit_index": 11313,
+      "indices": [
+        0,
+        1,
+        4,
+        5,
+        8,
+        9
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004456764833059972,
+      "normalized_error": 0.7578371854555144
+    },
+    {
+      "orbit_index": 62742,
+      "indices": [
+        0,
+        5,
+        10,
+        19,
+        24,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00044286195257424557,
+      "normalized_error": 0.7467361133433394
+    },
+    {
+      "orbit_index": 54294,
+      "indices": [
+        0,
+        3,
+        6,
+        19,
+        22,
+        25
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00043855095865289714,
+      "normalized_error": 0.729732691118757
+    },
+    {
+      "orbit_index": 34329,
+      "indices": [
+        0,
+        1,
+        11,
+        21,
+        22,
+        32
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004332883092758024,
+      "normalized_error": 0.7089757494456199
+    },
+    {
+      "orbit_index": 58485,
+      "indices": [
+        0,
+        3,
+        9,
+        18,
+        27,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00043145862822538145,
+      "normalized_error": 0.7017591214465496
+    },
+    {
+      "orbit_index": 60033,
+      "indices": [
+        0,
+        3,
+        13,
+        16,
+        26,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004313183409193586,
+      "normalized_error": 0.7012058002541343
+    },
+    {
+      "orbit_index": 34429,
+      "indices": [
+        0,
+        1,
+        12,
+        13,
+        27,
+        28
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004299589770635484,
+      "normalized_error": 0.6958441973340476
+    },
+    {
+      "orbit_index": 59812,
+      "indices": [
+        0,
+        3,
+        12,
+        15,
+        24,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004264812745510267,
+      "normalized_error": 0.6821274430841596
+    },
+    {
+      "orbit_index": 17133,
+      "indices": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        11
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042504145447719093,
+      "normalized_error": 0.6764485047489366
+    },
+    {
+      "orbit_index": 63118,
+      "indices": [
+        0,
+        6,
+        13,
+        19,
+        26,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042459208408581145,
+      "normalized_error": 0.6746760980512576
+    },
+    {
+      "orbit_index": 62760,
+      "indices": [
+        0,
+        5,
+        10,
+        21,
+        26,
+        31
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00042260308239814724,
+      "normalized_error": 0.6668310775947724
+    },
+    {
+      "orbit_index": 51694,
+      "indices": [
+        0,
+        2,
+        11,
+        13,
+        22,
+        33
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.000419039143087694,
+      "normalized_error": 0.6527741881664828
+    },
+    {
+      "orbit_index": 32444,
+      "indices": [
+        0,
+        1,
+        10,
+        11,
+        23,
+        24
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004156746998059763,
+      "normalized_error": 0.6395041509747318
+    },
+    {
+      "orbit_index": 3346,
+      "indices": [
+        0,
+        1,
+        2,
+        11,
+        12,
+        13
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00041267407787997387,
+      "normalized_error": 0.627669097974193
+    },
+    {
+      "orbit_index": 60792,
+      "indices": [
+        0,
+        4,
+        8,
+        21,
+        25,
+        29
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004114729774770063,
+      "normalized_error": 0.6229317177648084
+    },
+    {
+      "orbit_index": 56760,
+      "indices": [
+        0,
+        3,
+        8,
+        13,
+        32,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004082751118217157,
+      "normalized_error": 0.6103186960472112
+    },
+    {
+      "orbit_index": 23353,
+      "indices": [
+        0,
+        1,
+        6,
+        11,
+        32,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004077769949256336,
+      "normalized_error": 0.6083540233856842
+    },
+    {
+      "orbit_index": 27293,
+      "indices": [
+        0,
+        1,
+        7,
+        14,
+        29,
+        36
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004075432527403234,
+      "normalized_error": 0.6074320974583838
+    },
+    {
+      "orbit_index": 55913,
+      "indices": [
+        0,
+        3,
+        7,
+        19,
+        26,
+        38
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004065225573189252,
+      "normalized_error": 0.6034062705773049
+    },
+    {
+      "orbit_index": 63039,
+      "indices": [
+        0,
+        5,
+        12,
+        20,
+        27,
+        35
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.00040626049062338505,
+      "normalized_error": 0.6023726271167554
+    },
+    {
+      "orbit_index": 57458,
+      "indices": [
+        0,
+        3,
+        8,
+        19,
+        26,
+        37
+      ],
+      "target": "5/19721",
+      "mixture_moment": 0.0004055042265335084,
+      "normalized_error": 0.5993897702934641
+    }
+  ],
+  "moments_sha256_le_f64": "540b9412100ada0871e52fe24656c76b82fdd22c7476192bbc321da911972fde",
+  "errors_sha256_le_f64": "8fa90bb59a5aee0705af54e57173225d9139441f5e1e547c29aa0ee0569de909",
+  "sixth_elementary_symmetric_signed_sum": -1329.9999999999945,
   "expected_signed_sum": -1330,
   "scope": "Complete binary64 scan of all 63,133 sixth-order dihedral orbits / 5,245,786 six-subsets for the exact-rational 51-support candidate after converting its probabilities and rotation matrices to binary64. A passing screen is not a rigorous interval certificate; a failing screen gives explicit rows for LP repair."
 }
