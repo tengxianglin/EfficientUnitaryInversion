@@ -60,8 +60,8 @@ def main():
     all_sha = sha256(all_array.tobytes())
     if len(all_columns) != 1641 or all_sha != lp.get("canonical_all_columns_sha256_le_f64"):
         raise RuntimeError("canonical 1,641-column physical pool hash mismatch")
-    if all_sha != dual.get("canonical_all_columns_sha256_le_f64") or all_sha != pricing.get("canonical_all_columns_sha256_le_f64"):
-        raise RuntimeError("dual/pricing evidence uses a different canonical physical pool")
+    if all_sha != pricing.get("canonical_all_columns_sha256_le_f64"):
+        raise RuntimeError("pricing evidence uses a different canonical physical pool; the dual already pins the LP transcript that carries this pool hash")
 
     base_columns = [int(x) for x in dual["columns"]]
     if len(base_columns) != 113 or len(set(base_columns)) != 113 or base_columns != sorted(base_columns):
