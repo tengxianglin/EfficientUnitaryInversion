@@ -216,3 +216,21 @@ This does not extend to physical generators outside the frozen canonical pool an
 ## Exact path sign-gauge reduction (2026-11-22)
 
 The path generator has 41 signed edge couplings and no closing edge. A diagonal sign matrix gauges every coupling vector to its componentwise absolute value: \(DK(c)D=K(|c|)\). Hence \(e^{K(|c|)}=De^{K(c)}D\), and every principal minor is invariant under this conjugation. All moment features in the present LP therefore depend only on the 41 coupling magnitudes. This exact reduction removes sign patterns from the full-family search, but leaves an unbounded continuous nonnegative orthant; it does not extend the 1,641-column certificate by itself. Proof: `THEORY_PATH_SIGN_GAUGE_REDUCTION.md`.
+
+
+## Continuous-family counterexample to the 151-column dual (2026-11-23)
+
+The finite 1,641-column obstruction does not extend to the full continuous positive-coupling path family using the same dual. An explicit rational path generator was constructed with
+\[
+m=(6,0,14,0,0,26,0,10,0,32,0,18,0,34,0,30,2,6,0,7,23,0,28,0,10,0,32,0,20,2,4,1,32,0,68,0,2,0,26,0,30),
+\]
+and \(c_j=1/1000\) when \(m_j=0\), otherwise \(c_j=3927m_j/5000\), with \(c_{41}=0\). Every one of the 41 path-edge magnitudes is strictly positive.
+
+Workflow [45045453133](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45045453133) used 128-bit Arb on the exact rational input and the exact 151-column dual. It certified
+\[
+S(c)=\lambda-\delta+z^\mathsf T a(c)
+\in[500.2406414402261032179394993312647\pm3.03\times10^{-32}]>0.
+\]
+The candidate is verified outside the frozen 1,641-column pool. Exact input SHA256: 0221d6eb7570d87ef52bd17eff30e83ff1fcc2ae765dc86f582b2f3c30082e08; evidence: evidence/continuous_path_dual_escape_arb_n21.json; proof and scope: THEORY_CONTINUOUS_PATH_DUAL_ESCAPE.md; verifier: verify_continuous_path_dual_escape_arb.py; evidence commit: [d8a4df8](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d8a4df8530d2084629af5575fa2f2d6af7848df6).
+
+This is a counterexample to **global validity of this particular dual**, not to the finite-pool theorem and not a proof that a full continuous-family ensemble meets the \(1/3\) cap. It shows that the previous next step—extending this same separator over the entire positive orthant—is false. A separate 152-column binary64 minimax reoptimization, adding this Arb-certified generator to the 151-column active pool, is running; any sub-\(1/3\) candidate would still require exact rationalization and a fresh Arb audit.
