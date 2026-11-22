@@ -372,3 +372,28 @@ Evidence:
 - Certificate commit: [4d382ab](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4d382ab33e52d4785e314a088402cccffc9a0ed6).
 
 The next column-generation pass prices the 1,480 canonical generators unused by the 161 canonical members of the 162-column pool. Its binary64 screen and ten-candidate Arb verification are defined in price_unused_canonical_paths_against_162col_dual.py and verify_162col_full_sixth_cut_dual_pricing_arb.py, with workflow .github/workflows/eui-162col-full-sixth-cut-pricing.yml. Workflow [45060141610](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45060141610) is queued at this audit revision; no pricing outcome is claimed yet.
+
+
+## Important scope correction and sixth-only separation (2026-11-23)
+
+An audit of the nonzero dual coordinates found that the 2,113-row LPs contain seven selected eighth-order rows and both the 152-column and 162-column duals have two nonzero eighth-order coordinates. Therefore their Arb lower bounds are valid for the pinned **mixed-order** row sets only. They do not, by themselves, prove a sixth-only lower bound after deleting the eighth-order rows. Any earlier wording that inferred a sixth-only no-go directly from those mixed-order certificates is withdrawn.
+
+The 152-column certificate was rerun after the verifier scope correction. Its current exact lower bound is
+\[
+\frac{31229779445108377178763165603}
+{61489146912368343970000000000}
+=0.5078909208094186\ldots,
+\]
+with exact dual L1 norm 1, slack \(10^{-10}\), and maximum Arb upper endpoint \(-4.2492156984681046212238277835698169369\times10^{-11}\). Its dual support is one low-order, 37 sixth-order, and two eighth-order coordinates. The corrected theorem is THEORY_152COL_2113ROW_MINIMAX_OBSTRUCTION.md.
+
+The 162-column mixed-order certificate is separately documented in THEORY_162COL_2113ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md. It proves the 2,113-row mixed-order lower bound 0.493141276091106..., with 38 sixth-order and two eighth-order active coordinates. It is not a sixth-only certificate.
+
+To answer the sixth-only question, a new LP was solved with no eighth-order rows: 1,461 complete second/fourth rows plus 645 sixth-order rows, total 2,106. The 162-column binary64 objective is 0.47605818509327597, independently recomputed maximum 0.47605818509336406, support 45, and primal-dual discovery gap \(6.11\times10^{-16}\). This is still discovery only because the floating dual L1 norm is slightly above one; exact rationalization and 128-bit Arb checks against all 162 columns are underway. If that certificate passes, its lower bound extends to the complete sixth-order objective for the fixed 162-column pool, because all 645 sixth rows are members of the full 63,133-orbit domain.
+
+Evidence:
+- Sixth-only LP: evidence/joint_low_six_lp_162col_sixth_only_n21.json.
+- Sixth-only Arb verifier: verify_162col_sixth_only_dual_arb.py.
+- Workflow: [45061253393](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45061253393).
+- Scope correction comment: [Issue #5 comment](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/5#issuecomment-7084339758).
+
+A first pricing pass against the 162-column mixed-order dual found 12 binary64-positive unused canonical columns and 10/10 top candidates passed Arb with strictly positive lower endpoints (indices 1580, 195, 364, 424, 448, 221, 324, 517, 420, 447). The dual certificate was subsequently regenerated with refreshed parent-row provenance, so a hash-consistent pricing rerun is in progress before these candidates are used for further reoptimization.
