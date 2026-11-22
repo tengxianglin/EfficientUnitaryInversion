@@ -1,0 +1,289 @@
+{
+  "status": "strict_sixth_order_counterexample_certified",
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "candidate_input_sha256": "78f396b6efba5b6d230322c253294a0b0c834319d42b8e796e732088938d5d65",
+  "lp_transcript_sha256": "3dd87cd842b7ecfb950c7ec153cfe011bc1764d4bf6a13924ff2b304a6848ddb",
+  "continuous_escape_arb_certificate_sha256": "9e85d7f617baaa5bee371297e9f94716c21c7404f8349def2ef376dafb20d59e",
+  "complete_sixth_binary64_screen_sha256": "75813b18eaba426c818f25a67b8d8a608a05a5d421e8a2013d9ae252a6716bdc",
+  "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
+  "candidate_support_size": 51,
+  "exact_probability_sum": "1",
+  "orbit_index_in_frozen_D42_enumeration": 30283,
+  "representative_indices": [
+    0,
+    1,
+    8,
+    18,
+    25,
+    35
+  ],
+  "orbit_size": 42,
+  "exact_target": "5/19721",
+  "normalization_scale": "5/19721",
+  "mixture_moment_interval": "[0.0004662790811077881589302992545605108 +/- 5.56e-38]",
+  "normalized_signed_residual_interval": "[0.839097951705338056452886319837567 +/- 2.78e-34]",
+  "normalized_absolute_error_interval": "[0.839097951705338056452886319837567 +/- 2.78e-34]",
+  "one_third_cap": "[0.33333333333333333333333333333333333333 +/- 3.83e-39]",
+  "strictly_exceeds_one_third": true,
+  "binary64_screen_maximum_normalized_error": 0.8390979517059564,
+  "binary64_screen_violation_count": 334,
+  "column_terms": [
+    {
+      "column": 3,
+      "probability": "217319833318995552/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000350980464702721603394786040729489 +/- 4.57e-37]"
+    },
+    {
+      "column": 6,
+      "probability": "1235745108137831424/73786976294838235277",
+      "orbit_average_minor_interval": "[0.0009587285176199912489909870803295718 +/- 5.31e-38]"
+    },
+    {
+      "column": 16,
+      "probability": "867725654305597824/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000320935288433263806092251381295825 +/- 5.44e-37]"
+    },
+    {
+      "column": 74,
+      "probability": "902196000038660352/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000578750260888166855835296838119128056 +/- 3.37e-40]"
+    },
+    {
+      "column": 99,
+      "probability": "953918439278434432/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000302603690022052946459627109260803 +/- 2.14e-37]"
+    },
+    {
+      "column": 107,
+      "probability": "952853865056325376/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00074646574130242296830497741264146063 +/- 5.19e-39]"
+    },
+    {
+      "column": 116,
+      "probability": "297259649756295424/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000124247523314271277507257515069901 +/- 4.08e-37]"
+    },
+    {
+      "column": 120,
+      "probability": "4158704828072781824/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000450512878334958163866139827053366570 +/- 3.26e-40]"
+    },
+    {
+      "column": 160,
+      "probability": "2489680844934081536/73786976294838235277",
+      "orbit_average_minor_interval": "[8.6053738302909312616271470703546e-5 +/- 5.32e-37]"
+    },
+    {
+      "column": 178,
+      "probability": "683405696661084160/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000109665590680327873533459867743999038 +/- 2.21e-40]"
+    },
+    {
+      "column": 199,
+      "probability": "2408949222832500736/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000832602577435530894622207380899592299 +/- 8.45e-40]"
+    },
+    {
+      "column": 230,
+      "probability": "788310741445881344/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000680091710535419576515716520088561865 +/- 8.44e-40]"
+    },
+    {
+      "column": 274,
+      "probability": "2668019826484165632/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000403169787676273667890923239628385218 +/- 5.98e-40]"
+    },
+    {
+      "column": 278,
+      "probability": "92359669054960192/73786976294838235277",
+      "orbit_average_minor_interval": "[0.0002671265585431458042567466788279505 +/- 5.41e-38]"
+    },
+    {
+      "column": 283,
+      "probability": "1549888703433051392/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000275469464116721465633962315292506 +/- 6.14e-37]"
+    },
+    {
+      "column": 340,
+      "probability": "672466645200310016/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000357319713149919203933397880387646771 +/- 6.10e-40]"
+    },
+    {
+      "column": 367,
+      "probability": "618678615944361088/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000467199606791296051624295711457302782 +/- 7.94e-40]"
+    },
+    {
+      "column": 368,
+      "probability": "59873470241066928/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000490438386920943639224936606054904529 +/- 6.18e-40]"
+    },
+    {
+      "column": 397,
+      "probability": "1695933594596794624/73786976294838235277",
+      "orbit_average_minor_interval": "[0.001121287738063709928690083496713619134 +/- 8.29e-40]"
+    },
+    {
+      "column": 405,
+      "probability": "2886938980239879680/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000297943044951302992342107502193902150 +/- 4.91e-40]"
+    },
+    {
+      "column": 415,
+      "probability": "1639739125183668736/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000483344831022433741121524532444556170 +/- 5.70e-40]"
+    },
+    {
+      "column": 422,
+      "probability": "608340969907910784/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000451631646660697957737825336764678695 +/- 3.52e-40]"
+    },
+    {
+      "column": 432,
+      "probability": "440287655166191808/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000125706814134504940111795136275600661 +/- 4.86e-40]"
+    },
+    {
+      "column": 433,
+      "probability": "786693379654381696/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000523916800423017846416645812794190193 +/- 6.08e-40]"
+    },
+    {
+      "column": 439,
+      "probability": "239579758874520576/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000174059119520823877118536397547699272 +/- 2.89e-40]"
+    },
+    {
+      "column": 445,
+      "probability": "1998960155441739776/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00022709875425523784037427238416215772 +/- 1.38e-39]"
+    },
+    {
+      "column": 474,
+      "probability": "2161520279112912640/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000235143232209219759665469421142371387 +/- 6.88e-40]"
+    },
+    {
+      "column": 475,
+      "probability": "557258188260336512/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000127755305241514887328210214104918 +/- 2.21e-37]"
+    },
+    {
+      "column": 494,
+      "probability": "1461160923066958592/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000727260932163350467780947414429339561 +/- 8.27e-40]"
+    },
+    {
+      "column": 511,
+      "probability": "743710298134014464/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000260484852972005331096890431091518059 +/- 3.54e-40]"
+    },
+    {
+      "column": 521,
+      "probability": "271874742239343552/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00064370232173939826228787641543186813 +/- 2.76e-39]"
+    },
+    {
+      "column": 563,
+      "probability": "1195478835505015552/73786976294838235277",
+      "orbit_average_minor_interval": "[0.0014271219834913499327098533387398179 +/- 2.20e-38]"
+    },
+    {
+      "column": 569,
+      "probability": "4414313840830615040/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00059883909426600537587566593078794400 +/- 5.60e-39]"
+    },
+    {
+      "column": 571,
+      "probability": "749332618912463744/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000154352633912219322840846153721360884 +/- 4.72e-40]"
+    },
+    {
+      "column": 617,
+      "probability": "2751795778288261632/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000278254357801329799368966005103543533 +/- 2.53e-40]"
+    },
+    {
+      "column": 634,
+      "probability": "77865433748794480/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00056994885558157186719270497253446551 +/- 4.20e-39]"
+    },
+    {
+      "column": 698,
+      "probability": "1712438809903400704/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00034743044260414351200921240897960456 +/- 2.85e-39]"
+    },
+    {
+      "column": 700,
+      "probability": "672704558336663040/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00033386592696060452146258851230797 +/- 5.14e-36]"
+    },
+    {
+      "column": 755,
+      "probability": "1405631347155834880/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000460312008584797529044626201618704 +/- 5.81e-37]"
+    },
+    {
+      "column": 817,
+      "probability": "412102504778930816/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000191089152084876928297663607378697898 +/- 4.08e-40]"
+    },
+    {
+      "column": 889,
+      "probability": "1505619811525665536/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000212787666343141564861985838608644385 +/- 5.95e-40]"
+    },
+    {
+      "column": 902,
+      "probability": "380408453473028288/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000171371957181173739365741109821444 +/- 4.58e-37]"
+    },
+    {
+      "column": 904,
+      "probability": "136267954626341584/73786976294838235277",
+      "orbit_average_minor_interval": "[-0.000196931530535400044924778234057378930 +/- 2.43e-40]"
+    },
+    {
+      "column": 906,
+      "probability": "765275944346499072/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000449417605051451745308163520545792 +/- 3.42e-37]"
+    },
+    {
+      "column": 916,
+      "probability": "3202537485246603776/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000436840761261393590465692277441621496 +/- 6.32e-40]"
+    },
+    {
+      "column": 974,
+      "probability": "30245570615693140/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00035250131836933018747961098543816472 +/- 3.06e-39]"
+    },
+    {
+      "column": 1635,
+      "probability": "6623645123757270016/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000751499463127377098871508305774079957 +/- 4.94e-40]"
+    },
+    {
+      "column": 1636,
+      "probability": "4984737216617491456/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000293056256691202218158197408844947329 +/- 4.06e-40]"
+    },
+    {
+      "column": 1637,
+      "probability": "2425680297248661504/73786976294838235277",
+      "orbit_average_minor_interval": "[0.00027269673944080490344847210994787785 +/- 4.58e-39]"
+    },
+    {
+      "column": 1638,
+      "probability": "3228021611691919360/73786976294838235277",
+      "orbit_average_minor_interval": "[0.000467959865277205925210356332366610056 +/- 3.83e-40]"
+    },
+    {
+      "column": 1641,
+      "probability": "3518234154042985/73786976294838235277",
+      "orbit_average_minor_interval": "[0.04823479523497024939394679587990919 +/- 2.86e-36]"
+    }
+  ],
+  "scope": "A rigorous Arb counterexample for this one exact-rational 51-support mixture: the D42-orbit-averaged sixth-order row at representative (0,1,8,18,25,35) has normalized absolute error strictly greater than 1/3. This disproves a complete-sixth-order cap for this candidate only. It does not imply infeasibility of other ensembles or of the continuous physical family."
+}
