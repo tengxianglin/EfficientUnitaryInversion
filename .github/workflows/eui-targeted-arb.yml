@@ -56,7 +56,8 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install pinned numerical stack
-        run: # NumPy is pinned because the frozen seed-pool SHA covers exact binary64 outputs.\n        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+        # The seed-pool fingerprint hashes exact binary64 outputs; pin NumPy.
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
       - name: Run dependency-light orbit regression tests
         run: python -m unittest tests/test_eighth_orbit_enumeration.py
       - name: Replay the named eighth-order counterexample with Arb
@@ -108,7 +109,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eui-eighth-arb-and-pricing-${{ github.sha }}
+          name: eui-eighth-arb-and-pricing-\${{ github.sha }}
           path: |
             evidence/candidate_eighth_probe_arb_n21.json
             evidence/joint_low_six_eighth_lp_with_probe_n21.json
