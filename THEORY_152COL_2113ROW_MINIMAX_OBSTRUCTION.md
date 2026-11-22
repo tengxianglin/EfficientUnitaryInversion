@@ -43,8 +43,8 @@ and \(\lambda\in\mathbb Q\) with
 \[
 z^\mathsf Ty+\lambda-\delta
 =
-\frac{36597397722434817858556439}
-{72057594037927936000000000},
+\frac{31229779445108377178763165603}
+{61489146912368343970000000000},
 \qquad \delta=10^{-9}.
 \]
 For each of the 152 physical columns \(a_j\), a 128-bit Arb computation
