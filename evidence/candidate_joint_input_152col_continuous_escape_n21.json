@@ -1050,5 +1050,6 @@
       40
     ]
   ],
-  "scope": "Exact rational probabilities obtained by normalizing the binary64 152-column HiGHS weights. This is only a selected-row candidate input; strict Arb verification is required."
+  "scope": "Exact rational probabilities obtained by normalizing the binary64 152-column HiGHS weights. This is only a selected-row candidate input; strict Arb verification is required.",
+  "verification_request": "2026-11-23: run the pinned 128-bit Arb audit over all 1,779 selected rows"
 }
