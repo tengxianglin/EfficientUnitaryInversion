@@ -41,11 +41,11 @@ def main():
     pricing_sha = sha256(pricing_raw)
 
     if (lp.get("columns"), lp.get("rows")) != (123, 1779):
-        raise RuntimeError("the pinned parent LP must be 113 columns x 1,779 rows")
+        raise RuntimeError("the pinned parent LP must be 123 columns x 1,779 rows")
     if dual.get("status") != "strict_pool_separation" or not dual.get("complete"):
         raise RuntimeError("the 123-column 55-separator Arb dual certificate is incomplete")
     if dual.get("lp_transcript_sha256") != lp_sha or dual.get("column_count") != 123 or dual.get("row_count") != 1779:
-        raise RuntimeError("the 113-column dual certificate does not pin the parent LP")
+        raise RuntimeError("the 123-column dual certificate does not pin the parent LP")
     if pricing.get("status") != "arb_positive_columns_found" or pricing.get("precision_bits", 0) < 128:
         raise RuntimeError("the new-column pricing result is not a 128-bit Arb certificate")
     if pricing.get("dual_certificate_sha256") != dual_sha or pricing.get("lp_transcript_sha256") != lp_sha:
@@ -64,7 +64,7 @@ def main():
         raise RuntimeError("pricing evidence uses a different canonical physical pool; the dual already pins the LP transcript that carries this pool hash")
 
     base_columns = [int(x) for x in dual["columns"]]
-    if len(base_columns) != 123 or len(set(base_columns)) != 113 or base_columns != sorted(base_columns):
+    if len(base_columns) != 123 or len(set(base_columns)) != 123 or base_columns != sorted(base_columns):
         raise RuntimeError("the 123-column dual active set is malformed")
     new_columns = []
     for row in pricing["results"]:
