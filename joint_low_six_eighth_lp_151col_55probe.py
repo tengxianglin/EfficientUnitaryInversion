@@ -12,7 +12,7 @@ from ising_fourth_moments import FourthMoments
 from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import EIGHTH_ROWS, matrix, orbit_minor
 
-LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_151col_55probe_n21.json"
+LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_143col_55probe_n21.json"
 DUAL_IN = ROOT / "evidence/55probe_143col_dual_certificate_n21.json"
 SCREEN_IN = ROOT / "evidence/55probe_143col_dual_pricing_screen_n21.json"
 PRICING_IN = ROOT / "evidence/55probe_143col_dual_pricing_arb_n21.json"
