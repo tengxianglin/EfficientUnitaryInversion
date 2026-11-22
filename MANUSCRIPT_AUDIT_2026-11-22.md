@@ -55,7 +55,7 @@ The certificate has exact (|z|_1=1), slack (delta=10^{-8}), and strictly negativ
 
 The dual was then priced against all 1,538 unused columns in the frozen 1,641-column canonical path pool. The binary64 screen found 40 positive reduced-cost columns; the ten highest were independently recomputed with 128-bit Arb and all ten had strictly positive interval lower endpoints. This invalidates the 103-column dual inequalities for an expanded pool containing any of those columns; it does **not** prove an improved ensemble. The frozen evidence is in `evidence/38probe_103col_dual_pricing_screen_n21.json` and `evidence/38probe_103col_dual_pricing_arb_n21.json`.
 
-A 113-column reweighting and candidate-verification workflow has been added. Until its LP and Arb run complete, no 113-column candidate claim is made. Even if its selected rows and a sixth-order prefix pass, the complete sixth-order maximum and all eighth-/higher-order moments remain separate obligations.
+The 113-column reweighting has now produced an exact 46-support rational candidate with finite HiGHS objective 0.32622919649179943 on the same 1,762 rows. Its 128-bit Arb transcript passes all 1,461 low rows, 294 selected sixth rows, seven selected eighth rows, and the first 1,024 of 63,133 sixth-order orbits (85,050 six-subsets; 3,912,300 principal-minor determinant evaluations). The prefix transcript has `complete=false`; a full sixth-order scan is running in GitHub Actions workflow 45007176251. This is stronger finite evidence, but not yet a complete sixth-order maximum. All eighth-/higher-order maxima remain separate obligations.
 
 ## Consequence for manuscript claims
 
