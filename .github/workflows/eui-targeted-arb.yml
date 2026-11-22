@@ -11,6 +11,8 @@ on:
       - "joint_low_six_eighth_lp.py"
       - "freeze_seed_pool.py"
       - "freeze_joint_candidate.py"
+      - "verify_candidate_selected_moments_arb.py"
+      - "evidence/candidate_joint_input_7row_n21.json"
       - "evidence/seed_pool_n21_frozen.npy"
       - "evidence/seed_pool_n21_frozen.json"
       - "audit_complete_sixth_moments.py"
@@ -113,11 +115,26 @@ jobs:
           PY
       - name: Freeze exact rational candidate input
         run: python freeze_joint_candidate.py
+      - name: Arb-certify every low row, the sixth screen, and seven selected eighth rows
+        run: python verify_candidate_selected_moments_arb.py
+      - name: Check selected-moment Arb certificate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path("evidence/candidate_selected_moments_arb_n21.json").read_text())
+          blocks = p["certified_blocks"]
+          assert p["support_size"] == 32 and p["precision_bits"] >= 128
+          assert blocks["low_all_rows"]["rows"] == 1461
+          assert blocks["sixth_screen_only"]["rows"] == 256
+          assert blocks["eighth_selected_only"]["rows"] == 7
+          print(json.dumps({k: v["worst_midpoint"] for k, v in blocks.items()}, indent=2))
+          PY
       - name: Commit frozen LP transcript
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json evidence/joint_low_six_eighth_lp_with_probe_n21.json evidence/candidate_joint_input_7row_n21.json
+          git add evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json evidence/joint_low_six_eighth_lp_with_probe_n21.json evidence/candidate_joint_input_7row_n21.json evidence/candidate_selected_moments_arb_n21.json
           git commit -m "Freeze seven-row finite minimax LP transcript"
           git push
       - name: Upload the interval and LP transcripts
@@ -130,4 +147,5 @@ jobs:
             evidence/seed_pool_n21_frozen.json
             evidence/joint_low_six_eighth_lp_with_probe_n21.json
             evidence/candidate_joint_input_7row_n21.json
+            evidence/candidate_selected_moments_arb_n21.json
           if-no-files-found: warn
