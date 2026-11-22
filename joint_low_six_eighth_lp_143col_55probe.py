@@ -12,7 +12,7 @@ from ising_fourth_moments import FourthMoments
 from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import EIGHTH_ROWS, matrix, orbit_minor
 
-LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_143col_55probe_n21.json"
+LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_133col_55probe_n21.json"
 DUAL_IN = ROOT / "evidence/55probe_133col_dual_certificate_n21.json"
 SCREEN_IN = ROOT / "evidence/55probe_133col_dual_pricing_screen_n21.json"
 PRICING_IN = ROOT / "evidence/55probe_133col_dual_pricing_arb_n21.json"
@@ -64,7 +64,7 @@ def main():
         raise RuntimeError("pricing evidence uses a different canonical physical pool; the dual already pins the LP transcript that carries this pool hash")
 
     base_columns = [int(x) for x in dual["columns"]]
-    if len(base_columns) != 133 or len(set(base_columns)) != 123 or base_columns != sorted(base_columns):
+    if len(base_columns) != 133 or len(set(base_columns)) != 133 or base_columns != sorted(base_columns):
         raise RuntimeError("the 133-column dual active set is malformed")
     new_columns = []
     for row in pricing["results"]:
@@ -157,7 +157,7 @@ def main():
         "selected_eighth": len(eighth_rows),
     }
     m, n = A.shape
-    if (m, n) != (1779, 133) or m != sum(row_blocks.values()):
+    if (m, n) != (1779, 143) or m != sum(row_blocks.values()):
         raise RuntimeError(f"unexpected LP dimensions: {m} rows x {n} columns")
 
     aub = np.vstack([np.c_[A, -np.ones(m)], np.c_[-A, -np.ones(m)]])
@@ -285,7 +285,7 @@ def main():
             "sixth_additional_full_audit_separator_rows": [list(row) for row in additional_rows],
             "sixth_additional_full_audit_separator_targets": [str(value) for value in additional_targets],
             "selected_eighth_rows": [list(row) for row in eighth_rows],
-            "scope": "Exact rational input obtained by normalizing binary64 HiGHS weights on the 1,779-row 133-column LP; selected-row and prefix Arb verification is still required.",
+            "scope": "Exact rational input obtained by normalizing binary64 HiGHS weights on the 1,779-row 143-column LP; selected-row and prefix Arb verification is still required.",
         }
         CANDIDATE_OUT.write_text(json.dumps(candidate, indent=2) + "\n")
     elif CANDIDATE_OUT.exists():
