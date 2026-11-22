@@ -1,4 +1,4 @@
-# 152-column minimax obstruction from the complete-sixth cutting-plane set
+# 152-column mixed-order minimax obstruction on a 2,113-row cut design
 
 ## Theorem
 
@@ -25,9 +25,12 @@ Then every probability vector \(p\in\Delta_{152}\) satisfies
 \]
 
 Consequently, no reweighting of these fixed 152 physical generators can meet
-the \(1/3\) cap on this finite row set. Since the complete sixth-order maximum
-contains all 645 sixth-order rows above, the same lower bound applies to the
-complete-sixth objective restricted to this fixed 152-column pool.
+the \(1/3\) cap on this finite mixed-order row set. The certificate has 40
+nonzero dual coordinates: one low-order, 37 sixth-order, and two eighth-order
+coordinates. Because the dual uses eighth-order rows, it is **not** a
+sixth-only certificate and does not by itself prove a lower bound for the
+objective with all eighth-order rows removed. It does give a lower bound for
+any objective whose row set contains all 2,113 rows listed above.
 
 ## Dual certificate and proof
 
@@ -96,10 +99,12 @@ column sums.
 - Arb workflow and committed certificate: [45058397922](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45058397922)
 - Certificate commit: [d27ff52](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d27ff52bd8c21315e4534fd56bf5942630cc3c73)
 
-This is a strict minimax no-go only for the specified 152-column pool. It
-does **not** rule out additional canonical columns, other continuous path
-generators, other Hamiltonian families, or the unrestricted continuous
-physical family. The 334 cuts were identified by a complete binary64 scan;
+This is a strict mixed-order minimax no-go only for the specified 152-column
+pool and the exact 2,113-row design. It does **not** rule out additional
+canonical columns, other continuous path generators, other Hamiltonian
+families, or the unrestricted continuous physical family. It is not a
+sixth-only lower-bound certificate because two active dual coordinates are
+eighth-order rows. The 334 cuts were identified by a complete binary64 scan;
 the dual certificate rigorously uses the exact 645-row inventory pinned in
 the LP transcript, so it does not require treating all 334 individual screen
 values as Arb-certified counterexamples.
