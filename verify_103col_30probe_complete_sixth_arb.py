@@ -283,7 +283,7 @@ def verify(workers=8, limit=None, precision_bits=128):
         "candidate_input_sha256": candidate_sha,
         "lp_transcript_sha256": lp_sha,
         "parent_candidate_input_sha256": sha256(PARENT_CANDIDATE_PATH.read_bytes()),
-        "parent_prefix_audit_sha256": sha256(PARENT_PREFIX_PATH.read_bytes()),
+        "parent_sixth_audit_sha256": sha256(PARENT_SIXTH_AUDIT_PATH.read_bytes()),
         "current_prefix_audit_sha256": sha256(CURRENT_PREFIX_PATH.read_bytes()),
         "seed_pool_sha256_le_f64": EXPECTED_SEED_POOL_SHA256,
         "precision_bits": precision_bits,
