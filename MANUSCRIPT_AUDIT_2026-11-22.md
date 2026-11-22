@@ -153,3 +153,10 @@ The exact dual has (\|z\|_1=576460752303423461/576460752303423488<1), slack (10^
 The new 143-column pricing workflow [45024159768](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024159768) is screening all 1,498 unused canonical columns and checking the top ten positive candidates with Arb. No claim about the remaining canonical pool is made until that evidence completes.
 
 The Choi/diamond note now also records the standard dimension-dependent bridge from Kliesch and Roth, *PRX Quantum* **2**, 010201 (2021), Propositions 51 and 53, together with explicit counterexamples to removing dimension or replacing worst-case by average quantifiers.
+
+
+## 143-column dual pricing completed (2026-11-22)
+
+Workflow [45024159768](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024159768) screened all 1,498 unused columns in the frozen 1,641-column canonical pool in binary64. Eight candidates had positive discovery scores; all eight were independently checked with 128-bit Arb and all eight pricing intervals have strictly positive lower endpoints: columns 168, 454, 129, 257, 432, 823, 249, and 532. This invalidates the 143-column separator after adding any of these columns. It does not prove an improved mixture or exclude additional escapes hidden by binary64 rounding.
+
+The 151-column reoptimization using those eight Arb-positive columns is running in workflow [45024329244](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024329244). Its outcome will be treated as binary64 discovery until any resulting dual is independently Arb-certified.
