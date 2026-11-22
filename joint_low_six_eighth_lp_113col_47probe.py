@@ -104,7 +104,7 @@ def main():
         raise RuntimeError("the previous 1,024-orbit Arb prefix does not reject its candidate")
     if prefix_audit.get("candidate_input_sha256") != previous_candidate_sha or prefix_audit.get("lp_transcript_sha256") != previous_lp_sha:
         raise RuntimeError("prefix separator transcript does not pin the exact previous candidate and LP")
-    if prefix_audit.get("precision_bits", 0) < 128 or prefix_audit.get("requested_orbits") != 1024:
+    if prefix_audit.get("precision_bits", 0) < 128 or prefix_audit.get("sixth_prefix", {}).get("requested_orbits") != 1024:
         raise RuntimeError("prefix separator is not from the pinned 128-bit 1,024-orbit audit")
     prefix_failure = prefix_audit.get("sixth_prefix", {}).get("failure")
     if not prefix_failure or prefix_failure.get("status") != "strict_violation":
