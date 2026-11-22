@@ -2,8 +2,7 @@
 
 This computes every sixth-order dihedral orbit (5,245,786 six-subsets total)
 for the 51-support rational mixture. It is a complete floating-point screen,
-not an interval certificate. Any violating orbit is suitable for adding as a
-new LP row; a passing result still requires a separate rigorous global bound.
+not an interval certificate. Every violating orbit is persisted as an LP cut.
 """
 import hashlib
 import json
@@ -132,6 +131,11 @@ def main():
         "maximum_target": str(target(reps[worst])),
         "maximum_mixture_moment": float(moments[worst]),
         "violating_orbit_count_at_or_above_one_third": int(len(violating)),
+        "violating_orbits": [
+            {"orbit_index": int(j), "indices": list(reps[j]), "target": str(target(reps[j])),
+             "mixture_moment": float(moments[j]), "normalized_error": float(errors[j])}
+            for j in violating
+        ],
         "top_25": [
             {"orbit_index": int(j), "indices": list(reps[j]), "target": str(target(reps[j])),
              "mixture_moment": float(moments[j]), "normalized_error": float(errors[j])}
