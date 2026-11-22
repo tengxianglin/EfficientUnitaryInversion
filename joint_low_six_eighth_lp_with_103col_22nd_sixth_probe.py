@@ -14,11 +14,11 @@ from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import EIGHTH_ROWS, matrix, orbit_minor
 
 PARENT_LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_103col_22probe_n21.json"
-PARENT_CANDIDATE_IN = ROOT / "evidence/candidate_joint_input_103col_22probe_n21.json"
-PREFIX_AUDIT_IN = ROOT / "evidence/candidate_103col_22probe_selected_and_sixth_prefix_arb_n21.json"
+PARENT_CANDIDATE_IN = ROOT / "evidence/candidate_joint_input_103col_21probe_n21.json"
+PREFIX_AUDIT_IN = ROOT / "evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json"
 SIXTH_SCREEN_IN = ROOT / "evidence/sixth_moment_screen_n21.json"
-LP_OUT = ROOT / "evidence/joint_low_six_eighth_lp_103col_21probe_n21.json"
-CANDIDATE_OUT = ROOT / "evidence/candidate_joint_input_103col_21probe_n21.json"
+LP_OUT = ROOT / "evidence/joint_low_six_eighth_lp_103col_22probe_n21.json"
+CANDIDATE_OUT = ROOT / "evidence/candidate_joint_input_103col_22probe_n21.json"
 CAP = Fraction(1, 3)
 
 
