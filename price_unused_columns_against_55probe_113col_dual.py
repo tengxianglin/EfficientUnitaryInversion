@@ -105,7 +105,7 @@ def main():
             feature = orbit_minor(rotation, sixth_rows[row - 1461])
             score += z[row] * feature / (5 / 19721)
         for row in active_eighth:
-            feature = orbit_minor(rotation, eighth_rows[row - 1755])
+            feature = orbit_minor(rotation, eighth_rows[row - 1772])
             score += z[row] * feature / (1 / 19721)
         scores.append(float(score))
 
