@@ -2,7 +2,7 @@
   "status": "162col_sixth_only_lp_above_one_third",
   "parent_162col_lp_sha256": "d1fde26b8d9179affe5eef0a86c1fb4472a8084eb8bb7f12f43ffa5630fac1ed",
   "parent_162col_dual_certificate_sha256": "e521a7d3b1d9588b89124335dff389167bd144f3eafbf8030c99841a7e9f525f",
-  "parent_152col_cut_lp_sha256": "a2ff3e493de8c44a3311dccc4536098b0daba3d82708a7051282c9cef8777b7a",
+  "parent_152col_cut_lp_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
   "parent_candidate_sha256": "78f396b6efba5b6d230322c253294a0b0c834319d42b8e796e732088938d5d65",
   "pricing_arb_sha256": "b012198d2c13f7d50c459fd14784468aeefdf0e9cf0e83f2929de4703211102b",
   "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
