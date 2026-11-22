@@ -71,7 +71,7 @@ The 128-bit Arb pricing workflow has now screened all 1,528 unused canonical col
 \]
 The exact dual has \(\|z\|_1=1\), uses slack \(10^{-9}\), and the maximum Arb upper endpoint of \(A^Tz+\lambda-\delta\) over the 123 columns is below \(-2.60568\times10^{-10}\). This is a theorem for the pinned 123-column pool and 1,779 rows only. See THEORY_55PROBE_123COL_DUAL_OBSTRUCTION.md and evidence/55probe_123col_dual_certificate_n21.json.
 
-The next workflow (45018694807) screens all 1,518 unused columns in the frozen 1,641-column canonical pool against this dual, then independently checks up to ten top positive scores with 128-bit Arb. Any strictly positive pricing score invalidates this 123-column separator after adding that column. A nonpositive binary64 screen is not by itself a rigorous all-column exclusion; that would require interval coverage of every unused column.
+Workflow 45018694807 has now screened all 1,518 unused columns in the frozen 1,641-column canonical pool. The binary64 screen found 34 positive reduced-cost candidates; the ten highest were independently recomputed with 128-bit Arb, and all ten intervals are strictly positive: columns 1610, 1640, 367, 433, 388, 253, 368, 87, 743, and 69. The largest Arb pricing score is 10.7288893003344779... (column 1610), and the second is 2.5544859328709926... (column 1640). These are certified escapes of the 123-column dual, not yet an improved ensemble. A 133-column reoptimization using these ten columns is running in workflow 45018951320. Any nonpositive binary64 score is only a screen result; it is not a rigorous all-column exclusion.
 
 ## Consequence for manuscript claims
 
