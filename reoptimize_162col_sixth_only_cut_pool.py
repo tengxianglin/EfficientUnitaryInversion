@@ -44,8 +44,12 @@ def main():
         raise RuntimeError("162-column certificate does not pin parent LP")
     if lp162.get("parent_candidate_sha256") != hashes[CANDIDATE_PATH.name]:
         raise RuntimeError("162-column LP does not pin parent exact candidate")
-    if lp162.get("parent_lp_sha256") != hashes[CUT_LP_PATH.name]:
-        raise RuntimeError("162-column LP does not pin the 152-column cut LP")
+    sixth_rows_check = [tuple(int(x) for x in row) for row in cut_lp["sixth_cut_rows"]]
+    eighth_rows_check = [tuple(int(x) for x in row) for row in cut_lp["selected_eighth_rows"]]
+    sixth_hash_check = sha(json.dumps([list(x) for x in sixth_rows_check], separators=(",", ":")).encode())
+    eighth_hash_check = sha(json.dumps([list(x) for x in eighth_rows_check], separators=(",", ":")).encode())
+    if sixth_hash_check != lp162.get("sixth_rows_sha256") or eighth_hash_check != lp162.get("eighth_rows_sha256"):
+        raise RuntimeError("current parent LP row inventory differs from the pinned 162-column design")
     if lp162.get("pricing_arb_sha256") != hashes[PRICING_ARB_PATH.name]:
         raise RuntimeError("162-column LP does not pin its Arb pricing transcript")
     if pricing_arb.get("status") != "arb_positive_columns_found":
