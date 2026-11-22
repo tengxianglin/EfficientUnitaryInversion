@@ -18,9 +18,9 @@ Then every probability vector \(p\in\Delta_{152}\) satisfies
 \[
 \boxed{
 \|Ap-y\|_\infty\ge
-\frac{36597397722434817858556439}
-{72057594037927936000000000}
-=0.5078909199101425\ldots>\frac13.
+\frac{31229779445108377178763165603}
+{61489146912368343970000000000}
+=0.5078909208094186\ldots>\frac13.
 }
 \]
 
@@ -38,7 +38,7 @@ The frozen certificate contains a rational vector \(z\in\mathbb Q^{2113}\)
 and \(\lambda\in\mathbb Q\) with
 \[
 \|z\|_1=
-\frac{36893488147393554485}{36893488147419103232}<1,
+1,
 \]
 \[
 z^\mathsf Ty+\lambda-\delta
@@ -54,7 +54,7 @@ a_j^\mathsf Tz+\lambda-\delta<0.
 \]
 The largest interval upper endpoint over all columns is
 \[
--7.9784600657124486575963035758521142275\times10^{-10}
+-4.2492156984681046212238277835698169369\times10^{-11}
 \]
 (up to the Arb interval radius recorded in the certificate).
 
@@ -75,13 +75,13 @@ which is the stated bound.
 The exact dual objective before slack is
 \[
 \lambda+z^\mathsf Ty
-=\frac{18737867670780114891}{36893488147419103232},
+=\frac{3122977945125729187}{6148914691236834397},
 \]
 and the certified gap above \(1/3\) is
 \[
-\frac{37734599129376517575669317}
-{216172782113783808000000000}
-=0.17455758657680914\ldots.
+\frac{32200191422956787566289496809}
+{184467440737105031910000000000}
+=0.17455758747608527\ldots.
 \]
 
 The rational dual has only 40 nonzero coordinates: one low-order row, 37
