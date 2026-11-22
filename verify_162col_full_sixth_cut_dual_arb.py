@@ -1,4 +1,4 @@
-"""128-bit Arb certificate for the 162-column / 2,113-row full-sixth cut LP."""
+"""128-bit Arb certificate for the 162-column / 2,113-row mixed-order cut LP."""
 import hashlib
 import json
 from fractions import Fraction
@@ -341,10 +341,10 @@ def main():
             "Rigorous finite-pool minimax lower bound for every convex mixture over the 162 pinned "
             "physical generators (151 frozen canonical paths, one exact-rational continuous-path "
             "escape, and ten additional frozen canonical paths), on the 2,113 exact normalized rows: "
-            "all 1,461 second/fourth rows, 645 sixth rows, and seven selected eighth rows. Since the "
-            "complete sixth-order maximum contains these rows, the same lower bound applies to the "
-            "complete-sixth objective restricted to this fixed 162-column pool. It does not rule out "
-            "additional physical generators or the unrestricted continuous family."
+            "all 1,461 second/fourth rows, 645 sixth rows, and seven selected eighth rows. The dual "
+            "has two nonzero eighth-order coordinates, so this is a mixed-order certificate, not a "
+            "sixth-only lower-bound certificate. It applies to objectives containing all 2,113 rows, "
+            "but does not rule out additional physical generators or the unrestricted continuous family."
         ),
     }
     OUTPUT_PATH.write_text(json.dumps(result, indent=2) + "\n")
