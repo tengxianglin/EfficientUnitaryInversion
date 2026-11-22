@@ -234,3 +234,20 @@ S(c)=\lambda-\delta+z^\mathsf T a(c)
 The candidate is verified outside the frozen 1,641-column pool. Exact input SHA256: 0221d6eb7570d87ef52bd17eff30e83ff1fcc2ae765dc86f582b2f3c30082e08; evidence: evidence/continuous_path_dual_escape_arb_n21.json; proof and scope: THEORY_CONTINUOUS_PATH_DUAL_ESCAPE.md; verifier: verify_continuous_path_dual_escape_arb.py; evidence commit: [d8a4df8](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d8a4df8530d2084629af5575fa2f2d6af7848df6).
 
 This is a counterexample to **global validity of this particular dual**, not to the finite-pool theorem and not a proof that a full continuous-family ensemble meets the \(1/3\) cap. It shows that the previous next step—extending this same separator over the entire positive orthant—is false. A separate 152-column binary64 minimax reoptimization, adding this Arb-certified generator to the 151-column active pool, is running; any sub-\(1/3\) candidate would still require exact rationalization and a fresh Arb audit.
+
+
+## 152-column exact candidate: all 1,779 pinned rows Arb-certified (2026-11-23)
+
+The Arb-certified continuous-path escape was added to the 151-column active pool. The 152-column binary64 HiGHS LP gave objective \(0.329769894504226\), recomputed maximum \(0.329769894504254\), support 51, escape weight \(4.7680963914\times10^{-5}\), and primal-dual gap \(2.55\times10^{-15}\). The 51 positive weights were converted to exact rational probabilities summing to one.
+
+Workflow [45046016471](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45046016471) then used 128-bit Arb to certify all 1,779 rows. The complete second/fourth block (1,461 rows), 311 selected sixth-order rows, and seven selected eighth-order rows all satisfy the strict \(1/3\) cap. The maximum absolute-error upper endpoint is enclosed by
+\[
+[0.32976989450473041482078054778650805091\pm3.67\times10^{-40}],
+\]
+giving a certified margin to \(1/3\) of
+\[
+[0.00356343882860291851255278554682528242\pm3.46\times10^{-39}].
+\]
+Evidence: evidence/candidate_152col_selected_rows_arb_n21.json; exact input: evidence/candidate_joint_input_152col_continuous_escape_n21.json; LP: evidence/joint_low_six_eighth_lp_152col_continuous_escape_n21.json; verifier: verify_152col_continuous_escape_candidate_arb.py; commit [55ec898](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/55ec8985979af1563022d4f6e5ce1404d4b3148b).
+
+This is a strict exact-probability result on the pinned 1,779 rows, not a complete sixth/eighth-order orbit certificate: only 311 of 63,133 sixth orbits and seven selected eighth orbits were checked. It also does not imply full continuous-family optimality or an operational Choi/diamond-norm bound. The next task is a complete sixth-order audit of this exact mixture.
