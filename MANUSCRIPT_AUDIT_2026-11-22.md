@@ -136,3 +136,20 @@ For (W_d=\operatorname{diag}(1,\ldots,1,-1)), the normalized Choi fidelity relat
 Even at fixed (d=2), an ensemble that is ideal with probability (1-\varepsilon) and applies (Z) with probability (\varepsilon) has mean Choi fidelity (1-\varepsilon\to1), while its worst-case diamond distance remains (2). This is a mathematical counterexample to inferring a uniform guarantee from an average alone; it is not a claim that this bad channel is realized by the current EUI physical family.
 
 Accordingly, Appendix B's finite-sample mean Choi fidelities may support empirical average-performance statements for the sampled distribution, but not worst-case-over-input or worst-case-over-Hamiltonian guarantees without additional uniform or tail assumptions. A dimension-aware operational theorem remains open.
+
+
+## 143-column Arb certificate completed (2026-11-22 correction)
+
+The preceding sentence saying the 143-column dual certificate was running is superseded. Workflow [45023774747](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45023774747) completed successfully and commit `325c092eb409f6c3dc8b10569ac76e89268a5aaf` records the complete 128-bit Arb certificate. It proves
+\[
+\min_{p\in\Delta_{143}}\|Ap-y\|_\infty
+\ge
+\frac{968457739933803314304969}
+{2814749767106560000000000}
+=0.3440653060003041\ldots>\frac13.
+\]
+The exact dual has (\|z\|_1=576460752303423461/576460752303423488<1), slack (10^{-10}), and maximum Arb upper endpoint below `-8.2883631651865609e-11). The exact gap above (1/3) is `90623452694849942914907/8444249301319680000000000`. Formal proof: `THEORY_55PROBE_143COL_DUAL_OBSTRUCTION.md` (to be added with the certificate).
+
+The new 143-column pricing workflow [45024159768](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024159768) is screening all 1,498 unused canonical columns and checking the top ten positive candidates with Arb. No claim about the remaining canonical pool is made until that evidence completes.
+
+The Choi/diamond note now also records the standard dimension-dependent bridge from Kliesch and Roth, *PRX Quantum* **2**, 010201 (2021), Propositions 51 and 53, together with explicit counterexamples to removing dimension or replacing worst-case by average quantifiers.
