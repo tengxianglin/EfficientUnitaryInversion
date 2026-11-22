@@ -309,3 +309,35 @@ Evidence:
 - Arb verifier: verify_152col_full_sixth_cut_dual.py
 - Successful conflict-safe workflow: [45058397922](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45058397922)
 - Certificate commit: [d27ff52](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d27ff52bd8c21315e4534fd56bf5942630cc3c73)
+
+
+## 152-column full-sixth dual pricing: canonical escapes and next reoptimization (2026-11-23)
+
+The complete-sixth cutting-plane design adds all 334 sixth-order orbits found violating the earlier 152-column candidate, giving 2,113 rows (1,461 complete second/fourth, 645 sixth, seven selected eighth). A rationalized 128-bit Arb dual proves the fixed 152-generator pool has minimax error at least
+\[
+\eta_{152,2113}\ge
+\frac{36597397722434817858556439}{72057594037927936000000000}
+=0.5078909199101425\ldots>\frac13.
+\]
+This is a finite-pool theorem only; it does not rule out additional physical generators.
+
+A pricing pass screened all 1,490 canonical generators unused by the 151 canonical members of that pool. The binary64 screen found 37 positive reduced-cost candidates. The ten highest were independently recomputed with 128-bit Arb, and all ten pricing intervals have strictly positive lower endpoints. Their canonical indices are 1603, 886, 565, 682, 472, 525, 434, 487, 80, and 145. The largest is column 1603, with pricing score
+\[
+[27.859490176389019929457002890028332\pm8.38\times10^{-34}]>0.
+\]
+Thus the 152-column dual is not a separator for the full frozen 1,641-column canonical pool. This does not imply that the larger pool is feasible.
+
+Evidence:
+- Strict 152-column / 2,113-row theorem: THEORY_152COL_2113ROW_MINIMAX_OBSTRUCTION.md.
+- Exact dual certificate: evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json.
+- Full binary64 pricing screen: evidence/55probe_152col_full_sixth_cut_dual_pricing_screen_n21.json.
+- Ten strict Arb pricing checks: evidence/55probe_152col_full_sixth_cut_dual_pricing_arb_n21.json.
+- Pricing implementation/workflow: price_unused_columns_against_152col_full_sixth_cut_dual.py, verify_152col_full_sixth_cut_dual_pricing_arb.py, .github/workflows/eui-152col-full-sixth-cut-pricing.yml.
+- Evidence commit: [0507386](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/05073862b9763aaf8a70292845ee1717cbc6cff0).
+
+A new 162-column discovery LP has been added. It augments the 152-column cut pool with those ten Arb-positive canonical columns while preserving the same 2,113-row design. The script checks the hashes linking the candidate, parent cut LP, strict dual, pricing screen, Arb pricing transcript, and frozen canonical pool before constructing the matrix. The push-triggered workflow is .github/workflows/eui-162col-full-sixth-cut-pool.yml; it writes evidence/joint_low_six_eighth_lp_162col_full_sixth_cuts_n21.json and, only if the numerical objective is below 1/3, a rationalized candidate file. The LP result is pending at this audit revision and will be treated as discovery only. Any candidate requires a fresh exact-probability Arb audit and a complete 63,133-orbit sixth-order separation scan.
+
+Implementation:
+- reoptimize_162col_full_sixth_cut_pool.py
+- .github/workflows/eui-162col-full-sixth-cut-pool.yml
+- commits [7a3e35c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7a3e35c9dbc397b850f1de3fe2a0e7eca023ce49), [53eb0f1](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/53eb0f1679e77054b6f9804678e5705882a7e750), and [01b3c51](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/01b3c5170801d3e611081e07a6e1e162946cfc4e).
