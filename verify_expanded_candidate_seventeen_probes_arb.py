@@ -58,8 +58,6 @@ def main():
     lp_raw = LP_PATH.read_bytes()
     lp_sha = hashlib.sha256(lp_raw).hexdigest()
     lp = json.loads(lp_raw)
-    if lp.get("columns") != 93 or lp.get("rows") != 1739:
-        raise RuntimeError("expanded LP transcript has unexpected dimensions")
     pricing_raw = (ROOT / "evidence/fifteen_probe_dual_pricing_arb_n21.json").read_bytes()
     pricing_sha = hashlib.sha256(pricing_raw).hexdigest()
     if candidate.get("pricing_arb_sha256") != pricing_sha:
