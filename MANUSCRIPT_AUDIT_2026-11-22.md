@@ -185,3 +185,12 @@ The exact dual has \(\|z\|_1=1\), slack \(10^{-10}\), and maximum Arb upper endp
 Proof: `THEORY_55PROBE_151COL_DUAL_OBSTRUCTION.md`; certificate: `evidence/55probe_151col_dual_certificate_n21.json`; certificate commit: [4c76f28](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4c76f2843ac9e5e94820a89a2b4aeb611186ef0b).
 
 This is a finite-pool theorem on the exact 1,779 selected rows only. It is not a no-go over the remaining 1,490 canonical columns, all physical generators, the complete sixth/eighth moment domains, or operational channel distance. The next action is to price the remaining canonical columns against this certified 151-column dual and Arb-check every positive candidate.
+
+
+## 151-column dual pricing and full-pool Arb audit (2026-11-22)
+
+The certified 151-column dual was screened in binary64 against all 1,490 unused columns in the frozen 1,641-column canonical pool. The screen found zero positive scores; its largest unused score is \(-0.00635987569965061\) at column 1632. The active-pool maximum is \(-9.845096786420537\times10^{-11}\). This is only a floating-point screen, not a strict extension of the theorem.
+
+A dedicated verifier now evaluates every unused column with 128-bit Arb: `verify_55probe_151col_full_canonical_pool_arb.py`, run by `.github/workflows/eui-151col-full-canonical-pool-arb.yml`. It emits `evidence/55probe_151col_full_canonical_pool_arb_n21.json` and exits nonzero unless all 1,490 interval upper endpoints are strictly negative. The ordinary top-positive-candidate verifier correctly checked zero candidates because the binary64 screen had no positive candidates; it must not be mistaken for the all-pool proof.
+
+If the exhaustive Arb job passes, the 151-column dual lower bound extends to all 1,641 columns in the frozen canonical path pool, but only for the pinned 1,779 selected rows. No all-Hamiltonian, all-moment, or operational channel theorem follows.
