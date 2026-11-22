@@ -1,0 +1,79 @@
+name: EUI reoptimize 172-column sixth-only pool
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reoptimize_172col_sixth_only_pool.py"
+      - ".github/workflows/eui-172col-sixth-only-pool.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reoptimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit helpers
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-verify the 162-column sixth-only dual
+        run: python verify_162col_sixth_only_dual_arb.py
+      - name: Re-verify all ten positive pricing intervals
+        run: python verify_162col_sixth_only_dual_pricing_arb.py
+      - name: Remove stale discovery outputs
+        run: |
+          rm -f evidence/joint_low_six_lp_172col_sixth_only_n21.json
+          rm -f evidence/candidate_joint_input_172col_sixth_only_n21.json
+      - name: Reoptimize the 2,106-row sixth-only design
+        run: python reoptimize_172col_sixth_only_pool.py
+      - name: Commit deterministic LP evidence and exact candidate
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/eui-172col
+          cp evidence/joint_low_six_lp_172col_sixth_only_n21.json /tmp/eui-172col/lp.json
+          if [ -f evidence/candidate_joint_input_172col_sixth_only_n21.json ]; then
+            cp evidence/candidate_joint_input_172col_sixth_only_n21.json /tmp/eui-172col/candidate.json
+          fi
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            cp /tmp/eui-172col/lp.json evidence/joint_low_six_lp_172col_sixth_only_n21.json
+            if [ -f /tmp/eui-172col/candidate.json ]; then
+              cp /tmp/eui-172col/candidate.json evidence/candidate_joint_input_172col_sixth_only_n21.json
+            fi
+            git add evidence/joint_low_six_lp_172col_sixth_only_n21.json
+            if [ -f /tmp/eui-172col/candidate.json ]; then
+              git add evidence/candidate_joint_input_172col_sixth_only_n21.json
+            fi
+            if ! git diff --cached --quiet; then
+              git commit -m "Record 172-column sixth-only reoptimization"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload LP and candidate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-172col-sixth-only-reoptimization
+          path: |
+            evidence/joint_low_six_lp_172col_sixth_only_n21.json
+            evidence/candidate_joint_input_172col_sixth_only_n21.json
+          if-no-files-found: warn
