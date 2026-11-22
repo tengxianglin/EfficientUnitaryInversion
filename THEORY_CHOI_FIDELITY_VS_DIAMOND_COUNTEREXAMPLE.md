@@ -84,3 +84,33 @@ A rigorous operational claim needs an explicit additional hypothesis or certific
 ## Reproducibility
 
 The derivations are closed-form and require no numerical experiment. The first example is valid for every integer (d\ge2); the second is a two-channel distribution at (d=2).
+
+
+## A valid dimension-dependent bridge (what can be salvaged)
+
+Let (\mathcal E,\mathcal F) be channels with input dimension (d), and let (J_{\mathcal E},J_{\mathcal F}) denote their normalized Choi states. With squared Uhlmann fidelity (F(J_{\mathcal E},J_{\mathcal F})), the standard Choi-to-diamond estimate and the Fuchs--van de Graaf inequality give
+\[
+\begin{aligned}
+\|\mathcal E-\mathcal F\|_\diamond
+&\le d\,\|J_{\mathcal E}-J_{\mathcal F}\|_1\\
+&\le 2d\sqrt{1-F(J_{\mathcal E},J_{\mathcal F})}.
+\end{aligned}
+\]
+The first inequality follows by writing the unnormalized Choi operator as (d(J_{\mathcal E}-J_{\mathcal F})) and using the standard variational/SDP expression for the diamond norm, in which the normalized input density operator has operator norm at most one. The second is Fuchs--van de Graaf.
+
+Consequently, a **uniform per-instance** Choi-infidelity bound (1-F_\omega\le\epsilon) implies
+\[
+\sup_\omega\frac12\|\mathcal E_\omega-\mathcal F_\omega\|_\diamond
+\le d\sqrt\epsilon.
+\]
+For a known distribution over instances, with (\mu=\mathbb E[1-F_\omega]), one obtains only an **average** and a loose tail bound:
+\[
+\mathbb E\!\left[\frac12\|\mathcal E_\omega-\mathcal F_\omega\|_\diamond\right]
+\le d\sqrt\mu,
+\qquad
+\Pr\!\left[\frac12\|\mathcal E_\omega-\mathcal F_\omega\|_\diamond\ge\tau\right]
+\le\frac{d^2\mu}{\tau^2}.
+\]
+The tail inequality is Markov's inequality applied to the pointwise Choi bound. It requires a valid upper bound on the population mean (\mu); a finite Monte Carlo sample mean alone is not such a deterministic bound without a statistical confidence argument and sampling assumptions.
+
+This is the correct dimension-aware route if per-instance Choi fidelity can be bounded. It does not turn a finite sample average into a uniform-over-Hamiltonians theorem, and it does not yet connect the current Ising/path moment residuals to (F_\omega). The factor (d) also explains why high Choi fidelity may be operationally weak at large dimension.
