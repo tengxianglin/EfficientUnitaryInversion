@@ -43,8 +43,12 @@ def main():
         raise RuntimeError("the 162-column Arb dual certificate is incomplete")
     if cert.get("lp_transcript_sha256") != lp_sha:
         raise RuntimeError("162-column dual and LP transcript hashes disagree")
-    if cert.get("parent_152col_lp_sha256") != cut_lp_sha:
-        raise RuntimeError("162-column certificate does not pin the 152-column row inventory")
+    sixth_rows = [tuple(int(x) for x in row) for row in cut_lp["sixth_cut_rows"]]
+    eighth_rows = [tuple(int(x) for x in row) for row in cut_lp["selected_eighth_rows"]]
+    sixth_hash = sha(json.dumps([list(x) for x in sixth_rows], separators=(",", ":")).encode())
+    eighth_hash = sha(json.dumps([list(x) for x in eighth_rows], separators=(",", ":")).encode())
+    if sixth_hash != lp.get("sixth_rows_sha256") or eighth_hash != lp.get("eighth_rows_sha256"):
+        raise RuntimeError("current parent LP row inventory differs from the pinned 162-column design")
     if (cert.get("column_count"), cert.get("row_count")) != (162, 2113):
         raise RuntimeError("unexpected 162-column dual dimensions")
     if (lp.get("columns"), lp.get("rows")) != (162, 2113):
