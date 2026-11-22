@@ -483,3 +483,29 @@ The exact 162-column lower bound remains a fixed-pool theorem:
 eta_162^(6) >= 0.47605818499326774... > 1/3.
 ```
 It does not exclude the ten new columns, any larger pool, or the unrestricted continuous path family.
+
+
+## 172-column complete-sixth-order minimax obstruction (2026-11-23)
+
+The ten Arb-positive canonical columns found against the 162-column sixth-only dual were added to the 162-column physical pool. The resulting 172-column, 2,106-row binary64 HiGHS LP has objective `0.4705549863247866`, independently recomputed maximum `0.4705549863248868`, 50 positive weights, and primal-dual discovery gap `1.23e-14`. It does not produce a sub-`1/3` candidate. Transcript: `evidence/joint_low_six_lp_172col_sixth_only_n21.json`; reoptimization workflow: [45067985228](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45067985228).
+
+The rationalized dual was then independently certified with 128-bit Arb against all 172 physical columns in [workflow 45068269670](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45068269670). The exact certificate proves
+[
+min_{pinDelta(mathcal P_{172})}
+max_{Iininom{[42]}6/D_{42}} |e_I(p)|
+ge
+rac{1324494537887082708836219}
+{2814749767106560000000000}
+=0.4705549862247987ldots>rac13.
+]
+The exact dual has
+[
+|z|_1=rac{288230376151706861}{288230376151711744}<1,
+quad
+lambda=rac{413924430527507}{281474976710656},
+quad
+delta=10^{-10}.
+]
+Its support contains exactly 50 sixth-order rows and no low-order rows. All 172 column inequalities have strictly negative Arb upper endpoints; the largest is below `-7.6774063738680112e-11`. This is a rigorous complete-sixth-order lower bound for the fixed 172-generator pool, not a bound over all physical generators. Formal statement and proof: `THEORY_172COL_2106ROW_SIXTH_ONLY_MINIMAX_OBSTRUCTION.md`; certificate: `evidence/55probe_172col_sixth_only_dual_certificate_n21.json`; commit [288a253](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/288a2534356453e5c05e5b64a9ba4aaaabe9eb26).
+
+The next pricing stage now screens the remaining 1,470 canonical generators against this new 172-column dual and independently Arb-checks the ten highest positive candidates. Workflow [45068411039](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45068411039) is in progress; no result is claimed yet.
