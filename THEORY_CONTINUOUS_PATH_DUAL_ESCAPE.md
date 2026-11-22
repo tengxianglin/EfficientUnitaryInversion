@@ -63,3 +63,37 @@ python verify_continuous_path_dual_escape_arb.py
 - **Not proved:** existence of a convex mixture over the full continuous family achieving the \(1/3\) cap; nonexistence of a different global dual; a full-family minimax value; complete moment control; or a Choi/diamond-norm operational guarantee.
 
 The next step is to include this certified generator in a new finite minimax reoptimization. This tests whether the continuous escape is useful for constructing a better ensemble, rather than merely invalidating the old dual's global extension. The binary64 152-column reoptimization is running separately; it is discovery evidence only until a candidate is rationalized and independently Arb-certified.
+
+
+## A 152-column exact candidate now passes the pinned selected-row design
+
+The certified escape was added to the 151-column active pool. The 1,779-row binary64 HiGHS reoptimization found objective \(0.329769894504226\), with recomputed maximum \(0.329769894504254\), support 51, new-column weight \(4.7680963914\times10^{-5}\), and primal-dual gap \(2.55\times10^{-15}\). This is only the discovery stage.
+
+The 51 positive weights were rationalized exactly and sum to one. A separate 128-bit Arb run then certified every row:
+- all 1,461 second-/fourth-order rows;
+- all 311 selected sixth-order rows;
+- all seven selected eighth-order rows.
+
+The strict result is
+\[
+\max_{r\in\mathcal R_{1779}}|e_r|
+\le
+0.329769894504730415
+<\frac13,
+\]
+with a certified margin to \(1/3\) of
+\[
+0.0035634388286029185\ldots.
+\]
+The Arb enclosure for the maximum absolute-error upper endpoint is
+\[
+[0.32976989450473041482078054778650805091\pm3.67\times10^{-40}],
+\]
+and the margin enclosure is
+\[
+[0.00356343882860291851255278554682528242\pm3.46\times10^{-39}].
+\]
+
+Evidence: **evidence/candidate_152col_selected_rows_arb_n21.json**; exact rational input: **evidence/candidate_joint_input_152col_continuous_escape_n21.json**; LP transcript: **evidence/joint_low_six_eighth_lp_152col_continuous_escape_n21.json**; verifier: **verify_152col_continuous_escape_candidate_arb.py**; successful workflow [45046016471](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45046016471); evidence commit [55ec898](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/55ec8985979af1563022d4f6e5ce1404d4b3148b).
+
+This is a rigorous exact-probability witness for the **pinned 1,779-row design**. The 1,461 second/fourth rows are complete, but the 311 sixth and seven eighth rows are selected subsets. It therefore does not establish the complete sixth/eighth maxima, all-moment control, full-family optimality, or an operational Choi/diamond-norm bound. The next decisive task is a complete 63,133-orbit sixth-order audit of this exact mixture, followed by an eighth-order strategy.
