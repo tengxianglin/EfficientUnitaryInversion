@@ -33,20 +33,27 @@ jobs:
         run: python repair_152col_full_sixth_cuts.py
       - name: Strictly Arb-certify the rationalized dual on all 152 physical columns
         run: python verify_152col_full_sixth_cut_dual.py
-      - name: Commit LP and strict dual evidence
-        if: always()
+      - name: Commit LP and strict dual evidence without rebase conflicts
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
-          for f in evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json; do
-            if [ -f "$f" ]; then git add "$f"; fi
+          mkdir -p /tmp/eui-cut-dual
+          cp evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json /tmp/eui-cut-dual/lp.json
+          cp evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json /tmp/eui-cut-dual/certificate.json
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            cp /tmp/eui-cut-dual/lp.json evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json
+            cp /tmp/eui-cut-dual/certificate.json evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json
+            git add evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Arb-certify the 152-column full-sixth cut-pool obstruction"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
           done
-          if ! git diff --cached --quiet; then
-            git commit -m "Arb-certify the 152-column full-sixth cut-pool obstruction"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
+          exit 1
       - name: Upload strict dual evidence
         if: always()
         uses: actions/upload-artifact@v4
