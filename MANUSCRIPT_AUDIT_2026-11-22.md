@@ -2,7 +2,7 @@
 
 ## Source inspected
 
-The README identifies the project as accompanying **“Efficient Inversion of Unknown Unitary Operations with Structured Hamiltonians.”** The current repository tree contains no manuscript `.tex`, `.bib`, `.pdf`, or separately versioned supplementary source. The accessible manuscript and appendices are the arXiv HTML version:
+The README identifies the project as accompanying **“Efficient Inversion of Unknown Unitary Operations with Structured Hamiltonians.”** The current repository tree contains no manuscript .tex, .bib, .pdf, or separately versioned supplementary source. The accessible manuscript and appendices are the arXiv HTML version:
 
 - https://arxiv.org/html/2506.20570v1
 - *Efficient Inversion of Unknown Unitary Operations with Structured Hamiltonians*
@@ -15,55 +15,60 @@ This audit is limited to that version and the repository state inspected on 2026
 
 ### Appendix A: exact structured inversion
 
-- Theorem A1 gives a one-query, ancilla-free inverse criterion: a Pauli operator (V) must anticommute with every Pauli term in the known support (mathcal S), yielding (VUV^dagger=U^dagger).
+- Theorem A1 gives a one-query, ancilla-free inverse criterion: a Pauli operator V must anticommute with every Pauli term in the known support S, yielding VUV†=U†.
 - Corollary A2 restates the criterion as the absence of an odd-cardinality subset of support terms whose product is proportional to identity.
-- Theorem A3 gives a ((2^L-1))-query recurrence for pairwise-commuting support terms covered by an anticommuting set (mathcal W).
-- Theorem A4 extends the recurrence to a commuting decomposition ((hat{mathcal S}_0,hat{mathcal S}_1)).
+- Theorem A3 gives a (2^L-1)-query recurrence for pairwise-commuting support terms covered by an anticommuting set W.
+- Theorem A4 extends the recurrence to a commuting decomposition (S-hat_0,S-hat_1).
 
 These are exact protocol statements under known Pauli support and their stated commutation/anticommutation assumptions. The finite moment-dual computations below neither prove nor refute those algebraic theorems.
 
 ### Appendix B: robustness evidence
 
 Appendix B models support mismatch as
-[
-H=sum_{Pinmathcal S}alpha_P P
-+deltasum_{Pinmathcal S'}eta_P P,
-]
-where (mathcal S') is the complement of the ideal support and (delta) is defined through an (L^1)-coefficient ratio. It reports 10,000 random instances and average Choi-state fidelities for several comb protocols and noise levels.
+\[
+H=\sum_{P\in S}\alpha_P P
++\delta\sum_{P\in S'}\beta_P P,
+\]
+where S' is the complement of the ideal support and delta is defined through an L1-coefficient ratio. It reports 10,000 random instances and average Choi-state fidelities for several comb protocols and noise levels.
 
 This is finite Monte Carlo evidence for average Choi fidelity. The inspected appendix does not provide a uniform worst-case channel-distance theorem, nor a theorem connecting the moment residuals in the current Ising/path analysis to the operational Choi fidelity of an implemented inverse circuit.
 
 ## Current finite-pool moment evidence (2026-11-22)
 
-The latest certified finite minimax problem uses 103 pinned legal 42-site path generators and 1,762 normalized rows:
+### Earlier 103-column result and its escape
 
-- 1,461 complete second-/fourth-order rows;
-- 256 screened sixth-order rows;
-- 38 additional sixth-order rows;
-- 7 selected eighth-order rows.
+A 128-bit Arb dual certificate for a frozen 103-column / 1,762-row pool proved a lower bound 0.3368495129681047... > 1/3. That theorem was restricted to those 103 columns and rows. Dual pricing then found ten additional canonical physical columns with strictly positive Arb reduced-cost intervals, so the 103-column dual did not separate the expanded pool. This history is recorded in THEORY_103COL_38PROBE_DUAL_OBSTRUCTION.md and its evidence files.
 
-Its binary64 HiGHS discovery objective is (0.336849522971994). A separate exact-rational dual certificate, checked with 128-bit Arb against all 103 columns, proves
-[
-min_{pinDelta_{103}}|Ap-y|_infty
-ge
-rac{828503567612290605891211277}
-{2459565876500878872300000000}
-approx 0.3368495129681047
->rac13.
-]
-The certificate has exact (|z|_1=1), slack (delta=10^{-8}), and strictly negative Arb upper bound for every pinned column inequality. See `THEORY_103COL_38PROBE_DUAL_OBSTRUCTION.md` and `evidence/38probe_103col_dual_certificate_n21.json`.
+### Current 113-column / 55-separator result
 
-The dual was then priced against all 1,538 unused columns in the frozen 1,641-column canonical path pool. The binary64 screen found 40 positive reduced-cost columns; the ten highest were independently recomputed with 128-bit Arb and all ten had strictly positive interval lower endpoints. This invalidates the 103-column dual inequalities for an expanded pool containing any of those columns; it does **not** prove an improved ensemble. The frozen evidence is in `evidence/38probe_103col_dual_pricing_screen_n21.json` and `evidence/38probe_103col_dual_pricing_arb_n21.json`.
+The latest finite LP uses 113 pinned legal 42-site path generators and 1,779 normalized rows:
 
-The 113-column reweighting has now produced an exact 46-support rational candidate with finite HiGHS objective 0.32622919649179943 on the same 1,762 rows. Its 128-bit Arb transcript passes all 1,461 low rows, 294 selected sixth rows, seven selected eighth rows, and the first 1,024 of 63,133 sixth-order orbits (85,050 six-subsets; 3,912,300 principal-minor determinant evaluations). The prefix transcript has `complete=false`; a full sixth-order scan is running in GitHub Actions workflow 45007176251. This is stronger finite evidence, but not yet a complete sixth-order maximum. All eighth-/higher-order maxima remain separate obligations.
+- 1,461 second-/fourth-order rows;
+- 311 sixth-order rows (256 screened, 38 parent probes, eight separators from the rejected 38-probe candidate, one prefix separator from the rejected 46-probe candidate, and eight separators from the rejected 47-probe candidate);
+- seven selected eighth-order rows.
+
+Its binary64 HiGHS objective is 0.36575443678254027... > 1/3. A separate exact-rational dual certificate, independently checked with 128-bit Arb against all 113 physical columns, proves
+\[
+\min_{p\in\Delta_{113}}\|Ap-y\|_\infty
+\ge
+\frac{4118028861881514868548001}
+{11258999068426240000000000}
+=0.3657544366825429...
+>\frac13.
+\]
+The exact dual has ||z||_1=1152921504606844607/1152921504606846976<1, slack delta=10^-10, and a strictly negative Arb upper endpoint for every pinned column inequality (maximum upper endpoint approximately -8.24778e-11). See THEORY_55PROBE_113COL_DUAL_OBSTRUCTION.md and evidence/55probe_113col_dual_certificate_n21.json.
+
+This rejects every convex mixture of the pinned 113 columns for this exact 1,779-row constraint set. It does not reject the remaining 1,528 canonical columns or all physical generators. The 311 sixth-order rows are not the complete set of 63,133 sixth-order dihedral orbits. The LP did not produce an admissible 1/3-candidate.
+
+A new 128-bit Arb pricing workflow is screening the remaining 1,528 canonical columns against this dual. Binary64 scores are discovery evidence only; a positive escape must be independently Arb-certified before pool expansion. A full canonical-pool obstruction would require rigorous coverage of every unused column.
 
 ## Consequence for manuscript claims
 
-The current dual certificate is a finite-pool minimax theorem, not an operational inversion-error bound. It does not imply a Choi-fidelity statement. The manuscript-level bridge remains open:
+The finite-pool dual certificate is a minimax theorem for a pinned finite set of physical generators and moment rows, not an operational inversion-error bound. It does not imply a Choi-fidelity statement. The manuscript-level bridge remains open:
 
 1. Specify the exact random/physical ensemble and the map from its moment constraints to the implemented inverse channel.
 2. Derive an explicit inequality from the relevant moment residuals to a Choi-state trace distance, diamond norm, or fidelity loss, with all dimension and normalization factors.
 3. Separate average-over-ensemble guarantees from worst-case-over-Hamiltonian guarantees.
 4. If no such bridge is available, present the moment-dual result as a distinct auxiliary theorem rather than using it to support Appendix B's robustness claim.
 
-The 103-column lower bound is restricted to its pinned rows and columns. The ten Arb-positive priced columns show why it must not be presented as a lower bound over the full canonical pool, let alone over all physical generators.
+The 113-column lower bound is restricted to its pinned rows and columns. It must not be presented as a lower bound over the full canonical pool or over all physical generators.
