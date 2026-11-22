@@ -429,3 +429,22 @@ Evidence:
 - Certificate commit: [e23dc0b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e23dc0bb776e6a1304258bd39eba664f35afe8ab).
 
 The next column-generation task is to price the remaining canonical generators against this sixth-only dual itself. The earlier 10/10 Arb-positive candidates were priced against the mixed-order 162-column dual and cannot be assumed to escape the sixth-only separator.
+
+## 2026-11-23: sixth-only theorem and pricing status
+
+The current strongest finite-pool result is the 162-generator sixth-only minimax obstruction. Its 2,106-row design has 1,461 complete second/fourth rows and 645 sixth-order rows, with no eighth-order rows. The exact rational dual has L1 norm one and support on 45 sixth-order coordinates only. All 162 physical-column inequalities passed 128-bit Arb. It proves
+\[
+\eta^{(6)}_{162}\ge
+\frac{10977154378457033940786269263}
+{23058430092137307370000000000}
+=0.47605818499326774\ldots>\frac13.
+\]
+Because its dual support lies inside the complete 63,133-orbit sixth-order domain, the bound applies to the complete sixth-order worst-row objective for mixtures over this fixed 162-generator pool. It does not exclude additional generators or the unrestricted continuous family.
+
+Evidence: `THEORY_162COL_2106ROW_SIXTH_ONLY_MINIMAX_OBSTRUCTION.md`, `evidence/55probe_162col_sixth_only_dual_certificate_n21.json`, verifier `verify_162col_sixth_only_dual_arb.py`, successful workflow [45061253393](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45061253393), certificate commit [e23dc0b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e23dc0bb776e6a1304258bd39eba664f35afe8ab).
+
+The 152-column exact candidate previously passed only the pinned 1,779 rows; a complete binary64 sixth scan found 334 violations, one independently Arb-certified. The 2,113-row mixed-order dual was not used as a sixth-only proof: a separate LP removed all eighth-order rows before the 162-column sixth-only certificate was built.
+
+The next finite-family task prices the 1,480 unused canonical paths against this sixth-only dual. The new workflow runs the binary64 screen and then independently Arb-checks up to ten highest positive candidates. Positive Arb pricing disproves this separator after adding that candidate. A negative screen or ten nonpositive Arb checks is not a certificate for all unused columns; that would require strict interval checks for every remaining column.
+
+No TeX/Bib/PDF or standalone supplementary-source files are tracked in the repository, so this audit updates the claim/evidence record rather than the original manuscript. Average Choi-fidelity numerics still do not establish a uniform worst-case channel guarantee; the per-instance moment-to-Choi/diamond bridge remains open.
