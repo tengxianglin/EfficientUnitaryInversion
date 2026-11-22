@@ -19,7 +19,6 @@ from ising_fourth_moments import FourthMoments
 from screen_ising_sixth_moments import orbit, target
 from verify_ising_sixth_escape import rotation_entries_exact
 from verify_ising_moment_pricing import ball
-from verify_full_low_moment_certificate import all_features
 
 LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
 SCAN_PATH = ROOT / "evidence/candidate_152col_complete_sixth_binary64_n21.json"
@@ -44,6 +43,21 @@ def orbit_average_minor(entries, indices):
     total = arb(0)
     for subset in group:
         total += arb_mat([[entries[i][j] for j in subset] for i in subset]).det()
+    return total / len(group)
+
+
+def active_low_feature(system, entries, row, fourth_groups):
+    if row < 21:
+        d = row + 1
+        total = arb(0)
+        for i in range(42):
+            j = (i + d) % 42
+            total += entries[i][i] * entries[j][j] - entries[i][j] * entries[j][i]
+        return total / 42
+    group = fourth_groups[row - 21]
+    total = arb(0)
+    for subset in group:
+        total += arb_mat([[entries[int(i)][int(j)] for j in subset] for i in subset]).det()
     return total / len(group)
 
 
@@ -174,25 +188,30 @@ def main():
         raise RuntimeError("dual vector dimension mismatch")
 
     z_arb = [ball(value) for value in z]
+    active_rows = [i for i, value in enumerate(z) if value]
+    active_low = [i for i in active_rows if i < 1461]
+    active_sixth = [i for i in active_rows if 1461 <= i < 1461 + len(sixth_rows)]
+    active_eighth = [i for i in active_rows if i >= 1461 + len(sixth_rows)]
+    fourth_groups = {
+        row - 21: system.indices[system.ids == (row - 21)]
+        for row in active_low if row >= 21
+    }
     base_lhs = []
     index_hash = hashlib.sha256()
     for column, couplings in zip(columns, physical_columns):
         index_hash.update(int(column).to_bytes(4, "little", signed=False))
         entries = rotation_entries_exact(couplings)
-        low_values = all_features(system, entries)
-        if len(low_values) != 1461:
-            raise RuntimeError("Arb low feature dimension mismatch")
         lhs = arb(0)
-        for row, (value, scale) in enumerate(zip(low_values, low_scales)):
-            lhs += z_arb[row] * value / ball(scale)
-        offset = 1461
-        for j, indices in enumerate(sixth_rows):
-            lhs += z_arb[offset + j] * orbit_average_minor(entries, indices) / ball(SIXTH_SCALE)
-        offset += len(sixth_rows)
-        for j, indices in enumerate(eighth_rows):
-            lhs += z_arb[offset + j] * orbit_average_minor(entries, indices) / ball(EIGHTH_SCALE)
+        for row in active_low:
+            feature = active_low_feature(system, entries, row, fourth_groups)
+            lhs += z_arb[row] * feature / ball(low_scales[row])
+        for row in active_sixth:
+            lhs += z_arb[row] * orbit_average_minor(entries, sixth_rows[row - 1461]) / ball(SIXTH_SCALE)
+        for row in active_eighth:
+            offset = 1461 + len(sixth_rows)
+            lhs += z_arb[row] * orbit_average_minor(entries, eighth_rows[row - offset]) / ball(EIGHTH_SCALE)
         base_lhs.append(lhs + ball(lam))
-        print(f"Arb-evaluated dual column {len(base_lhs)}/{len(columns)} (column {column})", flush=True)
+        print(f"Arb-evaluated dual column {len(base_lhs)}/{len(columns)} (column {column}); active rows {len(active_rows)}/{len(y)}", flush=True)
 
     deltas = [
         Fraction(0), Fraction(1, 10**12), Fraction(1, 10**10),
@@ -234,6 +253,10 @@ def main():
         "original_sixth_rows": lp["original_sixth_rows"],
         "new_unique_sixth_cuts": lp["new_unique_sixth_cuts"],
         "total_sixth_rows": len(sixth_rows),
+        "active_dual_rows": len(active_rows),
+        "active_dual_low_rows": len(active_low),
+        "active_dual_sixth_rows": len(active_sixth),
+        "active_dual_eighth_rows": len(active_eighth),
         "precision_bits": ctx.prec,
         "interval_backend": "python-flint 0.8.0 / Arb",
         "dual_convention": "z = first m HiGHS inequality marginals minus second m; lambda is the sum-to-one equality marginal",
