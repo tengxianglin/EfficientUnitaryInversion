@@ -211,3 +211,8 @@ Combining the original 151-column Arb certificate with the exhaustive 1,490-colu
 The exact dual has \(\|z\|_1=1\) and slack \(10^{-10}\). This is now a strict no-go for every convex mixture over the complete frozen 1,641-column canonical 42-site path pool on the pinned 1,779 rows. Any larger all-moment maximum containing these same normalized rows inherits the lower bound. Formal proof: `THEORY_55PROBE_1641COL_CANONICAL_POOL_OBSTRUCTION.md`; evidence: `evidence/55probe_151col_full_canonical_pool_arb_n21.json`; run [45034448993](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45034448993); commit [1cd365d](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1cd365d7254643132d784926904e315a23096e21).
 
 This does not extend to physical generators outside the frozen canonical pool and does not imply an operational Choi/diamond-norm bound. The selected sixth/eighth rows are sufficient for this lower bound but are not a complete audit of those moment domains.
+
+
+## Exact path sign-gauge reduction (2026-11-22)
+
+The path generator has 41 signed edge couplings and no closing edge. A diagonal sign matrix gauges every coupling vector to its componentwise absolute value: \(DK(c)D=K(|c|)\). Hence \(e^{K(|c|)}=De^{K(c)}D\), and every principal minor is invariant under this conjugation. All moment features in the present LP therefore depend only on the 41 coupling magnitudes. This exact reduction removes sign patterns from the full-family search, but leaves an unbounded continuous nonnegative orthant; it does not extend the 1,641-column certificate by itself. Proof: `THEORY_PATH_SIGN_GAUGE_REDUCTION.md`.
