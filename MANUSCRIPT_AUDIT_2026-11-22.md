@@ -194,3 +194,20 @@ The certified 151-column dual was screened in binary64 against all 1,490 unused 
 A dedicated verifier now evaluates every unused column with 128-bit Arb: `verify_55probe_151col_full_canonical_pool_arb.py`, run by `.github/workflows/eui-151col-full-canonical-pool-arb.yml`. It emits `evidence/55probe_151col_full_canonical_pool_arb_n21.json` and exits nonzero unless all 1,490 interval upper endpoints are strictly negative. The ordinary top-positive-candidate verifier correctly checked zero candidates because the binary64 screen had no positive candidates; it must not be mistaken for the all-pool proof.
 
 If the exhaustive Arb job passes, the 151-column dual lower bound extends to all 1,641 columns in the frozen canonical path pool, but only for the pinned 1,779 selected rows. No all-Hamiltonian, all-moment, or operational channel theorem follows.
+
+
+## Full 1,641-column canonical-pool obstruction certified (2026-11-22)
+
+The 151-column dual was extended to the entire frozen canonical pool. The new 128-bit Arb audit evaluated every one of the 1,490 unused columns; all 1,490 interval upper endpoints are strictly negative. Workflow [45034448993](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45034448993) completed successfully, including frozen-seed verification and exact orbit-enumeration tests. The worst unused-column upper endpoint is \(-0.0063598756997121345\ldots\), at canonical column 1632; the active 151-column certificate's maximum upper endpoint remains the overall limiting margin, below \(-8.3697181614344422\times10^{-11}\).
+
+Combining the original 151-column Arb certificate with the exhaustive 1,490-column audit proves
+\[
+\min_{p\in\Delta_{1641}}\|Ap-y\|_\infty
+\ge
+\frac{3963617383802565315392938733}
+{11529215046070612670000000000}
+=0.3437890062735403\ldots>\frac13.
+\]
+The exact dual has \(\|z\|_1=1\) and slack \(10^{-10}\). This is now a strict no-go for every convex mixture over the complete frozen 1,641-column canonical 42-site path pool on the pinned 1,779 rows. Any larger all-moment maximum containing these same normalized rows inherits the lower bound. Formal proof: `THEORY_55PROBE_1641COL_CANONICAL_POOL_OBSTRUCTION.md`; evidence: `evidence/55probe_151col_full_canonical_pool_arb_n21.json`; run [45034448993](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45034448993); commit [1cd365d](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1cd365d7254643132d784926904e315a23096e21).
+
+This does not extend to physical generators outside the frozen canonical pool and does not imply an operational Choi/diamond-norm bound. The selected sixth/eighth rows are sufficient for this lower bound but are not a complete audit of those moment domains.
