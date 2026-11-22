@@ -3,7 +3,7 @@
 The finite LP supplies a candidate dual vector only. This script rationalizes
 that vector, reconstructs every normalized constraint coefficient from exact
 physical inputs with Arb, and certifies the separating inequalities for all
-83 physical columns.
+93 physical columns.
 """
 import hashlib
 import json
@@ -251,7 +251,7 @@ def main():
         "scope": (
             "Rigorous lower bound for the minimum worst normalized residual over convex "
             "mixtures of these exact 93 legal physical path columns, restricted to the "
-            "1739 pinned low/sixth/selected-eighth rows. This is not a no-go theorem for "
+            "1744 pinned low/sixth/selected-eighth rows. This is not a no-go theorem for "
             "new physical columns, other Hamiltonian families, or the full program moment."
         ),
     }
