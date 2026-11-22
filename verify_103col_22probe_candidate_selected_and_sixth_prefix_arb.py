@@ -20,9 +20,9 @@ CANDIDATE_IN = ROOT / "evidence/candidate_joint_input_103col_22probe_n21.json"
 LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_103col_22probe_n21.json"
 PARENT_LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_103col_21probe_n21.json"
 PARENT_CANDIDATE_IN = ROOT / "evidence/candidate_joint_input_103col_21probe_n21.json"
-PARENT_PREFIX_IN = ROOT / "evidence/candidate_103col_22probe_selected_and_sixth_prefix_arb_n21.json"
+PARENT_PREFIX_IN = ROOT / "evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json"
 SEED_POOL_IN = ROOT / "evidence/seed_pool_n21_frozen.npy"
-OUTPUT = ROOT / "evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json"
+OUTPUT = ROOT / "evidence/candidate_103col_22probe_selected_and_sixth_prefix_arb_n21.json"
 CAP = Fraction(1, 3)
 PRECISION_BITS = 128
 PREFIX_ORBITS = 1024
@@ -100,7 +100,7 @@ def load_inputs():
     candidate_sha = sha256(candidate_raw)
     lp_sha = sha256(lp_raw)
     if candidate.get("source_sha256") != lp_sha:
-        raise RuntimeError("candidate does not pin the 103-column / 21-probe LP transcript")
+        raise RuntimeError("candidate does not pin the 103-column / 22-probe LP transcript")
     if candidate.get("parent_lp_sha256") != sha256(parent_lp_raw) or lp.get("parent_lp_sha256") != sha256(parent_lp_raw):
         raise RuntimeError("new LP/candidate does not pin the parent 103-column LP")
     if candidate.get("parent_candidate_input_sha256") != sha256(parent_candidate_raw) or lp.get("parent_candidate_input_sha256") != sha256(parent_candidate_raw):
@@ -112,7 +112,7 @@ def load_inputs():
     if parent_prefix.get("candidate_input_sha256") != sha256(parent_candidate_raw):
         raise RuntimeError("parent prefix audit does not pin the parent candidate")
     if lp.get("columns") != 103 or lp.get("rows") != 1746:
-        raise RuntimeError("unexpected 103-column / 1,745-row LP dimensions")
+        raise RuntimeError("unexpected 103-column / 1,746-row LP dimensions")
     if candidate.get("support_size") != len(candidate.get("exact_probabilities", [])):
         raise RuntimeError("candidate support metadata mismatch")
     if candidate.get("columns") != [int(row["column"]) for row in candidate["exact_probabilities"]]:
@@ -184,7 +184,7 @@ def verify_selected(candidate, lp, bank):
     sixth_rows = [tuple(row["indices"]) for row in screen_rows] + [tuple(row) for row in candidate["sixth_probe_rows"]]
     sixth_targets = [Fraction(row["target"]) for row in screen_rows] + [Fraction(x) for x in candidate["sixth_probe_targets"]]
     if len(sixth_rows) != 278:
-        raise RuntimeError("expected 256 screened and 21 Arb-certified sixth rows")
+        raise RuntimeError("expected 256 screened and 22 Arb-certified sixth rows")
     sixth_records = []
     for row_index, (indices, expected) in enumerate(zip(sixth_rows, sixth_targets)):
         moment, group = orbit_moment(bank, indices)
@@ -316,7 +316,7 @@ def main():
         "selected_blocks": selected,
         "sixth_prefix": prefix,
         "scope": (
-            "Exact-rational 103-column / 21-probe LP candidate independently checked with 128-bit Arb "
+            "Exact-rational 103-column / 22-probe LP candidate independently checked with 128-bit Arb "
             "on all 1,461 low rows, 278 selected sixth rows, and seven selected eighth rows. The first "
             "1,024 sixth-order orbits are additionally audited if selected rows pass. No complete "
             "sixth/eighth maximum, global physical optimum, or operational channel-error theorem."
