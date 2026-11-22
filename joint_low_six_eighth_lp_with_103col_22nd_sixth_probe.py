@@ -13,7 +13,7 @@ from ising_fourth_moments import FourthMoments, orbit_key
 from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import EIGHTH_ROWS, matrix, orbit_minor
 
-PARENT_LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_103col_22probe_n21.json"
+PARENT_LP_IN = ROOT / "evidence/joint_low_six_eighth_lp_103col_21probe_n21.json"
 PARENT_CANDIDATE_IN = ROOT / "evidence/candidate_joint_input_103col_21probe_n21.json"
 PREFIX_AUDIT_IN = ROOT / "evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json"
 SIXTH_SCREEN_IN = ROOT / "evidence/sixth_moment_screen_n21.json"
@@ -240,7 +240,7 @@ def main():
         if sum((Fraction(row["probability"]) for row in exact_probabilities), Fraction(0)) != 1:
             raise RuntimeError("exact rationalized candidate probabilities do not sum to one")
         candidate = {
-            "source_file": "evidence/joint_low_six_eighth_lp_103col_21probe_n21.json",
+            "source_file": "evidence/joint_low_six_eighth_lp_103col_22probe_n21.json",
             "source_sha256": lp_out_sha,
             "parent_lp_sha256": parent_lp_sha,
             "parent_candidate_input_sha256": parent_candidate_sha,
