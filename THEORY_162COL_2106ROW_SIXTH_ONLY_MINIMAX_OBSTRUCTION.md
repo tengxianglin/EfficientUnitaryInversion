@@ -99,7 +99,7 @@ interval checks for all 162 columns.
 - Strict certificate: evidence/55probe_162col_sixth_only_dual_certificate_n21.json.
 - Arb verifier: verify_162col_sixth_only_dual_arb.py.
 - Workflow: [45061253393](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45061253393).
-- Certificate commit: to be recorded from the successful workflow commit.
+- Certificate commit: [e23dc0b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e23dc0bb776e6a1304258bd39eba664f35afe8ab).
 
 ## Scope
 
