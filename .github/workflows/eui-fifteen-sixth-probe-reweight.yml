@@ -10,6 +10,8 @@ on:
       - "verify_candidate_fifteen_probes_arb.py"
       - "verify_candidate_35_fifteen_probe_sixth_bound.py"
       - "verify_fifteen_probe_dual_certificate.py"
+      - "price_unused_columns_against_fifteen_probe_dual.py"
+      - "verify_unused_columns_dual_pricing_arb.py"
       - "THEORY_35COL_FIFTEEN_PROBE_SIXTH_AUDIT.md"
       - "evidence/candidate_sixth_prefix_14probe_n21.json"
       - "evidence/candidate_sixth_prefix_7row_n21.json"
@@ -85,6 +87,10 @@ jobs:
           PY
       - name: Arb-certify a dual lower bound for the frozen 83-column pool
         run: python verify_fifteen_probe_dual_certificate.py
+      - name: Price all unused canonical physical columns against the dual
+        run: python price_unused_columns_against_fifteen_probe_dual.py
+      - name: Arb-certify the top positive pricing candidates
+        run: python verify_unused_columns_dual_pricing_arb.py
       - name: Freeze exact rational candidate
         if: steps.lp.outputs.feasible == 'true'
         run: python freeze_joint_candidate_with_fifteen_sixth_probes.py
@@ -129,7 +135,9 @@ jobs:
             evidence/candidate_selected_moments_arb_with_fifteen_sixth_probes_n21.json \
             evidence/candidate_sixth_prefix_15probe_n21.json \
             evidence/candidate_complete_sixth_bound_15probe_n21.json \
-            evidence/fifteen_probe_dual_certificate_n21.json; do
+            evidence/fifteen_probe_dual_certificate_n21.json \
+            evidence/fifteen_probe_dual_pricing_screen_n21.json \
+            evidence/fifteen_probe_dual_pricing_arb_n21.json; do
             if [ -f "$file" ]; then git add "$file"; fi
           done
           if ! git diff --cached --quiet; then
@@ -149,4 +157,6 @@ jobs:
             evidence/candidate_sixth_prefix_15probe_n21.json
             evidence/candidate_complete_sixth_bound_15probe_n21.json
             evidence/fifteen_probe_dual_certificate_n21.json
+            evidence/fifteen_probe_dual_pricing_screen_n21.json
+            evidence/fifteen_probe_dual_pricing_arb_n21.json
           if-no-files-found: warn
