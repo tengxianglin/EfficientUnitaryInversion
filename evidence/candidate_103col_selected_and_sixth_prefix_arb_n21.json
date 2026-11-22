@@ -1,0 +1,123 @@
+{
+  "status": "prefix_strict_violation",
+  "complete": false,
+  "candidate_input_sha256": "686100ee8be97d9c0e7503c6437b7735b740d3ed604b4108819c231c5d9bbedf",
+  "lp_transcript_sha256": "002df9a1f0c527cc23d682c9bf967d0e432181710c979a6d851967900e2f801a",
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 43,
+  "exact_probability_sum": "1",
+  "selected_blocks": {
+    "low": {
+      "label": "all 1,461 second/fourth rows",
+      "rows": 1461,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.31854331124602325,
+      "worst_row": {
+        "row": 962,
+        "order": 4,
+        "error_interval": "[0.3185433112460232432869962834097662 +/- 6.53e-35]"
+      },
+      "failures": [],
+      "passed": true
+    },
+    "sixth_selected": {
+      "label": "276 selected sixth rows",
+      "rows": 276,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3185433112459874,
+      "worst_row": {
+        "row": 178,
+        "indices": [
+          0,
+          2,
+          6,
+          14,
+          20,
+          38
+        ],
+        "target": "-5/19721",
+        "orbit_size": 84,
+        "error_interval": "[0.318543311245987365276510677778534 +/- 7.90e-34]"
+      },
+      "failures": [],
+      "passed": true
+    },
+    "eighth_selected": {
+      "label": "seven selected eighth rows",
+      "rows": 7,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.31854331124742896,
+      "worst_row": {
+        "row": 3,
+        "indices": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          28,
+          32,
+          36
+        ],
+        "target": "1/19721",
+        "orbit_size": 84,
+        "error_interval": "[-0.31854331124742894897556707583820 +/- 1.55e-33]"
+      },
+      "failures": [],
+      "passed": true
+    }
+  },
+  "sixth_prefix": {
+    "status": "strict_violation",
+    "complete": false,
+    "candidate_input_sha256": "686100ee8be97d9c0e7503c6437b7735b740d3ed604b4108819c231c5d9bbedf",
+    "lp_transcript_sha256": "002df9a1f0c527cc23d682c9bf967d0e432181710c979a6d851967900e2f801a",
+    "precision_bits": 128,
+    "interval_backend": "python-flint 0.8.0 / Arb",
+    "support_size": 43,
+    "requested_orbits": 1024,
+    "expected_sixth_orbits": 63133,
+    "evaluated_orbits": 57,
+    "evaluated_six_sets": 4662,
+    "principal_minor_determinant_evaluations": 200466,
+    "canonical_key_sha256": "2d43423c99e7a3d7fd0b2a29e5009137127670c986dbbcc99bfb003eef249a14",
+    "full_canonical_key_sha256": "766e648326599273bb16fd8e857b53f0fbd7b37fe97432d65853bdbf9f811021",
+    "burnside": {
+      "rotations_fixed_sum": 5247312,
+      "reflections_fixed_sum": 55860,
+      "orbits": 63133
+    },
+    "worst_midpoint": null,
+    "worst_row": null,
+    "failure": {
+      "status": "strict_violation",
+      "failure_orbit_index": 56,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        9
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        33
+      ],
+      "orbit_size": 84,
+      "target": "5/19721",
+      "error_interval": "[-0.349050076265109109129743984584175 +/- 3.40e-34]",
+      "absolute_error_lower": "[0.34905007626510910912974398458417495297 +/- 2.06e-39]",
+      "absolute_error_upper": "[0.34905007626510910912974398458417533981 +/- 4.33e-39]",
+      "evaluated_orbits": 57,
+      "evaluated_six_sets": 4662
+    },
+    "scope": "128-bit Arb audit of the first 1,024 canonical dihedral sixth-order orbits for this exact rational candidate only. A prefix pass is not a complete sixth-order certificate; a strict violation rejects this candidate only. No full eighth-order maximum or operational inversion/channel-error bound follows."
+  },
+  "scope": "Exact-rational 103-column LP candidate independently checked with 128-bit Arb on all 1,461 low rows, 276 selected sixth rows, and seven selected eighth rows. The first 1,024 sixth-order orbits are additionally audited if selected rows pass. No complete sixth/eighth maximum, global physical optimum, or operational channel-error theorem."
+}
