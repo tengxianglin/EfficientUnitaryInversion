@@ -4,43 +4,43 @@
 
 The exact-rational 51-support mixture stored in
 `evidence/candidate_joint_input_152col_continuous_escape_n21.json` is **not**
-a complete sixth-order (1/3)-witness. This is a candidate-specific
+a complete sixth-order \(1/3\)-witness. This is a candidate-specific
 counterexample, not an infeasibility result for other mixtures.
 
-For the (D_{42})-orbit represented by
-[
+For the \(D_{42}\)-orbit represented by
+\[
 I=(0,1,8,18,25,35),
-]
+\]
 whose orbit has size 42, define the orbit-averaged sixth principal minor
-[
-ar m_I(R)=rac1{42}sum_{Jin D_{42}cdot I}det R[J,J].
-]
-The target and normalization scale are both (5/19721).
+\[
+\bar m_I(R)=\frac1{42}\sum_{J\in D_{42}\cdot I}\det R[J,J].
+\]
+The target and normalization scale are both \(5/19721\).
 
-Using the exact rational probabilities (p_k) and exact rational couplings
+Using the exact rational probabilities \(p_k\) and exact rational couplings
 for all 51 support columns, a 128-bit Arb computation certifies
-[
-M_I=sum_k p_kar m_I(R_k)
-in
+\[
+M_I=\sum_k p_k\bar m_I(R_k)
+\in
 [0.0004662790811077881589302992545605108
-pm 5.56	imes10^{-38}],
-]
+\pm 5.56\times10^{-38}],
+\]
 and hence
-[
-rac{|M_I-5/19721|}{5/19721}
-in
+\[
+\frac{|M_I-5/19721|}{5/19721}
+\in
 [0.839097951705338056452886319837567
-pm2.78	imes10^{-34}]
->rac13.
-]
-The interval lower endpoint is strictly above (1/3); this is a rigorous
+\pm2.78\times10^{-34}]
+>\frac13.
+\]
+The interval lower endpoint is strictly above \(1/3\); this is a rigorous
 failure of the full-sixth cap for this exact mixture.
 
 ## Exhaustive floating-point context
 
-A separate complete binary64 scan evaluated all 63,133 (D_{42}) sixth-order
+A separate complete binary64 scan evaluated all 63,133 \(D_{42}\) sixth-order
 orbits, covering all 5,245,786 six-subsets. It found 334 rows with normalized
-absolute error at least (1/3), with maximum 0.8390979517059564 at the same
+absolute error at least \(1/3\), with maximum 0.8390979517059564 at the same
 representative. The scan also checked the sixth elementary-symmetric signed
 sum, obtaining -1329.9999999999989 versus the exact -1330.
 
