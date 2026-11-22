@@ -69,7 +69,8 @@ jobs:
           from pathlib import Path
           p = json.loads(Path("evidence/candidate_eighth_probe_arb_n21.json").read_text())
           assert p["strict_violation"] is True
-          assert Fraction(p["strict_upper"]) == Fraction(1, 3)
+          assert Fraction(p["certified_error_lower_bound"]) > Fraction(p["failed_cap"])
+          assert Fraction(p["failed_cap"]) == Fraction(1, 3)
           assert p["precision_bits"] >= 128
           assert p["support_size"] == 29
           assert p["dihedral_orbit_size"] == 42
