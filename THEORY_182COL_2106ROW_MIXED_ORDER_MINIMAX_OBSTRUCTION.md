@@ -24,8 +24,9 @@ with all other entries zero, and \(R(c)=e^{K(c)}\).
 
 Let \(\mathcal O_k(I)=\{gI:g\in D_{42}\}\) be the dihedral orbit of a \(k\)-subset. The unnormalized second-order features and targets are
 \[
+I_{i,d}=\{i,(i+d)\bmod42\},\qquad
 b_d^{(2)}(c)=\frac1{42}\sum_{i=0}^{41}
-\det R(c)_{\{i,i+d\},\{i,i+d\}},
+\det R(c)_{I_{i,d},I_{i,d}},
 \qquad
 \tau_d^{(2)}=\frac{(-1)^{d+1}}{41},
 \quad d=1,\ldots,21.
@@ -55,12 +56,12 @@ s_2=\frac1{41},\qquad
 s_4=\frac{\binom{21}{2}}{\binom{42}{4}},\qquad
 s_6=\frac5{19721}.
 \]
-The normalized feature column \(a(c)\) contains \(b_d^{(2)}(c)/s_2\), \(b_I^{(4)}(c)/s_4\), and \(b_I^{(6)}(c)/s_6\), in that order; \(y\) contains the corresponding exact target entries divided by the same scales. Thus the 2,106 rows are 21 second-order rows, 1,440 complete fourth-order orbit rows, and 645 pinned sixth-order orbit rows. The sixth-row inventory is frozen by SHA256 5ea65e5c906046cf82253202563b01e86a3aeddbdc1ff2ac4d01127147132abb.
+The normalized feature column \(a(c)\) contains \(b_d^{(2)}(c)/s_2\), \(b_I^{(4)}(c)/s_4\), and \(b_I^{(6)}(c)/s_6\), in that order; \(y\) contains the corresponding exact target entries divided by the same scales. Thus the 2,106 rows are 21 second-order rows, 1,440 complete fourth-order orbit rows, and 645 pinned sixth-order orbit rows. Let \(\mathcal R\) denote this row set. The sixth-row inventory is frozen by SHA256 5ea65e5c906046cf82253202563b01e86a3aeddbdc1ff2ac4d01127147132abb.
 
 For \(p\in\Delta(\mathcal P_{182})\), define the selected-row residual
 \[
 e(p)=\sum_{c\in\mathcal P_{182}}p_c a(c)-y.
-\}
+\]
 Then every probability distribution on this fixed physical pool satisfies
 \[
 \boxed{
