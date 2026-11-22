@@ -57,6 +57,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
           p = json.loads(Path("evidence/candidate_sixth_prefix_7row_n21.json").read_text())
           print(json.dumps({
@@ -66,7 +67,7 @@ jobs:
               "evaluated_six_sets": p["evaluated_six_sets"],
               "failures": p["failures"][:1],
           }, indent=2))
-          with open("$GITHUB_OUTPUT", "a") as f:
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write("passed=" + ("true" if p["passed"] else "false") + "\\n")
           PY
       - name: Run complete sixth-order Arb audit
