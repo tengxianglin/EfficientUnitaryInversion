@@ -103,6 +103,25 @@ The workflow 45016441616 completed successfully. The certificate pins the LP tra
 b81c2a157600964d5e53b30f80e1d442d9038a4b7821b3a544dc07314995620b
 and uses python-flint 0.8.0 / Arb at 128-bit precision.
 
+## Subsequent pricing audit
+
+The binary64 screen evaluated all 1,528 unused columns in the frozen 1,641-column canonical pool and found 66 positive reduced-cost candidates. The ten highest were recomputed with 128-bit Arb; all ten have strictly positive interval lower endpoints:
+
+| Canonical column | Arb pricing-score midpoint |
+|---:|---:|
+| 1191 | 1.904864566442829 |
+| 916 | 0.353777205608189 |
+| 700 | 0.298966614735090 |
+| 974 | 0.283417152138051 |
+| 127 | 0.263839353949600 |
+| 889 | 0.260435669707527 |
+| 910 | 0.189795683724497 |
+| 107 | 0.170572293344781 |
+| 902 | 0.161498318013650 |
+| 355 | 0.143046576992306 |
+
+This strictly invalidates the 113-column dual inequalities for a pool expanded by any of these ten columns. It does not prove an improved ensemble. The frozen pricing transcripts are evidence/55probe_113col_dual_pricing_screen_n21.json and evidence/55probe_113col_dual_pricing_arb_n21.json.
+
 ## Next decisive action
 
-Price the remaining 1,528 canonical columns against this new dual. Binary64 scores are only a discovery screen; any candidate escape must be recomputed with Arb before adding it to the physical pool. If no positive column is found, a full-pool obstruction requires rigorous verification of every remaining column, not merely the top few float scores.
+Reoptimize the 1,779-row finite problem over the 123-column pool formed by the 113 certified columns plus these ten Arb-positive escapes. A sub-1/3 LP solution is only a candidate: its rationalized probabilities still require independent Arb checks on all selected rows and a fresh sixth-order prefix. If the 123-column LP remains above 1/3, certify its dual and continue pricing the remaining canonical columns.
