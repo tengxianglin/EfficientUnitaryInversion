@@ -1,0 +1,57 @@
+name: EUI 93-column 20-probe dual certificate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-20probe-93col-dual-cert.yml"
+      - "verify_twenty_probe_93col_dual_certificate.py"
+      - "THEORY_20PROBE_93COL_DUAL.md"
+      - "evidence/joint_low_six_eighth_lp_with_twenty_sixth_probes_expanded_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certify-93-column-dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5"
+      - name: Verify frozen seed pool and exact orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Verify exact 93-column dual separation
+        run: python verify_twenty_probe_93col_dual_certificate.py
+      - name: Commit rigorous dual certificate
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          if [ -f evidence/twenty_probe_93col_dual_certificate_n21.json ]; then
+            git add evidence/twenty_probe_93col_dual_certificate_n21.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Record 93-column 20-probe Arb dual certificate"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload dual certificate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-20probe-93col-dual
+          path: evidence/twenty_probe_93col_dual_certificate_n21.json
+          if-no-files-found: warn
