@@ -165,3 +165,23 @@ The 151-column reoptimization using those eight Arb-positive columns is running 
 ## 151-column reoptimization (2026-11-22)
 
 The eight Arb-positive escapes of the 143-column dual were added to form a 151-column pool. The 1,779-row HiGHS LP completed with objective 0.3437890063736484, 52 positive weights, recomputed maximum residual 0.3437890063766349, and primal-dual discovery gap (4.43\times10^{-14}). It produced no sub-1/3 candidate. Transcript SHA256: `341247c5ceddd5d07b1758b56ff6a7ed1f01f4c05e3e5dd83ead0319046fbaa0`; evidence: `evidence/joint_low_six_eighth_lp_151col_55probe_n21.json`. The raw binary64 dual L1 norm is slightly above one (1.0000000000001859); the 151-column verifier rationalizes and rescales it before interval certification. Workflow [45024474393](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024474393) is performing the 128-bit Arb checks of all 151 column inequalities.
+
+
+## 151-column Arb certificate completed (2026-11-22)
+
+The pending 151-column dual audit has completed successfully. Workflow [45024474393](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024474393) rationalized/rescaled the HiGHS dual and used 128-bit Arb to verify all 151 column inequalities. It proves
+\[
+\min_{p\in\Delta_{151}}\|Ap-y\|_\infty
+\ge
+\frac{3963617383802565315392938733}
+{11529215046070612670000000000}
+=0.3437890062735403\ldots>\frac13.
+\]
+The exact dual has \(\|z\|_1=1\), slack \(10^{-10}\), and maximum Arb upper endpoint below \(-8.3697181614344422\times10^{-11}\). The exact gap above \(1/3\) is
+\[
+\frac{361637105337083276178816199}
+{34587645138211838010000000000}.
+\]
+Proof: `THEORY_55PROBE_151COL_DUAL_OBSTRUCTION.md`; certificate: `evidence/55probe_151col_dual_certificate_n21.json`; certificate commit: [4c76f28](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4c76f2843ac9e5e94820a89a2b4aeb611186ef0b).
+
+This is a finite-pool theorem on the exact 1,779 selected rows only. It is not a no-go over the remaining 1,490 canonical columns, all physical generators, the complete sixth/eighth moment domains, or operational channel distance. The next action is to price the remaining canonical columns against this certified 151-column dual and Arb-check every positive candidate.
