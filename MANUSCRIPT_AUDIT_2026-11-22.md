@@ -125,3 +125,14 @@ The 133-column dual was used to price the full remaining canonical pool. The bin
 A 143-column LP was then reoptimized on the same 1,779 rows. Its binary64 HiGHS objective is 0.34406530610030656, with 47 positive weights and a primal-dual discovery gap of approximately 2.50e-15. No sub-1/3 candidate was produced. Transcript SHA256: `5642e2b04e50cf1954f621464691e2a83736f06e5fb120f0b5c370b001c0ebc8`; evidence: `evidence/joint_low_six_eighth_lp_143col_55probe_n21.json`. This objective remains numerical discovery evidence until the 143-column rationalized dual is certified. The 128-bit Arb certification is running in workflow [45023774747](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45023774747).
 
 The 143-column theorem, if certified, will still concern only the exact 1,779 selected rows and the pinned 143 physical columns. It cannot be promoted to a full-canonical-pool or all-physical-family lower bound.
+
+
+## Rigorous limitation of average Choi-fidelity evidence (2026-11-22)
+
+A separate closed-form counterexample now makes the operational-claim gap explicit; see `THEORY_CHOI_FIDELITY_VS_DIAMOND_COUNTEREXAMPLE.md`.
+
+For (W_d=\operatorname{diag}(1,\ldots,1,-1)), the normalized Choi fidelity relative to the identity channel is ((d-2)^2/d^2\to1), while a two-level superposition of the first and last basis states makes the output states orthogonal, giving the exact diamond distance (2). Thus there is no dimension-independent function tending to zero with Choi infidelity that bounds the diamond distance.
+
+Even at fixed (d=2), an ensemble that is ideal with probability (1-\varepsilon) and applies (Z) with probability (\varepsilon) has mean Choi fidelity (1-\varepsilon\to1), while its worst-case diamond distance remains (2). This is a mathematical counterexample to inferring a uniform guarantee from an average alone; it is not a claim that this bad channel is realized by the current EUI physical family.
+
+Accordingly, Appendix B's finite-sample mean Choi fidelities may support empirical average-performance statements for the sampled distribution, but not worst-case-over-input or worst-case-over-Hamiltonian guarantees without additional uniform or tail assumptions. A dimension-aware operational theorem remains open.
