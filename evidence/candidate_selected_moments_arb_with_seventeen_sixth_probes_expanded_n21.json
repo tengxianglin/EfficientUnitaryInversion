@@ -1,0 +1,70 @@
+{
+  "candidate_input_sha256": "028b3d27e291bb6963d247ee41ef8e7728c5a044b09c8c6fd02a12d2e349bfaa",
+  "lp_transcript_sha256": "ca2e4052040b3ddcab2ae91960c27a6c893def48aa6b7d252e67140d80fb6c12",
+  "parent_candidate_input_sha256": "ac789d6fa678a4759c13d3d5588253e57d63e5a448946bdd9bb915369d401d80",
+  "sixth_prefix_transcript_git_blob_sha1s": [
+    "6604c6727b075b79ceca438b01faadbbb0ebbd19",
+    "4827a61b30abdfdab2675eac6df557e71081294e",
+    "6b655f83d87b9ea24f9394355ef1aa8c4633136e",
+    "8578b04b4af392e34b57673a24e83c0c710f8563",
+    "520c98d1d6bfea8f3b5676cdece12de7ff0ec7c8"
+  ],
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 39,
+  "exact_probability_sum": "1",
+  "certified_blocks": {
+    "low_all_rows": {
+      "rows": 1461,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3304002020877571,
+      "worst_row": {
+        "row": 1444,
+        "order": 4,
+        "error_interval": "[0.3304002020877570844408554547018001 +/- 6.28e-35]"
+      }
+    },
+    "sixth_screen_and_fifteen_probes": {
+      "rows": 273,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3304002020901504,
+      "worst_row": {
+        "row": 178,
+        "source": "screen",
+        "indices": [
+          0,
+          2,
+          6,
+          14,
+          20,
+          38
+        ],
+        "target": "-5/19721",
+        "error_interval": "[0.330400202090150445219236097745037 +/- 4.82e-34]",
+        "orbit_size": 84
+      }
+    },
+    "eighth_selected_only": {
+      "rows": 7,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.33040020209186016,
+      "worst_row": {
+        "row": 3,
+        "indices": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          28,
+          32,
+          36
+        ],
+        "target": "1/19721",
+        "error_interval": "[-0.33040020209186016045044572411674 +/- 4.05e-33]",
+        "orbit_size": 84
+      }
+    }
+  },
+  "scope": "Arb certification of all 1461 low rows, 271 selected sixth rows (256 screen plus fifteen strict separators), and seven selected eighth rows for this exact rational candidate. This is not a complete sixth/eighth maximum or an operational inversion bound."
+}
