@@ -111,6 +111,12 @@ def load_inputs():
         raise RuntimeError("parent candidate does not pin the parent LP")
     if parent_prefix.get("candidate_input_sha256") != sha256(parent_candidate_raw):
         raise RuntimeError("parent prefix audit does not pin the parent candidate")
+    prefix_failure = parent_prefix.get("sixth_prefix", {}).get("failure")
+    separator = candidate.get("new_sixth_separator")
+    if not prefix_failure or prefix_failure.get("status") != "strict_violation":
+        raise RuntimeError("parent prefix audit has no strict Arb sixth-order separator")
+    if not separator or separator.get("indices") != prefix_failure.get("indices") or separator.get("target") != prefix_failure.get("target"):
+        raise RuntimeError("new LP separator does not match the parent Arb failure row")
     if lp.get("columns") != 103 or lp.get("rows") != 1746:
         raise RuntimeError("unexpected 103-column / 1,746-row LP dimensions")
     if candidate.get("support_size") != len(candidate.get("exact_probabilities", [])):
