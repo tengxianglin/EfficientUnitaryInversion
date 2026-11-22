@@ -19,7 +19,7 @@ only the dual-vector discovery step. The rigorous result is the independently
 reconstructed Arb dual certificate in
 `evidence/fifteen_probe_dual_certificate_n21.json`.
 
-The exact rational witness has
+The exact rational witness, pinned to LP transcript SHA256 `9ea11822609963403194bdf7b507e02debb8e77836d9964bb7549721bd249911`, has
 
 [
 \|z\|_1=1,
@@ -34,9 +34,9 @@ and therefore
 
 [
 L-\frac13
-=\frac{99786045567302226169841843}
-{34587645138301581570000000000}
-\approx0.0028850199303334877>0.
+=\frac{399144183259618584698661563}
+{138350580553013384370000000000}
+\approx0.002885019937496207>0.
 ]
 
 At 128-bit Arb precision, every one of the 83 exact physical columns satisfies
