@@ -171,7 +171,7 @@ def load_exact_candidate():
     seed_hash = sha256(seed.tobytes())
     if seed.shape != (1600, 42) or seed_hash != EXPECTED_SEED_POOL_SHA256:
         raise RuntimeError("frozen seed-pool hash or shape mismatch")
-    return candidate, candidate_sha, lp_sha, parent_lp_sha, dual_sha, pricing_arb_sha, current_prefix_sha
+    return candidate, candidate_sha, lp_sha, parent_lp_sha, dual_sha, pricing_arb_sha, current_prefix_sha, audit_sha
 
 def initialize_worker(candidate, candidate_sha, lp_sha, precision_bits):
     global BANK, CANDIDATE_SHA, LP_SHA
@@ -262,7 +262,7 @@ def certify_shard(shard_id, start, keys):
 def verify(workers=8, limit=None, precision_bits=128):
     if not 1 <= workers <= 8:
         raise ValueError("workers must be between 1 and 8")
-    candidate, candidate_sha, lp_sha, parent_lp_sha, dual_sha, pricing_arb_sha, current_prefix_sha = load_exact_candidate()
+    candidate, candidate_sha, lp_sha, parent_lp_sha, dual_sha, pricing_arb_sha, current_prefix_sha, audit_sha = load_exact_candidate()
     keys = orbit_keys(42)
     burnside_result = burnside(42)
     if len(keys) != EXPECTED_ORBITS or burnside_result["orbits"] != EXPECTED_ORBITS:
