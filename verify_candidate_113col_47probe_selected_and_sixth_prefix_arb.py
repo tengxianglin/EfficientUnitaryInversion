@@ -244,7 +244,7 @@ def load_inputs():
             raise RuntimeError(f"candidate column {column} is not a legal 42-site path generator")
         entries = rotation_entries_exact(couplings)
         bank.append((ball(Fraction(record["probability"])), entries))
-    return candidate, lp, candidate_sha, lp_sha, audit_sha, bank
+    return candidate, lp, candidate_sha, lp_sha, audit_sha, prefix_audit_sha, bank
 
 def verify_selected(candidate, lp, bank):
     ctx.prec = PRECISION_BITS
