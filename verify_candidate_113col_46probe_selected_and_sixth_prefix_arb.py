@@ -216,7 +216,7 @@ def load_inputs():
             raise RuntimeError(f"candidate column {column} is not a legal 42-site path generator")
         entries = rotation_entries_exact(couplings)
         bank.append((ball(Fraction(record["probability"])), entries))
-    return candidate, lp, candidate_sha, lp_sha, bank
+    return candidate, lp, candidate_sha, lp_sha, audit_sha, bank
 
 def verify_selected(candidate, lp, bank):
     ctx.prec = PRECISION_BITS
@@ -356,7 +356,7 @@ def verify_sixth_prefix(candidate, candidate_sha, lp_sha, bank):
 
 def main():
     ctx.prec = PRECISION_BITS
-    candidate, lp, candidate_sha, lp_sha, bank = load_inputs()
+    candidate, lp, candidate_sha, lp_sha, audit_sha, bank = load_inputs()
     selected = verify_selected(candidate, lp, bank)
     selected_pass = all(selected[key]["passed"] for key in selected)
     prefix = verify_sixth_prefix(candidate, candidate_sha, lp_sha, bank) if selected_pass else None
