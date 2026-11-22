@@ -1,0 +1,115 @@
+name: EUI reweight against eight Arb sixth-order separators
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-eight-sixth-probe-reweight.yml"
+      - "joint_low_six_eighth_lp_with_eight_sixth_probes.py"
+      - "freeze_joint_candidate_with_eight_sixth_probes.py"
+      - "verify_candidate_eight_probes_arb.py"
+      - "THEORY_34COL_SIXTH_COUNTEREXAMPLE_AND_REWEIGHT.md"
+      - "evidence/candidate_sixth_prefix_7row_n21.json"
+      - "evidence/candidate_sixth_prefix_12row_n21.json"
+      - "evidence/candidate_joint_input_with_sixth_probes_n21.json"
+      - "evidence/candidate_joint_input_7row_n21.json"
+      - "evidence/candidate_joint_input_n21.json"
+      - "evidence/joint_low_six_eighth_lp_with_probe_n21.json"
+      - "evidence/candidate_eighth_probe_arb_n21.json"
+      - "evidence/seed_pool_n21_frozen.npy"
+      - "evidence/seed_pool_n21_frozen.json"
+      - "evidence/sixth_moment_screen_n21.json"
+      - "audit_complete_sixth_moments.py"
+      - "screen_ising_sixth_moments.py"
+      - "verify_ising_sixth_escape.py"
+      - "verify_ising_moment_pricing.py"
+      - "verify_full_low_moment_certificate.py"
+      - "ising_fourth_moments.py"
+      - "joint_low_six_eighth_lp.py"
+      - "joint_low_six_eighth_lp_with_sixth_probes.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reweight-and-certify-selected:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Verify frozen seed pool
+        run: python freeze_seed_pool.py
+      - name: Add eight Arb-certified sixth rows and solve the finite LP
+        run: |
+          python joint_low_six_eighth_lp_with_eight_sixth_probes.py > evidence/joint_low_six_eighth_lp_with_eight_sixth_probes_n21.json
+      - name: Check finite LP dimensions and cap
+        id: lp
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          p = json.loads(Path("evidence/joint_low_six_eighth_lp_with_eight_sixth_probes_n21.json").read_text())
+          assert p["columns"] == 83
+          assert p["rows"] == 1732
+          assert p["row_blocks"] == {
+              "low": 1461,
+              "sixth_screen": 256,
+              "sixth_certified_probes": 8,
+              "selected_eighth": 7,
+          }
+          assert len(p["sixth_probe_rows"]) == 8
+          print(json.dumps({
+              "lp_max": p["lp_max"],
+              "baseline_max": p["baseline_max"],
+              "block_maxima": p["block_maxima"],
+              "positive_support": len(p["lp_positive_weights"]),
+              "finite_candidate_below_cap": p["finite_candidate_below_cap"],
+          }, indent=2))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("feasible=" + ("true" if p["finite_candidate_below_cap"] else "false") + "\n")
+          PY
+      - name: Freeze exact rational candidate
+        if: steps.lp.outputs.feasible == 'true'
+        run: python freeze_joint_candidate_with_eight_sixth_probes.py
+      - name: Arb-certify all low rows, 264 selected sixth rows, and seven selected eighth rows
+        if: steps.lp.outputs.feasible == 'true'
+        run: python verify_candidate_eight_probes_arb.py
+      - name: Commit LP and Arb evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          git add evidence/joint_low_six_eighth_lp_with_eight_sixth_probes_n21.json
+          if [ -f evidence/candidate_joint_input_with_eight_sixth_probes_n21.json ]; then
+            git add evidence/candidate_joint_input_with_eight_sixth_probes_n21.json
+          fi
+          if [ -f evidence/candidate_selected_moments_arb_with_eight_sixth_probes_n21.json ]; then
+            git add evidence/candidate_selected_moments_arb_with_eight_sixth_probes_n21.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Freeze reweighting against eight certified sixth-order probes"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload finite LP and selected Arb evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-eight-sixth-probe-reweight-${{ github.sha }}
+          path: |
+            evidence/joint_low_six_eighth_lp_with_eight_sixth_probes_n21.json
+            evidence/candidate_joint_input_with_eight_sixth_probes_n21.json
+            evidence/candidate_selected_moments_arb_with_eight_sixth_probes_n21.json
+          if-no-files-found: warn
