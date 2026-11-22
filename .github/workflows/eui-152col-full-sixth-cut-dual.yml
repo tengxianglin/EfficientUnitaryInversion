@@ -1,0 +1,58 @@
+name: EUI Arb-certify the 152-column full-sixth cut-pool obstruction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "repair_152col_full_sixth_cuts.py"
+      - "verify_152col_full_sixth_cut_dual.py"
+      - ".github/workflows/eui-152col-full-sixth-cut-dual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certify-cut-pool-dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned interval and numerical stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Restore and verify frozen seed pool
+        run: python freeze_seed_pool.py
+      - name: Recompute the 2,113-row 152-column cutting-plane LP and save dual multipliers
+        run: python repair_152col_full_sixth_cuts.py
+      - name: Strictly Arb-certify the rationalized dual on all 152 physical columns
+        run: python verify_152col_full_sixth_cut_dual.py
+      - name: Commit LP and strict dual evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          for f in evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Arb-certify the 152-column full-sixth cut-pool obstruction"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload strict dual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-152col-full-sixth-cut-dual
+          path: |
+            evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json
+            evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json
+          if-no-files-found: warn
