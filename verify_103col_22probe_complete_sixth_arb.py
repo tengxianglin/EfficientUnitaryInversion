@@ -22,6 +22,7 @@ LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_103col_22probe_n21.json"
 PARENT_LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_103col_21probe_n21.json"
 PARENT_CANDIDATE_PATH = ROOT / "evidence/candidate_joint_input_103col_21probe_n21.json"
 PARENT_PREFIX_PATH = ROOT / "evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json"
+CURRENT_PREFIX_PATH = ROOT / "evidence/candidate_103col_22probe_selected_and_sixth_prefix_arb_n21.json"
 SEED_POOL_PATH = ROOT / "evidence/seed_pool_n21_frozen.npy"
 DEFAULT_OUTPUT = ROOT / "evidence/candidate_103col_22probe_complete_sixth_arb_n21.json"
 
@@ -54,9 +55,11 @@ def load_exact_candidate():
     parent_lp_raw = PARENT_LP_PATH.read_bytes()
     parent_candidate_raw = PARENT_CANDIDATE_PATH.read_bytes()
     parent_prefix_raw = PARENT_PREFIX_PATH.read_bytes()
+    current_prefix_raw = CURRENT_PREFIX_PATH.read_bytes()
     parent_lp = json.loads(parent_lp_raw)
     parent_candidate = json.loads(parent_candidate_raw)
     parent_prefix = json.loads(parent_prefix_raw)
+    current_prefix = json.loads(current_prefix_raw)
 
     if candidate.get("source_sha256") != lp_sha:
         raise RuntimeError("candidate does not pin the 22-probe LP transcript")
@@ -70,6 +73,12 @@ def load_exact_candidate():
         raise RuntimeError("parent candidate does not pin its LP")
     if parent_prefix.get("candidate_input_sha256") != sha256(parent_candidate_raw):
         raise RuntimeError("parent prefix audit does not pin its candidate")
+    if current_prefix.get("status") != "prefix_pass" or current_prefix.get("complete") is not False:
+        raise RuntimeError("current 22-probe candidate has not passed the strict sixth-prefix audit")
+    if current_prefix.get("candidate_input_sha256") != candidate_sha or current_prefix.get("lp_transcript_sha256") != lp_sha:
+        raise RuntimeError("current prefix audit does not pin the exact 22-probe candidate")
+    if current_prefix.get("precision_bits", 0) < 128 or current_prefix.get("sixth_prefix", {}).get("evaluated_orbits") != 1024:
+        raise RuntimeError("current prefix audit is not a complete 1,024-orbit 128-bit Arb prefix")
     prefix_failure = parent_prefix.get("sixth_prefix", {}).get("failure")
     separator = candidate.get("new_sixth_separator")
     if not prefix_failure or prefix_failure.get("status") != "strict_violation":
@@ -264,6 +273,7 @@ def verify(workers=8, limit=None, precision_bits=128):
         "lp_transcript_sha256": lp_sha,
         "parent_candidate_input_sha256": sha256(PARENT_CANDIDATE_PATH.read_bytes()),
         "parent_prefix_audit_sha256": sha256(PARENT_PREFIX_PATH.read_bytes()),
+        "current_prefix_audit_sha256": sha256(CURRENT_PREFIX_PATH.read_bytes()),
         "seed_pool_sha256_le_f64": EXPECTED_SEED_POOL_SHA256,
         "precision_bits": precision_bits,
         "interval_backend": "python-flint 0.8.0 / Arb",
