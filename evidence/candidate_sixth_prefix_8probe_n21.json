@@ -1,0 +1,484 @@
+{
+  "status": "strict_violation",
+  "passed": false,
+  "complete": false,
+  "base_commit": "c152eeb1f745d2e7796f9850dd90cfeb35a6c0ac",
+  "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e",
+  "lp_transcript_sha256": "3a0057df00fe5bcc0ab0f821e6891b571f0524813df18df22a5eefc11538fd46",
+  "parent_candidate_input_sha256": "00ba81adfcbebb02137e02b75a7f180d0bf528f71a4bdaa8afe9b9e2b19b7e99",
+  "sixth_prefix_transcript_git_blob_sha1s": [
+    "6604c6727b075b79ceca438b01faadbbb0ebbd19",
+    "4827a61b30abdfdab2675eac6df557e71081294e"
+  ],
+  "seed_pool_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 35,
+  "strict_error_upper": null,
+  "requested_orbits": 1024,
+  "expected_sixth_orbits": 63133,
+  "evaluated_six_sets": 43890,
+  "expected_six_sets": 5245786,
+  "principal_minor_determinant_evaluations": 1536150,
+  "canonical_key_sha256": "2d43423c99e7a3d7fd0b2a29e5009137127670c986dbbcc99bfb003eef249a14",
+  "burnside": {
+    "rotations_fixed_sum": 5247312,
+    "reflections_fixed_sum": 55860,
+    "orbits": 63133
+  },
+  "shards": [
+    {
+      "passed": true,
+      "shard": 0,
+      "start": 0,
+      "stop": 128,
+      "orbits": 128,
+      "six_sets": 10542,
+      "key_sha256": "93a12b1594432f64b330681762c90e05fd9d3c76ad2c247fa5ad0a8cbabf38c8",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e",
+      "lp_transcript_sha256": "3a0057df00fe5bcc0ab0f821e6891b571f0524813df18df22a5eefc11538fd46",
+      "worst_midpoint": 0.3308327201724651,
+      "worst_row": {
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          12
+        ],
+        "cyclic_gap_key": [
+          1,
+          1,
+          1,
+          2,
+          7,
+          30
+        ],
+        "orbit_size": 84,
+        "error_interval": "[-0.330832720172465110264305217008617 +/- 1.63e-34]"
+      },
+      "strict_row_cap": "1/3"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 1,
+      "start": 128,
+      "failure_orbit_index": 148,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        9,
+        11
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        1,
+        6,
+        2,
+        31
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.343128609123069313653915277823314 +/- 4.89e-34]",
+      "absolute_error_lower": "[0.34312860912306931365391527782331351119 +/- 1.72e-39]",
+      "absolute_error_upper": "[0.34312860912306931365391527782331379450 +/- 5.48e-40]",
+      "evaluated_orbits": 21,
+      "evaluated_six_sets": 1722,
+      "key_sha256_evaluated_prefix": "f9ca3597ec7344d5d702328494649742ac79bb9b49d5f2902c326ffd878296af",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 2,
+      "start": 256,
+      "failure_orbit_index": 261,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        13,
+        32
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        1,
+        10,
+        19,
+        10
+      ],
+      "orbit_size": 42,
+      "target": "5/19721",
+      "error_interval": "[0.338338645637823671004349730257512 +/- 5.78e-34]",
+      "absolute_error_lower": "[0.33833864563782367100434973025751142219 +/- 3.18e-39]",
+      "absolute_error_upper": "[0.33833864563782367100434973025751178724 +/- 4.70e-40]",
+      "evaluated_orbits": 6,
+      "evaluated_six_sets": 462,
+      "key_sha256_evaluated_prefix": "88b3c1ea9ef1332c18c6569a3af6c1c001a0f51e09cfa91e6bfe05a3c86b6e25",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 3,
+      "start": 384,
+      "failure_orbit_index": 388,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        17
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        2,
+        11,
+        25
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.356620314095910160479753651747528 +/- 5.79e-34]",
+      "absolute_error_lower": "[0.35662031409591016047975365174752826786 +/- 1.56e-39]",
+      "absolute_error_upper": "[0.35662031409591016047975365174752857840 +/- 2.23e-39]",
+      "evaluated_orbits": 5,
+      "evaluated_six_sets": 420,
+      "key_sha256_evaluated_prefix": "7b639359e5d335620b1e398a403c0c4fa132c8cc237e1544fbd4fd57b40062b3",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 4,
+      "start": 512,
+      "failure_orbit_index": 574,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        12,
+        20
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        8,
+        8,
+        22
+      ],
+      "orbit_size": 84,
+      "target": "5/19721",
+      "error_interval": "[0.350424515295872939390266351420249 +/- 5.01e-34]",
+      "absolute_error_lower": "[0.35042451529587293939026635142024849957 +/- 2.22e-39]",
+      "absolute_error_upper": "[0.35042451529587293939026635142024889131 +/- 1.59e-39]",
+      "evaluated_orbits": 63,
+      "evaluated_six_sets": 5292,
+      "key_sha256_evaluated_prefix": "2aab8572b5570760fe3500efee884b7033daf3b61975f31c5009e85d2c6432fd",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": true,
+      "shard": 5,
+      "start": 640,
+      "stop": 768,
+      "orbits": 128,
+      "six_sets": 10752,
+      "key_sha256": "849ad47abf5549a26c244c01d7f72643ecc27536926fd444cb18329559f68694",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e",
+      "lp_transcript_sha256": "3a0057df00fe5bcc0ab0f821e6891b571f0524813df18df22a5eefc11538fd46",
+      "worst_midpoint": 0.3306052154045317,
+      "worst_row": {
+        "indices": [
+          0,
+          1,
+          2,
+          4,
+          15,
+          40
+        ],
+        "cyclic_gap_key": [
+          1,
+          1,
+          2,
+          11,
+          25,
+          2
+        ],
+        "orbit_size": 84,
+        "error_interval": "[0.330605215404531720541107952494728 +/- 6.28e-34]"
+      },
+      "strict_row_cap": "1/3"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 6,
+      "start": 768,
+      "failure_orbit_index": 882,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        27,
+        32
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        23,
+        5,
+        10
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.336219655892780322213817870054687 +/- 5.99e-34]",
+      "absolute_error_lower": "[0.33621965589278032221381787005468640132 +/- 3.33e-39]",
+      "absolute_error_upper": "[0.33621965589278032221381787005468669462 +/- 2.79e-39]",
+      "evaluated_orbits": 115,
+      "evaluated_six_sets": 9618,
+      "key_sha256_evaluated_prefix": "82353ad7c0446884d846ea4eb2b171abbdc5d8238ab07dcdb8e434091f7d98b0",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 7,
+      "start": 896,
+      "failure_orbit_index": 956,
+      "indices": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        3,
+        1,
+        1,
+        35
+      ],
+      "orbit_size": 42,
+      "target": "5/19721",
+      "error_interval": "[0.369685595188470930374991000521758 +/- 2.62e-34]",
+      "absolute_error_lower": "[0.36968559518847093037499100052175790889 +/- 3.39e-39]",
+      "absolute_error_upper": "[0.36968559518847093037499100052175826156 +/- 4.32e-39]",
+      "evaluated_orbits": 61,
+      "evaluated_six_sets": 5082,
+      "key_sha256_evaluated_prefix": "6fc2001c78ea97653589ce1f9d49f661d1a5f44e94294a56141f005d552aaf13",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    }
+  ],
+  "failures": [
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 1,
+      "start": 128,
+      "failure_orbit_index": 148,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        9,
+        11
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        1,
+        6,
+        2,
+        31
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.343128609123069313653915277823314 +/- 4.89e-34]",
+      "absolute_error_lower": "[0.34312860912306931365391527782331351119 +/- 1.72e-39]",
+      "absolute_error_upper": "[0.34312860912306931365391527782331379450 +/- 5.48e-40]",
+      "evaluated_orbits": 21,
+      "evaluated_six_sets": 1722,
+      "key_sha256_evaluated_prefix": "f9ca3597ec7344d5d702328494649742ac79bb9b49d5f2902c326ffd878296af",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 2,
+      "start": 256,
+      "failure_orbit_index": 261,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        13,
+        32
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        1,
+        10,
+        19,
+        10
+      ],
+      "orbit_size": 42,
+      "target": "5/19721",
+      "error_interval": "[0.338338645637823671004349730257512 +/- 5.78e-34]",
+      "absolute_error_lower": "[0.33833864563782367100434973025751142219 +/- 3.18e-39]",
+      "absolute_error_upper": "[0.33833864563782367100434973025751178724 +/- 4.70e-40]",
+      "evaluated_orbits": 6,
+      "evaluated_six_sets": 462,
+      "key_sha256_evaluated_prefix": "88b3c1ea9ef1332c18c6569a3af6c1c001a0f51e09cfa91e6bfe05a3c86b6e25",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 3,
+      "start": 384,
+      "failure_orbit_index": 388,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        17
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        2,
+        11,
+        25
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.356620314095910160479753651747528 +/- 5.79e-34]",
+      "absolute_error_lower": "[0.35662031409591016047975365174752826786 +/- 1.56e-39]",
+      "absolute_error_upper": "[0.35662031409591016047975365174752857840 +/- 2.23e-39]",
+      "evaluated_orbits": 5,
+      "evaluated_six_sets": 420,
+      "key_sha256_evaluated_prefix": "7b639359e5d335620b1e398a403c0c4fa132c8cc237e1544fbd4fd57b40062b3",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 4,
+      "start": 512,
+      "failure_orbit_index": 574,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        12,
+        20
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        8,
+        8,
+        22
+      ],
+      "orbit_size": 84,
+      "target": "5/19721",
+      "error_interval": "[0.350424515295872939390266351420249 +/- 5.01e-34]",
+      "absolute_error_lower": "[0.35042451529587293939026635142024849957 +/- 2.22e-39]",
+      "absolute_error_upper": "[0.35042451529587293939026635142024889131 +/- 1.59e-39]",
+      "evaluated_orbits": 63,
+      "evaluated_six_sets": 5292,
+      "key_sha256_evaluated_prefix": "2aab8572b5570760fe3500efee884b7033daf3b61975f31c5009e85d2c6432fd",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 6,
+      "start": 768,
+      "failure_orbit_index": 882,
+      "indices": [
+        0,
+        1,
+        2,
+        4,
+        27,
+        32
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        2,
+        23,
+        5,
+        10
+      ],
+      "orbit_size": 84,
+      "target": "-5/19721",
+      "error_interval": "[0.336219655892780322213817870054687 +/- 5.99e-34]",
+      "absolute_error_lower": "[0.33621965589278032221381787005468640132 +/- 3.33e-39]",
+      "absolute_error_upper": "[0.33621965589278032221381787005468669462 +/- 2.79e-39]",
+      "evaluated_orbits": 115,
+      "evaluated_six_sets": 9618,
+      "key_sha256_evaluated_prefix": "82353ad7c0446884d846ea4eb2b171abbdc5d8238ab07dcdb8e434091f7d98b0",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    },
+    {
+      "passed": false,
+      "status": "strict_violation",
+      "shard": 7,
+      "start": 896,
+      "failure_orbit_index": 956,
+      "indices": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "cyclic_gap_key": [
+        1,
+        1,
+        3,
+        1,
+        1,
+        35
+      ],
+      "orbit_size": 42,
+      "target": "5/19721",
+      "error_interval": "[0.369685595188470930374991000521758 +/- 2.62e-34]",
+      "absolute_error_lower": "[0.36968559518847093037499100052175790889 +/- 3.39e-39]",
+      "absolute_error_upper": "[0.36968559518847093037499100052175826156 +/- 4.32e-39]",
+      "evaluated_orbits": 61,
+      "evaluated_six_sets": 5082,
+      "key_sha256_evaluated_prefix": "6fc2001c78ea97653589ce1f9d49f661d1a5f44e94294a56141f005d552aaf13",
+      "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e"
+    }
+  ],
+  "scope": "A complete pass certifies the strict normalized sixth-order maximum below 1/3 for this exact 35-column physical distribution only. A prefix pass is not a complete certificate. A strict violation is candidate-specific, not a no-go theorem for other physical ensembles. No eighth-order maximum or operational inversion/channel-error bound follows."
+}
