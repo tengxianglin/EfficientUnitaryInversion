@@ -1,7 +1,7 @@
 {
   "status": "priced_existing_pool",
-  "dual_certificate_sha256": "8fd588ec68a6ed8cafc4f9261eefcb43cabadef1a1195a91bb9115c0cc2878a9",
-  "lp_transcript_sha256": "7b57bd7319670bb9352bc8eb2148dffc96ea4489e264e24d77bd81831eae3dc1",
+  "dual_certificate_sha256": "547503193d8008e94ceefc1c28f2936cdbc2a4074b488f6bacc3ecb1f1c19e15",
+  "lp_transcript_sha256": "ce1210e1f983ddf981d0f17e88515d31ed61d42d48f195f559d862de45d7a1c3",
   "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
   "canonical_column_count": 1641,
   "active_column_count": 83,
