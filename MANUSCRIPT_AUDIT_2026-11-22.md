@@ -60,7 +60,7 @@ The exact dual has ||z||_1=1152921504606844607/1152921504606846976<1, slack delt
 
 This rejects every convex mixture of the pinned 113 columns for this exact 1,779-row constraint set. It does not reject the remaining 1,528 canonical columns or all physical generators. The 311 sixth-order rows are not the complete set of 63,133 sixth-order dihedral orbits. The LP did not produce an admissible 1/3-candidate.
 
-A new 128-bit Arb pricing workflow is screening the remaining 1,528 canonical columns against this dual. Binary64 scores are discovery evidence only; a positive escape must be independently Arb-certified before pool expansion. A full canonical-pool obstruction would require rigorous coverage of every unused column.
+The 128-bit Arb pricing workflow has now screened all 1,528 unused canonical columns in the frozen 1,641-column pool. The binary64 screen found 66 positive reduced-cost candidates; the ten highest were independently checked with 128-bit Arb and all ten had strictly positive interval lower endpoints (columns 1191, 916, 700, 974, 127, 889, 910, 107, 902, 355). This invalidates the 113-column separator for any expanded pool containing one of those columns, but does not prove an improved ensemble. See evidence/55probe_113col_dual_pricing_screen_n21.json and evidence/55probe_113col_dual_pricing_arb_n21.json. A 123-column reoptimization over the same 1,779 rows is the next finite design gate. A full canonical-pool obstruction would require rigorous coverage of every unused column.
 
 ## Consequence for manuscript claims
 
