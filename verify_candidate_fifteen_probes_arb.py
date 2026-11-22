@@ -27,7 +27,7 @@ CAP = Fraction(1, 3)
 
 
 def git_blob_sha1(raw):
-    return hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\\0" + raw).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
 
 
 def strict_block(records, label):
