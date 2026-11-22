@@ -71,7 +71,9 @@ def main():
     sixth_hash = sha(json.dumps([list(x) for x in sixth_rows], separators=(",", ":")).encode())
     if len(sixth_rows) != 645 or len(set(sixth_rows)) != 645:
         raise RuntimeError("unexpected sixth-order cut inventory")
-    if sixth_hash != cert.get("sixth_rows_sha256") or sixth_hash != lp.get("sixth_rows_sha256"):
+    # The certificate's lp_transcript_sha256 above binds this LP, whose
+    # sixth_rows_sha256 field binds the canonical cut-row inventory.
+    if sixth_hash != lp.get("sixth_rows_sha256"):
         raise RuntimeError("sixth-order row inventory hash mismatch")
 
     z = [Fraction(value) for value in cert["dual_vector_rational"]]

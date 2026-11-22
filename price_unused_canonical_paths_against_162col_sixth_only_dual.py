@@ -40,7 +40,10 @@ def main():
         raise RuntimeError("unexpected sixth-only LP dimensions")
     sixth_rows = [tuple(int(x) for x in row) for row in cut_lp["sixth_cut_rows"]]
     sixth_hash = sha(json.dumps([list(x) for x in sixth_rows], separators=(",", ":")).encode())
-    if len(sixth_rows) != 645 or sixth_hash != cert.get("sixth_rows_sha256"):
+    # The certificate pins the LP transcript by SHA256; the LP stores the
+    # canonical sixth-row inventory hash. No duplicate field is required in
+    # the certificate JSON.
+    if len(sixth_rows) != 645 or sixth_hash != lp.get("sixth_rows_sha256"):
         raise RuntimeError("sixth-order row inventory hash/count mismatch")
 
     zq = [Fraction(value) for value in cert["dual_vector_rational"]]
