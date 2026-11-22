@@ -2976,5 +2976,5 @@
     "0",
     "0"
   ],
-  "scope": "Rigorous finite-pool minimax lower bound for every convex mixture over the 162 pinned physical generators (151 frozen canonical paths, one exact-rational continuous-path escape, and ten additional frozen canonical paths), on the 2,113 exact normalized rows: all 1,461 second/fourth rows, 645 sixth rows, and seven selected eighth rows. Since the complete sixth-order maximum contains these rows, the same lower bound applies to the complete-sixth objective restricted to this fixed 162-column pool. It does not rule out additional physical generators or the unrestricted continuous family."
+  "scope": "Rigorous finite-pool minimax lower bound for every convex mixture over the 162 pinned physical generators (151 frozen canonical paths, one exact-rational continuous-path escape, and ten additional frozen canonical paths), on the 2,113 exact normalized rows: all 1,461 second/fourth rows, 645 sixth rows, and seven selected eighth rows. The dual has two nonzero eighth-order coordinates, so this is a mixed-order certificate, not a sixth-only lower-bound certificate. It applies to objectives containing all 2,113 rows, but does not rule out additional physical generators or the unrestricted continuous family."
 }
