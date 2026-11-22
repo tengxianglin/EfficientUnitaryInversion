@@ -7,7 +7,7 @@ The fixed 29-column candidate does **not** satisfy the proposed complete eighth-
 G_8 := \max_{|I|=8}\frac{|q_I-t_I|}{|t_I|}<\frac13.
 \]
 
-A previously unselected dihedral orbit gives a large violation. The canonical representative is
+A previously unselected dihedral orbit gives a decisive violation. The canonical representative is
 \[
 I=(0,1,3,14,19,24,29,40),
 \]
@@ -18,27 +18,37 @@ with cyclic gaps
 and orbit size 42. Since \(I\) has four odd indices, its target is \(t_I=+1/19721\).
 
 For the exact 29 probabilities and exact reconstructed physical columns pinned by
-\`evidence/candidate_joint_input_n21.json\`, an independent 22-decimal-digit \`mpmath.iv\` interval calculation gives
+evidence/candidate_joint_input_n21.json (SHA256
+5ae3afde386225dc1a398643303684ac1589fc2abfcf3cf2ff177ace4b640059),
+the 128-bit Arb replay gives
 \[
-q_I\in[9.82971346527856056808239434,\,9.82971346527857421879427353]\times10^{-5},
+q_I\in[9.82971346527856824420185373628913\times10^{-5}
+\;\pm\;6.62\times10^{-38}],
 \]
 and
 \[
 \frac{q_I-t_I}{t_I}
-\in[0.938517792487584929631528970,\,
-0.938517792487587621688423774].
+\in[0.938517792487586443439047575333579
+\;\pm\;9.77\times10^{-34}].
 \]
-The lower endpoint exceeds \(1/3\) by more than \(0.60518\). The interval computation covers all 29 support columns and all 42 subsets in this orbit (1,218 principal-minor determinants).
+In particular, the certified rational lower bound is
+\[
+\boxed{\frac{q_I-t_I}{t_I}>\frac{1877}{2000}=0.9385>\frac13.}
+\]
+The targeted Arb calculation covers all 29 exact weights and all 42 subsets in the orbit: 1,218 principal-minor determinants.
 
-## Evidence status
+## Evidence and reproducibility
 
-- **Established by the current interval run:** this orbit is a decisive counterexample to the \(G_8<1/3\) claim for this fixed candidate, with a very large separation.
-- **Independent implementation check:** the binary64 SciPy screen gives the same relative error to approximately \(10^{-13}\).
-- **Still required for the repository's publication-grade standard:** run \`verify_candidate_eighth_probe_arb.py\` at 128 bits. It uses the repository's existing Arb reconstruction path and only evaluates this one orbit.
-- The complete 1,408,185-orbit scan is no longer needed to reject this candidate. It would only be needed to determine the candidate's actual global maximum or to produce a full diagnostic transcript.
+- **Publication-grade targeted confirmation:** frozen 128-bit Arb transcript at evidence/candidate_eighth_probe_arb_n21.json, generated with python-flint 0.8.0 / Arb.
+- **Independent interval cross-check:** 22-dps mpmath.iv transcript at evidence/candidate_eighth_probe_mpmath_iv_n21.json, whose interval overlaps the Arb result.
+- **Reproducer:** verify_candidate_eighth_probe_arb.py.
+- **CI:** targeted Arb workflow at .github/workflows/eui-targeted-arb.yml.
+- **Orbit-enumeration fingerprint:** d395d745428d5b7b35319aa368d701716e7323d0f599e6314fc8ec59c6af83db.
+
+The exact full-orbit enumerator remains useful for finding the global maximum, but the complete 1,408,185-orbit determinant scan is **not needed to reject this candidate**: one strictly certified orbit already disproves its proposed G8 < 1/3 bound.
 
 ## Consequence and next step
 
-Do not describe the current 29-column witness as eighth-order \(1/3\)-uniform. First reproduce the named violation with Arb, then add this orbit as a seventh eighth-order LP row, re-solve over the frozen physical pool, and re-certify all low- and sixth-order constraints for any replacement candidate.
+Do not describe the current 29-column witness as eighth-order 1/3-uniform. Add this orbit as a seventh eighth-order row to the finite low/sixth/eighth minimax LP over the frozen 83-column physical pool. Any replacement candidate must then be rechecked against all low-order constraints and the complete sixth-order certificate before an improvement claim.
 
-This is candidate-specific. It is not a no-go theorem for other physical distributions, nor does it settle moments of orders 10 through 20 or an operational inversion-error bound.
+This is candidate-specific. It is not a no-go theorem for other physical distributions, nor does it settle the complete eighth-order maximum, moments of orders 10 through 20, exact all-moment program uniformity, or an operational inversion/channel-error bound.
