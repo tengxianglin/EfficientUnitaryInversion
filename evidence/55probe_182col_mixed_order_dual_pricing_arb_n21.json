@@ -5,7 +5,7 @@
   "parent_172col_lp_sha256": "f79035798ab8313704b809203f111951d7387f92444f7327c20932b20f10b3c7",
   "parent_172col_dual_certificate_sha256": "41e334c0a76994e1eb1425a4c60650ad1dfd2c1a89134a0ef207edc66844f662",
   "parent_sixth_row_inventory_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
-  "pricing_screen_sha256": "197309ceb3269a94e65dfda24760afe6cd2fa51b4cd70709c9801c72893c5e09",
+  "pricing_screen_sha256": "15067e2a56af735808dfd812d163d05aaa77d4abe95ca9c2a4a7bf6eb55b86ce",
   "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
   "precision_bits": 128,
   "interval_backend": "python-flint 0.8.0 / Arb",
@@ -20,7 +20,7 @@
   "results": [
     {
       "column": 364,
-      "float_pricing_score": 0.07617160777207864,
+      "float_pricing_score": 0.07617160777208247,
       "arb_pricing_score_interval": "[0.07617160777215499539475007470184446 +/- 2.31e-36]",
       "arb_lower_endpoint": "[0.076171607772154995394750074701844457693 +/- 1.38e-40]",
       "arb_upper_endpoint": "[0.076171607772154995394750074701844459807 +/- 1.77e-40]",
@@ -72,7 +72,7 @@
     },
     {
       "column": 517,
-      "float_pricing_score": 0.015249061660882118,
+      "float_pricing_score": 0.015249061660885712,
       "arb_pricing_score_interval": "[0.01524906166078186493793878441349329 +/- 5.84e-36]",
       "arb_lower_endpoint": "[0.015249061660781864937938784413493284168 +/- 3.84e-40]",
       "arb_upper_endpoint": "[0.015249061660781864937938784413493286385 +/- 1.09e-40]",
@@ -124,7 +124,7 @@
     },
     {
       "column": 430,
-      "float_pricing_score": 0.01482828386118026,
+      "float_pricing_score": 0.014828283861187206,
       "arb_pricing_score_interval": "[0.01482828386245658833675467450664665 +/- 4.99e-36]",
       "arb_lower_endpoint": "[0.014828283862456588336754674506646652494 +/- 1.70e-40]",
       "arb_upper_endpoint": "[0.014828283862456588336754674506646654983 +/- 5.99e-41]",
