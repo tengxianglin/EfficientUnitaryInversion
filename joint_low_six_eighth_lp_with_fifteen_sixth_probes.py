@@ -144,6 +144,16 @@ def run():
         raise RuntimeError(f"HiGHS failed: {result.message}")
 
     weights = result.x[:-1]
+    inequality_marginals = np.asarray(result.ineqlin.marginals, dtype=np.float64)
+    equality_marginal = float(result.eqlin.marginals[0])
+    if inequality_marginals.shape != (2 * m,):
+        raise RuntimeError("unexpected HiGHS inequality-dual dimension")
+    dual_z = inequality_marginals[:m] - inequality_marginals[m:]
+    dual_l1_norm = float(np.abs(dual_z).sum())
+    dual_objective = equality_marginal + float(np.dot(dual_z, y))
+    dual_max_column_lhs = float(np.max(A.T @ dual_z + equality_marginal))
+    if abs(dual_objective - float(result.fun)) > 1e-7:
+        raise RuntimeError("HiGHS primal/dual objectives do not agree")
     baseline = np.array([float(probabilities[index]) for index in columns])
     baseline_residual = np.abs(A @ baseline - y)
     optimized_residual = np.abs(A @ weights - y)
@@ -183,6 +193,15 @@ def run():
         "baseline_block_maxima": {
             name: float(baseline_residual[cuts[i]:cuts[i + 1]].max())
             for i, name in enumerate(row_blocks)
+        },
+        "dual_certificate_discovery": {
+            "convention": "z = first m inequality marginals minus second m; lambda is the equality marginal for sum(weights)=1",
+            "inequality_marginals": [float(value) for value in inequality_marginals],
+            "equality_marginal": equality_marginal,
+            "z_l1_norm": dual_l1_norm,
+            "dual_objective": dual_objective,
+            "max_column_lhs": dual_max_column_lhs,
+            "primal_dual_objective_gap": abs(dual_objective - float(result.fun)),
         },
         "lp_positive_weights": [
             [int(column), float(weight)]
