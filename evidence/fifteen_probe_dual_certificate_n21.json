@@ -1,7 +1,7 @@
 {
   "status": "strict_pool_separation",
   "complete": true,
-  "lp_transcript_sha256": "9ea11822609963403194bdf7b507e02debb8e77836d9964bb7549721bd249911",
+  "lp_transcript_sha256": "131e104110b53f28c615cb86c41afeba48e88cafe817ef2161aa6e0d9769d1a6",
   "seed_pool_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
   "canonical_83_column_index_sha256": "27e4e82d28c13f21690ae1e29266e0ed75c15673eaaba69cc2fc1fc989b8066f",
   "columns": [
