@@ -97,6 +97,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
           if [ -f evidence/candidate_sixth_prefix_12row_n21.json ]; then
             git add evidence/candidate_sixth_prefix_12row_n21.json
           fi
