@@ -448,3 +448,38 @@ The 152-column exact candidate previously passed only the pinned 1,779 rows; a c
 The next finite-family task prices the 1,480 unused canonical paths against this sixth-only dual. The new workflow runs the binary64 screen and then independently Arb-checks up to ten highest positive candidates. Positive Arb pricing disproves this separator after adding that candidate. A negative screen or ten nonpositive Arb checks is not a certificate for all unused columns; that would require strict interval checks for every remaining column.
 
 No TeX/Bib/PDF or standalone supplementary-source files are tracked in the repository, so this audit updates the claim/evidence record rather than the original manuscript. Average Choi-fidelity numerics still do not establish a uniform worst-case channel guarantee; the per-instance moment-to-Choi/diamond bridge remains open.
+
+
+## 2026-11-23: sixth-only 162-column pricing against the frozen canonical pool
+
+The exact 162-column sixth-only dual has now been priced against every one of the 1,480 canonical path generators not already in its physical support. The full binary64 screen found 25 positive reduced-cost scores. The ten highest were independently recomputed from the frozen binary64 couplings interpreted exactly as dyadic rationals, using 128-bit Arb matrix exponentials and principal-minor orbit averages. All ten Arb lower endpoints are strictly positive:
+
+| Canonical column | Arb pricing score midpoint |
+|---:|---:|
+| 1613 | 6.800109240178720982... |
+| 1412 | 4.900651392507548628... |
+| 1383 | 4.147358130490488789... |
+| 1580 | 0.294471056024061802... |
+| 195 | 0.160156078539728071... |
+| 221 | 0.123619341765576163... |
+| 424 | 0.114060272590299884... |
+| 655 | 0.106036955038113731... |
+| 614 | 0.098512182916499572... |
+| 635 | 0.091871580178178877... |
+
+This rigorously establishes that the particular 162-column sixth-only dual is not a separator for any expanded pool containing one of these ten canonical columns. It does not prove that the expanded pool is feasible or that a new mixture meets the (1/3) cap.
+
+Evidence:
+- Successful full pricing + Arb workflow: [45067579358](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45067579358).
+- Binary64 screen: `evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json`.
+- Strict Arb transcript: `evidence/55probe_162col_sixth_only_dual_pricing_arb_n21.json`.
+- Evidence commit: [80f140e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/80f140e4f9a4a50702a39fd0cd0f3bb595931661).
+- The pricing verifier first re-runs the exact 162-column sixth-only dual certificate, then checks the top ten candidates from the frozen pool.
+
+A new 172-column sixth-only reoptimization was implemented in `reoptimize_172col_sixth_only_pool.py` with workflow `.github/workflows/eui-172col-sixth-only-pool.yml`. It combines the 162-column physical pool with these ten strictly Arb-positive canonical columns and keeps the same 2,106-row design (1,461 complete second/fourth rows plus 645 sixth-order rows). Its provenance guards now bind the continuous path through the exact Arb escape certificate and bind the sixth-row inventory through the parent LP's canonical row hash. Workflow [45067985228](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45067985228) is executing the reoptimization; no 172-column objective or candidate is claimed until that run completes.
+
+The exact 162-column lower bound remains a fixed-pool theorem:
+```
+eta_162^(6) >= 0.47605818499326774... > 1/3.
+```
+It does not exclude the ten new columns, any larger pool, or the unrestricted continuous path family.
