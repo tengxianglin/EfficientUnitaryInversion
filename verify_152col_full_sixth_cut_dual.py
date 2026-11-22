@@ -1,10 +1,9 @@
-"""128-bit Arb dual certificate for the 152-column / complete-sixth-cut LP.
+"""128-bit Arb dual certificate for the 152-column / 2,113-row mixed-order LP.
 
-The LP contains all 1,461 complete second/fourth rows, the original 311
-selected sixth rows plus every unique sixth orbit that violated the previous
-candidate in the exhaustive 63,133-orbit screen (645 sixth rows total), and
-seven selected eighth rows. The exact rationalized HiGHS dual is independently
-checked against all 152 physical generators using Arb.
+The LP contains 1,461 complete second/fourth rows, 645 selected sixth rows,
+and seven selected eighth rows. The rationalized HiGHS dual is independently
+checked against all 152 physical generators using Arb. Since two active dual
+coordinates are eighth-order rows, this is not a sixth-only certificate.
 """
 import hashlib
 import json
@@ -278,9 +277,10 @@ def main():
             "physical generators (151 frozen canonical paths plus one exact-rational continuous-path "
             "escape), on 2,113 exact normalized rows: all 1,461 second/fourth rows, 645 sixth rows "
             "(the original 311 plus all 334 rows that violated the previous candidate), and seven "
-            "selected eighth rows. Since the full sixth-order maximum contains these rows, the same "
-            "lower bound applies to the complete sixth-order objective for this fixed 152-column pool. "
-            "It does not apply to additional physical generators or the unrestricted continuous family."
+            "selected eighth rows. The dual has two nonzero eighth-order coordinates, so this is a "
+            "mixed-order 2,113-row certificate and not a sixth-only lower-bound certificate. It applies "
+            "to any objective whose row set contains all 2,113 pinned rows, but not to additional "
+            "physical generators or the unrestricted continuous family."
         ),
     }
     OUTPUT_PATH.write_text(json.dumps(result, indent=2) + "\n")
