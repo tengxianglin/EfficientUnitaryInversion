@@ -29,7 +29,7 @@ def strict_block(records, label):
         midpoint = float(absolute)
         if midpoint > worst_midpoint:
             worst_midpoint = midpoint
-            worst = record
+            worst = {key: value for key, value in record.items() if key != 'error'}
     return {
         "rows": len(records),
         "strict_upper": str(CAP),
