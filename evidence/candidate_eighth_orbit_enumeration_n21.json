@@ -1,0 +1,29 @@
+{
+  "base_commit": "0f1a4f2c7a2828ff1d6ca06f69ee1542b1e14f34",
+  "candidate_input_sha256": "5ae3afde386225dc1a398643303684ac1589fc2abfcf3cf2ff177ace4b640059",
+  "N": 42,
+  "k": 8,
+  "raw_weak_composition_candidates": 4887204,
+  "task_count": 1270,
+  "nonempty_tasks": 409,
+  "canonical_orbits": 1408185,
+  "orbit_size_histogram": {
+    "21": 45,
+    "42": 6060,
+    "84": 1402080
+  },
+  "orbit_size_sum": 118030185,
+  "all_eight_sets": 118030185,
+  "burnside": {
+    "rotation_fixed_sum": 118036170,
+    "vertex_reflection_fixed": 5985,
+    "edge_reflection_fixed": 5985,
+    "reflection_fixed_sum": 251370,
+    "orbit_count": 1408185
+  },
+  "canonical_key_sha256": "d395d745428d5b7b35319aa368d701716e7323d0f599e6314fc8ec59c6af83db",
+  "enumeration_complete": true,
+  "moment_scan_complete": false,
+  "expected_determinant_evaluations": 3422875365,
+  "scope": "Exact combinatorial coverage only; no eighth-order determinant or moment inequality has been certified."
+}
