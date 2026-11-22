@@ -236,7 +236,7 @@ def main():
         "selected_eighth_rows": [list(row) for row in eighth_rows],
         "scope": (
             "Finite binary64 cutting-plane LP over the same 103 canonical legal 42-site path columns "
-            "and 1,754 pinned normalized rows (1,461 low, 286 sixth, seven selected eighth). The "
+            "and 1,762 pinned normalized rows (1,461 low, 294 sixth, seven selected eighth). The "
             "eight new sixth rows are 128-bit Arb-certified violations of the exact parent candidate, "
             "not a pool-wide no-go. This LP does not certify the new rational candidate, complete "
             "sixth/eighth maxima, other physical generators, or an operational Choi/diamond-norm bound."
