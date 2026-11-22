@@ -88,3 +88,20 @@ The evidence chain is pinned by:
 - canonical 1,641-column pool SHA256 (little-endian float64): `f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98`.
 
 These ten columns were added to form a 113-column pool. The resulting finite HiGHS objective is 0.32622919649179943, and the exact rational candidate has 46 positive weights. Its 128-bit Arb selected-row audit and first 1,024 sixth-orbit prefix pass; see `evidence/candidate_113col_38probe_selected_and_sixth_prefix_arb_n21.json`. The complete 63,133-orbit sixth audit is a separate, still-running verification and must not be inferred from the prefix.
+
+
+## Short proof of the finite-pool lower bound
+
+For any (p\in\Delta_{103}), the certified componentwise column inequalities imply
+\[
+z^TAp+\lambda-\delta
+=\sum_{j=1}^{103}p_j(a_j^Tz+\lambda-\delta)\le0.
+\]
+Therefore
+\[
+\lambda+z^Ty-\delta
+\le z^T(y-Ap)
+\le \|z\|_1\,\|y-Ap\|_\infty
+=R(p),
+\]
+where the last equality uses the exact certificate normalization (\|z\|_1=1). Taking the infimum over (p\in\Delta_{103}) gives the stated rational lower bound. The proof uses no binary64 LP objective: floating-point optimization only discovers the rational dual vector; the finite column inequalities and objective are checked by the Arb certificate.
