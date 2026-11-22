@@ -1,0 +1,58 @@
+name: EUI price unused canonical paths against 162-column dual
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "price_unused_canonical_paths_against_162col_dual.py"
+      - "verify_162col_full_sixth_cut_dual_pricing_arb.py"
+      - ".github/workflows/eui-162col-full-sixth-cut-pricing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  price-canonical-pool:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned interval and numerical stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Restore and verify frozen seed pool
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Price all unused canonical generators in binary64
+        run: python price_unused_canonical_paths_against_162col_dual.py
+      - name: Arb-verify the ten highest positive candidates
+        run: python verify_162col_full_sixth_cut_dual_pricing_arb.py
+      - name: Commit pricing evidence without rebase conflicts
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/eui-162pricing
+          cp evidence/55probe_162col_full_sixth_cut_dual_pricing_screen_n21.json /tmp/eui-162pricing/screen.json
+          cp evidence/55probe_162col_full_sixth_cut_dual_pricing_arb_n21.json /tmp/eui-162pricing/arb.json
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            cp /tmp/eui-162pricing/screen.json evidence/55probe_162col_full_sixth_cut_dual_pricing_screen_n21.json
+            cp /tmp/eui-162pricing/arb.json evidence/55probe_162col_full_sixth_cut_dual_pricing_arb_n21.json
+            git add evidence/55probe_162col_full_sixth_cut_dual_pricing_screen_n21.json evidence/55probe_162col_full_sixth_cut_dual_pricing_arb_n21.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Price unused canonical paths against the 162-column dual"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
