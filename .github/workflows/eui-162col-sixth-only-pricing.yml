@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "price_unused_canonical_paths_against_162col_sixth_only_dual.py"
+      - "verify_162col_sixth_only_dual_pricing_arb.py"
       - ".github/workflows/eui-162col-sixth-only-pricing.yml"
   workflow_dispatch:
 
@@ -34,29 +35,35 @@ jobs:
         run: python verify_162col_sixth_only_dual_arb.py
       - name: Price all 1,480 unused canonical generators
         run: python price_unused_canonical_paths_against_162col_sixth_only_dual.py
-      - name: Commit deterministic pricing screen without rebase conflicts
+      - name: Arb-check the ten highest positive pricing candidates
+        run: python verify_162col_sixth_only_dual_pricing_arb.py
+      - name: Commit deterministic pricing evidence without rebase conflicts
         if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/eui-162-sixth-pricing
           cp evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json /tmp/eui-162-sixth-pricing/screen.json
+          cp evidence/55probe_162col_sixth_only_dual_pricing_arb_n21.json /tmp/eui-162-sixth-pricing/arb.json
           for attempt in 1 2 3; do
             git fetch origin +refs/heads/main:refs/remotes/origin/main
             git reset --hard origin/main
             cp /tmp/eui-162-sixth-pricing/screen.json evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json
-            git add evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json
+            cp /tmp/eui-162-sixth-pricing/arb.json evidence/55probe_162col_sixth_only_dual_pricing_arb_n21.json
+            git add evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json evidence/55probe_162col_sixth_only_dual_pricing_arb_n21.json
             if ! git diff --cached --quiet; then
-              git commit -m "Record pricing against the 162-column sixth-only dual"
+              git commit -m "Record Arb pricing against the sixth-only 162-column dual"
             fi
             if git push origin HEAD:main; then exit 0; fi
             sleep 2
           done
           exit 1
-      - name: Upload pricing screen
+      - name: Upload pricing evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eui-162col-sixth-only-pricing-screen
-          path: evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json
+          name: eui-162col-sixth-only-pricing
+          path: |
+            evidence/55probe_162col_sixth_only_dual_pricing_screen_n21.json
+            evidence/55probe_162col_sixth_only_dual_pricing_arb_n21.json
           if-no-files-found: warn
