@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install pinned Arb stack
-        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5"
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
       - name: Verify frozen seed pool and exact orbit enumeration
         run: |
           python freeze_seed_pool.py
