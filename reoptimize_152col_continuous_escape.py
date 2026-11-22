@@ -186,7 +186,7 @@ def main():
             "is certified by this LP."
         ),
     }
-    OUTPUT.write_text(json.dumps(transcript, indent=2) + "\\n")
+    OUTPUT.write_text(json.dumps(transcript, indent=2) + "\n")
     lp_out_sha = sha(OUTPUT.read_bytes())
     candidate_written = False
     if result.fun < 1 / 3:
@@ -230,7 +230,7 @@ def main():
             "selected_eighth_rows": parent["selected_eighth_rows"],
             "scope": "Exact rational probabilities obtained by normalizing the binary64 152-column HiGHS weights. This is only a selected-row candidate input; strict Arb verification is required.",
         }
-        CANDIDATE_OUTPUT.write_text(json.dumps(candidate, indent=2) + "\\n")
+        CANDIDATE_OUTPUT.write_text(json.dumps(candidate, indent=2) + "\n")
         candidate_written = True
     elif CANDIDATE_OUTPUT.exists():
         CANDIDATE_OUTPUT.unlink()
