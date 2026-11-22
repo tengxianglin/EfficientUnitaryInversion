@@ -254,8 +254,7 @@ def main():
         "parent_lp_sha256": sha256(lp_raw),
         "parent_dual_certificate_sha256": sha256(dual_raw),
         "parent_pricing_screen_sha256": sha256(screen_raw),
-        "parent_pricing_screen_sha256": sha256(screen_raw),
-            "parent_arb_pricing_sha256": sha256(pricing_raw),
+        "parent_arb_pricing_sha256": sha256(pricing_raw),
         "parent_complete_sixth_audit_sha256": audit_sha,
         "previous_113_lp_sha256": previous_lp_sha,
         "previous_113_candidate_sha256": previous_candidate_sha,
@@ -303,11 +302,13 @@ def main():
         "sixth_probe_targets": [str(value) for value in probe_targets],
         "selected_eighth_rows": [list(row) for row in eighth_rows],
         "scope": (
-            "Finite binary64 LP over 113 canonical legal 42-site path columns and 1,770 normalized "
-            "rows (1,461 low, 302 sixth including eight strict full-domain Arb separators, seven "
-            "selected eighth). The eight new rows are one strict 128-bit Arb violation from each "
-            "shard of the rejected parent candidate's 63,133-orbit audit. This reweighting does "
-            "not certify the new exact candidate, complete sixth/eighth maxima, other physical "
+            "Finite binary64 LP over 113 canonical legal 42-site path columns and 1,779 normalized "
+            "rows (1,461 low, 311 sixth: 256 screened rows, 38 parent probes, eight separators "
+            "from the 38-probe candidate's full-domain rejection, one separator from the 46-probe "
+            "prefix rejection, eight separators from the 47-probe candidate's full-domain "
+            "rejection, and seven selected eighth rows). The 17 added Arb separators are "
+            "candidate-specific strict 128-bit violations from earlier candidates. This reweighting "
+            "does not certify the new exact candidate, complete sixth/eighth maxima, other physical "
             "generators, or an operational Choi/diamond-norm inversion bound."
         ),
     }
