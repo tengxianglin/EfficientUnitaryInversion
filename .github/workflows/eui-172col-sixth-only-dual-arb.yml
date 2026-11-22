@@ -1,0 +1,64 @@
+name: EUI Arb-certify 172-column sixth-only dual
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_172col_sixth_only_dual_arb.py"
+      - ".github/workflows/eui-172col-sixth-only-dual-arb.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit helpers
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-run the parent 162-column certificate
+        run: python verify_162col_sixth_only_dual_arb.py
+      - name: Re-run all ten parent-dual Arb pricing checks
+        run: python verify_162col_sixth_only_dual_pricing_arb.py
+      - name: Certify the 172-column rationalized dual
+        run: python verify_172col_sixth_only_dual_arb.py
+      - name: Commit exact Arb certificate
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/eui-172dual
+          cp evidence/55probe_172col_sixth_only_dual_certificate_n21.json /tmp/eui-172dual/certificate.json
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            cp /tmp/eui-172dual/certificate.json evidence/55probe_172col_sixth_only_dual_certificate_n21.json
+            git add evidence/55probe_172col_sixth_only_dual_certificate_n21.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Certify the 172-column sixth-only minimax dual"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload Arb certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-172col-sixth-only-dual-certificate
+          path: evidence/55probe_172col_sixth_only_dual_certificate_n21.json
+          if-no-files-found: warn
