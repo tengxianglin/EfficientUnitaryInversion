@@ -341,3 +341,34 @@ Implementation:
 - reoptimize_162col_full_sixth_cut_pool.py
 - .github/workflows/eui-162col-full-sixth-cut-pool.yml
 - commits [7a3e35c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7a3e35c9dbc397b850f1de3fe2a0e7eca023ce49), [53eb0f1](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/53eb0f1679e77054b6f9804678e5705882a7e750), and [01b3c51](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/01b3c5170801d3e611081e07a6e1e162946cfc4e).
+
+
+## Strict 162-column full-sixth cut obstruction (2026-11-23)
+
+The 162-column discovery LP adds ten canonical generators whose reduced-cost scores against the preceding 152-column dual were independently Arb-certified positive. On the same 2,113-row design, the binary64 HiGHS objective is 0.4931412761911509 and the independently recomputed maximum is 0.49314127619252646. The raw floating dual has L1 norm slightly above one, so it was rationalized and scaled before certification.
+
+The resulting exact rational dual has \(\|z\|_1=1\), slack \(\delta=10^{-10}\), and all 162 column inequalities pass 128-bit Arb. It proves
+\[
+\eta_{162,2113}\ge
+\frac{1421382955036825653848272131}
+{2882303761517278690000000000}
+=0.493141276091106\ldots>\frac13.
+\]
+The exact gap above \(1/3\) is
+\[
+\frac{1381845103593198271544816393}
+{8646911284551836070000000000}
+=0.15980794275777266\ldots.
+\]
+The maximum Arb upper endpoint of the column inequalities after slack is \(-7.5752412530783022251271948310938060\times10^{-11}\).
+
+This is a strict finite-pool theorem for the 162 fixed generators and the 2,113 pinned rows (1,461 complete second/fourth, 645 sixth, seven selected eighth). It excludes a complete-sixth cap for that same fixed pool because the full sixth-order maximum contains the 645 certified rows. It does not exclude adding further generators or the unrestricted continuous family.
+
+Evidence:
+- LP transcript: evidence/joint_low_six_eighth_lp_162col_full_sixth_cuts_n21.json.
+- Exact Arb certificate: evidence/55probe_162col_full_sixth_cut_dual_certificate_n21.json.
+- Verifier: verify_162col_full_sixth_cut_dual_arb.py.
+- Workflow: [45059945749](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45059945749).
+- Certificate commit: [4d382ab](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4d382ab33e52d4785e314a088402cccffc9a0ed6).
+
+The next column-generation pass prices the 1,480 canonical generators unused by the 161 canonical members of the 162-column pool. Its binary64 screen and ten-candidate Arb verification are defined in price_unused_canonical_paths_against_162col_dual.py and verify_162col_full_sixth_cut_dual_pricing_arb.py, with workflow .github/workflows/eui-162col-full-sixth-cut-pricing.yml. Workflow [45060141610](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45060141610) is queued at this audit revision; no pricing outcome is claimed yet.
