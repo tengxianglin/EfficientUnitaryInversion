@@ -78,7 +78,7 @@ def main():
     active_columns = sorted(probabilities)
     active_set = set(active_columns)
     if len(active_columns) != 83 or len(all_columns) != 1641:
-        raise RuntimeError("canonical ensemble no longer has the pinned 83/1639 pool structure")
+        raise RuntimeError("canonical ensemble no longer has the pinned 83/1641 pool structure")
     all_column_array = np.asarray(all_columns, dtype="<f8")
     all_columns_sha = hashlib.sha256(all_column_array.tobytes()).hexdigest()
 
