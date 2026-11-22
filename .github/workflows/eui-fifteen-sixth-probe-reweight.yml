@@ -128,7 +128,7 @@ jobs:
             evidence/candidate_joint_input_with_fifteen_sixth_probes_n21.json \
             evidence/candidate_selected_moments_arb_with_fifteen_sixth_probes_n21.json \
             evidence/candidate_sixth_prefix_15probe_n21.json \
-            evidence/candidate_complete_sixth_bound_15probe_n21.json \\
+            evidence/candidate_complete_sixth_bound_15probe_n21.json \
             evidence/fifteen_probe_dual_certificate_n21.json; do
             if [ -f "$file" ]; then git add "$file"; fi
           done
