@@ -55,9 +55,12 @@ def main():
     cert_sha = hashlib.sha256(cert_raw).hexdigest()
     cert = json.loads(cert_raw)
     lp_raw = LP_PATH.read_bytes()
+    lp = json.loads(lp_raw)
     lp_sha = hashlib.sha256(lp_raw).hexdigest()
     if cert["lp_transcript_sha256"] != lp_sha:
         raise RuntimeError("dual certificate and LP transcript hashes disagree")
+    if len(lp.get("sixth_probe_rows", [])) != 15 or len(lp.get("selected_eighth_rows", [])) != 7:
+        raise RuntimeError("pinned LP transcript has an unexpected sixth/eighth row family")
 
     screen_raw = SCREEN_PATH.read_bytes()
     screen_sha = hashlib.sha256(screen_raw).hexdigest()
