@@ -124,7 +124,7 @@ def main():
             feature = orbit_average_minor(entries, sixth_rows[row - 1461])
             score += ball(z[row]) * feature / ball(Fraction(5, 19721))
         for row in active_eighth:
-            feature = orbit_average_minor(entries, eighth_rows[row - 1755])
+            feature = orbit_average_minor(entries, eighth_rows[row - 1772])
             score += ball(z[row]) * feature / ball(Fraction(1, 19721))
         lower = score.lower()
         upper = score.upper()
