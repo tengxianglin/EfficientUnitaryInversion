@@ -534,6 +534,6 @@ The objective is well above 1/3, so this finite LP produced no admissible candid
 - `verify_182col_sixth_only_dual_arb.py`;
 - `.github/workflows/eui-182col-sixth-only-dual.yml`.
 
-The verifier reconstructs the exact target vector and pinned row/column inventory, rationalizes and scales the dual to enforce the exact L1 constraint, checks that the dual support is sixth-only, and independently evaluates all 182 column inequalities with Arb. The strict certificate is not claimed until the workflow writes `evidence/55probe_182col_sixth_only_dual_certificate_n21.json`.
+The verifier reconstructs the exact target vector and pinned row/column inventory, rationalizes and scales the dual to enforce the exact L1 constraint, classifies the actual dual support as sixth-only or mixed-order, and independently evaluates all 182 column inequalities with Arb. The current binary64 dual has two nonzero low-order coordinates (row indices 233 and 1265) and 50 sixth-order coordinates, so the expected certificate scope is mixed-order unless exact reconstruction changes that support. The script emits a sixth-only status only when all low-order coordinates vanish. The strict certificate is not claimed until the workflow writes `evidence/55probe_182col_sixth_only_dual_certificate_n21.json`.
 
 The finite-pool scope remains explicit: even a successful 182-column certificate excludes only mixtures over those 182 generators. It does not cover the remaining canonical columns or the full continuous path family.
