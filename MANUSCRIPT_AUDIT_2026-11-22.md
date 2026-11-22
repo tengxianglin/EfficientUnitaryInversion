@@ -275,3 +275,17 @@ Evidence:
 A cutting-plane workflow now persists all 334 violating orbit representatives, deduplicates them against the original 311 sixth rows, and reoptimizes the same 152 physical generators. This is a finite discovery LP; any resulting candidate needs exact-probability Arb verification and another complete-sixth scan. Workflow: [45057108860](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45057108860); implementation commit: [074ac3b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/074ac3bdd4c45044ed86482f658338738c0f4a25).
 
 The counterexample is candidate-specific. It does not prove infeasibility for other mixtures or for the full continuous physical family.
+
+
+## Cutting-plane discovery: the same 152-column pool cannot repair the observed sixth failures (2026-11-23)
+
+All 334 sixth-order orbits that violated the previous exact candidate were added as distinct rows; none overlapped the original 311 selected sixth rows. Reoptimization over the same 152 physical generators therefore has 2,113 rows:
+- 1,461 complete second-/fourth-order rows;
+- 645 sixth-order rows (311 original + 334 new cuts);
+- seven selected eighth-order rows.
+
+The binary64 HiGHS LP returns objective 0.5078909209101226 and independently recomputed maximum 0.5078909209177525, with primal-dual discovery gap 1.99e-14. Thus this fixed 152-column pool does not repair the complete-sixth failures by reweighting alone. This is still a numerical discovery result until the rationalized dual is Arb-certified.
+
+Evidence: `evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json`; complete scan with all 334 rows: `evidence/candidate_152col_complete_sixth_binary64_n21.json`; cutting-plane run: [45057108860](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45057108860); implementation commit: [074ac3b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/074ac3bdd4c45044ed86482f658338738c0f4a25).
+
+The follow-up stores the full HiGHS dual and independently certifies its rationalization with 128-bit Arb on all 152 columns. If successful, it will prove a finite-pool minimax lower bound for this 152-column pool on these 2,113 rows; it will not rule out additional physical generators.
