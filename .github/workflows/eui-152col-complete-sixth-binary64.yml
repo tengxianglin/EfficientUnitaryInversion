@@ -1,0 +1,54 @@
+name: EUI complete sixth-order screen for the Arb-certified 152-column candidate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
+      - "audit_152col_complete_sixth_binary64.py"
+      - ".github/workflows/eui-152col-complete-sixth-binary64.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  complete-sixth-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3"
+      - name: Restore and verify frozen seed pool
+        run: python freeze_seed_pool.py
+      - name: Scan all 63,133 sixth-order orbits
+        run: python audit_152col_complete_sixth_binary64.py
+      - name: Commit complete sixth-order screen
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          if [ -f evidence/candidate_152col_complete_sixth_binary64_n21.json ]; then
+            git add evidence/candidate_152col_complete_sixth_binary64_n21.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Screen all sixth-order orbits for the 152-column candidate"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload complete sixth-order screen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-152col-complete-sixth-binary64
+          path: evidence/candidate_152col_complete_sixth_binary64_n21.json
+          if-no-files-found: warn
