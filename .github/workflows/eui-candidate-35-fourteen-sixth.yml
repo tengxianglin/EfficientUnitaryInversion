@@ -1,0 +1,122 @@
+name: EUI exact 35-column fourteen-probe sixth-order Arb audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-candidate-35-fourteen-sixth.yml"
+      - "verify_candidate_35_fourteen_probe_sixth_bound.py"
+      - "THEORY_35COL_FOURTEEN_PROBE_SIXTH_AUDIT.md"
+      - "evidence/candidate_joint_input_with_fourteen_sixth_probes_n21.json"
+      - "evidence/joint_low_six_eighth_lp_with_fourteen_sixth_probes_n21.json"
+      - "evidence/candidate_sixth_prefix_7row_n21.json"
+      - "evidence/candidate_sixth_prefix_12row_n21.json"
+      - "evidence/candidate_sixth_prefix_8probe_n21.json"
+      - "evidence/seed_pool_n21_frozen.npy"
+      - "evidence/seed_pool_n21_frozen.json"
+      - "audit_complete_sixth_moments.py"
+      - "screen_ising_sixth_moments.py"
+      - "verify_ising_sixth_escape.py"
+      - "verify_ising_moment_pricing.py"
+      - "ising_fourth_moments.py"
+      - "verify_full_low_moment_certificate.py"
+      - "evidence/full_low_moment_certificate_input_n21.json"
+      - "evidence/sixth_escape_ensemble_certificate_input_n21.json"
+      - "evidence/sixth_escape_ensemble_certificate_n21.json"
+      - "evidence/sixth_pricing_escape_n21.json"
+      - "evidence/sixth_pricing_escape_reweight_n21.json"
+      - "evidence/sixth_moment_screen_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  candidate-sixth-arb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Verify frozen seed pool
+        run: python freeze_seed_pool.py
+      - name: Run orbit-enumeration regression tests
+        run: python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Run a 1,024-orbit Arb prefix
+        run: |
+          python verify_candidate_35_fourteen_probe_sixth_bound.py --workers 8 --limit 1024 \
+            --output evidence/candidate_sixth_prefix_14probe_n21.json
+      - name: Decide whether a complete scan is warranted
+        id: prefix
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          p = json.loads(Path("evidence/candidate_sixth_prefix_14probe_n21.json").read_text())
+          print(json.dumps({
+              "status": p["status"],
+              "passed": p["passed"],
+              "evaluated_orbits": p["requested_orbits"],
+              "evaluated_six_sets": p["evaluated_six_sets"],
+              "failures": p["failures"][:1],
+          }, indent=2))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("passed=" + ("true" if p["passed"] else "false") + "\n")
+          PY
+      - name: Run complete sixth-order Arb audit
+        if: steps.prefix.outputs.passed == 'true'
+        run: |
+          python verify_candidate_35_fourteen_probe_sixth_bound.py --workers 8 \
+            --output evidence/candidate_complete_sixth_bound_14probe_n21.json
+      - name: Summarize complete audit or certified separator
+        if: steps.prefix.outputs.passed == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path("evidence/candidate_complete_sixth_bound_14probe_n21.json").read_text())
+          print(json.dumps({
+              "status": p["status"],
+              "passed": p["passed"],
+              "complete": p["complete"],
+              "certified_orbits": p["requested_orbits"],
+              "evaluated_six_sets": p["evaluated_six_sets"],
+              "principal_minor_determinant_evaluations": p["principal_minor_determinant_evaluations"],
+              "failures": p["failures"][:1],
+          }, indent=2))
+          PY
+      - name: Commit exact Arb audit transcript
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          if [ -f evidence/candidate_sixth_prefix_14probe_n21.json ]; then
+            git add evidence/candidate_sixth_prefix_14probe_n21.json
+          fi
+          if [ -f evidence/candidate_complete_sixth_bound_14probe_n21.json ]; then
+            git add evidence/candidate_complete_sixth_bound_14probe_n21.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Record 35-column fourteen-probe sixth-order Arb audit"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload sixth-order audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-35-column-fourteen-probe-sixth-arb-${{ github.sha }}
+          path: |
+            evidence/candidate_sixth_prefix_14probe_n21.json
+            evidence/candidate_complete_sixth_bound_14probe_n21.json
+          if-no-files-found: warn
