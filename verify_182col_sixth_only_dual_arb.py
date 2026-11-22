@@ -119,7 +119,7 @@ def main():
         raise RuntimeError("parent screen does not pin the 172-column LP")
     if parent_screen.get("unused_column_count") != 1470 or parent_screen.get("canonical_column_count") != 1641:
         raise RuntimeError("unexpected canonical pricing inventory")
-    if parent_162_lp.get("columns") != 162 or parent_162_lp.get("rows") != 2106:
+    if parent_162_lp.get("columns") != 162 or parent_162_lp.get("rows") != 2113:
         raise RuntimeError("162-column ancestor inventory mismatch")
     if escape.get("status") != "certified_continuous_path_dual_escape" or not escape.get("complete") or not escape.get("strictly_positive"):
         raise RuntimeError("continuous path generator lacks its strict Arb certificate")
@@ -270,14 +270,20 @@ def main():
     lower = objective - selected_delta
     maximum_upper = max(value.upper() for value in selected_intervals)
     sixth_only = len(active_low) == 0
-    if not sixth_only:
-        raise RuntimeError("182-column dual is not sixth-only; do not misstate the theorem scope")
-    status = "strict_182col_2106row_sixth_only_minimax_obstruction"
+    status = (
+        "strict_182col_2106row_sixth_only_minimax_obstruction"
+        if sixth_only else "strict_182col_2106row_mixed_order_minimax_obstruction"
+    )
     scope = (
         "Rigorous complete-sixth-order minimax lower bound for every convex mixture over the fixed "
         "182 physical generators: the exact dual is supported only on sixth-order rows, all drawn "
         "from the complete 63,133-orbit D42 sixth-order domain. This remains a finite-pool theorem "
         "and does not exclude additional physical generators or the unrestricted continuous family."
+        if sixth_only else
+        "Rigorous mixed-order minimax lower bound for every convex mixture over the fixed 182 physical "
+        "generators, using a subset of the complete second/fourth/sixth moment rows. The exact dual "
+        "support contains both low-order and sixth-order rows; this result is not a complete-sixth-order "
+        "lower bound and does not exclude additional physical generators or the unrestricted continuous family."
     )
     result = {
         "status": status,
