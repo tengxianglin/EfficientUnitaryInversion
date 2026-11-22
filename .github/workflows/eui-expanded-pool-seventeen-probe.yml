@@ -1,0 +1,138 @@
+name: EUI 93-column seventeen-probe active-set reweight and Arb audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-expanded-pool-seventeen-probe.yml"
+      - "joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded.py"
+      - "freeze_expanded_candidate_with_seventeen_sixth_probes.py"
+      - "verify_expanded_candidate_seventeen_probes_arb.py"
+      - "verify_expanded_candidate_35_seventeen_probe_sixth_bound.py"
+      - "joint_low_six_eighth_lp_with_fifteen_sixth_probes_expanded.py"
+      - "freeze_expanded_candidate_with_fifteen_sixth_probes.py"
+      - "verify_expanded_candidate_fifteen_probes_arb.py"
+      - "verify_expanded_candidate_35_fifteen_probe_sixth_bound.py"
+      - "THEORY_SEVENTEEN_PROBE_EXPANDED_REWEIGHT.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seventeen-probe-reweight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Recheck the 15-probe parent candidate selected rows
+        run: python verify_expanded_candidate_fifteen_probes_arb.py
+      - name: Reproduce the 15-probe strict sixth-order prefix
+        run: |
+          python verify_expanded_candidate_35_fifteen_probe_sixth_bound.py \
+            --workers 8 --limit 1024 \
+            --output evidence/candidate_sixth_prefix_15probe_expanded_n21.json
+      - name: Solve the 17-probe expanded LP
+        id: lp
+        run: |
+          python joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded.py \
+            > evidence/joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded_n21.json
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = json.loads(Path("evidence/joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded_n21.json").read_text())
+          assert p["columns"] == 93 and p["rows"] == 1741
+          assert len(p["added_priced_columns"]) == 10
+          assert len(p["sixth_probe_rows"]) == 17
+          assert p["row_blocks"] == {
+              "low": 1461, "sixth_screen": 256,
+              "sixth_certified_probes": 17, "selected_eighth": 7,
+          }
+          print(json.dumps({
+              "lp_objective": p["lp_max"],
+              "baseline_max": p["baseline_max"],
+              "block_maxima": p["block_maxima"],
+              "positive_support": len(p["lp_positive_weights"]),
+              "finite_candidate_below_one_third": p["finite_candidate_below_cap"],
+          }, indent=2))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("feasible=" + ("true" if p["finite_candidate_below_cap"] else "false") + "\n")
+          PY
+      - name: Freeze exact rational 17-probe candidate
+        if: steps.lp.outputs.feasible == 'true'
+        run: python freeze_expanded_candidate_with_seventeen_sixth_probes.py
+      - name: Arb-certify all selected low, sixth, and eighth rows
+        if: steps.lp.outputs.feasible == 'true'
+        run: python verify_expanded_candidate_seventeen_probes_arb.py
+      - name: Run fresh 1,024-orbit sixth-order Arb prefix
+        if: steps.lp.outputs.feasible == 'true'
+        id: prefix
+        run: |
+          python verify_expanded_candidate_35_seventeen_probe_sixth_bound.py \
+            --workers 8 --limit 1024 \
+            --output evidence/candidate_sixth_prefix_17probe_expanded_n21.json
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = json.loads(Path("evidence/candidate_sixth_prefix_17probe_expanded_n21.json").read_text())
+          print(json.dumps({
+              "status": p["status"], "passed": p["passed"],
+              "evaluated_orbits": p["requested_orbits"],
+              "evaluated_six_sets": p["evaluated_six_sets"],
+              "failures": p["failures"][:3],
+          }, indent=2))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("passed=" + ("true" if p["passed"] else "false") + "\n")
+          PY
+      - name: Run complete sixth-order Arb audit if the prefix passes
+        if: steps.prefix.outputs.passed == 'true'
+        run: |
+          python verify_expanded_candidate_35_seventeen_probe_sixth_bound.py \
+            --workers 8 \
+            --output evidence/candidate_complete_sixth_bound_17probe_expanded_n21.json
+      - name: Commit 17-probe expanded design and evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          for file in \
+            evidence/candidate_selected_moments_arb_with_fifteen_sixth_probes_expanded_n21.json \
+            evidence/candidate_sixth_prefix_15probe_expanded_n21.json \
+            evidence/joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded_n21.json \
+            evidence/candidate_joint_input_with_seventeen_sixth_probes_expanded_n21.json \
+            evidence/candidate_selected_moments_arb_with_seventeen_sixth_probes_expanded_n21.json \
+            evidence/candidate_sixth_prefix_17probe_expanded_n21.json \
+            evidence/candidate_complete_sixth_bound_17probe_expanded_n21.json; do
+            if [ -f "$file" ]; then git add "$file"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Record 17-probe expanded EUI reweight"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload 17-probe LP and Arb evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-17-probe-expanded-${{ github.sha }}
+          path: |
+            evidence/joint_low_six_eighth_lp_with_seventeen_sixth_probes_expanded_n21.json
+            evidence/candidate_joint_input_with_seventeen_sixth_probes_expanded_n21.json
+            evidence/candidate_selected_moments_arb_with_seventeen_sixth_probes_expanded_n21.json
+            evidence/candidate_sixth_prefix_17probe_expanded_n21.json
+            evidence/candidate_complete_sixth_bound_17probe_expanded_n21.json
+          if-no-files-found: warn
