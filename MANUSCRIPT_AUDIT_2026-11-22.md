@@ -561,3 +561,15 @@ It proves the finite-pool mixed-order lower bound
 The exact theorem is recorded in `THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md`; the certificate is `evidence/55probe_182col_sixth_only_dual_certificate_n21.json`. Despite the historical filename containing “sixth_only”, the actual dual is **mixed-order**, not sixth-only. The separate 172-column sixth-only theorem remains the complete-sixth-order result. This 182-column theorem is restricted to the pinned 182-generator pool and 2,106-row design; it does not exclude further physical generators or the unrestricted continuous path family, and it is not an operational channel-distance theorem.
 
 A follow-up column-generation pipeline has been committed for the certified 182-column mixed-order dual. It computes binary64 pricing scores for all 1,460 unused canonical generators using both active low-order coordinates and the fifty active sixth-order coordinates, then recomputes up to ten leading positive candidates with 128-bit Arb. The workflow first reruns the strict 182-column certificate. This is only a screening pipeline until its evidence files are committed; no result from the new pricing run is claimed here.
+
+## 182-column mixed-order pricing completed (2026-11-23)
+
+Workflow [45079216515](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45079216515) completed successfully. The binary64 screen evaluated all 1,460 canonical generators unused by the 182-column pool and found three positive scores. All three were independently recomputed with 128-bit Arb and have strictly positive lower endpoints:
+
+- column 364: 0.07617160777215499539475007470184446;
+- column 517: 0.01524906166078186493793878441349329;
+- column 430: 0.01482828386245658833675467450664665.
+
+Evidence is in `evidence/55probe_182col_mixed_order_dual_pricing_screen_n21.json` and `evidence/55probe_182col_mixed_order_dual_pricing_arb_n21.json`. These are strict escapes of the 182-column dual, not a feasible mixture. The remaining 1,457 nonpositive binary64 scores are not individual Arb exclusion certificates.
+
+A 185-column mixed-order reoptimization script and workflow have been committed; run [45079471124](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45079471124) was queued at the time of this audit update. Its objective and any resulting certificate remain pending.
