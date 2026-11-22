@@ -148,7 +148,7 @@ The preceding sentence saying the 143-column dual certificate was running is sup
 {2814749767106560000000000}
 =0.3440653060003041\ldots>\frac13.
 \]
-The exact dual has (\|z\|_1=576460752303423461/576460752303423488<1), slack (10^{-10}), and maximum Arb upper endpoint below `-8.2883631651865609e-11). The exact gap above (1/3) is `90623452694849942914907/8444249301319680000000000`. Formal proof: `THEORY_55PROBE_143COL_DUAL_OBSTRUCTION.md` (to be added with the certificate).
+The exact dual has (\|z\|_1=576460752303423461/576460752303423488<1), slack (10^{-10}), and maximum Arb upper endpoint below `-8.2883631651865609e-11). The exact gap above (1/3) is `90623452694849942914907/8444249301319680000000000`. Formal proof: `THEORY_55PROBE_143COL_DUAL_OBSTRUCTION.md`.
 
 The new 143-column pricing workflow [45024159768](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45024159768) is screening all 1,498 unused canonical columns and checking the top ten positive candidates with Arb. No claim about the remaining canonical pool is made until that evidence completes.
 
