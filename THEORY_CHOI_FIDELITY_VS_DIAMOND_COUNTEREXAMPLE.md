@@ -114,3 +114,8 @@ For a known distribution over instances, with (\mu=\mathbb E[1-F_\omega]), one o
 The tail inequality is Markov's inequality applied to the pointwise Choi bound. It requires a valid upper bound on the population mean (\mu); a finite Monte Carlo sample mean alone is not such a deterministic bound without a statistical confidence argument and sampling assumptions.
 
 This is the correct dimension-aware route if per-instance Choi fidelity can be bounded. It does not turn a finite sample average into a uniform-over-Hamiltonians theorem, and it does not yet connect the current Ising/path moment residuals to (F_\omega). The factor (d) also explains why high Choi fidelity may be operationally weak at large dimension.
+
+
+## Literature anchor
+
+The Choi-trace-norm/diamond-norm comparison and fidelity conversion are standard channel-certification tools; see M. Kliesch and I. Roth, “Theory of Quantum System Certification,” *PRX Quantum* **2**, 010201 (2021), DOI: [10.1103/PRXQuantum.2.010201](https://doi.org/10.1103/PRXQuantum.2.010201), especially Propositions 51 and 53. Their discussion makes explicit that Choi-state distinguishability and diamond-norm distinguishability are not identical and that dimension factors enter the conversion. The counterexamples above are included to pin the quantifier failure relevant here (average versus worst case), not to claim a new general Choi/diamond inequality.
