@@ -1,0 +1,67 @@
+{
+  "candidate_input_sha256": "ac789d6fa678a4759c13d3d5588253e57d63e5a448946bdd9bb915369d401d80",
+  "lp_transcript_sha256": "7ddda3942e1e2212bb9af38c3b6bc9b97f25e186298bdc93653258b1a1536eb3",
+  "sixth_prefix_transcript_git_blob_sha1s": [
+    "6604c6727b075b79ceca438b01faadbbb0ebbd19",
+    "4827a61b30abdfdab2675eac6df557e71081294e",
+    "6b655f83d87b9ea24f9394355ef1aa8c4633136e"
+  ],
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 35,
+  "exact_probability_sum": "1",
+  "certified_blocks": {
+    "low_all_rows": {
+      "rows": 1461,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.33130770725434994,
+      "worst_row": {
+        "row": 628,
+        "order": 4,
+        "error_interval": "[0.3313077072543499238844143016318001 +/- 6.62e-35]"
+      }
+    },
+    "sixth_screen_and_fourteen_probes": {
+      "rows": 270,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3313077072554799,
+      "worst_row": {
+        "row": 255,
+        "source": "screen",
+        "indices": [
+          0,
+          7,
+          14,
+          21,
+          28,
+          35
+        ],
+        "target": "5/19721",
+        "error_interval": "[0.331307707255479944419748186856028 +/- 4.97e-34]",
+        "orbit_size": 7
+      }
+    },
+    "eighth_selected_only": {
+      "rows": 7,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3313077073017056,
+      "worst_row": {
+        "row": 2,
+        "indices": [
+          0,
+          1,
+          8,
+          9,
+          16,
+          17,
+          24,
+          25
+        ],
+        "target": "1/19721",
+        "error_interval": "[0.331307707301705638042336115442861 +/- 5.66e-34]",
+        "orbit_size": 42
+      }
+    }
+  },
+  "scope": "Arb certification of all 1461 low rows, 270 selected sixth rows (256 screen plus fourteen strict separators), and seven selected eighth rows for this exact rational candidate. This is not a complete sixth/eighth maximum or an operational inversion bound."
+}
