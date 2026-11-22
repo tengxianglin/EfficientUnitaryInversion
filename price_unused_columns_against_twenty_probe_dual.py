@@ -141,7 +141,7 @@ def main():
             for column, score in positive[:50]
         ],
         "scope": (
-             "Binary64 pricing screen of all 1,548 unused columns among the 1,641 
+            "Binary64 pricing screen of all 1,548 unused columns among the 1,641 "
             "canonical legal path generators. Positive scores are candidates only; "
             "they require exact 128-bit Arb verification before entering an expanded pool."
         ),
