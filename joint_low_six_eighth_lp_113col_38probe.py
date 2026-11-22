@@ -76,7 +76,7 @@ def main():
     base_columns = [int(x) for x in dual["columns"]]
     if len(base_columns) != 103 or len(set(base_columns)) != 103 or base_columns != sorted(base_columns):
         raise RuntimeError("the dual certificate's active column list is malformed")
-    if base_columns != sorted(int(x) for x in lp["base_columns"] + lp["added_arb_positive_columns"]):
+    if base_columns != sorted(int(x) for x in lp["base_columns"]):
         raise RuntimeError("parent LP columns differ from the certified dual pool")
     if screen.get("canonical_column_count") != len(all_columns) or screen.get("unused_column_count") != 1538:
         raise RuntimeError("pricing-screen pool dimensions changed")
