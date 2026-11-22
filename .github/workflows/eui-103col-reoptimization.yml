@@ -1,13 +1,13 @@
-name: EUI 103-column cutting-plane reoptimization
+name: EUI 103-column 22-probe cutting-plane reoptimization
 
 on:
   push:
     branches: [main]
     paths:
       - ".github/workflows/eui-103col-reoptimization.yml"
-      - "joint_low_six_eighth_lp_with_103col_21st_sixth_probe.py"
-      - "verify_103col_21probe_candidate_selected_and_sixth_prefix_arb.py"
-      - "evidence/candidate_103col_selected_and_sixth_prefix_arb_n21.json"
+      - "joint_low_six_eighth_lp_with_103col_22nd_sixth_probe.py"
+      - "verify_103col_22probe_candidate_selected_and_sixth_prefix_arb.py"
+      - "evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json"
   workflow_dispatch:
 
 permissions:
@@ -32,31 +32,31 @@ jobs:
         run: |
           python freeze_seed_pool.py
           python -m unittest tests/test_eighth_orbit_enumeration.py
-      - name: Add the new Arb sixth-order separator and reoptimize
-        run: python joint_low_six_eighth_lp_with_103col_21st_sixth_probe.py
+      - name: Add the second new Arb separator and reoptimize
+        run: python joint_low_six_eighth_lp_with_103col_22nd_sixth_probe.py
       - name: Arb-verify exact candidate and first 1,024 sixth orbits
-        run: python verify_103col_21probe_candidate_selected_and_sixth_prefix_arb.py
+        run: python verify_103col_22probe_candidate_selected_and_sixth_prefix_arb.py
       - name: Commit LP, candidate, and Arb audit evidence
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
-          for f in evidence/joint_low_six_eighth_lp_103col_21probe_n21.json evidence/candidate_joint_input_103col_21probe_n21.json evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json; do
+          for f in evidence/joint_low_six_eighth_lp_103col_22probe_n21.json evidence/candidate_joint_input_103col_22probe_n21.json evidence/candidate_103col_22probe_selected_and_sixth_prefix_arb_n21.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
-            git commit -m "Record 103-column 21-probe Arb audit"
+            git commit -m "Record 103-column 22-probe Arb audit"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
-      - name: Upload 103-column cutting-plane evidence
+      - name: Upload 103-column 22-probe evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eui-103col-21probe-arb-audit
+          name: eui-103col-22probe-arb-audit
           path: |
-            evidence/joint_low_six_eighth_lp_103col_21probe_n21.json
-            evidence/candidate_joint_input_103col_21probe_n21.json
-            evidence/candidate_103col_21probe_selected_and_sixth_prefix_arb_n21.json
+            evidence/joint_low_six_eighth_lp_103col_22probe_n21.json
+            evidence/candidate_joint_input_103col_22probe_n21.json
+            evidence/candidate_103col_22probe_selected_and_sixth_prefix_arb_n21.json
           if-no-files-found: warn
