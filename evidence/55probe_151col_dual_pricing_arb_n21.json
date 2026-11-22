@@ -1,0 +1,13 @@
+{
+  "status": "no_float_positive_candidates",
+  "dual_certificate_sha256": "e7d7fc4e798ba9f746bac295572e8ad60b1fe2f3b6e080da46412d9ae213d2c6",
+  "lp_transcript_sha256": "341247c5ceddd5d07b1758b56ff6a7ed1f01f4c05e3e5dd83ead0319046fbaa0",
+  "pricing_screen_sha256": "c5c38e4e44616013b7654c71946e99ebbc9332d3ee6449671557b049fbd7ff78",
+  "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "candidates_checked": 0,
+  "arb_certified_positive_count": 0,
+  "results": [],
+  "scope": "Arb verification of up to ten top binary64-positive candidates among the 1,490 unused canonical physical path generators. A positive score invalidates the 151-column separator after adding that column; it does not prove an improved ensemble."
+}
