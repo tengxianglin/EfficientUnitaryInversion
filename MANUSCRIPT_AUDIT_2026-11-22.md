@@ -537,3 +537,25 @@ The objective is well above 1/3, so this finite LP produced no admissible candid
 The verifier reconstructs the exact target vector and pinned row/column inventory, rationalizes and scales the dual to enforce the exact L1 constraint, classifies the actual dual support as sixth-only or mixed-order, and independently evaluates all 182 column inequalities with Arb. The current binary64 dual has two nonzero low-order coordinates (row indices 233 and 1265) and 50 sixth-order coordinates, so the expected certificate scope is mixed-order unless exact reconstruction changes that support. The script emits a sixth-only status only when all low-order coordinates vanish. The strict certificate is not claimed until the workflow writes `evidence/55probe_182col_sixth_only_dual_certificate_n21.json`.
 
 The finite-pool scope remains explicit: even a successful 182-column certificate excludes only mixtures over those 182 generators. It does not cover the remaining canonical columns or the full continuous path family.
+
+## 182-column mixed-order Arb certificate completed (2026-11-23)
+
+The corrected 182-column verifier completed and the workflow committed the exact certificate in commit [be82f21777e8ae1714fc4c488528a5374e50d942](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/be82f21777e8ae1714fc4c488528a5374e50d942).
+
+The certificate has:
+- 182 physical columns and 2,106 normalized rows;
+- exact dual (\|z\|_1=1);
+- 52 active dual coordinates: two low-order rows (zero-based indices 233 and 1265) and fifty sixth-order rows;
+- exact slack (\delta=10^{-10});
+- 128-bit Arb verification of all 182 column inequalities, with maximum upper endpoint (-7.9382193303777883\times10^{-11}).
+
+It proves the finite-pool mixed-order lower bound
+\[
+\min_{p\in\Delta(\mathcal P_{182})}\|Ap-y\|_\infty
+\ge
+\frac{1727085050310122398125808297}
+{3689348814741917030000000000}
+=0.468127340903367\ldots>\frac13.
+\]
+
+The exact theorem is recorded in `THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md`; the certificate is `evidence/55probe_182col_sixth_only_dual_certificate_n21.json`. Despite the historical filename containing “sixth_only”, the actual dual is **mixed-order**, not sixth-only. The separate 172-column sixth-only theorem remains the complete-sixth-order result. This 182-column theorem is restricted to the pinned 182-generator pool and 2,106-row design; it does not exclude further physical generators or the unrestricted continuous path family, and it is not an operational channel-distance theorem.
