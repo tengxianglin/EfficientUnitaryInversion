@@ -509,3 +509,10 @@ delta=10^{-10}.
 Its support contains exactly 50 sixth-order rows and no low-order rows. All 172 column inequalities have strictly negative Arb upper endpoints; the largest is below `-7.6774063738680112e-11`. This is a rigorous complete-sixth-order lower bound for the fixed 172-generator pool, not a bound over all physical generators. Formal statement and proof: `THEORY_172COL_2106ROW_SIXTH_ONLY_MINIMAX_OBSTRUCTION.md`; certificate: `evidence/55probe_172col_sixth_only_dual_certificate_n21.json`; commit [288a253](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/288a2534356453e5c05e5b64a9ba4aaaabe9eb26).
 
 The next pricing stage now screens the remaining 1,470 canonical generators against this new 172-column dual and independently Arb-checks the ten highest positive candidates. Workflow [45068411039](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45068411039) is in progress; no result is claimed yet.
+
+
+## Pricing the 172-column dual against the remaining canonical pool (2026-11-23)
+
+The exact 172-column sixth-only dual was used to screen all 1,470 canonical generators not already in its physical pool. The binary64 screen found 14 positive scores; the ten highest were independently checked with 128-bit Arb and all ten had strictly positive interval lower endpoints: columns 544, 420, 398, 352, 629, 668, 347, 425, 296, and 844. The largest Arb score is `0.1347370117915883944...` (column 544). This invalidates the 172-column separator for an expanded pool containing any of these columns, but does not imply feasibility. Workflow [45068411039](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45068411039) completed successfully; evidence is in `evidence/55probe_172col_sixth_only_dual_pricing_screen_n21.json` and `evidence/55probe_172col_sixth_only_dual_pricing_arb_n21.json`; commit [517df1b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/517df1bd3c95da7ba81a3529d2edeae3576f2977).
+
+The next step is a 182-column reoptimization on the same 2,106 rows. Until that LP and any new Arb certificate complete, no 182-column minimax value is claimed.
