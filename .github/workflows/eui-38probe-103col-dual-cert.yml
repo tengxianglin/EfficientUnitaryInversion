@@ -1,0 +1,56 @@
+name: EUI Arb dual certificate for 103-column 38-probe obstruction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-38probe-103col-dual-cert.yml"
+      - "verify_38probe_103col_dual_certificate.py"
+      - "evidence/joint_low_six_eighth_lp_103col_38probe_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certify_dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Rationalize LP dual and Arb-certify all 103 column inequalities
+        run: python verify_38probe_103col_dual_certificate.py
+      - name: Commit exact dual certificate
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          if [ -f evidence/38probe_103col_dual_certificate_n21.json ]; then
+            git add evidence/38probe_103col_dual_certificate_n21.json
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Arb dual certificate for 103-column 38-probe pool"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload exact dual certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-38probe-103col-dual-certificate
+          path: evidence/38probe_103col_dual_certificate_n21.json
+          if-no-files-found: warn
