@@ -1,0 +1,66 @@
+{
+  "candidate_input_sha256": "ced62e0ef71f384056cd535d2294f3af52875c75497df7a1815bf8d3c0ca135e",
+  "lp_transcript_sha256": "3a0057df00fe5bcc0ab0f821e6891b571f0524813df18df22a5eefc11538fd46",
+  "sixth_prefix_transcript_git_blob_sha1s": [
+    "6604c6727b075b79ceca438b01faadbbb0ebbd19",
+    "4827a61b30abdfdab2675eac6df557e71081294e"
+  ],
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "support_size": 35,
+  "exact_probability_sum": "1",
+  "certified_blocks": {
+    "low_all_rows": {
+      "rows": 1461,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.33083272017264054,
+      "worst_row": {
+        "row": 1444,
+        "order": 4,
+        "error_interval": "[0.3308327201726405394574498647146642 +/- 3.59e-35]"
+      }
+    },
+    "sixth_screen_and_eight_probes": {
+      "rows": 264,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.3308327201745853,
+      "worst_row": {
+        "row": 178,
+        "source": "screen",
+        "indices": [
+          0,
+          2,
+          6,
+          14,
+          20,
+          38
+        ],
+        "target": "-5/19721",
+        "error_interval": "[0.330832720174585303298073305371474 +/- 7.41e-34]",
+        "orbit_size": 84
+      }
+    },
+    "eighth_selected_only": {
+      "rows": 7,
+      "strict_upper": "1/3",
+      "worst_midpoint": 0.33083272017601606,
+      "worst_row": {
+        "row": 3,
+        "indices": [
+          0,
+          4,
+          12,
+          16,
+          20,
+          28,
+          32,
+          36
+        ],
+        "target": "1/19721",
+        "error_interval": "[-0.33083272017601603218455456340962 +/- 3.85e-33]",
+        "orbit_size": 84
+      }
+    }
+  },
+  "scope": "Arb certification of all 1461 low rows, 264 selected sixth rows (256 screen plus eight strict separators), and seven selected eighth rows for this exact rational candidate. This is not a complete sixth/eighth maximum or an operational inversion bound."
+}
