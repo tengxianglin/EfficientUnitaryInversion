@@ -8,10 +8,12 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 import hashlib
 import json
 import multiprocessing
+from fractions import Fraction
 from math import comb
 from pathlib import Path
 
 from flint import arb, arb_mat, ctx
+import numpy as np
 
 from audit_complete_sixth_moments import canonical_ensemble, orbit_keys, burnside, ROOT
 from ising_fourth_moments import representative
@@ -75,16 +77,17 @@ def load_exact_candidate():
         raise RuntimeError("unexpected exact candidate support size")
     if candidate["columns"] != [int(row["column"]) for row in candidate["exact_probabilities"]]:
         raise RuntimeError("candidate column list and exact probabilities disagree")
-    if sum((__import__("fractions").Fraction(row["probability"]) for row in candidate["exact_probabilities"]), __import__("fractions").Fraction(0)) != 1:
+    if sum((Fraction(row["probability"]) for row in candidate["exact_probabilities"]), Fraction(0)) != 1:
         raise RuntimeError("exact candidate probabilities do not sum to one")
-    if any(__import__("fractions").Fraction(row["probability"]) <= 0 for row in candidate["exact_probabilities"]):
+    if any(Fraction(row["probability"]) <= 0 for row in candidate["exact_probabilities"]):
         raise RuntimeError("candidate contains a nonpositive probability")
     if candidate["selected_eighth_rows"] != lp["selected_eighth_rows"]:
         raise RuntimeError("candidate and LP selected eighth rows disagree")
 
-    seed_sha = sha256_file(SEED_POOL_PATH)
-    if seed_sha != EXPECTED_SEED_POOL_SHA256:
-        raise RuntimeError(f"frozen seed-pool SHA mismatch: expected {EXPECTED_SEED_POOL_SHA256}, got {seed_sha}")
+    seed_array = np.asarray(np.load(SEED_POOL_PATH, allow_pickle=False), dtype="<f8")
+    seed_sha = hashlib.sha256(seed_array.tobytes()).hexdigest()
+    if seed_array.shape != (1600, 42) or seed_sha != EXPECTED_SEED_POOL_SHA256:
+        raise RuntimeError(f"frozen seed-pool content mismatch: expected shape (1600, 42) and SHA {EXPECTED_SEED_POOL_SHA256}, got {seed_array.shape} and {seed_sha}")
     seed_meta = json.loads(SEED_META_PATH.read_text())
     if seed_meta["sha256_le_f64"] != EXPECTED_SEED_POOL_SHA256 or seed_meta["shape"] != [1600, 42]:
         raise RuntimeError("frozen seed-pool metadata mismatch")
@@ -105,7 +108,7 @@ def initialize_worker(candidate, candidate_sha, lp_sha, precision_bits):
         couplings = all_columns[column]
         if len(couplings) != 42 or couplings[-1] != 0 or any(value == 0 for value in couplings[:-1]):
             raise RuntimeError(f"candidate column {column} is not a legal 42-site path column")
-        bank.append((ball(__import__("fractions").Fraction(record["probability"])),
+        bank.append((ball(Fraction(record["probability"])),
                      rotation_entries_exact(couplings)))
     BANK = bank
 
