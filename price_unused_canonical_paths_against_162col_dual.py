@@ -1,4 +1,4 @@
-"""Binary64 pricing of all unused canonical paths against the 162-column Arb dual."""
+"""Binary64 pricing of unused canonical paths against the refreshed 162-column Arb dual."""
 import hashlib
 import json
 from fractions import Fraction
