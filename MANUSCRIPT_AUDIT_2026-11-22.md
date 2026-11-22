@@ -397,3 +397,35 @@ Evidence:
 - Scope correction comment: [Issue #5 comment](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/5#issuecomment-7084339758).
 
 A first pricing pass against the 162-column mixed-order dual found 12 binary64-positive unused canonical columns and 10/10 top candidates passed Arb with strictly positive lower endpoints (indices 1580, 195, 364, 424, 448, 221, 324, 517, 420, 447). The dual certificate was subsequently regenerated with refreshed parent-row provenance, so a hash-consistent pricing rerun is in progress before these candidates are used for further reoptimization.
+
+
+## Strict sixth-only 162-column theorem (2026-11-23)
+
+The 2,106-row sixth-only LP has now passed an independent 128-bit Arb dual audit. Unlike the mixed-order 2,113-row certificate, this design contains no eighth-order rows. The rational dual has exact L1 norm 1 and support on exactly 45 sixth-order rows; all 1,461 low-order coordinates are zero. All 162 physical-column inequalities have strictly negative Arb upper endpoints after slack \(10^{-10}\).
+
+The resulting exact bound is
+\[
+\eta^{(6)}_{162}\ge
+\frac{10977154378457033940786269263}
+{23058430092137307370000000000}
+=0.47605818499326774\ldots>\frac13,
+\]
+with exact gap
+\[
+\frac{9873033043233794452358807789}
+{69175290276411922110000000000}
+=0.1427248516599344\ldots.
+\]
+The largest Arb upper endpoint after slack is \(-9.4121757377289108485479722255741978272\times10^{-11}\).
+
+This does imply a complete-sixth-order lower bound for this fixed 162-generator pool: the dual is supported only on 45 sixth-order rows, and each is one of the 63,133 \(D_{42}\) sixth-order orbits. Thus the full sixth-order maximum is at least the certified restricted maximum. It remains a finite-pool theorem and does not exclude additional physical generators.
+
+Evidence:
+- Formal theorem: THEORY_162COL_2106ROW_SIXTH_ONLY_MINIMAX_OBSTRUCTION.md.
+- LP: evidence/joint_low_six_lp_162col_sixth_only_n21.json.
+- Exact certificate: evidence/55probe_162col_sixth_only_dual_certificate_n21.json.
+- Verifier: verify_162col_sixth_only_dual_arb.py.
+- Workflow: [45061253393](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45061253393).
+- Certificate commit: [e23dc0b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e23dc0bb776e6a1304258bd39eba664f35afe8ab).
+
+The next column-generation task is to price the remaining canonical generators against this sixth-only dual itself. The earlier 10/10 Arb-positive candidates were priced against the mixed-order 162-column dual and cannot be assumed to escape the sixth-only separator.
