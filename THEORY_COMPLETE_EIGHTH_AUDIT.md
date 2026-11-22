@@ -134,8 +134,10 @@ The complete scan would require
 \]
 
 candidate-by-principal-minor evaluations. This is a substantial compute
-job. The enumeration-only mode is dependency-light and has been executed;
-the full Arb determinant scan has **not** been executed in this run.
+job. The canonical-gap enumeration was independently executed in Python and
+its counts/hash are frozen above; the repository exposes a dependency-light
+enumeration-only replay. The full Arb determinant scan has **not** been
+executed in this run.
 
 ## 5. Reproducibility
 
