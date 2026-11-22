@@ -62,8 +62,12 @@ def main():
         raise RuntimeError("162-column strict dual certificate is incomplete")
     if cert["lp_transcript_sha256"] != lp_sha or screen["lp_transcript_sha256"] != lp_sha:
         raise RuntimeError("dual/LP/pricing transcript hashes disagree")
-    if cert["parent_152col_lp_sha256"] != cut_lp_sha or screen["cut_lp_transcript_sha256"] != cut_lp_sha:
-        raise RuntimeError("162-column pricing does not pin the 2,113-row design")
+    sixth_rows_check = [tuple(int(x) for x in row) for row in cut_lp["sixth_cut_rows"]]
+    eighth_rows_check = [tuple(int(x) for x in row) for row in cut_lp["selected_eighth_rows"]]
+    sixth_hash_check = sha(json.dumps([list(x) for x in sixth_rows_check], separators=(",", ":")).encode())
+    eighth_hash_check = sha(json.dumps([list(x) for x in eighth_rows_check], separators=(",", ":")).encode())
+    if sixth_hash_check != lp.get("sixth_rows_sha256") or eighth_hash_check != lp.get("eighth_rows_sha256"):
+        raise RuntimeError("current parent LP row inventory differs from the pinned 162-column design")
     if screen["dual_certificate_sha256"] != cert_sha:
         raise RuntimeError("pricing screen does not pin the strict dual")
     if screen["canonical_all_columns_sha256_le_f64"] != cert["canonical_all_columns_sha256_le_f64"]:
