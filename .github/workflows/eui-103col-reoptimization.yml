@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/eui-103col-reoptimization.yml"
       - "joint_low_six_eighth_lp_with_ten_new_arb_priced_columns.py"
+      - "verify_103col_candidate_selected_and_sixth_prefix_arb.py"
       - "evidence/twenty_probe_93col_dual_certificate_n21.json"
       - "evidence/twenty_probe_dual_pricing_arb_n21.json"
   workflow_dispatch:
@@ -34,26 +35,29 @@ jobs:
           python -m unittest tests/test_eighth_orbit_enumeration.py
       - name: Reoptimize over the 103-column expanded physical pool
         run: python joint_low_six_eighth_lp_with_ten_new_arb_priced_columns.py
-      - name: Commit LP transcript and exact candidate input
+      - name: Arb-verify exact candidate and first 1,024 sixth orbits
+        run: python verify_103col_candidate_selected_and_sixth_prefix_arb.py
+      - name: Commit LP, candidate, and Arb audit evidence
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
-          for f in evidence/joint_low_six_eighth_lp_103col_n21.json evidence/candidate_joint_input_103col_n21.json; do
+          for f in evidence/joint_low_six_eighth_lp_103col_n21.json evidence/candidate_joint_input_103col_n21.json evidence/candidate_103col_selected_and_sixth_prefix_arb_n21.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
-            git commit -m "Record 103-column Arb-priced reoptimization"
+            git commit -m "Record 103-column candidate Arb audit"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
-      - name: Upload 103-column design evidence
+      - name: Upload 103-column design and Arb evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eui-103col-reoptimization
+          name: eui-103col-arb-audit
           path: |
             evidence/joint_low_six_eighth_lp_103col_n21.json
             evidence/candidate_joint_input_103col_n21.json
+            evidence/candidate_103col_selected_and_sixth_prefix_arb_n21.json
           if-no-files-found: warn
