@@ -40,7 +40,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   targeted-arb-and-pricing:
@@ -105,11 +105,18 @@ jobs:
               "positive_weights": len(p["lp_positive_weights"]),
           }, indent=2))
           PY
+      - name: Commit frozen LP transcript
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/joint_low_six_eighth_lp_with_probe_n21.json
+          git commit -m "Freeze seven-row finite minimax LP transcript"
+          git push
       - name: Upload the interval and LP transcripts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eui-eighth-arb-and-pricing-\${{ github.sha }}
+          name: eui-eighth-arb-and-pricing-${{ github.sha }}
           path: |
             evidence/candidate_eighth_probe_arb_n21.json
             evidence/joint_low_six_eighth_lp_with_probe_n21.json
