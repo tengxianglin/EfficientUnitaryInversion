@@ -1,0 +1,88 @@
+name: EUI 113-column cutting-plane reweighting after complete sixth-order Arb separators
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/eui-113col-46probe-reoptimization.yml"
+      - "joint_low_six_eighth_lp_113col_46probe.py"
+      - "verify_candidate_113col_46probe_selected_and_sixth_prefix_arb.py"
+      - "verify_113col_46probe_complete_sixth_arb.py"
+      - "evidence/candidate_113col_38probe_complete_sixth_arb_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cutting-plane:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "python-flint==0.8.0" "numpy==2.3.5" "scipy==1.15.3"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Add eight full-domain Arb separators and reweight
+        run: python joint_low_six_eighth_lp_113col_46probe.py
+      - name: Independently Arb-check selected rows and a fresh 1,024-orbit prefix
+        if: success()
+        run: |
+          if [ -f evidence/candidate_joint_input_113col_46probe_n21.json ]; then
+            python verify_candidate_113col_46probe_selected_and_sixth_prefix_arb.py
+          else
+            echo "No exact candidate below 1/3 was produced by the finite LP."
+          fi
+      - name: Gate complete audit on a strict selected-row and prefix pass
+        if: success()
+        run: |
+          if [ -f evidence/candidate_joint_input_113col_46probe_n21.json ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("evidence/candidate_113col_46probe_selected_and_sixth_prefix_arb_n21.json")
+          d = json.loads(p.read_text())
+          if d.get("status") != "prefix_pass" or d.get("complete") is not False:
+              raise SystemExit("candidate did not pass the strict selected-row and 1,024-orbit Arb gate")
+          PY
+          else
+            echo "Full audit skipped: no rational candidate below 1/3."
+          fi
+      - name: Audit all 63,133 sixth-order dihedral orbits with 128-bit Arb
+        if: success() && hashFiles('evidence/candidate_joint_input_113col_46probe_n21.json') != ''
+        run: python verify_113col_46probe_complete_sixth_arb.py --workers 8
+      - name: Commit cutting-plane and Arb evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git restore -- evidence/seed_pool_n21_frozen.npy evidence/seed_pool_n21_frozen.json
+          for f in evidence/joint_low_six_eighth_lp_113col_46probe_n21.json evidence/candidate_joint_input_113col_46probe_n21.json evidence/candidate_113col_46probe_selected_and_sixth_prefix_arb_n21.json evidence/candidate_113col_46probe_complete_sixth_arb_n21.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Record 113-column sixth-order cutting-plane reweighting"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload cutting-plane evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-113col-46probe-cutting-plane
+          path: |
+            evidence/joint_low_six_eighth_lp_113col_46probe_n21.json
+            evidence/candidate_joint_input_113col_46probe_n21.json
+            evidence/candidate_113col_46probe_selected_and_sixth_prefix_arb_n21.json
+            evidence/candidate_113col_46probe_complete_sixth_arb_n21.json
+          if-no-files-found: warn
