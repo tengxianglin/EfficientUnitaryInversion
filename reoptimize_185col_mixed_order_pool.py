@@ -17,6 +17,7 @@ PARENT_DUAL = ROOT / "evidence/55probe_182col_sixth_only_dual_certificate_n21.js
 PRICING_SCREEN = ROOT / "evidence/55probe_182col_mixed_order_dual_pricing_screen_n21.json"
 PRICING_ARB = ROOT / "evidence/55probe_182col_mixed_order_dual_pricing_arb_n21.json"
 PARENT_172_LP = ROOT / "evidence/joint_low_six_lp_172col_sixth_only_n21.json"
+PARENT_172_DUAL = ROOT / "evidence/55probe_172col_sixth_only_dual_certificate_n21.json"
 PARENT_162_LP = ROOT / "evidence/joint_low_six_eighth_lp_162col_full_sixth_cuts_n21.json"
 CUT_LP = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
 ESCAPE_CERT = ROOT / "evidence/continuous_path_dual_escape_arb_n21.json"
@@ -31,9 +32,9 @@ def sha(raw):
 
 
 def main():
-    paths = (PARENT_LP, PARENT_DUAL, PRICING_SCREEN, PRICING_ARB, PARENT_172_LP, PARENT_162_LP, CUT_LP, ESCAPE_CERT)
+    paths = (PARENT_LP, PARENT_DUAL, PRICING_SCREEN, PRICING_ARB, PARENT_172_LP, PARENT_172_DUAL, PARENT_162_LP, CUT_LP, ESCAPE_CERT)
     raw = [path.read_bytes() for path in paths]
-    parent, dual, screen, pricing, parent172, parent162, cut_lp, escape = [json.loads(value) for value in raw]
+    parent, dual, screen, pricing, parent172, dual172, parent162, cut_lp, escape = [json.loads(value) for value in raw]
     hashes = {path.name: sha(value) for path, value in zip(paths, raw)}
 
     if (parent.get("columns"), parent.get("rows")) != (182, 2106):
@@ -48,7 +49,7 @@ def main():
         raise RuntimeError("parent LP does not pin its 172-column physical inventory")
     if dual.get("parent_172col_lp_sha256") != hashes[PARENT_172_LP.name]:
         raise RuntimeError("parent dual does not pin its 172-column physical inventory")
-    if parent.get("parent_172col_dual_certificate_sha256") != hashes["55probe_172col_sixth_only_dual_certificate_n21.json"]:
+    if parent.get("parent_172col_dual_certificate_sha256") != hashes[PARENT_172_DUAL.name]:
         raise RuntimeError("parent LP does not pin the exact 172-column dual")
     if dual.get("parent_172col_dual_certificate_sha256") != hashes["55probe_172col_sixth_only_dual_certificate_n21.json"]:
         raise RuntimeError("parent dual does not pin the exact 172-column dual")
@@ -62,6 +63,10 @@ def main():
         raise RuntimeError("parent dual does not pin the continuous-path Arb certificate")
     if parent172.get("columns") != 172 or parent172.get("rows") != 2106:
         raise RuntimeError("unexpected 172-column ancestor dimensions")
+    if dual172.get("status") != "strict_172col_2106row_sixth_only_minimax_obstruction" or not dual172.get("complete"):
+        raise RuntimeError("172-column sixth-only ancestor certificate is incomplete")
+    if dual172.get("lp_transcript_sha256") != hashes[PARENT_172_LP.name]:
+        raise RuntimeError("172-column ancestor certificate does not pin its LP")
     if parent162.get("columns") != 162 or parent162.get("rows") != 2113:
         raise RuntimeError("unexpected 162-column physical ancestor dimensions")
     if escape.get("status") != "certified_continuous_path_dual_escape" or not escape.get("complete") or not escape.get("strictly_positive"):
