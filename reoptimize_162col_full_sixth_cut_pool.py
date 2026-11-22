@@ -43,8 +43,12 @@ def main():
     ]
     hashes = {p.name: sha(data) for p, data in raw.items()}
 
-    if candidate.get("source_sha256") != hashes[PARENT_LP.name]:
-        raise RuntimeError("152-column parent candidate does not pin its source LP")
+    if parent_lp.get("parent_candidate_sha256") != hashes[CANDIDATE_IN.name]:
+        raise RuntimeError("cut-pool LP does not pin the 152-column parent candidate")
+    if parent_lp.get("parent_lp_sha256") != candidate.get("source_sha256"):
+        raise RuntimeError("cut-pool LP does not pin the candidate's original parent LP")
+    if parent_lp.get("parent_dual_certificate_sha256") != candidate.get("parent_dual_certificate_sha256"):
+        raise RuntimeError("cut-pool LP and parent candidate disagree on the original dual")
     if dual.get("status") != "strict_152col_2113row_minimax_obstruction" or not dual.get("complete"):
         raise RuntimeError("152-column full-sixth dual is not strictly certified")
     if dual.get("lp_transcript_sha256") != hashes[PARENT_LP.name]:
