@@ -516,3 +516,24 @@ The next pricing stage now screens the remaining 1,470 canonical generators agai
 The exact 172-column sixth-only dual was used to screen all 1,470 canonical generators not already in its physical pool. The binary64 screen found 14 positive scores; the ten highest were independently checked with 128-bit Arb and all ten had strictly positive interval lower endpoints: columns 544, 420, 398, 352, 629, 668, 347, 425, 296, and 844. The largest Arb score is `0.1347370117915883944...` (column 544). This invalidates the 172-column separator for an expanded pool containing any of these columns, but does not imply feasibility. Workflow [45068411039](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45068411039) completed successfully; evidence is in `evidence/55probe_172col_sixth_only_dual_pricing_screen_n21.json` and `evidence/55probe_172col_sixth_only_dual_pricing_arb_n21.json`; commit [517df1b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/517df1bd3c95da7ba81a3529d2edeae3576f2977).
 
 The next step is a 182-column reoptimization on the same 2,106 rows. Until that LP and any new Arb certificate complete, no 182-column minimax value is claimed.
+
+
+## 182-column sixth-only reoptimization (2026-11-23)
+
+The 172-column sixth-only dual pricing found ten additional canonical path generators with strictly positive 128-bit Arb reduced-cost intervals. Adding them gives a 182-column physical pool and the same pinned 2,106-row discovery design (all 1,461 second-/fourth-order rows plus 645 selected sixth-order rows).
+
+The binary64 HiGHS run completed successfully in workflow [45068718407](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45068718407) and returned:
+- objective: 0.4681273410033708;
+- independently recomputed maximum: 0.4681273410033828;
+- complete low-order block maximum: 0.46812734100337106;
+- selected-sixth block maximum: 0.4681273410033828;
+- positive primal support: 52;
+- binary64 primal-dual discovery gap: 2.83e-15.
+
+The objective is well above 1/3, so this finite LP produced no admissible candidate. The raw binary64 dual L1 norm is 1.0000000000000018; it is therefore not itself a certificate. A new exact-rational/128-bit Arb verifier and workflow have been added:
+- `verify_182col_sixth_only_dual_arb.py`;
+- `.github/workflows/eui-182col-sixth-only-dual.yml`.
+
+The verifier reconstructs the exact target vector and pinned row/column inventory, rationalizes and scales the dual to enforce the exact L1 constraint, checks that the dual support is sixth-only, and independently evaluates all 182 column inequalities with Arb. The strict certificate is not claimed until the workflow writes `evidence/55probe_182col_sixth_only_dual_certificate_n21.json`.
+
+The finite-pool scope remains explicit: even a successful 182-column certificate excludes only mixtures over those 182 generators. It does not cover the remaining canonical columns or the full continuous path family.
