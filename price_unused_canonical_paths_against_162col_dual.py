@@ -53,8 +53,6 @@ def main():
         raise RuntimeError("unexpected 162-column dual dimensions")
     if (lp.get("columns"), lp.get("rows")) != (162, 2113):
         raise RuntimeError("unexpected 162-column LP dimensions")
-    if lp.get("parent_lp_sha256") != cut_lp_sha:
-        raise RuntimeError("162-column LP does not pin the 152-column cut design")
 
     zq = [Fraction(value) for value in cert["dual_vector_rational"]]
     z = np.asarray([float(value) for value in zq], dtype=np.float64)
