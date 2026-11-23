@@ -18,8 +18,8 @@ from verify_192col_uniform_ray_time_arb import exact_uniform_ray_rotation
 from verify_ising_moment_pricing import ball
 from verify_ising_sixth_escape import rotation_entries_exact
 
-PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_194col_uniform_ray_escape_n21.json"
-PARENT_DUAL = ROOT / "evidence/55probe_194col_uniform_ray_escape_dual_certificate_n21.json"
+PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_193col_uniform_ray_escape_n21.json"
+PARENT_DUAL = ROOT / "evidence/55probe_193col_uniform_ray_escape_dual_certificate_n21.json"
 CANDIDATE_152 = ROOT / "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
 CUT_LP = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
 CUT_DUAL = ROOT / "evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json"
@@ -36,8 +36,8 @@ ESCAPE_PATHS = [
 ]
 PARENT_TIME_CERT = ROOT / "evidence/192col_uniform_ray_time_arb_n21.json"
 TIME_CERT = ROOT / "evidence/193col_uniform_ray_time_arb_n21.json"
-LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_193col_uniform_ray_escape_n21.json"
-OUTPUT_PATH = ROOT / "evidence/55probe_193col_uniform_ray_escape_dual_certificate_n21.json"
+LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_194col_uniform_ray_escape_n21.json"
+OUTPUT_PATH = ROOT / "evidence/55probe_194col_uniform_ray_escape_dual_certificate_n21.json"
 SEED_POOL = ROOT / "evidence/seed_pool_n21_frozen.npy"
 
 PRECISION_BITS = 128
@@ -100,10 +100,10 @@ def main():
         raise RuntimeError("unexpected 194-column LP dimensions")
     if parent_lp.get("status") != "193col_uniform_ray_escape_lp_above_one_third":
         raise RuntimeError("193-column parent LP is not the expected above-cap discovery")
-    if parent_dual.get("status") != "strict_194col_2113row_uniform_ray_escape_minimax_obstruction" or not parent_dual.get("complete"):
+    if parent_dual.get("status") != "strict_193col_2113row_uniform_ray_escape_minimax_obstruction" or not parent_dual.get("complete"):
         raise RuntimeError("193-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("192-column parent dual does not pin its LP")
+        raise RuntimeError("193-column parent dual does not pin its LP")
     if lp.get("parent_193col_lp_sha256") != parent_lp_sha or lp.get("parent_193col_dual_certificate_sha256") != parent_dual_sha:
         raise RuntimeError("194-column LP does not pin the exact 193-column parent")
     if lp.get("parent_152col_candidate_sha256") != candidate152_sha:
@@ -274,15 +274,15 @@ def main():
             chosen_delta = delta
             break
     if chosen_delta is None:
-        raise RuntimeError("no exact rational slack leaves all 193 column inequalities strict and the lower bound above 1/3")
+        raise RuntimeError("no exact rational slack leaves all 194 column inequalities strict and the lower bound above 1/3")
     shifted_upper = max(float((value - ball(chosen_delta)).upper()) for value in column_lhs)
     lower_bound = dual_objective - chosen_delta
     if lower_bound <= Fraction(1, 3) or shifted_upper >= 0:
-        raise RuntimeError("final 193-column Arb strictness/lower-bound check failed")
+        raise RuntimeError("final 194-column Arb strictness/lower-bound check failed")
 
     column_order_sha = sha(json.dumps(column_order, separators=(",", ":")).encode())
     result = {
-        "status": "strict_193col_2113row_uniform_ray_escape_minimax_obstruction",
+        "status": "strict_194col_2113row_uniform_ray_escape_minimax_obstruction",
         "complete": True,
         "precision_bits": ctx.prec,
         "interval_backend": "python-flint 0.8.0 / Arb",
@@ -290,7 +290,7 @@ def main():
         "parent_193col_dual_certificate_sha256": parent_dual_sha,
         "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_time_cert_sha,
         "parent_192col_uniform_ray_time_exact_rational": str(old_t),
-        "parent_192col_dual_certificate_sha256": parent_dual_sha,
+        "parent_193col_dual_certificate_sha256": parent_dual_sha,
         "uniform_ray_time_arb_certificate_sha256": time_cert_sha,
         "lp_transcript_sha256": lp_sha,
         "candidate_152col_sha256": candidate152_sha,
@@ -327,7 +327,7 @@ def main():
         },
         "column_dual_lhs_intervals": column_lhs_intervals,
         "scope": (
-            Strict rational-dual/128-bit Arb obstruction for exactly the 194 listed physical columns "
+            "Strict rational-dual/128-bit Arb obstruction for exactly the 194 listed physical columns "
             "and the fixed 2,113-row mixed-order design. It is not a certificate for the full 1,641-column "
             "canonical inventory, all continuous paths, complete sixth/eighth orbit constraints, or a "
             "Choi/diamond operational error bound."
