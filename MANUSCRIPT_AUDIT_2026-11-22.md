@@ -1816,3 +1816,26 @@ The workflow re-certifies the 193-, 194-, and 195-column parent/time chain, reco
 ### Manuscript-level limitation remains
 
 The original Appendix B's finite 10,000-Hamiltonian mean Choi-fidelity experiment is empirical average evidence for its sampling distribution. It is not a worst-case-over-Hamiltonian or worst-case-over-input guarantee. The present 2,113-row design still contains selected/cut sixth-order rows and seven selected eighth-order rows, not the complete higher-order orbit inventory. No theorem currently connects its moment residual to a per-instance Choi infidelity or diamond distance. These are separate open tasks and must not be inferred from the finite-pool dual sequence.
+
+
+## Core theorem map and long-ring publication blocker (2026-11-24)
+
+The highest-value route to a full minimax result is not another finite-pool residual alone. The repository contains three complementary results:
+
+1. The exact physical program-span theorem holds for every odd cycle length. It identifies the balanced Majorana labels as the full physical span for the fixed encoder and gives a physical fixed-recovery error floor.
+2. The radial-recovery theorem gives an exact physical-family supremum and a radial minimax-optimal decoder.
+3. The joint-parity diamond converse upgrades the radial value to a full diamond minimax theorem against arbitrary orientation-dependent non-radial stochastic Pauli corrections, conditional on one legal physical ensemble having exactly uniform diagonal program masses in both parity sectors. Its positive physical ensembles are interval-certified at n=5 and n=7.
+
+For admissible long rings n>=21, the third theorem remains conditional. The all-moment physical ensemble is the missing hypothesis. The exact principal-minor criterion is
+\[
+\mathbb E\det R_{I,I}
+=(-1)^{v(I)+k}\frac{\binom nk}{\binom{2n}{2k}},
+\qquad |I|=2k,
+\]
+for every even subset modulo complement. A zero edge in every seed makes the two parity-sector program masses identical by the gap/gauge lemma. The complement-folded projection-DPP representation supplies a positive determinant formula and a sampler, but not an exact long-ring construction.
+
+Known exclusions are deliberately limited: mixtures of single perfect-mirror segments are excluded for every odd n>=5; at n=21, mixtures of at most two disjoint perfect-mirror segments are excluded by an exact fourth-order separator. Fractional-transfer seeds escape the latter functional numerically. Arbitrary gapped couplings, three-plus segments, and all-moment positive ensembles remain open.
+
+The n=21 low-moment repair certificates and later LP candidates are not full joint ensembles: the 83-orbit repair is only approximate in low moments and has a sixth relative error above one; the 29-column candidate has a strict seventh eighth-order violation; later 32-/34-/35-column reweights have candidate-specific sixth-order separators. These are finite candidate results, not global no-go statements.
+
+**Manuscript decision:** the conditional joint-parity theorem, all-odd program-span theorem, and radial-recovery theorem form a coherent core result. The n>=21 exact positive ensemble or a global physical obstruction is the principal missing theorem. The 195/196-column mixed-order LP sequence is supporting finite-pool evidence and must not be presented as a substitute for the all-moment hypothesis or as an operational channel-error theorem. The original Appendix B's 10,000-sample mean Choi-fidelity experiment remains average empirical evidence, not a worst-case channel guarantee. No manuscript TeX/PDF source is present in the repository.
