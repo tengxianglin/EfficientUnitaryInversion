@@ -1,4 +1,4 @@
-# Manuscript and supplementary-material audit (2026-11-22)
+# Manuscript and supplementary-material audit (source review 2026-11-22; research update 2026-11-23)
 
 ## Source inspected
 
@@ -1328,3 +1328,48 @@ Commits:
 - efdea98 191-column workflow.
 
 Workflow 45160995243 was queued at the time of this audit update. No 191-column objective or certificate is claimed yet. The same logical boundary applies: a positive escape refutes only the particular finite dual's global extension; an unsuccessful local search cannot establish global separation.
+
+
+## 191-column eighth-continuous-escape result (2026-11-23)
+
+The eighth exact-decimal positive 41-edge path was added as physical column 1648.
+The 191-column LP on the pinned 2,113-row mixed-order design returned the
+binary64 HiGHS discovery objective 0.44291781834803107 and independently
+recomputed maximum 0.4429178183485498. These values are solver diagnostics,
+not the theorem.
+
+The exact rationalized dual was independently checked with 128-bit Arb against
+all 191 physical columns. The certificate proves
+\[
+\min_{p\in\Delta_{191}}\|A_{191}p-y\|_\infty
+\ge
+\frac{2493405651522255993844313}
+{5629499534213120000000000}
+=0.4429178182480797\ldots>\frac13.
+\]
+Its exact dual has \(\|z\|_1=576460752303381559/576460752303423488<1\),
+59 nonzero coordinates (two fourth-order, 55 sixth-order, two eighth-order),
+and slack \(10^{-10}\). All 191 Arb interval upper endpoints are strictly
+negative; the maximum interval is
+\[
+[-2.0472330488499601835976889763931526041\times10^{-11}
+\pm3.45\times10^{-49}].
+\]
+The certified gap above one third is 0.10958448491474636....
+
+Evidence:
+- Theory: `THEORY_191COL_2113ROW_EIGHTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md`
+- LP transcript: `evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json`
+- Strict certificate: `evidence/55probe_191col_eighth_continuous_escape_dual_certificate_n21.json`
+- Independent verifier: `verify_191col_eighth_continuous_escape_dual_arb.py`
+- Successful workflow: [45177433399](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45177433399)
+- Certificate commit: [8faeb967](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8faeb967d44b438030d584f18cfd0a860815538b)
+
+The first workflow attempt failed before evaluating any 191-column interval
+because of two stale parent-provenance field names in the verifier. Commit
+[80747a71](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/80747a71e5fb245b13f20cf989235a2c21229a50)
+corrected the checks, and the clean rerun passed all steps including the Arb
+audit. This is a theorem only for the fixed 191-generator pool and pinned
+2,113-row mixed-order design. It is not a full continuous-family obstruction,
+a complete sixth/eighth orbit audit, or an operational Choi/diamond-norm
+inversion guarantee.
