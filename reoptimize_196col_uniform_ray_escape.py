@@ -174,6 +174,10 @@ def main():
         raise RuntimeError("new uniform-ray time does not pin the cut design")
     if time_cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != grandparent_time_cert_sha:
         raise RuntimeError("new 195-column time does not pin the 194-column ancestor time")
+    if time_cert.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or time_cert.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
+        raise RuntimeError("new 195-column time does not pin the exact 194-column parent LP/dual")
+    if parent_lp.get("parent_194col_lp_sha256") != parent_dual.get("parent_194col_lp_sha256") or parent_lp.get("parent_194col_dual_certificate_sha256") != parent_dual.get("parent_194col_dual_certificate_sha256"):
+        raise RuntimeError("195-column parent LP/dual ancestry mismatch")
     t = Fraction(time_cert["t_exact_rational"])
     if t <= 0 or Fraction(time_cert["t_exact_decimal"]) != t or t in (base_t, parent_t, grandparent_t):
         raise RuntimeError("new uniform-ray time is invalid or duplicates an existing path")
