@@ -15,7 +15,7 @@ Let \(\mathcal P_{183}^{\mathrm{cut}}\) be the frozen set of 183 legal physical 
 - 645 sixth-order dihedral-orbit rows (the original 311 rows plus 334 candidate-specific cuts);
 - 7 selected eighth-order dihedral-orbit rows.
 
-There are 2,113 rows in total. Then every probability mixture over this fixed physical pool satisfies
+There are 2,113 rows in total. The binary64 HiGHS discovery has objective 0.48761965408631913, independently recomputed maximum 0.48761965409086705, support size 50, and primal-dual discovery gap 3.40e-13. These floating-point values are discovery diagnostics only; the theorem below follows from the exact rational dual and Arb intervals. Then every probability mixture over this fixed physical pool satisfies
 
 \[
 \boxed{
