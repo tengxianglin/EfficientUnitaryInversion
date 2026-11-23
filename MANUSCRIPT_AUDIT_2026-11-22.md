@@ -1735,7 +1735,7 @@ Evidence:
 - Successful workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45227944554
 - Evidence commit: 2972334d665c4882060cd887277cc4a0ec1e364c
 
-The next task is an explicit finite-time search on the uniform positive-coupling ray, followed by an Arb certificate.
+Superseded by the 2026-11-24 update below: the explicit finite-time uniform-ray witness is now Arb-certified; the next finite-pool test is the 195-column reoptimization.
 
 
 ## 2026-11-24 update: explicit finite 194-column uniform-ray escape certified
