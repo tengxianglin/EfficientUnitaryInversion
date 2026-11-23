@@ -18,7 +18,7 @@ from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import matrix, orbit_minor
 from discover_193col_uniform_torus_pricing import block_rotation, uniform_path_basis
 
-PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_194col_uniform_ray_escape_n21.json"
+PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_193col_uniform_ray_escape_n21.json"
 PARENT_DUAL = ROOT / "evidence/55probe_193col_uniform_ray_escape_dual_certificate_n21.json"
 CANDIDATE_152 = ROOT / "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
 CUT_LP = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
@@ -37,7 +37,7 @@ ESCAPE_PATHS = [
 PARENT_TIME_CERT = ROOT / "evidence/192col_uniform_ray_time_arb_n21.json"
 TIME_CERT = ROOT / "evidence/193col_uniform_ray_time_arb_n21.json"
 SEED_POOL = ROOT / "evidence/seed_pool_n21_frozen.npy"
-LP_OUT = ROOT / "evidence/joint_low_six_eighth_lp_193col_uniform_ray_escape_n21.json"
+LP_OUT = ROOT / "evidence/joint_low_six_eighth_lp_194col_uniform_ray_escape_n21.json"
 CANDIDATE_OUT = ROOT / "evidence/candidate_joint_input_194col_uniform_ray_escape_n21.json"
 
 SEED_POOL_SHA256 = "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315"
@@ -87,7 +87,7 @@ def main():
     escapes, escape_hashes = zip(*(load_json(path) for path in ESCAPE_PATHS))
     escapes, escape_hashes = list(escapes), list(escape_hashes)
 
-    if parent_lp.get("status") != "194col_uniform_ray_escape_lp_above_one_third":
+    if parent_lp.get("status") != "193col_uniform_ray_escape_lp_above_one_third":
         raise RuntimeError("193-column parent LP is not the expected above-cap discovery")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (193, 2113):
         raise RuntimeError("unexpected 193-column parent dimensions")
@@ -307,7 +307,7 @@ def main():
     matrix_sha = sha(np.asarray(A, dtype="<f8").tobytes() + np.asarray(y, dtype="<f8").tobytes())
     status = (
         "194col_uniform_ray_escape_lp_candidate_below_one_third"
-        if result.fun < 1 / 3 else "193col_uniform_ray_escape_lp_above_one_third"
+        if result.fun < 1 / 3 else "194col_uniform_ray_escape_lp_above_one_third"
     )
     transcript = {
         "status": status,
@@ -315,13 +315,11 @@ def main():
         "parent_193col_dual_certificate_sha256": parent_dual_sha,
         "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_time_cert_sha,
         "parent_192col_uniform_ray_time_exact_rational": str(old_t),
-        "parent_193col_dual_certificate_sha256": parent_dual_sha,
         "parent_152col_candidate_sha256": candidate152_sha,
         "cut_lp_transcript_sha256": cut_lp_sha,
         "cut_dual_certificate_sha256": cut_dual_sha,
         "continuous_escape_arb_certificate_sha256": escape_hashes,
         "uniform_ray_time_arb_certificate_sha256": time_cert_sha,
-            "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_time_cert_sha,
         "uniform_ray_time_exact_rational": str(t),
         "uniform_ray_time_exact_decimal": time_cert["t_exact_decimal"],
         "uniform_ray_escape_column_index": NEW_COLUMN,
@@ -382,7 +380,7 @@ def main():
             "source_file": str(LP_OUT.relative_to(ROOT)),
             "source_sha256": lp_sha,
             "parent_193col_lp_sha256": parent_lp_sha,
-            "parent_192col_dual_certificate_sha256": parent_dual_sha,
+            "parent_193col_dual_certificate_sha256": parent_dual_sha,
             "uniform_ray_time_arb_certificate_sha256": time_cert_sha,
             "uniform_ray_time_exact_rational": str(t),
             "uniform_ray_escape_column_index": NEW_COLUMN,
