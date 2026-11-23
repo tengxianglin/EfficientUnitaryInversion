@@ -105,7 +105,7 @@ class DualPricing:
             raise RuntimeError("the 185-column parent dual is not strictly certified")
         if self.cert.get("lp_transcript_sha256") != self.lp_sha:
             raise RuntimeError("185-column certificate/LP hash mismatch")
-        if self.lp.get("current_152col_cut_lp_sha256") != self.cut_sha:
+        if self.lp.get("cut_lp_transcript_sha256") != self.cut_sha:
             raise RuntimeError("185-column LP does not pin the 2,113-row cut inventory")
         self.z = np.asarray([float(Fraction(x)) for x in self.cert["dual_vector_rational"]])
         if self.z.shape != (2113,):
