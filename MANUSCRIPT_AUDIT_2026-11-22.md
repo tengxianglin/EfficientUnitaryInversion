@@ -577,3 +577,19 @@ A 185-column mixed-order reoptimization script and workflow have been committed;
 The first 185-column workflow attempt [45079471124](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45079471124) completed the 182-column certificate recheck, full 1,460-column binary64 screen, and all three Arb-positive candidate checks, but failed before LP construction because the reoptimizer omitted the parent 172-column dual file from its SHA256 manifest. The manifest and both hash references were corrected in commit [0e33549](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/0e3354906354c79063c410d8972689cb7c92e41d). The corrected rerun is [45079631845](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45079631845); its LP result is pending.
 
 The corrected run [45079631845](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45079631845) has passed the seed/orbit checks, exact 182-column Arb re-verification, fresh full canonical pricing screen, and all three Arb-positive candidate checks. At the time of this update it is executing the 185-column HiGHS reoptimization; no 185-column objective is asserted yet.
+
+
+## 185-column mixed-order LP discovery and certificate status (2026-11-23)
+
+The corrected 185-column reoptimization completed in workflow [45079631845](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45079631845). Its frozen binary64 transcript is `evidence/joint_low_six_lp_185col_mixed_order_n21.json` (blob SHA `3bc008cfbccee709a8b36e16421a5459d7470c7c`). The 2,106-row HiGHS discovery returned objective 0.4671511510648626, independently recomputed maximum 0.4671511510651767, dual discovery objective 0.46715115106485405, and binary64 primal-dual gap 8.55e-15. The raw dual has 56 nonzero row coordinates (two low-order and 54 sixth-order); its raw L1 norm is 1.0000000000000444.
+
+These values are discovery only. The raw binary64 dual is not a proof. A new independent verifier rationalizes the 2,106 dual coordinates exactly, enforces exact L1 norm at most one, reconstructs the physical inventory and target vector from hash-pinned inputs, and uses 128-bit Arb to check every one of the 185 physical-column inequalities. The new workflow re-runs the parent 182-column Arb certificate and all three strict Arb-positive pricing escapes before the 185-column check.
+
+- Verifier: `verify_185col_mixed_order_dual_arb.py`.
+- Workflow: `.github/workflows/eui-185col-mixed-order-dual.yml`.
+- Workflow definition commit: [0eed12f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/0eed12f1fd867cd5c590742359debed2ce39373f).
+- Verifier commit: [f42bcb7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/f42bcb7a1e946cfc5a99f98c01f67dfd5b3d2991).
+
+**No 185-column strict lower bound is claimed yet.** The claim becomes a theorem only if the new exact rational dual has objective above 1/3 and all 185 Arb interval inequalities pass after the chosen rational slack. If the verifier fails, its exact failure and interval diagnostics must be retained and the dual reconstruction repaired before making any claim.
+
+The 185-column result remains restricted to the pinned 2,106-row design and fixed physical pool. It does not cover additional canonical or continuous generators, the complete sixth-order orbit maximum, or an operational Choi/diamond-norm guarantee.
