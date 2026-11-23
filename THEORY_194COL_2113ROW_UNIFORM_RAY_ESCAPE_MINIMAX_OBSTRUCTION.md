@@ -146,7 +146,7 @@ where the second inequality uses the exact certificate \(\|z\|_1<1\). This prove
 - Complete sixth/eighth orbit control beyond the pinned selected/cut design.
 - A Choi-infidelity or diamond-distance operational guarantee.
 
-In particular, the 194-column dual must be priced over the uniform-path 21-torus and, if a positive point is found, over an explicit finite uniform time. The fact that the previous 193-column dual had a positive uniform-ray escape does not imply that this new 194-column dual does.
+The 194-column dual has now been priced over the uniform-path 21-torus and a strictly positive 128-bit Arb witness is recorded in THEORY_194COL_UNIFORM_RAY_DUAL_ESCAPE.md. By density, an explicit finite positive uniform time exists; the next step is to locate and Arb-certify it. The fact that the previous dual escaped does not substitute for the new dual's own certificate.
 
 ## 6. Reproducibility and provenance
 
@@ -160,3 +160,8 @@ In particular, the 194-column dual must be priced over the uniform-path 21-torus
 - 193-column explicit finite-time certificate SHA256: 3358b8dc1e42eb8e1c4d5d04a722de107a188640fb032ca8c85a7f244e3a11dd
 - Successful workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45226334693
 - Evidence commit: 1c10c6c7a796999448430d6ef9a8141e52b1112c
+
+
+## 7. Uniform-torus escape of the 194-column dual
+
+A 21-dimensional exact-torus search and independent 128-bit Arb verifier certify a positive pricing value for the 194-column dual. See THEORY_194COL_UNIFORM_RAY_DUAL_ESCAPE.md for the phase vector, interval, ancestry hashes, and dense-orbit proof. This does not change the finite 194-column minimax theorem.
