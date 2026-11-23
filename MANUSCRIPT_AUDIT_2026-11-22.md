@@ -816,3 +816,22 @@ The positive escape does not prove feasibility and does not exclude the other 1,
 
 
 The 184-column reoptimization has been launched as [workflow 45105751599](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105751599). Its pool is the certified 183-column / 2,113-row full-sixth-cut inventory plus canonical column 332, whose reduced-cost score is strictly positive by Arb. The workflow revalidates the 183-column parent certificate and pricing provenance before solving; no 184-column objective is asserted until it completes.
+
+## 2026-11-23: 184-column / 2,113-row full-sixth-cut obstruction certified
+
+The 184-column reoptimization completed successfully in [workflow 45105751599](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105751599). It added canonical column 332 to the 183-column parent pool and retained the pinned 2,113-row design: 1,461 complete second-/fourth-order rows, 645 sixth-order rows (311 original plus 334 candidate-specific cuts), and seven selected eighth-order rows.
+
+The binary64 HiGHS discovery returned objective 0.487611737529284, independently recomputed maximum 0.48761173752942266, support size 50, and primal-dual gap 5.885292253537955e-13. These are discovery diagnostics only.
+
+The exact rationalized dual has ||z||_1=1, 50 nonzero entries (two fourth-order, 46 sixth-order, two eighth-order), and slack 10^-10. Independent 128-bit Arb verification covers all 184 physical-column inequalities; the largest slack-shifted interval upper endpoint is -7.6565440382899942e-11. Therefore
+\[
+\min_{p\in\Delta(P184)}\|r(p)\|_\infty
+\ge
+\frac{22487122319210016751569973413}
+{46116860184300265870000000000}
+=0.48761173742841646\ldots>\frac13.
+\]
+
+Formal proof: THEORY_184COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md. LP transcript and certificate: evidence/joint_low_six_eighth_lp_184col_full_sixth_cuts_n21.json and evidence/55probe_184col_full_sixth_cut_dual_certificate_n21.json. Evidence commit: 0c0c745c534fb161835e03e63776d6fe7f7178eb.
+
+**Scope:** this is a mixed-order finite-pool theorem for the pinned 184 physical generators and 2,113 rows. It is not a complete sixth/eighth orbit audit, a continuous-family no-go, or a Choi/diamond-norm guarantee. The next finite-pool action is to price all 1,458 unused canonical columns against the new exact dual; the central paper-level gap remains an operational per-instance moment-to-channel theorem.
