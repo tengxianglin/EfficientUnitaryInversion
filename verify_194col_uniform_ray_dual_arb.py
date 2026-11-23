@@ -121,8 +121,8 @@ def main():
         raise RuntimeError("previous uniform-ray time does not pin the 192-column ancestry")
     if parent_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("previous uniform-ray time does not pin the cut design")
-    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha:
-        raise RuntimeError("193-column parent does not pin its original finite-time certificate")
+    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha or parent_dual.get("uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha:
+        raise RuntimeError("193-column parent LP/dual does not pin its original finite-time certificate")
     old_t = Fraction(parent_time_cert["t_exact_rational"])
     if old_t <= 0 or Fraction(parent_time_cert["t_exact_decimal"]) != old_t:
         raise RuntimeError("previous uniform-ray exact rational/decimal mismatch")
@@ -290,7 +290,7 @@ def main():
         "parent_193col_dual_certificate_sha256": parent_dual_sha,
         "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_time_cert_sha,
         "parent_192col_uniform_ray_time_exact_rational": str(old_t),
-        "parent_193col_dual_certificate_sha256": parent_dual_sha,
+        "parent_192col_dual_certificate_sha256": parent_lp.get("parent_192col_dual_certificate_sha256"),
         "uniform_ray_time_arb_certificate_sha256": time_cert_sha,
         "lp_transcript_sha256": lp_sha,
         "candidate_152col_sha256": candidate152_sha,
