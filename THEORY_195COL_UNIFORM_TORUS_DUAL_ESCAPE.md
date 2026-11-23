@@ -124,7 +124,7 @@ S_{195}(e^{tK_*})>0.
 
 **Proof.** The Arb interval above proves \(S_{195}(R(\theta_*))>0\). The pricing functional is a finite linear combination of matrix minors and is therefore continuous on \(\mathbb T_*\). Hence it is positive on a nonempty open neighborhood of \(R(\theta_*)\). The positive-time uniform orbit is dense in \(\mathbb T_*\), so it intersects that neighborhood at some finite \(t>0\). \(\square\)
 
-This establishes existence of a finite physical equal-coupling escape, although the explicit finite decimal time is not yet supplied in this note. A separate bounded one-dimensional search and direct Arb verification are being added; until that certificate is committed, no explicit value of \(t\) is claimed.
+This establishes existence of a finite physical equal-coupling escape, although the explicit finite decimal time is not yet supplied in this note. A separate bounded one-dimensional search and direct Arb verification have now been added (workflow `.github/workflows/eui-195col-uniform-ray-time-escape.yml`); until the finite-time Arb certificate is committed, no explicit value of \(t\) is claimed.
 
 ## 5. Scope
 
