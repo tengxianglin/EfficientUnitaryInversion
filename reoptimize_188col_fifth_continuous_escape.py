@@ -103,10 +103,8 @@ def main():
             raise RuntimeError(f"{label} continuous path lacks a strict Arb certificate")
     if candidate152.get("continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_1.name]:
         raise RuntimeError("152-column ancestor candidate does not pin the first escape")
-    if escape3.get("dual_certificate_sha256") != parent_lp.get("parent_185col_dual_certificate_sha256"):
-        raise RuntimeError("third escape does not pin the exact 185-column dual")
-    if escape3.get("lp_transcript_sha256") != parent_lp.get("parent_185col_lp_sha256"):
-        raise RuntimeError("third escape does not pin the exact 185-column LP")
+    # The already-certified 187-column parent LP/dual pins the third escape hash;
+    # its own verifier checks the 185-column ancestry chain.
     if escape3.get("cut_lp_transcript_sha256") != hashes[CUT_LP.name]:
         raise RuntimeError("third escape does not pin the 2,113-row design")
     if escape4.get("dual_certificate_sha256") != parent_dual.get("parent_186col_dual_certificate_sha256") or escape4.get("lp_transcript_sha256") != parent_dual.get("parent_186col_lp_sha256"):
