@@ -3,7 +3,7 @@
   "dual_certificate_sha256": "aa87a19c407d45abf3abd38c5ba74a87b9ebf95717cd6289d1a9015f7576e1b4",
   "lp_transcript_sha256": "9ad6881a32409e091c0354e4d5bd4f013d2343ca456e0a3bef81a911e171dc44",
   "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
-  "pricing_screen_sha256": "f6c29221b6160fc30beb68bc24773aad03579e55f41276fac1a6712f640d900a",
+  "pricing_screen_sha256": "17e6a437d0b4208d454e7d497622f55e745272d7a6c084759b10ce261821ec88",
   "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
   "precision_bits": 128,
   "interval_backend": "python-flint 0.8.0 / Arb",
@@ -15,7 +15,7 @@
   "results": [
     {
       "column": 61,
-      "float_pricing_score": 0.09497125537121985,
+      "float_pricing_score": 0.09497125537120804,
       "arb_pricing_score_interval": "[0.09497125537111743585105305091280410 +/- 2.71e-36]",
       "arb_lower_endpoint": "[0.094971255371117435851053050912804100161 +/- 2.73e-40]",
       "arb_upper_endpoint": "[0.094971255371117435851053050912804102706 +/- 2.18e-40]",
@@ -67,7 +67,7 @@
     },
     {
       "column": 352,
-      "float_pricing_score": 0.08216243314378742,
+      "float_pricing_score": 0.08216243314378888,
       "arb_pricing_score_interval": "[0.08216243314369280415493281586352779 +/- 3.00e-36]",
       "arb_lower_endpoint": "[0.082162433143692804154932815863527787006 +/- 4.30e-41]",
       "arb_upper_endpoint": "[0.082162433143692804154932815863527789432 +/- 3.09e-41]",
@@ -119,7 +119,7 @@
     },
     {
       "column": 629,
-      "float_pricing_score": 0.060558969830867865,
+      "float_pricing_score": 0.0605589698308604,
       "arb_pricing_score_interval": "[0.06055896983218268868938954602707433 +/- 4.27e-36]",
       "arb_lower_endpoint": "[0.060558969832182688689389546027074325733 +/- 2.06e-40]",
       "arb_upper_endpoint": "[0.060558969832182688689389546027074328470 +/- 9.69e-41]",
@@ -171,7 +171,7 @@
     },
     {
       "column": 93,
-      "float_pricing_score": 0.0483696609029631,
+      "float_pricing_score": 0.0483696609029647,
       "arb_pricing_score_interval": "[0.04836966090284563057182981988932889 +/- 5.68e-36]",
       "arb_lower_endpoint": "[0.048369660902845630571829819889328884328 +/- 4.05e-41]",
       "arb_upper_endpoint": "[0.048369660902845630571829819889328887016 +/- 2.50e-40]",
@@ -223,7 +223,7 @@
     },
     {
       "column": 728,
-      "float_pricing_score": 0.048012261076591324,
+      "float_pricing_score": 0.048012261076526425,
       "arb_pricing_score_interval": "[0.0480122610794865913880037658569884 +/- 8.97e-35]",
       "arb_lower_endpoint": "[0.048012261079486591388003765856988382992 +/- 3.30e-40]",
       "arb_upper_endpoint": "[0.048012261079486591388003765856988489625 +/- 9.53e-41]",
@@ -275,7 +275,7 @@
     },
     {
       "column": 620,
-      "float_pricing_score": 0.033244789846626974,
+      "float_pricing_score": 0.03324478984662638,
       "arb_pricing_score_interval": "[0.03324478984795173577301529645375690 +/- 3.93e-36]",
       "arb_lower_endpoint": "[0.033244789847951735773015296453756896077 +/- 1.60e-40]",
       "arb_upper_endpoint": "[0.033244789847951735773015296453756898775 +/- 4.01e-40]",
@@ -327,7 +327,7 @@
     },
     {
       "column": 78,
-      "float_pricing_score": 0.024524006644389862,
+      "float_pricing_score": 0.024524006644386573,
       "arb_pricing_score_interval": "[0.02452400664428079101920382922731260 +/- 4.44e-36]",
       "arb_lower_endpoint": "[0.024524006644280791019203829227312601884 +/- 4.87e-40]",
       "arb_upper_endpoint": "[0.024524006644280791019203829227312604435 +/- 2.97e-40]",
@@ -379,7 +379,7 @@
     },
     {
       "column": 398,
-      "float_pricing_score": 0.013261356418449138,
+      "float_pricing_score": 0.013261356418455328,
       "arb_pricing_score_interval": "[0.01326135641803237589178098847426849 +/- 3.98e-36]",
       "arb_lower_endpoint": "[0.013261356418032375891780988474268490026 +/- 1.61e-40]",
       "arb_upper_endpoint": "[0.013261356418032375891780988474268493970 +/- 3.12e-40]",
@@ -431,7 +431,7 @@
     },
     {
       "column": 233,
-      "float_pricing_score": 0.007135062670546109,
+      "float_pricing_score": 0.007135062670556393,
       "arb_pricing_score_interval": "[0.00713506267048127973457967663066984 +/- 1.28e-36]",
       "arb_lower_endpoint": "[0.0071350626704812797345796766306698389239 +/- 8.18e-42]",
       "arb_upper_endpoint": "[0.0071350626704812797345796766306698412782 +/- 1.34e-41]",
@@ -483,7 +483,7 @@
     },
     {
       "column": 169,
-      "float_pricing_score": 0.0011911702018968344,
+      "float_pricing_score": 0.0011911702024311951,
       "arb_pricing_score_interval": "[0.00119117019819556919067851740175 +/- 2.57e-33]",
       "arb_lower_endpoint": "[0.0011911701981955691906785174017499743409 +/- 4.28e-41]",
       "arb_upper_endpoint": "[0.0011911701981955691906785174017525606783 +/- 4.40e-41]",
