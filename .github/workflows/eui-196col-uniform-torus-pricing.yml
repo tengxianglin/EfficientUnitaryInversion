@@ -26,6 +26,10 @@ jobs:
       PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
+      - name: Remove stale 196-column torus outputs before any verification
+        run: |
+          rm -f evidence/196col_uniform_torus_search_n21.json
+          rm -f evidence/196col_uniform_torus_arb_n21.json
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -51,10 +55,6 @@ jobs:
           python verify_195col_uniform_ray_time_arb.py
       - name: Re-certify the 196-column finite-pool dual
         run: python verify_196col_uniform_ray_dual_arb.py
-      - name: Remove stale 196-column torus outputs
-        run: |
-          rm -f evidence/196col_uniform_torus_search_n21.json
-          rm -f evidence/196col_uniform_torus_arb_n21.json
       - name: Search the 21-dimensional uniform-path torus
         run: |
           python discover_196col_uniform_torus_pricing.py \
