@@ -1068,3 +1068,39 @@ Evidence:
 - Successful search/Arb workflow: [45134044907](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45134044907)
 
 The new path is now the next column-generation input (label 1645). The next action is an 188-column reoptimization on the unchanged 2,113-row mixed-order design, followed by exact rational/Arb certification. A new 188-column dual, if obtained, must again be tested against the continuous path family; failure of a local search will not be treated as global separation.
+
+
+## 188-column fifth-continuous-escape reoptimization (2026-11-23)
+
+The fifth exact-rational positive 41-edge path escaped the 187-column dual and was appended as column 1645. Re-solving the unchanged 2,113-row mixed-order LP over 188 pinned columns returned the binary64 HiGHS objective 0.4585955253523888, independently recomputed maximum 0.4585955253531613, support size 52, and primal-dual discovery gap 3.98e-13. These are discovery diagnostics only.
+
+The new exact-rational dual was independently checked with 128-bit Arb against all 188 physical columns. Its exact \\(\\ell_1\\) norm is
+\\[
+\\frac{73786976294791983323}{73786976294838206464}<1,
+\\]
+and its 52 nonzero rows comprise three fourth-order, 47 sixth-order, and two eighth-order rows. Every slack-shifted column inequality has a strictly negative Arb upper endpoint; the maximum is
+\\[
+[-8.8068030053955477431256232530676661255\\times10^{-10}
+\\pm1.19\\times10^{-48}]<0.
+\\]
+Consequently the fixed-pool theorem is
+\\[
+\\min_{p\\in\\Delta_{188}}\\|A p-y\\|_\\infty
+\\ge
+\\frac{66090580242847531496409753}
+{144115188075855872000000000}
+=0.4585955243527862\\ldots>\\frac13.
+\\]
+
+Formal proof: [THEORY_188COL_2113ROW_FIFTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_188COL_2113ROW_FIFTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md).
+
+Evidence:
+- Successful 188-column reoptimization and Arb branch: [workflow 45135692203](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45135692203)
+- LP transcript SHA256: `f512d8fa40887d84a3274c7dd5f4716b841573e90adcd2ff7f12d191c2bf8297`
+- Dual certificate: `evidence/55probe_188col_fifth_continuous_escape_dual_certificate_n21.json`
+- Reoptimizer: `reoptimize_188col_fifth_continuous_escape.py`
+- Independent verifier: `verify_188col_fifth_continuous_escape_dual_arb.py`
+
+This remains a fixed-pool mixed-order result. The 645 sixth-order rows are selected/cut rather than all 63,133 sixth-order dihedral orbits, and the seven eighth-order rows are selected representatives. It is not a global continuous-family no-go and does not imply a Choi-fidelity or diamond-norm guarantee.
+
+The 188-column dual is now being tested directly against the positive 41-edge path family. The differentiable search is discovery-only; a candidate will count as an escape only if the independent exact-rational Arb verifier returns a strictly positive interval lower endpoint. Failure to find a candidate will not prove global separation.
