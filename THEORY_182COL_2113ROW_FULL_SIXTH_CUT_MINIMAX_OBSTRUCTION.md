@@ -150,6 +150,9 @@ The 128-bit Arb certificate reconstructs an exact rational dual vector \(z\) and
 \|z\|_1=
 \frac{144115188075855847}{144115188075855872}<1,
 \qquad
+\lambda=
+\frac{6700036474347829}{4503599627370496},
+\qquad
 \lambda+z^\mathsf Ty=
 \frac{70285979103274681}{144115188075855872}.
 \]
