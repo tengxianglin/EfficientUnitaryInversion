@@ -142,7 +142,7 @@ This is a strict finite-pool minimax theorem for exactly the 193 listed physical
 - Feasibility or infeasibility of a mixture over all continuous paths.
 - A Choi-infidelity or diamond-distance operational guarantee.
 
-In particular, the fact that the 193-column dual separates its 193 listed columns does not imply it separates the continuous family. The uniform-path 21-torus test has now produced a strictly positive 128-bit Arb witness, proving that this particular 193-column dual does not separate the continuous uniform positive-coupling ray; see THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md. The next step is to locate and Arb-certify an explicit finite uniform coupling t, then continue pricing the dual over the full 41-dimensional positive path family. A failed bounded search would not prove global separation.
+In particular, the fact that the 193-column dual separates its 193 listed columns does not imply it separates the continuous family. The uniform-path 21-torus test and an explicit finite uniform-coupling witness have both been strictly Arb-certified; see THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md. The next finite-pool experiment is to append the exact path t=588.216987832015661 as physical column 1651 and reoptimize the same 2,113-row design. A failed bounded search over the full 41-dimensional family would not prove global separation.
 
 ## 6. Reproducibility
 
@@ -162,3 +162,8 @@ In particular, the fact that the 193-column dual separates its 193 listed column
 ## 7. Continuous uniform-ray escape of this 193-column dual
 
 The exact 21-torus pricing search and independent Arb verifier now certify a positive point. The dense-orbit theorem therefore implies existence of a finite t>0 with positive pricing along the uniform path. The complete statement, exact phase vector, interval, provenance hashes, proof, and scope limitations are in THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md. This does not change the finite 193-column minimax theorem.
+
+
+## 8. Explicit finite uniform-ray witness
+
+The 193-column dual has a directly certified physical escape at t=588.216987832015661, with all 41 couplings equal. The independent 128-bit Arb interval is recorded in THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md and evidence/193col_uniform_ray_time_arb_n21.json. This leaves the finite 193-column minimax theorem intact.
