@@ -169,4 +169,49 @@ A failed bounded finite-time search would not refute the dense-torus existence t
 - Successful search/verification workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45223892005
 - Evidence commit: 6b8cabddaad3648323343fd8fbc1b671afc2d18f
 
-The next computational step is to find an explicit finite rational-decimal \(t>0\), then independently certify \(S_{193}(e^{tK_*})>0\) with Arb. The current run is recorded in workflow 45224963117.
+An explicit finite physical witness has now been certified:
+\[
+t_* = 588.216987832015661
+=\frac{588216987832015661}{10^{15}}>0,
+\]
+with all 41 edge couplings equal to this value, and
+\[
+S_{193}(e^{t_*K_*})
+\in[0.44956324068539347204794614417071
+\pm8.33\times10^{-33}]>0.
+\]
+The exact decimal is reconstructed as a rational input by the independent 128-bit Arb verifier. Workflow 45224963117 completed successfully. The next finite-pool experiment is to append this path as physical column 1651 and reoptimize the same 2,113-row design.
+
+
+## 7. Explicit finite uniform-coupling witness
+
+The dense-torus theorem and positive torus interval already imply existence of a finite positive uniform coupling. A deterministic differential-evolution search over four bounded intervals,
+\[
+[10^{-3},10^3],\quad[10^3,10^4],\quad[10^4,10^5],\quad[10^5,10^6],
+\]
+found
+\[
+t_*=588.216987832015661
+=\frac{588216987832015661}{10^{15}}>0.
+\]
+The 41 physical edge couplings are all exactly this rational decimal.
+
+The search's best binary64 score is 0.44956324068536085; this is a discovery diagnostic only. The independent 128-bit Arb verifier reconstructs the exact uniform-ray matrix and all 63 active dual-row contributions and certifies
+\[
+\boxed{
+S_{193}(e^{t_*K_*})
+\in[0.44956324068539347204794614417071
+\pm8.33\times10^{-33}]>0.
+}
+\]
+The exact time is \(588216987832015661/10^{15}\). The Arb output pins the 193-column dual SHA256, LP transcript SHA256, torus Arb certificate SHA256, and phase-vector SHA256 recorded above.
+
+This is a directly replayable finite physical path, not only a density corollary. It lies outside the 193-column pool because all 193 listed columns have strictly negative certified pricing. It refutes this particular 193-column dual as a separator of the continuous family, but does not invalidate the finite 193-column theorem or settle the continuous-family minimax problem.
+
+Reproduction:
+- Search: evidence/193col_uniform_ray_time_search_n21.json
+- Arb: evidence/193col_uniform_ray_time_arb_n21.json
+- Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45224963117
+- Evidence commit: 5d9bc186a82d4b331930069764344e14367ea55c
+- Search script: discover_193col_uniform_ray_time_escape.py
+- Verifier: verify_193col_uniform_ray_time_arb.py
