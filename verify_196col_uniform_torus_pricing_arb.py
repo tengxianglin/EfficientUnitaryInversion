@@ -106,9 +106,9 @@ def main():
     if lp.get("status") != "196col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (196, 2113):
         raise RuntimeError("196-column LP is not the expected above-cap discovery")
     if cert.get("parent_195col_lp_sha256") != parent_lp_sha or cert.get("parent_195col_dual_certificate_sha256") != parent_dual_sha:
-        raise RuntimeError("196-column dual does not pin the exact 196-column parent")
+        raise RuntimeError("196-column dual does not pin the exact 195-column parent")
     if lp.get("parent_195col_lp_sha256") != parent_lp_sha or lp.get("parent_195col_dual_certificate_sha256") != parent_dual_sha:
-        raise RuntimeError("196-column LP does not pin the exact 196-column parent")
+        raise RuntimeError("196-column LP does not pin the exact 195-column parent")
     if parent_lp.get("status") != "195col_uniform_ray_escape_lp_above_one_third" or (parent_lp.get("columns"), parent_lp.get("rows")) != (195, 2113):
         raise RuntimeError("195-column parent LP is not the expected above-cap discovery")
     if parent_dual.get("status") != "strict_195col_2113row_uniform_ray_escape_minimax_obstruction" or not parent_dual.get("complete") or parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
@@ -133,6 +133,15 @@ def main():
         raise RuntimeError("195-column time certificate does not pin its parent LP/dual/cut")
     if time_cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != parent_lp.get("uniform_ray_time_arb_certificate_sha256"):
         raise RuntimeError("195-column time certificate does not pin the 194-column time certificate")
+    if time_cert.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or time_cert.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
+        raise RuntimeError("195-column time certificate does not pin the 194-column parent LP/dual")
+    for key in (
+        "parent_194col_uniform_ray_time_arb_certificate_sha256",
+        "parent_193col_uniform_ray_time_arb_certificate_sha256",
+        "parent_192col_uniform_ray_time_arb_certificate_sha256",
+    ):
+        if cert.get(key) != lp.get(key):
+            raise RuntimeError(f"196-column LP/dual time ancestry mismatch for {key}")
     if cert.get("uniform_ray_time_arb_certificate_sha256") != time_cert_sha or lp.get("uniform_ray_time_arb_certificate_sha256") != time_cert_sha:
         raise RuntimeError("196-column LP/dual does not pin the 195-column finite-time certificate")
     if cert.get("uniform_ray_time_exact_rational") != time_cert.get("t_exact_rational") or lp.get("uniform_ray_time_exact_rational") != time_cert.get("t_exact_rational"):
@@ -151,7 +160,7 @@ def main():
     z = [Fraction(value) for value in cert["dual_vector_rational"]]
     norm = sum((abs(value) for value in z), Fraction(0))
     if len(z) != 2113 or norm != Fraction(cert["dual_l1_norm_exact"]) or norm > 1:
-        raise RuntimeError("exact 195-column dual dimension/L1 normalization mismatch")
+        raise RuntimeError("exact 196-column dual dimension/L1 normalization mismatch")
     active = [index for index, value in enumerate(z) if value]
     active_low = [index for index in active if index < LOW_COUNT]
     active_sixth = [index for index in active if LOW_COUNT <= index < SIXTH_END]
@@ -178,9 +187,17 @@ def main():
             "lp_transcript_sha256": lp_sha,
             "parent_195col_lp_sha256": parent_lp_sha,
             "parent_195col_dual_certificate_sha256": parent_dual_sha,
-            "parent_195col_dual_certificate_sha256": parent_dual_sha,
+            "parent_194col_lp_sha256": parent_lp.get("parent_194col_lp_sha256"),
+            "parent_194col_dual_certificate_sha256": parent_lp.get("parent_194col_dual_certificate_sha256"),
             "parent_194col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("uniform_ray_time_arb_certificate_sha256"),
+            "parent_193col_lp_sha256": parent_lp.get("parent_193col_lp_sha256"),
+            "parent_193col_dual_certificate_sha256": parent_lp.get("parent_193col_dual_certificate_sha256"),
+            "parent_193col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256"),
+            "parent_192col_lp_sha256": parent_lp.get("parent_192col_lp_sha256"),
+            "parent_192col_dual_certificate_sha256": parent_lp.get("parent_192col_dual_certificate_sha256"),
+            "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256"),
             "uniform_ray_time_arb_certificate_sha256": time_cert_sha,
+            "uniform_ray_time_exact_rational": time_cert.get("t_exact_rational"),
             "discovery_sha256": discovery_sha,
             "best_candidate_score_binary64": discovery.get("best_candidate_score_binary64"),
             "records_checked": len(discovery.get("records", [])),
@@ -235,10 +252,19 @@ def main():
         "interval_backend": "python-flint 0.8.0 / Arb",
         "dual_certificate_sha256": cert_sha,
         "lp_transcript_sha256": lp_sha,
-        "parent_193col_lp_sha256": parent_lp_sha,
-        "parent_193col_dual_certificate_sha256": parent_dual_sha,
-        "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_time_cert_sha,
+        "parent_195col_lp_sha256": parent_lp_sha,
+        "parent_195col_dual_certificate_sha256": parent_dual_sha,
+        "parent_194col_lp_sha256": parent_lp.get("parent_194col_lp_sha256"),
+        "parent_194col_dual_certificate_sha256": parent_lp.get("parent_194col_dual_certificate_sha256"),
+        "parent_194col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("uniform_ray_time_arb_certificate_sha256"),
+        "parent_193col_lp_sha256": parent_lp.get("parent_193col_lp_sha256"),
+        "parent_193col_dual_certificate_sha256": parent_lp.get("parent_193col_dual_certificate_sha256"),
+        "parent_193col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256"),
+        "parent_192col_lp_sha256": parent_lp.get("parent_192col_lp_sha256"),
+        "parent_192col_dual_certificate_sha256": parent_lp.get("parent_192col_dual_certificate_sha256"),
+        "parent_192col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256"),
         "uniform_ray_time_arb_certificate_sha256": time_cert_sha,
+        "uniform_ray_time_exact_rational": time_cert.get("t_exact_rational"),
         "cut_lp_transcript_sha256": cut_sha,
         "discovery_sha256": discovery_sha,
         "phase_vector_sha256": phase_sha,
@@ -257,7 +283,7 @@ def main():
             "A strictly positive Arb interval at this exact torus point, combined with the proved "
             "Kronecker density of the uniform positive-coupling ray and continuity of the pricing "
             "functional, proves existence of a finite t > 0 with positive pricing on c=(t,...,t). "
-            "It refutes global separation by this particular 195-column dual only; it is not a "
+            "It refutes global separation by this particular 196-column dual only; it is not a "
             "full-family minimax theorem."
         ),
     }
