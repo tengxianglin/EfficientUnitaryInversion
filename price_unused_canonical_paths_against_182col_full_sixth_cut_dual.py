@@ -97,7 +97,7 @@ def main():
     if len(all_columns) != 1641 or all_sha != cert["canonical_all_columns_sha256_le_f64"]:
         raise RuntimeError("canonical pool hash/count mismatch")
     active_canonical = sorted(int(x) for x in cert["columns"] if int(x) != 1641)
-    if len(active_canonical) != 181 or len(set(active_canonical)) != 171:
+    if len(active_canonical) != 181 or len(set(active_canonical)) != 181:
         raise RuntimeError("unexpected active canonical-column inventory")
     if active_canonical != sorted(set(lp["base_columns"]) | set(lp["added_canonical_columns"])):
         raise RuntimeError("active canonical columns disagree with 182-column LP")
