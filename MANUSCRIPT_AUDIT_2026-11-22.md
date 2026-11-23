@@ -871,3 +871,24 @@ Combining these with the existing Arb certificate for the 183 active canonical c
 Formal extension: [THEORY_FULL_CANONICAL_POOL_PLUS_ESCAPE_2113ROW_MINIMAX_OBSTRUCTION.md](THEORY_FULL_CANONICAL_POOL_PLUS_ESCAPE_2113ROW_MINIMAX_OBSTRUCTION.md). Compact machine-readable summary: evidence/55probe_184col_full_canonical_pool_arb_summary_n21.json. Full interval transcript: evidence/55probe_184col_full_canonical_pool_arb_n21.json, GitHub blob SHA1 146b04f500b519e971b88d325d0cbccd1ee2fd87, committed at [dcab0b7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/dcab0b7fd7c7e81c36c7164441189c7e89d26a29).
 
 **Boundary:** this is a complete separation result for the finite canonical inventory plus one additional continuous path. It is still not a theorem for the unrestricted continuous coupling family, and the 2,113-row mixed-order residual still has no EUI-specific Choi/diamond-norm guarantee. The next mathematical target is global separation over the admissible continuous path family; the operational moment-to-channel bridge remains independent and essential.
+
+
+## 184-column dual: strict continuous-path escape (2026-11-23)
+
+The unrestricted positive 41-edge open-path family contains a second exact-rational escape from the 184-column mixed-order dual. The corrected 10-start Frechet/cofactor search passed its active-column regression check (the prior pinned escape is reproduced to within (10^{-8})); the analytic gradient agrees with complex-step differentiation with maximum relative defect (7.97\times10^{-13}). The candidate is outside the frozen 1,641-column canonical pool and differs from the earlier continuous escape.
+
+An independent 128-bit Arb verifier rebuilt the matrix exponential and all 50 active dual features from the exact 12-decimal rational couplings and certified
+[
+S_{184}(c)\in[558.5197275383090425573204756469618\pm6.20\times10^{-32}]>0.
+]
+This strictly disproves extending the **particular 184-column dual** to the full continuous path family. It does not invalidate the finite 184-column theorem, prove a full-family feasible ensemble, or establish an operational Choi/diamond guarantee.
+
+- Formal proof and exact couplings: `THEORY_184COL_CONTINUOUS_PATH_DUAL_ESCAPE.md`.
+- Discovery: `evidence/184col_continuous_dual_search_n21.json`.
+- Arb certificate: `evidence/184col_continuous_dual_escape_arb_n21.json`.
+- Workflow: [45115018787](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45115018787).
+- Evidence commit: [026ae00](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/026ae00d44e8d3826c881a648293469bb3c81135).
+
+The first two search runs exposed a scalar-value bug (the feature was added without its dual coefficient) and are explicitly discarded in Issue #5. The corrected implementation weights the scalar and gradient consistently and checks the old certified column before optimization.
+
+**Next:** add this exact path as a 185th column, re-solve the same 2,113-row minimax LP, then certify any new dual and test it again against the continuous family. Do not promote the finite-pool obstruction to a continuous-family theorem.
