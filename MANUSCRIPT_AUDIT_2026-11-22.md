@@ -1213,3 +1213,39 @@ The next finite experiment is a 190-column reoptimization, appending the
 seventh path to the unchanged 2,113-row mixed-order design. The continuous
 family minimax theorem and the EUI-specific moment-to-Choi/diamond bridge
 remain open.
+
+## Seventh continuous-path escape from the 189-column dual; 190-column branch launched
+
+The exact 189-column mixed-order dual is a valid finite-pool certificate, but it is not a separator for the unrestricted positive 41-edge path family. A deterministic 10-start differentiable search found a seventh exact-decimal-rational path (label 1647), distinct from the six earlier escapes and outside the frozen canonical inventory. The analytic cofactor/Frechet gradient passed complex-step checks with maximum relative defect
+\[
+1.0714305862054578\times10^{-13}.
+\]
+The optimizer reached its 100-iteration limit, so convergence is not claimed.
+
+The independent 128-bit Arb verifier certifies the exact path's pricing score:
+\[
+S_{189}(c)\in
+[207.4357421969902709413811580245091\pm2.10\times10^{-32}]>0.
+\]
+This strictly refutes global separation by this particular 189-column dual. It does not invalidate the finite 189-column theorem, establish continuous-family feasibility, or imply an operational channel guarantee.
+
+Formal counterexample: [THEORY_189COL_CONTINUOUS_PATH_DUAL_ESCAPE.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_189COL_CONTINUOUS_PATH_DUAL_ESCAPE.md).
+
+Evidence:
+- [Successful search and Arb workflow 45147006543](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45147006543)
+- Search transcript SHA256: `2862b1fc35e1739bed710f9b2059b1b5c855e57a975a091247e8aab7417a9900`
+- Arb certificate: `evidence/189col_continuous_dual_escape_arb_n21.json`
+- Candidate SHA256: `2dcdd30f2a0c9fbb901c9f63748ca2ca5151e770b92b93255a0cb36324d734c8`
+- Search/verifier/workflow commits: [1fd531a](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1fd531a121e88332c685e9558967a6e829dd76ff), [64b7b52](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/64b7b5283a7be21d4417e4935e0593fbb6d994c6), [5198789](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5198789cdcb6dd41c08756257304454aaf3c1e43).
+
+The seventh path is appended as column 1647 in the new 190-column reoptimizer. The unchanged 2,113-row design and all parent/escape provenance are checked. New files:
+- `reoptimize_190col_seventh_continuous_escape.py`
+- `verify_190col_seventh_continuous_escape_dual_arb.py`
+- `.github/workflows/eui-190col-seventh-continuous-escape.yml`
+
+Commits: [c35fa87](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c35fa87bbb76450f6e42d5bf89cabf1a2c551b26), [51b7e9f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/51b7e9f439e043e838f9d7ba4a79c79334038d78), [5c81d80](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5c81d8083acca12af3e1e23315a450bdfbb2a418). Workflow [45151174105](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45151174105) has passed the frozen seed/orbit checks, re-certified the 189-column parent and all seven escape inputs, and compiled both new Python programs. The 190-column HiGHS solve was still running at the latest status check; no 190-column objective or certificate is claimed here.
+
+If the 190-column objective is above 1/3, the workflow proceeds to exact-rational dual reconstruction and independent Arb checks of all 190 physical columns. If below 1/3, it freezes an exact rational candidate as discovery only; a separate exact-primal Arb audit and complete sixth-order separation are still required.
+
+The 2,113-row design remains mixed-order and selected/cut: 1,461 complete second/fourth rows, 645 selected/cut sixth rows, and seven selected eighth rows. This is not a complete sixth/eighth orbit certificate, a global positive-coupling-family minimax theorem, or an operational Choi/diamond guarantee.
+
