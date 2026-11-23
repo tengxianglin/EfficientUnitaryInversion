@@ -120,13 +120,13 @@ def main():
         raise RuntimeError("194-column LP does not pin its 193-column parent")
     if lp.get("uniform_ray_time_arb_certificate_sha256") != parent_time_sha or lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256") != ancestor_time_sha:
         raise RuntimeError("194-column LP does not pin both previous uniform-ray certificates")
-    if time_cert.get("status") != "certified_194col_uniform_torus_dual_escape" or not time_cert.get("complete") or not time_cert.get("strictly_positive"):
+    if torus.get("status") != "certified_194col_uniform_torus_dual_escape" or not torus.get("complete") or not torus.get("strictly_positive"):
         raise RuntimeError("194-column torus point is not independently Arb-certified positive")
-    if time_cert.get("dual_certificate_sha256") != cert_sha or time_cert.get("lp_transcript_sha256") != lp_sha:
+    if torus.get("dual_certificate_sha256") != cert_sha or torus.get("lp_transcript_sha256") != lp_sha:
         raise RuntimeError("194-column torus certificate does not pin the current dual/LP")
     if discovery.get("dual_certificate_sha256") != cert_sha or discovery.get("lp_transcript_sha256") != lp_sha or discovery.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("194-column finite-time discovery does not pin the current dual/LP/cut")
-    if discovery.get("torus_arb_certificate_sha256") != torus_sha or discovery.get("torus_phase_vector_sha256") != time_cert.get("phase_vector_sha256"):
+    if discovery.get("torus_arb_certificate_sha256") != torus_sha or discovery.get("torus_phase_vector_sha256") != torus.get("phase_vector_sha256"):
         raise RuntimeError("194-column finite-time discovery does not pin the exact torus Arb certificate")
     if discovery.get("parent_193col_lp_sha256") != parent_lp_sha or discovery.get("parent_193col_dual_certificate_sha256") != parent_dual_sha:
         raise RuntimeError("194-column finite-time discovery does not pin the 193-column parent")
