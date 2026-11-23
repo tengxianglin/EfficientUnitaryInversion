@@ -43,6 +43,8 @@ def main():
         raise RuntimeError("the 172-column Arb dual certificate is incomplete")
     if cert.get("lp_transcript_sha256") != lp_sha:
         raise RuntimeError("172-column dual and LP transcript hashes disagree")
+    if lp.get("current_152col_cut_lp_sha256") != cut_lp_sha:
+        raise RuntimeError("172-column LP does not pin the current 152-column row inventory")
     sixth_rows = [tuple(int(x) for x in row) for row in cut_lp["sixth_cut_rows"]]
     eighth_rows = [tuple(int(x) for x in row) for row in cut_lp["selected_eighth_rows"]]
     sixth_hash = sha(json.dumps([list(x) for x in sixth_rows], separators=(",", ":")).encode())
