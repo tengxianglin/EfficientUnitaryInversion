@@ -129,16 +129,16 @@ def main():
         if index <= 6 and (parent_189_lp.get(key) != digest or parent_189_dual.get(key) != digest):
             raise RuntimeError(f"189-column parent does not pin prior escape {index}")
     if escapes[6].get("dual_certificate_sha256") != parent_189_dual_sha or escapes[6].get("lp_transcript_sha256") != parent_189_lp_sha:
-        raise RuntimeError("sixth escape does not pin the exact 189-column parent dual/LP")
+        raise RuntimeError("seventh escape does not pin the exact 189-column parent dual/LP")
     if escapes[6].get("candidate_outside_frozen_canonical_pool") is not True:
-        raise RuntimeError("sixth escape is not certified outside the canonical inventory")
+        raise RuntimeError("seventh escape is not certified outside the canonical inventory")
 
     if discovery.get("dual_certificate_sha256") != cert_sha:
         raise RuntimeError("discovery transcript does not pin the exact 190-column dual")
     if discovery.get("lp_transcript_sha256") != lp_sha or discovery.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("discovery transcript LP/cut provenance mismatch")
     if discovery.get("prior_escape_certificate_sha256") != escape_hashes[6]:
-        raise RuntimeError("discovery transcript does not pin the sixth prior escape")
+        raise RuntimeError("discovery transcript does not pin the seventh prior escape")
 
     seed = np.asarray(np.load(SEED_POOL_PATH, allow_pickle=False), dtype="<f8")
     seed_sha = sha(seed.tobytes())
@@ -172,7 +172,7 @@ def main():
     if sixth_hash != lp.get("sixth_rows_sha256") or eighth_hash != lp.get("eighth_rows_sha256"):
         raise RuntimeError("190-column LP row-inventory hash mismatch")
     if row_blocks != lp.get("row_blocks") or row_blocks != cert.get("row_blocks"):
-        raise RuntimeError("189-column row-block inventory mismatch")
+        raise RuntimeError("190-column row-block inventory mismatch")
 
     if not discovery.get("candidate_found"):
         result = {
