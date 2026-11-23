@@ -1,0 +1,125 @@
+name: EUI reoptimize after the fifth certified continuous-path escape
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reoptimize_188col_fifth_continuous_escape.py"
+      - "verify_188col_fifth_continuous_escape_dual_arb.py"
+      - "verify_188col_fifth_continuous_escape_candidate_arb.py"
+      - ".github/workflows/eui-188col-fifth-continuous-escape.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reoptimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-certify all five continuous paths and the 187-column parent dual
+        run: |
+          python verify_continuous_path_dual_escape_arb.py
+          python verify_184col_continuous_dual_escape_arb.py
+          python verify_185col_second_continuous_escape_dual_arb.py
+          python verify_185col_continuous_dual_escape_arb.py
+          python verify_186col_third_continuous_escape_dual_arb.py
+          python verify_186col_continuous_dual_escape_arb.py
+          python verify_187col_fourth_continuous_escape_dual_arb.py
+          python verify_187col_continuous_dual_escape_arb.py
+      - name: Compile the 188-column reoptimizer and independent verifiers
+        run: |
+          python -m py_compile \
+            reoptimize_188col_fifth_continuous_escape.py \
+            verify_188col_fifth_continuous_escape_dual_arb.py \
+            verify_188col_fifth_continuous_escape_candidate_arb.py
+      - name: Remove stale 188-column outputs
+        run: |
+          rm -f evidence/joint_low_six_eighth_lp_188col_fifth_continuous_escape_n21.json
+          rm -f evidence/candidate_joint_input_188col_fifth_continuous_escape_n21.json
+          rm -f evidence/55probe_188col_fifth_continuous_escape_dual_certificate_n21.json
+          rm -f evidence/candidate_188col_fifth_continuous_escape_arb_n21.json
+      - name: Reoptimize the 188-column, 2,113-row mixed-order LP
+        run: python reoptimize_188col_fifth_continuous_escape.py
+      - name: Independently certify the resulting branch
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          import sys
+          path = "evidence/joint_low_six_eighth_lp_188col_fifth_continuous_escape_n21.json"
+          with open(path, encoding="utf-8") as handle:
+              result = json.load(handle)
+          if result["finite_candidate_below_one_third"]:
+              subprocess.run(
+                  [sys.executable, "verify_188col_fifth_continuous_escape_candidate_arb.py"],
+                  check=True,
+              )
+          else:
+              subprocess.run(
+                  [sys.executable, "verify_188col_fifth_continuous_escape_dual_arb.py"],
+                  check=True,
+              )
+          PY
+      - name: Commit 188-column discovery and certification evidence with race-safe retry
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-188
+          for f in \
+            evidence/joint_low_six_eighth_lp_188col_fifth_continuous_escape_n21.json \
+            evidence/candidate_joint_input_188col_fifth_continuous_escape_n21.json \
+            evidence/55probe_188col_fifth_continuous_escape_dual_certificate_n21.json \
+            evidence/candidate_188col_fifth_continuous_escape_arb_n21.json; do
+            if [ -f "$f" ]; then
+              mkdir -p "/tmp/eui-188/$(dirname "$f")"
+              cp "$f" "/tmp/eui-188/$f"
+            fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in \
+              evidence/joint_low_six_eighth_lp_188col_fifth_continuous_escape_n21.json \
+              evidence/candidate_joint_input_188col_fifth_continuous_escape_n21.json \
+              evidence/55probe_188col_fifth_continuous_escape_dual_certificate_n21.json \
+              evidence/candidate_188col_fifth_continuous_escape_arb_n21.json; do
+              if [ -f "/tmp/eui-188/$f" ]; then
+                cp "/tmp/eui-188/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Record 188-column fifth continuous escape reoptimization"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 188-column discovery and certification artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-188col-fifth-continuous-escape
+          path: |
+            evidence/joint_low_six_eighth_lp_188col_fifth_continuous_escape_n21.json
+            evidence/candidate_joint_input_188col_fifth_continuous_escape_n21.json
+            evidence/55probe_188col_fifth_continuous_escape_dual_certificate_n21.json
+            evidence/candidate_188col_fifth_continuous_escape_arb_n21.json
+          if-no-files-found: warn
