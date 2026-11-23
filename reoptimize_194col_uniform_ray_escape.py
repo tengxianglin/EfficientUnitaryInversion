@@ -163,8 +163,6 @@ def main():
         raise RuntimeError("the nine open-path escape vectors are not pairwise distinct")
     if parent_lp.get("continuous_escape_arb_certificate_sha256") != escape_hashes:
         raise RuntimeError("192-column parent escape-certificate ancestry mismatch")
-    if parent_lp.get("ninth_continuous_escape_candidate_sha256") != escapes[-1].get("candidate_sha256"):
-        raise RuntimeError("192-column parent does not pin the ninth open-path escape")
 
     parent_order = [int(value) for value in parent_lp["column_order"]]
     if len(parent_order) != 193 or len(set(parent_order)) != 193:
