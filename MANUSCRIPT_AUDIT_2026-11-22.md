@@ -797,3 +797,6 @@ The exact dual has \(\|z\|_1=1\), \(\lambda+z^\mathsf Ty=2248748741058707105/461
 Formal proof: [THEORY_183COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_183COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md). LP transcript and exact certificate are `evidence/joint_low_six_eighth_lp_183col_full_sixth_cuts_n21.json` and `evidence/55probe_183col_full_sixth_cut_dual_certificate_n21.json`. Evidence commit [b551f64](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b551f64603bb071aed303f5a2f879e53c61d4de9); theorem commit [1cfefa5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1cfefa55672c796a000e0a8a9308beabb085c773).
 
 This remains a finite-pool mixed-order theorem. It is not a complete sixth/eighth orbit audit, a continuous-family no-go, or an operational Choi/diamond-norm guarantee. The next action is to price the remaining 1,459 canonical columns against this exact 183-column dual.
+
+
+The next separation step is queued in [workflow 45105506797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105506797). It will reverify the exact 183-column dual, screen all 1,459 unused canonical generators, and apply independent 128-bit Arb verification to up to ten leading positive candidates.
