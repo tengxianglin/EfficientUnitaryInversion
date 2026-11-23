@@ -1,10 +1,11 @@
-name: EUI reoptimize after the sixth certified continuous-path escape
+name: EUI certify the 189-column sixth continuous-escape minimax obstruction
 
 on:
   push:
     branches: [main]
     paths:
       - "reoptimize_189col_sixth_continuous_escape.py"
+      - "verify_189col_sixth_continuous_escape_dual_arb.py"
       - ".github/workflows/eui-189col-sixth-continuous-escape.yml"
   workflow_dispatch:
 
@@ -12,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  reoptimize:
+  certify:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -39,15 +40,21 @@ jobs:
           python verify_187col_continuous_dual_escape_arb.py
           python verify_188col_fifth_continuous_escape_dual_arb.py
           python verify_188col_continuous_dual_escape_arb.py
-      - name: Compile the 189-column reoptimizer
-        run: python -m py_compile reoptimize_189col_sixth_continuous_escape.py
+      - name: Compile the 189-column reoptimizer and independent dual verifier
+        run: |
+          python -m py_compile \
+            reoptimize_189col_sixth_continuous_escape.py \
+            verify_189col_sixth_continuous_escape_dual_arb.py
       - name: Remove stale 189-column outputs
         run: |
           rm -f evidence/joint_low_six_eighth_lp_189col_sixth_continuous_escape_n21.json
           rm -f evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json
+          rm -f evidence/55probe_189col_sixth_continuous_escape_dual_certificate_n21.json
       - name: Reoptimize the 189-column, 2,113-row mixed-order LP
         run: python reoptimize_189col_sixth_continuous_escape.py
-      - name: Commit 189-column discovery evidence with race-safe retry
+      - name: Independently certify the exact rationalized 189-column dual with Arb
+        run: python verify_189col_sixth_continuous_escape_dual_arb.py
+      - name: Commit 189-column LP and strict Arb certificate with race-safe retry
         if: always()
         run: |
           git config user.name "github-actions[bot]"
@@ -55,7 +62,8 @@ jobs:
           mkdir -p /tmp/eui-189
           for f in \
             evidence/joint_low_six_eighth_lp_189col_sixth_continuous_escape_n21.json \
-            evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json; do
+            evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json \
+            evidence/55probe_189col_sixth_continuous_escape_dual_certificate_n21.json; do
             if [ -f "$f" ]; then
               mkdir -p "/tmp/eui-189/$(dirname "$f")"
               cp "$f" "/tmp/eui-189/$f"
@@ -66,25 +74,27 @@ jobs:
             git reset --hard origin/main
             for f in \
               evidence/joint_low_six_eighth_lp_189col_sixth_continuous_escape_n21.json \
-              evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json; do
+              evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json \
+              evidence/55probe_189col_sixth_continuous_escape_dual_certificate_n21.json; do
               if [ -f "/tmp/eui-189/$f" ]; then
                 cp "/tmp/eui-189/$f" "$f"
                 git add "$f"
               fi
             done
             if ! git diff --cached --quiet; then
-              git commit -m "Record 189-column sixth continuous escape reoptimization"
+              git commit -m "Certify 189-column sixth continuous escape minimax obstruction"
             fi
             if git push origin HEAD:main; then exit 0; fi
             sleep 2
           done
           exit 1
-      - name: Upload 189-column discovery artifacts
+      - name: Upload 189-column discovery and strict certificate artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: eui-189col-sixth-continuous-escape
+          name: eui-189col-sixth-continuous-escape-certificate
           path: |
             evidence/joint_low_six_eighth_lp_189col_sixth_continuous_escape_n21.json
             evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json
+            evidence/55probe_189col_sixth_continuous_escape_dual_certificate_n21.json
           if-no-files-found: warn
