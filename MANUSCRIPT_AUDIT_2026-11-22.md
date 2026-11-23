@@ -1786,3 +1786,33 @@ A separate explicit finite-time search and Arb verifier have now been added:
 The workflow is responsible for re-certifying the 194-column parent dual/time, the 195-column dual, and the 195-column torus witness before searching and checking any exact-decimal time. No explicit finite decimal time is claimed until its own Arb interval is strictly positive.
 
 **Scope remains limited:** the 2,113-row design uses 1,461 complete low-order rows, 645 selected/cut sixth-order rows, and seven selected eighth-order rows. This is not a complete sixth/eighth orbit certificate, not a full continuous-family minimax theorem, and not a Choi/diamond operational guarantee.
+
+
+## Current EUI status addendum (2026-11-24)
+
+### Explicit finite-time escape of the 195-column dual
+
+The fourth equal-coupling ray point in this sequence is now explicit and independently certified. For all 41 path edges,
+\[
+c_j=t_*=\frac{2901925271922439151}{500000000000000}
+=5803.850543844878302>0.
+\]
+The 128-bit Arb interval for the exact 195-column dual pricing functional is
+\[
+S_{195}(e^{t_*K_*})
+\in[0.5056904994276359992460690567385\pm9.35\times10^{-32}]>0.
+\]
+The evidence files are evidence/195col_uniform_ray_time_search_n21.json and evidence/195col_uniform_ray_time_arb_n21.json, committed at 133d9c937d465bdd457a3ac8257c9b7a203caed7. The certificate pins the 195-column dual and LP hashes, and the prior 195-column torus certificate. The formal finite-pool theorem is unchanged: this positive point is outside the 195-column pool and only refutes global separation by that particular dual.
+
+### 196-column decisive follow-up
+
+The exact path above is appended as physical column 1653. A deterministic 196-column / 2,113-row reoptimizer, independent rational-dual Arb verifier, and GitHub Actions workflow have been added:
+- reoptimize_196col_uniform_ray_escape.py;
+- verify_196col_uniform_ray_dual_arb.py;
+- .github/workflows/eui-reoptimize-196col-uniform-ray.yml.
+
+The workflow re-certifies the 193-, 194-, and 195-column parent/time chain, reconstructs all four uniform paths using the explicit 21-torus spectral representation, and checks the 196-column dual if the new HiGHS discovery remains above \(1/3\). The workflow result has not yet been independently observed in this audit; no 196-column numerical or theorem claim is made here.
+
+### Manuscript-level limitation remains
+
+The original Appendix B's finite 10,000-Hamiltonian mean Choi-fidelity experiment is empirical average evidence for its sampling distribution. It is not a worst-case-over-Hamiltonian or worst-case-over-input guarantee. The present 2,113-row design still contains selected/cut sixth-order rows and seven selected eighth-order rows, not the complete higher-order orbit inventory. No theorem currently connects its moment residual to a per-instance Choi infidelity or diamond distance. These are separate open tasks and must not be inferred from the finite-pool dual sequence.
