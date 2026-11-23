@@ -136,7 +136,7 @@ class DualPricing:
         system.exact_target_check()
         self.low_scales = np.asarray(
             [1.0 / 41.0] * 21
-            + [float(Fraction(210, 111930)] * len(system.keys),
+            + [float(Fraction(210, 111930))] * len(system.keys),
             dtype=float,
         )
         if len(self.low_scales) != LOW_COUNT:
