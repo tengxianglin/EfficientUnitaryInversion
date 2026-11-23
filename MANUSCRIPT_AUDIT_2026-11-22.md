@@ -1633,3 +1633,33 @@ Evidence:
 - Evidence commit: 6b8cabddaad3648323343fd8fbc1b671afc2d18f
 
 A separate deterministic one-dimensional search over four bounded ranges \(t\in[10^{-3},10^3]\), \([10^3,10^4]\), \([10^4,10^5]\), and \([10^5,10^6]\), followed by an independent 128-bit Arb verifier, is now running in workflow 45224963117. No explicit finite decimal t is claimed until its Arb interval is strictly positive.
+
+
+### Explicit finite uniform-ray escape of the 193-column dual (2026-11-24)
+
+The nonconstructive dense-torus existence result has now been converted into an explicit physical witness. A deterministic differential-evolution search over four ranges \(t\in[10^{-3},10^3]\), \([10^3,10^4]\), \([10^4,10^5]\), and \([10^5,10^6]\) selected
+\[
+t_*=588.216987832015661
+=\frac{588216987832015661}{10^{15}}>0.
+\]
+All 41 edge couplings are exactly this same positive rational decimal.
+
+The best binary64 discovery score is 0.44956324068536085. This is not the proof. The independent 128-bit Arb verifier reconstructs the exact uniform-ray matrix from the algebraic frequencies and exact Q basis, then evaluates the 63 active rows of the rationalized 193-column dual. It certifies
+\[
+S_{193}(e^{t_*K_*})
+\in[0.44956324068539347204794614417071
+\pm8.33\times10^{-33}]>0.
+\]
+The exact rational time is \(588216987832015661/10^{15}\). The certificate pins dual SHA256 70c0ab689e7112c70a10eb75d051b43c686d3b6656d4aed37238f10ee5516799, LP SHA256 92931c1a8bad949d03cc11376c98c4d0166a8aae96060e6d76c991415af76981, torus certificate SHA256 178157fed1779e80fb89091662ac79e9c7a99e9331ebb4c176e96434fd3b05f5, and phase-vector SHA256 115a8091de0d2d8b18136c8e74823adb2e5771d70e9270120c39248158962c25.
+
+This is a directly Arb-certified finite physical path with all 41 couplings equal. Since the 193-column certificate proves strictly negative pricing for all 193 listed columns, the new path lies outside the pool and refutes this particular dual as a separator of the continuous positive-coupling family. It does not invalidate the finite 193-column theorem or settle continuous-family feasibility/infeasibility.
+
+Evidence:
+- Search: evidence/193col_uniform_ray_time_search_n21.json
+- Arb: evidence/193col_uniform_ray_time_arb_n21.json
+- Search script: discover_193col_uniform_ray_time_escape.py
+- Independent verifier: verify_193col_uniform_ray_time_arb.py
+- Workflow [45224963117](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45224963117): success, including parent-dual and torus re-certification, finite-time search, independent Arb verification, artifact commit, and upload.
+- Evidence commit: 5d9bc186a82d4b331930069764344e14367ea55c
+
+The next action is to append this path as physical column 1651 and reoptimize the same 2,113-row LP.
