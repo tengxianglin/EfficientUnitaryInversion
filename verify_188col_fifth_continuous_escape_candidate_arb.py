@@ -82,7 +82,7 @@ def main():
         raise RuntimeError("187-column parent does not pin its 186-column ancestor")
     if any(not esc.get("complete") or esc.get("status") != "certified_continuous_path_dual_escape" or not esc.get("strictly_positive") for esc in (old_escape, second_escape, third_escape, fourth_escape, fifth_escape)):
         raise RuntimeError("second continuous path is not Arb-certified")
-    if third_escape.get("dual_certificate_sha256") != parent_lp.get("parent_185col_dual_certificate_sha256") or third_escape.get("lp_transcript_sha256") != parent_lp.get("parent_185col_lp_sha256"):
+    if third_escape.get("dual_certificate_sha256") != parent_186_dual.get("parent_185col_dual_certificate_sha256") or third_escape.get("lp_transcript_sha256") != parent_186_dual.get("parent_185col_lp_sha256"):
         raise RuntimeError("third escape does not pin the 185-column parent dual/LP")
     if third_escape.get("dual_certificate_sha256") != parent_186_dual.get("parent_185col_dual_certificate_sha256") or third_escape.get("lp_transcript_sha256") != parent_186_dual.get("parent_185col_lp_sha256"):
         raise RuntimeError("third escape does not pin the 185-column parent dual/LP")
