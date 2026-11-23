@@ -1,4 +1,4 @@
-"""Discovery search for the 192-column dual on the exact uniform-path 21-torus.
+"""Discovery search for the 193-column dual on the exact uniform-path 21-torus.
 
 The optimizer is discovery only. A positive candidate is promoted to a physical
 uniform-ray escape only if the independent Arb verifier certifies its exact
@@ -102,30 +102,30 @@ class DualPricing:
         self.lp_sha = sha(lp_raw)
         self.cut_sha = sha(cut_raw)
         if self.cert.get("status") != "strict_193col_2113row_uniform_ray_escape_minimax_obstruction" or not self.cert.get("complete"):
-            raise RuntimeError("the 192-column dual is not strictly Arb-certified")
+            raise RuntimeError("the 193-column dual is not strictly Arb-certified")
         if (self.cert.get("column_count"), self.cert.get("row_count")) != (193, 2113):
-            raise RuntimeError("unexpected 192-column certificate dimensions")
+            raise RuntimeError("unexpected 193-column certificate dimensions")
         if self.cert.get("lp_transcript_sha256") != self.lp_sha:
-            raise RuntimeError("192-column certificate/LP hash mismatch")
+            raise RuntimeError("193-column certificate/LP hash mismatch")
         if self.lp.get("status") != "193col_uniform_ray_escape_lp_above_one_third":
-            raise RuntimeError("192-column LP is not the expected above-cap discovery")
+            raise RuntimeError("193-column LP is not the expected above-cap discovery")
         if (self.lp.get("columns"), self.lp.get("rows")) != (193, 2113):
-            raise RuntimeError("unexpected 192-column LP dimensions")
+            raise RuntimeError("unexpected 193-column LP dimensions")
         if self.lp.get("cut_lp_transcript_sha256") != self.cut_sha or self.cert.get("cut_lp_transcript_sha256") != self.cut_sha:
-            raise RuntimeError("192-column branch does not pin the exact 2,113-row cut design")
+            raise RuntimeError("193-column branch does not pin the exact 2,113-row cut design")
         seed = np.asarray(np.load(SEED_POOL_PATH, allow_pickle=False), dtype="<f8")
         seed_sha = sha(seed.tobytes())
         if seed.shape != (1600, 42) or seed_sha != SEED_POOL_SHA256:
             raise RuntimeError("frozen seed-pool hash/shape mismatch")
         if self.cert.get("seed_pool_sha256_le_f64") != seed_sha or self.lp.get("seed_pool_sha256_le_f64") != seed_sha:
-            raise RuntimeError("192-column evidence does not pin the frozen seed pool")
+            raise RuntimeError("193-column evidence does not pin the frozen seed pool")
         self.seed_file_sha = sha(seed_raw)
         self.seed_sha = seed_sha
 
         zq = [Fraction(value) for value in self.cert["dual_vector_rational"]]
         norm = sum((abs(value) for value in zq), Fraction(0))
         if len(zq) != 2113 or norm != Fraction(self.cert["dual_l1_norm_exact"]) or norm > 1:
-            raise RuntimeError("exact 192-column dual dimension/L1 normalization mismatch")
+            raise RuntimeError("exact 193-column dual dimension/L1 normalization mismatch")
         self.z = np.asarray([float(value) for value in zq], dtype=float)
         self.lam = float(Fraction(self.cert["dual_lambda_exact"]) - Fraction(self.cert["dual_slack_delta"]))
         self.active = np.flatnonzero(self.z)
