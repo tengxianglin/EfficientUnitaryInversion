@@ -96,7 +96,7 @@ def main():
         raise RuntimeError("196-column certificate does not pin the previous 195-column finite-time path")
     if cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != ancestor_time_sha:
         raise RuntimeError("196-column certificate does not pin the 194-column ancestor time")
-    if parent_lp.get("status") != "195col_uniform_ray_escape_lp_above_one_third" or (parent_lp.get("columns"), parent_lp.get("rows")) != (196, 2113):
+    if parent_lp.get("status") != "195col_uniform_ray_escape_lp_above_one_third" or (parent_lp.get("columns"), parent_lp.get("rows")) != (195, 2113):
         raise RuntimeError("195-column parent LP is not the expected above-cap discovery")
     if parent_dual.get("status") != "strict_195col_2113row_uniform_ray_escape_minimax_obstruction" or not parent_dual.get("complete") or parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
         raise RuntimeError("195-column parent dual is not strictly certified against its LP")
@@ -114,7 +114,7 @@ def main():
         raise RuntimeError("196-column dual has the wrong previous 195-column uniform time")
     if Fraction(cert["parent_194col_uniform_ray_time_exact_rational"]) != Fraction(ancestor_time["t_exact_rational"]):
         raise RuntimeError("196-column dual has the wrong 194-column ancestor uniform time")
-    if lp.get("status") != "196col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (195, 2113):
+    if lp.get("status") != "196col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (196, 2113):
         raise RuntimeError("196-column LP is not the expected above-cap discovery")
     if lp.get("parent_195col_lp_sha256") != parent_lp_sha or lp.get("parent_195col_dual_certificate_sha256") != parent_dual_sha:
         raise RuntimeError("196-column LP does not pin its 195-column parent")
