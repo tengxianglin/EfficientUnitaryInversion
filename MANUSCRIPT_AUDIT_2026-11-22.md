@@ -1037,9 +1037,9 @@ Formal statement: [THEORY_187COL_2113ROW_FOURTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRU
 
 Evidence:
 - Successful reoptimization and Arb certification: [workflow 45133203733](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45133203733)
-- LP transcript SHA256: \`8a63fdbec151593e1c52cf3e55585d6c8760d6b3536564812758526ccdbbe245\`
-- Dual certificate SHA256: \`475346510c8d0e7d52031cb21d694f91230beb60\`
-- Fourth continuous escape certificate SHA256: \`320d6048e63ee0e9c71481d25e99b91ab730c0cd570192128782b34c9fa812bd\`
+- LP transcript SHA256: `8a63fdbec151593e1c52cf3e55585d6c8760d6b3536564812758526ccdbbe245`
+- Dual certificate SHA256: `475346510c8d0e7d52031cb21d694f91230beb60`
+- Fourth continuous escape certificate SHA256: `320d6048e63ee0e9c71481d25e99b91ab730c0cd570192128782b34c9fa812bd`
 - Verifier fix commit: [c7e556b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c7e556b85c9efec84daf61898f4c1c8cf3c81811)
 - Evidence commit: [d8148b9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d8148b9ccf5e06e934227e418f2e7d313969c3a7)
 
@@ -1062,9 +1062,9 @@ Thus the 187-column dual also fails to separate the full positive 41-edge path f
 Formal counterexample: [THEORY_187COL_CONTINUOUS_PATH_DUAL_ESCAPE.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_187COL_CONTINUOUS_PATH_DUAL_ESCAPE.md).
 
 Evidence:
-- Search transcript SHA256: \`b37ba7c81ae78f32e41741e68038eac6dd726b64\`
-- Arb certificate SHA256: \`d84f7b32f0748a3e7433c990b3f82469a178dd4c\`
-- Candidate SHA256: \`7565cc9aa5240c5c42b8692e97381c4415061403e2bddf4563c03fc779e9a9e8\`
+- Search transcript SHA256: `b37ba7c81ae78f32e41741e68038eac6dd726b64`
+- Arb certificate SHA256: `d84f7b32f0748a3e7433c990b3f82469a178dd4c`
+- Candidate SHA256: `7565cc9aa5240c5c42b8692e97381c4415061403e2bddf4563c03fc779e9a9e8`
 - Successful search/Arb workflow: [45134044907](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45134044907)
 
 The new path is now the next column-generation input (label 1645). The next action is an 188-column reoptimization on the unchanged 2,113-row mixed-order design, followed by exact rational/Arb certification. A new 188-column dual, if obtained, must again be tested against the continuous path family; failure of a local search will not be treated as global separation.
@@ -1437,7 +1437,7 @@ This is still a binary64 LP discovery, not a theorem. The independent 128-bit Ar
 The ninth positive 41-edge path (physical label 1649) escaped the 191-column dual with a strict 128-bit Arb pricing interval, and was appended to the fixed 2,113-row pool. The resulting 192-column HiGHS objective was a discovery diagnostic (0.4392746182778578; independently recomputed maximum 0.4392746183411498), not the proof.
 
 The exact rationalized 192-column dual is now stored in
-\`evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json\`.
+`evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json`.
 The verifier output is complete, has 192/192 strictly negative Arb interval upper endpoints, and reports the exact lower bound
 \[
 \min_{p\in\Delta_{192}}\|A p-y\|_\infty
@@ -1448,17 +1448,17 @@ The verifier output is complete, has 192/192 strictly negative Arb interval uppe
 \]
 The exact dual data are \(\|z\|_1=144115188075273773/144115188075855872<1\), \(\lambda=6145476815434803/4503599627370496\), objective \(\beta=\lambda+z^\mathsf Ty=126612288460328431/288230376151711744\), and slack \(\delta=10^{-8}\). There are 61 active rows (2 low, 56 selected/cut sixth, 3 selected eighth); the maximum Arb upper endpoint after the slack shift is below \(-6.5812383148672463\times10^{-9}\).
 
-Formal proof: \`THEORY_192COL_2113ROW_NINTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md\`.
+Formal proof: `THEORY_192COL_2113ROW_NINTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md`.
 Evidence:
-- LP: \`evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json\`
-- Arb certificate: \`evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json\`
-- Independent verifier: \`verify_192col_ninth_continuous_escape_dual_arb.py\`
+- LP: `evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json`
+- Arb certificate: `evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json`
+- Independent verifier: `verify_192col_ninth_continuous_escape_dual_arb.py`
 - Certificate-output commit: [4ad5c547](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4ad5c5472c391a8ca07bb316ab2f7028ec7d5234)
 
 The exact scope is the 192 pinned generators (183 selected canonical plus nine distinct positive open-path escapes) and the fixed 2,113-row mixed-order design (1,461 complete low-order, 645 selected/cut sixth, seven selected eighth). It is not a full 1,641-column canonical-pool theorem, a complete sixth/eighth orbit theorem, a continuous-family no-go, or an operational Choi/diamond theorem.
 
-**Workflow provenance note.** The earlier run [45198909460](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45198909460) predates the verifier-step addition and its job record contains the LP-discovery steps only; it must not be cited as the Arb-certification run. The verifier step was added in commit \`dd0426b\` and its path trigger in \`7552fb7\`. This audit records the committed verifier output and does not attribute the Arb step to run 45198909460.
+**Workflow provenance note.** The earlier run [45198909460](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45198909460) predates the verifier-step addition and its job record contains the LP-discovery steps only; it must not be cited as the Arb-certification run. The verifier step was added in commit `dd0426b` and its path trigger in `7552fb7`. This audit records the committed verifier output and does not attribute the Arb step to run 45198909460.
 
-A reproducibility hardening change now removes the LP, candidate, and dual-certificate outputs both before a fresh run and after the race-safe \`git reset --hard origin/main\`, before copying only artifacts generated by that run. This prevents a stale candidate/certificate from being re-committed if a later LP takes the opposite branch or verification fails.
+A reproducibility hardening change now removes the LP, candidate, and dual-certificate outputs both before a fresh run and after the race-safe `git reset --hard origin/main`, before copying only artifacts generated by that run. This prevents a stale candidate/certificate from being re-committed if a later LP takes the opposite branch or verification fails.
 
-The next decisive scientific action is to optimize the *192-column* pricing functional over the 21-torus from \`THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md\`. A strictly positive Arb-certified torus value would imply a finite-time escape along the uniform positive-coupling ray by Kronecker density and continuity; a failed local search is not a global separation proof.
+The next decisive scientific action is to optimize the *192-column* pricing functional over the 21-torus from `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md`. A strictly positive Arb-certified torus value would imply a finite-time escape along the uniform positive-coupling ray by Kronecker density and continuity; a failed local search is not a global separation proof.
