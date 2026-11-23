@@ -1,0 +1,98 @@
+name: Search continuous positive paths against the 188-column dual
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "discover_188col_continuous_dual_escape.py"
+      - "verify_188col_continuous_dual_escape_arb.py"
+      - ".github/workflows/eui-188col-continuous-dual-search.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  search-and-certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-certify all five previous escapes and the 188-column parent dual
+        run: |
+          python verify_continuous_path_dual_escape_arb.py
+          python verify_184col_continuous_dual_escape_arb.py
+          python verify_185col_continuous_dual_escape_arb.py
+          python verify_186col_continuous_dual_escape_arb.py
+          python verify_187col_fourth_continuous_escape_dual_arb.py
+          python verify_188col_fifth_continuous_escape_dual_arb.py
+      - name: Compile differentiable search and exact verifier
+        run: |
+          python -m py_compile \
+            discover_188col_continuous_dual_escape.py \
+            verify_188col_continuous_dual_escape_arb.py
+      - name: Remove stale search and escape outputs
+        run: |
+          rm -f evidence/188col_continuous_dual_search_n21.json
+          rm -f evidence/188col_continuous_dual_escape_arb_n21.json
+      - name: Search the positive 41-edge path family
+        run: |
+          python discover_188col_continuous_dual_escape.py \
+            --output evidence/188col_continuous_dual_search_n21.json \
+            --maxiter 100
+      - name: Independently Arb-certify any discovered escape
+        run: python verify_188col_continuous_dual_escape_arb.py
+      - name: Commit search and Arb evidence with race-safe retry
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-187-search
+          for f in \
+            evidence/188col_continuous_dual_search_n21.json \
+            evidence/188col_continuous_dual_escape_arb_n21.json; do
+            if [ -f "$f" ]; then
+              mkdir -p "/tmp/eui-187-search/$(dirname "$f")"
+              cp "$f" "/tmp/eui-187-search/$f"
+            fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in \
+              evidence/188col_continuous_dual_search_n21.json \
+              evidence/188col_continuous_dual_escape_arb_n21.json; do
+              if [ -f "/tmp/eui-187-search/$f" ]; then
+                cp "/tmp/eui-187-search/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Record continuous-path pricing against the 188-column dual"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload continuous search and Arb evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-188col-continuous-dual-search
+          path: |
+            evidence/188col_continuous_dual_search_n21.json
+            evidence/188col_continuous_dual_escape_arb_n21.json
+          if-no-files-found: warn
