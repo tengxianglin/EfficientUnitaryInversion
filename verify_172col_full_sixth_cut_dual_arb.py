@@ -85,6 +85,10 @@ def load_exact_design(cut_lp):
     eighth_targets = [Fraction(value) for value in cut_lp["selected_eighth_targets"]]
     if len(eighth_rows) != 7 or len(eighth_targets) != 7:
         raise RuntimeError("unexpected selected eighth-order inventory")
+    sixth_hash = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
+    eighth_hash = sha(json.dumps([list(row) for row in eighth_rows], separators=(",", ":")).encode())
+    if sixth_hash != parent_lp.get("sixth_rows_sha256") or eighth_hash != parent_lp.get("eighth_rows_sha256"):
+        raise RuntimeError("current 152-column row inventory differs from the certified 162-column design")
     expected_eighth = [
         Fraction((-1) ** (sum(index % 2 for index in row) + 4) * comb(21, 4), comb(42, 8))
         for row in eighth_rows
@@ -159,10 +163,14 @@ def main():
         raise RuntimeError("unexpected 172-column / 2,113-row dimensions")
     if lp.get("parent_candidate_sha256") != candidate_sha:
         raise RuntimeError("172-column LP does not pin the 152-column candidate")
-    if lp.get("parent_152col_lp_sha256") != cut_lp_sha:
-        raise RuntimeError("172-column LP does not pin the 152-column cut LP")
-    if lp.get("parent_152col_dual_certificate_sha256") != cut_dual_sha:
-        raise RuntimeError("172-column LP does not pin the 152-column dual")
+    if lp.get("current_152col_cut_lp_sha256") != cut_lp_sha:
+        raise RuntimeError("172-column LP does not pin the current 152-column cut LP")
+    if lp.get("current_152col_cut_dual_certificate_sha256") != cut_dual_sha:
+        raise RuntimeError("172-column LP does not pin the current 152-column cut dual")
+    if lp.get("historical_parent_152col_lp_sha256") != parent_lp.get("parent_lp_sha256"):
+        raise RuntimeError("172-column LP historical 152-column LP hash mismatch")
+    if lp.get("historical_parent_152col_dual_certificate_sha256") != parent_lp.get("parent_dual_certificate_sha256"):
+        raise RuntimeError("172-column LP historical 152-column dual hash mismatch")
     if lp.get("parent_162col_lp_sha256") != parent_lp_sha:
         raise RuntimeError("172-column LP does not pin the 162-column LP")
     if lp.get("parent_162col_dual_certificate_sha256") != parent_dual_sha:
@@ -175,14 +183,18 @@ def main():
         raise RuntimeError("162-column parent dual is not strictly certified")
     if parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
         raise RuntimeError("162-column dual does not pin its LP")
-    if parent_lp.get("parent_candidate_sha256") != candidate_sha or parent_lp.get("parent_lp_sha256") != cut_lp_sha:
-        raise RuntimeError("162-column parent provenance does not match 152-column inputs")
-    if parent_lp.get("parent_dual_certificate_sha256") != cut_dual_sha:
-        raise RuntimeError("162-column parent does not pin the 152-column dual")
+    if parent_lp.get("parent_candidate_sha256") != candidate_sha:
+        raise RuntimeError("162-column parent does not pin the 152-column candidate")
+    if parent_dual.get("parent_152col_lp_sha256") != parent_lp.get("parent_lp_sha256"):
+        raise RuntimeError("162-column LP/certificate historical 152-column LP hashes disagree")
+    if parent_dual.get("parent_152col_dual_certificate_sha256") != parent_lp.get("parent_dual_certificate_sha256"):
+        raise RuntimeError("162-column LP/certificate historical 152-column dual hashes disagree")
     if cut_dual.get("status") != "strict_152col_2113row_minimax_obstruction" or not cut_dual.get("complete"):
         raise RuntimeError("152-column parent dual is not strictly certified")
     if cut_dual.get("lp_transcript_sha256") != cut_lp_sha:
-        raise RuntimeError("152-column dual does not pin its LP")
+        raise RuntimeError("current 152-column dual does not pin its LP")
+    if cut_dual.get("parent_candidate_sha256") != candidate_sha:
+        raise RuntimeError("current 152-column dual does not pin the exact candidate")
     if candidate.get("parent_dual_certificate_sha256") != original_dual_sha:
         raise RuntimeError("152-column candidate does not pin original 151-column dual")
     if candidate.get("continuous_escape_arb_certificate_sha256") != escape_sha:
