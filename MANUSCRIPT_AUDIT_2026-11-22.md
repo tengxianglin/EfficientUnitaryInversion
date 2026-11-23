@@ -1477,4 +1477,42 @@ A numerical sanity check in this run gave
 \|Q^\mathsf TQ-I\|_{\max}=2.63\times10^{-15},\qquad
 \|Q^\mathsf TK_*Q-\bigoplus_k\omega_kJ\|_{\max}=5.33\times10^{-15},
 \]
-with \(\det Q\approx1\). These are floating-point regression diagnostics, not the proof. The new dependency-light test file is tests/test_uniform_path_torus_basis.py; the 192-column workflow now runs it alongside the frozen orbit-enumeration test. The torus pricing optimization and any Arb-positive torus witness remain unperformed.
+with \(\det Q\approx1\). These are floating-point regression diagnostics, not the proof. The new dependency-light test file is tests/test_uniform_path_torus_basis.py; the 192-column workflow now runs it alongside the frozen orbit-enumeration test. The 192-column torus pricing search is now complete: a generic-gradient-checked 12-start search found a torus point whose exact-decimal 128-bit Arb pricing interval is strictly positive. By the proved dense-torus result, this refutes global separation by this particular 192-column dual on the continuous uniform positive-coupling ray; see the 2026-11-24 audit section below.
+
+
+## 2026-11-24: exact uniform-ray torus escape of the 192-column dual
+
+The highest-leverage unresolved Issue #5 task was completed. The 192-column rational dual was tested on the explicit 21-dimensional torus that is the closure of the uniform positive-coupling ray.
+
+A deterministic 12-start L-BFGS-B search (120 iterations/start) found a 21-phase candidate with binary64 score 2.9300228095145076. The analytic cofactor gradient was checked at a generic nonstationary point, not at the identity: across coordinates 0, 10, and 20, the maximum relative discrepancy against complex-step and central differences was 6.7481e-10. The maximum complex-step absolute discrepancy was 1.78e-15. Basis and direct-uniform-ray regressions were also checked: orthogonality 2.63e-15, canonical form 5.33e-15, direct exponential versus torus rotation 3.39e-15, and pricing agreement 5.55e-13. These are implementation diagnostics, not the proof.
+
+The independent exact-decimal Arb verifier reconstructs the phase vector, Q basis, 21 rotation blocks, and all 61 active dual rows from exact inputs at 128-bit precision. It certifies
+
+\[
+S_{192}(R(\theta_*))
+\in [2.930022809514503777074927378122496
+\pm 3.46\times10^{-34}]>0.
+\]
+
+The exact phase-vector SHA256 is e1569f8952cf6fbc65d490eb6d8179069f3da47ea77dd3444184a47549ed4546. The verifier pins the 192-column dual SHA256 2b3891b88f40627458764821142f6a83e039fd051795d4146895de68f5c5a308, LP transcript SHA256 ed966f1c3f755b1910f7f34be978af88ee290821ea643cb7690d83c7aeab686a, and cut-design SHA256 d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f.
+
+Because the positive uniform ray is dense in the 21-torus and the pricing functional is continuous, a strict positive torus point implies existence of a finite t>0 with S_192(exp(t K_*))>0, i.e. all 41 path couplings equal to t. The tail of the positive ray is also dense, so t can be taken strictly positive. This refutes extension of this particular 192-column dual to a separator of the continuous positive-coupling family. It does not invalidate the finite 192-column minimax theorem, prove full-family feasibility/infeasibility, or give an operational Choi/diamond guarantee. The finite t has not yet been explicitly located.
+
+Formal statement and proof: THEORY_192COL_UNIFORM_RAY_DUAL_ESCAPE.md.
+
+Evidence:
+- Search: evidence/192col_uniform_torus_search_n21.json (SHA256 90c47cfabf5576014f99705e5bf407cf190e394bcba0a7c00f3a51f42dcebfa9)
+- Arb certificate: evidence/192col_uniform_torus_arb_n21.json
+- Discovery script: discover_192col_uniform_torus_pricing.py
+- Independent verifier: verify_192col_uniform_torus_pricing_arb.py
+- Workflow [45220627970](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45220627970): success, including parent-dual re-certification, generic gradient regression, torus search, Arb verification, and artifact commit.
+- Evidence commit: 2a7515f7491527af76b5e6010aafdf81c7b62bb5
+- Theory commit: e9e1b9c6e8c8df5e20cad01f817dc0c5072b07c7
+
+### Manuscript/supplementary audit
+
+The currently accessible source remains arXiv v1, dated 25 June 2025: https://arxiv.org/html/2506.20570v1. Appendix B states that it generates 10,000 random unitaries with independent standard-normal coefficients and reports average Choi-state fidelity for the tested inverse protocols. This is finite Monte Carlo average-fidelity evidence; it is not a per-instance worst-case guarantee, a uniform Hamiltonian guarantee, or a diamond-norm bound. The repository still does not contain tracked TeX/Bib/PDF source for the manuscript or a separate supplementary source, so no such files are claimed to have been revised.
+
+### Next highest-value action
+
+Find an explicit finite rational decimal t>0 on the uniform ray and independently certify S_192(exp(t K_*))>0 with Arb. This would turn the nonconstructive dense-orbit existence corollary into a directly replayable physical path witness. Afterward, the main theoretical problem remains the full continuous-family minimax question, followed by a rigorous bridge from moment residuals to Choi infidelity and diamond distance.
