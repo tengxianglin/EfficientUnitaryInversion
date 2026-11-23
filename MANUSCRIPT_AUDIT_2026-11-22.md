@@ -773,3 +773,6 @@ whose lower endpoint is strictly positive. Therefore column 544 escapes the 182-
 The positive escape does not prove feasibility or exclude the other 1,459 nonpositive binary64 columns. Note that canonical column 544 is active in the separate 182-column / 2,106-row branch, but is unused in this 182-column / 2,113-row full-sixth-cut pool; the inventories differ.
 
 The next pool expansion is the 183-column / 2,113-row full-sixth-cut reoptimization, with column 544 added.
+
+
+The 183-column reoptimization has now been launched as [workflow 45105045420](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105045420). Its pool is exactly the 182-column / 2,113-row full-sixth-cut inventory plus canonical column 544, whose reduced-cost score was strictly positive by Arb. The workflow revalidates the 182-column parent certificate and pricing provenance before solving; no 183-column objective is asserted until it completes.
