@@ -1,6 +1,6 @@
 # 194-column dual escape on the uniform positive-coupling ray
 
-**Status:** a strictly positive uniform-torus pricing value is proved for the exact rationalized 194-column dual. By the dense-orbit theorem for the uniform positive-coupling path, this implies existence of a finite positive uniform coupling that escapes this particular dual. An explicit finite time has not yet been found.
+**Status:** a strictly positive uniform-torus pricing value is proved for the exact rationalized 194-column dual. By the dense-orbit theorem for the uniform positive-coupling path, this implies existence of a finite positive uniform coupling that escapes this particular dual. A bounded search has found the exact-decimal candidate `t = 5918.073474332502883` (binary64 pricing score `0.5331710186207479`), but this is discovery evidence only: the first independent Arb run stopped at a verifier `NameError` before evaluating it. The verifier defect is fixed in commit `60dd9a523de4a774c93e1272cc1309c2614f506e`; the rerun is workflow `45230548697`. Do not treat the candidate as a certified finite-time escape until its Arb interval is strictly positive.
 
 This result does **not** invalidate the finite 194-column minimax theorem. It shows that its particular dual is not a separator of the full continuous positive-coupling path family.
 
@@ -142,3 +142,8 @@ Failure of a bounded finite-time search would not refute the dense-torus existen
 - Evidence commit: 2972334d665c4882060cd887277cc4a0ec1e364c
 
 The next computational step is to find an explicit finite rational-decimal \(t>0\) and certify \(S_{194}(e^{tK_*})>0\) by Arb. The subsequent finite-pool test is to append that path as column 1652 and reoptimize.
+
+
+## 7. Explicit-time candidate and verifier repair (2026-11-24)
+
+The bounded one-dimensional search transcript `evidence/194col_uniform_ray_time_search_n21.json` records candidate `t=5918.073474332502883` with binary64 score `0.5331710186207479`. The initial workflow [45228501706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45228501706) passed all parent recertifications and completed the search, but its Arb step failed before evaluating the candidate: `verify_194col_uniform_ray_time_arb.py` referenced undefined `time_cert` instead of the loaded `torus` certificate. All six stale attribute references were corrected in commit [60dd9a5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/60dd9a523de4a774c93e1272cc1309c2614f506e). The rerun is [45230548697](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45230548697); its frozen-input checks and parent dual/time recertifications passed, while the bounded search was still running at the time of this audit update. No finite-time Arb claim is made here.
