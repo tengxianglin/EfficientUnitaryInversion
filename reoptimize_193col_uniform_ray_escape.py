@@ -55,6 +55,26 @@ def load_json(path):
     return json.loads(raw), sha(raw)
 
 
+def low_features_from_rotation(system, rotation):
+    N = 42
+    indices = np.arange(N)
+    diagonal = rotation.diagonal()
+    second = [
+        np.mean(
+            diagonal * diagonal[(indices + distance) % N]
+            - rotation[indices, (indices + distance) % N]
+            * rotation[(indices + distance) % N, indices]
+        )
+        for distance in range(1, system.n + 1)
+    ]
+    subsets = system.indices
+    determinants = np.linalg.det(rotation[subsets[:, :, None], subsets[:, None, :]])
+    fourth = np.bincount(
+        system.ids, weights=determinants, minlength=len(system.keys)
+    ) / system.counts
+    return np.r_[second, fourth]
+
+
 def main():
     parent_lp, parent_lp_sha = load_json(PARENT_LP)
     parent_dual, parent_dual_sha = load_json(PARENT_DUAL)
@@ -182,10 +202,13 @@ def main():
 
     system = FourthMoments(21)
     system.exact_target_check()
-    low = np.asarray([
-        system.features(np.asarray(list(map(float, couplings))))
-        for couplings in physical_columns
-    ])
+    low_rows = []
+    for index, couplings in enumerate(physical_columns):
+        if index == 192:
+            low_rows.append(low_features_from_rotation(system, uniform_rotation))
+        else:
+            low_rows.append(system.features(np.asarray(list(map(float, couplings)))))
+    low = np.asarray(low_rows)
     low_target = system.target.copy()
     low_scale = np.r_[
         np.full(21, 1 / 41),
@@ -265,6 +288,7 @@ def main():
         "uniform_ray_escape_column_index": NEW_COLUMN,
         "uniform_ray_rotation_source": "explicit 21-torus spectral representation",
         "uniform_ray_rotation_orthogonality_max_abs": uniform_orthogonality_defect,
+        "uniform_ray_low_features_source": "same explicit spectral rotation as sixth/eighth features",
         "seed_pool_sha256_le_f64": seed_sha,
         "canonical_all_columns_sha256_le_f64": all_sha,
         "columns": n,
