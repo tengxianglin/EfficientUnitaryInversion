@@ -46,13 +46,28 @@ jobs:
           python verify_191col_eighth_continuous_escape_dual_arb.py
           python verify_191col_continuous_dual_escape_arb.py
       - name: Compile the 192-column reoptimizer
-        run: python -m py_compile reoptimize_192col_ninth_continuous_escape.py
+        run: python -m py_compile reoptimize_192col_ninth_continuous_escape.py verify_192col_ninth_continuous_escape_dual_arb.py
       - name: Remove stale 192-column outputs
         run: |
           rm -f evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json
           rm -f evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json
       - name: Reoptimize the 192-column, 2,113-row mixed-order LP
         run: python reoptimize_192col_ninth_continuous_escape.py
+      - name: Independently certify the 192-column dual when LP remains above one third
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          path = Path("evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json")
+          data = json.loads(path.read_text())
+          if data["status"] == "192col_ninth_continuous_escape_lp_above_one_third":
+              subprocess.run(["python", "verify_192col_ninth_continuous_escape_dual_arb.py"], check=True)
+          elif data["status"] == "192col_ninth_continuous_escape_lp_candidate_below_one_third":
+              print("Below-cap primal candidate recorded; exact primal Arb and full-orbit audit are a separate required branch.")
+          else:
+              raise RuntimeError(f"unexpected 192-column LP status: {data.get('status')}")
+          PY
       - name: Commit 192-column LP and exact candidate with race-safe retry
         if: always()
         run: |
@@ -61,7 +76,8 @@ jobs:
           mkdir -p /tmp/eui-192/evidence
           for f in \
             evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json \
-            evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json; do
+            evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json \
+            evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json; do
             if [ -f "$f" ]; then cp "$f" /tmp/eui-192/evidence/; fi
           done
           for attempt in 1 2 3; do
@@ -69,7 +85,8 @@ jobs:
             git reset --hard origin/main
             for f in \
               evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json \
-              evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json; do
+              evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json \
+              evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json; do
               if [ -f "/tmp/eui-192/$f" ]; then
                 cp "/tmp/eui-192/$f" "$f"
                 git add "$f"
@@ -90,4 +107,5 @@ jobs:
           path: |
             evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json
             evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json
+            evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json
           if-no-files-found: warn
