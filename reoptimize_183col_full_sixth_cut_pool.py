@@ -312,7 +312,7 @@ def main():
         "finite_candidate_below_one_third": bool(result.fun < 1 / 3),
         "scope": (
             "Binary64 HiGHS discovery on the fixed 2,113-row design, expanding the 182-column "
-            "parent pool by ten canonical generators whose reduced-cost scores were independently "
+            "parent pool by one canonical generator whose reduced-cost scores were independently "
             "certified strictly positive with 128-bit Arb. A sub-1/3 result is not a theorem until "
             "the exact rationalized candidate passes Arb on all 2,113 rows and a complete 63,133-orbit "
             "sixth-order audit. An above-cap result is not a theorem until its rationalized dual is "
