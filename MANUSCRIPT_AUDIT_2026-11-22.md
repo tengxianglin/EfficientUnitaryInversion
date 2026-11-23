@@ -776,3 +776,24 @@ The next pool expansion is the 183-column / 2,113-row full-sixth-cut reoptimizat
 
 
 The 183-column reoptimization has now been launched as [workflow 45105045420](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105045420). Its pool is exactly the 182-column / 2,113-row full-sixth-cut inventory plus canonical column 544, whose reduced-cost score was strictly positive by Arb. The workflow revalidates the 182-column parent certificate and pricing provenance before solving; no 183-column objective is asserted until it completes.
+
+
+## 183-column / 2,113-row full-sixth-cut theorem completed (2026-11-23)
+
+Workflow [45105045420](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105045420) completed successfully: the 182-column parent certificate was rechecked, the full canonical pool was repriced and column 544 was Arb-verified, the 183-column LP was solved, and the new dual was independently certified against all 183 physical columns.
+
+The 183-column HiGHS objective is 0.48761965408631913; the recomputed maximum is 0.48761965409086705; the primal-dual discovery gap is 3.40e-13. The LP has 2,113 rows (1,461 complete low-order, 645 pinned sixth-order, seven selected eighth-order) and a 50-coordinate dual support.
+
+The exact 128-bit Arb certificate proves
+\[
+\min_{p\in\Delta(\mathcal P_{183}^{\mathrm{cut}})}\|Ap-y\|_\infty
+\ge
+\frac{22487487405975385031571661473}
+{46116860184283385270000000000}
+=0.48761965398587814\ldots>\frac13.
+\]
+The exact dual has \(\|z\|_1=1\), \(\lambda+z^\mathsf Ty=2248748741058707105/4611686018428338527\), and \(\delta=10^{-10}\). Its support comprises two fourth-order rows (233, 868), 46 sixth-order rows, and two eighth-order rows (2106, 2107), with no second-order support. All 183 slack-shifted column inequalities have strictly negative Arb upper endpoints; the maximum is -2.7990374260551989e-11.
+
+Formal proof: [THEORY_183COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_183COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md). LP transcript and exact certificate are `evidence/joint_low_six_eighth_lp_183col_full_sixth_cuts_n21.json` and `evidence/55probe_183col_full_sixth_cut_dual_certificate_n21.json`. Evidence commit [b551f64](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b551f64603bb071aed303f5a2f879e53c61d4de9); theorem commit [1cfefa5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1cfefa55672c796a000e0a8a9308beabb085c773).
+
+This remains a finite-pool mixed-order theorem. It is not a complete sixth/eighth orbit audit, a continuous-family no-go, or an operational Choi/diamond-norm guarantee. The next action is to price the remaining 1,459 canonical columns against this exact 183-column dual.
