@@ -1299,3 +1299,32 @@ Commits:
 The workflow has started in runs [45159106797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159106797), [45159219699](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159219699), and [45159224149](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159224149). At the last inspection, the latest run had passed seed-pool and orbit-enumeration checks and was re-certifying the 190-column dual and seven prior escapes. The optimization and Arb result are not yet available.
 
 A failed local search will not prove global separation. A successful positive Arb interval will refute global separation by this particular 190-column dual only; it will not establish feasibility of the continuous-family minimax problem. The finite 190-column theorem remains limited to its pinned mixed-order 2,113-row design (645 selected/cut sixth rows and seven selected eighth rows), not complete sixth/eighth orbit control and not a Choi/diamond-norm guarantee.
+
+
+## Eighth continuous-path escape and 191-column follow-up (2026-11-23)
+
+The newly added deterministic search against the 190-column dual found an eighth distinct positive 41-edge open path. The optimizer ran 10 starts with 100 iterations per start and did not converge; this is only a discovery diagnostic. The independent exact-decimal 128-bit Arb verifier certified the path's pricing score:
+\[
+S_{190}(c)\in[345.1964392867855698654219114260899\pm2.12\times10^{-32}]>0.
+\]
+Thus the particular 190-column dual is not a global separator for the positive 41-edge path family. This does not invalidate the finite 190-column minimax theorem and does not prove continuous-family feasibility.
+
+The exact candidate is column 1648, distinct from the seven previous Arb-certified escapes and outside the frozen canonical inventory. Evidence:
+- Search transcript: evidence/190col_continuous_dual_search_n21.json
+- 128-bit Arb certificate: evidence/190col_continuous_dual_escape_arb_n21.json
+- Theory note: THEORY_190COL_CONTINUOUS_PATH_DUAL_ESCAPE.md
+- Successful search/Arb workflow 45159106797: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159106797
+
+The 191-column next experiment is now prepared:
+- reoptimize_191col_eighth_continuous_escape.py appends column 1648 to the exact 190-column pool and re-solves the same 2,113-row mixed-order LP;
+- verify_191col_eighth_continuous_escape_dual_arb.py reconstructs the new dual exactly and checks all 191 physical-column inequalities with 128-bit Arb;
+- .github/workflows/eui-191col-eighth-continuous-escape.yml re-certifies the 190-column parent and all eight escape inputs before the LP.
+
+Commits:
+- f9fcb4f continuous escape theorem note;
+- f11e91b initial 191-column reoptimizer;
+- ab92135 corrected parent provenance and eighth-path handling;
+- e948211 191-column Arb verifier;
+- efdea98 191-column workflow.
+
+Workflow 45160995243 was queued at the time of this audit update. No 191-column objective or certificate is claimed yet. The same logical boundary applies: a positive escape refutes only the particular finite dual's global extension; an unsuccessful local search cannot establish global separation.
