@@ -92,3 +92,54 @@ dense in \(\mathbb T^{21}\). The real skew-symmetric canonical form then identif
 The uniform positive coupling ray \(c(t)=(t,\ldots,t)\), \(t>0\), is an admissible one-dimensional subfamily of the 41-edge positive open-path family. Every normalized path-moment pricing functional used in the finite EUI design is continuous in \(R=e^K\), because its entries are finite sums/products of matrix entries or minors. Therefore its supremum along this single physical ray equals its maximum over the associated 21-torus.
 
 This gives an exact reduction for testing a dual pricing functional on the uniform-coupling ray: optimize over 21 independent torus phases rather than over the unbounded scalar time parameter. It does **not** prove that a given EUI dual has positive maximum on that torus, does not control nonuniform coupling directions, and does not establish a full continuous-family minimax theorem or an operational Choi/diamond bound. A positive torus maximum would imply a finite positive-time escape by density and continuity; the present theorem alone does not assert that such a maximum is positive.
+
+
+## Explicit real orthogonal basis for reproducible torus pricing
+
+The conjugating matrix \(Q\) can be fixed explicitly, avoiding an unspecified numerical canonical-form routine. Index rows by \(j=0,\ldots,41\) and frequency blocks by \(k=1,\ldots,21\). Define
+\[
+u_k(j)=\sqrt{\frac{2}{43}}\sin\!\left(\frac{(j+1)k\pi}{43}\right),
+\qquad
+D=\operatorname{diag}(1,i,i^2,\ldots,i^{41}).
+\]
+The vectors \(u_k\) are the normalized path-adjacency eigenvectors. Since
+\[
+D^{-1}K_*D=2iA_{42},
+\]
+the complex vector \(v_k=Du_k\) obeys \(K_*v_k=i\omega_kv_k\). Set the two real columns in block \(k\) to
+\[
+q_{k,1}=\sqrt2\,\operatorname{Re}v_k,\qquad
+q_{k,2}=\sqrt2\,\operatorname{Im}v_k.
+\]
+Equivalently, the entries of the \(42\times42\) real matrix \(Q\), with columns ordered \((q_{1,1},q_{1,2},q_{2,1},q_{2,2},\ldots)\), are
+\[
+Q_{j,2k-2}=\sqrt{\frac4{43}}\sin\!\left(\frac{(j+1)k\pi}{43}\right)\cos\!\left(\frac{j\pi}{2}\right),
+\]
+\[
+Q_{j,2k-1}=\sqrt{\frac4{43}}\sin\!\left(\frac{(j+1)k\pi}{43}\right)\sin\!\left(\frac{j\pi}{2}\right).
+\]
+The real and imaginary parts have disjoint even/odd support; the path-sine orthogonality relations give \(Q^\mathsf TQ=I\). From \(K_*q_{k,1}=-\omega_kq_{k,2}\) and \(K_*q_{k,2}=\omega_kq_{k,1}\), one obtains
+\[
+Q^\mathsf TK_*Q=\bigoplus_{k=1}^{21}\omega_kJ.
+\]
+
+Thus a torus point is represented without ambiguity by
+\[
+R(\theta)=Q\left(\bigoplus_{k=1}^{21}
+\begin{pmatrix}\cos\theta_k&\sin\theta_k\\-\sin\theta_k&\cos\theta_k\end{pmatrix}
+\right)Q^\mathsf T.
+\]
+Its phase derivatives are explicit:
+\[
+\frac{\partial R(\theta)}{\partial\theta_k}
+=Q\bigl(0\oplus\cdots\oplus J R(\theta_k)\oplus\cdots\oplus0\bigr)Q^\mathsf T.
+\]
+For any matrix minor \(M(\theta)=\det R(\theta)_{I,J}\), the derivative follows from the cofactor identity
+\[
+\partial_{\theta_k}M
+=\sum_{a,b}\operatorname{cof}_{ab}\!\left(R_{I,J}\right)
+\left(\partial_{\theta_k}R\right)_{i_a,j_b}.
+\]
+Every pinned EUI pricing functional is a finite sum of products/minors of entries of \(R\), hence is smooth on the compact torus. A decimal phase vector is an exact rational input; Arb can enclose the trigonometric entries of \(R(\theta)\), the algebraic entries of \(Q\), and the resulting pricing score. A strictly positive interval at one such phase is therefore a rigorous torus witness. Combined with the dense-orbit theorem above, it implies a finite positive time on the uniform physical ray with positive pricing score.
+
+This supplies the explicit basis and derivative needed for the next 192-column torus search. It does not assert that the 192-column functional has a positive torus value; that optimization and its Arb verification remain to be performed.
