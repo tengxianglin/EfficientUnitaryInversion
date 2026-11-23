@@ -22,6 +22,38 @@ The normalized feature vector contains the 21 cyclic second-order rows, all 1,44
 \[
 s_2=\frac1{41},\qquad s_4=\frac{\binom{21}{2}}{\binom{42}{4}},\qquad s_6=\frac5{19721}.
 \]
+For completeness, the feature and target definitions are as follows. Let
+\[
+\mathcal O_k(I)=\{gI:g\in D_{42}\}.
+\]
+For the 21 cyclic second-order rows, with
+\[
+I_{i,d}=\{i,(i+d)\bmod 42\},\qquad d=1,\ldots,21,
+\]
+set
+\[
+b_d^{(2)}(c)=\frac1{42}\sum_{i=0}^{41}\det R(c)_{I_{i,d},I_{i,d}},
+\qquad
+\tau_d^{(2)}=\frac{(-1)^{d+1}}{41}.
+\]
+For each of the 1,440 dihedral fourth-order orbits, with representative (I), set
+\[
+b_I^{(4)}(c)=\frac1{|\mathcal O_4(I)|}
+\sum_{J\in\mathcal O_4(I)}\det R(c)_{J,J},
+\qquad
+\tau_I^{(4)}=(-1)^{\sum_{i\in I}(i\bmod2)}
+\frac{\binom{21}{2}}{\binom{42}{4}}.
+\]
+For each of the 645 pinned sixth-order orbit representatives (I), set
+\[
+b_I^{(6)}(c)=\frac1{|\mathcal O_6(I)|}
+\sum_{J\in\mathcal O_6(I)}\det R(c)_{J,J},
+\qquad
+\tau_I^{(6)}=(-1)^{\sum_{i\in I}(i\bmod2)+3}
+\frac{\binom{21}{3}}{\binom{42}{6}}.
+\]
+The normalized column (a(c)) consists of (b^{(2)}/s_2), (b^{(4)}/s_4), and (b^{(6)}/s_6), and the target vector (y) consists of the corresponding (	au/s) entries in the same row order. Thus the residual is exactly (e(p)=\sum_c p_c a(c)-y).
+
 The 2,106-row inventory and exact targets are the same frozen design defined in
 THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md; the sixth-row inventory hash is
 5ea65e5c906046cf82253202563b01e86a3aeddbdc1ff2ac4d01127147132abb.
