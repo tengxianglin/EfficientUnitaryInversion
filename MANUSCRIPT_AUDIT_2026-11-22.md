@@ -813,3 +813,6 @@ Independent 128-bit Arb evaluation gives
 whose lower endpoint is strictly positive. Thus column 332 escapes the 183-column dual after addition. The full screen and Arb transcript are committed in [8e6d733](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8e6d73355a640e28957bc3625581a91a979d365c), in `evidence/55probe_183col_full_sixth_cut_dual_pricing_screen_n21.json` and `evidence/55probe_183col_full_sixth_cut_dual_pricing_arb_n21.json`.
 
 The positive escape does not prove feasibility and does not exclude the other 1,458 nonpositive binary64 columns. The next pool is the 184-column / 2,113-row full-sixth-cut reoptimization, adding column 332.
+
+
+The 184-column reoptimization has been launched as [workflow 45105751599](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105751599). Its pool is the certified 183-column / 2,113-row full-sixth-cut inventory plus canonical column 332, whose reduced-cost score is strictly positive by Arb. The workflow revalidates the 183-column parent certificate and pricing provenance before solving; no 184-column objective is asserted until it completes.
