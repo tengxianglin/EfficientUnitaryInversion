@@ -200,8 +200,8 @@ eighth-order orbits. The theorem is not a sixth-only result, a complete
 sixth/eighth orbit audit, a no-go theorem for all positive 41-edge couplings,
 or an operational Choi-fidelity/diamond-norm guarantee.
 
-The six continuous paths are certified escapes from the successive 183-, 184-,
-185-, 186-, 187-, and 188-column duals, respectively. The new 189-column dual
+The six continuous paths are certified escapes from the 151-, 184-, 185-,
+186-, 187-, and 188-column duals, respectively. The new 189-column dual
 has not yet been tested against the unrestricted positive 41-edge path family.
 A positive continuous-path pricing value would refute global separation by
 this particular 189-column dual; failure of a local search would not prove
