@@ -120,3 +120,35 @@ This theorem does **not** establish any of the following:
 4. a Choi-infidelity or diamond-distance operational error guarantee.
 
 The next decisive question is whether this new 195-column dual itself escapes somewhere on the exact 21-dimensional uniform-path torus. A positive Arb point would refute global separation by this particular dual only; failure of a finite multi-start search would not prove global separation.
+
+
+## Explicit finite-time uniform-ray escape of the 195-column dual (2026-11-24)
+
+The 195-column dual has now been defeated by a directly specified physical point on the positive uniform-coupling ray, not merely by a point in the closure torus. Set all 41 edge couplings to the same exact positive rational
+
+\[
+t_* = 5803.850543844878302
+=\frac{2901925271922439151}{500000000000000}>0.
+\]
+
+The independent 128-bit python-flint/Arb certificate encloses the exact 195-column dual pricing functional at the corresponding rotation as
+
+\[
+S_{195}(e^{t_*K_*})
+\in
+[0.5056904994276359992460690567385
+\pm 9.35\times10^{-32}]>0.
+\]
+
+The certificate is pinned to the 195-column dual SHA256
+8371f7f2d4d866839b223dbe1b0c3e872a220092bc22b7cbc69384f08acb456c,
+the LP SHA256
+0d5b2d821b95e3229b3ffbcbfd3dafacd80cb76ba1aba55e2858183d53792908,
+and the 195-column torus Arb certificate SHA256
+74c5193a06b51cc42b8e48138e3e8a39f7f216eed97073b652cc4575881864c5.
+The finite-time evidence was committed in
+[133d9c9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/133d9c937d465bdd457a3ac8257c9b7a203caed7).
+
+This is a strict counterexample to **global separation by this particular 195-column dual**. It does not invalidate the finite 195-column minimax theorem, because the new path is outside its 195-column pool. It also does not prove that a probability mixture over the full continuous family is feasible or infeasible, and it does not imply a Choi-fidelity or diamond-distance statement.
+
+The next finite-pool experiment appends this exact path as physical column 1653 and reoptimizes the same 2,113-row mixed-order design. The new 196-column LP is discovery only until either (i) an exact rational dual is independently checked against all 196 columns with Arb, or (ii) an exact rational primal is checked on every pinned row and then subjected to complete sixth/eighth-order orbit audits.
