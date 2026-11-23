@@ -3,7 +3,7 @@
 ## Theorem
 
 Let \(A\in\mathbb R^{2113\times192}\) be the frozen EUI moment-feature matrix and \(y\in\mathbb R^{2113}\) its target vector for the pinned design. The 192 columns are the ordered physical pool recorded in
-\`evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json\`: 183 selected canonical generators and nine pairwise-distinct, strictly positive 41-edge open-path generators, including the ninth escape from the 191-column dual.
+`evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json`: 183 selected canonical generators and nine pairwise-distinct, strictly positive 41-edge open-path generators, including the ninth escape from the 191-column dual.
 
 Then every probability vector \(p\in\Delta_{192}\) obeys
 \[
@@ -100,25 +100,25 @@ Consequently, this result:
 ## Reproduction
 
 Use Python 3.11 with the workflow-pinned versions:
-\`numpy==2.3.5\`, \`scipy==1.15.3\`, and \`python-flint==0.8.0\`.
+`numpy==2.3.5`, `scipy==1.15.3`, and `python-flint==0.8.0`.
 
-\`\`\`bash
+```bash
 python freeze_seed_pool.py
 python -m unittest tests/test_eighth_orbit_enumeration.py
 python verify_192col_ninth_continuous_escape_dual_arb.py
-\`\`\`
+```
 
 The verifier independently reconstructs the exact rational dual, checks the complete ancestry and frozen row/column hashes, evaluates all 192 physical columns with 128-bit Arb, and writes the machine-readable certificate.
 
 Evidence:
-- LP transcript: \`evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json\`
-- 128-bit Arb certificate: \`evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json\`
-- Independent verifier: \`verify_192col_ninth_continuous_escape_dual_arb.py\`
-- Workflow: \`.github/workflows/eui-192col-ninth-continuous-escape.yml\`
+- LP transcript: `evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json`
+- 128-bit Arb certificate: `evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json`
+- Independent verifier: `verify_192col_ninth_continuous_escape_dual_arb.py`
+- Workflow: `.github/workflows/eui-192col-ninth-continuous-escape.yml`
 - Certificate-output commit: [4ad5c5472c391a8ca07bb316ab2f7028ec7d5234](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4ad5c5472c391a8ca07bb316ab2f7028ec7d5234)
-- LP transcript SHA256: \`ed966f1c3f755b1910f7f34be978af88ee290821ea643cb7690d83c7aeab686a\`
-- Certificate JSON blob SHA: \`df4855cc985ae34507039e83ef3e43c446c2c66d\`
+- LP transcript SHA256: `ed966f1c3f755b1910f7f34be978af88ee290821ea643cb7690d83c7aeab686a`
+- Certificate JSON blob SHA: `df4855cc985ae34507039e83ef3e43c446c2c66d`
 
 ## Next continuous-family test
 
-The exact dense-torus theorem in \`THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md\` applies to every continuous pricing functional, including the new 192-column dual pricing functional. The next decisive test is therefore to optimize this *192-column* functional over the 21-torus of the uniform positive-coupling ray. A strictly positive Arb-certified torus value would, by continuity and orbit density, prove that this particular 192-column dual also fails to separate the full positive path family. A nonpositive numerical maximum or an unsuccessful local search would not prove global separation; that would require a certified global upper bound over the torus.
+The exact dense-torus theorem in `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md` applies to every continuous pricing functional, including the new 192-column dual pricing functional. The next decisive test is therefore to optimize this *192-column* functional over the 21-torus of the uniform positive-coupling ray. A strictly positive Arb-certified torus value would, by continuity and orbit density, prove that this particular 192-column dual also fails to separate the full positive path family. A nonpositive numerical maximum or an unsuccessful local search would not prove global separation; that would require a certified global upper bound over the torus.
