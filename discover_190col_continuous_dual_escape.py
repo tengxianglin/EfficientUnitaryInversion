@@ -102,11 +102,11 @@ class DualPricing:
         self.lp_sha = sha(lp_raw)
         self.cut_sha = sha(cut_raw)
         if self.cert.get("status") != "strict_190col_2113row_seventh_continuous_escape_minimax_obstruction" or not self.cert.get("complete"):
-            raise RuntimeError("the 187-column parent dual is not strictly certified")
+            raise RuntimeError("the 190-column dual is not strictly certified")
         if self.cert.get("lp_transcript_sha256") != self.lp_sha:
-            raise RuntimeError("187-column certificate/LP hash mismatch")
+            raise RuntimeError("190-column certificate/LP hash mismatch")
         if self.lp.get("cut_lp_transcript_sha256") != self.cut_sha:
-            raise RuntimeError("187-column LP does not pin the 2,113-row cut inventory")
+            raise RuntimeError("190-column LP does not pin the 2,113-row cut inventory")
         self.z = np.asarray([float(Fraction(x)) for x in self.cert["dual_vector_rational"]])
         if self.z.shape != (2113,):
             raise RuntimeError("unexpected dual vector dimension")
@@ -190,7 +190,7 @@ def main():
     if escape.get("status") != "certified_continuous_path_dual_escape" or not escape.get("strictly_positive"):
         raise RuntimeError("the seventh exact continuous path seed is not Arb-certified")
     if escape.get("dual_certificate_sha256") != pricing.cert.get("parent_189col_dual_certificate_sha256") or escape.get("lp_transcript_sha256") != pricing.cert.get("parent_189col_lp_sha256"):
-        raise RuntimeError("seventh escape does not pin the exact 187-column parent dual/LP")
+        raise RuntimeError("seventh escape does not pin the exact 189-column parent dual/LP")
     old = np.asarray([float(Fraction(x)) for x in escape["candidate_couplings_exact"][:-1]])
     if old.shape != (41,) or np.any(old <= 0):
         raise RuntimeError("invalid prior continuous path starting point")
