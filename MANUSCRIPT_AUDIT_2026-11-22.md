@@ -1278,3 +1278,24 @@ If the 190-column objective is above 1/3, the workflow proceeds to exact-rationa
 
 The 2,113-row design remains mixed-order and selected/cut: 1,461 complete second/fourth rows, 645 selected/cut sixth rows, and seven selected eighth rows. This is not a complete sixth/eighth orbit certificate, a global positive-coupling-family minimax theorem, or an operational Choi/diamond guarantee.
 
+
+
+## Continuous-family pricing against the certified 190-column dual (2026-11-23)
+
+The 190-column / 2,113-row mixed-order dual is strictly certified on its 190 pinned generators, but no global separation over the positive 41-edge path family has been established. I added a deterministic differentiable pricing search and an independent exact-rational 128-bit Arb verifier for the next decisive test:
+
+- Discovery: `discover_190col_continuous_dual_escape.py`.
+- Independent verifier: `verify_190col_continuous_dual_escape_arb.py`.
+- Workflow: `.github/workflows/eui-190col-continuous-dual-search.yml`.
+- Search uses the cofactor determinant derivative and adjoint Frechet derivative of the matrix exponential, with a complex-step gradient regression check. The search is discovery only; a positive continuous-family escape is recorded only if the independent Arb verifier proves a strictly positive interval lower endpoint.
+- The new search is seeded by the seventh certified path (column 1647), checks its computed score against the 190-column certificate's Arb interval, and pins the 190-column dual/LP, the 2,113-row cut design, the frozen seed pool, and all seven prior escape certificates.
+
+Commits:
+- [0b2b609](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/0b2b609fa0cc081ff081e414a33f63dcae337035) discovery search;
+- [794ff1c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/794ff1c3d8ac0164e1ec305f6576faff8d668b25) independent Arb verifier;
+- [703f299](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/703f299039700627c7adb3e9b127e0ca61b634f7) workflow;
+- [c8295e1](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c8295e129fdf8ac1700183f3d4182eca528ed15e) and [b7d77b9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b7d77b92ee658e77e5c87cf1f92dab5862a89f05) provenance-label corrections.
+
+The workflow has started in runs [45159106797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159106797), [45159219699](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159219699), and [45159224149](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45159224149). At the last inspection, the latest run had passed seed-pool and orbit-enumeration checks and was re-certifying the 190-column dual and seven prior escapes. The optimization and Arb result are not yet available.
+
+A failed local search will not prove global separation. A successful positive Arb interval will refute global separation by this particular 190-column dual only; it will not establish feasibility of the continuous-family minimax problem. The finite 190-column theorem remains limited to its pinned mixed-order 2,113-row design (645 selected/cut sixth rows and seven selected eighth rows), not complete sixth/eighth orbit control and not a Choi/diamond-norm guarantee.
