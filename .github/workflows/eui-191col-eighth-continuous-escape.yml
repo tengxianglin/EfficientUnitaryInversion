@@ -1,0 +1,122 @@
+name: EUI certify the 191-column eighth continuous-escape minimax obstruction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reoptimize_191col_eighth_continuous_escape.py"
+      - "verify_191col_eighth_continuous_escape_dual_arb.py"
+      - ".github/workflows/eui-191col-eighth-continuous-escape.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-certify the 190-column parent and all eight continuous-path inputs
+        run: |
+          python verify_continuous_path_dual_escape_arb.py
+          python verify_184col_continuous_dual_escape_arb.py
+          python verify_185col_continuous_dual_escape_arb.py
+          python verify_186col_continuous_dual_escape_arb.py
+          python verify_187col_continuous_dual_escape_arb.py
+          python verify_188col_fifth_continuous_escape_dual_arb.py
+          python verify_188col_continuous_dual_escape_arb.py
+          python verify_189col_sixth_continuous_escape_dual_arb.py
+          python verify_189col_continuous_dual_escape_arb.py
+          python verify_190col_seventh_continuous_escape_dual_arb.py
+          python verify_190col_continuous_dual_escape_arb.py
+      - name: Compile the 191-column reoptimizer and independent dual verifier
+        run: |
+          python -m py_compile \
+            reoptimize_191col_eighth_continuous_escape.py \
+            verify_191col_eighth_continuous_escape_dual_arb.py
+      - name: Remove stale 191-column outputs
+        run: |
+          rm -f evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json
+          rm -f evidence/candidate_joint_input_191col_eighth_continuous_escape_n21.json
+          rm -f evidence/55probe_191col_eighth_continuous_escape_dual_certificate_n21.json
+      - name: Reoptimize the 191-column, 2,113-row mixed-order LP
+        run: python reoptimize_191col_eighth_continuous_escape.py
+      - name: Select the LP branch
+        id: branch
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path("evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json")
+          data = json.loads(p.read_text())
+          above = data["status"] == "191col_eighth_continuous_escape_lp_above_one_third"
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+              f.write(f"above_cap={str(above).lower()}\n")
+          print(json.dumps({"status": data["status"], "objective": data["expanded_lp_objective"], "above_cap": above}))
+          PY
+      - name: Independently certify the exact rationalized 191-column dual with Arb
+        if: steps.branch.outputs.above_cap == 'true'
+        run: python verify_191col_eighth_continuous_escape_dual_arb.py
+      - name: Record a below-cap candidate as discovery only
+        if: steps.branch.outputs.above_cap == 'false'
+        run: |
+          echo "A binary64 LP candidate below 1/3 was produced. Its exact rational probabilities are frozen, but no primal Arb certificate or complete sixth-order orbit audit is claimed by this workflow." >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit 191-column LP, candidate, and strict dual certificate with race-safe retry
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-191
+          for f in \
+            evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json \
+            evidence/candidate_joint_input_191col_eighth_continuous_escape_n21.json \
+            evidence/55probe_191col_eighth_continuous_escape_dual_certificate_n21.json; do
+            if [ -f "$f" ]; then
+              mkdir -p "/tmp/eui-191/$(dirname "$f")"
+              cp "$f" "/tmp/eui-191/$f"
+            fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in \
+              evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json \
+              evidence/candidate_joint_input_191col_eighth_continuous_escape_n21.json \
+              evidence/55probe_191col_eighth_continuous_escape_dual_certificate_n21.json; do
+              if [ -f "/tmp/eui-191/$f" ]; then
+                cp "/tmp/eui-191/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Certify 191-column eighth continuous escape minimax obstruction"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 191-column discovery and strict certificate artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-191col-eighth-continuous-escape-certificate
+          path: |
+            evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json
+            evidence/candidate_joint_input_191col_eighth_continuous_escape_n21.json
+            evidence/55probe_191col_eighth_continuous_escape_dual_certificate_n21.json
+          if-no-files-found: warn
