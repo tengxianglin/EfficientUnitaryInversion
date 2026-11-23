@@ -829,7 +829,7 @@ The exact rationalized dual has ||z||_1=1, 50 nonzero entries (two fourth-order,
 \ge
 \frac{22487122319210016751569973413}
 {46116860184300265870000000000}
-=0.48761173742841646\ldots>\frac13.
+=0.48761173742841650\ldots>\frac13.
 \]
 
 Formal proof: THEORY_184COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md. LP transcript and certificate: evidence/joint_low_six_eighth_lp_184col_full_sixth_cuts_n21.json and evidence/55probe_184col_full_sixth_cut_dual_certificate_n21.json. Evidence commit: 0c0c745c534fb161835e03e63776d6fe7f7178eb.
