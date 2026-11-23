@@ -654,3 +654,13 @@ This strictly escapes the 185-column dual after adding column 447. It does not p
 The combined pricing script now explicitly records the SHA256 of its binary64 screen in the Arb transcript (commit [7f47871](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7f47871a605939ab75d6ae0211d2b95f9872fb88)); corrected provenance rerun [45091164802](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091164802) is running.
 
 The 186-column reoptimizer and workflow are committed in [1a3cb42](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1a3cb42d259ba060175d1b03955bcbc67491e361), [b1cc491](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b1cc491343e2e866a7b6adf2cdba1943b9cb6840), and [a3f4147](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a3f4147c3b6c91fe3a20737ba62e5f197e8b1f55). Run [45091230819](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091230819) has passed seed/orbit checks and the exact 185-column Arb certificate, and is currently repeating full pricing before the 186-column LP. No 186-column objective is asserted yet.
+
+
+
+## Pricing provenance correction and 186-column LP status (2026-11-23)
+
+The corrected 185-column pricing provenance rerun [45091164802](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091164802) completed successfully. The Arb transcript now records `pricing_screen_sha256`, and the 185-column Arb verifier's stored certificate hash and LP hash agree with the exact committed inputs. The only strict-positive canonical escape remains column 447; the other 1,456 nonpositive binary64 scores are not strict Arb exclusion certificates.
+
+The first 186-column workflow [45091230819](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091230819) reverified the 185-column theorem and repeated all pricing checks, but failed at the 186 reoptimizer's provenance guard because it expected the old pricing JSON keys. The current 185 pricing schema uses `certificate_sha256` and `lp_sha256`. The guard was corrected in [52f7b2b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/52f7b2b531dce1633128c7a30590e5e6573b2098).
+
+Corrected run [45091326325](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091326325) has passed frozen seed/orbit checks, exact 185-column Arb re-verification, full 1,457-column pricing, the strict Arb-positive check for column 447, and the complete provenance chain. It is currently executing the 186-column HiGHS matrix construction/LP. Its objective and transcript are not yet available, so no 186-column minimax value is claimed.
