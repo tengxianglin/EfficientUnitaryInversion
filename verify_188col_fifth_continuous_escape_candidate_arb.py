@@ -66,6 +66,8 @@ def main():
         raise RuntimeError("candidate does not pin the first escape certificate")
     if candidate.get("second_continuous_escape_arb_certificate_sha256") != second_escape_sha or candidate.get("third_continuous_escape_arb_certificate_sha256") != third_escape_sha or candidate.get("fourth_continuous_escape_arb_certificate_sha256") != fourth_escape_sha:
         raise RuntimeError("candidate does not pin the second escape certificate")
+    if candidate.get("fifth_continuous_escape_arb_certificate_sha256") != fifth_escape_sha:
+        raise RuntimeError("candidate does not pin the fifth escape certificate")
     if candidate.get("canonical_all_columns_sha256_le_f64") != lp.get("canonical_all_columns_sha256_le_f64"):
         raise RuntimeError("candidate and LP canonical-pool hashes disagree")
     if parent_dual.get("status") != "strict_187col_2113row_fourth_continuous_escape_minimax_obstruction" or not parent_dual.get("complete"):
@@ -232,7 +234,6 @@ def main():
         "interval_backend": "python-flint 0.8.0 / Arb",
         "lp_transcript_sha256": lp_sha,
         "candidate_input_sha256": candidate_sha,
-        "parent_186col_lp_sha256": parent_lp_sha,
         "parent_187col_dual_certificate_sha256": parent_dual_sha,
         "parent_187col_lp_sha256": parent_lp_sha,
         "parent_186col_dual_certificate_sha256": parent_186_dual_sha,
