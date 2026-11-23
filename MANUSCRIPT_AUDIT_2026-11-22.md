@@ -1373,3 +1373,25 @@ audit. This is a theorem only for the fixed 191-generator pool and pinned
 2,113-row mixed-order design. It is not a full continuous-family obstruction,
 a complete sixth/eighth orbit audit, or an operational Choi/diamond-norm
 inversion guarantee.
+
+
+## 2026-11-23: ninth Arb-certified continuous-path escape from the 191-column dual
+
+The 191-column pricing workflow completed successfully. A deterministic 10-start search (box \(10^{-4}\le c_j\le100\), at most 100 L-BFGS-B iterations) found a ninth positive 41-edge open path. The best candidate's optimizer run reached the iteration cap, so optimizer convergence is not claimed; the analytic gradient's maximum relative defect against complex-step checks at coordinates 0, 20, and 40 was \(2.765565554341265\times10^{-13}\).
+
+The independent exact-decimal 128-bit Arb verifier certified
+\[
+S_{191}(c)\in[240.12916173240860667511831935153365\pm7.55\times10^{-33}]>0.
+\]
+All 41 edge magnitudes are strictly positive (two lie exactly at the search-box lower boundary \(10^{-4}\)); the path differs from the eight previous escapes and is outside the frozen 1,641-column canonical inventory. The 191-column dual has exact \(\|z\|_1=576460752303381559/576460752303423488<1\) and 59 active rows (2 low, 55 selected/cut sixth, 2 selected eighth).
+
+Evidence:
+- Theory: THEORY_191COL_NINTH_CONTINUOUS_PATH_DUAL_ESCAPE.md
+- Search: evidence/191col_continuous_dual_search_n21.json
+- Arb certificate: evidence/191col_continuous_dual_escape_arb_n21.json
+- Verifier: verify_191col_continuous_dual_escape_arb.py
+- Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45178729623
+- Evidence commit: https://github.com/tengxianglin/EfficientUnitaryInversion/commit/cf142f3b96476a3385aa6bb296e37e811948ee53
+- Theory-note commit: a8bfe6f5448efad63bb3a8c2526e9b217cc4a1cf
+
+This refutes global separation by the particular 191-column dual only. It does not invalidate the finite 191-column minimax theorem, establish feasibility/infeasibility of the full continuous-family minimax problem, certify complete sixth/eighth orbit control, or give a Choi/diamond operational guarantee. The next finite experiment is the 192-column LP with this path appended as column 1649.
