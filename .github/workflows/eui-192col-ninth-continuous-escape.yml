@@ -6,6 +6,7 @@ on:
     paths:
       - "reoptimize_192col_ninth_continuous_escape.py"
       - "verify_192col_ninth_continuous_escape_dual_arb.py"
+      - "tests/test_uniform_path_torus_basis.py"
       - ".github/workflows/eui-192col-ninth-continuous-escape.yml"
   workflow_dispatch:
 
@@ -31,6 +32,7 @@ jobs:
         run: |
           python freeze_seed_pool.py
           python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
       - name: Re-certify the 191-column parent and all nine continuous escapes
         run: |
           python verify_continuous_path_dual_escape_arb.py
