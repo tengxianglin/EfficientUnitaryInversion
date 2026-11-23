@@ -664,3 +664,29 @@ The corrected 185-column pricing provenance rerun [45091164802](https://github.c
 The first 186-column workflow [45091230819](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091230819) reverified the 185-column theorem and repeated all pricing checks, but failed at the 186 reoptimizer's provenance guard because it expected the old pricing JSON keys. The current 185 pricing schema uses `certificate_sha256` and `lp_sha256`. The guard was corrected in [52f7b2b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/52f7b2b531dce1633128c7a30590e5e6573b2098).
 
 Corrected run [45091326325](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091326325) has passed frozen seed/orbit checks, exact 185-column Arb re-verification, full 1,457-column pricing, the strict Arb-positive check for column 447, and the complete provenance chain. It is currently executing the 186-column HiGHS matrix construction/LP. Its objective and transcript are not yet available, so no 186-column minimax value is claimed.
+
+
+## 172-column full-sixth-cut mixed-order theorem (2026-11-23)
+
+The 152-column candidate that passed its 1,779 selected-row Arb audit was rejected by the exhaustive binary64 sixth-order screen: 334 of the 63,133 D42 orbits crossed the 1/3 threshold, and a separate 128-bit Arb calculation certified a strict candidate-specific violation at representative (0,1,8,18,25,35). Adding all 334 newly identified representatives to the 152-column LP produced a 2,113-row design (1,461 low-order + 645 sixth + 7 selected eighth rows). The 152-column pool then received a strict finite-pool Arb dual obstruction. Its top ten positive canonical pricing candidates were all independently Arb-positive.
+
+The 162-column reoptimization added those ten paths and produced a binary64 objective 0.4931412761911509. Its mixed-order dual was strictly certified, and pricing against the remaining 1,480 canonical paths produced ten further strictly Arb-positive escapes: 1580, 195, 364, 424, 448, 221, 324, 517, 420, 447.
+
+The resulting 172-column LP has 2,113 rows and binary64 objective 0.4895870821848577 (recomputed maximum 0.4895870821886379; primal-dual discovery gap 2.85e-13). Its rationalized dual passed the independent 128-bit Arb check against all 172 physical columns in [workflow 45102666550](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45102666550). The exact theorem is
+
+\[
+\min_{p\in\Delta(\mathcal P_{172})}\|Ap-y\|_\infty
+\ge
+\frac{4409808392781637575337133}{9007199254740992000000000}
+=0.489587081185143\ldots>\frac13.
+\]
+
+The exact dual L1 norm is 4611686018424741463 / 4611686018427387904 < 1, the pre-slack dual objective is 2257821901715884457 / 4611686018427387904, and the rational slack is 10^-9. All 172 slack-shifted column inequalities have Arb upper endpoints below zero; the maximum is -7.0535517948488008e-10. The dual support contains 48 coordinates: one fourth-order, 45 sixth-order, and two eighth-order rows. It is therefore a **mixed-order** obstruction, not a sixth-only theorem. It applies only to the specified 172-generator pool and pinned 2,113-row objective.
+
+Formal statement: [THEORY_172COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_172COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md). Exact certificate: [55probe_172col_full_sixth_cut_dual_certificate_n21.json](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/55probe_172col_full_sixth_cut_dual_certificate_n21.json). LP transcript: [joint_low_six_eighth_lp_172col_full_sixth_cuts_n21.json](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/joint_low_six_eighth_lp_172col_full_sixth_cuts_n21.json). Certificate commit: [ae797e9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/ae797e92557df52f4f419e9215f9029ccbd1a450).
+
+A new full-canonical pricing workflow against this exact 172-column dual is now running: [45103189029](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45103189029). It will screen all 1,470 unused canonical columns and apply 128-bit Arb to up to ten leading positive candidates. No 172-dual escape or finite-canonical-pool exclusion is claimed until that run completes.
+
+### Separate 186-column mixed-order discovery
+
+The 185-dual pricing escape (canonical column 447) was added in a separate 186-column, 2,106-row mixed-order branch. HiGHS returned objective 0.46714365173379313, recomputed maximum 0.4671436517368315, support size 57, and primal-dual discovery gap about 3.36e-14. This is **binary64 discovery only**; no 186-column Arb dual certificate was produced. Workflow [45091326325](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091326325) failed only at the commit step because the workflow unconditionally staged a candidate file that correctly was not written (the LP was above 1/3). Its log/artifact records the discovery, but the transcript was not committed. This branch must not be conflated with the 172-column full-sixth-cut result above.
