@@ -85,10 +85,6 @@ def load_exact_design(cut_lp):
     eighth_targets = [Fraction(value) for value in cut_lp["selected_eighth_targets"]]
     if len(eighth_rows) != 7 or len(eighth_targets) != 7:
         raise RuntimeError("unexpected selected eighth-order inventory")
-    sixth_hash = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
-    eighth_hash = sha(json.dumps([list(row) for row in eighth_rows], separators=(",", ":")).encode())
-    if sixth_hash != parent_lp.get("sixth_rows_sha256") or eighth_hash != parent_lp.get("eighth_rows_sha256"):
-        raise RuntimeError("current 152-column row inventory differs from the certified 162-column design")
     expected_eighth = [
         Fraction((-1) ** (sum(index % 2 for index in row) + 4) * comb(21, 4), comb(42, 8))
         for row in eighth_rows
@@ -255,6 +251,8 @@ def main():
     eighth_hash = sha(json.dumps([list(row) for row in eighth_rows], separators=(",", ":")).encode())
     if sixth_hash != lp.get("sixth_rows_sha256") or eighth_hash != lp.get("eighth_rows_sha256"):
         raise RuntimeError("172-column row inventory hash mismatch")
+    if sixth_hash != parent_lp.get("sixth_rows_sha256") or eighth_hash != parent_lp.get("eighth_rows_sha256"):
+        raise RuntimeError("current 152-column row inventory differs from the certified 162-column design")
     if row_blocks != lp.get("row_blocks"):
         raise RuntimeError("172-column row-block inventory mismatch")
 
