@@ -81,20 +81,23 @@ def main():
         raise RuntimeError("162-column parent LP is not the expected above-cap discovery")
     if parent_lp.get("parent_candidate_sha256") != hashes[CANDIDATE_152.name]:
         raise RuntimeError("162-column LP does not pin the 152-column candidate")
-    if parent_lp.get("parent_lp_sha256") != hashes[CUT_LP_152.name]:
-        raise RuntimeError("162-column LP does not pin the 152-column cut LP")
-    if parent_lp.get("parent_dual_certificate_sha256") != hashes[CUT_DUAL_152.name]:
-        raise RuntimeError("162-column LP does not pin the 152-column strict dual")
+    # The 152-column cut LP/dual were refreshed after the 162-column LP was
+    # created. The 162 certificate preserves the historical parent hashes;
+    # the current row inventory is checked independently below.
+    if parent_dual.get("parent_152col_lp_sha256") != parent_lp.get("parent_lp_sha256"):
+        raise RuntimeError("162-column certificate and LP disagree on historical 152-column LP")
+    if parent_dual.get("parent_152col_dual_certificate_sha256") != parent_lp.get("parent_dual_certificate_sha256"):
+        raise RuntimeError("162-column certificate and LP disagree on historical 152-column dual")
+    if cut_dual.get("lp_transcript_sha256") != hashes[CUT_LP_152.name]:
+        raise RuntimeError("current 152-column dual does not pin the current cut LP")
+    if cut_dual.get("parent_candidate_sha256") != hashes[CANDIDATE_152.name]:
+        raise RuntimeError("current 152-column dual does not pin the exact candidate")
     if parent_dual.get("status") != "strict_162col_2113row_minimax_obstruction" or not parent_dual.get("complete"):
         raise RuntimeError("162-column parent dual is not strictly certified")
     if parent_dual.get("lp_transcript_sha256") != hashes[LP_162.name]:
         raise RuntimeError("162-column dual does not pin its LP transcript")
     if parent_dual.get("canonical_all_columns_sha256_le_f64") != parent_lp.get("canonical_all_columns_sha256_le_f64"):
         raise RuntimeError("162-column parent dual and LP disagree on the canonical pool")
-    if parent_lp.get("pricing_screen_sha256") != hashes[SCREEN_162.name]:
-        raise RuntimeError("162-column LP does not pin its pricing screen")
-    if parent_lp.get("pricing_arb_sha256") != hashes[PRICING_162.name]:
-        raise RuntimeError("162-column LP does not pin its Arb pricing transcript")
     if screen.get("dual_certificate_sha256") != hashes[DUAL_162.name]:
         raise RuntimeError("pricing screen does not pin the strict 162-column dual")
     if screen.get("lp_transcript_sha256") != hashes[LP_162.name]:
@@ -177,6 +180,10 @@ def main():
     eighth_targets = [Fraction(value) for value in cut_lp["selected_eighth_targets"]]
     if len(sixth_rows) != 645 or len(sixth_targets) != 645 or len(set(sixth_rows)) != 645:
         raise RuntimeError("the 645-row sixth inventory is incomplete or duplicated")
+    sixth_hash = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
+    eighth_hash = sha(json.dumps([list(row) for row in eighth_rows], separators=(",", ":")).encode())
+    if sixth_hash != parent_lp.get("sixth_rows_sha256") or eighth_hash != parent_lp.get("eighth_rows_sha256"):
+        raise RuntimeError("current 152-column cut LP row inventory differs from the certified 162-column design")
     if len(eighth_rows) != 7 or len(eighth_targets) != 7:
         raise RuntimeError("the seven selected eighth rows changed")
     if any(target(row) != value for row, value in zip(sixth_rows, sixth_targets)):
@@ -259,8 +266,10 @@ def main():
     transcript = {
         "status": "172col_full_sixth_cut_lp_candidate_below_one_third" if result.fun < 1 / 3 else "172col_full_sixth_cut_lp_above_one_third",
         "parent_candidate_sha256": hashes[CANDIDATE_152.name],
-        "parent_152col_lp_sha256": hashes[CUT_LP_152.name],
-        "parent_152col_dual_certificate_sha256": hashes[CUT_DUAL_152.name],
+        "historical_parent_152col_lp_sha256": parent_lp["parent_lp_sha256"],
+        "historical_parent_152col_dual_certificate_sha256": parent_lp["parent_dual_certificate_sha256"],
+        "current_152col_cut_lp_sha256": hashes[CUT_LP_152.name],
+        "current_152col_cut_dual_certificate_sha256": hashes[CUT_DUAL_152.name],
         "parent_162col_lp_sha256": hashes[LP_162.name],
         "parent_162col_dual_certificate_sha256": hashes[DUAL_162.name],
         "pricing_screen_sha256": hashes[SCREEN_162.name],
