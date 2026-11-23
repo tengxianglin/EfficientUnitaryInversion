@@ -21,7 +21,7 @@ For a coupling vector c=(c_0,...,c_40,0), define
 \[
 K(c)_{j,j+1}=2c_j,\qquad K(c)_{j+1,j}=-2c_j,\qquad j=0,\ldots,40,
 \]
-with all other entries zero, and R(c)=exp K(c). Each of the three added continuous generators has 41 strictly positive open-path couplings and terminal padding c_41=0; their exact rational inputs and independent Arb certificates are listed below.
+with all other entries zero, and R(c)=exp K(c). Each of the three added continuous generators has 41 strictly positive open-path couplings and terminal padding c_41=0. Their exact rational inputs are pinned by the first, second, and third continuous-path Arb certificate files listed in Reproducibility.
 
 Let O_k(I)={gI:g in D_42}. The pinned 2,113 normalized residual coordinates are ordered as follows.
 
@@ -143,7 +143,9 @@ The binary64 HiGHS calculation is discovery evidence only: objective 0.468282360
 - Dual certificate SHA256: 365dc82f4540cb6821038da3059efeb8cb8205b3
 - Parent 185-column LP SHA256: 53b3e6b6369b05be741ac9f716be798051059fb646002df33bfc67e06bc68e0b
 - Parent 185-column dual SHA256: 3d66af653cef76f0e8bca5c9672730fa08bb390da067b37df7f12450668f71b7
-- Third continuous escape certificate SHA256: 71e7581990b50f1dd8ad22a11190ac66e016318d925022f250a51253166e7a4e
+- First continuous escape certificate: evidence/continuous_path_dual_escape_arb_n21.json (SHA256 9e85d7f617baaa5bee371297e9f94716c21c7404f8349def2ef376dafb20d59e)
+- Second continuous escape certificate: evidence/184col_continuous_dual_escape_arb_n21.json (SHA256 d40aeaa3c5c5a814a47f046ff96f892e4bf98069fa59330ffa4c7e343674543c)
+- Third continuous escape certificate: evidence/185col_continuous_dual_escape_arb_n21.json (SHA256 71e7581990b50f1dd8ad22a11190ac66e016318d925022f250a51253166e7a4e)
 
 The third path was a strict escape from the 185-column dual:
 \[
