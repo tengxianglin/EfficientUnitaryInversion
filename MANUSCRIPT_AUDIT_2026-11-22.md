@@ -1839,3 +1839,31 @@ Known exclusions are deliberately limited: mixtures of single perfect-mirror seg
 The n=21 low-moment repair certificates and later LP candidates are not full joint ensembles: the 83-orbit repair is only approximate in low moments and has a sixth relative error above one; the 29-column candidate has a strict seventh eighth-order violation; later 32-/34-/35-column reweights have candidate-specific sixth-order separators. These are finite candidate results, not global no-go statements.
 
 **Manuscript decision:** the conditional joint-parity theorem, all-odd program-span theorem, and radial-recovery theorem form a coherent core result. The n>=21 exact positive ensemble or a global physical obstruction is the principal missing theorem. The 195/196-column mixed-order LP sequence is supporting finite-pool evidence and must not be presented as a substitute for the all-moment hypothesis or as an operational channel-error theorem. The original Appendix B's 10,000-sample mean Choi-fidelity experiment remains average empirical evidence, not a worst-case channel guarantee. No manuscript TeX/PDF source is present in the repository.
+
+
+## 196-column finite-pool theorem (2026-11-24)
+
+The exact fourth equal-coupling path from the 195-column dual escape was appended as column 1653. The resulting 196-column / 2,113-row LP remains above the \(1/3\) cap. Its binary64 discovery objective is \(0.41973861363658294\), and the recomputed maximum residual is \(0.4197386136366168\).
+
+An independent 128-bit Arb dual certificate is complete for all 196 columns. It gives
+\[
+\eta_{196}\ge
+\frac{18903346635163739503488879}{45035996273704960000000000}
+=0.41973861353658526\ldots>\frac13.
+\]
+The exact dual has \(L_1\) norm
+\[
+\frac{4611686018427369049}{4611686018427387904}<1,
+\]
+slack \(10^{-10}\), and 63 active rows (5 low, 57 sixth, 1 eighth). The verifier reports a maximum shifted column-LHS upper bound of \(-4.4216806140854604\times10^{-11}\); the certificate stores all 196 column intervals. Evidence commit: 3ef1287d4dcecc7bdf21cc5cbf4efaf09f33cecf.
+
+Formal note: THEORY_196COL_2113ROW_FOURTH_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md. Evidence: evidence/joint_low_six_eighth_lp_196col_uniform_ray_escape_n21.json and evidence/55probe_196col_uniform_ray_escape_dual_certificate_n21.json.
+
+This remains a finite-pool theorem for exactly 196 listed columns and the selected 2,113 rows. It does not separate the full continuous physical family, and it is not a complete sixth/eighth-order or operational Choi/diamond certificate.
+
+A new deterministic 21-dimensional torus pricing search and independent Arb verifier for the 196-column dual have been added:
+- discover_196col_uniform_torus_pricing.py;
+- verify_196col_uniform_torus_pricing_arb.py;
+- .github/workflows/eui-196col-uniform-torus-pricing.yml.
+
+The search result is not yet observed in this audit. A positive exact Arb phase interval would imply a finite equal-coupling escape for this 196-column dual by continuity and the already-proved Kronecker density; a finite multistart failure would not prove global separation.
