@@ -131,7 +131,7 @@ A direct one-dimensional search along the uniform ray selected
 t_* = 14425.249926691145447
 =\frac{14425249926691145447}{10^{15}}>0.
 \]
-All 41 edge couplings are exactly this same positive rational number. An independent 128-bit Arb verifier evaluates the exact uniform-ray matrix from the algebraic frequencies and exact phase basis, then recomputes all 61 active dual-row contributions. It certifies
+All 41 edge couplings are exactly this same positive rational number. This witness uses the unbounded positive-coupling domain \((0,\infty)^{41}\) established by the sign-gauge reduction; a separately imposed coupling-norm or upper-bound constraint would define a different family and must be checked independently. An independent 128-bit Arb verifier evaluates the exact uniform-ray matrix from the algebraic frequencies and exact phase basis, then recomputes all 61 active dual-row contributions. It certifies
 \[
 \boxed{
 S_{192}(e^{t_*K_*})
