@@ -1178,3 +1178,38 @@ positive-coupling-family no-go, or an operational Choi/diamond theorem. The
 new 189-column dual must itself be tested against the unrestricted positive
 41-edge path family; failure of a local search will not prove global
 separation.
+
+## Seventh continuous-path escape from the 189-column dual (2026-11-23)
+
+A deterministic 10-start differentiable search against the newly Arb-certified
+189-column dual found a seventh exact-decimal-rational positive 41-edge path
+(label 1647). The candidate is distinct from all six prior paths and outside
+the frozen canonical inventory. The cofactor/Frechet analytic gradient passed
+complex-step checks with maximum relative defect
+1.0714305862054578e-13. The best discovery came from start 8 after 100
+iterations; the optimizer hit its iteration limit, so no convergence claim is
+made.
+
+The independent 128-bit Arb verifier proves
+\[
+S_{189}(c)\in
+[207.4357421969902709413811580245091
+\pm2.10\times10^{-32}]>0.
+\]
+This strictly refutes global separation by the particular 189-column dual.
+It does not invalidate the finite 189-column theorem, prove a feasible
+continuous-family mixture, or imply an operational channel guarantee.
+
+Formal counterexample: [THEORY_189COL_CONTINUOUS_PATH_DUAL_ESCAPE.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_189COL_CONTINUOUS_PATH_DUAL_ESCAPE.md).
+
+Evidence:
+- [Successful search and Arb workflow 45147006543](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45147006543)
+- Search transcript SHA256: `2862b1fc35e1739bed710f9b2059b1b5c855e57a975a091247e8aab7417a9900`
+- Arb certificate: `evidence/189col_continuous_dual_escape_arb_n21.json`
+- Candidate SHA256: `2dcdd30f2a0c9fbb901c9f63748ca2ca5151e770b92b93255a0cb36324d734c8`
+- Search, verifier, workflow commits: [1fd531a](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1fd531a121e88332c685e9558967a6e829dd76ff), [64b7b52](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/64b7b5283a7be21d4417e4935e0593fbb6d994c6), [5198789](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5198789cdcb6dd41c08756257304454aaf3c1e43).
+
+The next finite experiment is a 190-column reoptimization, appending the
+seventh path to the unchanged 2,113-row mixed-order design. The continuous
+family minimax theorem and the EUI-specific moment-to-Choi/diamond bridge
+remain open.
