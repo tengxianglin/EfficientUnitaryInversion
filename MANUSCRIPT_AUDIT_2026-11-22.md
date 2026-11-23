@@ -875,7 +875,7 @@ Formal extension: [THEORY_FULL_CANONICAL_POOL_PLUS_ESCAPE_2113ROW_MINIMAX_OBSTRU
 
 ## 184-column dual: strict continuous-path escape (2026-11-23)
 
-The unrestricted positive 41-edge open-path family contains a second exact-rational escape from the 184-column mixed-order dual. The corrected 10-start Frechet/cofactor search passed its active-column regression check (the prior pinned escape is reproduced to within (10^{-8})); the analytic gradient agrees with complex-step differentiation with maximum relative defect (7.97\times10^{-13}). The candidate is outside the frozen 1,641-column canonical pool and differs from the earlier continuous escape.
+The unrestricted positive 41-edge open-path family contains a second exact-rational escape from the 184-column mixed-order dual. The corrected 10-start Frechet/cofactor search passed its active-column regression check (the prior pinned escape is reproduced to within \\(10^{-8}\\)); the analytic gradient agrees with complex-step differentiation with maximum relative defect (7.97\times10^{-13}). The candidate is outside the frozen 1,641-column canonical pool and differs from the earlier continuous escape.
 
 An independent 128-bit Arb verifier rebuilt the matrix exponential and all 50 active dual features from the exact 12-decimal rational couplings and certified
 [
