@@ -68,7 +68,7 @@ def main():
     escape5 = data[ESCAPE_5]
     escape6 = data[ESCAPE_6]
 
-    if parent_lp.get("status") != "189col_sixth_continuous_escape_lp_above_one_third":
+    if parent_lp.get("status") != "188col_fifth_continuous_escape_lp_above_one_third":
         raise RuntimeError("188-column parent LP is not the expected above-cap discovery")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (188, 2113):
         raise RuntimeError("unexpected 188-column parent dimensions")
@@ -257,7 +257,7 @@ def main():
     matrix_sha = sha(np.asarray(A, dtype="<f8").tobytes() + np.asarray(y, dtype="<f8").tobytes())
     lp_status = (
         "189col_sixth_continuous_escape_lp_candidate_below_one_third"
-        if result.fun < 1 / 3 else "188col_fifth_continuous_escape_lp_above_one_third"
+        if result.fun < 1 / 3 else "189col_sixth_continuous_escape_lp_above_one_third"
     )
     transcript = {
         "status": lp_status,
