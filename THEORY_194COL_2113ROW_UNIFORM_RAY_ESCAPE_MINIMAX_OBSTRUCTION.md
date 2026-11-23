@@ -112,7 +112,9 @@ z^\mathsf T A p+\lambda\le\delta.
 Using \(\beta=\lambda+z^\mathsf Ty\),
 
 \[
-z^\mathsf T(Ap-y)\le\delta-\beta.
+z^\mathsf T(Ap-y)\le\delta-\beta,
+\qquad
+-z^\mathsf T(Ap-y)\ge\beta-\delta.
 \]
 
 Hence, by Hölder,
