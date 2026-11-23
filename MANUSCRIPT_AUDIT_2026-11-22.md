@@ -1104,3 +1104,26 @@ Evidence:
 This remains a fixed-pool mixed-order result. The 645 sixth-order rows are selected/cut rather than all 63,133 sixth-order dihedral orbits, and the seven eighth-order rows are selected representatives. It is not a global continuous-family no-go and does not imply a Choi-fidelity or diamond-norm guarantee.
 
 The 188-column dual is now being tested directly against the positive 41-edge path family. The differentiable search is discovery-only; a candidate will count as an escape only if the independent exact-rational Arb verifier returns a strictly positive interval lower endpoint. Failure to find a candidate will not prove global separation.
+
+
+## Sixth continuous escape from the 188-column dual (2026-11-23)
+
+A deterministic 10-start differentiable search against the exact 188-column dual found a sixth positive 41-edge path in the bounded discovery box \\(10^{-4}\\le c_j\\le100\\). The analytic cofactor/Frechet gradient passed complex-step checks with maximum relative defect \\(1.8853041827096364\\times10^{-14}\\). The best binary64 score was 229.86008474837345; the optimizer reached its 100-iteration limit, so this is discovery evidence only.
+
+The exact 12-decimal rational path was independently recomputed with 128-bit Arb. Its pricing interval is
+\\[
+[229.8600847483890088894499687466130
+\\pm3.31\\times10^{-32}]>0.
+\\]
+This strictly disproves global separation by the particular 188-column dual; it does not prove feasibility of the continuous-family minimax problem. The candidate SHA256 is `68baf2aa6667b3b0eb597ef576e114b37f3c6dc790f28068dfd1c74059724680`.
+
+Formal counterexample: [THEORY_188COL_CONTINUOUS_PATH_DUAL_ESCAPE.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_188COL_CONTINUOUS_PATH_DUAL_ESCAPE.md).
+
+Evidence:
+- [Search and 128-bit Arb workflow 45142329253](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45142329253)
+- Search transcript SHA256: `772d3df9da55e83431e2652cc2bf46b17ee24b195abc751074edc1673a6f30e2`
+- Arb certificate SHA256: `d3bb1345d95d305cc48ca1cb491257e6c868bef9`
+- Parent 188-column LP SHA256: `f512d8fa40887d84a3274c7dd5f4716b841573e90adcd2ff7f12d191c2bf8297`
+- Parent 188-column dual SHA256: `eed80945f8ae5875c7fbad6f4d760c934654eaf44ce22a4bf373f4358ccedef5`
+
+The new path is appended as column 1646. The next experiment is the 189-column reoptimization on the same 2,113 rows, followed by exact-rational dual or primal Arb certification.
