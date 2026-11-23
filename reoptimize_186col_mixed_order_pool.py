@@ -89,15 +89,15 @@ def main():
 
     if pricing.get("status") != "arb_positive_columns_found":
         raise RuntimeError("185-column Arb pricing transcript is incomplete")
-    if pricing.get("dual_certificate_sha256") != hashes[PARENT_DUAL.name]:
+    if pricing.get("certificate_sha256") != hashes[PARENT_DUAL.name]:
         raise RuntimeError("pricing transcript does not pin the exact 185-column dual")
-    if pricing.get("lp_transcript_sha256") != hashes[PARENT_LP.name]:
+    if pricing.get("lp_sha256") != hashes[PARENT_LP.name]:
         raise RuntimeError("pricing transcript does not pin the 185-column LP")
     if pricing.get("pricing_screen_sha256") != hashes[PRICING_SCREEN.name]:
         raise RuntimeError("pricing transcript does not pin the binary64 screen")
-    if screen.get("dual_certificate_sha256") != hashes[PARENT_DUAL.name]:
+    if screen.get("certificate_sha256") != hashes[PARENT_DUAL.name]:
         raise RuntimeError("binary64 screen does not pin the exact 185-column dual")
-    if screen.get("lp_transcript_sha256") != hashes[PARENT_LP.name]:
+    if screen.get("lp_sha256") != hashes[PARENT_LP.name]:
         raise RuntimeError("binary64 screen does not pin the 185-column LP")
     if screen.get("unused_column_count") != 1457 or screen.get("canonical_column_count") != 1641:
         raise RuntimeError("unexpected frozen canonical-pool pricing dimensions")
