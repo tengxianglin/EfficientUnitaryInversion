@@ -106,3 +106,29 @@ re-solve the same 2,113-row minimax LP, rationalize any new dual, and
 independently Arb-certify it. A subsequent search must test the new dual
 against the unrestricted continuous path family again; the present escape
 must not be silently reused as a proof of global feasibility or infeasibility.
+
+
+## Differentiable discovery formula (not part of the proof)
+
+For a row feature built from principal minors, the derivative with respect to
+the rotation matrix is a sum of cofactor matrices. If
+\(G=\nabla_R S_{184}\), the adjoint Frechet derivative gives
+\[
+\nabla_K S_{184}=L_{\exp}(K^\mathsf T,G),
+\]
+where \(L_{\exp}(A,E)=D\exp(A)[E]\). Since
+\[
+\frac{\partial K}{\partial c_j}
+=2(E_{j,j+1}-E_{j+1,j}),
+\]
+the edge derivative is
+\[
+\frac{\partial S_{184}}{\partial c_j}
+=2\big[(\nabla_K S_{184})_{j,j+1}
+-(\nabla_K S_{184})_{j+1,j}\big].
+\]
+The discovery code uses this cofactor/Frechet formula. Its complex-step check
+is an implementation diagnostic only; the mathematical counterexample is
+certified independently by the exact-rational Arb evaluation above. The
+Frechet derivative identity is standard matrix calculus and is not claimed
+as a new EUI mechanism.
