@@ -1243,7 +1243,36 @@ The seventh path is appended as column 1647 in the new 190-column reoptimizer. T
 - `verify_190col_seventh_continuous_escape_dual_arb.py`
 - `.github/workflows/eui-190col-seventh-continuous-escape.yml`
 
-Commits: [c35fa87](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c35fa87bbb76450f6e42d5bf89cabf1a2c551b26), [51b7e9f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/51b7e9f439e043e838f9d7ba4a79c79334038d78), [5c81d80](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5c81d8083acca12af3e1e23315a450bdfbb2a418). Workflow [45151174105](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45151174105) has passed the frozen seed/orbit checks, re-certified the 189-column parent and all seven escape inputs, and compiled both new Python programs. The 190-column HiGHS solve was still running at the latest status check; no 190-column objective or certificate is claimed here.
+Commits: [c35fa87](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c35fa87bbb76450f6e42d5bf89cabf1a2c551b26), [51b7e9f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/51b7e9f439e043e838f9d7ba4a79c79334038d78), [5c81d80](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5c81d8083acca12af3e1e23315a450bdfbb2a418). Workflow [45151174105](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45151174105) completed successfully. It passed the frozen seed/orbit checks, re-certified the 189-column parent and all seven escape inputs, compiled both new Python programs, solved the 190-column LP, and completed the independent 128-bit Arb verifier against all 190 physical columns.
+
+HiGHS discovery returned objective 0.45056485307304617, independently recomputed maximum 0.45056485307319294, support size 58, and primal-dual discovery gap 3.375077994860476e-14. These are diagnostics only.
+
+The exact rational dual has \\(\\|z\\|_1=1\\), slack \\(10^{-10}\\), and support on two fourth-order rows, 54 sixth-order rows, and two eighth-order rows (no second-order support). All 190 slack-shifted Arb interval upper endpoints are strictly negative; the maximum is enclosed by
+\\[
+[-5.0646182194565139235048775368095553314\\times10^{-11}
+\\pm3.59\\times10^{-49}]<0.
+\\]
+The resulting finite-pool theorem is
+\\[
+\\min_{p\\in\\Delta_{190}}\\|A_{190}p-y\\|_\\infty
+\\ge
+\\frac{12786853125233436543275375237}
+{28379606267246247630000000000}
+=0.4505648529730001\\ldots>\\frac13.
+\\]
+The exact margin above one third is 0.11723151963966673....
+
+Formal proof: [THEORY_190COL_2113ROW_SEVENTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_190COL_2113ROW_SEVENTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md).
+
+Evidence:
+- LP transcript: `evidence/joint_low_six_eighth_lp_190col_seventh_continuous_escape_n21.json`
+- Exact dual and all 190 Arb intervals: `evidence/55probe_190col_seventh_continuous_escape_dual_certificate_n21.json`
+- LP transcript SHA256 pinned by the dual: `2a4ca0caab7c7ed5dab24f07e51c121e03e49236da98cbc59809d96868e94307`
+- Matrix/target SHA256: `324900df03f4a09c8f04f5c30eee048d4b3e7daae214a9dadbffc9885e90c4cc`
+- Evidence commit: [6236ce2](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/6236ce24a02ab7cb55c53cba3681430d048de5de)
+- Formal theory commit: [32875d8](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/32875d80496a9d049c06f2a1af4275f11bcc6e07)
+
+This is a strict mixed-order lower bound for the fixed 190-generator pool on the pinned 2,113-row design only. It is not a complete sixth/eighth orbit certificate, a global positive-coupling-family minimax theorem, or an operational Choi/diamond guarantee.
 
 If the 190-column objective is above 1/3, the workflow proceeds to exact-rational dual reconstruction and independent Arb checks of all 190 physical columns. If below 1/3, it freezes an exact rational candidate as discovery only; a separate exact-primal Arb audit and complete sixth-order separation are still required.
 
