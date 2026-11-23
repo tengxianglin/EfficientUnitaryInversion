@@ -61,7 +61,7 @@ def exact_torus_rotation(phase_strings):
 
     block = arb_mat(42, 42)
     for k, phase in enumerate(phases):
-        angle = pi * ball(phase / pi_fraction_placeholder)
+        angle = ball(phase)
         cosine = angle.cos()
         sine = angle.sin()
         block[2 * k, 2 * k] = cosine
