@@ -56,9 +56,63 @@ The workflow rechecks the frozen seed-pool hash, orbit-enumeration regression, p
 
 The HiGHS objective is discovery evidence only. A selected-row candidate is not a complete sixth/eighth certificate; a finite-pool dual is not a continuous-family no-go.
 
-## Status at note creation
+## Certified result
 
-**Pending.** Workflow 45126903168 has passed setup, dependency installation, seed/orbit checks, parent dual and escape verification, and Python compilation. The 185-column feature construction and HiGHS solve are running. No 185-column objective, candidate, or theorem is asserted in this note until the workflow's independent branch verifier completes.
+Workflow [45126903168](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45126903168) completed successfully. The 185-column HiGHS discovery returned objective \(0.47182017897606104\), independently recomputed maximum \(0.4718201789763452\), support size 54, and primal-dual discovery gap \(1.10\times10^{-14}\). These are numerical discovery diagnostics only.
+
+The rationalized dual was independently checked at 128-bit Arb precision against all 185 physical columns. It has
+
+\[
+\|z\|_1=
+\frac{1180591620717410732643}{1180591620717411303424}<1,
+\]
+
+54 nonzero coordinates: six fourth-order rows, 46 sixth-order rows, and two eighth-order rows (zero-based indices 2106 and 2107), with no second-order support. The exact dual objective and slack are
+
+\[
+\lambda+z^\mathsf Ty=
+\frac{557026949784539985309}{1180591620717411303424},
+\qquad
+\delta=10^{-10}.
+\]
+
+All 185 slack-shifted Arb column inequalities are strictly negative. The largest interval upper endpoint is
+
+\[
+-7.5382718420716027175678793242632891258\times10^{-11}<0.
+\]
+
+Therefore, for every probability vector on the pinned 185-generator pool,
+
+\[
+\boxed{
+\min_{p\in\Delta(\mathcal P_{185})}\|A_{185}p-y\|_\infty
+\ge
+\frac{5439716305336726789426356149}
+{11529215046068469760000000000}
+=0.4718201788760721\ldots>\frac13.
+}
+\]
+
+The exact margin above \(1/3\) is
+
+\[
+\frac{4789933869941710608279068447}
+{34587645138205409280000000000}
+=0.13848684554273874\ldots.
+\]
+
+Evidence:
+- LP transcript: `evidence/joint_low_six_eighth_lp_185col_second_continuous_escape_n21.json`
+- Exact dual and 185 Arb intervals: `evidence/55probe_185col_second_continuous_escape_dual_certificate_n21.json`
+- Independent verifier: `verify_185col_second_continuous_escape_dual_arb.py`
+- Evidence commit: [80a913f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/80a913f3186018c1768e03fc0a9edcb0eab1c90a)
+
+The branch verifier passed. No below-\(1/3\) candidate was generated, so the candidate Arb verifier was correctly not invoked.
+
+## Scope
+
+This is a rigorous mixed-order minimax lower bound for the fixed 185-generator pool and pinned 2,113-row design only. The 645 sixth-order rows are selected/cut rows, not all 63,133 sixth-order orbits; the seven eighth-order rows are selected representatives. The result is not a continuous-family no-go, a complete sixth/eighth-order certificate, or an operational Choi/diamond-norm theorem.
 
 ## Scope
 
