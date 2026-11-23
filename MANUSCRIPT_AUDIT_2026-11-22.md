@@ -1,4 +1,4 @@
-# Manuscript and supplementary-material audit (source review 2026-11-22; research update 2026-11-23)
+# Manuscript and supplementary-material audit (source review 2026-11-22; research update 2026-11-24)
 
 ## Source inspected
 
@@ -1755,3 +1755,34 @@ The exact certificate pins the 194-column dual SHA256 `7864da033a71d7d2666cde32c
 The first workflow attempt [45228501706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45228501706) had a verifier-only NameError before evaluating the candidate. Six references were corrected in [60dd9a5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/60dd9a523de4a774c93e1272cc1309c2614f506e), after which the full independent Arb run succeeded.
 
 This result refutes only global separation by this particular 194-column dual. It does not invalidate the finite 194-column / 2,113-row minimax theorem, prove feasibility or infeasibility of mixtures over the full continuous family, complete the selected sixth/eighth orbit audit, or establish a Choi-infidelity/diamond-distance operational guarantee. The next decisive finite-pool test is to append this path as physical column 1652 and reoptimize the same 2,113-row design.
+
+## 195-column minimax theorem and uniform-torus escape (2026-11-24)
+
+The 195-column / 2,113-row mixed-order LP has an exact rational dual independently checked by 128-bit Arb against all 195 listed physical columns. It proves
+\[
+\min_{p\in\Delta_{195}}\|A_{195}p-y\|_\infty
+\ge
+\frac{2803294808039097361653228789}
+{6588122883467712110000000000}
+=0.42550736493906444\ldots>\frac13.
+\]
+The dual has exact \(\|z\|_1=1\), slack \(10^{-10}\), and maximum shifted column-LHS upper endpoint \(-7.804834406606967\times10^{-11}<0\). Its 64 active coordinates comprise two low-order, 61 sixth-order, and one eighth-order row. The finite-pool theorem applies only to these 195 columns and the pinned 2,113-row design. The successful reoptimization/Arb workflow is [45242902521](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45242902521).
+
+The exact 195-column dual was then priced on the 21-dimensional uniform-path torus. The independent 128-bit Arb certificate proves
+\[
+S_{195}(R(\theta_*))
+\in[4.483867316010550697286473341089799
+\pm8.75\times10^{-34}]>0.
+\]
+The exact-decimal phase vector SHA256 is `dfa636c9dfe1d1d7ddf64667383ec343f65103bf32f2f30f07711b73438b33c7`; the dual and LP SHA256 values are respectively `8371f7f2d4d866839b223dbe1b0c3e872a220092bc22b7cbc69384f08acb456c` and `0d5b2d821b95e3229b3ffbcbfd3dafacd80cb76ba1aba55e2858183d53792908`. By the previously proved rational independence of the uniform-path frequencies and continuity, some finite positive equal coupling exists that escapes this particular 195-column dual. The finite 195-column theorem is unchanged.
+
+Formal write-up: `THEORY_195COL_UNIFORM_TORUS_DUAL_ESCAPE.md`. Evidence: `evidence/195col_uniform_torus_search_n21.json` and `evidence/195col_uniform_torus_arb_n21.json`; evidence commit [f456ab0](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/f456ab02a4b49ade64b7a04a06bd4b33a2b78bcf).
+
+A separate explicit finite-time search and Arb verifier have now been added:
+- `discover_195col_uniform_ray_time_escape.py`;
+- `verify_195col_uniform_ray_time_arb.py`;
+- `.github/workflows/eui-195col-uniform-ray-time-escape.yml`.
+
+The workflow is responsible for re-certifying the 194-column parent dual/time, the 195-column dual, and the 195-column torus witness before searching and checking any exact-decimal time. No explicit finite decimal time is claimed until its own Arb interval is strictly positive.
+
+**Scope remains limited:** the 2,113-row design uses 1,461 complete low-order rows, 645 selected/cut sixth-order rows, and seven selected eighth-order rows. This is not a complete sixth/eighth orbit certificate, not a full continuous-family minimax theorem, and not a Choi/diamond operational guarantee.
