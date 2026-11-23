@@ -995,3 +995,20 @@ Evidence:
 Scope remains finite-pool and mixed-order: 645 selected/cut sixth-order rows and seven selected eighth-order rows, not complete sixth/eighth orbit audits. This is not a global continuous-family no-go or an operational Choi/diamond theorem.
 
 **Next decisive action:** test the new 186-column dual over the unrestricted positive 41-edge path family. The 185-column dual already had a certified continuous escape, so no finite-pool certificate is to be promoted to a continuous-family separator without a separate global proof.
+
+
+## 2026-11-23: fourth continuous-path escape from the 186-column dual
+
+The 186-column / 2,113-row mixed-order finite-pool theorem remains valid for its pinned 186 physical generators, but its exact dual is not a global separator over the positive 41-edge path family. A 10-start differentiable search found a fourth exact-rational path. The analytic cofactor/Frechet gradient passed complex-step checks with maximum relative defect \(1.10\times10^{-14}\); this is an implementation diagnostic, not the proof.
+
+Independent 128-bit Arb verification certified
+\[
+S_{186}(c)\in[281.0783501949911583545100045096690\pm1.26\times10^{-32}]>0.
+\]
+The candidate is outside the frozen canonical inventory and distinct from the three previous continuous escapes. Exact couplings, candidate SHA256, search transcript, and Arb certificate are recorded in [THEORY_186COL_CONTINUOUS_PATH_DUAL_ESCAPE.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_186COL_CONTINUOUS_PATH_DUAL_ESCAPE.md).
+
+Workflow [45130632601](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45130632601) passed all steps: previous escape re-certification, 186-column dual re-certification, py_compile, 10-start search, and independent Arb. Search transcript SHA256: 5f92901fe1191394191c1750f7f4de2d35c6d39c; Arb certificate SHA256: 5d7b25dfc15e9183bf1a06672479bdd8a4cd515b; candidate SHA256: f9c28135608deb0c687407a8cc71e58bf7f3bb5763ab8f997fd3b1141625c24d.
+
+This is a strict counterexample to extending this particular 186-column dual over the continuous path family. It does not invalidate the finite-pool theorem, provide a feasible mixture, or establish a full-family minimax result.
+
+The exact path has been added as column 1644. A new 187-column reoptimizer, dual verifier, exact-mixture Arb verifier, and workflow are committed. Workflow [45132177104](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45132177104) is executing the 187-column, 2,113-row branch. Its result is pending.
