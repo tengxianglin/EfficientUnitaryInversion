@@ -84,19 +84,19 @@ A deterministic 12-start L-BFGS-B search on \([-\pi,\pi]^{21}\) found the follow
 
 \[
 \begin{aligned}
-\theta_* = (&3.115144923679,\;0.012782675023,\;0.002801179562,\\
-&0.005221189138,\;3.141592653590,\;-2.961380908560,\\
-&3.098936035676,\;-3.141592653590,\;-0.021806339421,\\
-&0.003042765379,\;0.005467769477,\;-0.015694296862,\\
+\theta_* = (&3.115144923682,\;0.012782675023,\;0.002801179562,\\
+&0.005221189140,\;3.141592653590,\;-2.961380908559,\\
+&3.098936035689,\;-3.141592653590,\;-0.021806339419,\\
+&0.003042765378,\;0.005467769476,\;-0.015694296862,\\
 &3.141592653590,\;-3.117698947068,\;3.141592653590,\\
-&2.969232121430,\;0.015147063367,\;-0.003822981075,\\
-&0.032516371678,\;3.135156410355,\;-3.063699868859).
+&2.969232121438,\;0.015147063365,\;-0.003822981075,\\
+&0.032516371679,\;3.135156410377,\;-3.063699868854).
 \end{aligned}
 \]
 
 The phase-vector SHA256 is
 
-a07778e4c02c34ba3d85a710c773f77d3b50139f2e25ac41baa8a9f4ac90315c.
+e1569f8952cf6fbc65d490eb6d8179069f3da47ea77dd3444184a47549ed4546.
 
 The discovery optimizer is not used as proof. The independent verifier reconstructs \(Q\), all 21 rotation blocks, the 42-by-42 torus matrix, and every active row contribution from exact rational/decimal inputs using 128-bit Arb. It reports
 
@@ -104,8 +104,8 @@ The discovery optimizer is not used as proof. The independent verifier reconstru
 \boxed{
 S_{192}(R(\theta_*))
 \in
-[2.930022809514503780356197202636175
-\pm 5.25\times10^{-34}]
+[2.930022809514503777074927378122496
+\pm 3.46\times10^{-34}]
 >0.
 }
 \]
@@ -146,9 +146,14 @@ The next useful experiment is to locate a concrete finite \(t\) on the uniform r
 - Search: discover_192col_uniform_torus_pricing.py
 - Independent verifier: verify_192col_uniform_torus_pricing_arb.py
 - Search transcript: evidence/192col_uniform_torus_search_n21.json
+- Search transcript SHA256: 90c47cfabf5576014f99705e5bf407cf190e394bcba0a7c00f3a51f42dcebfa9
 - Arb certificate: evidence/192col_uniform_torus_arb_n21.json
 - Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45220109478
 - Workflow result: success; 192-column parent re-certification, torus search, and Arb verification all passed.
-- Evidence commit: b76effc87ceabe53bc38b43eed5ce6e1135e47ba
+- Evidence commit: 2a7515f7491527af76b5e6010aafdf81c7b62bb5
 
-The initial search transcript's gradient sanity check was evaluated at the identity, where the selected derivatives are numerically near zero. The independent Arb positivity proof does not depend on that gradient check. A follow-up run now checks the analytic gradient at a generic nonstationary phase before retaining the search transcript as the final discovery record.
+The final discovery transcript checks the analytic cofactor gradient at the generic nonstationary phase vector
+\[
+\theta^{\rm check}_k=1.35\sin(0.37k)+0.82\cos(0.23k),\qquad k=0,\ldots,20.
+\]
+For coordinates 0, 10, and 20, the maximum relative defect across complex-step and central-difference checks is \(6.7481\times10^{-10}\); the maximum complex-step absolute defect is \(1.78\times10^{-15}\). The basis regressions report orthogonality defect \(2.63\times10^{-15}\), canonical-form defect \(5.33\times10^{-15}\), uniform-ray rotation defect \(3.39\times10^{-15}\), and pricing agreement defect \(5.55\times10^{-13}\). These are numerical implementation checks; the positive pricing conclusion itself is the independent Arb interval proof.
