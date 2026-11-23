@@ -169,7 +169,8 @@ class DualPricing:
                 subsets = self.sixth_groups[int(row)]
             else:
                 subsets = self.eighth_groups[int(row)]
-            score += add_minor_group(rotation, gradient_matrix, subsets, coefficient)
+            feature = add_minor_group(rotation, gradient_matrix, subsets, coefficient)
+            score += coefficient * feature
 
         if not need_gradient:
             return float(score)
@@ -191,6 +192,14 @@ def main():
     old = np.asarray([float(Fraction(x)) for x in escape["candidate_couplings_exact"][:-1]])
     if old.shape != (41,) or np.any(old <= 0):
         raise RuntimeError("invalid prior continuous path starting point")
+    prior_score = pricing.value_gradient(old, False)
+    prior_interval = next(item["interval"] for item in pricing.cert["column_dual_lhs_intervals"] if int(item["column"]) == 1641)
+    prior_midpoint = float(prior_interval.split("[", 1)[1].split(" +/-", 1)[0])
+    if abs(prior_score - prior_midpoint) > 1e-8:
+        raise RuntimeError(
+            f"pricing-value regression against Arb-certified active escape failed: "
+            f"computed={prior_score}, certified-midpoint={prior_midpoint}"
+        )
 
     rng = np.random.default_rng(202611231241)
     starts = [old]
@@ -285,6 +294,8 @@ def main():
         "max_iterations_per_start": args.maxiter,
         "best_candidate_couplings_exact": best["candidate_couplings_exact"] if best else None,
         "best_candidate_score_binary64": best["rounded_score_binary64"] if best else None,
+        "prior_escape_score_binary64": prior_score,
+        "prior_escape_arb_interval": prior_interval,
         "candidate_found": found,
         "records": records,
         "scope": "A positive binary64 score is discovery only; a continuous-family escape is claimed only after the independent exact-rational 128-bit Arb verifier proves a strictly positive interval lower endpoint. Failure to find one is not a global separation proof.",
