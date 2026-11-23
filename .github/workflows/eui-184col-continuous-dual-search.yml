@@ -1,0 +1,87 @@
+name: Search continuous 41-edge path family against the 184-column dual
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "discover_184col_continuous_dual_escape.py"
+      - "verify_184col_continuous_dual_escape_arb.py"
+      - ".github/workflows/eui-184col-continuous-dual-search.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  continuous-search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-certify the exact 184-column parent dual
+        run: python verify_184col_full_sixth_cut_dual_arb.py
+      - name: Compile continuous-search and Arb-verification programs
+        run: |
+          python -m py_compile discover_184col_continuous_dual_escape.py
+          python -m py_compile verify_184col_continuous_dual_escape_arb.py
+      - name: Search the positive 41-dimensional coupling box
+        run: |
+          python discover_184col_continuous_dual_escape.py \
+            --output evidence/184col_continuous_dual_search_n21.json \
+            --maxiter 100
+      - name: Independently verify any candidate with 128-bit Arb
+        run: python verify_184col_continuous_dual_escape_arb.py
+      - name: Commit search and interval evidence with race-safe retry
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-184-continuous
+          for f in \
+            evidence/184col_continuous_dual_search_n21.json \
+            evidence/184col_continuous_dual_escape_arb_n21.json; do
+            if [ -f "$f" ]; then
+              mkdir -p "/tmp/eui-184-continuous/$(dirname "$f")"
+              cp "$f" "/tmp/eui-184-continuous/$f"
+            fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in \
+              evidence/184col_continuous_dual_search_n21.json \
+              evidence/184col_continuous_dual_escape_arb_n21.json; do
+              if [ -f "/tmp/eui-184-continuous/$f" ]; then
+                cp "/tmp/eui-184-continuous/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Record 184-column continuous-path search and Arb result"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload continuous-path search evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-184col-continuous-path-search
+          path: |
+            evidence/184col_continuous_dual_search_n21.json
+            evidence/184col_continuous_dual_escape_arb_n21.json
+          if-no-files-found: warn
