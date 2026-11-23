@@ -142,7 +142,7 @@ This is a strict finite-pool minimax theorem for exactly the 193 listed physical
 - Feasibility or infeasibility of a mixture over all continuous paths.
 - A Choi-infidelity or diamond-distance operational guarantee.
 
-In particular, the fact that the 193-column dual separates its 193 listed columns does not imply it separates the continuous family. The highest-value next test is to price this new 193-column dual over the uniform-path 21-torus, then over the full 41-dimensional positive path family. A positive Arb witness would generate another physical escape; a finite failed search would not prove global separation.
+In particular, the fact that the 193-column dual separates its 193 listed columns does not imply it separates the continuous family. The uniform-path 21-torus test has now produced a strictly positive 128-bit Arb witness, proving that this particular 193-column dual does not separate the continuous uniform positive-coupling ray; see THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md. The next step is to locate and Arb-certify an explicit finite uniform coupling t, then continue pricing the dual over the full 41-dimensional positive path family. A failed bounded search would not prove global separation.
 
 ## 6. Reproducibility
 
@@ -157,3 +157,8 @@ In particular, the fact that the 193-column dual separates its 193 listed column
 - Parent 192-column dual SHA256: 2b3891b88f40627458764821142f6a83e039fd051795d4146895de68f5c5a308
 - Uniform-ray time certificate SHA256: a246d7423bc60f78aa6a528188a7065c4c5a0a45a51edb5e4931ee1111b3437c
 - Certificate commit: 0bf2b18708f278968163700a718a90fdb413ec0e
+
+
+## 7. Continuous uniform-ray escape of this 193-column dual
+
+The exact 21-torus pricing search and independent Arb verifier now certify a positive point. The dense-orbit theorem therefore implies existence of a finite t>0 with positive pricing along the uniform path. The complete statement, exact phase vector, interval, provenance hashes, proof, and scope limitations are in THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md. This does not change the finite 193-column minimax theorem.
