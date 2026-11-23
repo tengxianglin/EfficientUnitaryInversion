@@ -1046,3 +1046,25 @@ Evidence:
 **Provenance correction:** the initial 187-column verification failed because the verifier compared the third escape against the 186-column parent. The third escape actually belongs to the 185-column parent; the fourth escape belongs to the 186-column parent. The corrected verifier checks both parent links and records the fourth escape certificate hash. The corrected workflow passed.
 
 Scope remains finite-pool and mixed-order. The 645 sixth rows are selected/cut, not all 63,133 sixth-order orbits; seven eighth-order rows are selected, not complete. This is not a full positive-coupling-family no-go or an operational Choi/diamond theorem. The newly certified 187-column dual still requires a separate continuous-path pricing test; a failed local search is not a global proof.
+
+
+## 2026-11-23: fifth continuous-path escape from the 187-column dual
+
+A deterministic 10-start differentiable search against the newly Arb-certified 187-column dual found a fifth distinct exact-rational positive 41-edge path (augmented column 1645). The best search point came from start 2 and reached the 100-iteration limit; this is discovery evidence, not a convergence claim. The cofactor/Frechet analytic gradient passed complex-step checks with maximum relative defect \(4.4931\times10^{-13}\).
+
+The independent 128-bit Arb verifier proves
+\[
+S_{187}(c)\in[216.2699462606013389218645814697156
+\pm6.50\times10^{-32}]>0.
+\]
+Thus the 187-column dual also fails to separate the full positive 41-edge path family. This does not invalidate the finite 187-column theorem and does not prove that a continuous-family mixture reaches \(1/3\).
+
+Formal counterexample: [THEORY_187COL_CONTINUOUS_PATH_DUAL_ESCAPE.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_187COL_CONTINUOUS_PATH_DUAL_ESCAPE.md).
+
+Evidence:
+- Search transcript SHA256: \`b37ba7c81ae78f32e41741e68038eac6dd726b64\`
+- Arb certificate SHA256: \`d84f7b32f0748a3e7433c990b3f82469a178dd4c\`
+- Candidate SHA256: \`7565cc9aa5240c5c42b8692e97381c4415061403e2bddf4563c03fc779e9a9e8\`
+- Successful search/Arb workflow: [45134044907](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45134044907)
+
+The new path is now the next column-generation input (label 1645). The next action is an 188-column reoptimization on the unchanged 2,113-row mixed-order design, followed by exact rational/Arb certification. A new 188-column dual, if obtained, must again be tested against the continuous path family; failure of a local search will not be treated as global separation.
