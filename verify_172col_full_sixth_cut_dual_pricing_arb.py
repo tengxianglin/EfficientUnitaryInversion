@@ -62,6 +62,8 @@ def main():
         raise RuntimeError("172-column strict dual certificate is incomplete")
     if cert["lp_transcript_sha256"] != lp_sha or screen["lp_transcript_sha256"] != lp_sha:
         raise RuntimeError("dual/LP/pricing transcript hashes disagree")
+    if lp.get("current_152col_cut_lp_sha256") != cut_lp_sha or screen.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("172-column pricing does not pin the current cut-row inventory")
     sixth_rows_check = [tuple(int(x) for x in row) for row in cut_lp["sixth_cut_rows"]]
     eighth_rows_check = [tuple(int(x) for x in row) for row in cut_lp["selected_eighth_rows"]]
     sixth_hash_check = sha(json.dumps([list(x) for x in sixth_rows_check], separators=(",", ":")).encode())
@@ -80,6 +82,10 @@ def main():
     active_canonical = set(int(x) for x in cert["columns"] if int(x) != 1641)
     if len(active_canonical) != 171:
         raise RuntimeError("unexpected active canonical-column count")
+    if set(int(x) for x in screen.get("active_canonical_columns", [])) != active_canonical:
+        raise RuntimeError("pricing screen active columns disagree with strict certificate")
+    if screen.get("unused_column_count") != 1470:
+        raise RuntimeError("unexpected unused canonical-column count")
 
     z = [Fraction(value) for value in cert["dual_vector_rational"]]
     lam = Fraction(cert["dual_lambda_exact"]) - Fraction(cert["dual_slack_delta"])
