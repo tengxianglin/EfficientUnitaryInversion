@@ -6,7 +6,7 @@
 
 ## Theorem
 
-Let P184 be the frozen set of 184 legal path generators specified, in exact order, by the LP transcript at evidence/joint_low_six_eighth_lp_184col_full_sixth_cuts_n21.json. For any probability vector p on P184, let r(p) be the normalized residual vector on these 2,113 pinned rows:
+Let \mathcal P_{184}^{\mathrm{cut}} be the frozen set of 184 legal path generators specified, in exact order, by the LP transcript at evidence/joint_low_six_eighth_lp_184col_full_sixth_cuts_n21.json. For any probability vector p on \mathcal P_{184}^{\mathrm{cut}}, let r(p) be the normalized residual vector on these 2,113 pinned rows:
 
 - 21 complete second-order rows;
 - 1,440 complete fourth-order dihedral-orbit rows;
@@ -16,18 +16,18 @@ Let P184 be the frozen set of 184 legal path generators specified, in exact orde
 Then
 \[
 \boxed{
-\min_{p\in\Delta(P184)} \|r(p)\|_\infty
+\min_{p\in\Delta(\mathcal P_{184}^{\mathrm{cut}})} \|r(p)\|_\infty
 \ge
 \frac{22487122319210016751569973413}
 {46116860184300265870000000000}
-=0.48761173742841646\ldots>\frac13.
+=0.48761173742841650\ldots>\frac13.
 }
 \]
 The exact margin above one third is
 \[
 \frac{21344506773329784384709920239}
 {138350580552900797610000000000}
-=0.15427840409508313\ldots.
+=0.15427840409508317\ldots.
 \]
 
 This is a mixed-order finite-pool theorem. It is not a sixth-only theorem, a complete sixth/eighth-orbit theorem, or a lower bound for the unrestricted continuous physical family.
@@ -49,6 +49,26 @@ The pool contains 151 base canonical paths, one exact-rational continuous-path e
 61,352,629,93,728,620,78,398,233,169,544,332).
 \]
 Thus 151+1+32=184. The exact base-column labels, column order, and coupling data are pinned in the LP transcript.
+
+For each second-order distance d=1,...,21, the feature is the cyclic average
+\[
+b_d^{(2)}(c)=\frac1{42}\sum_{i=0}^{41}\det R(c)_{\{i,i+d\},\{i,i+d\}},
+\qquad
+\tau_d^{(2)}=\frac{(-1)^{d+1}}{41},
+\]
+where indices are taken modulo 42. For each pinned orbit representative I of size k=4,6,8, the feature and target are
+\[
+b_I^{(k)}(c)=\frac1{|\mathcal O_k(I)|}\sum_{J\in\mathcal O_k(I)}\det R(c)_{J,J},
+\qquad
+\tau_I^{(k)}=(-1)^{\sum_{i\in I}(i\bmod2)+k/2}
+\frac{\binom{21}{k/2}}{\binom{42}{k}}.
+\]
+The normalized column a(c) contains b/s_k in the four row blocks, with
+\[
+s_2=1/41,\quad s_4=\binom{21}{2}/\binom{42}{4},\quad
+s_6=5/19721,\quad s_8=1/19721,
+\]
+and y contains the correspondingly normalized targets. The exact row representatives and order are pinned by the row-inventory hashes above and by the LP transcript.
 
 The row definitions and normalizations are the same as in THEORY_183COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md:
 - second order: 21 cyclic distances, scale s2=1/41;
