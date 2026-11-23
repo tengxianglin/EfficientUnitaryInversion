@@ -162,6 +162,8 @@ def main():
     grandparent_t = Fraction(grandparent_time_cert["t_exact_rational"])
     if grandparent_t <= 0 or Fraction(grandparent_time_cert["t_exact_decimal"]) != grandparent_t or grandparent_t in (base_t, parent_t):
         raise RuntimeError("194-column uniform-ray time is invalid or duplicates an earlier path")
+    if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != grandparent_t:
+        raise RuntimeError("195-column parent has a different 194-column uniform-ray time")
 
     if time_cert.get("dual_certificate_sha256") != parent_dual_sha or time_cert.get("lp_transcript_sha256") != parent_lp_sha or time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("195-column time certificate does not pin the exact 195-column dual/LP/cut design")
@@ -175,6 +177,10 @@ def main():
         raise RuntimeError("196-column LP does not pin the exact 195-column parent")
     if lp.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or lp.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
         raise RuntimeError("196-column LP does not preserve the 194-column ancestry")
+    if lp.get("parent_193col_lp_sha256") != parent_lp.get("parent_193col_lp_sha256") or lp.get("parent_193col_dual_certificate_sha256") != parent_lp.get("parent_193col_dual_certificate_sha256"):
+        raise RuntimeError("196-column LP does not preserve the 193-column ancestry")
+    if lp.get("parent_192col_dual_certificate_sha256") != parent_lp.get("parent_192col_dual_certificate_sha256"):
+        raise RuntimeError("196-column LP does not preserve the 192-column dual ancestry")
     if lp.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != grandparent_time_cert_sha:
         raise RuntimeError("196-column LP does not pin the 194-column time certificate")
     if lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha or lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256") != base_time_cert_sha:
@@ -227,7 +233,7 @@ def main():
     parent_order = [int(value) for value in parent_lp["column_order"]]
     column_order = [int(value) for value in lp["column_order"]]
     if len(parent_order) != 195 or len(set(parent_order)) != 195:
-        raise RuntimeError("194-column parent ordering is not unique")
+        raise RuntimeError("195-column parent ordering is not unique")
     if lp.get("parent_column_order") != parent_order or column_order != parent_order + [NEW_COLUMN]:
         raise RuntimeError("196-column ordering is not the exact parent plus fourth uniform-ray column")
 
@@ -277,11 +283,11 @@ def main():
     sixth_hash = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
     eighth_hash = sha(json.dumps([list(row) for row in eighth_rows], separators=(",", ":")).encode())
     if sixth_hash != lp.get("sixth_rows_sha256") or eighth_hash != lp.get("eighth_rows_sha256"):
-        raise RuntimeError("194-column LP row-inventory hash mismatch")
+        raise RuntimeError("196-column LP row-inventory hash mismatch")
 
     z, lam, norm, dual_scale, dual_objective = load_rational_dual(lp, y)
     if len(z) != 2113 or norm > 1 or dual_objective <= Fraction(1, 3):
-        raise RuntimeError("rationalized 194-column dual does not satisfy the norm/objective gate")
+        raise RuntimeError("rationalized 196-column dual does not satisfy the norm/objective gate")
     active = [index for index, value in enumerate(z) if value]
     active_low = [index for index in active if index < LOW_COUNT]
     active_sixth = [index for index in active if LOW_COUNT <= index < SIXTH_END]
