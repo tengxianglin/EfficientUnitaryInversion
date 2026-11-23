@@ -13,6 +13,7 @@
   "continuous_escape_sha256": "9e85d7f617baaa5bee371297e9f94716c21c7404f8349def2ef376dafb20d59e",
   "canonical_pool_sha256": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
   "seed_pool_sha256": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+  "pricing_screen_sha256": "57207b12bde73d66adfdcdb8ba85b06900392507de4525014649a7e360e5690b",
   "precision_bits": 128,
   "interval_backend": "python-flint 0.8.0 / Arb",
   "active_dual_rows": 56,
@@ -84,7 +85,7 @@
   "results": [
     {
       "column": 447,
-      "float_pricing_score": 0.01298752982693295,
+      "float_pricing_score": 0.012987529826697581,
       "arb_pricing_score_interval": "[0.01298752982275180001179405643483 +/- 4.09e-33]",
       "arb_lower_endpoint": "[0.012987529822751800011794056434832732053 +/- 1.67e-40]",
       "arb_upper_endpoint": "[0.012987529822751800011794056434834084753 +/- 4.44e-40]",

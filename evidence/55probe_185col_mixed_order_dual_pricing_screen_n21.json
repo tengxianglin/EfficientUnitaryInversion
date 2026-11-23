@@ -264,13 +264,13 @@
     2101,
     2105
   ],
-  "active_pool_max_float_pricing_score": -9.763612141000522e-11,
+  "active_pool_max_float_pricing_score": -9.659428812369697e-11,
   "unused_positive_pricing_count": 1,
-  "max_unused_float_pricing_score": 0.01298752982693295,
+  "max_unused_float_pricing_score": 0.012987529826697581,
   "top_unused_candidates": [
     {
       "column": 447,
-      "float_pricing_score": 0.01298752982693295,
+      "float_pricing_score": 0.012987529826697581,
       "couplings": [
         320.30516177709535,
         318.7616543410016,
@@ -318,7 +318,7 @@
     },
     {
       "column": 98,
-      "float_pricing_score": -0.005459831438405054,
+      "float_pricing_score": -0.005459831438395624,
       "couplings": [
         15.057659657478434,
         15.057659657478434,
@@ -366,7 +366,7 @@
     },
     {
       "column": 103,
-      "float_pricing_score": -0.006217221435761564,
+      "float_pricing_score": -0.006217221435765604,
       "couplings": [
         14.092542820638666,
         14.092542820638666,
@@ -414,7 +414,7 @@
     },
     {
       "column": 1632,
-      "float_pricing_score": -0.007586103832283045,
+      "float_pricing_score": -0.00758610383228014,
       "couplings": [
         8.068704,
         8.518301,
@@ -462,7 +462,7 @@
     },
     {
       "column": 1628,
-      "float_pricing_score": -0.00976439060814713,
+      "float_pricing_score": -0.00976439060814918,
       "couplings": [
         8.059704,
         8.527301,
@@ -510,7 +510,7 @@
     },
     {
       "column": 1626,
-      "float_pricing_score": -0.010017053074684677,
+      "float_pricing_score": -0.010017053074685821,
       "couplings": [
         8.058704,
         8.528301,
@@ -558,7 +558,7 @@
     },
     {
       "column": 48,
-      "float_pricing_score": -0.015539538548735098,
+      "float_pricing_score": -0.015539538548742477,
       "couplings": [
         15.616523374664892,
         15.616523374664892,
@@ -606,7 +606,7 @@
     },
     {
       "column": 1631,
-      "float_pricing_score": -0.01885201731069353,
+      "float_pricing_score": -0.0188520173106957,
       "couplings": [
         8.559739,
         8.293523,
@@ -654,7 +654,7 @@
     },
     {
       "column": 1627,
-      "float_pricing_score": -0.021099321074879558,
+      "float_pricing_score": -0.021099321074878875,
       "couplings": [
         8.568739,
         8.302523,
@@ -702,7 +702,7 @@
     },
     {
       "column": 1623,
-      "float_pricing_score": -0.02133946619038063,
+      "float_pricing_score": -0.02133946619038071,
       "couplings": [
         8.569739,
         8.303523,
@@ -750,7 +750,7 @@
     },
     {
       "column": 1634,
-      "float_pricing_score": -0.021534823421059255,
+      "float_pricing_score": -0.021534823421080027,
       "couplings": [
         17.927473,
         17.924489,
@@ -798,7 +798,7 @@
     },
     {
       "column": 93,
-      "float_pricing_score": -0.0225793446258968,
+      "float_pricing_score": -0.02257934462589468,
       "couplings": [
         9.200205020084146,
         9.200205020084146,
@@ -846,7 +846,7 @@
     },
     {
       "column": 1630,
-      "float_pricing_score": -0.02295890449920473,
+      "float_pricing_score": -0.022958904499206234,
       "couplings": [
         17.936473,
         17.933489,
@@ -894,7 +894,7 @@
     },
     {
       "column": 1621,
-      "float_pricing_score": -0.02308983162973805,
+      "float_pricing_score": -0.023089831629745313,
       "couplings": [
         17.929667,
         17.929368,
@@ -942,7 +942,7 @@
     },
     {
       "column": 1625,
-      "float_pricing_score": -0.023108008472512615,
+      "float_pricing_score": -0.023108008472523384,
       "couplings": [
         17.937473,
         17.934489,
@@ -990,7 +990,7 @@
     },
     {
       "column": 1617,
-      "float_pricing_score": -0.02318187891555908,
+      "float_pricing_score": -0.02318187891554999,
       "couplings": [
         17.928886,
         17.928856,
@@ -1038,7 +1038,7 @@
     },
     {
       "column": 264,
-      "float_pricing_score": -0.02319318022107426,
+      "float_pricing_score": -0.023193180221080686,
       "couplings": [
         17.928799253013512,
         17.928799253013512,
@@ -1086,7 +1086,7 @@
     },
     {
       "column": 575,
-      "float_pricing_score": -0.02566714570843799,
+      "float_pricing_score": -0.025667145708438355,
       "couplings": [
         8.60101193208633,
         8.560764394273631,
@@ -1134,7 +1134,7 @@
     },
     {
       "column": 112,
-      "float_pricing_score": -0.026717633729427436,
+      "float_pricing_score": -0.026717633729441498,
       "couplings": [
         17.907777692157673,
         17.907777692157673,
@@ -1182,7 +1182,7 @@
     },
     {
       "column": 258,
-      "float_pricing_score": -0.02805303381782284,
+      "float_pricing_score": -0.02805303381783802,
       "couplings": [
         15.791436767024122,
         15.791436767024122,
@@ -1230,7 +1230,7 @@
     },
     {
       "column": 207,
-      "float_pricing_score": -0.03223492204743423,
+      "float_pricing_score": -0.03223492204743675,
       "couplings": [
         6.755016921343375,
         6.755016921343375,
@@ -1278,7 +1278,7 @@
     },
     {
       "column": 1622,
-      "float_pricing_score": -0.03435813740537086,
+      "float_pricing_score": -0.03435813740537673,
       "couplings": [
         8.046558,
         8.594644,
@@ -1326,7 +1326,7 @@
     },
     {
       "column": 1619,
-      "float_pricing_score": -0.036284679732195846,
+      "float_pricing_score": -0.036284679732197254,
       "couplings": [
         8.581436,
         8.329815,
@@ -1374,7 +1374,7 @@
     },
     {
       "column": 61,
-      "float_pricing_score": -0.036604998597862475,
+      "float_pricing_score": -0.036604998597875756,
       "couplings": [
         9.08639397348987,
         9.08639397348987,
@@ -1422,7 +1422,7 @@
     },
     {
       "column": 1633,
-      "float_pricing_score": -0.036836800850356156,
+      "float_pricing_score": -0.036836800850324286,
       "couplings": [
         99.830445,
         99.049535883,
@@ -1470,7 +1470,7 @@
     },
     {
       "column": 1618,
-      "float_pricing_score": -0.037087105006403095,
+      "float_pricing_score": -0.03708710500640488,
       "couplings": [
         8.045343,
         8.601278,
@@ -1518,7 +1518,7 @@
     },
     {
       "column": 726,
-      "float_pricing_score": -0.03739427506184838,
+      "float_pricing_score": -0.03739427506184217,
       "couplings": [
         8.04520829487928,
         8.602015171319179,
@@ -1566,7 +1566,7 @@
     },
     {
       "column": 1615,
-      "float_pricing_score": -0.03773171388595239,
+      "float_pricing_score": -0.037731713885955594,
       "couplings": [
         8.582606,
         8.332444,
@@ -1614,7 +1614,7 @@
     },
     {
       "column": 630,
-      "float_pricing_score": -0.03789182300907693,
+      "float_pricing_score": -0.03789182300907411,
       "couplings": [
         8.582735463583534,
         8.33273578344948,
@@ -1662,7 +1662,7 @@
     },
     {
       "column": 28,
-      "float_pricing_score": -0.03835530342558541,
+      "float_pricing_score": -0.03835530342559537,
       "couplings": [
         19.013933382188807,
         19.013933382188807,
@@ -1710,7 +1710,7 @@
     },
     {
       "column": 173,
-      "float_pricing_score": -0.04001795256413389,
+      "float_pricing_score": -0.04001795256413108,
       "couplings": [
         6.773072009563891,
         6.773072009563891,
@@ -1758,7 +1758,7 @@
     },
     {
       "column": 1629,
-      "float_pricing_score": -0.04296255731238177,
+      "float_pricing_score": -0.042962557312370836,
       "couplings": [
         99.839445,
         99.042082054,
@@ -1806,7 +1806,7 @@
     },
     {
       "column": 1624,
-      "float_pricing_score": -0.043667785857564326,
+      "float_pricing_score": -0.04366778585745252,
       "couplings": [
         99.840445,
         99.041618,
@@ -1854,7 +1854,7 @@
     },
     {
       "column": 337,
-      "float_pricing_score": -0.05275711900168816,
+      "float_pricing_score": -0.05275711900169499,
       "couplings": [
         13.929776967271248,
         13.284880507346326,
@@ -1902,7 +1902,7 @@
     },
     {
       "column": 602,
-      "float_pricing_score": -0.05607784987784989,
+      "float_pricing_score": -0.05607784987783767,
       "couplings": [
         221.6786261482756,
         221.47349531753574,
@@ -1950,7 +1950,7 @@
     },
     {
       "column": 81,
-      "float_pricing_score": -0.058677030600436914,
+      "float_pricing_score": -0.058677030600450125,
       "couplings": [
         8.45558377696289,
         8.45558377696289,
@@ -1998,7 +1998,7 @@
     },
     {
       "column": 324,
-      "float_pricing_score": -0.06055328325074083,
+      "float_pricing_score": -0.0605532832507351,
       "couplings": [
         12.776930835092516,
         12.85683100117769,
@@ -2046,7 +2046,7 @@
     },
     {
       "column": 435,
-      "float_pricing_score": -0.06408195519870603,
+      "float_pricing_score": -0.06408195519870727,
       "couplings": [
         5.193873697123405,
         5.4423461541033875,
@@ -2094,7 +2094,7 @@
     },
     {
       "column": 357,
-      "float_pricing_score": -0.06470233736809193,
+      "float_pricing_score": -0.06470233736809082,
       "couplings": [
         16.686778786851573,
         16.919446582969282,
@@ -2142,7 +2142,7 @@
     },
     {
       "column": 519,
-      "float_pricing_score": -0.06532288307593874,
+      "float_pricing_score": -0.06532288307593578,
       "couplings": [
         8.299687928635551,
         8.27575629068109,
@@ -2190,7 +2190,7 @@
     },
     {
       "column": 664,
-      "float_pricing_score": -0.06846790721093689,
+      "float_pricing_score": -0.06846790721089538,
       "couplings": [
         181.42837143779298,
         194.98850108821384,
@@ -2238,7 +2238,7 @@
     },
     {
       "column": 332,
-      "float_pricing_score": -0.06942896329269954,
+      "float_pricing_score": -0.06942896329270887,
       "couplings": [
         15.01530585021994,
         15.62603636792628,
@@ -2286,7 +2286,7 @@
     },
     {
       "column": 78,
-      "float_pricing_score": -0.07081146590100089,
+      "float_pricing_score": -0.0708114659010043,
       "couplings": [
         9.034691216909762,
         9.034691216909762,
@@ -2334,7 +2334,7 @@
     },
     {
       "column": 238,
-      "float_pricing_score": -0.07531274883624128,
+      "float_pricing_score": -0.07531274883616561,
       "couplings": [
         80.46553750635537,
         80.46553750635537,
@@ -2382,7 +2382,7 @@
     },
     {
       "column": 11,
-      "float_pricing_score": -0.07849434186103955,
+      "float_pricing_score": -0.07849434186103549,
       "couplings": [
         16.900827126643446,
         16.900827126643446,
@@ -2430,7 +2430,7 @@
     },
     {
       "column": 888,
-      "float_pricing_score": -0.078551639211373,
+      "float_pricing_score": -0.07855163921137594,
       "couplings": [
         17.085933753034706,
         14.88197967652924,
@@ -2478,7 +2478,7 @@
     },
     {
       "column": 105,
-      "float_pricing_score": -0.07907463932438347,
+      "float_pricing_score": -0.07907463932439235,
       "couplings": [
         16.902664264577485,
         16.902664264577485,
@@ -2526,7 +2526,7 @@
     },
     {
       "column": 148,
-      "float_pricing_score": -0.07987881864741825,
+      "float_pricing_score": -0.07987881864743318,
       "couplings": [
         15.517473230235824,
         15.517473230235824,
@@ -2574,7 +2574,7 @@
     },
     {
       "column": 7,
-      "float_pricing_score": -0.08221454599723213,
+      "float_pricing_score": -0.08221454599784028,
       "couplings": [
         402.91730068153714,
         402.91730068153714,
@@ -2622,7 +2622,7 @@
     },
     {
       "column": 192,
-      "float_pricing_score": -0.08377723314618064,
+      "float_pricing_score": -0.08377723314618825,
       "couplings": [
         15.513389792813683,
         15.513389792813683,
@@ -2672,7 +2672,7 @@
   "top_positive_candidates": [
     {
       "column": 447,
-      "float_pricing_score": 0.01298752982693295,
+      "float_pricing_score": 0.012987529826697581,
       "couplings": [
         320.30516177709535,
         318.7616543410016,
