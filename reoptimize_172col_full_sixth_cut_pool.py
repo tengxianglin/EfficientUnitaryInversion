@@ -201,6 +201,10 @@ def main():
 
     system = FourthMoments(21)
     system.exact_target_check()
+    low = np.asarray([
+        system.features(np.asarray(list(map(float, couplings))))
+        for couplings in physical_columns
+    ])
     low_target = system.target.copy()
     low_scale = np.r_[
         np.full(21, 1 / 41),
