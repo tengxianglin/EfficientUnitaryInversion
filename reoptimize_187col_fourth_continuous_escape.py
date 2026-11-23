@@ -17,8 +17,8 @@ from ising_fourth_moments import FourthMoments
 from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import matrix, orbit_minor
 
-LP_186 = ROOT / "evidence/joint_low_six_eighth_lp_186col_second_continuous_escape_n21.json"
-DUAL_186 = ROOT / "evidence/55probe_186col_second_continuous_escape_dual_certificate_n21.json"
+LP_186 = ROOT / "evidence/joint_low_six_eighth_lp_186col_third_continuous_escape_n21.json"
+DUAL_186 = ROOT / "evidence/55probe_186col_third_continuous_escape_dual_certificate_n21.json"
 CANDIDATE_152 = ROOT / "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
 CUT_LP = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
 CUT_DUAL = ROOT / "evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json"
@@ -62,11 +62,11 @@ def main():
     escape3 = data[ESCAPE_3]
     escape4 = data[ESCAPE_4]
 
-    if parent_lp.get("status") != "186col_second_continuous_escape_lp_above_one_third":
+    if parent_lp.get("status") != "186col_third_continuous_escape_lp_above_one_third":
         raise RuntimeError("186-column parent LP is not the expected above-cap discovery")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (186, 2113):
         raise RuntimeError("unexpected 186-column parent dimensions")
-    if parent_dual.get("status") != "strict_186col_2113row_second_continuous_escape_minimax_obstruction" or not parent_dual.get("complete"):
+    if parent_dual.get("status") != "strict_186col_2113row_third_continuous_escape_minimax_obstruction" or not parent_dual.get("complete"):
         raise RuntimeError("186-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != hashes[LP_186.name]:
         raise RuntimeError("186-column parent dual does not pin its LP")
@@ -319,6 +319,7 @@ def main():
             "first_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_1.name],
             "second_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_2.name],
             "third_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_3.name],
+            "fourth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_4.name],
             "seed_pool_sha256_le_f64": seed_sha,
             "canonical_all_columns_sha256_le_f64": all_sha,
             "base_columns": base_columns,
