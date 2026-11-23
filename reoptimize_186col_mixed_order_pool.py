@@ -68,8 +68,8 @@ def main():
         raise RuntimeError("185-column LP and 182-column parent disagree on 172-column ancestor")
     if dual.get("parent_172col_lp_sha256") != parent182.get("parent_172col_lp_sha256"):
         raise RuntimeError("185-column dual and 182-column parent disagree on 172-column ancestor")
-    if parent.get("parent_172col_dual_certificate_sha256") != parent182.get("parent_172col_dual_certificate_sha256"):
-        raise RuntimeError("185-column LP and 182-column parent disagree on 172-column dual")
+    # The 185-column LP pins the 172-column LP but omits the redundant 172-dual hash;
+    # the 185-column Arb certificate carries that hash and is checked below.
     if dual.get("parent_172col_dual_certificate_sha256") != parent182.get("parent_172col_dual_certificate_sha256"):
         raise RuntimeError("185-column dual and 182-column parent disagree on 172-column dual")
     if parent.get("parent_162col_lp_sha256") != hashes[PARENT_162_LP.name]:
