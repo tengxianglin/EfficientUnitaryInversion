@@ -135,6 +135,14 @@ def main():
         raise RuntimeError("195-column time certificate does not pin the 194-column time certificate")
     if time_cert.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or time_cert.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
         raise RuntimeError("195-column time certificate does not pin the 194-column parent LP/dual")
+    if time_cert.get("parent_194col_uniform_ray_time_exact_rational") != parent_lp.get("uniform_ray_time_exact_rational"):
+        raise RuntimeError("195-column time certificate has the wrong 194-column ancestor time")
+    t_parent = Fraction(time_cert["t_exact_rational"])
+    if t_parent <= 0 or Fraction(time_cert["t_exact_decimal"]) != t_parent:
+        raise RuntimeError("195-column time certificate has an invalid exact positive time")
+    uniform_couplings = [Fraction(value) for value in time_cert["uniform_couplings_exact_decimal"]]
+    if len(uniform_couplings) != 41 or any(value != t_parent for value in uniform_couplings):
+        raise RuntimeError("195-column time certificate is not a uniform 41-edge path")
     for key in (
         "parent_194col_uniform_ray_time_arb_certificate_sha256",
         "parent_193col_uniform_ray_time_arb_certificate_sha256",
