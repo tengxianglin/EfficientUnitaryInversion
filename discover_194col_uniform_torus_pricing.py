@@ -103,13 +103,13 @@ class DualPricing:
         self.cut_sha = sha(cut_raw)
         if self.cert.get("status") != "strict_194col_2113row_uniform_ray_escape_minimax_obstruction" or not self.cert.get("complete"):
             raise RuntimeError("the 194-column dual is not strictly Arb-certified")
-        if (self.cert.get("column_count"), self.cert.get("row_count")) != (193, 2113):
+        if (self.cert.get("column_count"), self.cert.get("row_count")) != (194, 2113):
             raise RuntimeError("unexpected 194-column certificate dimensions")
         if self.cert.get("lp_transcript_sha256") != self.lp_sha:
             raise RuntimeError("194-column certificate/LP hash mismatch")
         if self.lp.get("status") != "194col_uniform_ray_escape_lp_above_one_third":
             raise RuntimeError("194-column LP is not the expected above-cap discovery")
-        if (self.lp.get("columns"), self.lp.get("rows")) != (193, 2113):
+        if (self.lp.get("columns"), self.lp.get("rows")) != (194, 2113):
             raise RuntimeError("unexpected 194-column LP dimensions")
         if self.lp.get("cut_lp_transcript_sha256") != self.cut_sha or self.cert.get("cut_lp_transcript_sha256") != self.cut_sha:
             raise RuntimeError("194-column branch does not pin the exact 2,113-row cut design")
