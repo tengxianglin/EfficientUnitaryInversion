@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "reoptimize_192col_ninth_continuous_escape.py"
+      - "verify_192col_ninth_continuous_escape_dual_arb.py"
       - ".github/workflows/eui-192col-ninth-continuous-escape.yml"
   workflow_dispatch:
 
