@@ -183,8 +183,9 @@ def main():
         raise RuntimeError("185-column LP does not pin its parent pricing evidence")
     if lp.get("parent_172col_lp_sha256") != parent_lp.get("parent_172col_lp_sha256"):
         raise RuntimeError("185-column LP and parent 182 LP disagree on the 172-column ancestor")
-    if lp.get("parent_172col_dual_certificate_sha256") != parent_lp.get("parent_172col_dual_certificate_sha256"):
-        raise RuntimeError("185-column LP and parent 182 LP disagree on the 172-column dual")
+    # The 185-column discovery transcript pins the 182-column parent dual directly;
+    # the 182-column LP and its Arb certificate carry the 172-column dual hash.
+    # Verify that ancestor link below rather than requiring a redundant 185-LP field.
     if lp.get("parent_162col_lp_sha256") != parent_162_lp_sha:
         raise RuntimeError("185-column LP does not pin its 162-column ancestor")
     if lp.get("parent_sixth_row_inventory_sha256") != cut_lp_sha:
