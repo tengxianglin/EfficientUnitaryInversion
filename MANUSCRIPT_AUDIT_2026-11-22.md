@@ -1395,3 +1395,20 @@ Evidence:
 - Theory-note commit: a8bfe6f5448efad63bb3a8c2526e9b217cc4a1cf
 
 This refutes global separation by the particular 191-column dual only. It does not invalidate the finite 191-column minimax theorem, establish feasibility/infeasibility of the full continuous-family minimax problem, certify complete sixth/eighth orbit control, or give a Choi/diamond operational guarantee. The next finite experiment is the 192-column LP with this path appended as column 1649.
+
+
+## Exact dense-torus reduction on the uniform 42-site path
+
+A separate analytic result now gives an exact compactification of one continuous physical subfamily. For the uniform 41-edge path generator \(K_*\) with upper/lower entries \(+2/-2\), its positive frequencies are
+\[
+\omega_k=4\cos(k\pi/43),\qquad k=1,\ldots,21.
+\]
+The 21 frequencies are linearly independent over \(\mathbb Q\): writing \(\zeta=e^{2\pi i/43}\) and \(e^{\pi i/43}=-\zeta^{22}\), they are, up to nonzero rational factors and a permutation, the 21 elements \(\zeta^m+\zeta^{-m}\). Their independence follows by multiplying a putative relation by \(\zeta^{21}\) and using the minimal polynomial \(\Phi_{43}(x)=1+\cdots+x^{42}\); the resulting polynomial has zero \(x^{21}\) coefficient and therefore cannot be a nonzero multiple of \(\Phi_{43}\).
+
+Kronecker's theorem then proves that \(e^{tK_*}\), \(t\ge0\), is dense in the conjugate maximal torus of \(SO(42)\), with 21 independent rotation phases. For every continuous pricing functional \(F\),
+\[
+\sup_{t\ge0}F(e^{tK_*})=\max_{\theta\in\mathbb T^{21}}F(Q(\oplus_k R(\theta_k))Q^\mathsf T).
+\]
+This is an exact closure theorem and a compactification of the uniform-coupling ray, not a claim that the current 191-column dual has positive maximum on that torus. It suggests the next decisive analytic/numerical test: optimize the certified 191-column pricing functional over these 21 phases, then use density and an Arb-verified strict positive margin to obtain a finite uniform-ray escape if one exists.
+
+Theory: THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md
