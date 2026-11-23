@@ -1591,3 +1591,45 @@ Evidence:
 - Theory commit: aca202be86de571204591e99f32261ff5c8c64e9
 
 The next decisive action is to search the new 193-column dual over the exact uniform-path 21-torus and then the 41-dimensional positive path family. A positive Arb pricing witness would yield another physical escape; failure of finite searches is not a global separation proof.
+
+
+## 2026-11-24: strict uniform-torus escape of the 193-column dual
+
+The newly certified 193-column rational dual was evaluated over the exact 21-dimensional torus that is the closure of the uniform positive-coupling path. A deterministic 12-start L-BFGS-B search (120 iterations/start) found an exact-decimal phase vector. The independent 128-bit Arb verifier certifies
+
+\[
+S_{193}(R(\theta_*))
+\in[3.042070453078681243432558976616809
+\pm4.22\times10^{-34}]>0.
+\]
+
+The phase-vector SHA256 is
+\[
+\texttt{115a8091de0d2d8b18136c8e74823adb2e5771d70e9270120c39248158962c25}.
+\]
+The verifier pins the 193-column dual SHA256
+\[
+\texttt{70c0ab689e7112c70a10eb75d051b43c686d3b6656d4aed37238f10ee5516799},
+\]
+LP transcript SHA256
+\[
+\texttt{92931c1a8bad949d03cc11376c98c4d0166a8aae96060e6d76c991415af76981},
+\]
+and cut-design SHA256
+\[
+\texttt{d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f}.
+\]
+
+The exact positive interval is the proof. The recorded analytic-gradient regression has maximum relative defect \(4.1551\times10^{-10}\); this is only an implementation check. By the proved rational independence of the 21 frequencies and Kronecker density, continuity implies existence of a finite t>0 such that \(S_{193}(e^{tK_*})>0\). This refutes global separation by this particular 193-column dual only. It does not invalidate the finite 193-column theorem, establish full-family feasibility/infeasibility, complete sixth/eighth orbit control, or provide a Choi/diamond guarantee.
+
+Formal proof: THEORY_193COL_UNIFORM_RAY_DUAL_ESCAPE.md.
+
+Evidence:
+- Search: evidence/193col_uniform_torus_search_n21.json
+- 128-bit Arb certificate: evidence/193col_uniform_torus_arb_n21.json
+- Search script: discover_193col_uniform_torus_pricing.py
+- Independent verifier: verify_193col_uniform_torus_pricing_arb.py
+- Successful workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45223892005
+- Evidence commit: 6b8cabddaad3648323343fd8fbc1b671afc2d18f
+
+A separate deterministic one-dimensional search over four bounded ranges \(t\in[10^{-3},10^3]\), \([10^3,10^4]\), \([10^4,10^5]\), and \([10^5,10^6]\), followed by an independent 128-bit Arb verifier, is now running in workflow 45224963117. No explicit finite decimal t is claimed until its Arb interval is strictly positive.
