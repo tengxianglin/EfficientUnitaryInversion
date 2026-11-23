@@ -721,3 +721,34 @@ This remains finite-pool, mixed-order evidence. It does not complete the 63,133-
 
 
 **Inventory distinction.** The repository also contains a separate, already certified 182-column / 2,106-row mixed-order result in `THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md`. Its 182 physical columns are not the inventory being constructed here. The present branch is a distinct 182-column / 2,113-row full-sixth-cut reoptimization descended from the 172-column full-sixth-cut pool. The two 182-column labels must not be conflated or compared as if they shared the same matrix, row set, or physical generators.
+
+
+## 182-column / 2,113-row full-sixth-cut mixed-order theorem completed (2026-11-23)
+
+The 182-column reoptimization workflow [45104071580](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104071580) completed successfully. It re-certified the 172-column parent dual, repeated the complete 1,470-column binary64 pricing screen and ten Arb-positive checks, compiled the new programs, solved the expanded LP, and independently certified its rationalized dual against all 182 physical columns.
+
+The 182-column HiGHS discovery has objective 0.48770695192985997, independently recomputed maximum 0.48770695192988267, support size 49, and primal-dual discovery gap 3.61e-15. The LP has 2,113 rows: 1,461 complete second/fourth rows, 645 pinned sixth rows, and seven selected eighth rows. No sub-1/3 candidate was produced; accordingly no candidate-input witness file was written.
+
+The exact 128-bit Arb certificate proves
+\[
+\min_{p\in\Delta(\mathcal P_{182}^{\mathrm{cut}})}\|Ap-y\|_\infty
+\ge
+\frac{686386514539679318285297}{1407374883553280000000000}
+=0.4877069518298635\ldots>\frac13.
+\]
+The exact dual has
+\[
+\|z\|_1=\frac{144115188075855847}{144115188075855872}<1,
+\qquad
+\lambda+z^\mathsf Ty=\frac{70285979103274681}{144115188075855872},
+\qquad \delta=10^{-10}.
+\]
+Its 49 nonzero coordinates are two fourth-order rows (indices 233 and 868), 45 sixth-order rows, and two eighth-order rows; no second-order coordinate is active. All 182 slack-shifted physical-column inequalities have strictly negative Arb upper endpoints; the maximum is -7.6906378333341585e-11.
+
+Formal proof: [THEORY_182COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_182COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md). Exact LP transcript: `evidence/joint_low_six_eighth_lp_182col_full_sixth_cuts_n21.json`. Exact certificate: `evidence/55probe_182col_full_sixth_cut_dual_certificate_n21.json`. Reoptimizer and verifier: `reoptimize_182col_full_sixth_cut_pool.py`, `verify_182col_full_sixth_cut_dual_arb.py`. Evidence commit: [fd37e03](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/fd37e03eb67b8ca1a30512c5b5807120edf4862b); formal theorem commit: [caafed8](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/caafed8bf44af34207a1b413cd179b89a16bc53e).
+
+**Scope:** this is a mixed-order theorem for the specified 182 physical generators and pinned 2,113 rows. It is not sixth-only, not a complete sixth/eighth orbit audit, not a continuous-family no-go, and not an operational Choi/diamond-norm guarantee. The term “full-sixth-cut” denotes inclusion of all 334 cuts discovered in the earlier full binary64 scan; it does not denote Arb verification of all 63,133 sixth-order orbits.
+
+**Inventory distinction:** this 182-column / 2,113-row branch is distinct from the already certified 182-column / 2,106-row mixed-order result in `THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md`. Their column inventories and row sets differ and their objectives must not be conflated.
+
+The next action is to price the remaining 1,460 canonical columns against this exact 182-column dual, strictly verify positive candidates with Arb, and reoptimize the expanded pool.
