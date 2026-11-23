@@ -1,0 +1,17 @@
+{
+  "status": "no_float_positive_candidates",
+  "dual_certificate_sha256": "143adc0d0c3eac2732ae45f4e441be8ab9f53c304bf52e1c8fd7ec744d58295e",
+  "lp_transcript_sha256": "894405a7e879c05d69d71d5e2c67c82e47736842781221ce8c2c42011704687e",
+  "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
+  "pricing_screen_sha256": "dded6e58202bab817bc53bf3fdca13a7800a2e187ee4c22591a9fe3984fe0843",
+  "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "active_dual_rows": 50,
+  "active_canonical_column_count": 183,
+  "unused_canonical_column_count": 1458,
+  "candidates_checked": 0,
+  "arb_certified_positive_count": 0,
+  "results": [],
+  "scope": "Arb verification of up to ten top binary64-positive unused canonical columns against the 184-column dual. A strictly positive score invalidates this separator after adding that column; it does not prove a feasible ensemble."
+}
