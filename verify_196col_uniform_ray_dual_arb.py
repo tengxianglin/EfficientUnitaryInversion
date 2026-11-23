@@ -113,17 +113,17 @@ def main():
     if parent_dual.get("status") != "strict_195col_2113row_uniform_ray_escape_minimax_obstruction" or not parent_dual.get("complete"):
         raise RuntimeError("195-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("194-column parent dual does not pin its LP")
-    if lp.get("parent_194col_lp_sha256") != parent_lp_sha or lp.get("parent_194col_dual_certificate_sha256") != parent_dual_sha:
-        raise RuntimeError("195-column LP does not pin the exact 194-column parent")
+        raise RuntimeError("195-column parent dual does not pin its LP")
+    if lp.get("parent_195col_lp_sha256") != parent_lp_sha or lp.get("parent_195col_dual_certificate_sha256") != parent_dual_sha:
+        raise RuntimeError("196-column LP does not pin the exact 195-column parent")
     if lp.get("parent_192col_lp_sha256") != base_lp_sha:
-        raise RuntimeError("195-column LP does not pin the exact 192-column ancestor LP")
+        raise RuntimeError("196-column LP does not pin the exact 192-column ancestor LP")
     if parent_lp.get("parent_193col_lp_sha256") != parent_dual.get("parent_193col_lp_sha256") or parent_lp.get("parent_193col_dual_certificate_sha256") != parent_dual.get("parent_193col_dual_certificate_sha256"):
-        raise RuntimeError("194-column parent ancestry mismatch")
+        raise RuntimeError("195-column parent ancestry mismatch")
     if lp.get("parent_152col_candidate_sha256") != candidate152_sha or parent_lp.get("parent_152col_candidate_sha256") != candidate152_sha:
-        raise RuntimeError("195-column LP does not pin the 152-column ancestor")
+        raise RuntimeError("196-column LP does not pin the 152-column ancestor")
     if lp.get("cut_lp_transcript_sha256") != cut_lp_sha or lp.get("cut_dual_certificate_sha256") != cut_dual_sha:
-        raise RuntimeError("195-column LP does not pin the exact cut design/dual")
+        raise RuntimeError("196-column LP does not pin the exact cut design/dual")
     if cut_dual.get("status") != "strict_152col_2113row_minimax_obstruction" or not cut_dual.get("complete"):
         raise RuntimeError("152-column cut-design dual is not strictly Arb-certified")
     if cut_dual.get("lp_transcript_sha256") != cut_lp_sha:
@@ -225,7 +225,7 @@ def main():
     if len(parent_order) != 195 or len(set(parent_order)) != 195:
         raise RuntimeError("194-column parent ordering is not unique")
     if lp.get("parent_column_order") != parent_order or column_order != parent_order + [NEW_COLUMN]:
-        raise RuntimeError("195-column ordering is not the exact parent plus third uniform-ray column")
+        raise RuntimeError("196-column ordering is not the exact parent plus fourth uniform-ray column")
 
     escape_couplings = (
         [[Fraction(value) for value in candidate152["escape_couplings_exact"]]]
@@ -267,7 +267,7 @@ def main():
 
     system, low_scales, sixth_rows, eighth_rows, y, row_blocks = load_exact_design(cut_lp)
     if row_blocks != lp.get("row_blocks") or row_blocks != parent_lp.get("row_blocks"):
-        raise RuntimeError("195-column exact row-block mismatch")
+        raise RuntimeError("196-column exact row-block mismatch")
     if len(sixth_rows) != 645 or len(eighth_rows) != 7:
         raise RuntimeError("unexpected mixed-order row inventory")
     sixth_hash = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
