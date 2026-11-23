@@ -1,0 +1,379 @@
+{
+  "status": "certified_195col_uniform_torus_dual_escape",
+  "complete": true,
+  "candidate_found": true,
+  "precision_bits": 128,
+  "interval_backend": "python-flint 0.8.0 / Arb",
+  "dual_certificate_sha256": "8371f7f2d4d866839b223dbe1b0c3e872a220092bc22b7cbc69384f08acb456c",
+  "lp_transcript_sha256": "0d5b2d821b95e3229b3ffbcbfd3dafacd80cb76ba1aba55e2858183d53792908",
+  "parent_193col_lp_sha256": "c6dec42436d0181a9ff5012153d1896f4fcb0ca8a28cf39c6cdb321440dd7a66",
+  "parent_193col_dual_certificate_sha256": "7864da033a71d7d2666cde32cf7f900c9a9a30893cbc7b90942fa09517cab474",
+  "parent_192col_uniform_ray_time_arb_certificate_sha256": "3358b8dc1e42eb8e1c4d5d04a722de107a188640fb032ca8c85a7f244e3a11dd",
+  "uniform_ray_time_arb_certificate_sha256": "6e8c972c95a8df647da3d2a9bef94e51f84f64fd6873dc29b7c3684236a7c4eb",
+  "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
+  "discovery_sha256": "97fe79c1705e9650df348acee2c9bfb5afb4f32a73799333c5d8373af397c924",
+  "phase_vector_sha256": "dfa636c9dfe1d1d7ddf64667383ec343f65103bf32f2f30f07711b73438b33c7",
+  "phase_vector_exact_decimal": [
+    "-0.237174330367",
+    "-0.581129084226",
+    "-0.631199185419",
+    "-0.162921096430",
+    "0.030911107456",
+    "0.321973998812",
+    "0.484773690946",
+    "0.788165599622",
+    "1.093079528693",
+    "2.583780776120",
+    "2.651623134437",
+    "2.521196888821",
+    "1.837204249747",
+    "1.074691145021",
+    "0.327566525064",
+    "0.137813104031",
+    "0.078470257286",
+    "0.073975915144",
+    "3.141592653590",
+    "3.141592653590",
+    "3.141592653590"
+  ],
+  "dual_l1_norm_exact": "1",
+  "dual_lambda_minus_slack_exact": "8541631558927256191653228789/6588122883467712110000000000",
+  "active_dual_rows": {
+    "low": 2,
+    "sixth": 61,
+    "eighth": 1
+  },
+  "pricing_score_interval": "[4.483867316010550697286473341089799 +/- 8.75e-34]",
+  "pricing_score_lower_endpoint": "[4.4838673160105506972864733410897981250 +/- 2.46e-38]",
+  "pricing_score_upper_endpoint": "[4.4838673160105506972864733410897990735 +/- 7.39e-39]",
+  "strictly_positive": true,
+  "uniform_ray_escape_exists_by_density": true,
+  "row_contributions": [
+    {
+      "row": 868,
+      "block": "low",
+      "contribution": "[-0.083795508834277434160441996828115929 +/- 6.28e-37]"
+    },
+    {
+      "row": 1413,
+      "block": "low",
+      "contribution": "[-0.0036502610924434088142153918845354271 +/- 4.93e-38]"
+    },
+    {
+      "row": 1675,
+      "block": "sixth",
+      "contribution": "[-0.08692674303567241892943022951657384 +/- 7.06e-36]"
+    },
+    {
+      "row": 1712,
+      "block": "sixth",
+      "contribution": "[-0.023832943136945628620868371589267321 +/- 8.97e-37]"
+    },
+    {
+      "row": 1716,
+      "block": "sixth",
+      "contribution": "[-0.128371252618980414192984392219384752 +/- 8.16e-37]"
+    },
+    {
+      "row": 1721,
+      "block": "sixth",
+      "contribution": "[5.640698783472591534947464548899596 +/- 3.59e-34]"
+    },
+    {
+      "row": 1738,
+      "block": "sixth",
+      "contribution": "[0.08012955885845370949847716468803121 +/- 7.53e-36]"
+    },
+    {
+      "row": 1765,
+      "block": "sixth",
+      "contribution": "[-0.16784790012881111376083117699928548 +/- 8.42e-36]"
+    },
+    {
+      "row": 1767,
+      "block": "sixth",
+      "contribution": "[-0.02177294822293921321308725410597524 +/- 2.86e-36]"
+    },
+    {
+      "row": 1777,
+      "block": "sixth",
+      "contribution": "[0.008441687913797961046567478070977311 +/- 8.25e-37]"
+    },
+    {
+      "row": 1779,
+      "block": "sixth",
+      "contribution": "[0.07999858549390638720907738614488541 +/- 4.59e-36]"
+    },
+    {
+      "row": 1781,
+      "block": "sixth",
+      "contribution": "[0.08095802465672554219783623375344325 +/- 3.07e-36]"
+    },
+    {
+      "row": 1782,
+      "block": "sixth",
+      "contribution": "[0.00838933835695145100004753622050091 +/- 2.84e-36]"
+    },
+    {
+      "row": 1794,
+      "block": "sixth",
+      "contribution": "[-0.036536783038165709543164097813032388 +/- 7.80e-37]"
+    },
+    {
+      "row": 1796,
+      "block": "sixth",
+      "contribution": "[-0.04179832909986830815622825383243808 +/- 3.22e-36]"
+    },
+    {
+      "row": 1805,
+      "block": "sixth",
+      "contribution": "[-0.4444058043483996599538153358780909 +/- 3.39e-35]"
+    },
+    {
+      "row": 1807,
+      "block": "sixth",
+      "contribution": "[-0.3786380276916925386949681642392756 +/- 5.11e-35]"
+    },
+    {
+      "row": 1808,
+      "block": "sixth",
+      "contribution": "[-0.3569206654100144445667604196272969 +/- 4.91e-35]"
+    },
+    {
+      "row": 1810,
+      "block": "sixth",
+      "contribution": "[-0.03679553784598366290778415674250149 +/- 4.59e-36]"
+    },
+    {
+      "row": 1812,
+      "block": "sixth",
+      "contribution": "[0.00090388775660096861618054447532665 +/- 4.07e-36]"
+    },
+    {
+      "row": 1817,
+      "block": "sixth",
+      "contribution": "[-0.10379887996128106252589170664562399 +/- 5.96e-36]"
+    },
+    {
+      "row": 1845,
+      "block": "sixth",
+      "contribution": "[-0.20873917602865949254549311378328519 +/- 7.13e-36]"
+    },
+    {
+      "row": 1857,
+      "block": "sixth",
+      "contribution": "[0.002526757387983311163084475728930428 +/- 6.36e-37]"
+    },
+    {
+      "row": 1865,
+      "block": "sixth",
+      "contribution": "[-0.09226092612938954467560532719575511 +/- 2.58e-36]"
+    },
+    {
+      "row": 1876,
+      "block": "sixth",
+      "contribution": "[-0.07525150396502859482397294822077486 +/- 1.52e-36]"
+    },
+    {
+      "row": 1883,
+      "block": "sixth",
+      "contribution": "[-0.04580574112784279027375501423543893 +/- 6.21e-36]"
+    },
+    {
+      "row": 1899,
+      "block": "sixth",
+      "contribution": "[-0.07105815095468185108046431871267735 +/- 5.13e-36]"
+    },
+    {
+      "row": 1910,
+      "block": "sixth",
+      "contribution": "[-0.04502486919498985658601242951979027 +/- 4.07e-36]"
+    },
+    {
+      "row": 1913,
+      "block": "sixth",
+      "contribution": "[-0.02418840278076917023071810747022314 +/- 5.30e-36]"
+    },
+    {
+      "row": 1923,
+      "block": "sixth",
+      "contribution": "[-0.04458782570082561909089578622455326 +/- 1.21e-36]"
+    },
+    {
+      "row": 1927,
+      "block": "sixth",
+      "contribution": "[-0.024937664178715717232807652628291227 +/- 4.23e-37]"
+    },
+    {
+      "row": 1931,
+      "block": "sixth",
+      "contribution": "[-0.014781405486291031705970988009955218 +/- 6.09e-37]"
+    },
+    {
+      "row": 1957,
+      "block": "sixth",
+      "contribution": "[0.3270732183418520182323423010018523 +/- 4.61e-35]"
+    },
+    {
+      "row": 1971,
+      "block": "sixth",
+      "contribution": "[0.01079701593569318199698710952152774 +/- 4.99e-36]"
+    },
+    {
+      "row": 1972,
+      "block": "sixth",
+      "contribution": "[0.003093690377904046515652440044085119 +/- 4.48e-37]"
+    },
+    {
+      "row": 1974,
+      "block": "sixth",
+      "contribution": "[-0.007724199428853693362987773630357145 +/- 4.96e-37]"
+    },
+    {
+      "row": 1985,
+      "block": "sixth",
+      "contribution": "[0.01218711291273786945139884491397996 +/- 5.79e-36]"
+    },
+    {
+      "row": 1988,
+      "block": "sixth",
+      "contribution": "[0.09017993182806080492261161105997909 +/- 7.22e-36]"
+    },
+    {
+      "row": 1989,
+      "block": "sixth",
+      "contribution": "[-0.10974063166970360002146519582704240 +/- 8.79e-36]"
+    },
+    {
+      "row": 1992,
+      "block": "sixth",
+      "contribution": "[-0.04316593706809428383692776855379204 +/- 4.67e-36]"
+    },
+    {
+      "row": 2001,
+      "block": "sixth",
+      "contribution": "[-0.0033360154642857536328454535795050847 +/- 7.96e-38]"
+    },
+    {
+      "row": 2002,
+      "block": "sixth",
+      "contribution": "[-0.2044025798818500884922308488046704 +/- 4.97e-35]"
+    },
+    {
+      "row": 2004,
+      "block": "sixth",
+      "contribution": "[-0.09320191195749041469110929351028433 +/- 4.60e-36]"
+    },
+    {
+      "row": 2011,
+      "block": "sixth",
+      "contribution": "[-0.013418000878731821402206533320352106 +/- 4.06e-37]"
+    },
+    {
+      "row": 2018,
+      "block": "sixth",
+      "contribution": "[-0.012922881038751948085014723506006050 +/- 5.65e-37]"
+    },
+    {
+      "row": 2024,
+      "block": "sixth",
+      "contribution": "[-0.046041569708266449107767951537042299 +/- 8.19e-37]"
+    },
+    {
+      "row": 2028,
+      "block": "sixth",
+      "contribution": "[-0.009890083729333975128202825412354011 +/- 3.85e-37]"
+    },
+    {
+      "row": 2033,
+      "block": "sixth",
+      "contribution": "[-0.14840670525065740570439818738133775 +/- 5.18e-36]"
+    },
+    {
+      "row": 2036,
+      "block": "sixth",
+      "contribution": "[-0.003908831826450180364479437070517501 +/- 6.23e-37]"
+    },
+    {
+      "row": 2038,
+      "block": "sixth",
+      "contribution": "[-0.029302580151108118153873601666658040 +/- 4.74e-37]"
+    },
+    {
+      "row": 2039,
+      "block": "sixth",
+      "contribution": "[-0.064576898411144580437230779276745931 +/- 7.93e-37]"
+    },
+    {
+      "row": 2042,
+      "block": "sixth",
+      "contribution": "[0.03613449197371708733755460407381189 +/- 5.16e-36]"
+    },
+    {
+      "row": 2046,
+      "block": "sixth",
+      "contribution": "[-0.04426559860416634790527924541679524 +/- 2.75e-36]"
+    },
+    {
+      "row": 2051,
+      "block": "sixth",
+      "contribution": "[-0.03981809737381289431576438751347023 +/- 1.92e-36]"
+    },
+    {
+      "row": 2056,
+      "block": "sixth",
+      "contribution": "[-0.01874369149065269043259120689533966 +/- 4.58e-36]"
+    },
+    {
+      "row": 2071,
+      "block": "sixth",
+      "contribution": "[-0.21831335033357530982129547036665371 +/- 6.55e-36]"
+    },
+    {
+      "row": 2074,
+      "block": "sixth",
+      "contribution": "[-0.002359455617539109416653414799195713 +/- 2.11e-37]"
+    },
+    {
+      "row": 2088,
+      "block": "sixth",
+      "contribution": "[-0.08478458340931728987842319949317945 +/- 2.25e-36]"
+    },
+    {
+      "row": 2090,
+      "block": "sixth",
+      "contribution": "[-0.025552407327316891728056370490910225 +/- 4.30e-37]"
+    },
+    {
+      "row": 2091,
+      "block": "sixth",
+      "contribution": "[-0.04343690115223582221358389907339908 +/- 4.32e-36]"
+    },
+    {
+      "row": 2095,
+      "block": "sixth",
+      "contribution": "[-0.11008099254404490638875477138659330 +/- 2.12e-36]"
+    },
+    {
+      "row": 2099,
+      "block": "sixth",
+      "contribution": "[-0.027624368163325741194841964730178590 +/- 2.26e-37]"
+    },
+    {
+      "row": 2101,
+      "block": "sixth",
+      "contribution": "[-0.021294341188461616236564627134636538 +/- 3.01e-37]"
+    },
+    {
+      "row": 2106,
+      "block": "eighth",
+      "contribution": "[0.793875325439062613069902047701046 +/- 3.11e-34]"
+    }
+  ],
+  "row_blocks": {
+    "low_complete": 1461,
+    "sixth_selected_plus_all_cuts": 645,
+    "eighth_selected": 7
+  },
+  "scope": "A strictly positive Arb interval at this exact torus point, combined with the proved Kronecker density of the uniform positive-coupling ray and continuity of the pricing functional, proves existence of a finite t > 0 with positive pricing on c=(t,...,t). It refutes global separation by this particular 195-column dual only; it is not a full-family minimax theorem."
+}
