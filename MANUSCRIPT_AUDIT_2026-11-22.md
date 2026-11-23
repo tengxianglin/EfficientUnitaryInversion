@@ -1127,3 +1127,54 @@ Evidence:
 - Parent 188-column dual SHA256: `eed80945f8ae5875c7fbad6f4d760c934654eaf44ce22a4bf373f4358ccedef5`
 
 The new path is appended as column 1646. The next experiment is the 189-column reoptimization on the same 2,113 rows, followed by exact-rational dual or primal Arb certification.
+
+## 189-column sixth-continuous-escape minimax obstruction certified (2026-11-23)
+
+The sixth exact-rational positive 41-edge path escaped the 188-column dual and
+was appended as column 1646. The unchanged 2,113-row mixed-order LP was
+re-solved over 189 physical generators. HiGHS returned objective
+0.454195317365923, independently recomputed maximum 0.4541953174059339,
+support size 57, and primal-dual discovery gap 2.443489854897507e-12. These
+are binary64 discovery diagnostics only.
+
+The rationalized dual was independently certified with 128-bit Arb against
+all 189 physical columns. Its exact l1 norm is 1; its support comprises one
+fourth-order row, 54 sixth-order rows, and two eighth-order rows. Every
+slack-shifted column interval is strictly negative; the largest upper endpoint
+is enclosed by
+\[
+[-8.9418568666754042859549486269839336820\times10^{-9}
+\pm3.14\times10^{-47}]<0.
+\]
+The resulting finite-pool theorem is
+\[
+\min_{p\in\Delta_{189}}\|A p-y\|_\infty
+\ge
+\frac{209460614862602549049621931}
+{461168601845037806900000000}
+=0.4541953073661022\ldots>\frac13.
+\]
+The exact margin above 1/3 is
+\[
+\frac{167213242742769840248865793}
+{1383505805535113420700000000}
+=0.12086197403276885\ldots.
+\]
+
+Formal proof: [THEORY_189COL_2113ROW_SIXTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_189COL_2113ROW_SIXTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md).
+
+Evidence:
+- Successful reoptimization and strict Arb certification: [workflow 45145380760](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45145380760)
+- LP transcript SHA256: `e73311bdf1a683620417dcc2cd7c18f25197d8451f1be76e7ed76c4de31424de`
+- Exact dual certificate: `evidence/55probe_189col_sixth_continuous_escape_dual_certificate_n21.json`
+- Independent verifier: `verify_189col_sixth_continuous_escape_dual_arb.py`
+- Evidence commit: [09fc105](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/09fc1050a3721ef6f00ff51cec73c690a6a9b458)
+- Verifier/workflow definition commits: [6710729](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/67107297a570d1006486f61ee9744de7e862f36c), [8aee1b4](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8aee1b46fe56f022680f323e6f2f2b270412dae3)
+
+Scope remains finite-pool and mixed-order: 645 selected/cut sixth rows, not all
+63,133 sixth-order dihedral orbits; seven selected eighth rows, not all
+1,408,185 eighth-order orbits. This is not a sixth-only theorem, a global
+positive-coupling-family no-go, or an operational Choi/diamond theorem. The
+new 189-column dual must itself be tested against the unrestricted positive
+41-edge path family; failure of a local search will not prove global
+separation.
