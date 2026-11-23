@@ -168,7 +168,8 @@ def main():
         starts.append(old * np.exp(rng.normal(0.0, sigma, size=41)))
     seed_raw = SEED_PATH.read_bytes()
     seed = np.load(SEED_PATH, allow_pickle=False)
-    if seed.shape != (1600, 42) or sha(seed_raw) != SEED_SHA256:
+    seed_sha = sha(np.asarray(seed, dtype="<f8").tobytes())
+    if seed.shape != (1600, 42) or seed_sha != SEED_SHA256:
         raise RuntimeError("frozen seed pool hash/shape mismatch")
     for index in (159, 559, 959, 1359):
         starts.append(np.clip(np.abs(seed[index, :41]), 1e-4, 100.0))
@@ -237,7 +238,8 @@ def main():
         "lp_transcript_sha256": pricing.lp_sha,
         "cut_lp_transcript_sha256": pricing.cut_sha,
         "prior_escape_certificate_sha256": sha(ESCAPE_PATH.read_bytes()),
-        "seed_pool_sha256": sha(seed_raw),
+        "seed_pool_sha256_le_f64": seed_sha,
+        "seed_pool_file_sha256": sha(seed_raw),
         "precision_digits_exact_decimal_input": PRECISION_DIGITS,
         "gradient_method": "cofactor determinant derivative plus adjoint Frechet derivative of exp",
         "gradient_check_coordinates": [0, 20, 40],
