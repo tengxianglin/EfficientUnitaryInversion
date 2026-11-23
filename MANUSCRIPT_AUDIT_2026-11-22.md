@@ -1736,3 +1736,8 @@ Evidence:
 - Evidence commit: 2972334d665c4882060cd887277cc4a0ec1e364c
 
 The next task is an explicit finite-time search on the uniform positive-coupling ray, followed by an Arb certificate.
+
+
+## 2026-11-24 update: 194-column uniform-ray finite-time candidate (not yet certified)
+
+The exact 194-column dual already has an independently Arb-certified positive point on the 21-dimensional uniform-path torus, which by density proves existence of some finite positive uniform time escaping that particular dual. A separate bounded one-dimensional search recorded the exact-decimal candidate `t=5918.073474332502883` with binary64 score `0.5331710186207479` in `evidence/194col_uniform_ray_time_search_n21.json`. This is not a proof: the first finite-time workflow [45228501706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45228501706) failed before evaluating the candidate because the verifier used undefined `time_cert` rather than the loaded torus certificate. The six stale references were fixed in commit [60dd9a5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/60dd9a523de4a774c93e1272cc1309c2614f506e). Rerun [45230548697](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45230548697) passed frozen-input compilation and all parent dual/time recertifications; at the time of this update its bounded search remained in progress. Until a new `194col_uniform_ray_time_arb_n21.json` with a strictly positive interval is committed, the explicit finite-time witness remains unproved, although dense-torus existence is already proved.
