@@ -70,13 +70,7 @@ s_6=5/19721,\quad s_8=1/19721,
 \]
 and y contains the correspondingly normalized targets. The exact row representatives and order are pinned by the row-inventory hashes above and by the LP transcript.
 
-The row definitions and normalizations are the same as in THEORY_183COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md:
-- second order: 21 cyclic distances, scale s2=1/41;
-- fourth order: all 1,440 D42 orbit representatives, scale s4=C(21,2)/C(42,4);
-- sixth order: the pinned 645 representatives, scale s6=5/19721;
-- eighth order: seven pinned representatives, scale s8=1/19721.
-
-For a k-subset I, each higher-order feature is the average of the principal minors det R[J,J] over the D42 orbit of I. The target signs and rational values are pinned row-by-row in the LP transcript and are checked by the independent Arb verifier. The 645 sixth rows are exactly the original 311 plus the 334 cuts; they are not all 63,133 sixth-order orbits.
+The 645 sixth-order rows are exactly the original 311 plus the 334 candidate-specific cuts; they are not all 63,133 sixth-order orbits. All exact representatives, targets, and row order are frozen by the inventory hashes and LP transcript.
 
 Frozen hashes:
 - 1,600-by-42 seed pool: 93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315;
