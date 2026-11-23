@@ -31,6 +31,7 @@ BASE_DUAL_PATH = ROOT / "evidence/55probe_192col_ninth_continuous_escape_dual_ce
 BASE_TIME_CERT_PATH = ROOT / "evidence/192col_uniform_ray_time_arb_n21.json"
 PARENT_TIME_CERT_PATH = ROOT / "evidence/193col_uniform_ray_time_arb_n21.json"
 TIME_CERT_PATH = ROOT / "evidence/195col_uniform_ray_time_arb_n21.json"
+PARENT_194_TIME_CERT_PATH = ROOT / "evidence/194col_uniform_ray_time_arb_n21.json"
 
 PRECISION_BITS = 128
 LOW_COUNT = 1461
@@ -90,12 +91,15 @@ def main():
     parent_lp_raw = PARENT_LP_PATH.read_bytes()
     parent_dual_raw = PARENT_DUAL_PATH.read_bytes()
     time_cert_raw = TIME_CERT_PATH.read_bytes()
+    parent_194_time_cert_raw = PARENT_194_TIME_CERT_PATH.read_bytes()
     cert, lp, cut, discovery, parent_lp, parent_dual, time_cert = [
         json.loads(raw) for raw in (cert_raw, lp_raw, cut_raw, discovery_raw, parent_lp_raw, parent_dual_raw, time_cert_raw)
     ]
+    parent_194_time_cert = json.loads(parent_194_time_cert_raw)
     cert_sha, lp_sha, cut_sha, discovery_sha, parent_lp_sha, parent_dual_sha, time_cert_sha = map(
         sha, (cert_raw, lp_raw, cut_raw, discovery_raw, parent_lp_raw, parent_dual_raw, time_cert_raw)
     )
+    parent_194_time_cert_sha = sha(parent_194_time_cert_raw)
 
     if cert.get("status") != "strict_196col_2113row_uniform_ray_escape_minimax_obstruction" or not cert.get("complete"):
         raise RuntimeError("196-column dual is not strictly Arb-certified")
@@ -125,18 +129,25 @@ def main():
         raise RuntimeError("196-column dual does not preserve the 192-column ancestry")
     if lp.get("parent_192col_lp_sha256") != parent_lp.get("parent_192col_lp_sha256") or lp.get("parent_192col_dual_certificate_sha256") != parent_lp.get("parent_192col_dual_certificate_sha256"):
         raise RuntimeError("196-column LP does not preserve the 192-column ancestry")
-    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != time_cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256"):
-        raise RuntimeError("195-column parent/time certificate does not pin the 194-column path")
+    if parent_194_time_cert.get("status") != "certified_finite_uniform_ray_escape" or not parent_194_time_cert.get("finite_physical_escape_certified"):
+        raise RuntimeError("194-column ancestor finite-time certificate is not Arb-certified")
+    if parent_194_time_cert_sha != parent_lp.get("uniform_ray_time_arb_certificate_sha256"):
+        raise RuntimeError("195-column LP does not pin the exact 194-column finite-time certificate")
+    if time_cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != parent_194_time_cert_sha:
+        raise RuntimeError("195-column time certificate does not pin the exact 194-column finite-time certificate")
+    if parent_194_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_194col_lp_sha256") or parent_194_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
+        raise RuntimeError("194-column finite-time certificate does not match the pinned 194-column LP/dual")
+    parent_194_time = Fraction(parent_194_time_cert["t_exact_rational"])
+    if parent_194_time <= 0 or Fraction(parent_194_time_cert["t_exact_decimal"]) != parent_194_time:
+        raise RuntimeError("194-column ancestor certificate has an invalid exact positive time")
+    if Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != parent_194_time:
+        raise RuntimeError("195-column LP has the wrong 194-column ancestor time")
     if time_cert.get("status") != "certified_finite_uniform_ray_escape" or not time_cert.get("finite_physical_escape_certified"):
         raise RuntimeError("195-column finite-time path is not Arb-certified")
     if time_cert.get("dual_certificate_sha256") != parent_dual_sha or time_cert.get("lp_transcript_sha256") != parent_lp_sha or time_cert.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("195-column time certificate does not pin its parent LP/dual/cut")
-    if time_cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != parent_lp.get("uniform_ray_time_arb_certificate_sha256"):
-        raise RuntimeError("195-column time certificate does not pin the 194-column time certificate")
     if time_cert.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or time_cert.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
         raise RuntimeError("195-column time certificate does not pin the 194-column parent LP/dual")
-    if time_cert.get("parent_194col_uniform_ray_time_exact_rational") != parent_lp.get("uniform_ray_time_exact_rational"):
-        raise RuntimeError("195-column time certificate has the wrong 194-column ancestor time")
     t_parent = Fraction(time_cert["t_exact_rational"])
     if t_parent <= 0 or Fraction(time_cert["t_exact_decimal"]) != t_parent:
         raise RuntimeError("195-column time certificate has an invalid exact positive time")
@@ -197,7 +208,7 @@ def main():
             "parent_195col_dual_certificate_sha256": parent_dual_sha,
             "parent_194col_lp_sha256": parent_lp.get("parent_194col_lp_sha256"),
             "parent_194col_dual_certificate_sha256": parent_lp.get("parent_194col_dual_certificate_sha256"),
-            "parent_194col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("uniform_ray_time_arb_certificate_sha256"),
+            "parent_194col_uniform_ray_time_arb_certificate_sha256": parent_194_time_cert_sha,
             "parent_193col_lp_sha256": parent_lp.get("parent_193col_lp_sha256"),
             "parent_193col_dual_certificate_sha256": parent_lp.get("parent_193col_dual_certificate_sha256"),
             "parent_193col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256"),
@@ -264,7 +275,7 @@ def main():
         "parent_195col_dual_certificate_sha256": parent_dual_sha,
         "parent_194col_lp_sha256": parent_lp.get("parent_194col_lp_sha256"),
         "parent_194col_dual_certificate_sha256": parent_lp.get("parent_194col_dual_certificate_sha256"),
-        "parent_194col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("uniform_ray_time_arb_certificate_sha256"),
+        "parent_194col_uniform_ray_time_arb_certificate_sha256": parent_194_time_cert_sha,
         "parent_193col_lp_sha256": parent_lp.get("parent_193col_lp_sha256"),
         "parent_193col_dual_certificate_sha256": parent_lp.get("parent_193col_dual_certificate_sha256"),
         "parent_193col_uniform_ray_time_arb_certificate_sha256": parent_lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256"),
