@@ -16,6 +16,7 @@ from audit_complete_sixth_moments import canonical_ensemble, ROOT
 from ising_fourth_moments import FourthMoments
 from screen_ising_sixth_moments import target
 from joint_low_six_eighth_lp import matrix, orbit_minor
+from discover_192col_uniform_torus_pricing import block_rotation, uniform_path_basis
 
 PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json"
 PARENT_DUAL = ROOT / "evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json"
@@ -152,6 +153,11 @@ def main():
     column_order = parent_order + [NEW_COLUMN]
     if len(physical_columns) != 193:
         raise RuntimeError("expanded physical pool must contain 193 columns")
+    torus_q, torus_omega = uniform_path_basis()
+    uniform_rotation = torus_q @ block_rotation(float(t) * torus_omega) @ torus_q.T
+    uniform_orthogonality_defect = float(np.max(np.abs(uniform_rotation.T @ uniform_rotation - np.eye(42))))
+    if uniform_orthogonality_defect > 1e-8:
+        raise RuntimeError(f"uniform-ray spectral rotation is not orthogonal: {uniform_orthogonality_defect}")
 
     sixth_rows = [tuple(int(v) for v in row) for row in cut_lp["sixth_cut_rows"]]
     sixth_targets = [Fraction(v) for v in cut_lp["sixth_cut_targets"]]
@@ -191,7 +197,7 @@ def main():
     sixth = np.empty((193, len(sixth_rows)), dtype=np.float64)
     eighth = np.empty((193, len(eighth_rows)), dtype=np.float64)
     for index, couplings in enumerate(physical_columns):
-        rotation = matrix(couplings)
+        rotation = uniform_rotation if index == 192 else matrix(couplings)
         sixth[index] = [orbit_minor(rotation, row) for row in sixth_rows]
         eighth[index] = [orbit_minor(rotation, row) for row in eighth_rows]
         if (index + 1) % 16 == 0 or index == 192:
@@ -257,6 +263,8 @@ def main():
         "uniform_ray_time_exact_rational": str(t),
         "uniform_ray_time_exact_decimal": time_cert["t_exact_decimal"],
         "uniform_ray_escape_column_index": NEW_COLUMN,
+        "uniform_ray_rotation_source": "explicit 21-torus spectral representation",
+        "uniform_ray_rotation_orthogonality_max_abs": uniform_orthogonality_defect,
         "seed_pool_sha256_le_f64": seed_sha,
         "canonical_all_columns_sha256_le_f64": all_sha,
         "columns": n,
