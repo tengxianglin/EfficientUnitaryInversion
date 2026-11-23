@@ -98,7 +98,7 @@ def main():
         raise RuntimeError("152-column ancestor path differs from its Arb-certified first escape")
     canonical_float = [np.asarray(column, dtype="<f8") for column in all_columns]
     for index, escape in enumerate(escapes, 1):
-        candidate_float = np.asarray([float(value) for value in escape["candidate_couplings_exact"]], dtype="<f8")
+        candidate_float = np.asarray([float(Fraction(value)) for value in escape["candidate_couplings_exact"]], dtype="<f8")
         if any(np.array_equal(candidate_float, canonical) for canonical in canonical_float):
             raise RuntimeError(f"continuous escape {index} duplicates a canonical generator")
     if escape9.get("candidate_outside_frozen_canonical_pool") is not True:
