@@ -3,7 +3,7 @@
   "dual_certificate_sha256": "ec35a7c1f9bf5b164e3363767ae3543a7511321519ced190cb305e9cebcdfa3e",
   "lp_transcript_sha256": "5326cbf9ae8a81765b12cbd63458f72521bc1606f0041910c5cf48cd84aaa224",
   "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
-  "pricing_screen_sha256": "85803626d14a999af3c5e56a8ab6a69544c1dc88e737707ec06d5c32a119648b",
+  "pricing_screen_sha256": "7a61a7217ccf65865ab80fb49910c5ed3f7124c444b2065bde63e9815acb53d5",
   "canonical_all_columns_sha256_le_f64": "f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98",
   "precision_bits": 128,
   "interval_backend": "python-flint 0.8.0 / Arb",
@@ -15,7 +15,7 @@
   "results": [
     {
       "column": 544,
-      "float_pricing_score": 0.023498411984316764,
+      "float_pricing_score": 0.02349841198436628,
       "arb_pricing_score_interval": "[0.02349841198388327747339116658231 +/- 4.96e-33]",
       "arb_lower_endpoint": "[0.023498411983883277473391166582309888329 +/- 4.39e-40]",
       "arb_upper_endpoint": "[0.023498411983883277473391166582314953777 +/- 2.26e-40]",
