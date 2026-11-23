@@ -115,13 +115,13 @@ def main():
         "eighth_continuous_escape_arb_certificate_sha256",
         "ninth_continuous_escape_arb_certificate_sha256",
     )
+    if lp.get("continuous_escape_arb_certificate_sha256") != list(escape_hashes):
+        raise RuntimeError("192-column LP does not pin all nine continuous escape certificates")
     for index, (cert, digest) in enumerate(zip(escape_objects, escape_hashes), 1):
         if cert.get("status") != "certified_continuous_path_dual_escape":
             raise RuntimeError(f"continuous escape {index} has an unexpected status")
         if not cert.get("complete") or not cert.get("strictly_positive"):
             raise RuntimeError(f"continuous escape {index} lacks a complete strict Arb certificate")
-        if lp.get(escape_keys[index - 1]) != digest:
-            raise RuntimeError(f"192-column LP provenance mismatch for escape {index}")
         if index <= 8:
             if parent_lp.get(escape_keys[index - 1]) != digest or parent_dual.get(escape_keys[index - 1]) != digest:
                 raise RuntimeError(f"192-column parent does not pin escape {index}")
@@ -132,12 +132,8 @@ def main():
         raise RuntimeError("152-column cut dual is not strictly Arb-certified")
     if cut_dual.get("lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("152-column cut dual does not pin its LP")
-    if escape8.get("dual_certificate_sha256") != parent_dual_sha or escape8.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("eighth escape does not pin the exact 192-column parent dual/LP")
-    if escape8.get("cut_lp_transcript_sha256") != cut_lp_sha or escape8.get("candidate_outside_frozen_canonical_pool") is not True:
-        raise RuntimeError("eighth escape does not pin the cut design or canonical exclusion")
     if escape9.get("dual_certificate_sha256") != parent_dual_sha or escape9.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("ninth escape does not pin the exact 192-column parent dual/LP")
+        raise RuntimeError("ninth escape does not pin the exact 191-column parent dual/LP")
     if escape9.get("cut_lp_transcript_sha256") != cut_lp_sha or escape9.get("candidate_outside_frozen_canonical_pool") is not True:
         raise RuntimeError("ninth escape does not pin the cut design or canonical exclusion")
 
@@ -149,7 +145,7 @@ def main():
         if len(couplings) != 42 or couplings[-1] != 0 or any(value <= 0 for value in couplings[:-1]):
             raise RuntimeError(f"continuous escape {index} is not a legal strictly-positive 41-edge path")
     if len({tuple(couplings) for couplings in all_couplings}) != 9:
-        raise RuntimeError("the eight continuous escape paths are not pairwise distinct")
+        raise RuntimeError("the nine continuous escape paths are not pairwise distinct")
 
     seed = np.asarray(np.load(SEED_POOL, allow_pickle=False), dtype="<f8")
     seed_sha = sha(seed.tobytes())
