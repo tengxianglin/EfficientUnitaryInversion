@@ -94,6 +94,15 @@ def main():
     all_sha = sha(np.asarray(all_columns, dtype="<f8").tobytes())
     if len(all_columns) != CANONICAL_COUNT or all_sha != parent_lp.get("canonical_all_columns_sha256_le_f64"):
         raise RuntimeError("frozen canonical inventory count/hash mismatch")
+    if candidate152.get("escape_couplings_exact") != escapes[0].get("candidate_couplings_exact"):
+        raise RuntimeError("152-column ancestor path differs from its Arb-certified first escape")
+    canonical_float = [np.asarray(column, dtype="<f8") for column in all_columns]
+    for index, escape in enumerate(escapes, 1):
+        candidate_float = np.asarray([float(value) for value in escape["candidate_couplings_exact"]], dtype="<f8")
+        if any(np.array_equal(candidate_float, canonical) for canonical in canonical_float):
+            raise RuntimeError(f"continuous escape {index} duplicates a canonical generator")
+    if escape9.get("candidate_outside_frozen_canonical_pool") is not True:
+        raise RuntimeError("ninth path lacks the explicit canonical-exclusion flag")
 
     for index, (escape, digest) in enumerate(zip(escapes, escape_hashes), 1):
         if escape.get("status") != "certified_continuous_path_dual_escape" or not escape.get("complete") or not escape.get("strictly_positive"):
@@ -101,8 +110,6 @@ def main():
         couplings = [Fraction(value) for value in escape["candidate_couplings_exact"]]
         if len(couplings) != 42 or couplings[-1] != 0 or any(value <= 0 for value in couplings[:-1]):
             raise RuntimeError(f"continuous escape {index} is not a positive 41-edge open path")
-        if escape.get("candidate_outside_frozen_canonical_pool") is not True:
-            raise RuntimeError(f"continuous escape {index} is not certified outside the canonical pool")
     if len({tuple(Fraction(v) for v in e["candidate_couplings_exact"]) for e in escapes}) != 9:
         raise RuntimeError("the nine Arb-certified escape paths are not pairwise distinct")
 
