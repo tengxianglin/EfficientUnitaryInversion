@@ -1867,3 +1867,25 @@ A new deterministic 21-dimensional torus pricing search and independent Arb veri
 - .github/workflows/eui-196col-uniform-torus-pricing.yml.
 
 The search result is not yet observed in this audit. A positive exact Arb phase interval would imply a finite equal-coupling escape for this 196-column dual by continuity and the already-proved Kronecker density; a finite multistart failure would not prove global separation.
+
+
+
+## 196-column uniform-torus escape (2026-11-24)
+
+The 196-column finite-pool theorem remains valid for its exact 196 listed columns and 2,113 selected rows, with certified lower bound
+\\[
+\\eta_{196}\\ge0.41973861353658526\\ldots>1/3.
+\\]
+A separate exact pricing test now shows that this same dual is not a separator of the full continuous physical family. The 21-dimensional torus search found a rational-decimal phase vector; an independent 128-bit Arb verifier certifies
+\\[
+S_{196}(R(\\theta_*))
+\\in[1.5804582969205441019413585480859926
+\\pm4.77\\times10^{-35}]>0.
+\\]
+The phase-vector SHA256 is \\texttt{07ef5b4a57de7be1ac1ec0d7aded62b86fadecf2dc4cf4caa6c0a9b4ebfee6b8}. The verifier pins dual SHA256 \\texttt{45edad15fc5978381108c9ade57006da941c476e05cb447c044fbe4ed986cd86} and LP SHA256 \\texttt{d203f3cddd74b896f565d44509168f11a39b814b5f5de8fe1f99a89d26c2e179}. It re-certified the 193-, 194-, and 195-column parent/time chain and the 196-column finite-pool dual before evaluating the candidate. Successful workflow: [45282545933](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45282545933).
+
+By the proved rational independence of \\(\\omega_k=4\\cos(k\\pi/43)\\), the positive uniform-coupling ray is dense in the torus. Continuity therefore implies that some finite \\(t>0\\), with all 41 couplings equal to \\(t\\), has positive 196-column pricing. This is a rigorous **existence** result, not yet an explicit decimal time. It refutes global separation by this particular dual only. It does not invalidate the finite-pool theorem, establish full-family mixture feasibility/infeasibility, or imply a Choi/diamond operational guarantee.
+
+Formal note: [THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md](THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md). Evidence: [search transcript](evidence/196col_uniform_torus_search_n21.json), [128-bit Arb certificate](evidence/196col_uniform_torus_arb_n21.json). The first verifier run exposed a provenance-check bug: it expected a nonexistent \\texttt{parent_194col_uniform_ray_time_exact_rational} field in the 195-column time certificate. The verifier was corrected to load the 194-column certificate itself and check its raw-file hash, LP/dual ancestry, and exact rational time. The corrected workflow passed all parent checks and the Arb evaluation. Workflow hygiene was also tightened so stale outputs are removed immediately after checkout, before any potentially failing verification step.
+
+**Next:** search the one-dimensional uniform ray for an explicit finite \\(t\\), then certify that exact rational-decimal time with Arb. A failed bounded search would not negate the density-based existence theorem. In parallel, the publication-critical long-ring joint-parity ensemble and the moment-to-operational-error bridge remain open; the 196-column sequence is supporting finite-pool/dual-pricing evidence, not a replacement for either theorem.
