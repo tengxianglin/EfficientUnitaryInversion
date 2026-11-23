@@ -87,10 +87,14 @@ def main():
     for label, cert in (("first", escape1), ("second", escape2), ("third", escape3), ("fourth", escape4)):
         if cert.get("status") != "certified_continuous_path_dual_escape" or not cert.get("complete") or not cert.get("strictly_positive"):
             raise RuntimeError(f"{label} continuous escape is not Arb-certified")
-    if escape3.get("dual_certificate_sha256") != parent_dual_sha or escape3.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("third escape does not pin the 186-column parent dual/LP")
+    if escape3.get("dual_certificate_sha256") != parent_lp.get("parent_185col_dual_certificate_sha256") or escape3.get("lp_transcript_sha256") != parent_lp.get("parent_185col_lp_sha256"):
+        raise RuntimeError("third escape does not pin the 185-column parent dual/LP")
     if escape3.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("third escape does not pin the cut-row inventory")
+    if escape4.get("dual_certificate_sha256") != parent_dual_sha or escape4.get("lp_transcript_sha256") != parent_lp_sha:
+        raise RuntimeError("fourth escape does not pin the 186-column parent dual/LP")
+    if escape4.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("fourth escape does not pin the cut-row inventory")
 
     seed = np.asarray(np.load(SEED_POOL, allow_pickle=False), dtype="<f8")
     seed_sha = sha(seed.tobytes())
@@ -201,6 +205,7 @@ def main():
         "first_continuous_escape_arb_certificate_sha256": escape1_sha,
         "second_continuous_escape_arb_certificate_sha256": escape2_sha,
         "third_continuous_escape_arb_certificate_sha256": escape3_sha,
+        "fourth_continuous_escape_arb_certificate_sha256": escape4_sha,
         "seed_pool_sha256_le_f64": seed_sha,
         "canonical_all_columns_sha256_le_f64": all_sha,
         "column_index_sha256": index_hash.hexdigest(),
