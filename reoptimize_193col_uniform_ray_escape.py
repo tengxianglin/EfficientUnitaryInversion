@@ -92,7 +92,7 @@ def main():
     if time_cert.get("lp_transcript_sha256") != parent_lp_sha or time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("uniform-ray time does not pin the exact 192-column LP/cut design")
     t = Fraction(time_cert["t_exact_rational"])
-    if t <= 0 or time_cert.get("t_exact_decimal") != str(t):
+    if t <= 0 or Fraction(time_cert["t_exact_decimal"]) != t:
         raise RuntimeError("uniform-ray time exact rational/decimal mismatch")
     uniform_couplings = [Fraction(value) for value in time_cert["uniform_couplings_exact_decimal"]]
     if len(uniform_couplings) != 41 or any(value != t for value in uniform_couplings):
