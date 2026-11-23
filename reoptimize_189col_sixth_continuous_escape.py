@@ -340,6 +340,7 @@ def main():
             "third_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_3.name],
             "fourth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_4.name],
             "fifth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_5.name],
+            "sixth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_6.name],
             "seed_pool_sha256_le_f64": seed_sha,
             "canonical_all_columns_sha256_le_f64": all_sha,
             "base_columns": base_columns,
