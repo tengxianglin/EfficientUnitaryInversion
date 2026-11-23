@@ -1496,7 +1496,7 @@ S_{192}(R(\theta_*))
 
 The exact phase-vector SHA256 is e1569f8952cf6fbc65d490eb6d8179069f3da47ea77dd3444184a47549ed4546. The verifier pins the 192-column dual SHA256 2b3891b88f40627458764821142f6a83e039fd051795d4146895de68f5c5a308, LP transcript SHA256 ed966f1c3f755b1910f7f34be978af88ee290821ea643cb7690d83c7aeab686a, and cut-design SHA256 d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f.
 
-Because the positive uniform ray is dense in the 21-torus and the pricing functional is continuous, a strict positive torus point implies existence of a finite t>0 with S_192(exp(t K_*))>0, i.e. all 41 path couplings equal to t. The tail of the positive ray is also dense, so t can be taken strictly positive. This refutes extension of this particular 192-column dual to a separator of the continuous positive-coupling family. It does not invalidate the finite 192-column minimax theorem, prove full-family feasibility/infeasibility, or give an operational Choi/diamond guarantee. The finite t has not yet been explicitly located.
+Because the positive uniform ray is dense in the 21-torus and the pricing functional is continuous, a strict positive torus point implies existence of a finite t>0 with S_192(exp(t K_*))>0, i.e. all 41 path couplings equal to t. The tail of the positive ray is also dense, so t can be taken strictly positive. This refutes extension of this particular 192-column dual to a separator of the continuous positive-coupling family. It does not invalidate the finite 192-column minimax theorem, prove full-family feasibility/infeasibility, or give an operational Choi/diamond guarantee. A direct three-range one-dimensional search has now found the explicit rational time t=14425.249926691145447=14425249926691145447/10^15. The independent 128-bit Arb verifier certifies S_192(exp(t K_*)) in [0.468498256538894200560432299886 +/- 2.83e-31] > 0; all 41 couplings equal this t.
 
 Formal statement and proof: THEORY_192COL_UNIFORM_RAY_DUAL_ESCAPE.md.
 
@@ -1516,3 +1516,33 @@ The currently accessible source remains arXiv v1, dated 25 June 2025: https://ar
 ### Next highest-value action
 
 Find an explicit finite rational decimal t>0 on the uniform ray and independently certify S_192(exp(t K_*))>0 with Arb. This would turn the nonconstructive dense-orbit existence corollary into a directly replayable physical path witness. Afterward, the main theoretical problem remains the full continuous-family minimax question, followed by a rigorous bridge from moment residuals to Choi infidelity and diamond distance.
+
+
+### Explicit finite uniform-path escape (2026-11-24)
+
+The nonconstructive dense-torus corollary has now been strengthened to an explicit physical witness. A deterministic differential-evolution search over t in [0.001, 10^3], [10^3, 10^4], and [10^4, 10^5] selected
+
+\[
+t=14425.249926691145447
+=\frac{14425249926691145447}{10^{15}}>0.
+\]
+
+The independent 128-bit Arb verifier reconstructs the exact uniform-path torus rotation from the algebraic frequencies \(\omega_k=4\cos(k\pi/43)\) and the exact real orthogonal basis, then checks the same 61 active rows of the rationalized 192-column dual. It certifies
+
+\[
+S_{192}(e^{tK_*})
+\in[0.468498256538894200560432299886
+\pm2.83\times10^{-31}]>0.
+\]
+
+This is a directly certified finite physical path with all 41 couplings equal to t. It is outside the 192-column pool because all 192 listed columns have strictly negative Arb-certified pricing. The result refutes this particular 192-column dual as a separator of the continuous positive-coupling family; it does not invalidate the finite 192-column minimax theorem or settle full-family feasibility.
+
+Evidence:
+- Search: evidence/192col_uniform_ray_time_search_n21.json
+- Arb: evidence/192col_uniform_ray_time_arb_n21.json
+- Search script: discover_192col_uniform_ray_time_escape.py
+- Arb verifier: verify_192col_uniform_ray_time_arb.py
+- Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45221238345
+- Evidence commit: c61fca25cfe6dcc6d13b76429e10c533c907f71f
+
+The finite-time workflow completed the search and Arb-verification steps successfully; artifact upload was still finishing when this audit entry was written. The next action is to append this path as column 193 and reoptimize the same 2,113-row minimax LP.
