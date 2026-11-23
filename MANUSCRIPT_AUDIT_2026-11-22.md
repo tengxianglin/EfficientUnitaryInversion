@@ -755,3 +755,6 @@ The next action is to price the remaining 1,460 canonical columns against this e
 
 
 The next pricing stage is now configured and queued in [workflow 45104568684](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104568684). It first reruns the exact 182-column Arb dual verifier, screens all 1,460 remaining canonical generators, then applies independent 128-bit Arb verification to up to ten leading positive candidates. The pricing evidence will be pinned to the exact 182-column certificate, LP transcript, 152-column cut-row inventory, and binary64 screen hash.
+
+
+The first 182-column pricing attempt [45104568684](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104568684) re-certified the parent 182-column dual and compiled the pricing programs, but the binary64 pricing script stopped at a stale set-cardinality guard (it expected 171 distinct active canonical labels after separately checking 181 labels). The exact dual and its certificate were unaffected. The guard was corrected to 181 in [9501f17](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/9501f17b14fb19b24cce395486b06ef3394244fe); corrected workflow [45104635426](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104635426) is queued. No pricing conclusion is drawn from the failed attempt.
