@@ -130,9 +130,9 @@ def main():
     if base_time_cert.get("dual_certificate_sha256") != base_dual_sha or base_time_cert.get("lp_transcript_sha256") != base_lp_sha or base_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("base uniform-ray time does not pin the exact 192-column dual/LP/cut design")
     if parent_lp.get("parent_192col_dual_certificate_sha256") != base_dual_sha:
-        raise RuntimeError("194-column parent does not pin the base 192-column dual")
+        raise RuntimeError("195-column parent does not pin the base 192-column dual")
     if parent_lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256") != base_time_cert_sha:
-        raise RuntimeError("194-column parent does not pin the base uniform-ray time certificate")
+        raise RuntimeError("195-column parent does not pin the base uniform-ray time certificate")
     base_t = Fraction(base_time_cert["t_exact_rational"])
     if base_t <= 0 or Fraction(base_time_cert["t_exact_decimal"]) != base_t:
         raise RuntimeError("base uniform-ray exact rational/decimal mismatch")
@@ -140,7 +140,7 @@ def main():
     if len(base_uniform_couplings) != 41 or any(value != base_t for value in base_uniform_couplings):
         raise RuntimeError("base time certificate is not a uniform 41-edge path")
     if Fraction(parent_lp["parent_192col_uniform_ray_time_exact_rational"]) != base_t:
-        raise RuntimeError("194-column parent has a different base uniform-ray time")
+        raise RuntimeError("195-column parent has a different base uniform-ray time")
 
     if parent_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_193col_dual_certificate_sha256"):
         raise RuntimeError("parent uniform-ray time does not pin the 193-column dual")
@@ -155,7 +155,7 @@ def main():
     if len(parent_uniform_couplings) != 41 or any(value != parent_t for value in parent_uniform_couplings):
         raise RuntimeError("parent time certificate is not a uniform 41-edge path")
     if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != parent_t:
-        raise RuntimeError("194-column parent has a different preceding uniform-ray time")
+        raise RuntimeError("195-column parent has a different preceding uniform-ray time")
 
     if grandparent_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256") or grandparent_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_194col_lp_sha256"):
         raise RuntimeError("194-column ancestor time does not pin the exact 194-column dual/LP")
@@ -187,7 +187,7 @@ def main():
     if seed.shape != (1600, 42) or seed_sha != SEED_POOL_SHA256:
         raise RuntimeError("frozen seed-pool hash/shape mismatch")
     if parent_lp.get("seed_pool_sha256_le_f64") != seed_sha:
-        raise RuntimeError("192-column parent does not pin the frozen seed pool")
+        raise RuntimeError("195-column parent does not pin the frozen seed pool")
 
     all_columns, _, _ = canonical_ensemble()
     all_sha = sha(np.asarray(all_columns, dtype="<f8").tobytes())
@@ -242,8 +242,8 @@ def main():
         raise RuntimeError("new uniform-ray escape duplicates a parent column")
     physical_columns.append(new_couplings)
     column_order = parent_order + [NEW_COLUMN]
-    if len(physical_columns) != 195:
-        raise RuntimeError("expanded physical pool must contain 195 columns")
+    if len(physical_columns) != 196:
+        raise RuntimeError("expanded physical pool must contain 196 columns")
     torus_q, torus_omega = uniform_path_basis()
     base_uniform_rotation = torus_q @ block_rotation(float(base_t) * torus_omega) @ torus_q.T
     parent_uniform_rotation = torus_q @ block_rotation(float(parent_t) * torus_omega) @ torus_q.T
