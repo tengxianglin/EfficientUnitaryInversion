@@ -1554,7 +1554,7 @@ The exact finite uniform-ray witness at t=14425.249926691145447 was appended as 
 
 The 193-column / 2,113-row HiGHS discovery reports objective 0.4348371573809519, independently recomputed maximum residual 0.4348371573809968, support size 63, and floating primal-dual gap 8.60e-15. Block maxima are 0.43483715738095197 (low), 0.4348371573809968 (sixth), and 0.4348371573809675 (eighth). These remain numerical LP diagnostics, not a theorem.
 
-The current exact rationalization and 128-bit Arb verifier is running in workflow 45223141522. A 193-column minimax obstruction may be claimed only after it verifies all 193 column inequalities and a strict lower bound above 1/3. If the exact dual fails, the result must be reclassified and the primal candidate audited instead.
+The exact rationalization and independent 128-bit Arb verifier completed successfully in workflow 45223141522. All 193 column inequalities were strictly certified, with maximum shifted upper endpoint -5.7674808073103104e-11. The exact lower bound is 78333298379892089605752391/180143985094819840000000000 = 0.43483715728094335... > 1/3. The formal theorem is in THEORY_193COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md.
 
 Evidence:
 - Reoptimizer workflow 45222472885: success.
@@ -1565,3 +1565,29 @@ Evidence:
 - Arb workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45223141522 (pending at audit time).
 
 The next action is to finish exact 193-column dual certification; no continuous-family conclusion follows from this finite 193-column LP alone.
+
+
+### 193-column exact minimax theorem (2026-11-24)
+
+The 193-column rational dual is now fully certified. Its exact values are:
+
+- dual L1 norm: 18446744073709358785/18446744073709551616 < 1;
+- dual objective: 8021329755945624383/18446744073709551616;
+- strict slack: 1/10^10;
+- certified lower bound: 78333298379892089605752391/180143985094819840000000000 = 0.43483715728094335... > 1/3;
+- active support: 63 entries (2 low-order, 59 sixth-order, 2 eighth-order);
+- Arb checks: 193/193 column intervals, all strictly negative after slack;
+- maximum shifted upper endpoint: -5.7674808073103104e-11.
+
+This is a theorem for exactly 193 physical columns and the fixed 2,113-row mixed-order design. It is not a theorem for the full 1,641 canonical inventory or the continuous path family. The uniform path at t=14425.249926691145447 is included as column 1650 and evaluated from the same spectral torus rotation for all moment orders.
+
+Evidence:
+- Theory: THEORY_193COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md
+- LP: evidence/joint_low_six_eighth_lp_193col_uniform_ray_escape_n21.json
+- Arb certificate: evidence/55probe_193col_uniform_ray_escape_dual_certificate_n21.json
+- LP SHA256: 92931c1a8bad949d03cc11376c98c4d0166a8aae96060e6d76c991415af76981
+- Arb workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45223141522 (success)
+- Certificate commit: 0bf2b18708f278968163700a718a90fdb413ec0e
+- Theory commit: aca202be86de571204591e99f32261ff5c8c64e9
+
+The next decisive action is to search the new 193-column dual over the exact uniform-path 21-torus and then the 41-dimensional positive path family. A positive Arb pricing witness would yield another physical escape; failure of finite searches is not a global separation proof.
