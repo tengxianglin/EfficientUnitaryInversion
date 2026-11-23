@@ -73,6 +73,8 @@ def main():
         raise RuntimeError("187-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != hashes[LP_187.name]:
         raise RuntimeError("187-column parent dual does not pin its LP")
+    if parent_lp.get("parent_186col_lp_sha256") != parent_dual.get("parent_186col_lp_sha256") or parent_lp.get("parent_186col_dual_certificate_sha256") != parent_dual.get("parent_186col_dual_certificate_sha256"):
+        raise RuntimeError("187-column parent LP/dual ancestry mismatch")
     if parent_lp.get("parent_152col_candidate_sha256") != hashes[CANDIDATE_152.name]:
         raise RuntimeError("186-column parent LP does not pin its 152-column ancestor")
     if parent_lp.get("cut_lp_transcript_sha256") != hashes[CUT_LP.name] or parent_lp.get("cut_dual_certificate_sha256") != hashes[CUT_DUAL.name]:
@@ -86,13 +88,15 @@ def main():
     if parent_dual.get("second_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_2.name]:
         raise RuntimeError("186-column parent dual does not pin the second continuous escape")
     if parent_lp.get("third_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_3.name] or parent_dual.get("third_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_3.name]:
-        raise RuntimeError("186-column parent does not pin the third continuous escape")
+        raise RuntimeError("187-column parent does not pin the third continuous escape")
+    if parent_lp.get("fourth_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_4.name] or parent_dual.get("fourth_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_4.name]:
+        raise RuntimeError("187-column parent does not pin the fourth continuous escape")
     if cut_dual.get("status") != "strict_152col_2113row_minimax_obstruction" or not cut_dual.get("complete"):
         raise RuntimeError("152-column ancestor dual is not strictly certified")
     if cut_dual.get("lp_transcript_sha256") != hashes[CUT_LP.name]:
         raise RuntimeError("152-column ancestor dual does not pin its cut LP")
 
-    for label, cert in (("first", escape1), ("second", escape2), ("third", escape3), ("fourth", escape4)):
+    for label, cert in (("first", escape1), ("second", escape2), ("third", escape3), ("fourth", escape4), ("fifth", escape5)):
         if cert.get("status") != "certified_continuous_path_dual_escape" or not cert.get("complete") or not cert.get("strictly_positive"):
             raise RuntimeError(f"{label} continuous path lacks a strict Arb certificate")
     if candidate152.get("continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_1.name]:
@@ -127,7 +131,7 @@ def main():
     base_columns = [int(x) for x in parent_lp["base_columns"]]
     added_columns = [int(x) for x in parent_lp["added_canonical_columns"]]
     parent_order = [int(x) for x in parent_lp["column_order"]]
-    expected_parent_order = base_columns + [ESCAPE_1_COLUMN] + added_columns + [ESCAPE_2_COLUMN, ESCAPE_3_COLUMN]
+    expected_parent_order = base_columns + [ESCAPE_1_COLUMN] + added_columns + [ESCAPE_2_COLUMN, ESCAPE_3_COLUMN, ESCAPE_4_COLUMN]
     if len(base_columns) != 151 or len(added_columns) != 32:
         raise RuntimeError("unexpected canonical inventory in the 186-column parent")
     if parent_order != expected_parent_order or len(set(parent_order)) != 187:
@@ -149,7 +153,7 @@ def main():
         raise RuntimeError("fifth path is not certified outside the canonical inventory")
 
     column_order = parent_order + [ESCAPE_5_COLUMN]
-    if len(column_order) != 188 or len(set(column_order)) != 187:
+    if len(column_order) != 188 or len(set(column_order)) != 188:
         raise RuntimeError("expanded physical pool must contain 188 unique columns")
     physical_columns = (
         [all_columns[column] for column in base_columns]
@@ -254,8 +258,8 @@ def main():
     )
     transcript = {
         "status": lp_status,
-        "parent_186col_lp_sha256": hashes[LP_186.name],
-        "parent_186col_dual_certificate_sha256": hashes[DUAL_187.name],
+        "parent_187col_lp_sha256": hashes[LP_187.name],
+        "parent_187col_dual_certificate_sha256": hashes[DUAL_187.name],
         "parent_152col_candidate_sha256": hashes[CANDIDATE_152.name],
         "cut_lp_transcript_sha256": hashes[CUT_LP.name],
         "cut_dual_certificate_sha256": hashes[CUT_DUAL.name],
@@ -297,7 +301,7 @@ def main():
         },
         "finite_candidate_below_one_third": bool(result.fun < 1 / 3),
         "scope": (
-            "Binary64 HiGHS discovery on the fixed 2,113-row mixed-order design, adding a third "
+            "Binary64 HiGHS discovery on the fixed 2,113-row mixed-order design, adding a fifth "
             "continuous path whose positive pricing score against the exact 187-column dual was "
             "independently certified with 128-bit Arb. A sub-1/3 result is only a candidate until "
             "the exact rationalized mixture passes Arb on all 2,113 pinned rows and a complete "
@@ -324,8 +328,8 @@ def main():
         next_candidate = {
             "source_file": str(LP_OUT.relative_to(ROOT)),
             "source_sha256": lp_sha,
-            "parent_186col_lp_sha256": hashes[LP_186.name],
-            "parent_186col_dual_certificate_sha256": hashes[DUAL_186.name],
+            "parent_187col_lp_sha256": hashes[LP_187.name],
+            "parent_187col_dual_certificate_sha256": hashes[DUAL_187.name],
             "first_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_1.name],
             "second_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_2.name],
             "third_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_3.name],
