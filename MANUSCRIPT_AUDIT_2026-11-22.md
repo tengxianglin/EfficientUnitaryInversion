@@ -892,3 +892,18 @@ This strictly disproves extending the **particular 184-column dual** to the full
 The first two search runs exposed a scalar-value bug (the feature was added without its dual coefficient) and are explicitly discarded in Issue #5. The corrected implementation weights the scalar and gradient consistently and checks the old certified column before optimization.
 
 **Next:** add this exact path as a 185th column, re-solve the same 2,113-row minimax LP, then certify any new dual and test it again against the continuous family. Do not promote the finite-pool obstruction to a continuous-family theorem.
+
+
+## 185-column follow-up after the second continuous-path escape (2026-11-23)
+
+A second exact-rational 41-edge open path strictly escapes the 184-column mixed-order dual. Its independent 128-bit Arb pricing interval is
+\[
+S_{184}(c)\in[558.5197275383090425573204756469618\pm6.20\times10^{-32}]>0.
+\]
+This refutes the global extension of that particular finite-pool dual; it does not affect the 184-column theorem or prove full-family feasibility.
+
+The exact input and proof are recorded in `THEORY_184COL_CONTINUOUS_PATH_DUAL_ESCAPE.md`, with Arb transcript `evidence/184col_continuous_dual_escape_arb_n21.json` and successful workflow [45115018787](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45115018787).
+
+The 185-column reoptimization has been implemented as the 184-column pool plus this second continuous path, retaining exactly the same 2,113-row mixed-order design. The new workflow [45126903168](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45126903168) rechecks the parent dual and both escape certificates, solves the LP, and independently verifies either an exact-probability sub-\(1/3\) candidate on all pinned rows or a new above-cap dual against all 185 columns. At the time of this audit update, the LP step is still running; no 185-column objective or theorem is claimed.
+
+Protocol and scope: `THEORY_185COL_SECOND_CONTINUOUS_ESCAPE_REOPTIMIZATION.md`. The experiment remains finite-pool and selected-row only. A complete 63,133-orbit sixth-order audit, complete eighth-order control, unrestricted continuous-family minimax theorem, and EUI-specific moment-to-Choi/diamond bridge remain unresolved.
