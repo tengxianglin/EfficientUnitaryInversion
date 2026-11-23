@@ -752,3 +752,6 @@ Formal proof: [THEORY_182COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md](http
 **Inventory distinction:** this 182-column / 2,113-row branch is distinct from the already certified 182-column / 2,106-row mixed-order result in `THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md`. Their column inventories and row sets differ and their objectives must not be conflated.
 
 The next action is to price the remaining 1,460 canonical columns against this exact 182-column dual, strictly verify positive candidates with Arb, and reoptimize the expanded pool.
+
+
+The next pricing stage is now configured and queued in [workflow 45104568684](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104568684). It first reruns the exact 182-column Arb dual verifier, screens all 1,460 remaining canonical generators, then applies independent 128-bit Arb verification to up to ten leading positive candidates. The pricing evidence will be pinned to the exact 182-column certificate, LP transcript, 152-column cut-row inventory, and binary64 screen hash.
