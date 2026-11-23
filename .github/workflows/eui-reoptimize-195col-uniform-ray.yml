@@ -33,10 +33,14 @@ jobs:
           python -m unittest tests/test_eighth_orbit_enumeration.py
           python -m unittest tests/test_uniform_path_torus_basis.py
           python -m py_compile reoptimize_195col_uniform_ray_escape.py verify_195col_uniform_ray_dual_arb.py
-      - name: Re-certify the 193-column parent dual
-        run: python verify_193col_uniform_ray_dual_arb.py
-      - name: Re-certify the 193-column explicit uniform-ray escape
-        run: python verify_193col_uniform_ray_time_arb.py
+      - name: Re-certify the 193-column parent dual and finite-time escape
+        run: |
+          python verify_193col_uniform_ray_dual_arb.py
+          python verify_193col_uniform_ray_time_arb.py
+      - name: Re-certify the 194-column parent dual and finite-time escape
+        run: |
+          python verify_194col_uniform_ray_dual_arb.py
+          python verify_194col_uniform_ray_time_arb.py
       - name: Remove stale 195-column outputs
         run: |
           rm -f evidence/joint_low_six_eighth_lp_195col_uniform_ray_escape_n21.json
