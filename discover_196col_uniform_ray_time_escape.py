@@ -31,11 +31,11 @@ def main():
     torus = json.loads(torus_raw)
     torus_sha = sha(torus_raw)
     if torus.get("status") != "certified_196col_uniform_torus_dual_escape" or not torus.get("complete"):
-        raise RuntimeError("195-column torus point is not independently Arb-certified")
+        raise RuntimeError("196-column torus point is not independently Arb-certified")
     if torus.get("dual_certificate_sha256") != pricing.cert_sha or torus.get("lp_transcript_sha256") != pricing.lp_sha:
-        raise RuntimeError("195-column torus certificate does not pin the current dual/LP")
+        raise RuntimeError("196-column torus certificate does not pin the current dual/LP")
     if not torus.get("strictly_positive") or not torus.get("uniform_ray_escape_exists_by_density"):
-        raise RuntimeError("195-column torus certificate does not prove a uniform-ray escape")
+        raise RuntimeError("196-column torus certificate does not prove a uniform-ray escape")
     omega = pricing.frequencies
 
     def score_at(t):
