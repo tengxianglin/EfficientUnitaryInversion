@@ -935,3 +935,21 @@ The exact margin above \(1/3\) is \(0.13848684554273874\ldots\).
 - Formal-note update: [7d39631](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7d39631fc2ed5bf7961bd2087a08f85678cb3fb5)
 
 **Boundary:** this is a fixed 185-generator / 2,113-row mixed-order theorem. It is not a complete sixth/eighth orbit certificate, a no-go for the unrestricted continuous path family, or a Choi/diamond operational guarantee. The second continuous escape invalidates the 184-column dual's attempted global extension; the newly certified 185-column dual must itself be tested against the continuous family before any such extension is considered.
+
+
+## 185-column dual: third strict continuous-path escape (2026-11-23)
+
+The newly certified 185-column dual also fails to separate the unrestricted positive 41-edge open-path family. A deterministic 10-start Frechet/cofactor search produced an exact-decimal-rational path, distinct from the two prior escapes and from the canonical inventory. The analytic gradient agrees with complex-step differentiation with maximum relative defect \(9.18\times10^{-13}\).
+
+An independent 128-bit Arb verifier certifies
+\[
+S_{185}(c)\in[293.82920368783706755711439295738586\pm5.02\times10^{-33}]>0.
+\]
+This refutes the global extension of the particular 185-column dual. It does not invalidate the finite 185-column theorem, prove a full-family feasible mixture, or imply an operational channel guarantee.
+
+- Exact path and proof: `THEORY_185COL_CONTINUOUS_PATH_DUAL_ESCAPE.md`
+- Search and Arb evidence: `evidence/185col_continuous_dual_search_n21.json`, `evidence/185col_continuous_dual_escape_arb_n21.json`
+- Successful workflow: [45127900561](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45127900561)
+- Evidence commit: [4293fc0](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4293fc0e567d0ed0c45c295a9687fb273dc4ea54)
+
+The next finite experiment is the 186-column reoptimization, adding this exact path to the 185-column pool. The continuous-family minimax theorem and the EUI-specific moment-to-Choi/diamond bridge remain open.
