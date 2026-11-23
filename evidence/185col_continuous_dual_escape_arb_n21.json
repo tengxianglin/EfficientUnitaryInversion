@@ -5,6 +5,7 @@
   "lp_transcript_sha256": "53b3e6b6369b05be741ac9f716be798051059fb646002df33bfc67e06bc68e0b",
   "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
   "discovery_sha256": "7d1f0c12d24c598bbb4f6f794b32efdbc933ba75c9fa0f383f8df510b83a7459",
+  "prior_escape_certificate_sha256": "d40aeaa3c5c5a814a47f046ff96f892e4bf98069fa59330ffa4c7e343674543c",
   "search_scope": "1e-4 <= c_j <= 100 for all 41 open-path edge magnitudes; c_41=0",
   "scope": "A strictly positive Arb pricing interval is a counterexample to extending this specific 185-column dual over the full positive-coupling path family. A failed local search is not a global separation proof.",
   "status": "certified_continuous_path_dual_escape",
