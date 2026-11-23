@@ -124,6 +124,26 @@ S_{192}(e^{tK_*})>0.
 
 Equivalently, for the physical path with all 41 edge couplings equal to this same positive \(t\), the 192-column dual pricing is strictly positive. Thus this dual cannot certify a global separator for the continuous positive-coupling path family.
 
+### Explicit finite-time witness
+
+A direct one-dimensional search along the uniform ray selected
+\[
+t_* = 14425.249926691145447
+=\frac{14425249926691145447}{10^{15}}>0.
+\]
+All 41 edge couplings are exactly this same positive rational number. An independent 128-bit Arb verifier evaluates the exact uniform-ray matrix from the algebraic frequencies and exact phase basis, then recomputes all 61 active dual-row contributions. It certifies
+\[
+\boxed{
+S_{192}(e^{t_*K_*})
+\in
+[0.468498256538894200560432299886
+\pm 2.83\times10^{-31}]>0.
+}
+\]
+The lower endpoint is strictly greater than 0.4684982565388942. The binary64 discovery score at the rounded decimal time was 0.46849825653705707; it is only a search diagnostic. The Arb interval is the physical-path proof.
+
+This is an explicit finite, strictly positive uniform-coupling escape, not merely a nonconstructive consequence of density. Since all 192 pinned columns have strictly negative Arb-certified pricing values, this path is necessarily outside that finite pool.
+
 ## 5. What this does and does not establish
 
 **Established:**
@@ -132,13 +152,12 @@ Equivalently, for the physical path with all 41 edge couplings equal to this sam
 - By density and continuity, a finite positive uniform coupling exists that escapes this particular dual.
 
 **Not established:**
-- An explicit decimal value of the finite escape time \(t\); the existence proof is nonconstructive at this stage.
 - Feasibility or infeasibility of a probability mixture over the full continuous physical family.
 - A continuous-family minimax lower bound or upper bound.
 - Complete sixth/eighth orbit control.
 - A Choi-infidelity or diamond-distance guarantee.
 
-The next useful experiment is to locate a concrete finite \(t\) on the uniform ray and certify \(S_{192}(e^{tK_*})>0\) directly with Arb. Even after that, a different dual may still separate the full continuous family; the present result only refutes this particular 192-column dual.
+The next useful experiment is to append this exact uniform path as the 193rd column and reoptimize the same 2,113-row LP. Even if the new finite pool remains obstructed, a different dual may still separate the full continuous family; the present result only refutes this particular 192-column dual.
 
 ## 6. Reproducibility
 
@@ -148,9 +167,14 @@ The next useful experiment is to locate a concrete finite \(t\) on the uniform r
 - Search transcript: evidence/192col_uniform_torus_search_n21.json
 - Search transcript SHA256: 90c47cfabf5576014f99705e5bf407cf190e394bcba0a7c00f3a51f42dcebfa9
 - Arb certificate: evidence/192col_uniform_torus_arb_n21.json
-- Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45220109478
-- Workflow result: success; 192-column parent re-certification, torus search, and Arb verification all passed.
-- Evidence commit: 2a7515f7491527af76b5e6010aafdf81c7b62bb5
+- Torus workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45220627970 (success).
+- Explicit-time search: discover_192col_uniform_ray_time_escape.py
+- Explicit-time Arb verifier: verify_192col_uniform_ray_time_arb.py
+- Explicit-time search transcript: evidence/192col_uniform_ray_time_search_n21.json
+- Explicit-time Arb certificate: evidence/192col_uniform_ray_time_arb_n21.json
+- Explicit-time workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45221238345 (search and Arb verification passed; artifact upload was still finishing when this note was prepared).
+- Evidence commit: c61fca25cfe6dcc6d13b76429e10c533c907f71f
+- Torus/theory commit: e9e1b9c6e8c8df5e20cad01f817dc0c5072b07c7
 
 The final discovery transcript checks the analytic cofactor gradient at the generic nonstationary phase vector
 \[
