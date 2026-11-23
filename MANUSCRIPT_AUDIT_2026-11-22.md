@@ -1412,3 +1412,21 @@ Kronecker's theorem then proves that \(e^{tK_*}\), \(t\ge0\), is dense in the co
 This is an exact closure theorem and a compactification of the uniform-coupling ray, not a claim that the current 191-column dual has positive maximum on that torus. It suggests the next decisive analytic/numerical test: optimize the certified 191-column pricing functional over these 21 phases, then use density and an Arb-verified strict positive margin to obtain a finite uniform-ray escape if one exists.
 
 Theory: THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md
+
+
+## Ninth escape appended: 192-column LP discovery
+
+The ninth Arb-certified path (physical label 1649) was appended to the 191-column pool and the same 2,113-row design was reoptimized. The 192-column HiGHS discovery returned
+\[
+\eta_{\rm LP}=0.43927461827369735,
+\qquad
+\max_i |(Ap-y)_i|=0.4392746182957874,
+\]
+with primal/dual discovery gap \(9.893752483947083\times10^{-13}\), 61 positive-support columns, and new-column weight \(2.4935939849649987\times10^{-5}\). The objective remains above \(1/3\).
+
+This is still a binary64 LP discovery, not a theorem. The independent 128-bit Arb verification of the rationalized 192-column dual is the required next step; only if every one of the 192 column inequalities is strictly certified may the corresponding finite-pool minimax lower bound be stated as proved.
+
+- LP transcript: evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json
+- Reoptimizer: reoptimize_192col_ninth_continuous_escape.py
+- Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45198909460
+- LP evidence commit: ad42fb8e (see repository commit history)
