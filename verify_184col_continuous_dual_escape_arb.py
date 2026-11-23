@@ -126,7 +126,7 @@ def main():
         feature = orbit_average_minor(entries, eighth_rows[row - 2106])
         term = ball(z[row]) * feature / ball(Fraction(1, 19721))
         score += term
-        contributions.append({"row": row, "block": "eighth", "contribution": str(term))
+        contributions.append({"row": row, "block": "eighth", "contribution": str(term)})
 
     lower, upper = score.lower(), score.upper()
     strict_positive = bool(lower > 0)
