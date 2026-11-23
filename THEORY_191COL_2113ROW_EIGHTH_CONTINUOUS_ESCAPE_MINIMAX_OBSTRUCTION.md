@@ -2,37 +2,37 @@
 
 ## Theorem
 
-Let \\(\\mathcal P_{191}\\) be the ordered finite pool pinned by
+Let \(\mathcal P_{191}\) be the ordered finite pool pinned by
 `evidence/joint_low_six_eighth_lp_191col_eighth_continuous_escape_n21.json`.
 It consists of 183 selected canonical generators and eight distinct exact-decimal
 open-path generators. Each open path has 41 strictly positive edge magnitudes
 and a zero closing-edge coordinate. The eight path inputs are independently
 certified as distinct and strictly positive.
 
-Let \\(A_{191}\\) denote the exact normalized moment-feature matrix and
-\\(y\\) its exact target vector for the pinned 2,113-row design:
+Let \(A_{191}\) denote the exact normalized moment-feature matrix and
+\(y\) its exact target vector for the pinned 2,113-row design:
 
 - 1,461 complete second-/fourth-order rows (21 second-order and 1,440 fourth-order);
 - 645 sixth-order rows (311 previously selected rows and 334 additional orbit cuts);
 - seven selected eighth-order rows.
 
-Then every probability vector \\(p\\in\\Delta_{191}\\) obeys
-\\[
-\\boxed{
-\\|A_{191}p-y\\|_\\infty
-\\ge
-\\frac{2493405651522255993844313}
+Then every probability vector \(p\in\Delta_{191}\) obeys
+\[
+\boxed{
+\|A_{191}p-y\|_\infty
+\ge
+\frac{2493405651522255993844313}
 {5629499534213120000000000}
-=0.4429178182480797\\ldots
->\\frac13.
+=0.4429178182480797\ldots
+>\frac13.
 }
-\\]
+\]
 The exact certified margin above one third is
-\\[
-\\frac{1850717420353647981532939}
+\[
+\frac{1850717420353647981532939}
 {16888498602639360000000000}
-=0.10958448491474636\\ldots.
-\\]
+=0.10958448491474636\ldots.
+\]
 
 This is a finite-pool mixed-order minimax theorem. It rules out every
 probability reweighting of these 191 fixed physical generators for the pinned
@@ -43,41 +43,41 @@ family.
 
 The machine-readable certificate is
 `evidence/55probe_191col_eighth_continuous_escape_dual_certificate_n21.json`.
-It records a rational vector \\(z\\in\\mathbb Q^{2113}\\), a rational
-\\(\\lambda\\), and slack \\(\\delta=10^{-10}\\), with
-\\[
-\\|z\\|_1=
-\\frac{576460752303381559}{576460752303423488}<1,
-\\qquad
-\\lambda=
-\\frac{3003779145842305}{2251799813685248},
-\\]
+It records a rational vector \(z\in\mathbb Q^{2113}\), a rational
+\(\lambda\), and slack \(\delta=10^{-10}\), with
+\[
+\|z\|_1=
+\frac{576460752303381559}{576460752303423488}<1,
+\qquad
+\lambda=
+\frac{3003779145842305}{2251799813685248},
+\]
 and
-\\[
-\\lambda+z^\\mathsf Ty
+\[
+\lambda+z^\mathsf Ty
 =
-\\frac{255324738773525089}{576460752303423488}.
-\\]
+\frac{255324738773525089}{576460752303423488}.
+\]
 Thus
-\\[
-\\lambda+z^\\mathsf Ty-\\delta
+\[
+\lambda+z^\mathsf Ty-\delta
 =
-\\frac{2493405651522255993844313}
+\frac{2493405651522255993844313}
 {5629499534213120000000000}.
-\\]
+\]
 
 The 128-bit Arb verifier independently evaluates all 191 physical-column
 inequalities
-\\[
-z^\\mathsf Ta_j+\\lambda-\\delta<0,
-\\qquad j=1,\\ldots,191.
-\\]
+\[
+z^\mathsf Ta_j+\lambda-\delta<0,
+\qquad j=1,\ldots,191.
+\]
 All 191 interval upper endpoints are strictly negative. The largest recorded
 interval is
-\\[
-[-2.0472330488499601835976889763931526041\\times10^{-11}
-\\;\\pm\\;3.45\\times10^{-49}],
-\\]
+\[
+[-2.0472330488499601835976889763931526041\times10^{-11}
+\;\pm\;3.45\times10^{-49}],
+\]
 which is strictly below zero.
 
 The exact dual has 59 nonzero coordinates: two fourth-order rows (zero-based
@@ -90,29 +90,29 @@ canonical inventory, seed pool, and all eight escape certificates.
 ## Proof
 
 For each column, the certified inequality gives
-\\[
-z^\\mathsf Ta_j< -\\lambda+\\delta.
-\\]
-For any \\(p\\in\\Delta_{191}\\), convexity therefore yields
-\\[
-z^\\mathsf T A_{191}p
-=\\sum_{j=1}^{191}p_j z^\\mathsf Ta_j
-< -\\lambda+\\delta.
-\\]
+\[
+z^\mathsf Ta_j< -\lambda+\delta.
+\]
+For any \(p\in\Delta_{191}\), convexity therefore yields
+\[
+z^\mathsf T A_{191}p
+=\sum_{j=1}^{191}p_j z^\mathsf Ta_j
+< -\lambda+\delta.
+\]
 Consequently,
-\\[
-z^\\mathsf T(y-A_{191}p)
->z^\\mathsf Ty+\\lambda-\\delta.
-\\]
+\[
+z^\mathsf T(y-A_{191}p)
+>z^\mathsf Ty+\lambda-\delta.
+\]
 The right-hand side is the positive rational number displayed in the theorem.
-By Hölder's inequality and \\(\\|z\\|_1<1\\),
-\\[
-\\|A_{191}p-y\\|_\\infty
-\\ge
-\\frac{|z^\\mathsf T(y-A_{191}p)|}{\\|z\\|_1}
-\\ge z^\\mathsf T(y-A_{191}p)
->z^\\mathsf Ty+\\lambda-\\delta.
-\\]
+By Hölder's inequality and \(\|z\|_1<1\),
+\[
+\|A_{191}p-y\|_\infty
+\ge
+\frac{|z^\mathsf T(y-A_{191}p)|}{\|z\|_1}
+\ge z^\mathsf T(y-A_{191}p)
+>z^\mathsf Ty+\lambda-\delta.
+\]
 This proves the stated non-strict lower bound for every probability mixture.
 
 ## Reproduction and evidence
