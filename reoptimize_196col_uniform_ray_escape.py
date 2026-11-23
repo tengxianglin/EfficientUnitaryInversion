@@ -102,15 +102,15 @@ def main():
     if parent_dual.get("status") != "strict_195col_2113row_uniform_ray_escape_minimax_obstruction" or not parent_dual.get("complete"):
         raise RuntimeError("195-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("194-column parent dual does not pin its LP")
+        raise RuntimeError("195-column parent dual does not pin its LP")
     if parent_lp.get("parent_193col_lp_sha256") != parent_dual.get("parent_193col_lp_sha256"):
-        raise RuntimeError("194-column parent-LP ancestry mismatch")
+        raise RuntimeError("195-column parent-LP ancestry mismatch")
     if parent_lp.get("parent_193col_dual_certificate_sha256") != parent_dual.get("parent_193col_dual_certificate_sha256"):
-        raise RuntimeError("194-column parent-dual ancestry mismatch")
+        raise RuntimeError("195-column parent-dual ancestry mismatch")
     if parent_lp.get("parent_152col_candidate_sha256") != candidate152_sha:
-        raise RuntimeError("194-column parent does not pin the 152-column ancestor")
+        raise RuntimeError("195-column parent does not pin the 152-column ancestor")
     if parent_lp.get("cut_lp_transcript_sha256") != cut_lp_sha or parent_lp.get("cut_dual_certificate_sha256") != cut_dual_sha:
-        raise RuntimeError("194-column parent does not pin the exact cut design/dual")
+        raise RuntimeError("195-column parent does not pin the exact cut design/dual")
     if cut_dual.get("status") != "strict_152col_2113row_minimax_obstruction" or not cut_dual.get("complete"):
         raise RuntimeError("152-column cut-design dual is not strictly Arb-certified")
     if cut_dual.get("lp_transcript_sha256") != cut_lp_sha:
@@ -143,19 +143,19 @@ def main():
         raise RuntimeError("195-column parent has a different base uniform-ray time")
 
     if parent_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_193col_dual_certificate_sha256"):
-        raise RuntimeError("parent uniform-ray time does not pin the 193-column dual")
+        raise RuntimeError("193-column time does not pin the 193-column ancestor dual")
     if parent_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_193col_lp_sha256") or parent_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
-        raise RuntimeError("parent uniform-ray time does not pin the 193-column LP/cut design")
-    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha:
-        raise RuntimeError("194-column parent does not pin its preceding uniform-ray time certificate")
+        raise RuntimeError("193-column time does not pin the 193-column LP/cut design")
+    if parent_lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha:
+        raise RuntimeError("195-column parent does not pin the 193-column time certificate")
     parent_t = Fraction(parent_time_cert["t_exact_rational"])
     if parent_t <= 0 or Fraction(parent_time_cert["t_exact_decimal"]) != parent_t or parent_t == base_t:
-        raise RuntimeError("parent uniform-ray time is nonpositive, inconsistent, or duplicates the base path")
+        raise RuntimeError("193-column time is nonpositive, inconsistent, or duplicates the base path")
     parent_uniform_couplings = [Fraction(value) for value in parent_time_cert["uniform_couplings_exact_decimal"]]
     if len(parent_uniform_couplings) != 41 or any(value != parent_t for value in parent_uniform_couplings):
-        raise RuntimeError("parent time certificate is not a uniform 41-edge path")
-    if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != parent_t:
-        raise RuntimeError("195-column parent has a different preceding uniform-ray time")
+        raise RuntimeError("193-column time certificate is not a uniform 41-edge path")
+    if Fraction(parent_lp["parent_193col_uniform_ray_time_exact_rational"]) != parent_t:
+        raise RuntimeError("195-column parent has a different 193-column ancestor time")
 
     if grandparent_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256") or grandparent_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_194col_lp_sha256"):
         raise RuntimeError("194-column ancestor time does not pin the exact 194-column dual/LP")
@@ -164,6 +164,8 @@ def main():
     grandparent_t = Fraction(grandparent_time_cert["t_exact_rational"])
     if grandparent_t <= 0 or Fraction(grandparent_time_cert["t_exact_decimal"]) != grandparent_t or grandparent_t in (base_t, parent_t):
         raise RuntimeError("194-column ancestor time is invalid or duplicates an earlier path")
+    if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != grandparent_t:
+        raise RuntimeError("195-column parent has a different 194-column uniform-ray time")
     grandparent_uniform_couplings = [Fraction(value) for value in grandparent_time_cert["uniform_couplings_exact_decimal"]]
     if len(grandparent_uniform_couplings) != 41 or any(value != grandparent_t for value in grandparent_uniform_couplings):
         raise RuntimeError("194-column ancestor time is not a uniform 41-edge path")
