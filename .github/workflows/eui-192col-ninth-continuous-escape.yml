@@ -39,7 +39,7 @@ jobs:
           python verify_187col_continuous_dual_escape_arb.py
           python verify_188col_fifth_continuous_escape_dual_arb.py
           python verify_188col_continuous_dual_escape_arb.py
-          python verify_189col_sixth_continuous_dual_escape_arb.py
+          python verify_189col_sixth_continuous_escape_dual_arb.py
           python verify_189col_continuous_dual_escape_arb.py
           python verify_190col_seventh_continuous_escape_dual_arb.py
           python verify_190col_continuous_dual_escape_arb.py
