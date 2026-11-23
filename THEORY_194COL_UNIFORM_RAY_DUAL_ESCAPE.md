@@ -123,7 +123,7 @@ This refutes **only** global separation by this particular 194-column dual. It d
 - Existence of a finite positive uniform coupling \(t\) escaping this particular dual.
 
 **Not yet proved or supplied:**
-- An explicit decimal value of the finite \(t\) (a bounded one-dimensional search and independent Arb verifier are now running).
+- An independently Arb-certified explicit decimal finite time. The exact-decimal candidate `5918.073474332502883` is currently only binary64 discovery output; the corrected independent verifier is running in [workflow 45230548697](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45230548697).
 - Feasibility or infeasibility of a probability mixture over the full continuous physical family.
 - A continuous-family minimax lower or upper bound.
 - Complete sixth/eighth orbit control beyond the pinned design.
@@ -141,7 +141,7 @@ Failure of a bounded finite-time search would not refute the dense-torus existen
 - Successful workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45227944554
 - Evidence commit: 2972334d665c4882060cd887277cc4a0ec1e364c
 
-The next computational step is to find an explicit finite rational-decimal \(t>0\) and certify \(S_{194}(e^{tK_*})>0\) by Arb. The subsequent finite-pool test is to append that path as column 1652 and reoptimize.
+The next computational step is to finish Arb certification of the existing exact-decimal candidate `t=5918.073474332502883`. If its interval is strictly positive, append the certified path as column 1652 and reoptimize the 2,113-row LP; if not, retain only the already proved dense-torus existence statement and search for another explicit time.
 
 
 ## 7. Explicit-time candidate and verifier repair (2026-11-24)
