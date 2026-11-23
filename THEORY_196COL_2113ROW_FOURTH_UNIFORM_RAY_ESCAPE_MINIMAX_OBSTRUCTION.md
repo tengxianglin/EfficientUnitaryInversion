@@ -122,10 +122,12 @@ Evidence:
 - [Reproducible workflow](.github/workflows/eui-reoptimize-196col-uniform-ray.yml)
 - [Evidence commit 3ef1287](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/3ef1287d4dcecc7bdf21cc5cbf4efaf09f33cecf)
 
-## 5. Scope and next test
+## 5. Scope and continuous uniform-ray escape
 
-**Proved:** the exact 196-column / 2,113-row minimax residual is greater than \(1/3\).
+**Proved finite-pool statement:** the exact 196-column / 2,113-row minimax residual is greater than \\(1/3\\), for exactly the listed columns and selected rows.
 
-**Not proved:** separation of the full 1,641-column canonical inventory; separation of all continuous positive-coupling paths; complete sixth/eighth orbit control; feasibility or infeasibility of mixtures over the full continuous physical family; any Choi-infidelity or diamond-distance guarantee.
+**New proved continuous-pricing statement:** the same exact 196-column dual has a strictly positive 128-bit Arb pricing interval at an exact rational point of the 21-dimensional uniform-path torus. By the rational independence of the 21 path frequencies and continuity of the pricing functional, some finite \\(t>0\\) on the equal-positive-coupling ray has positive pricing. See [the separate torus-escape theorem](THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md) and its [Arb certificate](evidence/196col_uniform_torus_arb_n21.json).
 
-The next decisive test is the exact 21-dimensional uniform-path torus pricing of this 196-column dual. A strictly positive 128-bit Arb interval at a rational phase point would refute global separation by this particular 196-column dual and, by the proved Kronecker density and continuity, imply a finite equal-coupling physical escape. Failure of the finite multistart search would not prove a global separator.
+These statements are compatible: the escaping physical path is outside the 196 listed columns. The positive torus point refutes global separation by this particular dual, not the finite-pool minimax theorem.
+
+**Still not proved:** an explicit decimal value of the 196-column escape time; separation of the full 1,641-column canonical inventory; a global separator for all continuous positive-coupling paths; complete sixth/eighth orbit control; feasibility or infeasibility of mixtures over the full continuous physical family; any Choi-infidelity or diamond-distance guarantee.
