@@ -1,0 +1,101 @@
+name: Search positive continuous paths against the 191-column EUI dual
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "discover_191col_continuous_dual_escape.py"
+      - "verify_191col_continuous_dual_escape_arb.py"
+      - ".github/workflows/eui-191col-continuous-dual-search.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  price-continuous-family:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit enumeration
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-certify the 191-column dual and all eight prior escapes
+        run: |
+          python verify_continuous_path_dual_escape_arb.py
+          python verify_184col_continuous_dual_escape_arb.py
+          python verify_185col_continuous_dual_escape_arb.py
+          python verify_186col_continuous_dual_escape_arb.py
+          python verify_187col_continuous_dual_escape_arb.py
+          python verify_188col_fifth_continuous_escape_dual_arb.py
+          python verify_188col_continuous_dual_escape_arb.py
+          python verify_189col_sixth_continuous_escape_dual_arb.py
+          python verify_189col_continuous_dual_escape_arb.py
+          python verify_190col_seventh_continuous_escape_dual_arb.py
+          python verify_190col_continuous_dual_escape_arb.py
+          python verify_191col_eighth_continuous_escape_dual_arb.py
+      - name: Compile the differentiable search and independent Arb verifier
+        run: |
+          python -m py_compile \
+            discover_191col_continuous_dual_escape.py \
+            verify_191col_continuous_dual_escape_arb.py
+      - name: Remove stale search outputs
+        run: |
+          rm -f evidence/191col_continuous_dual_search_n21.json
+          rm -f evidence/191col_continuous_dual_escape_arb_n21.json
+      - name: Search the positive 41-edge path family
+        run: |
+          python discover_191col_continuous_dual_escape.py \
+            --output evidence/191col_continuous_dual_search_n21.json \
+            --maxiter 100
+      - name: Independently verify any exact-decimal candidate with 128-bit Arb
+        run: python verify_191col_continuous_dual_escape_arb.py
+      - name: Commit search and Arb evidence with race-safe retry
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-191-pricing
+          for f in \
+            evidence/191col_continuous_dual_search_n21.json \
+            evidence/191col_continuous_dual_escape_arb_n21.json; do
+            if [ -f "$f" ]; then
+              cp "$f" "/tmp/eui-191-pricing/$(basename "$f")"
+            fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in 191col_continuous_dual_search_n21.json 191col_continuous_dual_escape_arb_n21.json; do
+              if [ -f "/tmp/eui-191-pricing/$f" ]; then
+                cp "/tmp/eui-191-pricing/$f" "evidence/$f"
+                git add "evidence/$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Record continuous-path pricing against the 191-column EUI dual"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload search and Arb evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-191col-continuous-dual-search
+          path: |
+            evidence/191col_continuous_dual_search_n21.json
+            evidence/191col_continuous_dual_escape_arb_n21.json
+          if-no-files-found: warn
