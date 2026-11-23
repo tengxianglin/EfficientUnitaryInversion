@@ -70,7 +70,7 @@ def main():
         "search_scope": discovery.get("search_domain"),
         "scope": (
             "A strictly positive Arb pricing interval is a counterexample to extending this "
-            "specific 187-column dual over the full positive-coupling path family. A failed "
+            "specific 188-column dual over the full positive-coupling path family. A failed "
             "local search is not a global separation proof."
         ),
     }
@@ -85,7 +85,7 @@ def main():
         raise RuntimeError("discovery does not pin the exact 188-column dual")
     if discovery.get("lp_transcript_sha256") != lp_sha or discovery.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("discovery LP/cut-row provenance mismatch")
-    if discovery.get("prior_escape_certificate_sha256") != fourth_sha:
+    if discovery.get("prior_escape_certificate_sha256") != fifth_sha:
         raise RuntimeError("discovery does not pin the fifth certified escape used as its search seed")
 
     if parent_186_dual.get("status") != "strict_186col_2113row_third_continuous_escape_minimax_obstruction" or not parent_186_dual.get("complete"):
