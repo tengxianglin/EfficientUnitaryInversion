@@ -51,8 +51,8 @@ def main():
     paths = (LP_PATH, CANDIDATE_PATH, PARENT_LP, PARENT_DUAL, CANDIDATE_152,
              PARENT_186_LP, PARENT_186_DUAL, CUT_LP, OLD_ESCAPE_CERT, SECOND_ESCAPE_CERT, THIRD_ESCAPE_CERT, FOURTH_ESCAPE_CERT, FIFTH_ESCAPE_CERT)
     raw = [path.read_bytes() for path in paths]
-    (lp, candidate, parent_lp, parent_dual, candidate152, cut_lp,
-     parent_186_lp, parent_186_dual, old_escape, second_escape, third_escape, fourth_escape, fifth_escape) = [json.loads(value) for value in raw]
+    (lp, candidate, parent_lp, parent_dual, candidate152,
+     parent_186_lp, parent_186_dual, cut_lp, old_escape, second_escape, third_escape, fourth_escape, fifth_escape) = [json.loads(value) for value in raw]
     (lp_sha, candidate_sha, parent_lp_sha, parent_dual_sha, candidate152_sha,
      parent_186_lp_sha, parent_186_dual_sha, cut_lp_sha, old_escape_sha, second_escape_sha, third_escape_sha, fourth_escape_sha, fifth_escape_sha) = map(sha, raw)
 
