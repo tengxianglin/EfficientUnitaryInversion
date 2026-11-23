@@ -835,3 +835,14 @@ The exact rationalized dual has ||z||_1=1, 50 nonzero entries (two fourth-order,
 Formal proof: THEORY_184COL_2113ROW_FULL_SIXTH_CUT_MINIMAX_OBSTRUCTION.md. LP transcript and certificate: evidence/joint_low_six_eighth_lp_184col_full_sixth_cuts_n21.json and evidence/55probe_184col_full_sixth_cut_dual_certificate_n21.json. Evidence commit: 0c0c745c534fb161835e03e63776d6fe7f7178eb.
 
 **Scope:** this is a mixed-order finite-pool theorem for the pinned 184 physical generators and 2,113 rows. It is not a complete sixth/eighth orbit audit, a continuous-family no-go, or a Choi/diamond-norm guarantee. The next finite-pool action is to price all 1,458 unused canonical columns against the new exact dual; the central paper-level gap remains an operational per-instance moment-to-channel theorem.
+
+## 2026-11-23: 184-column pricing against the frozen canonical inventory
+
+The 184-column exact dual was screened against all 1,458 unused columns in the frozen 1,641-column canonical inventory. The binary64 screen found zero positive candidates; the maximum unused score is -0.008535526293085835. This is discovery evidence only: no nonpositive binary64 score is a rigorous interval exclusion.
+
+A separate complete Arb verifier and workflow have been added to check all 1,458 unused columns at 128-bit precision:
+- verifier: verify_184col_full_sixth_cut_dual_all_canonical_arb.py;
+- workflow: eui-184col-full-sixth-cut-full-pool-arb.yml;
+- workflow run is triggered by commit f58912d1ccf2287b0da81b9bbea3df5ef77ac1ce.
+
+If all 1,458 interval upper endpoints are strictly negative, combining the full-pool audit with the 184 active-column certificate proves the same 2,113-row mixed-order lower bound for the entire 1,641-column canonical inventory plus the one pinned continuous-path escape generator. This remains a finite union, not the unrestricted continuous path family.
