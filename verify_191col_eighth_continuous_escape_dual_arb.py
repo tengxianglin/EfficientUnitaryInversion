@@ -72,34 +72,34 @@ def main():
     ) = map(sha, raw)
 
     if lp.get("status") != "191col_eighth_continuous_escape_lp_above_one_third":
-        raise RuntimeError("190-column LP is not an above-cap discovery")
+        raise RuntimeError("191-column LP is not an above-cap discovery")
     if (lp.get("columns"), lp.get("rows")) != (191, 2113):
-        raise RuntimeError("unexpected 190-column / 2,113-row dimensions")
-    if lp.get("parent_189col_lp_sha256") != parent_lp_sha:
-        raise RuntimeError("190-column LP does not pin its exact 189-column parent LP")
-    if lp.get("parent_189col_dual_certificate_sha256") != parent_dual_sha:
-        raise RuntimeError("190-column LP does not pin its exact 189-column parent dual")
+        raise RuntimeError("unexpected 191-column / 2,113-row dimensions")
+    if lp.get("parent_190col_lp_sha256") != parent_lp_sha:
+        raise RuntimeError("191-column LP does not pin its exact 190-column parent LP")
+    if lp.get("parent_190col_dual_certificate_sha256") != parent_dual_sha:
+        raise RuntimeError("191-column LP does not pin its exact 190-column parent dual")
     if lp.get("parent_152col_candidate_sha256") != candidate_sha:
         raise RuntimeError("190-column LP does not pin its 152-column ancestor candidate")
     if lp.get("cut_lp_transcript_sha256") != cut_lp_sha or lp.get("cut_dual_certificate_sha256") != cut_dual_sha:
         raise RuntimeError("190-column LP does not pin the exact 2,113-row cut design")
 
     if parent_lp.get("status") != "190col_seventh_continuous_escape_lp_above_one_third":
-        raise RuntimeError("189-column parent LP has an unexpected status")
+        raise RuntimeError("190-column parent LP has an unexpected status")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (190, 2113):
-        raise RuntimeError("unexpected 189-column parent dimensions")
+        raise RuntimeError("unexpected 190-column parent dimensions")
     if parent_dual.get("status") != "strict_190col_2113row_seventh_continuous_escape_minimax_obstruction" or not parent_dual.get("complete"):
-        raise RuntimeError("189-column parent dual is not strictly Arb-certified")
+        raise RuntimeError("190-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
-        raise RuntimeError("189-column parent dual does not pin its LP")
+        raise RuntimeError("190-column parent dual does not pin its LP")
     if parent_lp.get("parent_189col_lp_sha256") != parent_dual.get("parent_189col_lp_sha256") or parent_lp.get("parent_189col_dual_certificate_sha256") != parent_dual.get("parent_189col_dual_certificate_sha256"):
-        raise RuntimeError("189-column parent LP/dual ancestry mismatch")
+        raise RuntimeError("190-column parent LP/dual ancestry mismatch")
     if parent_lp.get("parent_152col_candidate_sha256") != candidate_sha or parent_dual.get("parent_152col_candidate_sha256") != candidate_sha:
-        raise RuntimeError("189-column parent does not pin the 152-column ancestor candidate")
+        raise RuntimeError("190-column parent does not pin the 152-column ancestor candidate")
     if parent_lp.get("cut_lp_transcript_sha256") != cut_lp_sha or parent_lp.get("cut_dual_certificate_sha256") != cut_dual_sha:
-        raise RuntimeError("189-column parent LP does not pin the cut design and dual")
+        raise RuntimeError("190-column parent LP does not pin the cut design and dual")
     if parent_dual.get("cut_lp_transcript_sha256") != cut_lp_sha or parent_dual.get("cut_dual_certificate_sha256") != cut_dual_sha:
-        raise RuntimeError("189-column parent dual does not pin the cut design and dual")
+        raise RuntimeError("190-column parent dual does not pin the cut design and dual")
 
     escape_hashes = (escape1_sha, escape2_sha, escape3_sha, escape4_sha, escape5_sha, escape6_sha, escape7_sha, escape8_sha)
     escape_objects = (escape1, escape2, escape3, escape4, escape5, escape6, escape7, escape8)
