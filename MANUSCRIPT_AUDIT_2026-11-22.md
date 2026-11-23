@@ -593,3 +593,46 @@ These values are discovery only. The raw binary64 dual is not a proof. A new ind
 **No 185-column strict lower bound is claimed yet.** The claim becomes a theorem only if the new exact rational dual has objective above 1/3 and all 185 Arb interval inequalities pass after the chosen rational slack. If the verifier fails, its exact failure and interval diagnostics must be retained and the dual reconstruction repaired before making any claim.
 
 The 185-column result remains restricted to the pinned 2,106-row design and fixed physical pool. It does not cover additional canonical or continuous generators, the complete sixth-order orbit maximum, or an operational Choi/diamond-norm guarantee.
+
+
+
+## 185-column mixed-order Arb certificate completed (2026-11-23)
+
+The corrected verifier completed successfully in [workflow 45090564147](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45090564147), and GitHub Actions committed the theorem and certificate in [ae4ee17](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/ae4ee17bebc6781a5cc2896af2f0e0e48eeb8206).
+
+The exact certificate establishes
+\[
+\min_{p\in\Delta(\mathcal P_{185})}\|Ap-y\|_\infty
+\ge
+\frac{86174177255875174056289633093}
+{184467440737103669070000000000}
+=0.4671511509648334\ldots>\frac13.
+\]
+The exact dual objective before slack is
+\[
+\lambda+z^\mathsf Ty=
+\frac{8617417727432191813}{18446744073710366907},
+\]
+with exact \(\|z\|_1=1\), rational slack \(\delta=10^{-10}\), and certified excess over 1/3 equal to
+\[
+\frac{24685030343507284366289633093}
+{184467440737103669070000000000}
+=0.1338178176315001\ldots.
+\]
+
+The support has 56 coordinates: two low-order coordinates (zero-based row indices 233 and 1265) and 54 sixth-order coordinates. Independent 128-bit Arb evaluation passed all 185 physical-column inequalities; the maximum upper endpoint after slack is
+\[
+-7.6726289625084981342508868442503571950\times10^{-11}<0.
+\]
+This is a **mixed-order finite-pool theorem**, not a sixth-only theorem. It applies to the specified 185 generators and the pinned 2,106-row design. It does not exclude additional physical generators, the unrestricted continuous path family, or establish a Choi/diamond-norm guarantee.
+
+The verifier and workflow are `verify_185col_mixed_order_dual_arb.py` and `.github/workflows/eui-185col-mixed-order-dual.yml`; the exact certificate is `evidence/55probe_185col_mixed_order_dual_certificate_n21.json`; the theorem is `THEORY_185COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md`.
+
+The first workflow attempt (45090111228) was a file-ordering race: the workflow commit preceded the verifier file. The second (45090256555) exposed an invalid redundant 172-dual hash assertion. The assertion was removed in [58b6def](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/58b6def296681c5d3baf7e81418ff62c3101f6ab); the corrected run passed. Both failures and their causes are recorded in Issue #5.
+
+A new combined pricing script and workflow now screen all 1,457 unused canonical generators and Arb-check up to ten leading positive candidates against the exact 185-column dual:
+- `price_unused_canonical_paths_against_185col_mixed_order_dual.py`;
+- `.github/workflows/eui-185col-mixed-order-pricing.yml`;
+- current run [45090786248](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45090786248).
+
+At this audit update the 185-column pricing run is in progress; no 185-dual escape or global finite-canonical-pool conclusion is claimed yet.
