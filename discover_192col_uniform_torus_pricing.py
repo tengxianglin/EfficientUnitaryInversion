@@ -268,7 +268,8 @@ def main():
     args = parser.parse_args()
 
     pricing = DualPricing()
-    theta0 = np.zeros(21, dtype=float)
+    index = np.arange(21, dtype=float)
+    theta0 = 1.35 * np.sin(0.37 * index) + 0.82 * np.cos(0.23 * index)
     _, analytic = pricing.value_gradient(theta0)
     checks = []
     for coordinate in (0, 10, 20):
@@ -277,20 +278,26 @@ def main():
         plus, minus = theta0.copy(), theta0.copy()
         plus[coordinate] += step
         minus[coordinate] -= step
-        central = (pricing.value_only(plus) - pricing.value_only(minus)) / (2.0 * step)
+        central = float(np.real((pricing.value_only(plus) - pricing.value_only(minus)) / (2.0 * step)))
         absolute = abs(complex_step - analytic[coordinate])
         relative = absolute / max(1.0, abs(complex_step), abs(analytic[coordinate]))
+        central_absolute = abs(central - analytic[coordinate])
+        central_relative = central_absolute / max(1.0, abs(central), abs(analytic[coordinate]))
         checks.append({
             "coordinate": coordinate,
             "analytic": float(analytic[coordinate]),
             "complex_step": float(complex_step),
-            "central_difference": float(np.real(central)),
+            "central_difference": central,
             "absolute_defect": float(absolute),
             "relative_defect": float(relative),
+            "central_absolute_defect": float(central_absolute),
+            "central_relative_defect": float(central_relative),
         })
-    gradient_defect = max(item["relative_defect"] for item in checks)
-    if gradient_defect > 2e-6:
-        raise RuntimeError(f"torus cofactor gradient failed complex-step regression: {checks}")
+    gradient_defect = max(
+        max(item["relative_defect"], item["central_relative_defect"]) for item in checks
+    )
+    if gradient_defect > 2e-5:
+        raise RuntimeError(f"torus cofactor gradient failed generic-point complex-step/central regression: {checks}")
 
     rng = np.random.default_rng(2026112421)
     starts = [
