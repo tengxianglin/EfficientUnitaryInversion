@@ -1738,6 +1738,20 @@ Evidence:
 The next task is an explicit finite-time search on the uniform positive-coupling ray, followed by an Arb certificate.
 
 
-## 2026-11-24 update: 194-column uniform-ray finite-time candidate (not yet certified)
+## 2026-11-24 update: explicit finite 194-column uniform-ray escape certified
 
-The exact 194-column dual already has an independently Arb-certified positive point on the 21-dimensional uniform-path torus, which by density proves existence of some finite positive uniform time escaping that particular dual. A separate bounded one-dimensional search recorded the exact-decimal candidate `t=5918.073474332502883` with binary64 score `0.5331710186207479` in `evidence/194col_uniform_ray_time_search_n21.json`. This is not a proof: the first finite-time workflow [45228501706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45228501706) failed before evaluating the candidate because the verifier used undefined `time_cert` rather than the loaded torus certificate. The six stale references were fixed in commit [60dd9a5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/60dd9a523de4a774c93e1272cc1309c2614f506e). Rerun [45230548697](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45230548697) passed frozen-input compilation and all parent dual/time recertifications; at the time of this update its bounded search remained in progress. Until a new `194col_uniform_ray_time_arb_n21.json` with a strictly positive interval is committed, the explicit finite-time witness remains unproved, although dense-torus existence is already proved.
+The exact 194-column dual has an explicit finite equal-coupling path that escapes its separator. The bounded search found
+\[
+t_*=5918.073474550670653
+=\frac{5918073474550670653}{10^{15}}>0,
+\]
+with all 41 edge couplings equal to \(t_*\). The independent python-flint 0.8.0 / Arb verifier at 128-bit precision certifies
+\[
+S_{194}(e^{t_*K_*})
+\in[0.533171018619275430607761736493\pm5.01\times10^{-31}]>0.
+\]
+The exact certificate pins the 194-column dual SHA256 `7864da033a71d7d2666cde32cf7f900c9a9a30893cbc7b90942fa09517cab474`, LP SHA256 `c6dec42436d0181a9ff5012153d1896f4fcb0ca8a28cf39c6cdb321440dd7a66`, and torus certificate SHA256 `aa5c6abb839f7cdb91175db6fef519dc66246e970dfd2de122440a9cc3a3a292`. Evidence is committed in [30b7145](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/30b7145063d63f664a2dc7b24ac599b826f2429c); the complete corrected workflow [45230548697](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45230548697) passed all steps.
+
+The first workflow attempt [45228501706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45228501706) had a verifier-only NameError before evaluating the candidate. Six references were corrected in [60dd9a5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/60dd9a523de4a774c93e1272cc1309c2614f506e), after which the full independent Arb run succeeded.
+
+This result refutes only global separation by this particular 194-column dual. It does not invalidate the finite 194-column / 2,113-row minimax theorem, prove feasibility or infeasibility of mixtures over the full continuous family, complete the selected sixth/eighth orbit audit, or establish a Choi-infidelity/diamond-distance operational guarantee. The next decisive finite-pool test is to append this path as physical column 1652 and reoptimize the same 2,113-row design.
