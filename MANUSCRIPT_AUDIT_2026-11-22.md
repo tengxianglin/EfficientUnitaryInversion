@@ -1012,3 +1012,37 @@ Workflow [45130632601](https://github.com/tengxianglin/EfficientUnitaryInversion
 This is a strict counterexample to extending this particular 186-column dual over the continuous path family. It does not invalidate the finite-pool theorem, provide a feasible mixture, or establish a full-family minimax result.
 
 The exact path has been added as column 1644. A new 187-column reoptimizer, dual verifier, exact-mixture Arb verifier, and workflow are committed. Workflow [45132177104](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45132177104) is executing the 187-column, 2,113-row branch. Its result is pending.
+
+
+## 2026-11-23: 187-column mixed-order minimax obstruction certified
+
+The fourth exact-rational continuous path escaped the 186-column dual and was added as column 1644. Re-solving the same 2,113-row mixed-order LP over 187 pinned physical generators gave binary64 HiGHS objective 0.46338166315236223, recomputed maximum 0.4633816631525127, and primal-dual discovery gap \(5.83\times10^{-14}\). These are discovery diagnostics only.
+
+The rationalized dual has exact \(\ell_1\) norm 1 and support on three fourth-order, 54 sixth-order, and two eighth-order rows. The independent 128-bit Arb verifier checked all 187 physical-column inequalities. Every slack-shifted interval upper endpoint is negative; the maximum is
+\[
+[-6.1052543564944087761512888156950312261\times10^{-13}
+\pm2.23\times10^{-51}]<0.
+\]
+Therefore
+\[
+\min_{p\in\Delta_{187}}\|A_{2113\times187}p-y\|_\infty
+\ge
+\frac{21369707366939402851572579191}
+{46116860184274208090000000000}
+=0.4633816630523005\ldots>\frac13.
+\]
+The exact margin above \(1/3\) is 0.13004832971896715....
+
+Formal statement: [THEORY_187COL_2113ROW_FOURTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_187COL_2113ROW_FOURTH_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md).
+
+Evidence:
+- Successful reoptimization and Arb certification: [workflow 45133203733](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45133203733)
+- LP transcript SHA256: \`8a63fdbec151593e1c52cf3e55585d6c8760d6b3536564812758526ccdbbe245\`
+- Dual certificate SHA256: \`475346510c8d0e7d52031cb21d694f91230beb60\`
+- Fourth continuous escape certificate SHA256: \`320d6048e63ee0e9c71481d25e99b91ab730c0cd570192128782b34c9fa812bd\`
+- Verifier fix commit: [c7e556b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c7e556b85c9efec84daf61898f4c1c8cf3c81811)
+- Evidence commit: [d8148b9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/d8148b9ccf5e06e934227e418f2e7d313969c3a7)
+
+**Provenance correction:** the initial 187-column verification failed because the verifier compared the third escape against the 186-column parent. The third escape actually belongs to the 185-column parent; the fourth escape belongs to the 186-column parent. The corrected verifier checks both parent links and records the fourth escape certificate hash. The corrected workflow passed.
+
+Scope remains finite-pool and mixed-order. The 645 sixth rows are selected/cut, not all 63,133 sixth-order orbits; seven eighth-order rows are selected, not complete. This is not a full positive-coupling-family no-go or an operational Choi/diamond theorem. The newly certified 187-column dual still requires a separate continuous-path pricing test; a failed local search is not a global proof.
