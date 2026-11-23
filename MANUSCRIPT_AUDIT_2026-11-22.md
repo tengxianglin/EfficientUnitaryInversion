@@ -800,3 +800,16 @@ This remains a finite-pool mixed-order theorem. It is not a complete sixth/eight
 
 
 The next separation step is queued in [workflow 45105506797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105506797). It will reverify the exact 183-column dual, screen all 1,459 unused canonical generators, and apply independent 128-bit Arb verification to up to ten leading positive candidates.
+
+
+## 183-column full-sixth-cut dual pricing completed (2026-11-23)
+
+Workflow [45105506797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45105506797) completed successfully. It re-certified the 183-column dual, screened all 1,459 unused canonical columns, and found exactly one binary64-positive candidate: canonical column 332, score 0.003290534078972167.
+
+Independent 128-bit Arb evaluation gives
+\[
+[0.0032905340797223044027532381066990752100\pm2.34\times10^{-41}],
+\]
+whose lower endpoint is strictly positive. Thus column 332 escapes the 183-column dual after addition. The full screen and Arb transcript are committed in [8e6d733](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8e6d73355a640e28957bc3625581a91a979d365c), in `evidence/55probe_183col_full_sixth_cut_dual_pricing_screen_n21.json` and `evidence/55probe_183col_full_sixth_cut_dual_pricing_arb_n21.json`.
+
+The positive escape does not prove feasibility and does not exclude the other 1,458 nonpositive binary64 columns. The next pool is the 184-column / 2,113-row full-sixth-cut reoptimization, adding column 332.
