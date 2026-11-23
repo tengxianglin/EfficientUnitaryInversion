@@ -118,7 +118,7 @@ Q_{j,2k-2}=\sqrt{\frac4{43}}\sin\!\left(\frac{(j+1)k\pi}{43}\right)\cos\!\left(\
 \[
 Q_{j,2k-1}=\sqrt{\frac4{43}}\sin\!\left(\frac{(j+1)k\pi}{43}\right)\sin\!\left(\frac{j\pi}{2}\right).
 \]
-The real and imaginary parts have disjoint even/odd support; the path-sine orthogonality relations give \(Q^\mathsf TQ=I\). From \(K_*q_{k,1}=-\omega_kq_{k,2}\) and \(K_*q_{k,2}=\omega_kq_{k,1}\), one obtains
+For each \(k\), skew-symmetry gives \(v_k^{\mathsf T}K_*v_k=0=i\omega_kv_k^{\mathsf T}v_k\), so \(v_k^{\mathsf T}v_k=0\). Together with \(v_k^\dagger v_k=1\), this makes \(\operatorname{Re}v_k\) and \(\operatorname{Im}v_k\) orthogonal with equal squared norm \(1/2\). The matrix \(K_*\) is normal and its 42 eigenvalues \(\pm i\omega_k\) are distinct, so \(v_k\), \(\overline v_k\), and the corresponding vectors for different \(k\) are mutually Hermitian-orthogonal. Expanding these identities gives orthogonality of all real columns, hence \(Q^{\mathsf T}Q=I\). From \(K_*q_{k,1}=-\omega_kq_{k,2}\) and \(K_*q_{k,2}=\omega_kq_{k,1}\), one obtains
 \[
 Q^\mathsf TK_*Q=\bigoplus_{k=1}^{21}\omega_kJ.
 \]
