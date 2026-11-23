@@ -26,9 +26,10 @@ ESCAPE_1 = ROOT / "evidence/continuous_path_dual_escape_arb_n21.json"
 ESCAPE_2 = ROOT / "evidence/184col_continuous_dual_escape_arb_n21.json"
 ESCAPE_3 = ROOT / "evidence/185col_continuous_dual_escape_arb_n21.json"
 ESCAPE_4 = ROOT / "evidence/186col_continuous_dual_escape_arb_n21.json"
-ESCAPE_5 = ROOT / "evidence/187col_continuous_dual_escape_arb_n21.json"\nESCAPE_6 = ROOT / "evidence/188col_continuous_dual_escape_arb_n21.json"
+ESCAPE_5 = ROOT / "evidence/187col_continuous_dual_escape_arb_n21.json"
+ESCAPE_6 = ROOT / "evidence/188col_continuous_dual_escape_arb_n21.json"
 SEED_POOL = ROOT / "evidence/seed_pool_n21_frozen.npy"
-LP_OUT = ROOT / "evidence/joint_low_six_eighth_lp_188col_fifth_continuous_escape_n21.json"
+LP_OUT = ROOT / "evidence/joint_low_six_eighth_lp_189col_sixth_continuous_escape_n21.json"
 CANDIDATE_OUT = ROOT / "evidence/candidate_joint_input_189col_sixth_continuous_escape_n21.json"
 
 SEED_POOL_SHA256 = "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315"
@@ -37,7 +38,8 @@ ESCAPE_1_COLUMN = 1641
 ESCAPE_2_COLUMN = 1642
 ESCAPE_3_COLUMN = 1643
 ESCAPE_4_COLUMN = 1644
-ESCAPE_5_COLUMN = 1645\nESCAPE_6_COLUMN = 1646
+ESCAPE_5_COLUMN = 1645
+ESCAPE_6_COLUMN = 1646
 SIXTH_SCALE = Fraction(5, 19721)
 EIGHTH_SCALE = Fraction(1, 19721)
 
@@ -63,7 +65,8 @@ def main():
     escape2 = data[ESCAPE_2]
     escape3 = data[ESCAPE_3]
     escape4 = data[ESCAPE_4]
-    escape5 = data[ESCAPE_5]\n    escape6 = data[ESCAPE_6]
+    escape5 = data[ESCAPE_5]
+    escape6 = data[ESCAPE_6]
 
     if parent_lp.get("status") != "189col_sixth_continuous_escape_lp_above_one_third":
         raise RuntimeError("188-column parent LP is not the expected above-cap discovery")
@@ -98,7 +101,7 @@ def main():
             raise RuntimeError(f"{label} continuous path lacks a strict Arb certificate")
     if candidate152.get("continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_1.name]:
         raise RuntimeError("152-column ancestor candidate does not pin the first escape")
-    # The already-certified 187-column parent LP/dual pins the third escape hash;
+    # The already-certified 188-column parent LP/dual pins the prior escape hashes;
     # its own verifier checks the 185-column ancestry chain.
     if escape3.get("cut_lp_transcript_sha256") != hashes[CUT_LP.name]:
         raise RuntimeError("third escape does not pin the 2,113-row design")
@@ -106,7 +109,7 @@ def main():
         raise RuntimeError("fourth escape does not pin the exact 186-column parent dual/LP")
     if escape4.get("cut_lp_transcript_sha256") != hashes[CUT_LP.name]:
         raise RuntimeError("fourth escape does not pin the 2,113-row design")
-    if escape5.get("dual_certificate_sha256") != hashes[DUAL_188.name] or escape5.get("lp_transcript_sha256") != hashes[LP_188.name]:
+    if escape5.get("dual_certificate_sha256") != parent_dual.get("parent_187col_dual_certificate_sha256") or escape5.get("lp_transcript_sha256") != parent_dual.get("parent_187col_lp_sha256"):
         raise RuntimeError("fifth escape does not pin the exact 187-column parent dual/LP")
     if escape5.get("cut_lp_transcript_sha256") != hashes[CUT_LP.name]:
         raise RuntimeError("fifth escape does not pin the 2,113-row design")
@@ -120,7 +123,7 @@ def main():
     if seed.shape != (1600, 42) or seed_sha != SEED_POOL_SHA256:
         raise RuntimeError("frozen seed-pool hash/shape mismatch")
     if parent_lp.get("seed_pool_sha256_le_f64") != seed_sha:
-        raise RuntimeError("187-column parent LP does not pin the frozen seed pool")
+        raise RuntimeError("188-column parent LP does not pin the frozen seed pool")
 
     all_columns, _, _ = canonical_ensemble()
     all_sha = sha(np.asarray(all_columns, dtype="<f8").tobytes())
@@ -132,15 +135,16 @@ def main():
     parent_order = [int(x) for x in parent_lp["column_order"]]
     expected_parent_order = base_columns + [ESCAPE_1_COLUMN] + added_columns + [ESCAPE_2_COLUMN, ESCAPE_3_COLUMN, ESCAPE_4_COLUMN, ESCAPE_5_COLUMN]
     if len(base_columns) != 151 or len(added_columns) != 32:
-        raise RuntimeError("unexpected canonical inventory in the 186-column parent")
+        raise RuntimeError("unexpected canonical inventory in the 188-column parent")
     if parent_order != expected_parent_order or len(set(parent_order)) != 188:
-        raise RuntimeError("187-column parent ordering is inconsistent")
+        raise RuntimeError("188-column parent ordering is inconsistent")
 
     couplings1 = [Fraction(x) for x in candidate152["escape_couplings_exact"]]
     couplings2 = [Fraction(x) for x in escape2["candidate_couplings_exact"]]
     couplings3 = [Fraction(x) for x in escape3["candidate_couplings_exact"]]
     couplings4 = [Fraction(x) for x in escape4["candidate_couplings_exact"]]
-    couplings5 = [Fraction(x) for x in escape5["candidate_couplings_exact"]]\n    couplings6 = [Fraction(x) for x in escape6["candidate_couplings_exact"]]
+    couplings5 = [Fraction(x) for x in escape5["candidate_couplings_exact"]]
+    couplings6 = [Fraction(x) for x in escape6["candidate_couplings_exact"]]
     if [str(x) for x in couplings1] != escape1["candidate_couplings_exact"]:
         raise RuntimeError("first path differs from its Arb-certified input")
     for label, couplings in (("first", couplings1), ("second", couplings2), ("third", couplings3), ("fourth", couplings4), ("fifth", couplings5), ("sixth", couplings6)):
@@ -153,7 +157,7 @@ def main():
 
     column_order = parent_order + [ESCAPE_6_COLUMN]
     if len(column_order) != 189 or len(set(column_order)) != 189:
-        raise RuntimeError("expanded physical pool must contain 188 unique columns")
+        raise RuntimeError("expanded physical pool must contain 189 unique columns")
     physical_columns = (
         [all_columns[column] for column in base_columns]
         + [couplings1]
@@ -182,7 +186,7 @@ def main():
     sixth_hash = sha(json.dumps([list(row) for row in sixth_rows], separators=(",", ":")).encode())
     eighth_hash = sha(json.dumps([list(row) for row in eighth_rows], separators=(",", ":")).encode())
     if sixth_hash != parent_lp.get("sixth_rows_sha256") or eighth_hash != parent_lp.get("eighth_rows_sha256"):
-        raise RuntimeError("row inventory differs from the certified 187-column design")
+        raise RuntimeError("row inventory differs from the certified 188-column design")
 
     system = FourthMoments(21)
     system.exact_target_check()
@@ -266,7 +270,8 @@ def main():
         "second_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_2.name],
         "third_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_3.name],
         "fourth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_4.name],
-        "fifth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_5.name],\n            "sixth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_6.name],\n        "sixth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_6.name],
+        "fifth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_5.name],
+        "sixth_continuous_escape_arb_certificate_sha256": hashes[ESCAPE_6.name],
         "seed_pool_sha256_le_f64": seed_sha,
         "canonical_all_columns_sha256_le_f64": all_sha,
         "columns": n,
@@ -278,7 +283,8 @@ def main():
         "second_continuous_escape_column_index": ESCAPE_2_COLUMN,
         "third_continuous_escape_column_index": ESCAPE_3_COLUMN,
         "fourth_continuous_escape_column_index": ESCAPE_4_COLUMN,
-        "fifth_continuous_escape_column_index": ESCAPE_5_COLUMN,\n            "sixth_continuous_escape_column_index": ESCAPE_6_COLUMN,\n        "sixth_continuous_escape_column_index": ESCAPE_6_COLUMN,
+        "fifth_continuous_escape_column_index": ESCAPE_5_COLUMN,
+        "sixth_continuous_escape_column_index": ESCAPE_6_COLUMN,
         "column_order": column_order,
         "sixth_rows_sha256": sixth_hash,
         "eighth_rows_sha256": eighth_hash,
@@ -300,7 +306,7 @@ def main():
         },
         "finite_candidate_below_one_third": bool(result.fun < 1 / 3),
         "scope": (
-            Binary64 HiGHS discovery on the fixed 2,113-row mixed-order design, adding a sixth 
+            "Binary64 HiGHS discovery on the fixed 2,113-row mixed-order design, adding a sixth "
             "continuous path whose positive pricing score against the exact 188-column dual was "
             "independently certified with 128-bit Arb. A sub-1/3 result is only a candidate until "
             "the exact rationalized mixture passes Arb on all 2,113 pinned rows and a complete "
@@ -347,7 +353,9 @@ def main():
             "fourth_continuous_escape_column_index": ESCAPE_4_COLUMN,
             "fourth_continuous_escape_couplings_exact": [str(x) for x in couplings4],
             "fifth_continuous_escape_column_index": ESCAPE_5_COLUMN,
-            "fifth_continuous_escape_couplings_exact": [str(x) for x in couplings5],\n            "sixth_continuous_escape_couplings_exact": [str(x) for x in couplings6],
+            "fifth_continuous_escape_couplings_exact": [str(x) for x in couplings5],
+            "sixth_continuous_escape_column_index": ESCAPE_6_COLUMN,
+            "sixth_continuous_escape_couplings_exact": [str(x) for x in couplings6],
             "column_order": column_order,
             "columns": [row["column"] for row in exact_probabilities],
             "exact_probabilities": exact_probabilities,
@@ -360,7 +368,7 @@ def main():
             "selected_eighth_rows": [list(row) for row in eighth_rows],
             "selected_eighth_targets": [str(x) for x in eighth_targets],
             "scope": (
-                "Exact rational probabilities obtained by normalizing binary64 188-column HiGHS "
+                "Exact rational probabilities obtained by normalizing binary64 189-column HiGHS "
                 "weights. This candidate is constrained only on the pinned 2,113 rows and requires "
                 "independent Arb verification plus complete sixth-order separation."
             ),
