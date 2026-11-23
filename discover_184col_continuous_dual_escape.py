@@ -66,6 +66,30 @@ def add_minor_group(rotation, gradient_matrix, subsets, coefficient):
     return total / len(subsets)
 
 
+def complex_step_derivative(pricing, couplings, coordinate, step=1e-20):
+    c = np.asarray(couplings, dtype=np.complex128).copy()
+    c[coordinate] += 1j * step
+    generator = np.zeros((42, 42), dtype=np.complex128)
+    for j, value in enumerate(c):
+        generator[j, j + 1] = 2.0 * value
+        generator[j + 1, j] = -2.0 * value
+    rotation = expm(generator)
+    score = complex(pricing.lam)
+    for row in pricing.active:
+        if row < LOW_COUNT:
+            subsets = pricing.second_groups[int(row)] if row < 21 else pricing.fourth_groups[int(row - 21)]
+        elif row < 2106:
+            subsets = pricing.sixth_groups[int(row)]
+        else:
+            subsets = pricing.eighth_groups[int(row)]
+        total = 0.0j
+        for subset in subsets:
+            idx = np.asarray(subset, dtype=int)
+            total += np.linalg.det(rotation[np.ix_(idx, idx)])
+        score += pricing.coefficients[int(row)] * total / len(subsets)
+    return float(score.imag / step)
+
+
 class DualPricing:
     def __init__(self):
         cert_raw = CERT_PATH.read_bytes()
@@ -186,18 +210,20 @@ def main():
     _, analytic = pricing.value_gradient(old)
     checks = []
     for j in (0, 20, 40):
-        step = 2e-6 * max(1.0, old[j])
+        complex_step = complex_step_derivative(pricing, old, j)
+        step = 1e-6 * max(1.0, old[j])
         plus, minus = old.copy(), old.copy()
         plus[j] += step
         minus[j] -= step
-        finite = (pricing.value_gradient(plus, False) - pricing.value_gradient(minus, False)) / (2.0 * step)
-        absolute = abs(finite - analytic[j])
-        relative = absolute / max(1.0, abs(finite), abs(analytic[j]))
-        checks.append({"coordinate": j, "analytic": float(analytic[j]), "central_difference": float(finite),
-                       "absolute_defect": float(absolute), "relative_defect": float(relative)})
+        central = (pricing.value_gradient(plus, False) - pricing.value_gradient(minus, False)) / (2.0 * step)
+        absolute = abs(complex_step - analytic[j])
+        relative = absolute / max(1.0, abs(complex_step), abs(analytic[j]))
+        checks.append({"coordinate": j, "analytic": float(analytic[j]), "complex_step": float(complex_step),
+                       "central_difference": float(central), "absolute_defect": float(absolute),
+                       "relative_defect": float(relative)})
     gradient_defect = max(item["relative_defect"] for item in checks)
-    if gradient_defect > 2e-3:
-        raise RuntimeError(f"Frechet/cofactor relative gradient check failed: {checks}")
+    if gradient_defect > 2e-6:
+        raise RuntimeError(f"Frechet/cofactor complex-step gradient check failed: {checks}")
 
     lower, upper = np.log(1e-4), np.log(100.0)
     records = []
