@@ -20,6 +20,8 @@ from discover_193col_uniform_torus_pricing import block_rotation, uniform_path_b
 
 PARENT_LP = ROOT / "evidence/joint_low_six_eighth_lp_194col_uniform_ray_escape_n21.json"
 PARENT_DUAL = ROOT / "evidence/55probe_194col_uniform_ray_escape_dual_certificate_n21.json"
+BASE_LP = ROOT / "evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json"
+BASE_DUAL = ROOT / "evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json"
 CANDIDATE_152 = ROOT / "evidence/candidate_joint_input_152col_continuous_escape_n21.json"
 CUT_LP = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
 CUT_DUAL = ROOT / "evidence/55probe_152col_full_sixth_cut_dual_certificate_n21.json"
@@ -80,6 +82,8 @@ def low_features_from_rotation(system, rotation):
 def main():
     parent_lp, parent_lp_sha = load_json(PARENT_LP)
     parent_dual, parent_dual_sha = load_json(PARENT_DUAL)
+    base_lp, base_lp_sha = load_json(BASE_LP)
+    base_dual, base_dual_sha = load_json(BASE_DUAL)
     candidate152, candidate152_sha = load_json(CANDIDATE_152)
     cut_lp, cut_lp_sha = load_json(CUT_LP)
     cut_dual, cut_dual_sha = load_json(CUT_DUAL)
@@ -113,10 +117,18 @@ def main():
     for label, cert in (("192-column", base_time_cert), ("193-column", parent_time_cert), ("194-column", time_cert)):
         if cert.get("status") != "certified_finite_uniform_ray_escape" or not cert.get("finite_physical_escape_certified"):
             raise RuntimeError(f"{label} uniform-ray time lacks a strict Arb certificate")
-    if base_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_192col_dual_certificate_sha256"):
-        raise RuntimeError("base uniform-ray time does not pin the 192-column dual")
-    if base_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_192col_lp_sha256") or base_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
-        raise RuntimeError("base uniform-ray time does not pin the 192-column LP/cut design")
+    if base_lp.get("status") != "192col_ninth_continuous_escape_lp_above_one_third" or (base_lp.get("columns"), base_lp.get("rows")) != (192, 2113):
+        raise RuntimeError("base 192-column LP is not the expected above-cap parent")
+    if base_dual.get("status") != "strict_192col_2113row_ninth_continuous_escape_minimax_obstruction" or not base_dual.get("complete"):
+        raise RuntimeError("base 192-column dual is not strictly Arb-certified")
+    if base_dual.get("lp_transcript_sha256") != base_lp_sha:
+        raise RuntimeError("base 192-column dual does not pin its LP")
+    if base_lp.get("cut_lp_transcript_sha256") != cut_lp_sha or base_dual.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("base 192-column ancestry does not pin the exact cut design")
+    if base_time_cert.get("dual_certificate_sha256") != base_dual_sha or base_time_cert.get("lp_transcript_sha256") != base_lp_sha or base_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("base uniform-ray time does not pin the exact 192-column dual/LP/cut design")
+    if parent_lp.get("parent_192col_dual_certificate_sha256") != base_dual_sha:
+        raise RuntimeError("194-column parent does not pin the base 192-column dual")
     if parent_lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256") != base_time_cert_sha:
         raise RuntimeError("194-column parent does not pin the base uniform-ray time certificate")
     base_t = Fraction(base_time_cert["t_exact_rational"])
