@@ -1699,3 +1699,40 @@ Evidence:
 - Evidence commit: 1c10c6c7a796999448430d6ef9a8141e52b1112c
 
 The next test is to price the 194-column dual over the exact 21-dimensional uniform-path torus. A positive Arb point would refute global separation by this particular dual only; absence of a point in a finite search would not prove global separation.
+
+
+## 2026-11-24: strict uniform-torus escape of the 194-column dual
+
+A deterministic 12-start L-BFGS-B search over the exact 21-dimensional uniform-path torus found an exact-decimal phase vector for the rationalized 194-column dual. The independent 128-bit Arb verifier certifies
+\[
+S_{194}(R(\theta_*))
+\in[4.165518912347934438721938898592883
+\pm7.17\times10^{-34}]>0.
+\]
+The exact phase-vector SHA256 is
+\[
+\texttt{f45e6dc6d84e196e9989351d5901dd2a694b7dda8cedb0ca98da69acfaddbdce}.
+\]
+The verifier pins 194-column dual SHA256
+\[
+\texttt{7864da033a71d7d2666cde32cf7f900c9a9a30893cbc7b90942fa09517cab474},
+\]
+194-column LP SHA256
+\[
+\texttt{c6dec42436d0181a9ff5012153d1896f4fcb0ca8a28cf39c6cdb321440dd7a66},
+\]
+and both preceding uniform-ray time certificates. The gradient regression defect is \(5.0922\times10^{-10}\), an implementation check only; the proof is the strictly positive Arb interval.
+
+By rational independence of the 21 frequencies and continuity, this proves existence of a finite \(t>0\) with \(S_{194}(e^{tK_*})>0\). This refutes global separation by this particular 194-column dual only. It does not invalidate the finite 194-column minimax theorem or establish full-family feasibility/infeasibility.
+
+Formal proof: THEORY_194COL_UNIFORM_RAY_DUAL_ESCAPE.md.
+
+Evidence:
+- Search: evidence/194col_uniform_torus_search_n21.json
+- 128-bit Arb: evidence/194col_uniform_torus_arb_n21.json
+- Search script: discover_194col_uniform_torus_pricing.py
+- Verifier: verify_194col_uniform_torus_pricing_arb.py
+- Successful workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45227944554
+- Evidence commit: 2972334d665c4882060cd887277cc4a0ec1e364c
+
+The next task is an explicit finite-time search on the uniform positive-coupling ray, followed by an Arb certificate.
