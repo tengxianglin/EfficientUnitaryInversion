@@ -56,96 +56,12 @@ def active_low_feature(system, entries, row, fourth_groups):
     return total / len(group)
 
 
-def write_theorem(result, lp, sixth_hash):
-    low_count = result["active_dual_low_rows"]
-    sixth_count = result["active_dual_sixth_rows"]
-    kind = "mixed-order" if low_count else "sixth-only"
-    lower = Fraction(result["certified_minimax_lower_bound"])
-    gap = Fraction(result["strict_lower_bound_above_one_third"])
-    dual_obj = Fraction(result["dual_objective_exact"])
-    delta = Fraction(result["dual_slack_delta"])
-    base = lp["base_columns"]
-    additions = lp["previous_added_canonical_columns"]
-    new = lp["added_canonical_columns"]
-    gap_text = f"{gap.numerator}/{gap.denominator}"
-    obj_text = f"{dual_obj.numerator}/{dual_obj.denominator}"
-    lines = [
-        "# Strict 185-column mixed-order minimax obstruction",
-        "",
-        "Date: 2026-11-23",
-        "",
-        "## Theorem",
-        "",
-        "Let P_185 be the fixed set of 185 physical path generators pinned by",
-        "evidence/joint_low_six_lp_185col_mixed_order_n21.json. Its inventory is:",
-        "",
-        f"- the 151-column canonical base (zero-based indices in the frozen 1,641-column pool): {base};",
-        "- the exact rational continuous-path generator certified in evidence/continuous_path_dual_escape_arb_n21.json;",
-        f"- thirty earlier canonical additions: {additions};",
-        f"- three further canonical additions: {new}.",
-        "",
-        "For a coupling vector c=(c_0,...,c_40,0), define the real skew-symmetric path generator by",
-        r"\[",
-        r"K(c)_{j,j+1}=2c_j,\qquad K(c)_{j+1,j}=-2c_j,\quad j=0,\ldots,40,",
-        r"\]",
-        "with all other entries zero, and set R(c)=exp(K(c)).",
-        "",
-        "The normalized feature vector contains the 21 cyclic second-order rows, all 1,440 dihedral fourth-order orbit rows, and the 645 pinned sixth-order orbit rows. The row scales are",
-        r"\[",
-        r"s_2=\frac1{41},\qquad s_4=\frac{\binom{21}{2}}{\binom{42}{4}},\qquad s_6=\frac5{19721}.",
-        r"\]",
-        "The 2,106-row inventory and exact targets are the same frozen design defined in",
-        "THEORY_182COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md; the sixth-row inventory hash is",
-        f"{sixth_hash}.",
-        "",
-        "For a probability distribution p on this fixed pool, let e(p) be its normalized moment vector minus the exact target vector. Then",
-        "",
-        r"\[",
-        r"\boxed{\min_{p\in\Delta(\mathcal P_{185})}\|e(p)\|_\infty",
-        rf"\ge \frac{{{lower.numerator}}}{{{lower.denominator}}}",
-        r"= " + f"{float(lower):.16g}" + r" > \frac13.}",
-        r"\]",
-        "",
-        "The certified excess over 1/3 is",
-        r"\[",
-        rf"\frac{{{gap.numerator}}}{{{gap.denominator}}}",
-        r"= " + f"{float(gap):.16g}.",
-        r"\]",
-        "",
-        "## Proof",
-        "",
-        "The certificate supplies an exact rational vector z and scalar lambda with",
-        r"\[\|z\|_1=1,\qquad \delta=" + f"{delta}" + r",\]",
-        "and exact dual objective",
-        r"\[\lambda+z^\mathsf T y=" + f"{obj_text}" + r".\]",
-        f"The dual support contains {low_count} low-order rows and {sixth_count} sixth-order rows.",
-        "Independent 128-bit Arb evaluation verifies, for every one of the 185 physical columns a(c),",
-        r"\[a(c)^\mathsf Tz+\lambda-\delta<0.\]",
-        "The largest certified interval upper endpoint after subtracting the slack is",
-        f"{result['maximum_arb_upper_of_column_dual_lhs_minus_slack']}.",
-        "",
-        "For every probability vector p, Holder's inequality gives",
-        r"\[\|e(p)\|_\infty\ge z^\mathsf T\!\left(y-\sum_c p_c a(c)\right).",
-        r"\]",
-        "Averaging the 185 strict column inequalities and using sum_c p_c=1 yields",
-        r"\[\|e(p)\|_\infty\ge \lambda+z^\mathsf T y-\delta,\]",
-        "which is the exact rational lower bound above.",
-        "",
-        "## Reproducibility",
-        "",
-        "- Binary64 discovery: evidence/joint_low_six_lp_185col_mixed_order_n21.json.",
-        "- Exact rational dual and all 185 Arb intervals: evidence/55probe_185col_mixed_order_dual_certificate_n21.json.",
-        "- Independent verifier: verify_185col_mixed_order_dual_arb.py.",
-        "- Workflow: .github/workflows/eui-185col-mixed-order-dual.yml.",
-        f"- LP transcript SHA256: {result['lp_transcript_sha256']}.",
-        f"- Exact dual objective: {obj_text}.",
-        "",
-        "## Scope",
-        "",
-        f"This is a rigorous {kind} lower bound for mixtures over the specified 185-generator pool and the pinned 2,106-row design only. It does not exclude additional canonical or continuous physical generators, does not establish a global minimax result over the unrestricted path family, and is not a Choi-fidelity or diamond-norm theorem.",
-        "",
-    ]
-    THEORY_PATH.write_text("\n".join(lines))
+def verify_theorem_file_exists():
+    # The formal theorem is maintained as a reviewed source document.
+    # The Arb verifier must not overwrite its LaTeX with a generated summary.
+    if not THEORY_PATH.exists():
+        raise RuntimeError("formal 185-column theorem document is missing")
+
 
 
 def main():
@@ -440,7 +356,7 @@ def main():
         "scope": scope,
     }
     OUTPUT_PATH.write_text(json.dumps(result, indent=2) + "\n")
-    write_theorem(result, lp, sixth_hash)
+    verify_theorem_file_exists()
     print(json.dumps({
         "status": status,
         "columns": len(column_order),
