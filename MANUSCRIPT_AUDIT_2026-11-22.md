@@ -1546,3 +1546,22 @@ Evidence:
 - Evidence commit: c61fca25cfe6dcc6d13b76429e10c533c907f71f
 
 The finite-time workflow completed the search and Arb-verification steps successfully; artifact upload was still finishing when this audit entry was written. The next action is to append this path as column 193 and reoptimize the same 2,113-row minimax LP.
+
+
+### 193-column LP after adding the explicit uniform-ray path (2026-11-24)
+
+The exact finite uniform-ray witness at t=14425.249926691145447 was appended as physical column 1650. The 193-column reoptimizer uses the explicit 21-torus spectral representation for the new path and uses that same rotation consistently for low-, sixth-, and eighth-order features. Its binary64 orthogonality defect is 5.21e-15.
+
+The 193-column / 2,113-row HiGHS discovery reports objective 0.4348371573809519, independently recomputed maximum residual 0.4348371573809968, support size 63, and floating primal-dual gap 8.60e-15. Block maxima are 0.43483715738095197 (low), 0.4348371573809968 (sixth), and 0.4348371573809675 (eighth). These remain numerical LP diagnostics, not a theorem.
+
+The current exact rationalization and 128-bit Arb verifier is running in workflow 45223141522. A 193-column minimax obstruction may be claimed only after it verifies all 193 column inequalities and a strict lower bound above 1/3. If the exact dual fails, the result must be reclassified and the primal candidate audited instead.
+
+Evidence:
+- Reoptimizer workflow 45222472885: success.
+- LP transcript: evidence/joint_low_six_eighth_lp_193col_uniform_ray_escape_n21.json.
+- Reoptimizer commit: 498908b93d0f35b7c74005e4dfff913dd9dadea1.
+- Stable spectral-consistency fix: d005b6ce6264f848793203aa1a379a6ef2906b5b.
+- Exact dual verifier: verify_193col_uniform_ray_dual_arb.py.
+- Arb workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45223141522 (pending at audit time).
+
+The next action is to finish exact 193-column dual certification; no continuous-family conclusion follows from this finite 193-column LP alone.
