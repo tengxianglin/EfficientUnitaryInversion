@@ -149,7 +149,7 @@ This is an explicit finite, strictly positive uniform-coupling escape, not merel
 **Established:**
 - The finite 192-column / 2,113-row minimax obstruction remains rigorously certified.
 - The exact 192-column dual has a strictly positive point on the closure torus of the uniform positive-coupling ray.
-- By density and continuity, a finite positive uniform coupling exists that escapes this particular dual.
+- An explicit rational uniform coupling t=14425.249926691145447 has a 128-bit Arb-certified positive pricing interval, so a finite physical path escapes this particular dual.
 
 **Not established:**
 - Feasibility or infeasibility of a probability mixture over the full continuous physical family.
@@ -172,7 +172,7 @@ The next useful experiment is to append this exact uniform path as the 193rd col
 - Explicit-time Arb verifier: verify_192col_uniform_ray_time_arb.py
 - Explicit-time search transcript: evidence/192col_uniform_ray_time_search_n21.json
 - Explicit-time Arb certificate: evidence/192col_uniform_ray_time_arb_n21.json
-- Explicit-time workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45221238345 (search and Arb verification passed; artifact upload was still finishing when this note was prepared).
+- Explicit-time workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45221238345 (success; finite-time search, Arb verification, artifact commit, and upload passed).
 - Evidence commit: c61fca25cfe6dcc6d13b76429e10c533c907f71f
 - Torus/theory commit: e9e1b9c6e8c8df5e20cad01f817dc0c5072b07c7
 
