@@ -907,3 +907,31 @@ The exact input and proof are recorded in `THEORY_184COL_CONTINUOUS_PATH_DUAL_ES
 The 185-column reoptimization has been implemented as the 184-column pool plus this second continuous path, retaining exactly the same 2,113-row mixed-order design. The new workflow [45126903168](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45126903168) rechecks the parent dual and both escape certificates, solves the LP, and independently verifies either an exact-probability sub-\(1/3\) candidate on all pinned rows or a new above-cap dual against all 185 columns. At the time of this audit update, the LP step is still running; no 185-column objective or theorem is claimed.
 
 Protocol and scope: `THEORY_185COL_SECOND_CONTINUOUS_ESCAPE_REOPTIMIZATION.md`. The experiment remains finite-pool and selected-row only. A complete 63,133-orbit sixth-order audit, complete eighth-order control, unrestricted continuous-family minimax theorem, and EUI-specific moment-to-Choi/diamond bridge remain unresolved.
+
+
+## 185-column result after adding the second continuous escape (2026-11-23)
+
+The second Arb-certified continuous path was added to the 184-column pool and the same 2,113-row mixed-order LP was re-solved. Workflow [45126903168](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45126903168) passed all prechecks and its independent 185-column dual verifier.
+
+HiGHS discovery diagnostics: objective 0.47182017897606104; recomputed maximum 0.4718201789763452; support size 54; primal-dual gap \(1.10\times10^{-14}\). The exact rational dual has \(\|z\|_1<1\), 54 nonzero rows (six fourth-order, 46 sixth-order, two eighth-order), and \(\delta=10^{-10}\). The 128-bit Arb verifier checked all 185 physical-column inequalities; the largest slack-shifted upper endpoint is
+\[
+-7.5382718420716027175678793242632891258\times10^{-11}<0.
+\]
+It proves
+\[
+\min_{p\in\Delta(\mathcal P_{185})}\|A_{185}p-y\|_\infty
+\ge
+\frac{5439716305336726789426356149}
+{11529215046068469760000000000}
+=0.4718201788760721\ldots>\frac13.
+\]
+The exact margin above \(1/3\) is \(0.13848684554273874\ldots\).
+
+- LP transcript: `evidence/joint_low_six_eighth_lp_185col_second_continuous_escape_n21.json`
+- Arb dual: `evidence/55probe_185col_second_continuous_escape_dual_certificate_n21.json`
+- Formal scope and proof record: `THEORY_185COL_SECOND_CONTINUOUS_ESCAPE_REOPTIMIZATION.md`
+- Reoptimizer and independent verifiers: `reoptimize_185col_second_continuous_escape.py`, `verify_185col_second_continuous_escape_dual_arb.py`, `verify_185col_second_continuous_escape_candidate_arb.py`
+- Evidence commit: [80a913f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/80a913f3186018c1768e03fc0a9edcb0eab1c90a)
+- Formal-note update: [7d39631](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7d39631fc2ed5bf7961bd2087a08f85678cb3fb5)
+
+**Boundary:** this is a fixed 185-generator / 2,113-row mixed-order theorem. It is not a complete sixth/eighth orbit certificate, a no-go for the unrestricted continuous path family, or a Choi/diamond operational guarantee. The second continuous escape invalidates the 184-column dual's attempted global extension; the newly certified 185-column dual must itself be tested against the continuous family before any such extension is considered.
