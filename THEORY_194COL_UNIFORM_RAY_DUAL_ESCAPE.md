@@ -118,18 +118,17 @@ This refutes **only** global separation by this particular 194-column dual. It d
 ## 5. Scope
 
 **Proved:**
-- The finite 194-column / 2,113-row minimax lower bound above \(1/3\).
+- The finite 194-column / 2,113-row minimax lower bound above \\(1/3\\).
 - A strictly positive value of the exact 194-column dual pricing functional at an exact-decimal point of the uniform-path torus, independently certified by 128-bit Arb.
-- Existence of a finite positive uniform coupling \(t\) escaping this particular dual.
+- Existence of a finite positive uniform coupling escaping this particular dual, by continuity and density of the uniform ray.
+- An explicit finite witness with all 41 couplings equal to \\(t_*=5918073474550670653/10^{15}\\), independently certified by 128-bit Arb with pricing interval `[0.533171018619275430607761736493 +/- 5.01e-31]`.
 
 **Not yet proved or supplied:**
-- An explicit finite uniform-path witness, strictly certified by 128-bit Arb: \(t_*=5918073474550670653/10^{15}\), with pricing interval `[0.533171018619275430607761736493 +/- 5.01e-31]`.
 - Feasibility or infeasibility of a probability mixture over the full continuous physical family.
 - A continuous-family minimax lower or upper bound.
 - Complete sixth/eighth orbit control beyond the pinned design.
 - A Choi-infidelity or diamond-distance operational guarantee.
 
-Failure of a bounded finite-time search would not refute the dense-torus existence theorem and would not establish global separation.
 
 ## 6. Reproducibility
 
