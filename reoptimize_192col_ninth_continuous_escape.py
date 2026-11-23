@@ -101,9 +101,6 @@ def main():
         candidate_float = np.asarray([float(Fraction(value)) for value in escape["candidate_couplings_exact"]], dtype="<f8")
         if any(np.array_equal(candidate_float, canonical) for canonical in canonical_float):
             raise RuntimeError(f"continuous escape {index} duplicates a canonical generator")
-    if escape9.get("candidate_outside_frozen_canonical_pool") is not True:
-        raise RuntimeError("ninth path lacks the explicit canonical-exclusion flag")
-
     for index, (escape, digest) in enumerate(zip(escapes, escape_hashes), 1):
         if escape.get("status") != "certified_continuous_path_dual_escape" or not escape.get("complete") or not escape.get("strictly_positive"):
             raise RuntimeError(f"continuous escape {index} lacks a strict Arb certificate")
@@ -114,6 +111,8 @@ def main():
         raise RuntimeError("the nine Arb-certified escape paths are not pairwise distinct")
 
     escape9 = escapes[-1]
+    if escape9.get("candidate_outside_frozen_canonical_pool") is not True:
+        raise RuntimeError("ninth path lacks the explicit canonical-exclusion flag")
     if escape9.get("dual_certificate_sha256") != parent_dual_sha or escape9.get("lp_transcript_sha256") != parent_lp_sha:
         raise RuntimeError("ninth escape does not pin the exact 191-column parent dual/LP")
     if escape9.get("cut_lp_transcript_sha256") != cut_lp_sha:
