@@ -12,6 +12,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: eui-196col-uniform-ray
+  cancel-in-progress: true
+
 jobs:
   reoptimize-196:
     runs-on: ubuntu-latest
