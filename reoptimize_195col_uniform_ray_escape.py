@@ -435,7 +435,7 @@ def main():
             "selected_eighth_rows": [list(row) for row in eighth_rows],
             "selected_eighth_targets": [str(value) for value in eighth_targets],
             "scope": (
-                 "Exact rational probabilities obtained by normalizing binary64 195-column HiGHS weights. 
+                "Exact rational probabilities obtained by normalizing binary64 195-column HiGHS weights. "
                 "This candidate is constrained only on the pinned 2,113 rows and requires independent "
                 "Arb verification plus complete sixth-order separation."
             ),
