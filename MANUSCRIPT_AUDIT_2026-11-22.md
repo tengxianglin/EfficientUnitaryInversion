@@ -636,3 +636,21 @@ A new combined pricing script and workflow now screen all 1,457 unused canonical
 - current run [45090786248](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45090786248).
 
 At this audit update the 185-column pricing run is in progress; no 185-dual escape or global finite-canonical-pool conclusion is claimed yet.
+
+
+
+## 185-column dual pricing and 186-column reoptimization (2026-11-23)
+
+Workflow [45090786248](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45090786248) completed the binary64 screen over all 1,457 canonical generators unused by the 185-column pool. Exactly one candidate had a positive binary64 score: canonical column 447, with score 0.01298752982693295. Its independent 128-bit Arb interval is
+\[
+[0.01298752982275180001179405643483\pm4.09\times10^{-33}],
+\]
+with strict lower endpoint
+\[
+[0.012987529822751800011794056434832732053\pm1.67\times10^{-40}]>0.
+\]
+This strictly escapes the 185-column dual after adding column 447. It does not prove feasibility or exclude any continuous-path generator. The screen and Arb files were committed in [1e0930d](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1e0930d9283e437421e779af0a18543f1f2482a3).
+
+The combined pricing script now explicitly records the SHA256 of its binary64 screen in the Arb transcript (commit [7f47871](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7f47871a605939ab75d6ae0211d2b95f9872fb88)); corrected provenance rerun [45091164802](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091164802) is running.
+
+The 186-column reoptimizer and workflow are committed in [1a3cb42](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1a3cb42d259ba060175d1b03955bcbc67491e361), [b1cc491](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b1cc491343e2e866a7b6adf2cdba1943b9cb6840), and [a3f4147](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a3f4147c3b6c91fe3a20737ba62e5f197e8b1f55). Run [45091230819](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091230819) has passed seed/orbit checks and the exact 185-column Arb certificate, and is currently repeating full pricing before the 186-column LP. No 186-column objective is asserted yet.
