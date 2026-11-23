@@ -846,3 +846,28 @@ A separate complete Arb verifier and workflow have been added to check all 1,458
 - workflow run is triggered by commit f58912d1ccf2287b0da81b9bbea3df5ef77ac1ce.
 
 If all 1,458 interval upper endpoints are strictly negative, combining the full-pool audit with the 184 active-column certificate proves the same 2,113-row mixed-order lower bound for the entire 1,641-column canonical inventory plus the one pinned continuous-path escape generator. This remains a finite union, not the unrestricted continuous path family.
+
+## 2026-11-23: complete Arb separation of the canonical inventory
+
+The 184-column dual was extended from its 184 active physical columns (183 canonical plus one exact continuous-path escape) to the entire frozen 1,641-column canonical inventory. The full 128-bit Arb run [45107567728](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45107567728) checked all 1,458 unused canonical columns:
+
+- 1,458 strictly negative interval upper endpoints;
+- zero positive intervals;
+- zero intervals overlapping zero;
+- maximum unused-column upper endpoint at canonical column 430:
+  \[
+  [-0.0085355262917551396968965552281556190618\pm2.78\times10^{-41}].
+  \]
+
+Combining these with the existing Arb certificate for the 183 active canonical columns and the one continuous escape proves the same exact lower bound for every mixture over all 1,641 canonical paths plus that one escape:
+\[
+\min_{p\in\Delta(\mathcal C_{1641}\cup\{c_\star\})}\|Ap-y\|_\infty
+\ge
+\frac{22487122319210016751569973413}
+{46116860184300265870000000000}
+=0.48761173742841650\ldots>\frac13.
+\]
+
+Formal extension: [THEORY_FULL_CANONICAL_POOL_PLUS_ESCAPE_2113ROW_MINIMAX_OBSTRUCTION.md](THEORY_FULL_CANONICAL_POOL_PLUS_ESCAPE_2113ROW_MINIMAX_OBSTRUCTION.md). Compact machine-readable summary: evidence/55probe_184col_full_canonical_pool_arb_summary_n21.json. Full interval transcript: evidence/55probe_184col_full_canonical_pool_arb_n21.json, GitHub blob SHA1 146b04f500b519e971b88d325d0cbccd1ee2fd87, committed at [dcab0b7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/dcab0b7fd7c7e81c36c7164441189c7e89d26a29).
+
+**Boundary:** this is a complete separation result for the finite canonical inventory plus one additional continuous path. It is still not a theorem for the unrestricted continuous coupling family, and the 2,113-row mixed-order residual still has no EUI-specific Choi/diamond-norm guarantee. The next mathematical target is global separation over the admissible continuous path family; the operational moment-to-channel bridge remains independent and essential.
