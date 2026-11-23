@@ -953,3 +953,45 @@ This refutes the global extension of the particular 185-column dual. It does not
 - Evidence commit: [4293fc0](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/4293fc0e567d0ed0c45c295a9687fb273dc4ea54)
 
 The next finite experiment is the 186-column reoptimization, adding this exact path to the 185-column pool. The continuous-family minimax theorem and the EUI-specific moment-to-Choi/diamond bridge remain open.
+
+
+## 2026-11-23: 186-column mixed-order minimax obstruction after a third continuous escape
+
+A third exact-rational positive 41-edge path was found against the 185-column dual. Its independent 128-bit Arb pricing interval is
+\[
+S_{185}(c)\in[293.82920368783706755711439295738586\pm5.02\times10^{-33}]>0.
+\]
+This invalidates only the attempted global extension of the 185-column dual; it does not affect that finite-pool theorem.
+
+The path was added as column 1643 and the same 2,113-row mixed-order LP was re-solved over 186 physical generators. Workflow [45128712241](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45128712241) completed successfully. HiGHS discovery returned objective 0.4682823606610356, recomputed maximum 0.4682823606621971, support size 54, and primal-dual gap \(8.73\times10^{-14}\). These floating-point values are diagnostics only.
+
+The rationalized dual was independently certified with 128-bit Arb against all 186 physical columns. Its exact \(L_1\) norm is 1; its support comprises five fourth-order, 47 sixth-order, and two eighth-order rows. All 186 slack-shifted column intervals are strictly negative; the largest upper endpoint is
+\[
+[-5.8049776314970689775168775729908666748\times10^{-11}\pm1.91\times10^{-49}]<0.
+\]
+Therefore
+\[
+\min_{p\in\Delta_{186}}\|A p-y\|_\infty
+\ge
+\frac{2699464018593872397696556823}
+{5764607523034431770000000000}
+=0.4682823605609322602\ldots>\frac13.
+\]
+The exact margin above \(1/3\) is
+\[
+\frac{2333784532747185423089670469}
+{17293822569103295310000000000}
+=0.1349490272275989268\ldots.
+\]
+
+Formal statement: [THEORY_186COL_2113ROW_THIRD_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_186COL_2113ROW_THIRD_CONTINUOUS_ESCAPE_MINIMAX_OBSTRUCTION.md).
+
+Evidence:
+- LP transcript SHA256: 8fdaf824fa742ae34a5a156c251feadd59b0047b
+- Dual certificate SHA256: 365dc82f4540cb6821038da3059efeb8cb8205b3
+- Independent verifier: verify_186col_third_continuous_escape_dual_arb.py
+- All 186 interval checks: evidence/55probe_186col_third_continuous_escape_dual_certificate_n21.json
+
+Scope remains finite-pool and mixed-order: 645 selected/cut sixth-order rows and seven selected eighth-order rows, not complete sixth/eighth orbit audits. This is not a global continuous-family no-go or an operational Choi/diamond theorem.
+
+**Next decisive action:** test the new 186-column dual over the unrestricted positive 41-edge path family. The 185-column dual already had a certified continuous escape, so no finite-pool certificate is to be promoted to a continuous-family separator without a separate global proof.
