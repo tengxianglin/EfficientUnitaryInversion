@@ -89,10 +89,6 @@ def main():
             raise RuntimeError(f"{label} continuous path lacks a strict Arb certificate")
     if candidate152.get("continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_1.name]:
         raise RuntimeError("152-column ancestor candidate does not pin the first escape")
-    if escape2.get("dual_certificate_sha256") != hashes[DUAL_184.name] if False else False:
-        raise RuntimeError("unreachable")
-    if escape3.get("dual_certificate_sha256") != hashes[DUAL_185.name] if False else False:
-        raise RuntimeError("unreachable")
     if escape3.get("dual_certificate_sha256") != hashes[DUAL_185.name]:
         raise RuntimeError("third escape does not pin the exact 185-column dual")
     if escape3.get("lp_transcript_sha256") != hashes[LP_185.name]:
