@@ -35,11 +35,12 @@ def main():
     lp_raw = LP_PATH.read_bytes()
     cut_raw = CUT_LP_PATH.read_bytes()
     discovery_raw = DISCOVERY_PATH.read_bytes()
-    cert, lp, cut_lp, discovery = [
-        json.loads(raw) for raw in (cert_raw, lp_raw, cut_raw, discovery_raw)
+    second_escape_raw = SECOND_ESCAPE_PATH.read_bytes()
+    cert, lp, cut_lp, discovery, second_escape = [
+        json.loads(raw) for raw in (cert_raw, lp_raw, cut_raw, discovery_raw, second_escape_raw)
     ]
-    cert_sha, lp_sha, cut_sha, discovery_sha = map(
-        sha, (cert_raw, lp_raw, cut_raw, discovery_raw)
+    cert_sha, lp_sha, cut_sha, discovery_sha, second_escape_sha = map(
+        sha, (cert_raw, lp_raw, cut_raw, discovery_raw, second_escape_raw)
     )
 
     base = {
@@ -49,6 +50,7 @@ def main():
         "lp_transcript_sha256": lp_sha,
         "cut_lp_transcript_sha256": cut_sha,
         "discovery_sha256": discovery_sha,
+        "prior_escape_certificate_sha256": second_escape_sha,
         "search_scope": discovery.get("search_domain"),
         "scope": (
             "A strictly positive Arb pricing interval is a counterexample to extending this "
@@ -58,6 +60,10 @@ def main():
     }
     if discovery.get("dual_certificate_sha256") != cert_sha:
         raise RuntimeError("discovery does not pin the exact 185-column dual")
+    if discovery.get("prior_escape_certificate_sha256") != second_escape_sha:
+        raise RuntimeError("discovery does not pin the second escape used as its search seed")
+    if second_escape.get("status") != "certified_continuous_path_dual_escape" or not second_escape.get("strictly_positive"):
+        raise RuntimeError("the second escape seed is not Arb-certified")
     if discovery.get("lp_transcript_sha256") != lp_sha or discovery.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("discovery LP/cut-row provenance mismatch")
     if cert.get("status") != "strict_185col_2113row_second_continuous_escape_minimax_obstruction" or not cert.get("complete"):
