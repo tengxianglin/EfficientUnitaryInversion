@@ -33,7 +33,27 @@ The 2,113 normalized residual rows are ordered as:
 - 645 pinned sixth-order orbit rows (311 selected rows plus 334 cuts);
 - seven selected eighth-order orbit rows.
 
-For a physical column \(a_j\), each entry is the corresponding principal-minor orbit average divided by its order-specific target scale. The target vector \(y\) uses the exact ideal moments. The row scales are
+Let \(D_{42}\) be the order-84 dihedral group and \(\mathcal O_k(I)=\{gI:g\in D_{42}\}\). For each physical path \(c_j\), write \(R_j=\exp K(c_j)\). The second-order rows use
+\[
+I_{i,d}=\{i,(i+d)\bmod 42\},\quad d=1,\ldots,21,
+\]
+\[
+b_d^{(2)}(c_j)=\frac1{42}\sum_{i=0}^{41}\det (R_j)_{I_{i,d},I_{i,d}},
+\qquad
+\tau_d^{(2)}=\frac{(-1)^{d+1}}{41}.
+\]
+For \(k\in\{4,6,8\}\), each pinned representative \(I\) contributes
+\[
+b_I^{(k)}(c_j)=\frac1{|\mathcal O_k(I)|}
+\sum_{J\in\mathcal O_k(I)}\det (R_j)_{J,J},
+\]
+with exact ideal target
+\[
+\tau_I^{(k)}
+=(-1)^{\sum_{i\in I}(i\bmod 2)+k/2}
+\frac{\binom{21}{k/2}}{\binom{42}{k}}.
+\]
+Thus \(a_j\) contains \(b^{(k)}(c_j)/s_k\) and \(y\) contains \(\tau^{(k)}/s_k\), in the stated row order. The row scales are
 \[
 s_2=\frac1{41},\qquad
 s_4=\frac{\binom{21}{2}}{\binom{42}{4}},\qquad
@@ -41,6 +61,18 @@ s_6=\frac5{19721},\qquad
 s_8=\frac1{19721}.
 \]
 For \(p\in\Delta_{187}\), write \(r(p)=Ap-y\).
+
+The pinned sixth-row inventory SHA256 is
+\[
+\texttt{5ea65e5c906046cf82253202563b01e86a3aeddbdc1ff2ac4d01127147132abb},
+\]
+the selected eighth-row inventory SHA256 is
+\[
+\texttt{c96eb71f87e5396658d73c5589be00b3f82cfcda46f8b2b71fc168b2391a93d0},
+\]
+and the binary64 matrix/target reconstruction SHA256 is
+\[
+\texttt{3372113ef7002560e45fc64797b9c1b5abfd097d282205b30cfa3369efeb4ea9}.
 
 **Claim.** Every probability vector on this fixed physical pool obeys
 \[
