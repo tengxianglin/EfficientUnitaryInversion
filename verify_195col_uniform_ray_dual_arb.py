@@ -112,6 +112,8 @@ def main():
         raise RuntimeError("194-column parent dual does not pin its LP")
     if lp.get("parent_194col_lp_sha256") != parent_lp_sha or lp.get("parent_194col_dual_certificate_sha256") != parent_dual_sha:
         raise RuntimeError("195-column LP does not pin the exact 194-column parent")
+    if lp.get("parent_192col_lp_sha256") != base_lp_sha:
+        raise RuntimeError("195-column LP does not pin the exact 192-column ancestor LP")
     if parent_lp.get("parent_193col_lp_sha256") != parent_dual.get("parent_193col_lp_sha256") or parent_lp.get("parent_193col_dual_certificate_sha256") != parent_dual.get("parent_193col_dual_certificate_sha256"):
         raise RuntimeError("194-column parent ancestry mismatch")
     if lp.get("parent_152col_candidate_sha256") != candidate152_sha or parent_lp.get("parent_152col_candidate_sha256") != candidate152_sha:
