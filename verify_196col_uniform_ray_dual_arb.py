@@ -167,6 +167,10 @@ def main():
         raise RuntimeError("195-column time certificate does not pin the exact 195-column dual/LP/cut design")
     if time_cert.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != grandparent_time_cert_sha:
         raise RuntimeError("195-column time certificate does not pin the 194-column ancestor time")
+    if time_cert.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or time_cert.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
+        raise RuntimeError("195-column time certificate does not pin the exact 194-column parent LP/dual")
+    if parent_lp.get("parent_194col_lp_sha256") != parent_dual.get("parent_194col_lp_sha256") or parent_lp.get("parent_194col_dual_certificate_sha256") != parent_dual.get("parent_194col_dual_certificate_sha256"):
+        raise RuntimeError("195-column parent LP/dual ancestry mismatch")
     if lp.get("parent_195col_lp_sha256") != parent_lp_sha or lp.get("parent_195col_dual_certificate_sha256") != parent_dual_sha:
         raise RuntimeError("196-column LP does not pin the exact 195-column parent")
     if lp.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or lp.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
