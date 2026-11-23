@@ -758,3 +758,18 @@ The next pricing stage is now configured and queued in [workflow 45104568684](ht
 
 
 The first 182-column pricing attempt [45104568684](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104568684) re-certified the parent 182-column dual and compiled the pricing programs, but the binary64 pricing script stopped at a stale set-cardinality guard (it expected 171 distinct active canonical labels after separately checking 181 labels). The exact dual and its certificate were unaffected. The guard was corrected to 181 in [9501f17](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/9501f17b14fb19b24cce395486b06ef3394244fe); corrected workflow [45104635426](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104635426) is queued. No pricing conclusion is drawn from the failed attempt.
+
+
+## 182-column full-sixth-cut dual pricing completed (2026-11-23)
+
+Corrected pricing workflow [45104635426](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104635426) completed successfully after fixing the stale distinct-count guard in [9501f17](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/9501f17b14fb19b24cce395486b06ef3394244fe). The workflow re-certified the 182-column / 2,113-row dual, screened all 1,460 unused canonical columns, and found exactly one binary64-positive candidate: canonical column 544, score 0.023498411984316764.
+
+Independent 128-bit Arb evaluation gives
+\[
+[0.023498411983883277473391166582309888329\pm4.39\times10^{-40}],
+\]
+whose lower endpoint is strictly positive. Therefore column 544 escapes the 182-column dual after addition. The full screen and Arb transcript were committed in [5e799a3](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5e799a373bc11e82b87bf5d09680de6f7d67d122), in `evidence/55probe_182col_full_sixth_cut_dual_pricing_screen_n21.json` and `evidence/55probe_182col_full_sixth_cut_dual_pricing_arb_n21.json`.
+
+The positive escape does not prove feasibility or exclude the other 1,459 nonpositive binary64 columns. Note that canonical column 544 is active in the separate 182-column / 2,106-row branch, but is unused in this 182-column / 2,113-row full-sixth-cut pool; the inventories differ.
+
+The next pool expansion is the 183-column / 2,113-row full-sixth-cut reoptimization, with column 544 added.
