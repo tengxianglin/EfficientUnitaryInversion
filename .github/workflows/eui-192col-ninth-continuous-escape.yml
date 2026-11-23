@@ -52,6 +52,7 @@ jobs:
         run: |
           rm -f evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json
           rm -f evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json
+          rm -f evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json
       - name: Reoptimize the 192-column, 2,113-row mixed-order LP
         run: python reoptimize_192col_ninth_continuous_escape.py
       - name: Independently certify the 192-column dual when LP remains above one third
@@ -84,6 +85,9 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin +refs/heads/main:refs/remotes/origin/main
             git reset --hard origin/main
+            rm -f evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json
+            rm -f evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json
+            rm -f evidence/55probe_192col_ninth_continuous_escape_dual_certificate_n21.json
             for f in \
               evidence/joint_low_six_eighth_lp_192col_ninth_continuous_escape_n21.json \
               evidence/candidate_joint_input_192col_ninth_continuous_escape_n21.json \
