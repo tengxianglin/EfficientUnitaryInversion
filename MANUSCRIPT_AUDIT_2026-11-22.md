@@ -1663,3 +1663,39 @@ Evidence:
 - Evidence commit: 5d9bc186a82d4b331930069764344e14367ea55c
 
 The next action is to append this path as physical column 1651 and reoptimize the same 2,113-row LP.
+
+
+## 2026-11-24: 194-column finite-pool minimax obstruction
+
+The explicit uniform path at \(t=588.216987832015661\), with all 41 edge couplings equal, was appended as physical column 1651. Reoptimization of the same 2,113-row mixed-order design gave binary64 objective 0.4317007129307349 and independently recomputed maximum residual 0.4317007129309698. These are discovery diagnostics only.
+
+An exact rational dual was reconstructed and independently checked by 128-bit Arb against all 194 physical columns. It has
+\[
+\|z\|_1=\frac{1152921504606836423}{1152921504606846976}<1,
+\qquad
+\delta=10^{-10},
+\]
+and proves
+\[
+\eta_{194}\ge
+\frac{4860517923600091274798001}
+{11258999068426240000000000}
+=0.4317007128307263\ldots>\frac13.
+\]
+The maximum shifted column-LHS Arb upper endpoint is \(-7.63322083947767\times10^{-11}<0\). The 65 nonzero dual coordinates comprise 2 low-order, 61 sixth-order, and 2 eighth-order rows.
+
+The new column 1651 is nearly active but still strictly certified: its raw dual-LHS interval is approximately \(-3.46880890753216023\times10^{-14}\pm1.96\times10^{-32}\). This is a strict negative interval, not a numerical zero.
+
+The 194-column theorem covers exactly the 194 listed physical columns and the fixed 2,113-row design. It does not prove separation of the full canonical inventory or continuous positive-coupling family, complete sixth/eighth orbit control, or a Choi/diamond operational guarantee.
+
+Formal proof: THEORY_194COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md.
+
+Evidence:
+- LP: evidence/joint_low_six_eighth_lp_194col_uniform_ray_escape_n21.json
+- 128-bit Arb: evidence/55probe_194col_uniform_ray_escape_dual_certificate_n21.json
+- Reoptimizer: reoptimize_194col_uniform_ray_escape.py
+- Verifier: verify_194col_uniform_ray_dual_arb.py
+- Workflow: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45226334693
+- Evidence commit: 1c10c6c7a796999448430d6ef9a8141e52b1112c
+
+The next test is to price the 194-column dual over the exact 21-dimensional uniform-path torus. A positive Arb point would refute global separation by this particular dual only; absence of a point in a finite search would not prove global separation.
