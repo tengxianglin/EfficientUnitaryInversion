@@ -65,7 +65,7 @@ def main():
     escape4 = data[ESCAPE_4]
     escape5 = data[ESCAPE_5]
 
-    if parent_lp.get("status") != "188col_fifth_continuous_escape_lp_above_one_third":
+    if parent_lp.get("status") != "187col_fourth_continuous_escape_lp_above_one_third":
         raise RuntimeError("187-column parent LP is not the expected above-cap discovery")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (187, 2113):
         raise RuntimeError("unexpected 187-column parent dimensions")
@@ -89,6 +89,8 @@ def main():
         raise RuntimeError("186-column parent dual does not pin the second continuous escape")
     if parent_lp.get("third_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_3.name] or parent_dual.get("third_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_3.name]:
         raise RuntimeError("187-column parent does not pin the third continuous escape")
+    if parent_lp.get("fourth_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_4.name] or parent_dual.get("fourth_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_4.name]:
+        raise RuntimeError("187-column parent does not pin the fourth continuous escape")
     if parent_lp.get("fourth_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_4.name] or parent_dual.get("fourth_continuous_escape_arb_certificate_sha256") != hashes[ESCAPE_4.name]:
         raise RuntimeError("187-column parent does not pin the fourth continuous escape")
     if cut_dual.get("status") != "strict_152col_2113row_minimax_obstruction" or not cut_dual.get("complete"):
@@ -254,7 +256,7 @@ def main():
     matrix_sha = sha(np.asarray(A, dtype="<f8").tobytes() + np.asarray(y, dtype="<f8").tobytes())
     lp_status = (
         "188col_fifth_continuous_escape_lp_candidate_below_one_third"
-        if result.fun < 1 / 3 else "187col_fourth_continuous_escape_lp_above_one_third"
+        if result.fun < 1 / 3 else "188col_fifth_continuous_escape_lp_above_one_third"
     )
     transcript = {
         "status": lp_status,
