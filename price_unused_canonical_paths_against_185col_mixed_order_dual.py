@@ -307,6 +307,7 @@ def main():
             "no_float_positive_candidates" if not candidates else "float_candidates_not_arb_certified"
         ),
         **hashes,
+        "pricing_screen_sha256": sha(SCREEN_OUTPUT.read_bytes()),
         "precision_bits": ctx.prec,
         "interval_backend": "python-flint 0.8.0 / Arb",
         "active_dual_rows": len(active_low) + len(active_sixth),
