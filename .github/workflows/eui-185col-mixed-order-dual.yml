@@ -1,0 +1,68 @@
+name: EUI 185-column mixed-order Arb dual certificate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_185col_mixed_order_dual_arb.py"
+      - ".github/workflows/eui-185col-mixed-order-dual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Verify frozen seed pool and orbit helpers
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+      - name: Re-verify parent 182-column Arb dual
+        run: python verify_182col_sixth_only_dual_arb.py
+      - name: Re-verify the three strict 182-dual pricing escapes
+        run: python verify_182col_mixed_order_dual_pricing_arb.py
+      - name: Certify the 185-column mixed-order dual
+        run: python verify_185col_mixed_order_dual_arb.py
+      - name: Commit exact 185-column certificate and theorem
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-185cert
+          cp evidence/55probe_185col_mixed_order_dual_certificate_n21.json /tmp/eui-185cert/certificate.json
+          cp THEORY_185COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md /tmp/eui-185cert/theory.md
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            cp /tmp/eui-185cert/certificate.json evidence/55probe_185col_mixed_order_dual_certificate_n21.json
+            cp /tmp/eui-185cert/theory.md THEORY_185COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md
+            git add evidence/55probe_185col_mixed_order_dual_certificate_n21.json THEORY_185COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md
+            if ! git diff --cached --quiet; then
+              git commit -m "Certify the 185-column mixed-order minimax obstruction"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload strict certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-185col-mixed-order-arb-certificate
+          path: |
+            evidence/55probe_185col_mixed_order_dual_certificate_n21.json
+            THEORY_185COL_2106ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md
+          if-no-files-found: warn
