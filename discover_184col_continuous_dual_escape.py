@@ -303,6 +303,7 @@ def main():
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + "\n")
+    result["output"] = str(output)
     print(json.dumps({k: result[k] for k in ("status", "best_candidate_score_binary64", "candidate_found", "gradient_check_max_relative_defect", "output")}, indent=2), flush=True)
 
 
