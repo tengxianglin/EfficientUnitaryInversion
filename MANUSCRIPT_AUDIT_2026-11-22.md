@@ -690,3 +690,31 @@ A new full-canonical pricing workflow against this exact 172-column dual is now 
 ### Separate 186-column mixed-order discovery
 
 The 185-dual pricing escape (canonical column 447) was added in a separate 186-column, 2,106-row mixed-order branch. HiGHS returned objective 0.46714365173379313, recomputed maximum 0.4671436517368315, support size 57, and primal-dual discovery gap about 3.36e-14. This is **binary64 discovery only**; no 186-column Arb dual certificate was produced. Workflow [45091326325](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45091326325) failed only at the commit step because the workflow unconditionally staged a candidate file that correctly was not written (the LP was above 1/3). Its log/artifact records the discovery, but the transcript was not committed. This branch must not be conflated with the 172-column full-sixth-cut result above.
+
+
+## 172-column full-canonical pricing and 182-column reoptimization (2026-11-23)
+
+The previously pending pricing workflow [45103189029](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45103189029) completed successfully. It screened all 1,470 canonical columns unused by the 172-column pool. The binary64 screen's ten leading positive candidates were all independently certified strictly positive by 128-bit Arb:
+
+| Canonical column | Arb interval lower endpoint (decimal prefix) |
+|---:|---:|
+| 61 | 0.094971255371117435851053050912804100161 |
+| 352 | 0.082162433143692804154932815863527787006 |
+| 629 | 0.060558969832182688689389546027074325733 |
+| 93 | 0.048369660902845630571829819889328884328 |
+| 728 | 0.048012261079486591388003765856988382992 |
+| 620 | 0.033244789847951735773015296453756896077 |
+| 78 | 0.024524006644280791019203829227312601884 |
+| 398 | 0.013261356418032375891780988474268490026 |
+| 233 | 0.0071350626704812797345796766306698389239 |
+| 169 | 0.0011911701981955691906785174017499743409 |
+
+The full Arb radii, exact couplings, screen hash, certificate hash, and LP hash are retained in:
+- `evidence/55probe_172col_full_sixth_cut_dual_pricing_screen_n21.json`;
+- `evidence/55probe_172col_full_sixth_cut_dual_pricing_arb_n21.json`.
+
+These ten strictly positive reduced-cost values invalidate the 172-column dual after adding any listed column. The other 1,460 nonpositive binary64 scores are not strict Arb exclusion certificates; no all-canonical-pool separation is claimed.
+
+The next 182-column pool is now defined by the 151 base canonical columns, one exact-rational continuous-path escape, the 20 canonical additions already present in the 172-column pool, and these ten newly priced columns. The reoptimizer and independent Arb dual verifier were added in commits [49ef1d0](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/49ef1d084d71f04016cd2b222e1bbf76ff532d2d) and [534e9d9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/534e9d9091ff955a17fc4a3c6e9d177aa39199cd); workflow configuration is [8a65a4e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8a65a4e6c034d080abfa4b357ddc65b2fee1e588). Workflow [45104071580](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45104071580) has passed seed/orbit checks and re-certified the 172-column parent dual; at this audit update it is repeating the 1,470-column pricing and Arb checks before building the 182-column, 2,113-row LP. No 182-column objective is yet asserted.
+
+This remains finite-pool, mixed-order evidence. It does not complete the 63,133-orbit sixth-order or 1,408,185-orbit eighth-order audit, does not establish an unrestricted continuous-family minimax theorem, and does not provide a Choi/diamond-norm operational guarantee.
