@@ -102,9 +102,9 @@ This is still not a global obstruction for arbitrary nonuniform gapped couplings
 
 ## Completed global certificate and quantitative consequence (2026-11-24)
 
-The conditional statement above is now proved by the committed 512-bit Arb certificate `evidence/ising_full_fourth_continuous_single_path_n21.json` (blob SHA `db7f259b055fe29bec300acc207af02135120762`), produced by workflow [45350942797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45350942797) and recorded in commit [5979d33](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5979d33a58fe8fb247a23253a8b4fb1dcd6ead10).
+The conditional statement above is now proved by the committed 512-bit Arb certificate `evidence/ising_full_fourth_continuous_single_path_n21.json` (blob SHA `999464a6e2f873c96e15c36a8aaf648523ba13eb`), produced by workflow [45354211141](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45354211141) and recorded in commit [5979d33](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/33f804c89fe4e431fc694b956b61a8b320956d17).
 
-The verifier certifies every \(L=2,\ldots,42\) for every real scale \(\alpha\in\mathbb R\): 41 lengths, 4,389 exact-size Fourier samples, exact exterior-power frequency bounds, Arb-enclosed DFT coefficients, and adaptive de Casteljau/Bernstein subdivisions. Every path has status `positive`; there are no unresolved leaves and no negative witness. The 22 pinned base atoms are independently re-evaluated at 512-bit Arb precision. The smallest certified Bernstein lower endpoint over all path leaves and base atoms is
+The verifier certifies every \(L=2,\ldots,42\) for every real scale \(\alpha\in\mathbb R\): 41 lengths, 4,389 exact-size Fourier samples, 164 direct-vs-polynomial off-grid checks at four real scales per length, exact exterior-power frequency bounds, Arb-enclosed DFT coefficients, and adaptive de Casteljau/Bernstein subdivisions. Every path has status `positive`; there are no unresolved leaves and no negative witness. The 22 pinned base atoms are independently re-evaluated at 512-bit Arb precision. The smallest certified Bernstein lower endpoint over all path leaves and base atoms is
 
 \[
 \delta_{\rm cert}=0.02800447635786912086169875814833305913\ldots>0.028.
