@@ -85,7 +85,7 @@ Its rotation is independently represented through the exact 21-frequency spectra
 `column_order_sha256` in the certificate.
 
 - LP transcript SHA256: `721b9b3e373a53dbeed8b2500f246acb7270037e2db8b82db9bbb1d678964e47`
-- 197-column certificate JSON SHA256: `9a0b5bff2a99e8482e6bc2421529482e0232026b`
+- 197-column certificate JSON Git blob SHA-1: `9a0b5bff2a99e8482e6bc2421529482e0232026b`
 - frozen seed-pool SHA256 (little-endian f64): `93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315`
 - canonical all-column array SHA256: `f94a0ba43bcc7566705ff0bec3b6ab6b48b49a5ce29592173664e15a01c08d98`
 - ordered-column SHA256: `117c9f37f43827f27534b117af9a6413eb7af4c42b078137621fc2940df2dc20`
