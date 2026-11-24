@@ -1,0 +1,78 @@
+name: EUI n=21 pricing of expanded full-fourth separator on general gapped paths
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "search_ising_full_fourth_plus_general_gapped_n21.py"
+      - "verify_ising_full_fourth_plus_general_gapped_escape_n21.py"
+      - ".github/workflows/eui-full-fourth-plus-general-gapped-search-n21.yml"
+      - "ising_moment_pricing.py"
+      - "ising_fourth_moments.py"
+      - "verify_ising_full_fourth_fractional_grid_dual_arb.py"
+      - "verify_ising_low_moment_design.py"
+      - "evidence/ising_full_fourth_plus_general_gapped_n21.json"
+      - "evidence/ising_full_fourth_plus_general_gapped_arb_n21.json"
+      - "evidence/ising_full_fourth_general_gapped_escape_arb_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-full-fourth-plus-general-gapped-search-n21
+  cancel-in-progress: false
+
+jobs:
+  expanded-dual-general-gapped-pricing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned numerical and interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Compile discovery and independent Arb verifier
+        run: |
+          python -m py_compile search_ising_full_fourth_plus_general_gapped_n21.py
+          python -m py_compile verify_ising_full_fourth_plus_general_gapped_escape_n21.py
+      - name: Search connected and multi-segment nonuniform gapped paths
+        run: python search_ising_full_fourth_plus_general_gapped_n21.py
+      - name: Independently verify best candidates with 256-bit Arb
+        run: python verify_ising_full_fourth_plus_general_gapped_escape_n21.py
+      - name: Commit expanded-dual search and Arb evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/ising_full_fourth_plus_general_gapped_search_n21.json
+          git add evidence/ising_full_fourth_plus_general_gapped_escape_arb_n21.json
+          if git diff --cached --quiet; then
+            echo "No expanded-dual gapped evidence changes."
+            exit 0
+          fi
+          git commit -m "Record expanded full-fourth dual gapped-path pricing"
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload expanded-dual gapped evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n21-expanded-dual-general-gapped-pricing
+          path: |
+            evidence/ising_full_fourth_plus_general_gapped_search_n21.json
+            evidence/ising_full_fourth_plus_general_gapped_escape_arb_n21.json
+          if-no-files-found: error
