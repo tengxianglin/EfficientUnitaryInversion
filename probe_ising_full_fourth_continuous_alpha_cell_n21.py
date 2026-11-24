@@ -16,8 +16,8 @@ from ising_fourth_moments import FourthMoments
 from verify_ising_full_fourth_fractional_grid_dual_arb import (
     block_score,
     build_mask_weights,
-    fractional_block,
 )
+from flint import arb_mat
 from verify_ising_low_moment_design import rational
 
 ROOT = Path(__file__).resolve().parent
@@ -25,6 +25,24 @@ DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_fractional_grid_n21.json"
 WARM_CERT = ROOT / "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
 OUTPUT = ROOT / "evidence/ising_full_fourth_continuous_alpha_cell_probe_n21.json"
 PRECISION_BITS = 128  # pinned interval precision for reproducibility
+
+
+def fractional_generator(length, scale):
+    generator = arb_mat(length, length)
+    for j in range(length - 1):
+        coupling = scale * arb.pi() / 4 * arb((j + 1) * (length - j - 1)).sqrt()
+        generator[j, j + 1] = 2 * coupling
+        generator[j + 1, j] = -2 * coupling
+    return generator
+
+
+def centered_interval_block(length, center, radius):
+    # exp((center + delta) A) = exp(center A) exp(delta A), since both
+    # factors are scalar multiples of the same fixed generator A.
+    midpoint = fractional_generator(length, rational(center)).exp()
+    delta = arb(f"0 +/- {radius}")
+    local = fractional_generator(length, delta).exp()
+    return midpoint * local
 
 
 def main():
@@ -67,7 +85,7 @@ def main():
     # Exact decimal interval [1.835, 1.845], centered at alpha=46/25.
     alpha_interval = arb("1.84 +/- 0.005")
     length = 40
-    interval_block = fractional_block(length, alpha_interval)
+    interval_block = centered_interval_block(length, Fraction(46, 25), "0.005")
     interval_score = block_score(
         interval_block,
         length,
@@ -95,7 +113,7 @@ def main():
         ),
         "complete_for_declared_cell": True,
         "precision_bits": ctx.prec,
-        "interval_backend": "python-flint / Arb interval matrix exponential",
+        "interval_backend": "python-flint / Arb centered factorization exp(alpha0*A) exp(delta*A)",
         "diagnostic_sha256": hashlib.sha256(diagnostic_raw).hexdigest(),
         "warm_certificate_sha256": hashlib.sha256(warm_raw).hexdigest(),
         "length": length,
@@ -103,6 +121,7 @@ def main():
         "alpha_interval_lower": str(alpha_interval.lower()),
         "alpha_interval_upper": str(alpha_interval.upper()),
         "target_score_interval": str(target_score),
+        "center_factorization": "exp(alpha0*A) exp(delta*A), with delta in [-1/200,1/200]",
         "score_interval_over_entire_alpha_cell": str(interval_score),
         "gap_interval_over_entire_alpha_cell": str(interval_gap),
         "gap_lower_endpoint": str(interval_gap.lower()),
