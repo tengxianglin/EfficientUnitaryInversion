@@ -98,19 +98,52 @@ The verifier was subsequently hardened to require every gap to exceed (1/4), and
 [a507e568](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a507e568ed7c596b47ad3056058b30066695dd6b).
 The stronger common-margin claim is kept separate until the corresponding rerun emits its updated certificate.
 
-## Continuous-parameter follow-up
+## Continuous-parameter follow-up: one cell is now rigorously covered
 
-A first interval-matrix-exponential probe has been added for the entire cell
-[
-L=40,\qquad \alpha\in[1.835,1.845],
-]
-around the midpoint-selected candidate (\alpha=46/25). It computes an Arb enclosure of the separator score over the whole interval, not only at sampled points. See
-[probe_ising_full_fourth_continuous_alpha_cell_n21.py](probe_ising_full_fourth_continuous_alpha_cell_n21.py)
-and
-[.github/workflows/eui-full-fourth-continuous-alpha-cell-n21.yml](.github/workflows/eui-full-fourth-continuous-alpha-cell-n21.yml).
-The probe's output is not yet present, so no continuous-alpha cell conclusion is claimed. If the interval is too wide, the next step is adaptive bisection; a successful cell proof would be repeated over every grid cell and every allowed path length before claiming a continuous single-open-path obstruction.
+A direct interval-matrix-exponential enclosure was initially unusable: for the cell around the smallest sampled gap it produced a score radius of about \(1.29\\times10^9\) after centered factorization. This was interval dependency blow-up, not a physical counterexample.
 
-The finite-pool certificate does not cover intermediate alpha values, arbitrary gapped couplings, multi-segment paths outside the grid, or the full continuous physical family. It is not an operational Choi/diamond-distance bound.
+The replacement uses a Taylor model for the **scalar separator score**. For the active path generator
+\[
+A_L=\\pi J_y^{((L-1)/2)},\\qquad
+\\|A_L\\|_2=\\pi(L-1)/2,
+\]
+write \(R_{L,\\alpha_0+\\delta}=R_{L,\\alpha_0}e^{\\delta A_L}\). Every active principal minor of order \(r\\le4\) is a diagonal matrix coefficient of the exterior-power representation \(e^{\\delta A_L^{[r]}}\), with
+\[
+\\|A_L^{[r]}\\|_2\\le r\\|A_L\\|_2.
+\]
+Thus for \(|\\delta|\\le1/200\), the Taylor tail of any such minor after degree \(M\) is bounded by
+\[
+e^x\\frac{x^{M+1}}{(M+1)!},\\qquad
+x=4\\frac{22}{7}\\frac{L-1}{2}\\frac1{200}
+=\\frac{11(L-1)}{350}.
+\]
+The exact rational row weights are first aggregated by active mask, the degree-40 Taylor polynomials of the corresponding minors are combined into one scalar score polynomial, and the weighted tail bound is added as a symmetric Arb error ball. This retains cancellation between the 80 frozen separator coefficients before interval evaluation.
+
+For \(L=40\), \(\\alpha_0=46/25\), and \(\\delta\\in[-1/200,1/200]\), 512-bit Arb gives
+\[
+x=429/350\\approx1.2257142857,
+\]
+\[
+\\epsilon_{\\rm score}
+\\le2.1190816604560243\\times10^{-43},
+\]
+and the complete score/gap enclosure
+\[
+y^{\\mathsf T}b-S_{40}(\\alpha_0+\\delta)
+\\in[0.27\\pm0.00563].
+\]
+Its certified lower endpoint is
+\[
+0.2643780467418314563\\ldots>1/4.
+\]
+The midpoint reconstruction defect is below \(3\\times10^{-147}\), and an independent point check at \(\\delta=1/1000\) is contained in the Taylor enclosure. The Arb interval for \(\\alpha\) slightly over-encloses the exact cell \([1.835,1.845]\), so the claimed cell is safely contained.
+
+Evidence:
+- [512-bit continuous-cell certificate](evidence/ising_full_fourth_continuous_alpha_cell_probe_n21.json)
+- [Taylor verifier](probe_ising_full_fourth_continuous_alpha_cell_n21.py)
+- [reproducible workflow](.github/workflows/eui-full-fourth-continuous-alpha-cell-n21.yml)
+
+This proves a continuous-parameter obstruction for **one** path length and one alpha cell only. It does not yet cover the remaining cells or path lengths. The next step is to reuse the scalar Taylor model with adaptive subdivision for cells nearest the finite-grid separator, then cover all cells if the cost is acceptable. The finite-pool certificate still does not cover arbitrary gapped couplings, multi-segment paths outside the grid, or the full continuous physical family. Neither result is an operational Choi/diamond-distance bound.
 
 
 ## 2026-11-24 finite-grid LP result and independent Arb follow-up
