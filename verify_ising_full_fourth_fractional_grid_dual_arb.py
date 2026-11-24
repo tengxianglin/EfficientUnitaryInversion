@@ -322,8 +322,10 @@ def main():
     print(json.dumps({
         key: result[key] for key in (
             "status", "candidate_count", "dual_nonzero_coefficients",
-            "target_score_interval", "minimum_candidate_gap_interval",
-            "minimum_gap_candidate_by_midpoint", "block_pricing_self_test",
+            "target_score_interval",
+            "certified_common_gap_lower_bound",
+            "smallest_gap_candidate_interval_by_midpoint_selection",
+            "smallest_gap_candidate_by_midpoint", "block_pricing_self_test",
             "diagnostic_sha256", "warm_certificate_sha256",
         )
     }, indent=2), flush=True)
