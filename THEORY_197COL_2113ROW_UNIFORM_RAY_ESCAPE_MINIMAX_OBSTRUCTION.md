@@ -181,7 +181,7 @@ This is a rigorous continuum escape of the particular 197-column dual, while lea
 - [12-start search transcript](evidence/197col_uniform_torus_search_n21.json)
 - [Independent Arb verifier](verify_197col_uniform_torus_pricing_arb.py)
 - [Reproducible workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355)
-- [Evidence commit 13fc703](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/13fc7038e?plain=1)
+- [Evidence commit 13fc703](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/13fc7032bfbc38e3bfdb9de2e7946eb6c0cc4f0f)
 
 The finite-time search is [workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828). If it finds a candidate, only an independent Arb interval strictly above zero will promote it to an explicit physical-time certificate. Failure to find such a time in the bounded search does not weaken the dense-torus existence proof.
 
