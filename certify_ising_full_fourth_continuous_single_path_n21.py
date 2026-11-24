@@ -165,7 +165,7 @@ def certify_bernstein(coefficients):
             leaf_lower = min(value.lower() for value in values)
             old = stats["minimum_bernstein_lower_endpoint"]
             if old is None or leaf_lower < old:
-                stats["minimum_bernstein_lower_endpoint"] = leaf_lower
+                stats["minimum_bernstein_lower_endpoint"] = str(leaf_lower)
             return "positive"
 
         upper_negative = all(value.upper() < 0 for value in values)
@@ -396,7 +396,7 @@ def main():
             "degree_bound": degree,
             "fourier_sample_count": sample_count,
             "symmetry_checks": len(symmetry_defects),
-            "df t_reconstruction_checks": len(reconstruction_defects),
+            "dft_reconstruction_checks": len(reconstruction_defects),
             "off_grid_test_alpha": str(test_alpha),
             "off_grid_gap_interval": str(direct_gap),
             "off_grid_polynomial_defect": str(point_defect),
