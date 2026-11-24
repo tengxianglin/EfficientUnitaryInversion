@@ -23,9 +23,9 @@
   "dual_slack_exact": "1/1000000000",
   "moment_residual_lower_bound_exact": "604278563840813954190133571/1537228672809866429000000000",
   "bounded_character_coefficient_norm_exact": "91957325757615679956959/23058430092147996435",
-  "bounded_character_coefficient_norm_decimal": "3988.0132944926538846451091728289210801418301",
+  "bounded_character_coefficient_norm_decimal": "3988.01329449265388464510917282892108014183018714605819305519",
   "program_mass_tv_lower_bound_exact": "1812835691522441862570400713/36782930303046271982783600000000",
-  "program_mass_tv_lower_bound_decimal": "0.00004928470017442594184099457030967259760228814497",
+  "program_mass_tv_lower_bound_decimal": "0.0000492847001744259418409945703096725976022881449724066654199829",
   "strict": true,
   "proof": "For each retained row i, let phi_i be its dihedral-orbit average of the even-parity character (-1)^|I intersect T|. Then ||phi_i||_infinity <= 1 and E_{w_R} phi_i is the corresponding principal-minor moment. With exact row scale s_i, define G(T)=sum_i z_i phi_i(T)/s_i. Its sup norm is at most M=sum_i |z_i|/s_i. The Arb-certified dual gives E_u G - E_{w_p} G > objective-slack for every mixture p on the exact 200-column pool. By the TV dual inequality, TV(w_p,u) > (objective-slack)/(2M).",
   "scope": "One selected parity sector and arbitrary probability mixtures over exactly the 200 certified physical columns. The conclusion is for the balanced program-label mass distribution (equivalently the dephased label-register trace distance), not a Choi-state or channel diamond-distance lower bound. The 645 sixth-order rows and seven eighth-order rows are selected/cut inventories, not complete orbit systems."
