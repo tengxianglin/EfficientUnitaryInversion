@@ -1,0 +1,55 @@
+name: EUI n=21 fractional extension of the low-moment ensemble
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "verify_ising_low_moment_fractional_extension.py"
+      - "verify_ising_low_moment_design.py"
+      - "verify_ising_two_mirror_obstruction.py"
+      - "verify_ising_minor_obstruction.py"
+      - "evidence/ising_low_moment_design_n21.json"
+      - ".github/workflows/eui-23atom-low-moment-fractional-extension.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-23atom-low-moment-fractional-extension
+  cancel-in-progress: false
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+          cache: pip
+      - name: Install pinned numerical and interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Run 192-bit Arb extension certificate
+        env:
+          OPENBLAS_NUM_THREADS: "2"
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python verify_ising_low_moment_fractional_extension.py
+      - name: Commit only the generated certificate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/ising_low_moment_fractional_extension_n21.json
+          if git diff --cached --quiet; then
+            echo "No certificate changes to commit."
+            exit 0
+          fi
+          git commit -m "Certify fractional extension of n=21 low-moment ensemble"
+          git push
+      - name: Upload certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n21-fractional-low-moment-extension
+          path: evidence/ising_low_moment_fractional_extension_n21.json
+          if-no-files-found: error
