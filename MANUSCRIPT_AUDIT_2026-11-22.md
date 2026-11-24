@@ -1906,3 +1906,18 @@ This is a directly specified physical path, not merely the dense-torus existence
 Reproduction: evidence/196col_uniform_ray_time_search_n21.json, evidence/196col_uniform_ray_time_arb_n21.json, and verify_196col_uniform_ray_time_arb.py; [workflow 45283332130](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45283332130), [evidence commit 6e6a670](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/6e6a6705fd44b85b1274132d7530796145c7b3a1).
 
 The higher-level long-ring blocker remains the exact positive joint-parity ensemble at n=21 (or a global physical obstruction). The existing 22-atom ensemble is certified only for all 21 distance-averaged second moments plus one fourth-order orbit; a distant fourth-order probe fails by more than 1/100. The conditional joint-parity diamond theorem therefore remains conditional at n=21.
+
+
+## n=21 single-fractional-atom extension test (2026-11-24)
+
+The 22-atom low-moment ensemble has a certified distant fourth-probe residual
+\[
+\Delta_0=0.0129392316409538071962346592130359334639942998783638688669442\ldots>0.
+\]
+I tested the 27 previously absent seeds in the grid \(L\in\{10,21,30,41,42\}\), \(\alpha\in\{1/8,1/4,1/2,3/4,5/4,3/2\}\). For each candidate, the exact affine reweighting formula preserves the 21 distance-averaged second moments, the consecutive fourth probe, and normalization while solving for the one new weight that would repair the distant probe. At 384-bit Arb precision, 25 candidates require a strictly negative new weight; two slopes contain zero and remain unresolved. No positive single-atom extension was certified on this finite grid.
+
+The particularly relevant length-41, \(\alpha=5/4\) fractional seed, which numerically escapes the perfect-two-mirror separator, has certified positive affine slope about \(0.0974547302469660\), hence a negative required weight about \(-0.1327717147044962\). It cannot repair this distant probe alone while preserving the base constraints.
+
+Evidence and exact affine derivation: [THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md](THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md), [384-bit Arb JSON](evidence/ising_low_moment_fractional_extension_n21.json), [successful workflow 45299958866](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45299958866).
+
+This is only a finite-grid, single-new-atom rejection; it does not rule out two or more new atoms, continuous fractional parameters, or general gapped couplings. The n=21 joint-parity diamond theorem remains conditional.
