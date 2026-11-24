@@ -113,3 +113,25 @@ The diagnostic JSON has a stale status label containing “6125”, although its
 **Scope remains finite.** This certificate does not cover arbitrary continuous nonuniform couplings, arbitrary multi-segment paths, the all-even-principal-minor system, or a Choi/diamond operational error. A deterministic multistart pricing search against this new 83-term dual is now queued in [workflow 45396671388](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45396671388). A found escape must be frozen and Arb-certified; failure to find one is not a continuum proof.
 
 The main paper blockers remain unchanged: construct an exact positive all-even-minor ensemble at n=21 or prove a global physical obstruction, and establish a separate per-instance operational bridge to Choi/diamond distance. No tracked manuscript TeX/Bib/PDF source is present, so no manuscript-source edit is claimed.
+
+
+## Late-run correction: certified escapes from the 6,127-column dual
+
+The 6,127-column finite-pool theorem above remains valid for its exact 6,127 listed columns. However, its particular 83-term rational dual has now been shown not to separate the full connected/multi-segment gapped family.
+
+A deterministic pricing search evaluated 516 candidates and performed 12 local optimizations. Two candidates were then frozen as exact rationals and independently verified at 256-bit Arb precision:
+
+1. A connected open path with all 41 interior couplings strictly positive (minimum coupling (9.9999999999999995\times10^{-7})) has
+\[
+y^{\mathsf T}(b-F(R(c)))\in[-38.5781670484723052122\ldots]<0.
+\]
+2. A two-segment path with one internal cut at edge 35 has
+\[
+y^{\mathsf T}(b-F(R(c)))\in[-28.4051423560518348783\ldots]<0.
+\]
+
+For each candidate, all 1,764 orthogonality entries are interval-checked and the determinant interval contains one. See [256-bit Arb escape certificate](evidence/ising_full_fourth_plus_four_gapped_escape_arb_n21.json), [verifier](verify_ising_full_fourth_plus_four_gapped_escape_arb_n21.py), [workflow 45397267570](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45397267570), and [certificate commit 3bcff7c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/3bcff7c3697c393bafd7981a076c50609b6ffbcb).
+
+These are escapes from this particular dual, not counterexamples to the exact 6,127-column theorem. They do not prove global feasibility/infeasibility, construct the all-even-minor ensemble, or imply a Choi/diamond bound.
+
+Both new paths have been appended to the full second-/fourth-order pool. The 6,129-column reoptimization is running in [workflow 45397564995](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45397564995). Its LP result remains floating discovery until a new independent Arb certificate checks every column.
