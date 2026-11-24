@@ -1,0 +1,337 @@
+{
+  "status": "no_single_fractional_grid_atom_extension_found",
+  "complete": true,
+  "precision_bits": 192,
+  "interval_backend": "python-flint / Arb",
+  "base_input_sha256": "d8c5a0ed699f7757d171c4e05913704fc280f9e35d0bba04ad5af768df2a7807",
+  "base_atoms": 22,
+  "tested_candidates": 27,
+  "records": [
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 10,
+        "alpha": "1/8"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[4.05440791948059020802923988811236314905137413176895 +/- 4.12e-51]",
+      "new_atom_weight_interval": "[-0.0031913985711165074046506068868153164802807878248003 +/- 4.33e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.146505836049010544027909038567694337503155868819948 +/- 8.55e-52]",
+      "new_atom_distant_probe_interval": "[0.59600531411629470072300760704808593181603650801290565951 +/- 2.64e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 10,
+        "alpha": "1/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[3.64757388246481562505839314375600746528162631102881 +/- 3.37e-51]",
+      "new_atom_weight_interval": "[-0.0035473528591586022765863678361155360597138690785114 +/- 6.22e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.144918309558376649329325017256185598894047333236410 +/- 8.84e-52]",
+      "new_atom_distant_probe_interval": "[0.39565278019577092757614157757726256568750311991333566527 +/- 7.53e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 10,
+        "alpha": "1/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[3.02791339100546032753252287414418720042567119654365 +/- 5.77e-51]",
+      "new_atom_weight_interval": "[-0.0042733162974179909393586380324561183270222329198304 +/- 2.30e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.151002409635643070047558184302697353027643411120091 +/- 7.12e-52]",
+      "new_atom_distant_probe_interval": "[0.37504380543381377889044603468673158193030347841588783203 +/- 8.15e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 10,
+        "alpha": "3/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[3.14677601193684076006779206788503305115269425281732 +/- 6.43e-51]",
+      "new_atom_weight_interval": "[-0.0041119010669557346753728902686533282660262267453916 +/- 1.49e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.14452562945192302003278580588040036696683866347524 +/- 4.25e-51]",
+      "new_atom_distant_probe_interval": "[0.4100593694569153843676408502185086447351443873534243465 +/- 5.43e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 10,
+        "alpha": "5/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[3.00253219227525284203200773798428793109297441476409 +/- 2.70e-51]",
+      "new_atom_weight_interval": "[-0.0043094397702856075329292533256789728383700836892271 +/- 6.39e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.14516427824923062503996969603755258843388817575452 +/- 4.11e-51]",
+      "new_atom_distant_probe_interval": "[0.4115556030209590693614300936787084265591775149789239095 +/- 5.11e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 10,
+        "alpha": "3/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[3.23425544599714915522135856286163083702716432452257 +/- 2.39e-51]",
+      "new_atom_weight_interval": "[-0.0040006832660567815035951539865050738344072846693563 +/- 3.62e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.14202696975062641792909556213326363109811333928884 +/- 4.10e-51]",
+      "new_atom_distant_probe_interval": "[0.4255514326614243163476492034085065133077917596793502632 +/- 6.65e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 21,
+        "alpha": "1/8"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[2.40142678996547521246524911500733627982122751113835 +/- 5.47e-51]",
+      "new_atom_weight_interval": "[-0.0053881432884072354745712289563478216812889706924246 +/- 3.80e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.17059684503478014313211403521667869705004272304628 +/- 4.46e-51]",
+      "new_atom_distant_probe_interval": "[-0.06211750097244666604185921269328625416032902052095492946 +/- 6.53e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 21,
+        "alpha": "1/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[2.10391429823650941386943945304836439102915113149994 +/- 3.29e-51]",
+      "new_atom_weight_interval": "[-0.0061500754340608870466795413117014577622985454376034 +/- 4.26e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.158619564948249165680757715024651989757932024011478 +/- 9.37e-52]",
+      "new_atom_distant_probe_interval": "[-0.0519573893857283837927813399217721117222992795285874511 +/- 2.56e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 21,
+        "alpha": "1/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.98183462853885790716504393316898359117186852806546 +/- 2.73e-51]",
+      "new_atom_weight_interval": "[-0.0065289159118657044839516000566669795190723254547104 +/- 4.16e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.15384836218978703674069643502111602752729837356485 +/- 1.48e-51]",
+      "new_atom_distant_probe_interval": "[-0.0343117486862909226190476190476190476190476190476190476 +/- 5.71e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 21,
+        "alpha": "3/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[2.07315609428805053098504014352981161548348483184380 +/- 6.67e-51]",
+      "new_atom_weight_interval": "[-0.0062413205048109568496273799134485698571263535950949 +/- 5.04e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.15413192870617126532553781921276682836751487616830 +/- 4.00e-51]",
+      "new_atom_distant_probe_interval": "[-0.0114589859050514565857528862687040787538911966618887394 +/- 7.30e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 21,
+        "alpha": "5/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[2.07315609428805053098504014352981161548348483184380 +/- 6.72e-51]",
+      "new_atom_weight_interval": "[-0.0062413205048109568496273799134485698571263535950949 +/- 5.06e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.15413192870617126532553781921276682836751487616830 +/- 4.00e-51]",
+      "new_atom_distant_probe_interval": "[-0.011458985905051456585752886268704078753891196661888739 +/- 6.84e-55]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 21,
+        "alpha": "3/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.98183462853885790716504393316898359117186852806546 +/- 2.84e-51]",
+      "new_atom_weight_interval": "[-0.0065289159118657044839516000566669795190723254547104 +/- 4.20e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.15384836218978703674069643502111602752729837356485 +/- 1.49e-51]",
+      "new_atom_distant_probe_interval": "[-0.03431174868629092261904761904761904761904761904761905 +/- 3.08e-54]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 30,
+        "alpha": "1/8"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.85656523832255419960994279004090738553232762883709 +/- 4.21e-51]",
+      "new_atom_weight_interval": "[-0.0069694462515331136663493209931093323772926852433367 +/- 2.61e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.19388641923189757759450495038268034821952439437392 +/- 3.24e-51]",
+      "new_atom_distant_probe_interval": "[-0.01742463162073771139137585222015502106021817626230389585 +/- 4.12e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 30,
+        "alpha": "1/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.95257149318264934647680044724206983631406662649543 +/- 1.13e-51]",
+      "new_atom_weight_interval": "[-0.0135834756063530385890423828014174101716101928810536 +/- 8.00e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.153241065463861608185647649330024539723935750711388 +/- 8.94e-52]",
+      "new_atom_distant_probe_interval": "[0.00238253486725156839266059391525642758084878805959946826 +/- 4.82e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 30,
+        "alpha": "1/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.19523058039875377077265246191364119286379271758762 +/- 4.14e-51]",
+      "new_atom_weight_interval": "[-0.0108257200352395690134148249273758607823715092047863 +/- 7.43e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.16314799774702972098742176906528129816895773840353 +/- 4.65e-51]",
+      "new_atom_distant_probe_interval": "[0.0007195118576492528865776503726679801118075994990544670 +/- 6.17e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 30,
+        "alpha": "3/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.052952262709602809738505234769299872385945926482684 +/- 9.24e-52]",
+      "new_atom_weight_interval": "[-0.0122885263645825515690674127251113418102681858784048 +/- 7.72e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.16180435937810998805542258482537833382605704783115 +/- 3.56e-51]",
+      "new_atom_distant_probe_interval": "[-0.023157445176111364391938598716043767478306637386823474 +/- 2.39e-55]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 30,
+        "alpha": "5/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.18437361001977959038515308892306137104213318220869 +/- 3.84e-51]",
+      "new_atom_weight_interval": "[-0.0109249577426313272946957209026826184553398006763697 +/- 5.24e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.16165064147415957941415132877193120302851683405533 +/- 3.30e-51]",
+      "new_atom_distant_probe_interval": "[-0.02022306527773005733006966552032231575610798919083030 +/- 1.25e-54]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 30,
+        "alpha": "3/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[1.05060639804490574570101661286883310863864898234325 +/- 2.02e-51]",
+      "new_atom_weight_interval": "[-0.0123159650131892206535846418440147051680531307561220 +/- 7.25e-53]",
+      "minimum_reweighted_old_weight_interval": "[-0.14750443493344199635046903876838686195743908793843 +/- 1.79e-51]",
+      "new_atom_distant_probe_interval": "[-0.00497264691960207983338332443983421487754159084950090 +/- 5.82e-54]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 41,
+        "alpha": "1/8"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.257262113304186588456715456928857645190208008925422 +/- 3.26e-52]",
+      "new_atom_weight_interval": "[-0.050295908226698217546799357915500522145132255081878 +/- 4.07e-52]",
+      "minimum_reweighted_old_weight_interval": "[-0.28009157183739567100686092135282110670374621090661 +/- 4.01e-51]",
+      "new_atom_distant_probe_interval": "[-0.00135364090145901650365653403272579143467613459093795770 +/- 4.86e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 41,
+        "alpha": "3/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.097454730246966005735166667816159253152438347073514 +/- 4.49e-52]",
+      "new_atom_weight_interval": "[-0.132771714704496201888365373496500939685653708256175 +/- 7.28e-52]",
+      "minimum_reweighted_old_weight_interval": "[-0.12549453611600081813743809403626368780810934704619 +/- 3.36e-51]",
+      "new_atom_distant_probe_interval": "[0.001304173306133660365754619654598941399020091818880965 +/- 5.57e-55]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 41,
+        "alpha": "5/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.097454730246966005735166667816159253152438347073514 +/- 7.54e-52]",
+      "new_atom_weight_interval": "[-0.13277171470449620188836537349650093968565370825617 +/- 5.68e-51]",
+      "minimum_reweighted_old_weight_interval": "[-0.12549453611600081813743809403626368780810934704619 +/- 3.93e-51]",
+      "new_atom_distant_probe_interval": "[0.00130417330613366036575461965459894139902009181888097 +/- 5.06e-54]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 41,
+        "alpha": "3/2"
+      },
+      "status": "unresolved_zero_slope",
+      "slope_interval": "[+/- 7.97e-52]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 42,
+        "alpha": "1/8"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.062554652769363916962208319865248009373091033426636 +/- 4.37e-52]",
+      "new_atom_weight_interval": "[-0.20684683022156880811600698155117690303765595100220 +/- 3.47e-51]",
+      "minimum_reweighted_old_weight_interval": "[-1.3963599536340048233818923746512462409887194858137 +/- 4.54e-50]",
+      "new_atom_distant_probe_interval": "[-0.001022613386477762480364841733252673108470746409806446269 +/- 9.23e-58]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 42,
+        "alpha": "1/4"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.153292487698054410350685684019562104767736822951455 +/- 6.72e-52]",
+      "new_atom_weight_interval": "[-0.084408778507402564920406900939055260797666052905738 +/- 6.05e-52]",
+      "minimum_reweighted_old_weight_interval": "[-0.16693922848070242243069595945675157654250018828715 +/- 5.56e-51]",
+      "new_atom_distant_probe_interval": "[0.00023053920666727663931350123165556866099476194739301430 +/- 4.13e-57]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 42,
+        "alpha": "1/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.128686448194980886436147444113773545444620993542711 +/- 3.32e-52]",
+      "new_atom_weight_interval": "[-0.100548517908807056703706772593029867585070785279327 +/- 6.71e-52]",
+      "minimum_reweighted_old_weight_interval": "[-0.19001653312835955363919277949550294705874029364386 +/- 2.83e-51]",
+      "new_atom_distant_probe_interval": "[0.0023252603443884001702912449988111465688723185286064455 +/- 6.93e-56]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 42,
+        "alpha": "5/4"
+      },
+      "status": "unresolved_zero_slope",
+      "slope_interval": "[+/- 4.16e-52]"
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 42,
+        "alpha": "3/2"
+      },
+      "status": "negative_new_weight",
+      "slope_interval": "[0.12868644819498088643614744411377354544462099354271 +/- 2.11e-51]",
+      "new_atom_weight_interval": "[-0.10054851790880705670370677259302986758507078527933 +/- 4.28e-51]",
+      "minimum_reweighted_old_weight_interval": "[-0.19001653312835955363919277949550294705874029364386 +/- 4.60e-51]",
+      "new_atom_distant_probe_interval": "[0.00232526034438840017029124499881114656887231852860645 +/- 6.73e-54]"
+    }
+  ],
+  "base_distant_probe": [
+    0,
+    2,
+    21,
+    23
+  ],
+  "base_distant_residual": "[0.0129392316409538071962346592130359334639942998783639 +/- 6.47e-53]",
+  "scope": "Every listed single-segment fractional candidate was checked with 192-bit Arb. None can be added alone with a strictly positive new weight while preserving the 21 second moments, the consecutive fourth probe, normalization, and the distant fourth target. This is only a finite-grid rejection, not a no-go for multiple new atoms or general gapped couplings."
+}
