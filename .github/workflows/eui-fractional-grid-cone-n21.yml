@@ -1,0 +1,55 @@
+name: EUI n=21 861-seed fractional-grid Farkas certificate
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "verify_ising_fractional_grid_cone_n21.py"
+      - "verify_ising_low_moment_design.py"
+      - "verify_ising_two_mirror_obstruction.py"
+      - "verify_ising_minor_obstruction.py"
+      - "evidence/ising_low_moment_design_n21.json"
+      - ".github/workflows/eui-fractional-grid-cone-n21.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-fractional-grid-cone-n21
+  cancel-in-progress: false
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Run 384-bit Arb Farkas verification over all 861 seeds
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python verify_ising_fractional_grid_cone_n21.py
+      - name: Commit exact interval certificate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/ising_fractional_grid_cone_n21.json
+          if git diff --cached --quiet; then
+            echo "No certificate changes."
+            exit 0
+          fi
+          git commit -m "Certify 861-seed fractional-grid convex-cone obstruction"
+          git push
+      - name: Upload interval certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n21-861-seed-fractional-grid-cone
+          path: evidence/ising_fractional_grid_cone_n21.json
+          if-no-files-found: error
