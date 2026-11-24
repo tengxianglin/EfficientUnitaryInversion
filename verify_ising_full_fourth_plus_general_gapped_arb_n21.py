@@ -75,6 +75,17 @@ def main():
         "floating_plus_gapped_finite_pool_separator_candidate_not_arb_certified"
     ):
         raise RuntimeError("unexpected expanded-pool diagnostic status")
+    floating_dual = diagnostic.get("dual", {})
+    if not floating_dual.get("success"):
+        raise RuntimeError("the expanded-pool LP did not return a successful dual candidate")
+    reported_gap = (
+        Fraction(floating_dual["target_score"])
+        - Fraction(floating_dual["maximum_candidate_score"])
+    )
+    if reported_gap <= Fraction(1, 4):
+        raise RuntimeError("the floating dual summary does not retain the intended quarter-unit margin")
+    if Fraction(floating_dual["normalized_l1_upper_bound"]) > Fraction(1000001, 1000000):
+        raise RuntimeError("the floating dual summary violates its unit scaled-l1 normalization")
     if diagnostic.get("old_candidate_count") != 6123:
         raise RuntimeError("expanded diagnostic does not pin 6,123 old columns")
     if diagnostic.get("new_candidate_count") != 6124:
