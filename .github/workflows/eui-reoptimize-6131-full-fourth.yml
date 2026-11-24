@@ -1,0 +1,124 @@
+name: EUI 6,131-column full-fourth reoptimization and Arb certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "discover_ising_full_fourth_plus_eight_gapped_n21.py"
+      - "verify_ising_full_fourth_plus_eight_gapped_arb_n21.py"
+      - ".github/workflows/eui-reoptimize-6131-full-fourth.yml"
+      - "evidence/ising_full_fourth_plus_six_gapped_n21.json"
+      - "evidence/ising_full_fourth_plus_six_gapped_arb_n21.json"
+      - "evidence/ising_full_fourth_plus_six_gapped_escape_arb_n21.json"
+      - "evidence/ising_full_fourth_plus_six_gapped_search_n21.json"
+      - "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
+      - "verify_ising_full_fourth_fractional_grid_dual_arb.py"
+      - "verify_ising_low_moment_design.py"
+      - "ising_fourth_moments.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-reoptimize-6131-full-fourth
+  cancel-in-progress: false
+
+jobs:
+  reoptimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove stale 6,131-column outputs
+        run: |
+          rm -f evidence/ising_full_fourth_plus_eight_gapped_n21.json
+          rm -f evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned numerical and interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Compile and run dependency-light regressions
+        run: |
+          python -m py_compile discover_ising_full_fourth_plus_eight_gapped_n21.py verify_ising_full_fourth_plus_eight_gapped_arb_n21.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
+          python discover_ising_full_fourth_plus_eight_gapped_n21.py --self-test-only
+      - name: Reoptimize the full 1,461-coordinate LP on 6,131 physical columns
+        run: python discover_ising_full_fourth_plus_eight_gapped_n21.py
+      - name: Certify a dual result, or explicitly retain a primal as discovery only
+        shell: bash
+        run: |
+          status=$(python -c 'import json; print(json.load(open("evidence/ising_full_fourth_plus_eight_gapped_n21.json"))["status"])')
+          if [ "$status" = "floating_full_fourth_6131_column_separator_candidate_not_arb_certified" ]; then
+            python verify_ising_full_fourth_plus_eight_gapped_arb_n21.py
+          elif [ "$status" = "floating_full_fourth_feasible_candidate_only" ]; then
+            echo "A floating primal candidate was found. No positive-ensemble theorem is claimed; exact rational weight freezing and Arb verification are still required."
+          else
+            echo "No certifiable 6,131-column LP outcome: $status"
+            exit 1
+          fi
+      - name: Commit only this run's diagnostic and certificate (race-safe)
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p /tmp/eui-6131/evidence
+          for f in evidence/ising_full_fourth_plus_eight_gapped_n21.json evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json; do
+            if [ -f "$f" ]; then cp "$f" /tmp/eui-6131/evidence/; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            rm -f evidence/ising_full_fourth_plus_eight_gapped_n21.json evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json
+            if [ -f /tmp/eui-6131/evidence/ising_full_fourth_plus_eight_gapped_n21.json ]; then
+              cp /tmp/eui-6131/evidence/ising_full_fourth_plus_eight_gapped_n21.json evidence/
+              python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          d = json.loads(Path("evidence/ising_full_fourth_plus_eight_gapped_n21.json").read_text())
+          pins = {
+              "parent_diagnostic_sha256": "evidence/ising_full_fourth_plus_six_gapped_n21.json",
+              "parent_certificate_sha256": "evidence/ising_full_fourth_plus_six_gapped_arb_n21.json",
+              "new_escape_certificate_sha256": "evidence/ising_full_fourth_plus_six_gapped_escape_arb_n21.json",
+              "new_escape_search_sha256": "evidence/ising_full_fourth_plus_six_gapped_search_n21.json",
+              "warm_certificate_sha256": "evidence/ising_low_moment_two_fourth_ensemble_n21.json",
+          }
+          for key, path in pins.items():
+              actual = hashlib.sha256(Path(path).read_bytes()).hexdigest()
+              if d.get(key) != actual:
+                  raise SystemExit(f"refusing stale provenance for {key}: {d.get(key)} != {actual}")
+          PY
+              git add evidence/ising_full_fourth_plus_eight_gapped_n21.json
+            fi
+            if [ -f /tmp/eui-6131/evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json ]; then
+              cp /tmp/eui-6131/evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json evidence/
+              git add evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json
+            fi
+            if git diff --cached --quiet; then
+              echo "No 6,131-column outputs were produced."
+              exit 0
+            fi
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+actions-bot@users.noreply.github.com"
+            git commit -m "Record 6,131-column full-fourth reoptimization"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload diagnostic and Arb certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-6131-full-fourth-reoptimization
+          path: |
+            evidence/ising_full_fourth_plus_eight_gapped_n21.json
+            evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json
+          if-no-files-found: warn
+          retention-days: 90
