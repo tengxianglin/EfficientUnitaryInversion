@@ -457,8 +457,9 @@ def solve_full_grid(system, warm, warm_sha):
                     "floating_finite_grid_separator_candidate_not_arb_certified"
                 )
 
-    OUTPUT.write_text(json.dumps(json_safe(output), indent=2) + "\n")
-    print(json.dumps(output, indent=2), flush=True)
+    serialized = json.dumps(json_safe(output), indent=2) + "\n"
+    OUTPUT.write_text(serialized)
+    print(serialized, end="", flush=True)
 
 
 def main():
