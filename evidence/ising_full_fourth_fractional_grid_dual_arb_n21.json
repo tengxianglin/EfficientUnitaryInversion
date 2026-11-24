@@ -3,7 +3,7 @@
   "complete": true,
   "precision_bits": 128,
   "interval_backend": "python-flint / Arb",
-  "diagnostic_sha256": "0ee0664051b07ba5149dc7c6b76d5c3ab9a256333c3503a581193b2221ef64d9",
+  "diagnostic_sha256": "9140ecf1003a70fd6ac3b58d2ba965980016dd7ef7dd7395e623ef03bc21aefd",
   "warm_certificate_sha256": "33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5",
   "candidate_count": 6123,
   "base_atom_count": 22,
@@ -16,328 +16,340 @@
   "dual_coefficients_exact_decimal_rationals": [
     {
       "feature_index": 1,
-      "coefficient": "-2425353362505959/1000000000000000"
+      "coefficient": "-5461410249811661/2251799813685248"
     },
     {
       "feature_index": 77,
-      "coefficient": "809092214902367/200000000000000"
+      "coefficient": "569348030866119/140737488355328"
     },
     {
       "feature_index": 103,
-      "coefficient": "3232751818115441/1000000000000000"
+      "coefficient": "909938742715487/281474976710656"
     },
     {
       "feature_index": 112,
-      "coefficient": "668662005372769/50000000000000"
+      "coefficient": "7528464895584149/562949953421312"
     },
     {
       "feature_index": 146,
-      "coefficient": "-5030560869521727/100000000000000"
+      "coefficient": "-7079885017950799/140737488355328"
     },
     {
       "feature_index": 167,
-      "coefficient": "-892710536808553/100000000000000"
+      "coefficient": "-5025513551150251/562949953421312"
     },
     {
       "feature_index": 177,
-      "coefficient": "-13625672168344577/500000000000000"
+      "coefficient": "-7670571512503665/281474976710656"
     },
     {
       "feature_index": 236,
-      "coefficient": "-14559274025802693/5000000000000000"
+      "coefficient": "-1639228526934733/562949953421312"
     },
     {
       "feature_index": 249,
-      "coefficient": "-9061411879693523/10000000000000000000"
+      "coefficient": "-2089419327720317/2305843009213693952"
     },
     {
       "feature_index": 258,
-      "coefficient": "16402890092438863/500000000000000"
+      "coefficient": "2308501553378331/70368744177664"
     },
     {
       "feature_index": 275,
-      "coefficient": "4454650190486127/1000000000000000"
+      "coefficient": "5015490234484439/1125899906842624"
     },
     {
       "feature_index": 298,
-      "coefficient": "8447180879997439/20000000000000000"
+      "coefficient": "7608544132702567/18014398509481984"
     },
     {
       "feature_index": 302,
-      "coefficient": "-2784671273247413/100000000000000000"
+      "coefficient": "-8026268485487589/288230376151711744"
     },
     {
       "feature_index": 318,
-      "coefficient": "-18390279156941651/10000000000000000"
+      "coefficient": "-8282245435839419/4503599627370496"
     },
     {
       "feature_index": 319,
-      "coefficient": "10409711645566981/1000000000000000"
+      "coefficient": "5860146686000773/562949953421312"
     },
     {
       "feature_index": 332,
-      "coefficient": "2662658027786367/2000000000000000"
+      "coefficient": "5995772850871577/4503599627370496"
     },
     {
       "feature_index": 338,
-      "coefficient": "1607268825496139/1250000000000000"
+      "coefficient": "2895398113435109/2251799813685248"
     },
     {
       "feature_index": 408,
-      "coefficient": "2752103505791083/2500000000000000"
+      "coefficient": "309859308079195/281474976710656"
     },
     {
       "feature_index": 409,
-      "coefficient": "-2202324296131793/400000000000000"
+      "coefficient": "-1549747949907209/281474976710656"
     },
     {
       "feature_index": 410,
-      "coefficient": "5005484808786023/500000000000000"
+      "coefficient": "5635674879913597/562949953421312"
     },
     {
       "feature_index": 413,
-      "coefficient": "-6006489478077389/5000000000000000"
+      "coefficient": "-2705082377527939/2251799813685248"
     },
     {
       "feature_index": 415,
-      "coefficient": "-7620262242124447/2000000000000000"
+      "coefficient": "-8579652548525559/2251799813685248"
     },
     {
       "feature_index": 416,
-      "coefficient": "4234737978383957/250000000000000"
+      "coefficient": "4767891095365225/281474976710656"
     },
     {
       "feature_index": 417,
-      "coefficient": "-11757295339598729/1000000000000000"
+      "coefficient": "-6618768863788067/562949953421312"
     },
     {
       "feature_index": 418,
-      "coefficient": "8338841393219653/500000000000000"
+      "coefficient": "293396898368805/17592186044416"
     },
     {
       "feature_index": 426,
-      "coefficient": "14283125073245229/1000000000000000"
+      "coefficient": "4020342297347065/281474976710656"
     },
     {
       "feature_index": 427,
-      "coefficient": "-2070900258337641/1250000000000000"
+      "coefficient": "-932650563177417/562949953421312"
     },
     {
       "feature_index": 428,
-      "coefficient": "1755201231530159/125000000000000"
+      "coefficient": "7904723612279317/562949953421312"
     },
     {
       "feature_index": 429,
-      "coefficient": "-1822426875355977/250000000000000"
+      "coefficient": "-512967562297823/70368744177664"
     },
     {
       "feature_index": 430,
-      "coefficient": "3049712667356387/250000000000000"
+      "coefficient": "6867342416146547/562949953421312"
     },
     {
       "feature_index": 437,
-      "coefficient": "-4743253257230097/2000000000000000"
+      "coefficient": "-5340428400448311/2251799813685248"
     },
     {
       "feature_index": 439,
-      "coefficient": "-1052942614188157/200000000000000"
+      "coefficient": "-5927539956126409/1125899906842624"
     },
     {
       "feature_index": 441,
-      "coefficient": "-5185011360628193/1000000000000000"
+      "coefficient": "-2918901903954515/562949953421312"
     },
     {
       "feature_index": 456,
-      "coefficient": "-3797597422807297/100000000000000000"
+      "coefficient": "-5472914668243331/144115188075855872"
     },
     {
       "feature_index": 458,
-      "coefficient": "-11445235986200837/10000000000000000"
+      "coefficient": "-5154476052265511/4503599627370496"
     },
     {
       "feature_index": 464,
-      "coefficient": "-100380458198123/100000000000000"
+      "coefficient": "-4520733941362319/4503599627370496"
     },
     {
       "feature_index": 475,
-      "coefficient": "3187027749753113/5000000000000000"
+      "coefficient": "5741238794479629/9007199254740992"
     },
     {
       "feature_index": 502,
-      "coefficient": "7679358896872189/10000000000000000"
+      "coefficient": "1729237893320709/2251799813685248"
     },
     {
       "feature_index": 508,
-      "coefficient": "352412673789893/20000000000000"
+      "coefficient": "4959767457377309/281474976710656"
     },
     {
       "feature_index": 509,
-      "coefficient": "-2211362085178433/200000000000000"
+      "coefficient": "-6224430914243971/562949953421312"
     },
     {
       "feature_index": 510,
-      "coefficient": "7381609948953501/1000000000000000"
+      "coefficient": "8310953953876153/1125899906842624"
     },
     {
       "feature_index": 513,
-      "coefficient": "3819144039569613/250000000000000"
+      "coefficient": "537496739796259/35184372088832"
     },
     {
       "feature_index": 538,
-      "coefficient": "-1046395079063979/100000000000000"
+      "coefficient": "-736335076274123/70368744177664"
     },
     {
       "feature_index": 564,
-      "coefficient": "2004258170840897/1000000000000000"
+      "coefficient": "4513188175677581/2251799813685248"
     },
     {
       "feature_index": 628,
-      "coefficient": "39068453805249/31250000000000"
+      "coefficient": "5630357567978141/4503599627370496"
     },
     {
       "feature_index": 660,
-      "coefficient": "4793135578526957/10000000000000000"
+      "coefficient": "1079318180268531/2251799813685248"
     },
     {
       "feature_index": 709,
-      "coefficient": "-1907688397692533/1250000000000000"
+      "coefficient": "-6873171805590135/4503599627370496"
     },
     {
       "feature_index": 721,
-      "coefficient": "10623514639850129/1000000000000000"
+      "coefficient": "2990253535837293/281474976710656"
     },
     {
       "feature_index": 722,
-      "coefficient": "-7656829469201943/1000000000000000"
+      "coefficient": "-8620823586083949/1125899906842624"
     },
     {
       "feature_index": 723,
-      "coefficient": "7559852372017381/1000000000000000"
+      "coefficient": "8511637081398287/1125899906842624"
     },
     {
       "feature_index": 724,
-      "coefficient": "-10024182877788803/1000000000000000"
+      "coefficient": "-352694580258619/35184372088832"
     },
     {
       "feature_index": 725,
-      "coefficient": "-5171318315215671/1000000000000000"
+      "coefficient": "-363899175584689/70368744177664"
     },
     {
       "feature_index": 738,
-      "coefficient": "-5415680672266973/500000000000000"
+      "coefficient": "-6097514364394783/562949953421312"
     },
     {
       "feature_index": 739,
-      "coefficient": "916704896036449/125000000000000"
+      "coefficient": "8256943656397457/1125899906842624"
     },
     {
       "feature_index": 740,
-      "coefficient": "-245483589559469/25000000000000"
+      "coefficient": "-2763899506164023/281474976710656"
     },
     {
       "feature_index": 767,
-      "coefficient": "-4808635107957187/2500000000000000"
+      "coefficient": "-4331233456070277/2251799813685248"
     },
     {
       "feature_index": 885,
-      "coefficient": "1898096630433567/5000000000000000"
+      "coefficient": "6838613822029175/18014398509481984"
     },
     {
       "feature_index": 914,
-      "coefficient": "-379899027219129/400000000000000"
+      "coefficient": "-4277282793557929/4503599627370496"
     },
     {
       "feature_index": 918,
-      "coefficient": "-5275233674541701/50000000000000000"
+      "coefficient": "-7602412931447991/72057594037927936"
     },
     {
       "feature_index": 921,
-      "coefficient": "882253597553027/400000000000000"
+      "coefficient": "2483323108241645/1125899906842624"
     },
     {
       "feature_index": 929,
-      "coefficient": "-20392703306344617/10000000000000000"
+      "coefficient": "-574003568822141/281474976710656"
     },
     {
       "feature_index": 934,
-      "coefficient": "-4678395144310177/10000000000000000"
+      "coefficient": "-8427847451434771/18014398509481984"
     },
     {
       "feature_index": 938,
-      "coefficient": "-6551239856012439/1000000000000000"
+      "coefficient": "-7376040343588521/1125899906842624"
     },
     {
       "feature_index": 945,
-      "coefficient": "-5621169895061541/1000000000000000"
+      "coefficient": "-6328874661195899/1125899906842624"
     },
     {
       "feature_index": 1073,
-      "coefficient": "-2187477472485263/1250000000000000"
+      "coefficient": "-7881218183973039/4503599627370496"
     },
     {
       "feature_index": 1086,
-      "coefficient": "-5057602355950661/1000000000000000"
+      "coefficient": "-5694354021412159/1125899906842624"
     },
     {
       "feature_index": 1088,
-      "coefficient": "-8068204544370479/2000000000000000"
+      "coefficient": "-4541995372446123/1125899906842624"
     },
     {
       "feature_index": 1097,
-      "coefficient": "-21089640950963/12500000000000"
+      "coefficient": "-7598343930251677/4503599627370496"
     },
     {
       "feature_index": 1099,
-      "coefficient": "-2316064534075043/625000000000000"
+      "coefficient": "-4172250949050945/1125899906842624"
     },
     {
       "feature_index": 1112,
-      "coefficient": "-2780077031535993/5000000000000000"
+      "coefficient": "-2504070776656509/4503599627370496"
     },
     {
       "feature_index": 1123,
-      "coefficient": "-16839232575552947/5000000000000000"
+      "coefficient": "-7583716155245405/2251799813685248"
     },
     {
       "feature_index": 1127,
-      "coefficient": "489816285903627/50000000000000"
+      "coefficient": "5514841106688889/562949953421312"
     },
     {
       "feature_index": 1241,
-      "coefficient": "-4187482379090003/2000000000000000"
+      "coefficient": "-4714686020523359/2251799813685248"
     },
     {
       "feature_index": 1262,
-      "coefficient": "-143297129133979/250000000000000"
+      "coefficient": "-2581411589483897/4503599627370496"
     },
     {
       "feature_index": 1332,
-      "coefficient": "-6734445767470999/10000000000000000"
+      "coefficient": "-6065849489781403/9007199254740992"
     },
     {
       "feature_index": 1353,
-      "coefficient": "-5533920196034431/1000000000000000"
+      "coefficient": "-778830029148763/140737488355328"
     },
     {
       "feature_index": 1398,
-      "coefficient": "-1082089028116357/250000000000000"
+      "coefficient": "-4873295743806691/1125899906842624"
     },
     {
       "feature_index": 1413,
-      "coefficient": "-18302246819748391/5000000000000000"
+      "coefficient": "-8242599195746021/2251799813685248"
     },
     {
       "feature_index": 1453,
-      "coefficient": "-3014808092933277/5000000000000000"
+      "coefficient": "-2715497720787853/4503599627370496"
     },
     {
       "feature_index": 1460,
-      "coefficient": "-2215798097166797/1000000000000000"
+      "coefficient": "-311845858897751/140737488355328"
     }
   ],
-  "target_score_interval": "[0.348780417164144327612945590994371482 +/- 2.31e-37]",
-  "minimum_candidate_gap_interval": "[0.2670364051058160607498310482272 +/- 8.14e-32]",
-  "minimum_gap_candidate_by_midpoint": {
+  "target_score_interval": "[0.348780417164148374075762081266546035 +/- 1.84e-37]",
+  "quarter_unit_margin_certified": false,
+  "certified_common_gap_lower_bound": null,
+  "first_candidate_not_certified_above_quarter": {
+    "kind": "base",
+    "base_index": 14,
+    "gap_interval": "[0.3 +/- 0.0826]"
+  },
+  "minimum_candidate_gap_lower_endpoint": "[0.21749801718911490586323302472291255525 +/- 3.17e-39]",
+  "minimum_gap_lower_endpoint_candidate": {
+    "kind": "base",
+    "base_index": 14
+  },
+  "smallest_gap_candidate_interval_by_midpoint_selection": "[0.2670364051058191014905072842124 +/- 8.71e-32]",
+  "smallest_gap_candidate_by_midpoint": {
     "kind": "fractional",
     "length": 40,
     "alpha": "46/25"
@@ -347,12 +359,12 @@
       {
         "length": 2,
         "alpha": "17/100",
-        "score_difference_interval": "[+/- 2.86e-35]"
+        "score_difference_interval": "[+/- 2.68e-35]"
       },
       {
         "length": 7,
         "alpha": "43/100",
-        "score_difference_interval": "[+/- 6.16e-35]"
+        "score_difference_interval": "[+/- 5.99e-35]"
       },
       {
         "length": 21,
@@ -372,6 +384,6 @@
     ],
     "passed": 5
   },
-  "proof": "Let a_j be each of the 6,123 candidate feature columns restricted to the 1,313 independent moment rows, and let b be the corresponding exact target. The frozen rational vector y satisfies y^T b > y^T a_j for every candidate j, as independently enclosed by Arb. For any probability vector p on this finite pool, y^T(sum_j p_j a_j) <= max_j y^T a_j < y^T b, contradicting the required moment equations. Hence the exact finite pool is infeasible.",
+  "proof": "Let a_j be each of the 6,123 candidate feature columns restricted to the 1,313 independent moment rows, and let b be the corresponding exact target. The frozen rational vector y satisfies y^T b > y^T a_j for every candidate j, as independently enclosed by Arb. For any probability vector p on this finite pool, the convex combination gap is the probability-weighted average of these strictly positive column gaps, so it is strictly positive and the exact finite pool is infeasible. The stronger 1/4 common-margin test was not certified.",
   "scope": "This is a rigorous obstruction for exactly the 22 pinned base atoms plus the corrected 6,101-column fractional single-open-path grid. It does not cover continuous alpha between grid points, arbitrary gapped couplings, multi-segment paths outside the grid, or the full continuous physical family. It is not an operational Choi/diamond-distance bound."
 }
