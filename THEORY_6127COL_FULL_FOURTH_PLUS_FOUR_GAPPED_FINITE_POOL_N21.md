@@ -116,7 +116,7 @@ The diagnostic's status string still contains the parent label “6125”, while
 
 ## 5. Scope and next step
 
-Theorem 1 is a **finite-pool** statement. The new dual has not yet been priced over the continuous 41-parameter nonuniform positive-coupling family. A deterministic multistart search against this new rational dual is now running; a found escape must be frozen and Arb-certified. Failure to find an escape is not a continuum proof.
+Theorem 1 is a **finite-pool** statement. A deterministic multistart search against its rational dual found the connected and two-segment escapes certified in Section 6. These refute extending this particular dual unchanged to the full gapped family, but they do not prove global feasibility or infeasibility. The next step is the 6,129-column full-fourth reoptimization; any resulting dual must be independently Arb-certified and priced again against fresh continuous paths.
 
 The larger EUI target remains the all-even-principal-minor positive-ensemble condition. The conditional joint-parity diamond theorem is not made unconditional by this finite-pool result. A separate per-instance bridge from moment residuals to Choi/diamond error is still required.
 
