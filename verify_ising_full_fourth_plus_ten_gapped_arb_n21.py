@@ -23,7 +23,7 @@ import verify_ising_full_fourth_fractional_grid_dual_arb as base
 ROOT = Path(__file__).resolve().parent
 DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_plus_ten_gapped_n21.json"
 PARENT_DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_plus_eight_gapped_n21.json"
-PARENT_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_ten_gapped_arb_n21.json"
+PARENT_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_eight_gapped_arb_n21.json"
 NEW_ESCAPE_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_eight_gapped_escape_arb_n21.json"
 NEW_ESCAPE_SEARCH = ROOT / "evidence/ising_full_fourth_plus_eight_gapped_search_n21.json"
 WARM_CERTIFICATE = ROOT / "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
@@ -87,11 +87,11 @@ def main():
     }:
         raise RuntimeError("unexpected 6,133-column diagnostic status")
     if diagnostic.get("candidate_count") != 6133:
-        raise RuntimeError("diagnostic does not contain exactly 6,129 columns")
+        raise RuntimeError("diagnostic does not contain exactly 6,133 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 10 or len(diagnostic.get("appended_gapped_columns", [])) != 10:
-        raise RuntimeError("diagnostic does not contain exactly eight appended gapped paths")
+        raise RuntimeError("diagnostic does not contain exactly ten appended gapped paths")
     if diagnostic.get("full_feature_count") != 1461:
         raise RuntimeError("unexpected full feature count")
     if diagnostic.get("fourth_orbit_count") != 1440 or diagnostic.get("quartet_count") != 111930:
@@ -110,7 +110,7 @@ def main():
         if diagnostic.get(field) != hashes[key]:
             raise RuntimeError(f"the 6,131-column diagnostic does not pin {field}")
 
-    if parent_cert.get("status") != "arb_certified_finite_6133_column_full_fourth_plus_ten_gapped_separator":
+    if parent_cert.get("status") != "arb_certified_finite_6131_column_full_fourth_plus_eight_gapped_separator":
         raise RuntimeError("the 6,131-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6131:
         raise RuntimeError("the 6,131-column parent certificate is incomplete")
@@ -120,9 +120,9 @@ def main():
         raise RuntimeError("unexpected 6,131-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6131_dual_general_gapped_escape":
-        raise RuntimeError("the 6,129-dual escape certificate is invalid")
+        raise RuntimeError("the 6,131-dual escape certificate is invalid")
     if not escape_cert.get("complete") or not {"connected", "multisegment"}.issubset(set(escape_cert.get("escape_kinds", []))):
-        raise RuntimeError("the 6,125-dual escape certificate is incomplete")
+        raise RuntimeError("the 6,131-dual escape certificate is incomplete")
     if escape_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the escape certificate does not pin the 6,131-column parent diagnostic")
     if escape_cert.get("finite_certificate_sha256") != hashes["parent_certificate_sha256"]:
@@ -139,7 +139,7 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first six gapped columns are inherited exactly from the certified
+    # The first eight gapped columns are inherited exactly from the certified
     # 6,131-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
@@ -152,13 +152,15 @@ def main():
         "new_two_segment_escape_6127_dual",
         "new_connected_escape_from_6131_dual",
         "new_two_segment_escape_from_6131_dual",
+        "new_connected_escape_from_6131_dual",
+        "new_two_segment_escape_from_6131_dual",
     ]
     if [x.get("kind") for x in appended] != expected_kinds:
-        raise RuntimeError("unexpected ordering or labels for eight appended gapped paths")
+        raise RuntimeError("unexpected ordering or labels for ten appended gapped paths")
 
     parent_appended = parent["appended_gapped_columns"]
     if len(parent_appended) != 8:
-        raise RuntimeError("the 6,131-column parent does not contain six gapped paths")
+        raise RuntimeError("the 6,131-column parent does not contain eight gapped paths")
     for index in range(8):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
@@ -172,7 +174,7 @@ def main():
     for label, kind in expected_escape.items():
         result = escape_cert["candidate_results"][kind]
         if not result.get("strict_separator_escape_certified"):
-            raise RuntimeError(f"the {kind} candidate is not an Arb-certified escape from the 6,129 dual")
+            raise RuntimeError(f"the {kind} candidate is not an Arb-certified escape from the 6,131 dual")
         search_values = [
             Fraction(x) for x in escape_search[f"best_{kind}"]["couplings_exact_decimal"]
         ]
@@ -338,7 +340,7 @@ def main():
     tv_bound = residual_bound / 2
 
     result = {
-        "status": "arb_certified_finite_6133_column_full_fourth_plus_ten_gapped_separator",
+        "status": "arb_certified_finite_6131_column_full_fourth_plus_eight_gapped_separator",
         "complete": True,
         "interval_backend": "python-flint / Arb",
         "precision_bits_base_and_gapped": BASE_PRECISION_BITS,
@@ -351,7 +353,7 @@ def main():
         "base_atom_count": checked_base,
         "fractional_grid_count": checked_grid,
         "general_gapped_count": checked_gapped,
-        "diagnostic_status_label_legacy": diagnostic.get("status") == "floating_full_fourth_6131_column_separator_candidate_not_arb_certified",
+        "diagnostic_status_label_legacy": False,
         "full_feature_count": 1461,
         "independent_moment_rows": 1313,
         "equalities_including_normalization": 1314,
@@ -389,7 +391,7 @@ def main():
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "six inherited/previously certified gapped paths, and two newly "
+            "eight inherited/previously certified gapped paths, and two newly "
             "certified escapes from the 6,131-column dual. It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "arbitrary multi-segment paths, all even principal minors, or an "
