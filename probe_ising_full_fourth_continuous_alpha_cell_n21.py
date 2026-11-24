@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent
 DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_fractional_grid_n21.json"
 WARM_CERT = ROOT / "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
 OUTPUT = ROOT / "evidence/ising_full_fourth_continuous_alpha_cell_probe_n21.json"
-PRECISION_BITS = 128
+PRECISION_BITS = 128  # pinned interval precision for reproducibility
 
 
 def main():
