@@ -1,47 +1,47 @@
 {
   "best_connected": {
     "couplings_exact_decimal": [
-      "10.996328539208982",
+      "10.995746457380539",
       "9.9999999999999995e-07",
-      "0.31575096076672304",
-      "6.2751920056494939",
+      "0.30760904116023913",
+      "6.2755492045746024",
       "9.9999999999999995e-07",
-      "17.278825103366334",
-      "9.9999999999999995e-07",
-      "9.9999999999999995e-07",
-      "4.7123145697784148",
-      "9.9999999999999995e-07",
-      "9.1946502734168885",
-      "2.0709800228946822",
-      "1.2225088652262563e-06",
-      "3.1415931121661642",
-      "9.9999999999999995e-07",
-      "4.7122527842124216",
+      "17.278924606002036",
       "9.9999999999999995e-07",
       "9.9999999999999995e-07",
-      "1.5708337341715737",
+      "4.7121390380018537",
       "9.9999999999999995e-07",
-      "3.4983312956878678",
-      "5.8238012136268607",
-      "10.933715127012604",
-      "1.4363318761265296",
+      "9.1943053466324702",
+      "2.0702547243871847",
+      "1.2214961158822118e-06",
+      "3.1415824667636332",
       "9.9999999999999995e-07",
-      "7.8540330378039673",
+      "4.7124872801859912",
       "9.9999999999999995e-07",
-      "3.1414815326455376",
       "9.9999999999999995e-07",
-      "3.6707672249373218",
-      "7.9193780981758071",
-      "3.8660811473067986",
+      "1.5708882884128461",
       "9.9999999999999995e-07",
-      "4.7125788063518268",
+      "3.4984818085915421",
+      "5.8217823640970634",
+      "10.935883046569421",
+      "1.4329318675070635",
       "9.9999999999999995e-07",
-      "6.2831922727635501",
+      "7.8541096619160253",
       "9.9999999999999995e-07",
-      "14.137194541229592",
+      "3.1412567153934026",
       "9.9999999999999995e-07",
-      "1.7926174065005345",
-      "6.0242876325432748",
+      "3.6711499048229146",
+      "7.9192801730088993",
+      "3.8657692305687434",
+      "9.9999999999999995e-07",
+      "4.7123458773760687",
+      "9.9999999999999995e-07",
+      "6.2832393724718738",
+      "9.9999999999999995e-07",
+      "14.136875754932209",
+      "9.9999999999999995e-07",
+      "1.7882084520070909",
+      "6.0273343690594716",
       "0"
     ],
     "internal_zero_edges": [],
@@ -49,61 +49,61 @@
       "index": 89,
       "source": "independent_lognormal"
     },
-    "maximum_coupling": "17.278825103366334",
+    "maximum_coupling": "17.278924606002036",
     "minimum_positive_coupling": "9.9999999999999995e-07",
     "optimized": true,
     "optimizer": {
-      "function_evaluations": 121,
+      "function_evaluations": 122,
       "iterations": 100,
       "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
       "success": false
     },
-    "score_float": "41.556831027818767",
-    "target_minus_score_float": "-41.208050610654617"
+    "score_float": "41.556808989731152",
+    "target_minus_score_float": "-41.208028572567002"
   },
   "best_multisegment": {
     "couplings_exact_decimal": [
       "1e-08",
-      "1.571262843090405",
+      "1.5722549166270026",
       "1e-08",
       "1e-08",
       "1e-08",
-      "7.8519323893896349",
+      "7.8531955766495738",
       "0",
-      "499.52784524654709",
-      "39.442401233233348",
-      "14.751818688778755",
-      "187.06527523429986",
-      "22.325125173269811",
-      "156.1046288096264",
-      "279.29014327571673",
-      "11.077396275706294",
-      "171.2610410676989",
+      "499.52392914977912",
+      "39.442093207580612",
+      "14.760127765190143",
+      "187.0677111607375",
+      "22.333611389332052",
+      "156.12630081083807",
+      "279.27564995518844",
+      "11.089681946862893",
+      "171.24976387370305",
       "1e-08",
-      "45.952277851414408",
-      "169.34657480118844",
-      "113.30215478622921",
-      "3.9737449249010619",
-      "475.59073097688298",
-      "334.58566642852702",
-      "233.26889033705157",
+      "46.005688197181804",
+      "169.32027957664945",
+      "113.32109484973959",
+      "0.088010211327343615",
+      "475.55804898575531",
+      "334.58828673206267",
+      "233.25010042035879",
       "0",
-      "1.5656772390878413",
+      "1.5752289294650834",
       "1e-08",
       "1e-08",
       "1e-08",
       "1e-08",
-      "1.5672961334463817",
+      "1.5736919288387266",
       "1e-08",
       "1e-08",
       "1e-08",
       "1e-08",
-      "1.5704773052990173",
+      "1.5705268231487175",
       "0",
-      "3.3401188255025831",
-      "8.8209302669002554",
+      "3.3444107639536638",
+      "8.8087223774314172",
       "1e-08",
-      "1.5721760020755888",
+      "1.5710604432463495",
       "0"
     ],
     "internal_zero_edges": [
@@ -127,7 +127,7 @@
         36
       ]
     },
-    "maximum_coupling": "499.52784524654709",
+    "maximum_coupling": "499.52392914977912",
     "minimum_positive_coupling": "1e-08",
     "optimized": true,
     "optimizer": {
@@ -136,26 +136,26 @@
       "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
       "success": false
     },
-    "score_float": "38.303044012376688",
-    "target_minus_score_float": "-37.954263595212538"
+    "score_float": "38.309515403217482",
+    "target_minus_score_float": "-37.960734986053332"
   },
-  "best_overall_gap": "-41.208050610654617",
+  "best_overall_gap": "-41.208028572567002",
   "best_overall_kind": "connected",
-  "best_overall_score": "41.556831027818767",
+  "best_overall_score": "41.556808989731152",
   "complete": true,
   "connected_random_count": 128,
   "coupling_convention": "A[j,j+1]=2*c[j], A[j+1,j]=-2*c[j], j=0,...,40; c[41]=0. The wrap edge is exactly cut. Internal zero couplings split the open path.",
-  "elapsed_seconds": 27.415707436999995,
+  "elapsed_seconds": 20.827015450000005,
   "escape_discovery_margin": 1e-06,
   "fractional_perturbation_count": 64,
   "gradient_self_test": {
     "absolute_errors": [
-      1.8793488987256524e-10,
-      3.387527203191354e-10,
-      5.162137384218113e-11
+      2.0064294670163463e-10,
+      2.1635909730477465e-10,
+      3.891997835125949e-12
     ],
-    "base_value": -1.720923491042899,
-    "maximum_absolute_error": 3.387527203191354e-10,
+    "base_value": -1.7209234910428972,
+    "maximum_absolute_error": 2.1635909730477465e-10,
     "tested_coordinates": [
       0,
       20,
@@ -182,8 +182,8 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 38.41473815444061,
-        "score_before": 1.2660176938495884,
+        "score_after": 38.414738154440606,
+        "score_before": 1.2660176938495855,
         "start_index": 277,
         "start_label": {
           "index": 85,
@@ -193,13 +193,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 121,
+          "function_evaluations": 122,
           "iterations": 100,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 41.55683102781877,
-        "score_before": 1.185133955894544,
+        "score_after": 41.55680898973115,
+        "score_before": 1.185133955894538,
         "start_index": 281,
         "start_label": {
           "index": 89,
@@ -209,13 +209,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 108,
+          "function_evaluations": 109,
           "iterations": 100,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 5.883670036553298,
-        "score_before": 0.7716902780919872,
+        "score_after": 5.90215735024439,
+        "score_before": 0.7716902780919985,
         "start_index": 126,
         "start_label": {
           "pool_index": 928,
@@ -225,12 +225,12 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 115,
+          "function_evaluations": 113,
           "iterations": 100,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 12.627344887656857,
+        "score_after": 12.529607277426406,
         "score_before": 0.6433409810057882,
         "start_index": 190,
         "start_label": {
@@ -241,13 +241,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 114,
+          "function_evaluations": 112,
           "iterations": 100,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 31.481409082295155,
-        "score_before": 0.6314744098014768,
+        "score_after": 31.472378146664376,
+        "score_before": 0.6314744098014765,
         "start_index": 322,
         "start_label": {
           "alpha": 1.245194992421182,
@@ -259,13 +259,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 113,
+          "function_evaluations": 114,
           "iterations": 100,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 25.788051070539794,
-        "score_before": 0.6286046883858843,
+        "score_after": 25.756148486403475,
+        "score_before": 0.628604688385884,
         "start_index": 187,
         "start_label": {
           "pool_index": 750,
@@ -280,8 +280,8 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 34.82369410230628,
-        "score_before": 2.0191467361756175,
+        "score_after": 34.82373040055022,
+        "score_before": 2.0191467361756796,
         "start_index": 38,
         "start_label": {
           "index": 38,
@@ -310,8 +310,8 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 34.07077665649037,
-        "score_before": 0.27938894166919825,
+        "score_after": 34.070523020017795,
+        "score_before": 0.2793889416691858,
         "start_index": 2,
         "start_label": {
           "index": 2,
@@ -335,13 +335,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 123,
+          "function_evaluations": 124,
           "iterations": 100,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 28.309956046003908,
-        "score_before": 0.27467343719005866,
+        "score_after": 28.307733197687273,
+        "score_before": 0.2746734371899521,
         "start_index": 79,
         "start_label": {
           "index": 79,
@@ -370,8 +370,8 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 38.30304401237669,
-        "score_before": 0.19573842945137432,
+        "score_after": 38.30951540321748,
+        "score_before": 0.19573842945142242,
         "start_index": 89,
         "start_label": {
           "index": 89,
@@ -398,8 +398,8 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 20.736089420575986,
-        "score_before": 0.17071482085921066,
+        "score_after": 20.736293497026562,
+        "score_before": 0.17071482085925274,
         "start_index": 111,
         "start_label": {
           "index": 111,
@@ -424,8 +424,8 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 23.075598044514045,
-        "score_before": -0.03241433929852101,
+        "score_after": 23.075229063442006,
+        "score_before": -0.03241433929849369,
         "start_index": 9,
         "start_label": {
           "index": 9,
