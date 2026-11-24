@@ -1,11 +1,13 @@
 {
-  "status": "no_single_fractional_grid_atom_extension_found",
+  "status": "finite_grid_no_positive_extension_found_two_zero_slope_cases_unresolved",
   "complete": true,
   "precision_bits": 384,
   "interval_backend": "python-flint / Arb",
   "base_input_sha256": "d8c5a0ed699f7757d171c4e05913704fc280f9e35d0bba04ad5af768df2a7807",
   "base_atoms": 22,
   "tested_candidates": 27,
+  "negative_required_weight_count": 25,
+  "unresolved_zero_slope_count": 2,
   "records": [
     {
       "atom": {
@@ -333,5 +335,5 @@
     23
   ],
   "base_distant_residual": "[0.0129392316409538071962346592130359334639942998783638688669442274633158182283219506115420611837007481148 +/- 6.25e-104]",
-  "scope": "Every listed single-segment fractional candidate was checked with 384-bit Arb. None can be added alone with a strictly positive new weight while preserving the 21 second moments, the consecutive fourth probe, normalization, and the distant fourth target. This is only a finite-grid rejection, not a no-go for multiple new atoms or general gapped couplings."
+  "scope": "25 candidates have rigorously negative required new weights. 2 candidates have a 384-bit slope interval containing zero and remain unresolved. No positive extension was certified on this finite grid. This is not a no-go for those unresolved cases, multiple new atoms, or general gapped couplings."
 }
