@@ -255,7 +255,7 @@ def solve_full_grid(system, warm, warm_sha):
     if parent.get("candidate_count") != 6133 or len(parent.get("appended_gapped_columns", [])) != 10:
         raise RuntimeError("the parent diagnostic does not contain exactly ten appended gapped paths")
     if parent.get("status") not in {
-        "floating_full_fourth_6135_column_separator_candidate_not_arb_certified",
+        "floating_full_fourth_6133_column_separator_candidate_not_arb_certified",
     }:
         raise RuntimeError("the parent diagnostic has an unexpected legacy/current status label")
     if escape_cert.get("status") != "arb_certified_6133_dual_general_gapped_escape":
@@ -465,7 +465,7 @@ def solve_full_grid(system, warm, warm_sha):
         "candidate_count": len(W),
         "base_atom_count": len(base_atoms),
         "fractional_grid_count": 6101,
-        "general_gapped_count": 10,
+        "general_gapped_count": 12,
         "parent_diagnostic_sha256": hashlib.sha256(parent_raw).hexdigest(),
         "parent_certificate_sha256": hashlib.sha256(parent_cert_raw).hexdigest(),
         "new_escape_certificate_sha256": escape_sha,
@@ -516,7 +516,7 @@ def solve_full_grid(system, warm, warm_sha):
         "scope": (
             "Floating finite-pool feasibility test over 22 pinned base atoms, "
             "6,101 corrected fractional single-open-path grid atoms, ten previously "
-            "Arb-certified gapped paths (five connected and three segmented), "
+            "Arb-certified gapped paths, "
             "and two new 256-bit-Arb-certified escapes from the 6,133-column dual (one connected and one multi-segment), "
             "for 6,135 columns total. "
             "It is not an interval certificate, a continuous-parameter theorem, "
