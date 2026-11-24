@@ -202,3 +202,17 @@ The dual support has 66 nonzero rows (5 low-order, 58 sixth-order, 3 eighth-orde
 Evidence: [198-column theorem note](THEORY_198COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md), [LP transcript](evidence/joint_low_six_eighth_lp_198col_uniform_ray_escape_n21.json), [exact rational dual + 198 Arb intervals](evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json), [independent verifier](verify_198col_uniform_ray_dual_arb.py), [reoptimization workflow 45424946690](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45424946690), and [dual-certification workflow 45425975195](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45425975195).
 
 Next: run continuous uniform-torus pricing on the new 198-column dual. The new dual must receive its own search and Arb witness; the 197-column torus/finite-time escape does not automatically transfer to it.
+
+
+## 2026-11-24: 6,129-column full-fourth certificate and 198-dual torus escape
+
+A new exact-rational 80-term dual has now been independently Arb-certified on the 6,129-column full second-/fourth-order pool. The common column gap is strictly greater than \(1/5\); the minimum Arb lower endpoint is \(0.2374306538960380051\ldots\), at pinned base atom 14. The resulting finite-pool bounds are
+\[
+\|b-Ap\|_\infty>1/2665,\qquad
+\operatorname{TV}(w_p,u_{\rm bal})>1/5330.
+\]
+This remains a finite-pool theorem only.
+
+Separately, the 198-column mixed-order dual has a strict 128-bit Arb-positive point on the 21-torus. By the dense-ray theorem and continuity, this proves existence of a finite equal-positive-coupling open-path escape from that particular dual. An explicit time remains to be isolated.
+
+The 6,129 verifier and 198-torus verifier are separate reproducible workflows; neither result implies a Choi/diamond bound or solves the all-even-minor ensemble problem.
