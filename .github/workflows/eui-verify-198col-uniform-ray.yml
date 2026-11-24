@@ -1,0 +1,76 @@
+name: EUI 198-column exact dual Arb certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_198col_uniform_ray_dual_arb.py"
+      - ".github/workflows/eui-verify-198col-uniform-ray.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-verify-198col-uniform-ray
+  cancel-in-progress: true
+
+jobs:
+  certify-198:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical and interval stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Regressions and compile exact 198-column verifier
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
+          python -m py_compile verify_198col_uniform_ray_dual_arb.py verify_197col_uniform_ray_dual_arb.py verify_197col_uniform_torus_pricing_arb.py verify_197col_uniform_ray_time_arb.py
+      - name: Re-certify the exact 197-column parent and its torus/time witnesses
+        run: |
+          python verify_197col_uniform_ray_dual_arb.py
+          python verify_197col_uniform_torus_pricing_arb.py
+          python verify_197col_uniform_ray_time_arb.py
+      - name: Independently certify all 198 rational-dual column inequalities with 128-bit Arb
+        run: python verify_198col_uniform_ray_dual_arb.py
+      - name: Commit only the 198-column exact dual certificate
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-198dual/evidence
+          if [ -f evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json ]; then
+            cp evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json /tmp/eui-198dual/evidence/
+          fi
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            rm -f evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json
+            if [ -f /tmp/eui-198dual/evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json ]; then
+              cp /tmp/eui-198dual/evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json evidence/
+              git add evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json
+            fi
+            if ! git diff --cached --quiet; then
+              git commit -m "Record 198-column exact rational dual Arb certificate"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 198-column dual certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-198col-exact-dual-arb
+          path: evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json
+          if-no-files-found: warn
