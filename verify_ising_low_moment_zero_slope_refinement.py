@@ -60,6 +60,29 @@ def main():
             "strictly_negative": bool(slope < 0),
             "contains_zero": bool(slope.contains(0)),
         }
+        if atom["length"] == 41 and atom["alpha"] == "3/2":
+            record.update({
+                "exact_even_minor_equivalent_base_atom": {"kind": "fractional", "length": 41, "alpha": "1/2"},
+                "strictly_zero_by_analytic_identity": True,
+                "identity": (
+                    "For spin j=20, exp((3*pi/2) J_y)=exp((-pi/2) J_y) because "
+                    "exp(2*pi*J_y)=I; exp((-pi/2) J_y) is the transpose of "
+                    "exp((pi/2) J_y), and transposition preserves every principal minor."
+                ),
+            })
+        elif atom["length"] == 42 and atom["alpha"] == "5/4":
+            record.update({
+                "exact_even_minor_equivalent_base_atom": {"kind": "fractional", "length": 42, "alpha": "3/4"},
+                "strictly_zero_by_analytic_identity": True,
+                "identity": (
+                    "For spin j=41/2, exp(2*pi*J_y)=-I; hence exp((5*pi/4)J_y) "
+                    "=-exp((-3*pi/4)J_y). Every even-order principal minor is "
+                    "invariant under global sign, and transposition maps the "
+                    "negative-angle rotation to the positive-angle rotation."
+                ),
+            })
+        if not slope.contains(0):
+            raise RuntimeError("analytic duplicate identity disagrees with Arb slope interval")
         if not slope.contains(0):
             tau = -base_residual / slope
             old_weights = [weights[j, 0] - tau * response[j, 0] for j in range(22)]
@@ -72,7 +95,7 @@ def main():
         records.append(record)
 
     result = {
-        "status": "768_bit_zero_slope_refinement_complete",
+        "status": "two_zero_slopes_exactly_redundant_by_spin_periodicity",
         "complete": True,
         "precision_bits": ctx.prec,
         "interval_backend": "python-flint / Arb",
@@ -83,9 +106,10 @@ def main():
         "base_distant_residual": str(base_residual),
         "candidates": records,
         "scope": (
-            "This refines only the two candidates whose 384-bit slope intervals "
-            "contained zero. If an interval still contains zero, the case remains "
-            "unresolved; no exact-zero identity is inferred from interval overlap."
+            "Both 768-bit intervals contain zero, and separate exact spin-representation "
+            "identities prove that these candidates have the same every-even-principal-minor "
+            "feature columns as fractional seeds already present in the base 22-atom ensemble. "
+            "The zero slopes are therefore exact redundancies, not unresolved numerical cases."
         ),
     }
     OUTPUT.write_text(json.dumps(result, indent=2) + "\n")
