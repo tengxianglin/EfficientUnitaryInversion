@@ -1889,3 +1889,20 @@ By the proved rational independence of \(\omega_k=4\cos(k\pi/43)\), the positive
 Formal note: [THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md](THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md). Evidence: [search transcript](evidence/196col_uniform_torus_search_n21.json), [128-bit Arb certificate](evidence/196col_uniform_torus_arb_n21.json). The first verifier run exposed a provenance-check bug: it expected a nonexistent \texttt{parent_194col_uniform_ray_time_exact_rational} field in the 195-column time certificate. The verifier was corrected to load the 194-column certificate itself and check its raw-file hash, LP/dual ancestry, and exact rational time. The corrected workflow passed all parent checks and the Arb evaluation. Workflow hygiene was also tightened so stale outputs are removed immediately after checkout, before any potentially failing verification step.
 
 **Next:** search the one-dimensional uniform ray for an explicit finite \(t\), then certify that exact rational-decimal time with Arb. A failed bounded search would not negate the density-based existence theorem. In parallel, the publication-critical long-ring joint-parity ensemble and the moment-to-operational-error bridge remain open; the 196-column sequence is supporting finite-pool/dual-pricing evidence, not a replacement for either theorem.
+
+
+## 196-column explicit uniform-ray escape (2026-11-24)
+
+The previous 196-column status is superseded by a completed deterministic search and independent 128-bit Arb verification. For the exact rational 196-column dual pinned by SHA256 45edad15fc5978381108c9ade57006da941c476e05cb447c044fbe4ed986cd86 and LP SHA256 d203f3cddd74b896f565d44509168f11a39b814b5f5de8fe1f99a89d26c2e179, the explicit uniform positive-coupling path is
+\\[
+t_*=3070.785790481181266=\\frac{1535392895240590633}{500000000000000},\\qquad c_0=\\cdots=c_{40}=t_*.
+\\]
+The 128-bit Arb pricing interval is
+\\[
+S_{196}(e^{t_*K_*})\\in[0.3637338868622431662555343998069\\pm6.07\\times10^{-32}]>0.
+\\]
+This is a directly specified physical path, not merely the dense-torus existence argument. It proves that this particular 196-column dual is not a global separator of the continuous physical family. It does not invalidate the 196-column/2,113-row finite-pool minimax theorem and does not prove feasibility or infeasibility of mixtures over the full continuous family.
+
+Reproduction: evidence/196col_uniform_ray_time_search_n21.json, evidence/196col_uniform_ray_time_arb_n21.json, and verify_196col_uniform_ray_time_arb.py; [workflow 45283332130](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45283332130), [evidence commit 6e6a670](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/6e6a6705fd44b85b1274132d7530796145c7b3a1).
+
+The higher-level long-ring blocker remains the exact positive joint-parity ensemble at n=21 (or a global physical obstruction). The existing 22-atom ensemble is certified only for all 21 distance-averaged second moments plus one fourth-order orbit; a distant fourth-order probe fails by more than 1/100. The conditional joint-parity diamond theorem therefore remains conditional at n=21.
