@@ -65,7 +65,7 @@ def main():
         ),
         arb(0),
     )
-    finite_target = arb(finite["target_score_interval"].split(" +/- ")[0].strip("[]"))
+    finite_target = arb(finite["target_score_interval"])
     if not (target_score - finite_target).contains(0):
         raise RuntimeError("exact target score does not match the pinned Arb interval")
 
