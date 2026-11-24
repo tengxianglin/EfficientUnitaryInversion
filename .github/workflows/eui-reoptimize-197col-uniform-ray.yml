@@ -71,7 +71,7 @@ jobs:
           mkdir -p /tmp/eui-197/evidence
           for f in \
             evidence/joint_low_six_eighth_lp_197col_uniform_ray_escape_n21.json \
-            evidence/candidate_joint_input_197col_uniform_ray_escape_n21.json \\
+            evidence/candidate_joint_input_197col_uniform_ray_escape_n21.json \
             evidence/55probe_197col_uniform_ray_escape_dual_certificate_n21.json; do
             if [ -f "$f" ]; then cp "$f" /tmp/eui-197/evidence/; fi
           done
@@ -83,7 +83,7 @@ jobs:
             rm -f evidence/55probe_197col_uniform_ray_escape_dual_certificate_n21.json
             for f in \
               evidence/joint_low_six_eighth_lp_197col_uniform_ray_escape_n21.json \
-              evidence/candidate_joint_input_197col_uniform_ray_escape_n21.json \\
+              evidence/candidate_joint_input_197col_uniform_ray_escape_n21.json \
               evidence/55probe_197col_uniform_ray_escape_dual_certificate_n21.json; do
               if [ -f "/tmp/eui-197/$f" ]; then
                 cp "/tmp/eui-197/$f" "$f"
