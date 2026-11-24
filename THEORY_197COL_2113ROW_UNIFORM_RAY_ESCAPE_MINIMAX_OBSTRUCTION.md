@@ -228,3 +228,36 @@ The total-variation dual inequality therefore yields the additional exact coroll
 }
 \]
 This bound is for mixtures supported on the exact 197-column pool. It is a classical program-label distribution (equivalently, dephased-register trace-distance) statement. It is **not** a Choi-state trace-distance or channel diamond-distance bound. It also does not extend to arbitrary continuous couplings, since the same dual has the certified uniform-ray escape above.
+
+
+## Explicit finite positive-coupling escape (128-bit Arb)
+
+The bounded one-dimensional search found an explicit time on the same 42-site uniform open path:
+\[
+\boxed{
+t_*=
+\frac{14386899302852951223}{250000000000000}
+=57547.597211411804892>0.
+}
+\]
+All 41 internal couplings are exactly equal to this rational number and the closing edge is zero. This is distinct from the five equal-coupling times already included in the 197-column pool.
+
+The independent 128-bit Arb verifier evaluates the exact rational time through the spectral path representation and certifies
+\[
+\boxed{
+S_{197}(e^{t_*K_*})
+\in
+[0.55379539820858412380775878883
+\pm2.37\times10^{-30}]>0.
+}
+\]
+Thus the continuum escape is now witnessed by an explicit finite physical generator, not merely by the dense-torus existence argument. The path is outside the pinned 197-column pool, so this does not contradict the finite-pool theorem.
+
+Reproduction:
+- [Finite-time search transcript](evidence/197col_uniform_ray_time_search_n21.json)
+- [128-bit Arb finite-time certificate](evidence/197col_uniform_ray_time_arb_n21.json)
+- [Independent verifier](verify_197col_uniform_ray_time_arb.py)
+- [Search + verifier workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828)
+- [Evidence commit b3d85e7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b3d85e763465a62c7015ded2c803de27746753a6)
+
+The next exact experiment is to append this sixth equal-coupling time as physical column 1655 and reoptimize the same 2,113-row mixed-order design, then independently certify the new dual or any candidate primal.
