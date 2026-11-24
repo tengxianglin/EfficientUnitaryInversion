@@ -155,6 +155,7 @@ def full_couplings(length, alpha):
 
 def self_test(system):
     cases = 0
+    spin_cases = 0
     max_block_defect = 0.0
     max_spin_defect = 0.0
     for length in (2, 7, 21, 41, 42):
@@ -164,24 +165,43 @@ def self_test(system):
             direct = system.features(full_couplings(length, alpha))
             block_defect = float(np.max(np.abs(block - direct)))
             max_block_defect = max(max_block_defect, block_defect)
-            reflected = fractional_features(
-                length, 2.0 - alpha, system, layout
-            )
-            spin_defect = float(np.max(np.abs(block - reflected)))
-            max_spin_defect = max(max_spin_defect, spin_defect)
-            if block_defect > 2e-10 or spin_defect > 2e-10:
+            if block_defect > 2e-10:
                 raise RuntimeError(
-                    f"block/spin symmetry regression failed at L={length}, "
-                    f"alpha={alpha}: block={block_defect}, spin={spin_defect}"
+                    f"block-minor regression failed at L={length}, "
+                    f"alpha={alpha}: defect={block_defect}"
                 )
+            if length % 2 == 1 or length == N:
+                reflected = fractional_features(
+                    length, 2.0 - alpha, system, layout
+                )
+                spin_defect = float(np.max(np.abs(block - reflected)))
+                max_spin_defect = max(max_spin_defect, spin_defect)
+                spin_cases += 1
+                if spin_defect > 2e-10:
+                    raise RuntimeError(
+                        f"valid spin symmetry failed at L={length}, "
+                        f"alpha={alpha}: defect={spin_defect}"
+                    )
             cases += 1
-    return {
-        "cases": cases,
-        "max_block_feature_defect": max_block_defect,
-        "max_alpha_to_two_minus_alpha_feature_defect": max_spin_defect,
-        "status": "finite floating regression passed",
-    }
 
+    # A half-integer-spin segment with a nonempty idle complement is not
+    # globally invariant: the minus sign acts only on the active block.
+    even_layout = subset_layout(system, 2)
+    even_left = fractional_features(2, 0.17, system, even_layout)
+    even_right = fractional_features(2, 1.83, system, even_layout)
+    even_noninvariance = float(np.max(np.abs(even_left - even_right)))
+    if even_noninvariance < 1e-3:
+        raise RuntimeError(
+            "expected even-L<42 counterexample to alpha reflection was not found"
+        )
+    return {
+        "block_comparison_cases": cases,
+        "valid_spin_symmetry_cases": spin_cases,
+        "max_block_feature_defect": max_block_defect,
+        "max_valid_spin_symmetry_defect": max_spin_defect,
+        "L2_alpha_0.17_vs_1.83_counterexample_defect": even_noninvariance,
+        "status": "block regression and restricted spin symmetry passed",
+    }
 
 def solve_full_grid(system, warm, warm_sha):
     base_atoms = warm["atoms"][:22]
@@ -199,7 +219,8 @@ def solve_full_grid(system, warm, warm_sha):
     layouts = {}
     for length in range(2, N + 1):
         layouts[length] = subset_layout(system, length)
-        for k in range(101):
+        max_k = 100 if (length % 2 == 1 or length == N) else 200
+        for k in range(max_k + 1):
             if k == 0 and length != 2:
                 continue
             alpha = Fraction(k, 100)
@@ -215,7 +236,7 @@ def solve_full_grid(system, warm, warm_sha):
             })
 
     W = np.asarray(rows, dtype=float)
-    if W.shape != (4123, 1461):
+    if W.shape != (6123, 1461):
         raise RuntimeError(f"unexpected candidate feature shape {W.shape}")
 
     warm_atoms = warm["atoms"]
@@ -230,7 +251,10 @@ def solve_full_grid(system, warm, warm_sha):
     max_symmetry_defect = 0.0
     for atom_index, atom in enumerate(warm_atoms[22:], start=22):
         alpha = Fraction(atom["alpha"])
-        reduced = min(alpha, Fraction(2) - alpha)
+        if int(atom["length"]) % 2 == 1 or int(atom["length"]) == N:
+            reduced = min(alpha, Fraction(2) - alpha)
+        else:
+            reduced = alpha
         scaled = reduced * 100
         if scaled.denominator != 1:
             raise RuntimeError("warm fractional atom is outside the 0.01 grid")
@@ -289,14 +313,17 @@ def solve_full_grid(system, warm, warm_sha):
         "base_atom_count": len(base_atoms),
         "fractional_grid_count": len(W) - len(base_atoms),
         "fractional_grid": (
-            "L=2,...,42; alpha=k/100, k=0,...,100; "
-            "one shared alpha=0 identity column"
+            "L=2,...,42; odd L and L=42 use k=0,...,100; "
+            "even L<42 use k=0,...,200; one shared alpha=0 identity column"
         ),
         "symmetry_reduction": (
-            "For spin j=(L-1)/2, R_(L,2-alpha)=+R_(L,alpha)^T "
-            "for integer j and -R_(L,alpha)^T for half-integer j. "
-            "Every even principal minor is invariant under transpose and "
-            "global sign, so [0,1] covers the original [0,2] grid exactly."
+            "For odd L (integer spin), the full block-diagonal matrix "
+            "transposes under alpha->2-alpha. For L=42, the half-integer "
+            "spin global sign acts on the full matrix and leaves every even "
+            "principal minor invariant. For even L<42, the sign acts only "
+            "on the active block while the idle complement stays identity; "
+            "odd-size active subminors therefore change sign, so no reduction "
+            "is made for those lengths."
         ),
         "warm_certificate_sha256": warm_sha,
         "candidate_feature_sha256_le_f64": hashlib.sha256(
@@ -307,7 +334,7 @@ def solve_full_grid(system, warm, warm_sha):
         "quartet_count": len(system.indices),
         "reduced_equations_including_normalization": len(cols) + 1,
         "exact_hierarchy_pivot_minor_determinant": "824633720832",
-        "max_warm_spin_reduction_defect": max_symmetry_defect,
+        "max_warm_grid_mapping_defect": max_symmetry_defect,
         "warm_start": {
             "atom_count": len(warm_atoms),
             "minimum_weight_midpoint": float(np.min(warm_weights)),
