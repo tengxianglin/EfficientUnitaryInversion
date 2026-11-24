@@ -255,7 +255,7 @@ def solve_full_grid(system, warm, warm_sha):
     if parent.get("candidate_count") != 6127 or len(parent.get("appended_gapped_columns", [])) != 4:
         raise RuntimeError("the parent diagnostic does not contain exactly four appended gapped paths")
     if parent.get("status") not in {
-        "floating_full_fourth_6129_column_separator_candidate_not_arb_certified",
+        "floating_full_fourth_6125_column_separator_candidate_not_arb_certified",
         "floating_full_fourth_6127_column_separator_candidate_not_arb_certified",
     }:
         raise RuntimeError("the parent diagnostic has an unexpected legacy/current status label")
