@@ -169,3 +169,8 @@ The inspected manuscript and Appendix B at
 robustness promise. No manuscript sources are present in this repository;
 this update is a research-note and reproducibility result, without a
 literature-wide novelty or journal-readiness claim.
+
+
+## Follow-up: single fractional-segment extension screen (2026-11-24)
+
+A 384-bit Arb affine-reweighting test added each of 27 previously absent fractional-segment seeds from the predeclared \((L,\alpha)\) grid and asked whether one new positive weight could repair the distant fourth-order probe \(\{0,2,21,23\}\) while preserving the 21 second moments, the consecutive fourth probe, and normalization. Twenty-five candidates require a rigorously negative new weight; two have a slope interval containing zero at 384 bits and remain unresolved. No positive single-atom extension was certified. This finite-grid result does not rule out multiple added atoms or general gapped couplings. See [the exact affine reduction and evidence](THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md).
