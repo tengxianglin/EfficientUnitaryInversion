@@ -1,0 +1,24 @@
+{
+  "status": "exact_197col_program_mass_tv_corollary_verified",
+  "complete": true,
+  "arithmetic": "Python fractions.Fraction; exact rational only",
+  "dual_certificate_sha256": "4e36ee8668c5431672976a63f5c62b7bc44fb6fff7e181709edf0928246cf380",
+  "program_dpp_theory_sha256": "b997ef0b9d45f4bef2aab195dbcff693d7c38ad3ca0f2fc341e0db15b7f13720",
+  "column_count": 197,
+  "row_count": 2113,
+  "row_blocks": {
+    "low_complete": 1461,
+    "sixth_selected_plus_all_cuts": 645,
+    "eighth_selected": 7
+  },
+  "dual_l1_norm_exact": "2305843009213687359/2305843009213693952",
+  "dual_objective_exact": "957172851239594049/2305843009213693952",
+  "dual_slack_delta_exact": "1/10000000000",
+  "finite_pool_minimax_lower_bound_exact": "9347391123134860821080377/22517998136852480000000000",
+  "raw_character_test_function_linf_bound_exact": "48834410514256017587079/11529215046068469760",
+  "program_mass_tv_lower_bound_exact": "9347391123134860821080377/190759416071312568699527343750",
+  "program_mass_tv_lower_bound_decimal": 4.9000942211106776e-05,
+  "strict_program_mass_tv_lower_bound": true,
+  "interpretation": "For every probability mixture supported on the exact 197-column pool, the ensemble-averaged balanced program-label mass distribution has total-variation distance from uniform balanced labels strictly greater than the displayed rational lower bound.",
+  "scope": "This is a finite-pool classical program-label mass bound, equivalently a dephased program-register trace-distance bound. It is not a Choi-state trace-distance or channel diamond-distance bound, and it does not extend to arbitrary continuous couplings; the same 197-column dual has a separately Arb-certified positive uniform-ray escape."
+}
