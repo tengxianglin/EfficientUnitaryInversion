@@ -135,3 +135,44 @@ For each candidate, all 1,764 orthogonality entries are interval-checked and the
 These are escapes from this particular dual, not counterexamples to the exact 6,127-column theorem. They do not prove global feasibility/infeasibility, construct the all-even-minor ensemble, or imply a Choi/diamond bound.
 
 Both new paths have been appended to the full second-/fourth-order pool. The first 6,129-column attempt (workflow 45397564995) stopped at a parent-status metadata guard before LP construction; the accepted legacy label was corrected. A second run (workflow 45397929610) is executing the LP. I also corrected the fractional-grid description in the source and queued an authoritative metadata-consistent rerun (workflow 45398176444). No 6,129-column LP result is claimed until the corrected run commits its diagnostic; any resulting dual/primal candidate will still require independent Arb verification.
+
+## 2026-11-25 continuation: certified 6,129-column low-order pool and 198-column mixed-order track
+
+The preceding 6,127-column status is historical. The exact low-order pool has since been extended to **6,129 columns** by adding two exact-rational gapped paths. The 80-term rational dual is independently certified over all columns: 512-bit Arb for the 22 base and six gapped paths, and 128-bit Arb for the 6,101 fractional grid columns. The strict shifted-column lower endpoint is
+\[
+0.2374306538960380051374786212565\ldots>\frac15.
+\]
+With \(\|D^{-1}y\|_1=1\) and \(\|y\|_1<533\), the exact finite-pool consequences are
+\[
+\|b-Ap\|_\infty>\frac1{2665},
+\qquad
+\operatorname{TV}(w_p,u_{\rm bal})>\frac1{5330}.
+\]
+The TV statement is a bounded program-label/dephased-register result only, not a Choi or diamond bound. See [6,129-column certificate](evidence/ising_full_fourth_plus_six_gapped_arb_n21.json), [verifier](verify_ising_full_fourth_plus_six_gapped_arb_n21.py), [workflow 45429779133](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45429779133), and [theorem note](THEORY_6129COL_FULL_FOURTH_PLUS_SIX_GAPPED_FINITE_POOL_N21.md).
+
+The particular 6,129-column dual has subsequently been escaped by two new paths, each frozen as exact rationals and independently checked at 256-bit Arb precision. A connected path with all 41 internal couplings positive has
+\[
+y^{\mathsf T}(b-F(R(c)))\in[-40.02459425302149668668054524\pm2.09\times10^{-72}]<0,
+\]
+and a two-cut multi-segment path has
+\[
+y^{\mathsf T}(b-F(R(c)))\in[-36.94266442196780728292023791\pm7.36\times10^{-73}]<0.
+\]
+All 1,764 orthogonality entries and determinant-one intervals were checked. These escapes do not invalidate the finite 6,129-column theorem; they only refute global separation by that particular dual. The next low-order step is a 6,131-column reoptimization, not yet claimed complete. See [escape certificate](evidence/ising_full_fourth_plus_six_gapped_escape_arb_n21.json), [verifier](verify_ising_full_fourth_plus_six_gapped_escape_arb_n21.py), [workflow 45431346012](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45431346012), and [escape note](THEORY_6129COL_DUAL_GAPPED_ESCAPE.md).
+
+A separate higher-order branch has a **198-column / 2,113-row mixed-order finite-pool theorem**. Its exact rational dual is 128-bit Arb-certified on all 198 columns, with
+\[
+\min_{p\in\Delta_{198}}\|Ap-b\|_\infty
+\ge0.4086284624903306\ldots>\frac13.
+\]
+The 2,113 rows comprise 1,461 complete second-/fourth-order coordinates, 645 selected/cut sixth-order rows, and seven selected eighth-order rows. The sixth/eighth inventories are not complete. The theorem is therefore finite-pool and fixed-row-design only.
+
+The particular 198-column dual also has a certified continuous equal-positive-coupling escape: an exact rational phase point on the 21-torus has a 128-bit Arb pricing interval
+\[
+S_{198}(R(\theta_*))
+\in[1.3026969054283107647764243746907199\pm8.46\times10^{-35}]>0.
+\]
+Together with the exact rational-independence/dense-ray theorem for \(\omega_k=4\cos(k\pi/43)\), this proves existence of some finite positive time on the uniform open-path ray with positive pricing. An explicit finite time is not yet certified. The bounded search and independent Arb verifier are now tracked in discover_198col_uniform_ray_time_escape.py and verify_198col_uniform_ray_time_arb.py; workflow [45440522757](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45440522757) is running. A binary64 search result will not be promoted without a strictly positive exact-decimal Arb interval.
+
+The paper-central blockers remain: construct an exact positive ensemble satisfying every even-principal-minor constraint at \(n=21\), or prove a global physical-family obstruction; establish a separate operational bridge to Choi/diamond error; and recover the actual manuscript/supplement source files. No manuscript-source edit is claimed because no tracked .tex, .bib, or compiled .pdf is present.
+
