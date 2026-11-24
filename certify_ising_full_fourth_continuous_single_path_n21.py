@@ -8,8 +8,9 @@ coefficients, and adaptive Bernstein subdivision certifies target-score
 positivity on the whole x=cos(theta) interval [-1,1].
 
 This is a continuum theorem for the one-parameter single-open-path family
-only.  The 22 pinned non-path atoms are checked separately at 512-bit Arb.
-It does not cover arbitrary nonuniform gapped couplings or multi-segment paths.
+for every real scale alpha.  The 22 pinned base atoms are checked separately
+at 512-bit Arb.  It does not cover arbitrary nonuniform gapped couplings or
+multi-segment paths.
 """
 import hashlib
 import json
@@ -355,22 +356,39 @@ def main():
         MODE_THETA_SCALE = theta_scale
         proof = certify_bernstein(bernstein)
 
-        # A direct off-grid point check guards the Fourier-to-polynomial map.
-        test_alpha = Fraction(7, 13)
-        test_theta = rational(test_alpha) * arb.pi() * rational(theta_scale)
-        x = test_theta.cos()
-        u = (x + 1) / 2
-        polynomial_score_gap = evaluate_power(power, u)
-        test_block = fractional_block(length, rational(test_alpha))
-        direct_score = block_score(
-            test_block, length, second_coefficients, mask_weights[length]
+        # The Bernstein polynomial is a global identity in x=cos(theta), so
+        # test both negative and out-of-fundamental-interval alpha values.
+        test_alphas = (
+            Fraction(-7, 13),
+            Fraction(7, 13),
+            Fraction(13, 5),
+            Fraction(23, 5),
         )
-        direct_gap = target_score - direct_score
-        point_defect = polynomial_score_gap - direct_gap
-        if not point_defect.contains(0):
-            raise RuntimeError(
-                f"off-grid Fourier polynomial check failed at L={length}: {point_defect}"
+        off_grid_checks = []
+        for test_alpha in test_alphas:
+            test_theta = rational(test_alpha) * arb.pi() * rational(theta_scale)
+            x = test_theta.cos()
+            u = (x + 1) / 2
+            polynomial_score_gap = evaluate_power(power, u)
+            test_block = fractional_block(length, rational(test_alpha))
+            direct_score = block_score(
+                test_block, length, second_coefficients, mask_weights[length]
             )
+            direct_gap = target_score - direct_score
+            point_defect = polynomial_score_gap - direct_gap
+            if not point_defect.contains(0):
+                raise RuntimeError(
+                    f"off-grid Fourier polynomial check failed at L={length}, "
+                    f"alpha={test_alpha}: {point_defect}"
+                )
+            off_grid_checks.append({
+                "alpha": str(test_alpha),
+                "direct_gap_interval": str(direct_gap),
+                "polynomial_defect": str(point_defect),
+            })
+        reference_check = next(
+            item for item in off_grid_checks if item["alpha"] == "7/13"
+        )
 
         certified = proof["status"] == "positive"
         if certified:
@@ -401,10 +419,13 @@ def main():
             "fourier_sample_count": sample_count,
             "symmetry_checks": len(symmetry_defects),
             "dft_reconstruction_checks": len(reconstruction_defects),
-            "off_grid_test_alpha": str(test_alpha),
-            "off_grid_gap_interval": str(direct_gap),
-            "off_grid_polynomial_defect": str(point_defect),
+            "off_grid_test_alphas": [item["alpha"] for item in off_grid_checks],
+            "off_grid_checks": off_grid_checks,
+            "off_grid_test_alpha": "7/13",
+            "off_grid_gap_interval": reference_check["direct_gap_interval"],
+            "off_grid_polynomial_defect": reference_check["polynomial_defect"],
             "bernstein": proof,
+            "certified_for_all_real_alpha": certified,
             "certified_for_all_alpha_0_to_2": certified,
         })
         print(json.dumps({
@@ -445,7 +466,7 @@ def main():
             "If complete, the same frozen separator strictly separates the exact "
             "second-/fourth-order target from every probability mixture supported "
             "on the 22 pinned base atoms together with every single-open-path seed "
-            "R_{L,alpha} for L=2,...,42 and alpha in [0,2]. It does not cover "
+            "R_{L,alpha} for L=2,...,42 and all real alpha. It does not cover "
             "arbitrary nonuniform gapped couplings, multi-segment paths, or the "
             "full continuous physical family."
         ),
