@@ -193,7 +193,7 @@ def main():
     score_polynomial, midpoint_rotation = build_score_taylor(
         LENGTH, CENTER, TAYLOR_DEGREE, weights
     )
-    delta = arb(0, rational(RADIUS))
+    delta = arb(0, "1/200")
     polynomial_interval = score_polynomial(delta)
 
     # For a principal r-minor, det R[J,J] is a diagonal matrix coefficient
