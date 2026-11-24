@@ -286,7 +286,17 @@ Evidence:
 - [Successful workflow 45445503907](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45445503907)
 - [Exact dense-torus theorem](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md)
 
-A bounded six-window search for an explicit finite decimal time and its independent Arb verifier have been added. Workflow [45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912) is in progress. A positive binary64 candidate will not be reported as a finite-time theorem unless its exact-decimal rational value has a strictly positive Arb interval.
+The explicit finite-time refinement is now complete. The six-window deterministic search found
+\\[
+t_*=6964.814603259045725=\\frac{278592584130361829}{40000000000000}>0,
+\\]
+and the independent 128-bit Arb verifier certifies
+\\[
+S_{199}(e^{t_*K_*})\\in[0.503110853024683924836078551677\\pm5.03\\times10^{-31}]>0.
+\\]
+This is an explicit connected 42-site open path with all 41 internal couplings equal and strictly positive, and closing edge zero. It escapes the particular 199-column dual only; it does not invalidate that finite-pool theorem or prove full-family feasibility/infeasibility. Evidence: [finite-time search](evidence/199col_uniform_ray_time_search_n21.json), [Arb certificate](evidence/199col_uniform_ray_time_arb_n21.json), [verifier](verify_199col_uniform_ray_time_arb.py), and successful [workflow 45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912).
+
+The exact path is now appended as physical column 1657 in the new 200-column reoptimizer. The authoritative corrected run [45463435443](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45463435443) refreshes the torus/time certificate ancestry before rebuilding the fixed 2,113-row LP. Its result is pending; no 200-column conclusion is asserted.
 
 
 ## Repository manuscript inventory check
