@@ -145,6 +145,7 @@ def split_bernstein(coefficients):
 
 def certify_bernstein(coefficients):
     """Certify positivity, find a negative point, or return an honest timeout."""
+    minimum_lower = None
     stats = {
         "nodes": 0,
         "positive_leaves": 0,
@@ -157,15 +158,15 @@ def certify_bernstein(coefficients):
     }
 
     def recurse(values, left, right, depth):
+        nonlocal minimum_lower
         stats["nodes"] += 1
         stats["max_depth_reached"] = max(stats["max_depth_reached"], depth)
         lower_positive = all(value.lower() > 0 for value in values)
         if lower_positive:
             stats["positive_leaves"] += 1
             leaf_lower = min(value.lower() for value in values)
-            old = stats["minimum_bernstein_lower_endpoint"]
-            if old is None or leaf_lower < old:
-                stats["minimum_bernstein_lower_endpoint"] = str(leaf_lower)
+            if minimum_lower is None or leaf_lower < minimum_lower:
+                minimum_lower = leaf_lower
             return "positive"
 
         upper_negative = all(value.upper() < 0 for value in values)
@@ -223,6 +224,9 @@ def certify_bernstein(coefficients):
     # The alpha-expression map depends only on the current length's parameterization.
     global MODE_THETA_SCALE
     status = recurse(coefficients, Fraction(0), Fraction(1), 0)
+    stats["minimum_bernstein_lower_endpoint"] = (
+        str(minimum_lower) if minimum_lower is not None else None
+    )
     stats["status"] = status
     return stats
 
