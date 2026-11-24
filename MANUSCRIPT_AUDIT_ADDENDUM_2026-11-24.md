@@ -172,7 +172,16 @@ The particular 198-column dual also has a certified continuous equal-positive-co
 S_{198}(R(\theta_*))
 \in[1.3026969054283107647764243746907199\pm8.46\times10^{-35}]>0.
 \]
-Together with the exact rational-independence/dense-ray theorem for \(\omega_k=4\cos(k\pi/43)\), this proves existence of some finite positive time on the uniform open-path ray with positive pricing. An explicit finite time is not yet certified. The bounded search and independent Arb verifier are now tracked in discover_198col_uniform_ray_time_escape.py and verify_198col_uniform_ray_time_arb.py; workflow [45440522757](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45440522757) is running. A binary64 search result will not be promoted without a strictly positive exact-decimal Arb interval.
+Together with the exact rational-independence/dense-ray theorem for \(\omega_k=4\cos(k\pi/43)\), this proves existence of some finite positive time on the uniform open-path ray with positive pricing. An explicit finite time is now certified. The deterministic bounded search found
+\[
+t_*=\frac{29679911972339141357}{500000000000000}
+=59359.823944678282714>0,
+\]
+with all 41 internal couplings equal to \(t_*\) and closing edge zero. The independent 128-bit Arb verifier certifies
+\[
+S_{198}(e^{t_*K_*})\in[0.457872617436487364140828117304\pm9.93\times10^{-31}]>0.
+\]
+The search is discovery only; this exact-rational interval is the proof. See the search and certificate JSON files, independent verifier, and successful [workflow 45440522757](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45440522757), with evidence commit [730b1ce](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/730b1ce63771328d7b69b61e7f0f28b2c2995a4b). The finite 198-column theorem remains valid for its exact pool, but this explicit path escapes that particular dual. It has been appended as column 1656 and a reproducible 199-column / 2,113-row reoptimization is running in [workflow 45442368598](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45442368598).
 
 The paper-central blockers remain: construct an exact positive ensemble satisfying every even-principal-minor constraint at \(n=21\), or prove a global physical-family obstruction; establish a separate operational bridge to Choi/diamond error; and recover the actual manuscript/supplement source files. No manuscript-source edit is claimed because no tracked .tex, .bib, or compiled .pdf is present.
 
