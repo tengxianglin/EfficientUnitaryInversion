@@ -123,12 +123,11 @@ The verifier re-certified the 193-, 194-, and 195-column parent/time chain and t
 **Proved:**
 1. The finite 196-column / 2,113-row minimax residual is greater than \(1/3\), by the separate exact rational dual certificate.
 2. The same 196-column dual has strictly positive pricing at one exact rational point of the uniform-path torus.
-3. By the dense-ray theorem and continuity, some finite equal-positive-coupling physical path has positive pricing. Therefore this dual cannot separate the full continuous physical family.
+3. By the dense-ray theorem and continuity, some finite equal-positive-coupling physical path has positive pricing; moreover the explicit (t_*=3070.785790481181266) path is independently Arb-certified in the linked finite-time certificate. Therefore this dual cannot separate the full continuous physical family.
 
 **Not proved:**
-1. No remaining blocker on explicit finite-time escape; see the Arb certificate above.
-2. Feasibility or infeasibility of a convex mixture over all legal continuous physical generators.
-3. A global minimax value for the continuous physical family.
-4. Complete sixth-/eighth-order orbit control or an operational Choi/diamond-distance guarantee.
+1. Feasibility or infeasibility of a convex mixture over all legal continuous physical generators.
+2. A global minimax value for the continuous physical family.
+3. Complete sixth-/eighth-order orbit control or an operational Choi/diamond-distance guarantee.
 
 The finite-pool lower bound and the continuous dual escape are logically compatible: the escaping physical path is outside the 196 listed columns.
