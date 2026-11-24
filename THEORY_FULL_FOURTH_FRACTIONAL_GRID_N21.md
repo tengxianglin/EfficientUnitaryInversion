@@ -62,9 +62,55 @@ OPENBLAS_NUM_THREADS=1 python discover_ising_full_fourth_fractional_grid_n21.py
 
 The self-test compares the block-minor implementation against the independent full \(42\times42\) feature routine at five path lengths and five parameters. It tests the valid \(\alpha\leftrightarrow2-\alpha\) identity for odd \(L\) and \(L=42\), and retains an explicit even-\(L<42\) counterexample to prevent over-reduction.
 
-## Current status
+## Current verified finite-pool result (2026-11-24)
 
-The corrected experiment is queued by the accompanying GitHub Actions workflow. No full fourth-order feasibility or obstruction claim is made until its result is observed and, where possible, independently interval-certified.
+The corrected 6,123-column / 1,314-equality discovery LP returned infeasible and supplied an 80-term rational separator. The independent 128-bit Arb verifier reconstructed the 80 decimal coefficients as exact rationals and checked the strict score inequality against every one of the 6,123 columns. Its certificate is
+[evidence/ising_full_fourth_fractional_grid_dual_arb_n21.json](evidence/ising_full_fourth_fractional_grid_dual_arb_n21.json), pinned to diagnostic SHA256
+`0ee0664051b07ba5149dc7c6b76d5c3ab9a256333c3503a581193b2221ef64d9`
+and 41-atom warm-certificate SHA256
+`33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5`.
+
+The certified target score is enclosed by
+[
+y^{\mathsf T}b\in
+[0.348780417164144327612945590994371482\pm2.31\times10^{-37}],
+]
+and the verifier's midpoint-selected smallest-gap candidate is
+((L,\alpha)=(40,46/25)), with gap interval
+[
+[0.2670364051058160607498310482272\pm8.14\times10^{-32}].
+]
+The latter is recorded as the interval for the candidate selected by midpoint comparison; the proof does not rely on it being the globally smallest interval. The rigorous statement needed for infeasibility is simply that **each of the 6,123 individual Arb gap checks is strictly positive**.
+
+Let (a_j) be the restricted feature column for candidate (j), (b) the restricted exact target, and (y) the frozen rational 80-sparse separator. The verifier establishes
+[
+y^{\mathsf T}b-y^{\mathsf T}a_j>0
+\qquad (j=1,\ldots,6123).
+]
+Consequently, for every probability vector (p\in\Delta_{6123}),
+[
+y^{\mathsf T}\left(b-\sum_jp_ja_j\right)
+=\sum_jp_j\left(y^{\mathsf T}b-y^{\mathsf T}a_j\right)>0.
+]
+Thus no nonnegative probability mixture of the 22 pinned base atoms and the corrected 6,101-column fractional single-open-path grid can satisfy the complete second-/fourth-order target. This is a rigorous finite-family convex-hull obstruction, not merely the floating HiGHS infeasibility result.
+
+The verifier was subsequently hardened to require every gap to exceed (1/4), and its summary-key mismatch was fixed in commit
+[a507e568](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a507e568ed7c596b47ad3056058b30066695dd6b).
+The stronger common-margin claim is kept separate until the corresponding rerun emits its updated certificate.
+
+## Continuous-parameter follow-up
+
+A first interval-matrix-exponential probe has been added for the entire cell
+[
+L=40,\qquad \alpha\in[1.835,1.845],
+]
+around the midpoint-selected candidate (\alpha=46/25). It computes an Arb enclosure of the separator score over the whole interval, not only at sampled points. See
+[probe_ising_full_fourth_continuous_alpha_cell_n21.py](probe_ising_full_fourth_continuous_alpha_cell_n21.py)
+and
+[.github/workflows/eui-full-fourth-continuous-alpha-cell-n21.yml](.github/workflows/eui-full-fourth-continuous-alpha-cell-n21.yml).
+The probe's output is not yet present, so no continuous-alpha cell conclusion is claimed. If the interval is too wide, the next step is adaptive bisection; a successful cell proof would be repeated over every grid cell and every allowed path length before claiming a continuous single-open-path obstruction.
+
+The finite-pool certificate does not cover intermediate alpha values, arbitrary gapped couplings, multi-segment paths outside the grid, or the full continuous physical family. It is not an operational Choi/diamond-distance bound.
 
 
 ## 2026-11-24 finite-grid LP result and independent Arb follow-up
