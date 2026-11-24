@@ -141,3 +141,21 @@ A separate search for an explicit finite decimal time is running in [workflow 45
 Evidence and theory: [197-column theorem and escape note](THEORY_197COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md), [search transcript](evidence/197col_uniform_torus_search_n21.json), [128-bit Arb torus certificate](evidence/197col_uniform_torus_arb_n21.json), [independent verifier](verify_197col_uniform_torus_pricing_arb.py), and [workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355).
 
 The remaining paper-central blockers are unchanged: a positive ensemble satisfying every even principal-minor constraint at n=21 (or a global obstruction), a separate per-instance operational bridge to Choi/diamond distance, and tracked manuscript/supplement source files.
+
+
+## Additional 197-pool program-mass TV corollary
+
+The exact 197-column mixed-order dual also yields a finite-pool program-label distribution bound. Each of the 2,113 raw rows is an orbit average of a balanced-label character \(\phi_i\) with \(\|\phi_i\|_\infty\le1\), by the exact program/DPP identity. Undoing the row scales \(s_i\), the dual test function has sup-norm at most
+\[
+M=\sum_i |z_i|/s_i
+=\frac{48834410514256017587079}{11529215046068469760}.
+\]
+Combining the dual gap \(\beta-\delta\) with the total-variation dual inequality gives, for every mixture on the exact 197-column pool,
+\[
+\operatorname{TV}(w_p,u_{\rm bal})
+>
+\frac{9347391123134860821080377}
+{190759416071312568699527343750}
+=4.900094221110678\times10^{-5}.
+\]
+This is a classical balanced program-label mass (equivalently dephased-register trace-distance) result, finite-pool only. It is not a Choi-state trace-distance or channel diamond-distance guarantee. The derivation is recorded in [the 197-column theory note](THEORY_197COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md).
