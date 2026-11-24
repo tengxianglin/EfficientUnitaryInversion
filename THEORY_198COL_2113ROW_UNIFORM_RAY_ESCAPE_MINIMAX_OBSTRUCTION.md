@@ -94,4 +94,31 @@ Reproduction:
 
 **Not proved:** separation of the full continuous physical family; feasibility/infeasibility for all positive-coupling paths; complete sixth/eighth-order orbit control; a full all-even-principal-minor result; or a Choi/diamond operational bound.
 
-The next test is continuous pricing of this *new 198-column dual* over the 21-dimensional uniform-path torus. A positive exact phase point with a strictly positive Arb interval will refute global separation by this particular dual; a finite search with no positive point will not prove global separation.
+The continuous uniform-torus pricing test has now completed and found a strictly positive exact phase point. The resulting finite physical escape is established by the dense-ray theorem; an explicit finite rational time remains a useful strengthening. See the new section below.
+
+
+## 198-dual continuous uniform-ray escape (completed 2026-11-24)
+
+The 21-dimensional uniform-path torus pricing test has now found an exact-decimal phase point with a strictly positive 128-bit Arb interval for the **new 198-column dual**. The exact phase vector and interval are recorded in [the independent Arb certificate](evidence/198col_uniform_torus_arb_n21.json); the discovery transcript is [here](evidence/198col_uniform_torus_search_n21.json).
+
+The certified shifted pricing interval is
+\[
+S_{198}(\theta_*)\in
+[1.3026969054283107647764243746907199\pm8.46\times10^{-35}]>0.
+\]
+The 21 rational decimal phases are frozen in the certificate. The search used 16 deterministic starts, including the previously Arb-certified 197-column torus witness as a warm start; the analytic cofactor gradient passed complex-step/central checks with maximum relative defect \(6.98\times10^{-10}\). The optimizer is discovery only; the exact phase point is what Arb certifies.
+
+By the pinned dense-torus theorem in [THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md), the equal-positive-coupling ray is dense in this 21-torus. Since \(S_{198}\) is continuous and strictly positive at \(\theta_*\), it is positive on a neighborhood, and the dense ray enters that neighborhood at some finite \(t>0\). Thus there exists a finite physical open path with all 41 internal couplings equal and positive for which this particular 198-column dual has positive shifted pricing.
+
+This **refutes global separation by the particular 198-column dual**. It does not invalidate the exact 198-column/2,113-row finite-pool minimax theorem above, prove feasibility or infeasibility for the full physical family, complete all sixth/eighth-order orbit constraints, establish an all-even-principal-minor ensemble, or imply a Choi/diamond operational bound. The finite time has not yet been explicitly isolated; the current conclusion is existence via density plus a strict Arb torus point.
+
+Reproduction:
+- [198-column torus discovery](discover_198col_uniform_torus_pricing.py)
+- [Independent 128-bit Arb verifier](verify_198col_uniform_torus_pricing_arb.py)
+- [Workflow 45428424440](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45428424440), success
+- [Search/certificate commit 7d8ebf3](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/7d8ebf3fb454b0342cb8138ccb6a7006263c51c4)
+- Dual certificate SHA256:  d5bc214a70bdb610c034ef673252be8d7109d31b18a33d4bc5ac25e9c993e06f
+- LP transcript SHA256:  b2bf21c4656b0e46e544a3fe1f72ffea651ea7f138e2c518b17609c6633ddf00
+- Phase-vector SHA256:  dfc9860be79dcaad49971cbc28f0ad5fe9fa0eca77475fcda7f848a782138813
+
+The next useful step is a bounded one-dimensional search for an explicit rational finite time \(t\), followed by an independent Arb certificate of the equal-coupling physical path. Such a search can produce a concrete witness, but a failure to find one would not undo the existence result already implied by density.
