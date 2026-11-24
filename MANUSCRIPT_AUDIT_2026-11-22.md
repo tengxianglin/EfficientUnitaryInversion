@@ -1894,13 +1894,13 @@ Formal note: [THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md](THEORY_196COL_UNIFORM_
 ## 196-column explicit uniform-ray escape (2026-11-24)
 
 The previous 196-column status is superseded by a completed deterministic search and independent 128-bit Arb verification. For the exact rational 196-column dual pinned by SHA256 45edad15fc5978381108c9ade57006da941c476e05cb447c044fbe4ed986cd86 and LP SHA256 d203f3cddd74b896f565d44509168f11a39b814b5f5de8fe1f99a89d26c2e179, the explicit uniform positive-coupling path is
-\\[
-t_*=3070.785790481181266=\\frac{1535392895240590633}{500000000000000},\\qquad c_0=\\cdots=c_{40}=t_*.
-\\]
+\[
+t_*=3070.785790481181266=\frac{1535392895240590633}{500000000000000},\qquad c_0=\cdots=c_{40}=t_*.
+\]
 The 128-bit Arb pricing interval is
-\\[
-S_{196}(e^{t_*K_*})\\in[0.3637338868622431662555343998069\\pm6.07\\times10^{-32}]>0.
-\\]
+\[
+S_{196}(e^{t_*K_*})\in[0.3637338868622431662555343998069\pm6.07\times10^{-32}]>0.
+\]
 This is a directly specified physical path, not merely the dense-torus existence argument. It proves that this particular 196-column dual is not a global separator of the continuous physical family. It does not invalidate the 196-column/2,113-row finite-pool minimax theorem and does not prove feasibility or infeasibility of mixtures over the full continuous family.
 
 Reproduction: evidence/196col_uniform_ray_time_search_n21.json, evidence/196col_uniform_ray_time_arb_n21.json, and verify_196col_uniform_ray_time_arb.py; [workflow 45283332130](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45283332130), [evidence commit 6e6a670](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/6e6a6705fd44b85b1274132d7530796145c7b3a1).
