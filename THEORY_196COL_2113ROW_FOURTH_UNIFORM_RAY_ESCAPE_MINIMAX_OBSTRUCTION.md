@@ -14,7 +14,7 @@ An exact rational dual has been independently checked with python-flint/Arb at 1
 }
 \]
 
-This is a finite-pool result only. The 196-column dual has not yet been tested on the full uniform-path torus; a separate 21-dimensional pricing workflow is now in the repository.
+This is a finite-pool result only. Separate 128-bit Arb certificates now prove that the same dual has positive pricing on the uniform-path torus and at an explicit finite equal-positive-coupling time \\(t_*=3070.785790481181266\\); see [the torus theorem](THEORY_196COL_UNIFORM_TORUS_DUAL_ESCAPE.md) and [the finite-time certificate](evidence/196col_uniform_ray_time_arb_n21.json).
 
 ## 1. Pinned physical pool and row design
 
@@ -130,4 +130,17 @@ Evidence:
 
 These statements are compatible: the escaping physical path is outside the 196 listed columns. The positive torus point refutes global separation by this particular dual, not the finite-pool minimax theorem.
 
-**Still not proved:** an explicit decimal value of the 196-column escape time; separation of the full 1,641-column canonical inventory; a global separator for all continuous positive-coupling paths; complete sixth/eighth orbit control; feasibility or infeasibility of mixtures over the full continuous physical family; any Choi-infidelity or diamond-distance guarantee.
+**Still not proved:** separation of the full 1,641-column canonical inventory; a global separator for all continuous positive-coupling paths; complete sixth/eighth orbit control; feasibility or infeasibility of mixtures over the full continuous physical family; any Choi-infidelity or diamond-distance guarantee.
+
+
+## Explicit finite-time physical escape (2026-11-24)
+
+The exact rational time is
+\\[
+t_*=3070.785790481181266=\\frac{1535392895240590633}{500000000000000}>0,
+\\]
+with all 41 path couplings equal to \\(t_*\\). The independent 128-bit Arb certificate gives
+\\[
+S_{196}(e^{t_*K_*})\\in[0.3637338868622431662555343998069\\pm6.07\\times10^{-32}]>0.
+\\]
+The certificate pins the current 196-column dual, LP, torus certificate, and 193/194/195-column parent time certificates by SHA256. It is committed in [6e6a670](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/6e6a6705fd44b85b1274132d7530796145c7b3a1) after [successful workflow 45283332130](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45283332130).
