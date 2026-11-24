@@ -29,8 +29,8 @@ OUTPUT_PATH = ROOT / "evidence/199col_uniform_torus_arb_n21.json"
 PRECISION_BITS = 128
 LOW_COUNT = 1461
 SIXTH_END = 2106
-SIXTH_SCALE = Fraction(5, 19821)
-EIGHTH_SCALE = Fraction(1, 19821)
+SIXTH_SCALE = Fraction(5, 19721)
+EIGHTH_SCALE = Fraction(1, 19721)
 
 
 def sha(raw):
