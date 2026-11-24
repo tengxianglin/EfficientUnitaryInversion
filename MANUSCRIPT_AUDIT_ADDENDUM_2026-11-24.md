@@ -45,6 +45,14 @@ The strongest currently supported continuum statement remains the separate 512-b
 
 The 6,125-column LP returned a floating infeasibility/dual candidate in diagnostic commit `bead29dbad301d9008b100185f6bd46576e06767`. This candidate is now independently rationalized and Arb-certified: [workflow 45377450829](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45377450829), certificate commit [2640a0e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/2640a0efcb84b889b95a29581e64e5ae85b2dfb8). The certificate pins all input SHA-256 hashes and checks every one of the 6,125 columns. The exact theorem and scope are stated in `THEORY_6125COL_FULL_FOURTH_PLUS_TWO_GAPPED_FINITE_POOL_N21.md`.
 
+## Finite-pool program-mass TV corollary
+
+Combining the 6,125-column moment residual \(\|b-Ap\|_\infty>1/2665\) with the exact program/DPP character identity gives a bounded orbit-character witness. Each second-/fourth-order orbit average is an expectation of a function \(\phi_O\) with \(\|\phi_O\|_\infty\le1\). Hence every program-label mass distribution from a mixture on this exact pool obeys
+\[
+\operatorname{TV}(w_p,u_{\rm bal})>\frac1{5330}.
+\]
+This is a classical program-mass (equivalently dephased-register trace-distance) lower bound only. It is not a Choi-state trace-distance or channel diamond-distance bound, and its finite-pool scope does not extend to arbitrary gapped couplings.
+
 ## New 6,125-dual general-gapped escapes
 
 The exact rational dual certified on the 6,125-column finite pool has two independently Arb-certified escapes outside that pool. A connected 42-site open path with all 41 interior couplings strictly positive gives
