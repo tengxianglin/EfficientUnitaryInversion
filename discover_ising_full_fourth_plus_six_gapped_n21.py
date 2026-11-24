@@ -473,8 +473,8 @@ def solve_full_grid(system, warm, warm_sha):
         "new_escape_search_sha256": escape_search_sha,
         "appended_gapped_columns": appended_labels,
         "fractional_grid": (
-            "L=2,...,42; odd L and L=42 use k=0,...,100; "
-            "even L<42 use k=0,...,200; one shared alpha=0 identity column"
+            "L=2: k=0,...,200; odd L=3,...,41 and L=42: k=1,...,100; "
+            "even L=4,...,40: k=1,...,200; one shared alpha=0 identity column"
         ),
         "symmetry_reduction": (
             "For odd L (integer spin), the full block-diagonal matrix "
