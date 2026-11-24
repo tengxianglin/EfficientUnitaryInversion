@@ -67,3 +67,54 @@ at column label 1657. Its finite-time escape certificate is the 199-dual certifi
 - Output: `evidence/55probe_200col_uniform_ray_escape_dual_certificate_n21.json`
 
 The verifier rationalizes the HiGHS dual, checks the exact scaled-L1 normalization and objective, reconstructs the exact 2,113-row design and all 200 physical columns, then evaluates every dual inequality with Arb. A successful result proves only the finite 200-column / fixed-row-design statement. It does not cover the full canonical inventory, all continuous paths, complete sixth/eighth orbit constraints, or a Choi/diamond operational bound.
+
+
+## Exact program-mass total-variation corollary
+
+The same rational dual yields an operational statement about the **classical balanced program-label distribution** in one selected parity sector. For every retained row i, let phi_i([T]) be the dihedral-orbit average of the character (-1)^{|I intersect T|}. Since each character is ±1,
+\\[
+\\|\\phi_i\\|_\\infty\\le1,
+\\qquad
+\\mathbb E_{[T]\\sim w_R}\\phi_i([T])
+=\\text{the corresponding principal-minor orbit moment}.
+\\]
+The exact row scales are 1/41 (21 second-order rows), 1/533 (1,440 fourth-order rows), 5/19721 (645 selected/cut sixth-order rows), and 1/19721 (seven selected eighth-order rows).
+
+Let z be the 2,113-entry rational dual vector and define
+\\[
+G([T])=\\sum_i\\frac{z_i}{s_i}\\phi_i([T]).
+\\]
+Then
+\\[
+\\|G\\|_\\infty\\le
+M:=\\sum_i\\frac{|z_i|}{s_i}
+=\\frac{91957325757615679956959}{23058430092147996435}
+\\approx3988.013294492653884645.
+\\]
+Writing beta for the exact dual objective and delta for its certified slack,
+\\[
+\\beta-\\delta
+=\\frac{604278563840813954190133571}
+{1537228672809866429000000000}.
+\\]
+The Arb-certified column inequalities imply the same strict inequality for every probability mixture p over the exact 200-column pool:
+\\[
+\\mathbb E_{u_{\\rm bal}}G-\\mathbb E_{w_p}G>\\beta-\\delta.
+\\]
+Using |E_P G-E_Q G| <= 2||G||_infty TV(P,Q), we obtain
+\\[
+\\boxed{
+\\operatorname{TV}(w_p,u_{\\rm bal})>
+\\frac{1812835691522441862570400713}
+{36782930303046271982783600000000}
+\\approx4.9284700174425941841\\times10^{-5}.
+}
+\\]
+
+This is equivalently a trace-distance lower bound for the corresponding dephased balanced-label registers. It is **not** a Choi-state trace-distance or channel diamond-distance converse. The statement is for one selected parity sector and the exact 200-column pool; it does not repair the incomplete sixth/eighth orbit inventories.
+
+Reproduce the exact rational post-processing with:
+- `verify_200col_program_mass_tv_bound.py`
+- `evidence/200col_program_mass_tv_bound_n21.json`
+
+The verifier pins the source Arb certificate SHA256 and recomputes M and the TV fraction using only Python's `fractions.Fraction`; it does not rerun the interval pricing itself.
