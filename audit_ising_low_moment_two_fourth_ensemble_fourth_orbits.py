@@ -56,7 +56,7 @@ def main():
     for j in order[:20]:
         records.append({
             "representative": system.representatives[int(j)],
-            "canonical_gap_key": list(system.keys[int(j)]),
+            "canonical_gap_key": [int(x) for x in system.keys[int(j)]],
             "orbit_size": int(system.counts[int(j)]),
             "moment_midpoint": float(moment[j]),
             "target": float(target[j]),
