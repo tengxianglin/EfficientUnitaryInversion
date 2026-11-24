@@ -108,6 +108,28 @@ Equivalently, the trace distance of the corresponding **dephased program-label r
 - [199-column finite-time pricing workflow](.github/workflows/eui-199col-uniform-ray-time.yml)
 
 
-## Explicit finite-time refinement
+## Explicit finite-time refinement (certified 2026-11-25)
 
-The positive torus witness proves existence of a finite positive equal-coupling time by density, but it does not itself identify that time. A separate bounded search over six windows (10^{-3}) through (10^8), followed by an exact-decimal 128-bit Arb verifier, is now running. The search and verifier are pinned in `discover_199col_uniform_ray_time_escape.py` and `verify_199col_uniform_ray_time_arb.py`; workflow [45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912) is the current run. A decimal candidate will be accepted only if its exact rational value is positive and the independently enclosed pricing interval is strictly positive.
+The bounded deterministic search over six windows from (10^{-3}) through (10^8) found the exact-decimal candidate
+[
+t_* = 6964.814603259045725
+= rac{278592584130361829}{40000000000000}>0.
+]
+For the 42-site uniform open path with (c_0=cdots=c_{40}=t_*) and closing edge (c_{41}=0), the independent 128-bit Arb verifier certifies
+[
+S_{199}(e^{t_*K_*})
+in [0.503110853024683924836078551677pm5.03	imes10^{-31}]>0.
+]
+The lower endpoint is itself enclosed by
+[
+[0.50311085302468392483607855167729431699pm4.03	imes10^{-39}]>0.
+]
+Thus this is an explicit connected, strictly positive internal-coupling physical path escaping the **particular 199-column dual**. It does not invalidate the finite 199-column theorem, and it does not prove feasibility or infeasibility of the full continuous-family moment problem.
+
+The proof artifact pins the exact 199-column rational dual, LP transcript, sixth/eighth cut design, torus certificate, search transcript, and dense-torus theorem hashes. The search and verifier are `discover_199col_uniform_ray_time_escape.py` and `verify_199col_uniform_ray_time_arb.py`; successful workflow [45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912), evidence commit [e76e8c0](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e76e8c025ba06033e9f36c2a20fb52401f914d8f).
+
+## Next finite-pool diagnostic: 200 columns
+
+The certified path above is appended as physical column 1657. The new `reoptimize_200col_uniform_ray_escape.py` rebuilds all 2,113 fixed rows on the 199-column parent plus this exact rational path, while independently checking the complete ancestry of the 192--199 uniform-time certificates. Its workflow re-runs the 199-column dual and torus verifiers, refreshes the finite-time discovery against the exact current torus certificate, then Arb-verifies the exact time before solving the binary64 HiGHS diagnostic. The first run exposed a stale cross-workflow torus-certificate hash; the corrected workflow [45463435443](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45463435443) is the authoritative rerun. No 200-column LP conclusion is claimed until that run finishes.
+
+The 200-column LP remains a finite selected-row diagnostic: 1,461 complete second-/fourth-order rows, 645 selected/cut sixth-order rows, and seven selected eighth-order rows. A sub-(1/3) discovery still requires an exact rational primal, Arb checks on every pinned row, and complete sixth-order separation; an above-(1/3) result requires a new exact rational dual and independent Arb certification against all 200 columns.
