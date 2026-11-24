@@ -112,9 +112,10 @@ The result still leaves open fractional parameters outside the grid, mixtures in
 
 - Exact input: [evidence/ising_low_moment_design_n21.json](evidence/ising_low_moment_design_n21.json)
 - 384-bit result: [evidence/ising_low_moment_fractional_extension_n21.json](evidence/ising_low_moment_fractional_extension_n21.json)
-- Verifier: [verify_ising_low_moment_fractional_extension.py](verify_ising_low_moment_fractional_extension.py)
+- 768-bit zero-slope refinement: [evidence/ising_low_moment_zero_slope_refinement_n21.json](evidence/ising_low_moment_zero_slope_refinement_n21.json)
+- Verifiers: [verify_ising_low_moment_fractional_extension.py](verify_ising_low_moment_fractional_extension.py), [verify_ising_low_moment_zero_slope_refinement.py](verify_ising_low_moment_zero_slope_refinement.py)
 - Workflow: [eui-23atom-low-moment-fractional-extension.yml](.github/workflows/eui-23atom-low-moment-fractional-extension.yml)
-- Successful workflow: [45299958866](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45299958866)
+- Successful workflows: [384-bit screen 45299958866](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45299958866), [768-bit refinement and analytic identity check 45300337819](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45300337819)
 
 The verifier reconstructs the base \(22\times22\) system and every candidate rotation from the frozen exact seed definitions, computes \(M^{-1}v\), and interval-certifies the sign of \(\sigma\) and \(\tau_*\). The two zero-containing intervals are resolved by the exact spin-periodicity identities above. The workflow pins Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, and python-flint 0.9.0.
 
