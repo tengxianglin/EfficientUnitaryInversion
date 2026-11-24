@@ -5,6 +5,7 @@ verify_ising_low_moment_two_fourth_ensemble_n21.py using Arb.
 """
 import hashlib
 import json
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
@@ -112,7 +113,7 @@ def main():
         raise RuntimeError("fractional grid cannot repair the distant probe")
 
     selected_new = [
-        {"atom": candidates[i], "weight": float(result.x[i]), "slope": float(sigma[i])}
+        {"atom": candidates[i], "weight": float(result.x[i]), "weight_fraction": str(Fraction(str(float(result.x[i])))), "slope": float(sigma[i])}
         for i in np.flatnonzero(result.x > 1e-8)
     ]
     selected_old = [
