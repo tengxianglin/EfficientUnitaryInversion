@@ -45,6 +45,18 @@ The strongest currently supported continuum statement remains the separate 512-b
 
 The 6,125-column LP returned a floating infeasibility/dual candidate in diagnostic commit `bead29dbad301d9008b100185f6bd46576e06767`. This candidate is now independently rationalized and Arb-certified: [workflow 45377450829](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45377450829), certificate commit [2640a0e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/2640a0efcb84b889b95a29581e64e5ae85b2dfb8). The certificate pins all input SHA-256 hashes and checks every one of the 6,125 columns. The exact theorem and scope are stated in `THEORY_6125COL_FULL_FOURTH_PLUS_TWO_GAPPED_FINITE_POOL_N21.md`.
 
+## New 6,125-dual general-gapped escapes
+
+The exact rational dual certified on the 6,125-column finite pool has two independently Arb-certified escapes outside that pool. A connected 42-site open path with all 41 interior couplings strictly positive gives
+\[
+y^{\\mathsf T}(b-F(R(c)))< -13.0222476516468331,
+\]
+and a three-segment path with cuts at edges 16 and 26 gives a second escape with
+\[
+y^{\\mathsf T}(b-F(R(c)))< -26.6580004470082098.
+\]
+Both 256-bit verifiers check all 1,764 orthogonality entries and certify determinant one. This does not invalidate the exact 6,125-column finite-pool theorem; it prevents promoting its particular dual to a full-family separator. See [escape certificate commit aed0e00](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/aed0e007753d93990791d93c3ec0e13a1668f2cd) and [workflow 45378513134](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45378513134).
+
 ## Reproducibility pointers
 
 - [Expanded-dual gapped escape theory](THEORY_EXPANDED_DUAL_GENERAL_GAPPED_ESCAPE_N21.md)
