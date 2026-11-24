@@ -1921,3 +1921,10 @@ The particularly relevant length-41, \(\alpha=5/4\) fractional seed, which numer
 Evidence and exact affine derivation: [THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md](THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md), [384-bit Arb JSON](evidence/ising_low_moment_fractional_extension_n21.json), [successful workflow 45299958866](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45299958866).
 
 This is only a finite-grid, single-new-atom rejection; it does not rule out two or more new atoms, continuous fractional parameters, or general gapped couplings. The n=21 joint-parity diamond theorem remains conditional.
+
+
+### Analytic resolution of the two zero-slope candidates
+
+The two cases whose 768-bit Arb intervals still contain zero are exact redundancies, not unresolved directions. A length-\(L\) fractional open path is the spin-\(j=(L-1)/2\) rotation \(R_{L,\alpha}=\exp(\alpha\pi J_y^{(j)})\). For \(L=41\), integer spin \(j=20\) gives \(R_{41,3/2}=R_{41,1/2}^{\mathsf T}\). For \(L=42\), half-integer spin \(j=41/2\) gives \(R_{42,5/4}=-R_{42,3/4}^{\mathsf T}\); the global minus sign disappears in every even-order principal minor. Thus both candidates have exactly the same all-even-minor feature columns as seeds already present in the 22-atom ensemble.
+
+Consequently the full 27-seed grid is accounted for: 25 candidates require strictly negative new weights, and two are exact duplicate feature columns. No positive single-atom extension exists on this finite grid. This remains a finite-grid/single-atom result, not a general obstruction to multi-atom or arbitrary gapped ensembles. See the [spin-identity proof](THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md) and [768-bit Arb consistency certificate](evidence/ising_low_moment_zero_slope_refinement_n21.json).
