@@ -258,13 +258,14 @@ For a dihedral orbit \(O\) of two- or four-element sets, put
 \phi_O([T])=\frac1{|O|}\sum_{I\in O}\chi_I([T]),
 \qquad |\phi_O([T])|\le1.
 \]
-The distance-averaged second moments and fourth-order orbit moments used in the \(n=21\) separator are exactly the expectations of these bounded orbit tests. The target coordinate \(b_O\) is their expectation under \(u\), with
+The distance-averaged second moments and fourth-order orbit moments used in the \(n=21\) separator are exactly the expectations of these bounded orbit tests. The target coordinate is
 \[
-b_I=(-1)^{v(I)+k}\frac{\binom{21}{k}}{\binom{42}{2k}},
+b_O=\frac1{|O|}\sum_{I\in O}(-1)^{v(I)+k}
+\frac{\binom{21}{k}}{\binom{42}{2k}},
 \qquad |I|=2k,\quad k=1,2.
 \]
 
-For any probability measure \(\mu\) over physical seeds, let \(w_\mu=\mathbb E_{c\sim\mu}w_c\). The global single-open-path certificate proves, for every \(\mu\) supported on the 22 pinned base atoms and the full single-open-path family,
+For any probability measure \(\mu\) over physical seeds, let \(w_\mu=\mathbb E_{c\sim\mu}w_c\). The 512-bit all-real-alpha global single-open-path certificate (workflow [45354211141](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45354211141), evidence commit [33f804c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/33f804c89fe4e431fc694b956b61a8b320956d17)) proves, for every \(\mu\) supported on the 22 pinned base atoms and the full single-open-path family for every real scale,
 \[
 \|b-A\mu\|_\infty>\frac1{18000}
 \]
