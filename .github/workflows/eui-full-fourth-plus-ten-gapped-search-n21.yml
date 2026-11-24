@@ -1,4 +1,5 @@
 name: EUI 6,133-dual continuous general-gapped pricing and Arb verification
+# Re-run after correcting the ten-path inventory guard in the search and Arb verifier.
 
 on:
   push:
