@@ -192,7 +192,7 @@ For any nonnegative mixture on any subset of this *coarse* grid with \(U\tau\le 
 \]
 This is a rigorous finite-grid convex-cone obstruction. It does not cover continuous \(\alpha\), and it is consistent with the positive construction above, which uses a finer 0.01 grid and includes directions absent from the coarse grid.
 
-The juxtaposition is scientifically important: the 27-seed and 861-seed finite obstructions are not robust under grid refinement. They must not be promoted to a global no-go for fractional physical paths.
+The juxtaposition is scientifically important: the 861-seed coarse-grid obstruction is bypassed by the 8,241-seed 0.01 grid. The separate 27-seed result also remains finite-grid only; neither certificate is a global no-go for fractional physical paths.
 
 ## Reproduction
 
