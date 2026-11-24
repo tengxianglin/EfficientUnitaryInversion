@@ -1,4 +1,4 @@
-# 384-bit screen of single fractional-segment extensions of the n=21 low-moment ensemble
+# A finite fractional-segment grid obstruction for the n=21 low-moment ensemble
 
 Date: 2026-11-24. Related: [the certified 22-atom low-moment design](THEORY_LOW_MOMENT_DESIGN_N21.md), [the exact two-mirror obstruction](THEORY_TWO_MIRROR_OBSTRUCTION.md), and Issue #5.
 
@@ -88,6 +88,26 @@ For every even-size index set \(I\), \(\det((-R)_{I,I})=\det(R_{I,I})\); transpo
 
 The 768-bit Arb intervals are consistent with these exact identities. The identities resolve the two zero-slope cases analytically, so the entire predeclared 27-seed grid is now accounted for: 25 strictly negative required weights and two exact redundancies.
 
+## Multi-atom corollary for the same finite grid
+
+The sign information is stronger than a one-atom test. Let \(V\) contain any subset of the 27 new feature columns, and let \(\tau\ge0\) be arbitrary added weights. Preserving the 22 base equations forces the old weights to be
+\[
+x=p-M^{-1}V\tau.
+\]
+The distant-probe residual is therefore
+\[
+\Delta(\tau)=\Delta_0+
+\bigl(d_{\rm new}^{\mathsf T}-d^{\mathsf T}M^{-1}V\bigr)\tau
+=\Delta_0+\sum_j\sigma_j\tau_j.
+\]
+For all 25 nonduplicate candidates, Arb proves \(\sigma_j>0\); for the two duplicate candidates, the spin identities prove \(\sigma_j=0\). Hence every \(\tau_j\ge0\) obeys
+\[
+\Delta(\tau)\ge\Delta_0>0.
+\]
+No nonnegative mixture of any subset of these 27 fractional seeds can repair the distant fourth probe while preserving the 21 second-moment equations, the consecutive fourth probe, and normalization. This is an exact finite-family convex-cone obstruction, not merely a failure of a particular LP or optimizer.
+
+The result still leaves open fractional parameters outside the grid, mixtures involving other gapped couplings, and designs that change the base support or enforce the complete fourth-order orbit system directly.
+
 ## Evidence and reproduction
 
 - Exact input: [evidence/ising_low_moment_design_n21.json](evidence/ising_low_moment_design_n21.json)
@@ -102,4 +122,4 @@ The verifier reconstructs the base \(22\times22\) system and every candidate rot
 
 This is a finite-grid, single-new-atom result. It is not a no-go theorem for two or more new atoms, continuous fractional-transfer parameters, arbitrary gapped couplings, or the full all-even-moment ensemble. It does not activate the conditional n=21 joint-parity diamond theorem.
 
-The next decisive step is to move from one-atom repair to a multi-atom column-generation problem that enforces the complete fourth-order orbit family rather than one distant probe at a time. Any resulting ensemble must still pass all higher even moments before the long-ring diamond theorem becomes unconditional.
+The next decisive step is to move beyond this finite fractional grid and use multi-atom column generation over general gapped couplings, enforcing the complete fourth-order orbit family rather than one distant probe at a time. Any resulting ensemble must still pass all higher even moments before the long-ring diamond theorem becomes unconditional.
