@@ -5218,7 +5218,7 @@
       "dual_slack_interval": "[1.2278751241800359305287827380721812379137627921350321328280893265390533856144025420417913155512556023 +/- 4.07e-101]"
     }
   ],
-  "proof": "For each candidate feature column v_j, let u_j=M^{-1}v_j and sigma_j=d_j-d^T u_j. The verifier certifies lambda>=0, sigma_j+lambda^T u_j>0 for all 861 candidates, and lambda^T p<Delta_0. Any nonnegative added weights tau that keep the old weights p-U tau nonnegative satisfy U tau<=p. Hence -sigma^T tau < = lambda^T U tau <= lambda^T p < Delta_0, so Delta_0+sigma^T tau>0. Thus no nonnegative mixture of any subset of this exact finite grid can repair the distant probe while preserving the 22 base constraints.",
+  "proof": "For each candidate feature column v_j, let u_j=M^{-1}v_j and sigma_j=d_j-d^T u_j. The verifier certifies lambda>=0, sigma_j+lambda^T u_j>0 for all 861 candidates, and lambda^T p<Delta_0. Any nonnegative added weights tau that keep the old weights p-U tau nonnegative satisfy U tau<=p. Hence -sigma^T tau <= lambda^T U tau <= lambda^T p < Delta_0, so Delta_0+sigma^T tau>0. Thus no nonnegative mixture of any subset of this exact finite grid can repair the distant probe while preserving the 22 base constraints.",
   "output": "evidence/ising_fractional_grid_cone_n21.json",
   "scope": "This is a rigorous finite-grid convex-cone obstruction for L=2,...,42 and alpha in {0,0.1,...,2}. It does not cover continuous alpha between grid points, arbitrary gapped couplings, or the full all-even-moment ensemble."
 }
