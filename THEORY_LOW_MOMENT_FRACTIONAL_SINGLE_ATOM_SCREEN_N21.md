@@ -33,7 +33,7 @@ Let \(d\in\mathbb R^{22}\) be the distant-probe values of the old atoms, \(d_{\r
 The base residual is
 \[
 \Delta_0=
-[0.0129392316409538071962346592130359334639942998783638688669442
+[0.0129392316409538071962346592130359334639942998783638688669442274633158182283219506115420611837007481148
 \pm 6.25\times10^{-104}]>0.
 \]
 If \(\sigma>0\), the unique weight that would repair the probe is \(\tau_*=-\Delta_0/\sigma<0\), so the new atom cannot be added with positive probability. If \(\sigma=0\), that atom cannot change the distant probe while preserving the old constraints. Only \(\sigma<0\) can potentially help, and it must additionally leave every component of \(p-\tau_*u\) positive.
@@ -53,8 +53,8 @@ c_j=\alpha\frac{\pi}{4}\sqrt{(j+1)(L-j-1)}
 and all remaining/wrap couplings zero. The three fractional seeds already in the base ensemble were skipped, leaving 27 candidates. Each candidate's matrix exponential, feature column, affine slope, and required weight was evaluated with 384-bit Arb.
 
 - 25 candidates have a strictly positive slope interval and hence a strictly negative required new weight.
-- Two candidates, \((L,\alpha)=(41,3/2)\) and \((42,5/4)\), have slope intervals containing zero at 384 bits. They remain unresolved; they are not counted as exclusions.
-- No positive 23-atom extension was certified on this finite grid.
+- Two candidates, \((L,\alpha)=(41,3/2)\) and \((42,5/4)\), have slope intervals containing zero at 384 and 768 bits. Exact spin-periodicity and transpose identities prove that they are redundant: their every-even-principal-minor columns equal the already-present \((41,1/2)\) and \((42,3/4)\) seeds, respectively.
+- Thus all 27 candidates are accounted for: 25 require negative new weight, and two are exact duplicate feature columns. No positive single-atom extension exists on this finite grid.
 
 For the especially relevant length-41, \(\alpha=5/4\) seed—which numerically escapes the perfect-two-mirror separator—the certified slope is approximately
 \[
@@ -66,6 +66,28 @@ so the required new weight is approximately
 \]
 Thus this particular fractional seed cannot repair the distant fourth probe by itself while preserving the base 22 constraints.
 
+## Exact resolution of the two zero slopes
+
+The two interval slopes that still contain zero at 768 bits are exact duplicate even-minor columns, by the spin representation of the fractional open path. Let \(J_y^{(j)}\) denote the real skew-symmetric spin-\(j\) generator in the standard magnetic basis. The length-\(L\) path has \(j=(L-1)/2\) and
+\[
+R_{L,\alpha}=\exp(\alpha\pi J_y^{(j)}).
+\]
+Transposition sends \(\alpha\) to \(-\alpha\).
+
+For \(L=41\), \(j=20\) is integer, so \(\exp(2\pi J_y^{(20)})=I\). Therefore
+\[
+R_{41,3/2}=R_{41,-1/2}=R_{41,1/2}^{\mathsf T}.
+\]
+Every principal minor is invariant under transposition. Hence the \((41,3/2)\) candidate has exactly the same all-even-minor feature column as the \((41,1/2)\) atom already in the base ensemble.
+
+For \(L=42\), \(j=41/2\) is half-integer, so \(\exp(2\pi J_y^{(41/2)})=-I\). Therefore
+\[
+R_{42,5/4}=-R_{42,-3/4}=-R_{42,3/4}^{\mathsf T}.
+\]
+For every even-size index set \(I\), \(\det((-R)_{I,I})=\det(R_{I,I})\); transposition also preserves the principal minor. Thus the \((42,5/4)\) candidate has exactly the same all-even-minor feature column as the \((42,3/4)\) base atom.
+
+The 768-bit Arb intervals are consistent with these exact identities. The identities resolve the two zero-slope cases analytically, so the entire predeclared 27-seed grid is now accounted for: 25 strictly negative required weights and two exact redundancies.
+
 ## Evidence and reproduction
 
 - Exact input: [evidence/ising_low_moment_design_n21.json](evidence/ising_low_moment_design_n21.json)
@@ -74,10 +96,10 @@ Thus this particular fractional seed cannot repair the distant fourth probe by i
 - Workflow: [eui-23atom-low-moment-fractional-extension.yml](.github/workflows/eui-23atom-low-moment-fractional-extension.yml)
 - Successful workflow: [45299958866](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45299958866)
 
-The verifier reconstructs the base \(22\times22\) system and every candidate rotation from the frozen exact seed definitions, computes \(M^{-1}v\), and interval-certifies the sign of \(\sigma\) and \(\tau_*\). The two zero-containing intervals are explicitly retained as unresolved. The workflow pins Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, and python-flint 0.9.0.
+The verifier reconstructs the base \(22\times22\) system and every candidate rotation from the frozen exact seed definitions, computes \(M^{-1}v\), and interval-certifies the sign of \(\sigma\) and \(\tau_*\). The two zero-containing intervals are resolved by the exact spin-periodicity identities above. The workflow pins Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, and python-flint 0.9.0.
 
 ## Scope and next step
 
 This is a finite-grid, single-new-atom result. It is not a no-go theorem for two or more new atoms, continuous fractional-transfer parameters, arbitrary gapped couplings, or the full all-even-moment ensemble. It does not activate the conditional n=21 joint-parity diamond theorem.
 
-The next decisive step is to resolve the two zero-slope cases analytically or at higher precision, then move from one-atom repair to a multi-atom column-generation problem that enforces the complete fourth-order orbit family rather than one distant probe at a time. Any resulting ensemble must still pass all higher even moments before the long-ring diamond theorem becomes unconditional.
+The next decisive step is to move from one-atom repair to a multi-atom column-generation problem that enforces the complete fourth-order orbit family rather than one distant probe at a time. Any resulting ensemble must still pass all higher even moments before the long-ring diamond theorem becomes unconditional.
