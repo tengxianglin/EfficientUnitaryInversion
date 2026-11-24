@@ -287,3 +287,10 @@ Evidence:
 - [Exact dense-torus theorem](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md)
 
 A bounded six-window search for an explicit finite decimal time and its independent Arb verifier have been added. Workflow [45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912) is in progress. A positive binary64 candidate will not be reported as a finite-time theorem unless its exact-decimal rational value has a strictly positive Arb interval.
+
+
+## Repository manuscript inventory check
+
+A fresh recursive Git tree inspection of `main` returned 912 tracked paths and found no `.tex`, `.bib`, `.pdf`, `.docx`, `.odt`, or `.rtf` manuscript/supplement source. The only manuscript-named tracked files are audit Markdown notes. Accordingly, no formal manuscript-body edit is claimed in this run; the new theorem and reproducibility material are research notes/evidence only.
+
+The other open tracker inspected was Issue #3 (type-1.2 classifier correctness). Its four dependency-light regression tests and compile checks are already green; only a QuAIRKit/Torch-backed end-to-end comb-search smoke test remains. It is separate from the moment/ensemble work tracked here and was not duplicated on Issue #5.
