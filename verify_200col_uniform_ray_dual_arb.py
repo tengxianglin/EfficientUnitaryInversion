@@ -212,7 +212,7 @@ def main():
     t = Fraction(time_cert["t_exact_rational"])
     if t <= 0 or Fraction(time_cert["t_exact_decimal"]) != t or t in (base_t, parent_t, grandparent_t, greatgrandparent_t, previous_t):
         raise RuntimeError("197-column uniform-ray time is invalid or duplicates an ancestor path")
-    if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != t_new:
+    if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != Fraction(new_time_cert["t_exact_rational"]):
         raise RuntimeError("199-column parent has a different 198-column uniform-ray time")
     if new_time_cert.get("dual_certificate_sha256") != parent_dual_sha or new_time_cert.get("lp_transcript_sha256") != parent_lp_sha or new_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("198-column finite-time certificate does not pin the exact 198-column dual/LP/cut design")
