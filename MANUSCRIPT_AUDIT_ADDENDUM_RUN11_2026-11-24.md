@@ -270,14 +270,14 @@ The 21-dimensional uniform-path torus search for this *new* 199-column dual is n
 
 ## Final run-11 continuum correction: the 199-column dual also has a certified uniform-ray escape
 
-The 199-column finite-pool theorem remains valid, but its particular dual is not a global separator of the continuous physical family. The 16-start 21-dimensional torus search found a candidate with binary64 score (1.3039304930013147). The independent 128-bit Arb verifier certifies the exact-decimal phase vector:
+The 199-column finite-pool theorem remains valid, but its particular dual is not a global separator of the continuous physical family. The 16-start 21-dimensional torus search found a candidate with binary64 score \\(1.3039304930013147\\). The independent 128-bit Arb verifier certifies the exact-decimal phase vector:
 \[
 S_{199}(R(\theta_*))
 \in[1.3039304930013150180208493982584973\pm6.62\times10^{-35}]>0.
 \]
 The gradient self-test maximum relative defect was (3.851324106723261\times10^{-9}); this is discovery diagnostics only, while the Arb interval is the proof.
 
-The exact dense-torus theorem for the 42-site uniform open path proves rational independence of its 21 frequencies. By density and continuity, the positive torus point implies that **some finite (t>0)** on the admissible equal-positive-coupling physical path has positive pricing against the 199-column dual. This refutes global separation by this particular dual, but it does not invalidate the exact 199-column / 2,113-row finite-pool theorem and does not prove full-family feasibility or infeasibility.
+The exact dense-torus theorem for the 42-site uniform open path proves rational independence of its 21 frequencies. By density and continuity, the positive torus point implies that **some finite \\(t>0\\)** on the admissible equal-positive-coupling physical path has positive pricing against the 199-column dual. This refutes global separation by this particular dual, but it does not invalidate the exact 199-column / 2,113-row finite-pool theorem and does not prove full-family feasibility or infeasibility.
 
 Evidence:
 - [Search transcript](evidence/199col_uniform_torus_search_n21.json)
