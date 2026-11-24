@@ -68,10 +68,10 @@ Thus this particular fractional seed cannot repair the distant fourth probe by i
 
 ## Exact resolution of the two zero slopes
 
-The two interval slopes that still contain zero at 768 bits are exact duplicate even-minor columns, by the spin representation of the fractional open path. Let \(J_y^{(j)}\) denote the real skew-symmetric spin-\(j\) generator in the standard magnetic basis. The length-\(L\) path has \(j=(L-1)/2\) and
+The two interval slopes that still contain zero at 768 bits are exact duplicate even-minor columns, by the spin representation of the fractional open path. Let \(G_L\) be the real skew-symmetric tridiagonal matrix with \((G_L)_{r,r+1}=\sqrt{(r+1)(L-r-1)}\) and \((G_L)_{r+1,r}=-\sqrt{(r+1)(L-r-1)}\), for \(r=0,\ldots,L-2\). Put \(J_y^{(j)}=G_L/2\), where \(j=(L-1)/2\); this is the real skew form of the spin-\(j\) generator and has eigenvalues \(im\), \(m=-j,\ldots,j\). Since the physical path generator has entries \(2c_r=\alpha\pi\sqrt{(r+1)(L-r-1)}/2\), the length-\(L\) block is
 \[
 R_{L,\alpha}=\exp(\alpha\pi J_y^{(j)}).
-\]
+]
 Transposition sends \(\alpha\) to \(-\alpha\).
 
 For \(L=41\), \(j=20\) is integer, so \(\exp(2\pi J_y^{(20)})=I\). Therefore
