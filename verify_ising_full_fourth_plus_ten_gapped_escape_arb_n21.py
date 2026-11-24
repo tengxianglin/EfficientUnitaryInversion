@@ -46,9 +46,9 @@ def main():
         raise RuntimeError("the 6,133-column Arb certificate is incomplete")
     if finite.get("diagnostic_sha256") != diagnostic_sha:
         raise RuntimeError("the finite certificate does not pin the current discovery diagnostic")
-    if diagnostic.get("candidate_count") != 6133 or len(diagnostic.get("appended_gapped_columns", [])) != 8:
+    if diagnostic.get("candidate_count") != 6133 or len(diagnostic.get("appended_gapped_columns", [])) != 10:
         raise RuntimeError("the discovery diagnostic does not contain the exact 6,133-column/eight-gapped pool")
-    if finite.get("general_gapped_count") != 8 or finite.get("full_feature_count") != 1461:
+    if finite.get("general_gapped_count") != 10 or finite.get("full_feature_count") != 1461:
         raise RuntimeError("the finite certificate has unexpected gapped or full-feature dimensions")
     if finite.get("dual_scaled_l1_exact") != "1" or finite.get("dual_full_coordinate_l1_upper_bound") != 533:
         raise RuntimeError("the finite certificate lacks exact dual normalization/norm bound")
