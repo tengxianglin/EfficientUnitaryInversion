@@ -116,7 +116,7 @@ def main():
         raise RuntimeError("196-column parent dual is not strictly Arb-certified")
     if parent_dual.get("lp_transcript_sha256") != parent_lp_sha:
         raise RuntimeError("196-column parent dual does not pin its LP")
-    if lp.get("parent_195col_lp_sha256") != parent_lp_sha or lp.get("parent_195col_dual_certificate_sha256") != parent_dual_sha:
+    if lp.get("parent_196col_lp_sha256") != parent_lp_sha or lp.get("parent_196col_dual_certificate_sha256") != parent_dual_sha:
         raise RuntimeError("197-column LP does not pin the exact 196-column parent")
     if lp.get("parent_192col_lp_sha256") != base_lp_sha:
         raise RuntimeError("197-column LP does not pin the exact 192-column ancestor LP")
@@ -144,7 +144,7 @@ def main():
     if base_time_cert.get("dual_certificate_sha256") != base_dual_sha or base_time_cert.get("lp_transcript_sha256") != base_lp_sha or base_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("base time certificate does not pin the exact 192-column dual/LP/cut design")
     if parent_lp.get("parent_192col_lp_sha256") != base_lp_sha or parent_lp.get("parent_192col_dual_certificate_sha256") != base_dual_sha or parent_lp.get("parent_192col_uniform_ray_time_arb_certificate_sha256") != base_time_cert_sha:
-        raise RuntimeError("195-column parent does not pin the 192-column ancestry")
+        raise RuntimeError("196-column parent does not pin the 192-column ancestry")
     base_t = Fraction(base_time_cert["t_exact_rational"])
     if base_t <= 0 or Fraction(base_time_cert["t_exact_decimal"]) != base_t or Fraction(parent_lp["parent_192col_uniform_ray_time_exact_rational"]) != base_t:
         raise RuntimeError("base uniform-ray time is invalid or inconsistent")
@@ -152,7 +152,7 @@ def main():
     if parent_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_193col_dual_certificate_sha256") or parent_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_193col_lp_sha256") or parent_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("193-column time certificate does not pin the 193-column ancestor")
     if parent_lp.get("parent_193col_uniform_ray_time_arb_certificate_sha256") != parent_time_cert_sha:
-        raise RuntimeError("195-column parent does not pin the 193-column time certificate")
+        raise RuntimeError("196-column parent does not pin the 193-column time certificate")
     parent_t = Fraction(parent_time_cert["t_exact_rational"])
     if parent_t <= 0 or Fraction(parent_time_cert["t_exact_decimal"]) != parent_t or parent_t == base_t or Fraction(parent_lp["parent_193col_uniform_ray_time_exact_rational"]) != parent_t:
         raise RuntimeError("193-column uniform-ray time is invalid or inconsistent")
@@ -191,9 +191,9 @@ def main():
     if lp.get("parent_194col_lp_sha256") != parent_lp.get("parent_194col_lp_sha256") or lp.get("parent_194col_dual_certificate_sha256") != parent_lp.get("parent_194col_dual_certificate_sha256"):
         raise RuntimeError("197-column LP does not preserve the 194-column ancestry")
     if lp.get("parent_193col_lp_sha256") != parent_lp.get("parent_193col_lp_sha256") or lp.get("parent_193col_dual_certificate_sha256") != parent_lp.get("parent_193col_dual_certificate_sha256"):
-        raise RuntimeError("196-column LP does not preserve the 193-column ancestry")
+        raise RuntimeError("197-column LP does not preserve the 193-column ancestry")
     if lp.get("parent_192col_dual_certificate_sha256") != parent_lp.get("parent_192col_dual_certificate_sha256"):
-        raise RuntimeError("196-column LP does not preserve the 192-column dual ancestry")
+        raise RuntimeError("197-column LP does not preserve the 192-column dual ancestry")
     if lp.get("parent_194col_uniform_ray_time_arb_certificate_sha256") != grandparent_time_cert_sha:
         raise RuntimeError("197-column LP does not pin the 194-column time certificate")
     if lp.get("parent_195col_uniform_ray_time_arb_certificate_sha256") != greatgrandparent_time_cert_sha:
