@@ -24,6 +24,7 @@ PREVIOUS_ESCAPE_CERT = ROOT / "evidence/ising_full_fourth_general_gapped_escape_
 OUTPUT = ROOT / "evidence/ising_full_fourth_plus_general_gapped_search_n21.json"
 N = 42
 RANDOM_SEED = 20261125
+SEARCH_VERSION = "expanded_dual_general_gapped_v1"
 POOL_SAMPLE_COUNT = 192
 CONNECTED_RANDOM_COUNT = 128
 MULTISEGMENT_RANDOM_COUNT = 128
@@ -355,6 +356,7 @@ def main():
     escape = overall_score > target + ESCAPE_DISCOVERY_MARGIN
 
     result = {
+        "search_version": SEARCH_VERSION,
         "status": (
             "floating_general_gapped_separator_escape_candidate"
             if escape
