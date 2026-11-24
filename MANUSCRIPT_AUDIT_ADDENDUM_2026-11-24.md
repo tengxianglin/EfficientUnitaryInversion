@@ -29,7 +29,8 @@ The strongest currently supported continuum statement remains the separate 512-b
 - Exact program-span and radial-recovery statements under their stated architecture assumptions.
 - 512-bit Arb all-real single-open-path separator and the associated restricted-family program-mass TV lower bound.
 - Finite-pool 6,124-column second-/fourth-order separator.
-- A certified connected gapped escape from the 6,124-column separator, showing its scope is finite-pool only.
+- Finite-pool 6,125-column second-/fourth-order separator, independently Arb-certified over 22 base atoms, 6,101 fractional single-path columns, and two connected nonuniform gapped paths; the exact rational dual has 78 nonzero coefficients, scaled ℓ1 norm 1, and every Arb column gap exceeds 1/5, yielding a full-feature sup-norm moment residual lower bound >1/2665 for mixtures on this exact pool.
+- A certified connected gapped escape from the 6,124-column separator, showing why each new dual must be repriced against fresh nonuniform paths.
 
 **Finite numerical discovery, not a theorem**
 - The deterministic 514-start / 12-local-optimization pricing search that found the second gapped escape.
@@ -39,6 +40,10 @@ The strongest currently supported continuum statement remains the separate 512-b
 - A positive ensemble satisfying every even principal-minor constraint at (n=21), or a global obstruction for the full allowed physical family.
 - A rigorous bridge from the relevant program-mass/moment residual to Choi-state trace distance or channel diamond distance with correct per-instance versus average quantifiers.
 - A tracked manuscript and supplementary TeX/Bib/PDF source suitable for direct paper revision.
+
+## 6,125-column follow-up certificate
+
+The 6,125-column LP returned a floating infeasibility/dual candidate in diagnostic commit `bead29dbad301d9008b100185f6bd46576e06767`. This candidate is now independently rationalized and Arb-certified: [workflow 45377450829](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45377450829), certificate commit [2640a0e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/2640a0efcb84b889b95a29581e64e5ae85b2dfb8). The certificate pins all input SHA-256 hashes and checks every one of the 6,125 columns. The exact theorem and scope are stated in `THEORY_6125COL_FULL_FOURTH_PLUS_TWO_GAPPED_FINITE_POOL_N21.md`.
 
 ## Reproducibility pointers
 
