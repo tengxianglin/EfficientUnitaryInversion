@@ -3,7 +3,7 @@
 The floating HiGHS result is only a discovery candidate. This verifier freezes
 all decimal dual coefficients as exact rationals, imposes exact scaled-l1
 normalization, and independently prices 22 base atoms, 6,101 fractional-grid
-atoms, and ten exact-rational gapped paths (six connected, four segmented).
+atoms, and twelve exact-rational gapped paths.
 
 A successful result proves separation only for this exact finite pool. It is
 not a continuum obstruction and is not a Choi/diamond-distance lower bound.
@@ -84,11 +84,11 @@ def main():
     if diagnostic.get("status") != "floating_full_fourth_6135_column_separator_candidate_not_arb_certified":
         raise RuntimeError("unexpected 6,135-column diagnostic status")
     if diagnostic.get("candidate_count") != 6135:
-        raise RuntimeError("diagnostic does not contain exactly 6,133 columns")
+        raise RuntimeError("diagnostic does not contain exactly 6,135 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 12 or len(diagnostic.get("appended_gapped_columns", [])) != 12:
-        raise RuntimeError("diagnostic does not contain exactly ten appended gapped paths")
+        raise RuntimeError("diagnostic does not contain exactly twelve appended gapped paths")
     if diagnostic.get("full_feature_count") != 1461:
         raise RuntimeError("unexpected full feature count")
     if diagnostic.get("fourth_orbit_count") != 1440 or diagnostic.get("quartet_count") != 111930:
@@ -136,7 +136,7 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first eight gapped columns are inherited exactly from the certified
+    # The first ten gapped columns are inherited exactly from the certified
     # 6,133-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
@@ -153,11 +153,11 @@ def main():
         "new_multisegment_escape_from_6133_dual",
     ]
     if [x.get("kind") for x in appended] != expected_kinds:
-        raise RuntimeError("unexpected ordering or labels for ten appended gapped paths")
+        raise RuntimeError("unexpected ordering or labels for twelve appended gapped paths")
 
     parent_appended = parent["appended_gapped_columns"]
     if len(parent_appended) != 10:
-        raise RuntimeError("the 6,133-column parent does not contain eight gapped paths")
+        raise RuntimeError("the 6,133-column parent does not contain ten gapped paths")
     for index in range(10):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
@@ -308,7 +308,7 @@ def main():
     if checked_base != 22 or checked_grid != 6101:
         raise RuntimeError(f"wrong base/grid counts: base={checked_base}, grid={checked_grid}")
 
-    # Evaluate all eight exact-rational gapped paths independently at 512 bits.
+    # Evaluate all twelve exact-rational gapped paths independently at 512 bits.
     ctx.prec = BASE_PRECISION_BITS
     for index, column in enumerate(appended):
         couplings = [Fraction(x) for x in column["couplings_exact_rational"]]
@@ -327,7 +327,7 @@ def main():
 
     checked = checked_base + checked_grid + checked_gapped
     if checked != 6135 or checked_gapped != 12:
-        raise RuntimeError(f"verified {checked} columns instead of exactly 6,133")
+        raise RuntimeError(f"verified {checked} columns instead of exactly 6,135")
     if minimum["minimum_lower"] is None or not minimum["minimum_lower"] > floor:
         raise RuntimeError("the common strict 1/5 Arb lower bound was not established")
     chosen_floor = Fraction(1, 4) if minimum["minimum_lower"] > rational(Fraction(1, 4)) else Fraction(1, 5)
@@ -376,7 +376,7 @@ def main():
             "Let D be diagonal with entries 41 on the 21 second-moment coordinates "
             "and 533 on the 1,440 fourth-order orbit coordinates. The exact "
             "rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies "
-            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,133 listed physical columns. "
+            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,135 listed physical columns. "
             "Hence every probability mixture p on this exact finite pool obeys "
             f"y^T(b-Ap)>{chosen_floor}. Since ||y||_1<=533, Holder gives "
             f"||b-Ap||_infinity>{residual_bound}. Each retained moment coordinate is "
@@ -386,7 +386,7 @@ def main():
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "eight inherited/previously certified gapped paths, and two newly "
+            "ten inherited/previously certified gapped paths, and two newly "
             "certified escapes from the 6,133-column dual. It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "arbitrary multi-segment paths, all even principal minors, or an "
