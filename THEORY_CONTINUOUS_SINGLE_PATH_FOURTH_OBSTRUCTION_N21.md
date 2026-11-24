@@ -95,16 +95,16 @@ The script pins the finite-grid diagnostic, its 128-bit Arb certificate, and the
 
 ## Scope
 
-The 2026-11-24 run certifies all 41 lengths. The same separator therefore proves that no probability measure supported on the 22 pinned base atoms together with the entire continuous single-open-path family \(R_{L,\alpha}\), \(L=2,\ldots,42\), \(\alpha\in[0,2]\), can satisfy the complete second-/fourth-order target.
+The 2026-11-24 run certifies all 41 lengths. The same separator therefore proves that no probability measure supported on the 22 pinned base atoms together with the entire continuous single-open-path family \(R_{L,\alpha}\), \(L=2,\ldots,42\), \(\alpha\in\mathbb R\), can satisfy the complete second-/fourth-order target.
 
 This is still not a global obstruction for arbitrary nonuniform gapped couplings, multi-segment paths, or the full physical family. It also does not construct the all-even-principal-minor positive ensemble and is not an operational Choi/diamond-distance theorem.
 
 
 ## Completed global certificate and quantitative consequence (2026-11-24)
 
-The conditional statement above is now proved by the committed 512-bit Arb certificate \`evidence/ising_full_fourth_continuous_single_path_n21.json\` (blob SHA \`db7f259b055fe29bec300acc207af02135120762\`), produced by workflow [45350942797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45350942797) and recorded in commit [5979d33](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5979d33a58fe8fb247a23253a8b4fb1dcd6ead10).
+The conditional statement above is now proved by the committed 512-bit Arb certificate `evidence/ising_full_fourth_continuous_single_path_n21.json` (blob SHA `db7f259b055fe29bec300acc207af02135120762`), produced by workflow [45350942797](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45350942797) and recorded in commit [5979d33](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5979d33a58fe8fb247a23253a8b4fb1dcd6ead10).
 
-The verifier certifies every \(L=2,\ldots,42\) over the full continuous interval \(\alpha\in[0,2]\): 41 lengths, 4,389 exact-size Fourier samples, exact exterior-power frequency bounds, Arb-enclosed DFT coefficients, and adaptive de Casteljau/Bernstein subdivisions. Every path has status \`positive\`; there are no unresolved leaves and no negative witness. The 22 pinned base atoms are independently re-evaluated at 512-bit Arb precision. The smallest certified Bernstein lower endpoint over all path leaves and base atoms is
+The verifier certifies every \(L=2,\ldots,42\) for every real scale \(\alpha\in\mathbb R\): 41 lengths, 4,389 exact-size Fourier samples, exact exterior-power frequency bounds, Arb-enclosed DFT coefficients, and adaptive de Casteljau/Bernstein subdivisions. Every path has status `positive`; there are no unresolved leaves and no negative witness. The 22 pinned base atoms are independently re-evaluated at 512-bit Arb precision. The smallest certified Bernstein lower endpoint over all path leaves and base atoms is
 
 \[
 \delta_{\rm cert}=0.02800447635786912086169875814833305913\ldots>0.028.
@@ -132,3 +132,18 @@ By linearity, the same bound holds for every probability measure \(\mu\) support
 The infinity norm here is on the 1,313 independent second-/fourth-order moment coordinates; because these are selected coordinates of the full moment vector, the same lower bound also applies to the full second-/fourth-order residual infinity norm.
 
 **Scope remains restricted.** This is a continuum theorem for the single-open-path family plus the 22 pinned base atoms. It does not cover arbitrary nonuniform gapped couplings, multi-segment paths, the all-even-principal-minor system, or the operational Choi/diamond bridge. In particular it is not a global no-go for the full physical family.
+
+
+### All-real scale corollary
+
+The certificate is stronger than a check on the displayed interval \([0,2]\). For each length, the exact exterior-power spectrum shows that the separator score is a finite even cosine polynomial:
+\[
+S_L(\alpha)=P_L(\cos\theta_L(\alpha)),
+\qquad
+\theta_L(\alpha)=
+\begin{cases}
+\pi\alpha,&L\text{ odd or }L=42,\\
+\pi\alpha/2,&L<42\text{ even}.
+\end{cases}
+\]
+The DFT uses \(2D_L+1\) samples over the full period of this trigonometric polynomial. The Bernstein certificate proves \(y^{\mathsf T}b-S_L>0\) for every \(x=\cos\theta\in[-1,1]\), not merely at sampled angles. Since \(\cos\theta_L(\alpha)\in[-1,1]\) for every real \(\alpha\), the same strict separator holds for **all \(\alpha\in\mathbb R\)**. The revised verifier additionally checks direct-vs-polynomial agreement at \(\alpha=-7/13,7/13,13/5,23/5\) for every length, including negative and out-of-fundamental-interval scales.
