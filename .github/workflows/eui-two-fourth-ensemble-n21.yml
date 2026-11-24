@@ -1,0 +1,63 @@
+name: EUI n=21 positive two-fourth-probe ensemble
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "discover_ising_low_moment_two_fourth_ensemble_n21.py"
+      - "verify_ising_low_moment_two_fourth_ensemble_n21.py"
+      - "verify_ising_low_moment_design.py"
+      - "verify_ising_two_mirror_obstruction.py"
+      - "verify_ising_minor_obstruction.py"
+      - "evidence/ising_low_moment_design_n21.json"
+      - ".github/workflows/eui-two-fourth-ensemble-n21.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-two-fourth-ensemble-n21
+  cancel-in-progress: false
+
+jobs:
+  discover-and-certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned numerical and interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Deterministic 8,241-column floating discovery
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python discover_ising_low_moment_two_fourth_ensemble_n21.py
+      - name: Independent 384-bit Arb exact-support verification
+        env:
+          OPENBLAS_NUM_THREADS: "1"
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python verify_ising_low_moment_two_fourth_ensemble_n21.py
+      - name: Commit discovery and Arb certificates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/ising_low_moment_two_fourth_discovery_n21.json evidence/ising_low_moment_two_fourth_ensemble_n21.json
+          if git diff --cached --quiet; then
+            echo "No certificate changes."
+            exit 0
+          fi
+          git commit -m "Certify positive n=21 two-fourth-probe physical ensemble"
+          git push
+      - name: Upload discovery and exact certificates
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n21-positive-two-fourth-probe-ensemble
+          path: |
+            evidence/ising_low_moment_two_fourth_discovery_n21.json
+            evidence/ising_low_moment_two_fourth_ensemble_n21.json
+          if-no-files-found: error
