@@ -116,3 +116,73 @@ The new search and independent verifier are:
 - [workflow run 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355)
 
 The search is a discovery stage only. A continuum escape is recorded only if the exact decimal phase vector receives a strictly positive 128-bit Arb interval.
+
+
+## Certified escape of the 197-column dual on the continuous uniform-coupling ray
+
+The newly frozen rational 197-column dual is itself **not** a separator of the full continuous physical family. A deterministic 12-start L-BFGS-B search over the 21-dimensional uniform-path torus found an exact-decimal phase vector. The search gradient passed independent complex-step and central-difference checks, with maximum relative defect
+\[
+2.4667717161121613\times10^{-9}.
+\]
+The optimizer is discovery only. The proof is the separate 128-bit Arb evaluation of the exact rational phase strings:
+\[
+\theta_* = (
+-0.396819635825,
+-0.010513288335,
+3.097354079828,
+-1.055750489362,
+3.037776511219,
+0.150879565875,
+-0.049742897977,
+3.038323614830,
+3.085793963585,
+-3.126156664827,
+3.025512989235,
+-0.021788906516,
+0.156030082012,
+2.982820215056,
+3.123052097334,
+-3.141592653590,
+0.174125508937,
+0.160694546368,
+0.023571325984,
+0.044955335158,
+-3.141592653590
+).
+\]
+For the exact torus rotation
+\[
+R(\theta_*)=Q\left(\bigoplus_{k=1}^{21}
+\begin{pmatrix}
+\cos\theta_{*,k}&\sin\theta_{*,k}\\
+-\sin\theta_{*,k}&\cos\theta_{*,k}
+\end{pmatrix}\right)Q^{\mathsf T},
+\]
+the independent verifier certifies
+\[
+\boxed{
+S_{197}(R(\theta_*))
+\in
+[1.7152449127664802147236733367025386
+\pm5.20\times10^{-35}]>0.
+}
+\]
+Here \(S_{197}(R)=\lambda-\delta+z^{\mathsf T}a(R)\) is the exact rational-dual pricing functional, with the same 2,113 normalized moment rows and \(\delta=10^{-10}\) as in the finite-pool theorem.
+
+By the rational independence of \(\omega_k=4\cos(k\pi/43)\) proved in [`THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md`](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md), the positive-time equal-coupling orbit is dense in this torus. Since \(S_{197}\) is continuous and strictly positive at \(R(\theta_*)\), it is positive on an open neighborhood; density therefore proves that **there exists some finite \(t>0\)** for which the admissible physical open path
+\[
+c_1=\cdots=c_{41}=t>0
+\]
+has \(S_{197}(e^{tK_*})>0\).
+
+This is a rigorous continuum escape of the particular 197-column dual, while leaving the exact 197-column finite-pool theorem intact. The torus certificate does not yet identify an explicit finite decimal time. A separate bounded one-dimensional search and Arb verifier are now running:
+
+- [Exact 128-bit Arb torus certificate](evidence/197col_uniform_torus_arb_n21.json)
+- [12-start search transcript](evidence/197col_uniform_torus_search_n21.json)
+- [Independent Arb verifier](verify_197col_uniform_torus_pricing_arb.py)
+- [Reproducible workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355)
+- [Evidence commit 13fc703](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/13fc7038e?plain=1)
+
+The finite-time search is [workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828). If it finds a candidate, only an independent Arb interval strictly above zero will promote it to an explicit physical-time certificate. Failure to find such a time in the bounded search does not weaken the dense-torus existence proof.
+
+**Scope:** this escape refutes global separation by the *particular 197-column rational dual*. It does not invalidate the finite 197-column minimax theorem, prove full-family feasibility/infeasibility, complete sixth/eighth-order orbit control, establish an all-even-minor result, or imply a Choi/diamond operational bound.
