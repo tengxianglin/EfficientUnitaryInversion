@@ -129,30 +129,35 @@ def main():
                 })
 
     if not feasible:
+        negative_count = sum(r["status"] == "negative_new_weight" for r in records)
+        unresolved_count = sum(r["status"] == "unresolved_zero_slope" for r in records)
         result = {
-            "status": "no_single_fractional_grid_atom_extension_found",
+            "status": "finite_grid_no_positive_extension_found_two_zero_slope_cases_unresolved",
             "complete": True,
             "precision_bits": ctx.prec,
             "interval_backend": "python-flint / Arb",
             "base_input_sha256": hashlib.sha256(raw).hexdigest(),
             "base_atoms": 22,
             "tested_candidates": len(records),
+            "negative_required_weight_count": negative_count,
+            "unresolved_zero_slope_count": unresolved_count,
             "records": records,
             "base_distant_probe": DISTANT,
             "base_distant_residual": str(base_distant - distant_target),
             "scope": (
-                "Every listed single-segment fractional candidate was checked "
-                "with 384-bit Arb. None can be added alone with a strictly "
-                "positive new weight while preserving the 21 second moments, "
-                "the consecutive fourth probe, normalization, and the distant "
-                "fourth target. This is only a finite-grid rejection, not a "
-                "no-go for multiple new atoms or general gapped couplings."
+                f"{negative_count} candidates have rigorously negative required new weights. "
+                f"{unresolved_count} candidates have a 384-bit slope interval containing zero "
+                "and remain unresolved. No positive extension was certified on this finite "
+                "grid. This is not a no-go for those unresolved cases, multiple new atoms, "
+                "or general gapped couplings."
             ),
         }
         OUTPUT.write_text(json.dumps(result, indent=2) + "\n")
         print(json.dumps({
             "status": result["status"],
             "tested_candidates": len(records),
+            "negative_required_weight_count": result["negative_required_weight_count"],
+            "unresolved_zero_slope_count": result["unresolved_zero_slope_count"],
             "base_distant_residual": result["base_distant_residual"],
             "output": str(OUTPUT.relative_to(ROOT)),
         }, indent=2), flush=True)
