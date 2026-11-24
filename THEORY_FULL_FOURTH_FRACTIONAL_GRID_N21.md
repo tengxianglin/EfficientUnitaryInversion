@@ -100,43 +100,43 @@ The stronger common-margin claim is kept separate until the corresponding rerun 
 
 ## Continuous-parameter follow-up: one cell is now rigorously covered
 
-A direct interval-matrix-exponential enclosure was initially unusable: for the cell around the smallest sampled gap it produced a score radius of about \(1.29\\times10^9\) after centered factorization. This was interval dependency blow-up, not a physical counterexample.
+A direct interval-matrix-exponential enclosure was initially unusable: for the cell around the smallest sampled gap it produced a score radius of about \(1.29\times10^9\) after centered factorization. This was interval dependency blow-up, not a physical counterexample.
 
 The replacement uses a Taylor model for the **scalar separator score**. For the active path generator
 \[
-A_L=\\pi J_y^{((L-1)/2)},\\qquad
-\\|A_L\\|_2=\\pi(L-1)/2,
+A_L=\pi J_y^{((L-1)/2)},\qquad
+\|A_L\|_2=\pi(L-1)/2,
 \]
-write \(R_{L,\\alpha_0+\\delta}=R_{L,\\alpha_0}e^{\\delta A_L}\). Every active principal minor of order \(r\\le4\) is a diagonal matrix coefficient of the exterior-power representation \(e^{\\delta A_L^{[r]}}\), with
+write \(R_{L,\alpha_0+\delta}=R_{L,\alpha_0}e^{\delta A_L}\). Every active principal minor of order \(r\le4\) is a diagonal matrix coefficient of the exterior-power representation \(e^{\delta A_L^{[r]}}\), with
 \[
-\\|A_L^{[r]}\\|_2\\le r\\|A_L\\|_2.
+\|A_L^{[r]}\|_2\le r\|A_L\|_2.
 \]
-Thus for \(|\\delta|\\le1/200\), the Taylor tail of any such minor after degree \(M\) is bounded by
+Thus for \(|\delta|\le1/200\), the Taylor tail of any such minor after degree \(M\) is bounded by
 \[
-e^x\\frac{x^{M+1}}{(M+1)!},\\qquad
-x=4\\frac{22}{7}\\frac{L-1}{2}\\frac1{200}
-=\\frac{11(L-1)}{350}.
+e^x\frac{x^{M+1}}{(M+1)!},\qquad
+x=4\frac{22}{7}\frac{L-1}{2}\frac1{200}
+=\frac{11(L-1)}{350}.
 \]
 The exact rational row weights are first aggregated by active mask, the degree-40 Taylor polynomials of the corresponding minors are combined into one scalar score polynomial, and the weighted tail bound is added as a symmetric Arb error ball. This retains cancellation between the 80 frozen separator coefficients before interval evaluation.
 
-For \(L=40\), \(\\alpha_0=46/25\), and \(\\delta\\in[-1/200,1/200]\), 512-bit Arb gives
+For \(L=40\), \(\alpha_0=46/25\), and \(\delta\in[-1/200,1/200]\), 512-bit Arb gives
 \[
-x=429/350\\approx1.2257142857,
+x=429/350\approx1.2257142857,
 \]
 \[
-\\epsilon_{\\rm score}
-\\le2.1190816604560243\\times10^{-43},
+\epsilon_{\rm score}
+\le2.1190816604560243\times10^{-43},
 \]
 and the complete score/gap enclosure
 \[
-y^{\\mathsf T}b-S_{40}(\\alpha_0+\\delta)
-\\in[0.27\\pm0.00563].
+y^{\mathsf T}b-S_{40}(\alpha_0+\delta)
+\in[0.27\pm0.00563].
 \]
 Its certified lower endpoint is
 \[
-0.2643780467418314563\\ldots>1/4.
+0.2643780467418314563\ldots>1/4.
 \]
-The midpoint reconstruction defect is below \(3\\times10^{-147}\), and an independent point check at \(\\delta=1/1000\) is contained in the Taylor enclosure. The Arb interval for \(\\alpha\) slightly over-encloses the exact cell \([1.835,1.845]\), so the claimed cell is safely contained.
+The midpoint reconstruction defect is below \(3\times10^{-147}\), and an independent point check at \(\delta=1/1000\) is contained in the Taylor enclosure. The Arb interval for \(\alpha\) slightly over-encloses the exact cell \([1.835,1.845]\), so the claimed cell is safely contained.
 
 Evidence:
 - [512-bit continuous-cell certificate](evidence/ising_full_fourth_continuous_alpha_cell_probe_n21.json)
