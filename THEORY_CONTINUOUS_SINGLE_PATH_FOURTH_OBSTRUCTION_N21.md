@@ -147,3 +147,16 @@ S_L(\alpha)=P_L(\cos\theta_L(\alpha)),
 \end{cases}
 \]
 The DFT uses \(2D_L+1\) samples over the full period of this trigonometric polynomial. The Bernstein certificate proves \(y^{\mathsf T}b-S_L>0\) for every \(x=\cos\theta\in[-1,1]\), not merely at sampled angles. Since \(\cos\theta_L(\alpha)\in[-1,1]\) for every real \(\alpha\), the same strict separator holds for **all \(\alpha\in\mathbb R\)**. The revised verifier additionally checks direct-vs-polynomial agreement at \(\alpha=-7/13,7/13,13/5,23/5\) for every length, including negative and out-of-fundamental-interval scales.
+
+
+## Program-mass total-variation corollary
+
+The moment obstruction also has a direct classical operational interpretation through the exact DPP/program-character identity in [THEORY_PROGRAM_DPP.md](THEORY_PROGRAM_DPP.md). For a balanced program label \([T]\), every even-set character \(\chi_I([T])=(-1)^{|I\cap T|}\) is well-defined under complement and has expectation \(\det R_{I,I}\). Dihedral orbit averages of these characters are bounded by one and are exactly the second-/fourth-order moment coordinates used by the separator. Their target values are the Fourier moments of the uniform balanced-label distribution.
+
+Consequently, for any probability measure over the 22 pinned base atoms and all single-open-path seeds, the ensemble-averaged program-mass distribution \(w_\mu\) in a selected parity sector satisfies
+\[
+\boxed{\mathrm{TV}(w_\mu,u_{\rm bal})>\frac1{36000},}
+\]
+where \(u_{\rm bal}\) is uniform on the \(\frac12\binom{42}{21}\) balanced labels. The proof is the bounded-test inequality \(|\mathbb E_P f-\mathbb E_Q f|\le2\,\mathrm{TV}(P,Q)\), applied to the orbit character whose moment residual exceeds \(1/18000\). Equivalently, the dephased program-label registers have trace distance greater than \(1/36000\).
+
+This closes a moment-to-program-distribution bridge for the restricted family. It does **not** bound the Choi-state trace distance or the implemented inverse channel's diamond distance; that operational channel bridge remains open.
