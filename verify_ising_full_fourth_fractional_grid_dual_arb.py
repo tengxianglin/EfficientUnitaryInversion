@@ -235,10 +235,36 @@ def main():
     first_quarter_failure = None
     checked = 0
     base_atoms = warm["atoms"][:22]
+
+    # The pinned base pool contains general gapped atoms. Refine these at
+    # 512 bits; use the independently self-tested active-block pricing for
+    # fractional base atoms instead of exponentiating an idle 42x42 block.
+    base_precision_bits = 512
+    ctx.prec = base_precision_bits
+    base_second_coefficients = [
+        rational(coefficient_by_feature.get(d, Fraction(0)))
+        for d in range(21)
+    ]
+    base_mask_weights = build_mask_weights(system, coefficient_by_feature)
+    base_target_score = sum(
+        (
+            rational(coefficient_by_feature[index])
+            * rational(system.rational_target[index])
+            for index in coefficient_by_feature
+        ),
+        arb(0),
+    )
     for base_index, atom in enumerate(base_atoms):
-        rotation = build_rotation(atom)
-        score = full_score(rotation, system, coefficient_by_feature)
-        gap = target_score - score
+        if atom["kind"] == "fractional":
+            length = int(atom["length"])
+            block = fractional_block(length, rational(Fraction(atom["alpha"])))
+            score = block_score(
+                block, length, base_second_coefficients, base_mask_weights[length]
+            )
+        else:
+            rotation = build_rotation(atom)
+            score = full_score(rotation, system, coefficient_by_feature)
+        gap = base_target_score - score
         if not gap > 0:
             raise RuntimeError(f"strict finite separator fails on base atom {base_index}: gap={gap}")
         lower = gap.lower()
@@ -255,6 +281,23 @@ def main():
             minimum_gap = gap
             minimum_label = {"kind": "base", "base_index": base_index}
         checked += 1
+
+    # Restore the pinned 128-bit precision for the 6,101 fractional-grid
+    # columns. The 512-bit base-atom lower endpoints remain valid Arb balls.
+    ctx.prec = PRECISION_BITS
+    target_score = sum(
+        (
+            rational(coefficient_by_feature[index])
+            * rational(system.rational_target[index])
+            for index in coefficient_by_feature
+        ),
+        arb(0),
+    )
+    second_coefficients = [
+        rational(coefficient_by_feature.get(d, Fraction(0)))
+        for d in range(21)
+    ]
+    mask_weights = build_mask_weights(system, coefficient_by_feature)
 
     for length in range(2, N + 1):
         max_k = 100 if (length % 2 == 1 or length == N) else 200
@@ -299,6 +342,8 @@ def main():
         "status": "arb_certified_finite_6123_column_full_fourth_separator",
         "complete": True,
         "precision_bits": ctx.prec,
+        "base_atom_precision_bits": base_precision_bits,
+        "fractional_grid_precision_bits": PRECISION_BITS,
         "interval_backend": "python-flint / Arb",
         "diagnostic_sha256": diagnostic_sha,
         "warm_certificate_sha256": warm_sha,
