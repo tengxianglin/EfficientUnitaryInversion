@@ -178,3 +178,27 @@ This is an explicit finite physical path outside the pinned 197-column pool. It 
 Evidence: [search transcript](evidence/197col_uniform_ray_time_search_n21.json), [128-bit Arb certificate](evidence/197col_uniform_ray_time_arb_n21.json), [independent verifier](verify_197col_uniform_ray_time_arb.py), [successful workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828), [commit b3d85e7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b3d85e763465a62c7015ded2c803de27746753a6).
 
 Next: append this sixth explicit equal-coupling path as column 1655 and reoptimize the fixed 2,113-row mixed-order design. The 198-column result must receive its own rational dual/Arb certificate; no extension of the 197-column theorem is assumed.
+
+
+## New 198-column mixed-order finite-pool theorem (128-bit Arb)
+
+The 198-column reoptimization completed and its exact rational dual passed independent 128-bit Arb verification for all 198 columns. The fixed 2,113-row design still comprises 1,461 complete second-/fourth-order coordinates, 645 selected/cut sixth-order coordinates, and seven selected eighth-order coordinates.
+
+The exact dual has \(\|z\|_1<1\), objective
+\[
+\beta=\frac{942233106657499055}{2305843009213693952},
+\qquad \delta=10^{-8},
+\]
+and every shifted column inequality is strictly negative; the largest certified upper endpoint is \(-1.978441155579956\times10^{-9}\). Therefore
+\[
+\min_{p\in\Delta_{198}}\|Ap-b\|_\infty
+\ge
+\frac{368059798280886313618383}
+{900719925474099200000000}
+=0.4086284624903306\ldots>\frac13.
+\]
+The dual support has 66 nonzero rows (5 low-order, 58 sixth-order, 3 eighth-order). This is an exact finite-pool theorem only; no full continuous-family or channel diamond conclusion is claimed.
+
+Evidence: [198-column theorem note](THEORY_198COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md), [LP transcript](evidence/joint_low_six_eighth_lp_198col_uniform_ray_escape_n21.json), [exact rational dual + 198 Arb intervals](evidence/55probe_198col_uniform_ray_escape_dual_certificate_n21.json), [independent verifier](verify_198col_uniform_ray_dual_arb.py), [reoptimization workflow 45424946690](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45424946690), and [dual-certification workflow 45425975195](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45425975195).
+
+Next: run continuous uniform-torus pricing on the new 198-column dual. The new dual must receive its own search and Arb witness; the 197-column torus/finite-time escape does not automatically transfer to it.
