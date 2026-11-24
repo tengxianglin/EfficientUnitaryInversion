@@ -150,8 +150,8 @@ def main():
         "new_multisegment_escape",
         "new_connected_escape_6127_dual",
         "new_two_segment_escape_6127_dual",
-        "new_connected_escape_from_6131_dual",
-        "new_two_segment_escape_from_6131_dual",
+        "new_connected_escape_from_6129_dual",
+        "new_two_segment_escape_from_6129_dual",
         "new_connected_escape_from_6131_dual",
         "new_two_segment_escape_from_6131_dual",
     ]
@@ -195,12 +195,10 @@ def main():
         zero_edges = [j for j, value in enumerate(couplings[:-1]) if value == 0]
         if zero_edges != column.get("internal_zero_edges", []):
             raise RuntimeError(f"gapped path {index} has inconsistent internal-zero metadata")
-        if index in (0, 1, 2, 4, 6, 8) and zero_edges:
-            raise RuntimeError(f"connected path {index} unexpectedly has internal zero edges")
-        if index == 3 and zero_edges != [16, 26]:
-            raise RuntimeError("the inherited three-segment path does not have certified cuts [16, 26]")
-        if index == 5 and zero_edges != [35]:
-            raise RuntimeError("the inherited two-segment escape does not have certified cut [35]")
+        if index < 8 and zero_edges != parent_appended[index].get("internal_zero_edges", []):
+            raise RuntimeError(f"inherited gapped path {index} differs from the certified 6,131 parent cut pattern")
+        if index == 8 and zero_edges:
+            raise RuntimeError("the new connected escape unexpectedly has internal zero edges")
         if index == 9:
             expected_new_cuts = escape_cert["candidate_results"]["multisegment"]["internal_zero_edges"]
             if zero_edges != expected_new_cuts or not zero_edges:
@@ -340,7 +338,7 @@ def main():
     tv_bound = residual_bound / 2
 
     result = {
-        "status": "arb_certified_finite_6131_column_full_fourth_plus_eight_gapped_separator",
+        "status": "arb_certified_finite_6133_column_full_fourth_plus_ten_gapped_separator",
         "complete": True,
         "interval_backend": "python-flint / Arb",
         "precision_bits_base_and_gapped": BASE_PRECISION_BITS,
