@@ -216,3 +216,53 @@ This remains a finite-pool theorem only.
 Separately, the 198-column mixed-order dual has a strict 128-bit Arb-positive point on the 21-torus. By the dense-ray theorem and continuity, this proves existence of a finite equal-positive-coupling open-path escape from that particular dual. An explicit time remains to be isolated.
 
 The 6,129 verifier and 198-torus verifier are separate reproducible workflows; neither result implies a Choi/diamond bound or solves the all-even-minor ensemble problem.
+
+
+
+## Run 11 continuation: 199-column mixed-order theorem and exact program-mass TV bound
+
+The current mainline advances beyond the 198-column state described above. The exact 199-column / 2,113-row LP has been rationalized and its dual independently certified at 128-bit Arb precision. The certificate is pinned by SHA256 and verifies all 199 physical columns. It has
+\[
+\|z\|_1=1,\qquad
+\beta=\frac{3708878342006156685}{9223372036854800563},
+\qquad \delta=10^{-10},
+\]
+with maximum shifted column-LHS Arb upper endpoint
+\[
+-2.635079172408285\times10^{-11}<0.
+\]
+Hence
+\[
+\min_{p\in\Delta_{199}}\|A_{199}p-b\|_\infty
+\ge
+\frac{37088783410838194813145199437}
+{92233720368548005630000000000}
+=0.40211739548875\ldots>\frac13.
+\]
+The row inventory remains 1,461 complete second-/fourth-order rows, 645 selected/cut sixth-order rows, and seven selected eighth-order rows. The latter two inventories are not complete.
+
+An exact rational program-mass corollary has now been added. Undoing the row scales gives the bounded-character test norm
+\[
+M=\sum_i |z_i|/s_i
+=\frac{181246491308462426915523}{46116860184274002815}.
+\]
+The exact DPP/program-character identity and TV duality imply, for every mixture on this finite pool,
+\[
+\operatorname{TV}(w_p,u_{\rm bal})
+>
+\frac{37088783410838194813145199437}
+{724985965233849707662092000000000}
+=5.1157932966157385\times10^{-5}.
+\]
+This is a finite-pool balanced program-label mass (equivalently dephased-register trace-distance) bound, not a Choi-state or channel diamond-distance bound.
+
+Reproducibility additions:
+- [199-column theory note](THEORY_199COL_2113ROW_MIXED_ORDER_MINIMAX_OBSTRUCTION.md)
+- [Exact TV verifier](verify_199col_program_mass_tv_bound.py)
+- [199-column torus pricing discovery](discover_199col_uniform_torus_pricing.py)
+- [Independent 128-bit Arb torus verifier](verify_199col_uniform_torus_pricing_arb.py)
+- [Pricing workflow](.github/workflows/eui-199col-uniform-torus-pricing.yml)
+- [199-column reoptimization workflow 45442617400](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45442617400)
+- [199-column dual Arb workflow 45443651012](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45443651012)
+
+The 21-dimensional uniform-path torus search for this *new* 199-column dual is now being run independently. Its finite-pool certificate does not automatically extend to the continuous physical family. A positive torus candidate will count as an escape only if the exact-decimal phase vector has a strictly positive independent Arb interval; a failed finite multi-start search will not be treated as a global separation proof.
