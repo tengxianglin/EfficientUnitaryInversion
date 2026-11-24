@@ -266,3 +266,24 @@ Reproducibility additions:
 - [199-column dual Arb workflow 45443651012](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45443651012)
 
 The 21-dimensional uniform-path torus search for this *new* 199-column dual is now being run independently. Its finite-pool certificate does not automatically extend to the continuous physical family. A positive torus candidate will count as an escape only if the exact-decimal phase vector has a strictly positive independent Arb interval; a failed finite multi-start search will not be treated as a global separation proof.
+
+
+## Final run-11 continuum correction: the 199-column dual also has a certified uniform-ray escape
+
+The 199-column finite-pool theorem remains valid, but its particular dual is not a global separator of the continuous physical family. The 16-start 21-dimensional torus search found a candidate with binary64 score (1.3039304930013147). The independent 128-bit Arb verifier certifies the exact-decimal phase vector:
+\[
+S_{199}(R(\theta_*))
+\in[1.3039304930013150180208493982584973\pm6.62\times10^{-35}]>0.
+\]
+The gradient self-test maximum relative defect was (3.851324106723261\times10^{-9}); this is discovery diagnostics only, while the Arb interval is the proof.
+
+The exact dense-torus theorem for the 42-site uniform open path proves rational independence of its 21 frequencies. By density and continuity, the positive torus point implies that **some finite (t>0)** on the admissible equal-positive-coupling physical path has positive pricing against the 199-column dual. This refutes global separation by this particular dual, but it does not invalidate the exact 199-column / 2,113-row finite-pool theorem and does not prove full-family feasibility or infeasibility.
+
+Evidence:
+- [Search transcript](evidence/199col_uniform_torus_search_n21.json)
+- [Independent 128-bit Arb certificate](evidence/199col_uniform_torus_arb_n21.json)
+- [Independent Arb verifier](verify_199col_uniform_torus_pricing_arb.py)
+- [Successful workflow 45445503907](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45445503907)
+- [Exact dense-torus theorem](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md)
+
+A bounded six-window search for an explicit finite decimal time and its independent Arb verifier have been added. Workflow [45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912) is in progress. A positive binary64 candidate will not be reported as a finite-time theorem unless its exact-decimal rational value has a strictly positive Arb interval.
