@@ -1,0 +1,418 @@
+{
+  "status": "floating_full_fourth_orbit_diagnostic_not_interval_proof",
+  "complete": true,
+  "precision_bits_for_rotation_reconstruction": 192,
+  "interval_backend_for_rotation_reconstruction": "python-flint / Arb; midpoint conversion for orbit scan",
+  "certificate_sha256": "33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5",
+  "atom_count": 41,
+  "quartet_count": 111930,
+  "dihedral_orbit_count": 1440,
+  "orbit_size_sum": 111930,
+  "max_absolute_residual_midpoint": 0.0057556283852348965,
+  "max_relative_absolute_error_midpoint": 3.0677499293302,
+  "orbits_with_relative_error_above_one_third": 720,
+  "orbits_with_absolute_residual_above_1e-8": 1438,
+  "consecutive_probe": {
+    "representative": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "residual_midpoint": 4.336808689942018e-19,
+    "target": 0.001876172607879925
+  },
+  "distant_probe": {
+    "representative": [
+      0,
+      2,
+      21,
+      23
+    ],
+    "residual_midpoint": 4.336808689942018e-19,
+    "target": 0.001876172607879925
+  },
+  "top_20_absolute_residuals": [
+    {
+      "representative": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "canonical_gap_key": [
+        10,
+        10,
+        10,
+        12
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.0076318009931148215,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.0057556283852348965,
+      "relative_absolute_error": 3.0677499293302
+    },
+    {
+      "representative": [
+        0,
+        4,
+        21,
+        25
+      ],
+      "canonical_gap_key": [
+        4,
+        17,
+        4,
+        17
+      ],
+      "orbit_size": 21,
+      "moment_midpoint": 0.007193987906086693,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.005317815298206768,
+      "relative_absolute_error": 2.8343955539442076
+    },
+    {
+      "representative": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "canonical_gap_key": [
+        1,
+        4,
+        1,
+        36
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.007161069889359968,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.0052848972814800435,
+      "relative_absolute_error": 2.816850251028863
+    },
+    {
+      "representative": [
+        0,
+        3,
+        21,
+        24
+      ],
+      "canonical_gap_key": [
+        3,
+        18,
+        3,
+        18
+      ],
+      "orbit_size": 21,
+      "moment_midpoint": 0.00713598501200398,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.005259812404124055,
+      "relative_absolute_error": 2.8034800113981215
+    },
+    {
+      "representative": [
+        0,
+        1,
+        9,
+        10
+      ],
+      "canonical_gap_key": [
+        1,
+        8,
+        1,
+        32
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006918420611416698,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.005042248003536773,
+      "relative_absolute_error": 2.6875181858851
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "canonical_gap_key": [
+        1,
+        1,
+        2,
+        38
+      ],
+      "orbit_size": 84,
+      "moment_midpoint": -0.006789150367268824,
+      "target": -0.001876172607879925,
+      "residual_midpoint": -0.004912977759388899,
+      "relative_absolute_error": 2.618617145754283
+    },
+    {
+      "representative": [
+        0,
+        3,
+        19,
+        22
+      ],
+      "canonical_gap_key": [
+        3,
+        16,
+        3,
+        20
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006760693413217664,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004884520805337739,
+      "relative_absolute_error": 2.603449589245015
+    },
+    {
+      "representative": [
+        0,
+        2,
+        8,
+        10
+      ],
+      "canonical_gap_key": [
+        2,
+        6,
+        2,
+        32
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.00667193380010376,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004795761192223835,
+      "relative_absolute_error": 2.556140715455304
+    },
+    {
+      "representative": [
+        0,
+        8,
+        21,
+        29
+      ],
+      "canonical_gap_key": [
+        8,
+        13,
+        8,
+        13
+      ],
+      "orbit_size": 21,
+      "moment_midpoint": 0.006592623260007338,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004716450652127413,
+      "relative_absolute_error": 2.5138681975839114
+    },
+    {
+      "representative": [
+        0,
+        3,
+        13,
+        16
+      ],
+      "canonical_gap_key": [
+        3,
+        10,
+        3,
+        26
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006555874415397186,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004679701807517261,
+      "relative_absolute_error": 2.4942810634067003
+    },
+    {
+      "representative": [
+        0,
+        2,
+        6,
+        8
+      ],
+      "canonical_gap_key": [
+        2,
+        4,
+        2,
+        34
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006506570638678782,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004630398030798857,
+      "relative_absolute_error": 2.468002150415791
+    },
+    {
+      "representative": [
+        0,
+        2,
+        18,
+        20
+      ],
+      "canonical_gap_key": [
+        2,
+        16,
+        2,
+        22
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006467830372449275,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.00459165776456935,
+      "relative_absolute_error": 2.4473535885154636
+    },
+    {
+      "representative": [
+        0,
+        1,
+        7,
+        8
+      ],
+      "canonical_gap_key": [
+        1,
+        6,
+        1,
+        34
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006449840198633325,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.0045736675907534,
+      "relative_absolute_error": 2.4377648258715623
+    },
+    {
+      "representative": [
+        0,
+        3,
+        7,
+        10
+      ],
+      "canonical_gap_key": [
+        3,
+        4,
+        3,
+        32
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006302402649095834,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004426230041215909,
+      "relative_absolute_error": 2.3591806119680796
+    },
+    {
+      "representative": [
+        0,
+        10,
+        21,
+        31
+      ],
+      "canonical_gap_key": [
+        10,
+        11,
+        10,
+        11
+      ],
+      "orbit_size": 21,
+      "moment_midpoint": 0.006203730595598488,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004327557987718563,
+      "relative_absolute_error": 2.306588407453994
+    },
+    {
+      "representative": [
+        0,
+        3,
+        15,
+        18
+      ],
+      "canonical_gap_key": [
+        3,
+        12,
+        3,
+        24
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.0061068124999795375,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.0042306398920996125,
+      "relative_absolute_error": 2.2549310624890935
+    },
+    {
+      "representative": [
+        0,
+        3,
+        11,
+        14
+      ],
+      "canonical_gap_key": [
+        3,
+        8,
+        3,
+        28
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006071936738580224,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004195764130700299,
+      "relative_absolute_error": 2.2363422816632594
+    },
+    {
+      "representative": [
+        0,
+        1,
+        19,
+        20
+      ],
+      "canonical_gap_key": [
+        1,
+        18,
+        1,
+        22
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.006005701060919596,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004129528453039671,
+      "relative_absolute_error": 2.201038665470145
+    },
+    {
+      "representative": [
+        0,
+        4,
+        20,
+        24
+      ],
+      "canonical_gap_key": [
+        4,
+        16,
+        4,
+        18
+      ],
+      "orbit_size": 42,
+      "moment_midpoint": 0.005970489177416575,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.00409431656953665,
+      "relative_absolute_error": 2.1822707315630345
+    },
+    {
+      "representative": [
+        0,
+        6,
+        21,
+        27
+      ],
+      "canonical_gap_key": [
+        6,
+        15,
+        6,
+        15
+      ],
+      "orbit_size": 21,
+      "moment_midpoint": 0.005932585871416383,
+      "target": 0.001876172607879925,
+      "residual_midpoint": 0.004056413263536458,
+      "relative_absolute_error": 2.1620682694649322
+    }
+  ],
+  "scope": "All 1,440 fourth-order dihedral orbits were screened using floating determinants of midpoint rotations and weights. This is a discovery diagnostic, not an interval certificate. The exact two-probe results and positivity are established separately by the 384-bit Arb certificate."
+}
