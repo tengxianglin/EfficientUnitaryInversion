@@ -186,3 +186,45 @@ This is a rigorous continuum escape of the particular 197-column dual, while lea
 The finite-time search is [workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828). If it finds a candidate, only an independent Arb interval strictly above zero will promote it to an explicit physical-time certificate. Failure to find such a time in the bounded search does not weaken the dense-torus existence proof.
 
 **Scope:** this escape refutes global separation by the *particular 197-column rational dual*. It does not invalidate the finite 197-column minimax theorem, prove full-family feasibility/infeasibility, complete sixth/eighth-order orbit control, establish an all-even-minor result, or imply a Choi/diamond operational bound.
+
+
+## Finite-pool program-mass TV corollary
+
+The 2,113 raw moment rows are all orbit averages of even principal-minor characters. For an orbit \(O_i\) of even index sets, define the balanced-label test
+\[
+\phi_i([T])=\frac1{|O_i|}\sum_{I\in O_i}(-1)^{|I\cap T|}.
+\]
+It obeys \(\|\phi_i\|_\infty\le1\). The exact program/DPP identity in [`THEORY_PROGRAM_DPP.md`](THEORY_PROGRAM_DPP.md) gives
+\[
+\mathbb E_{w_p}\phi_i=m_i,
+\qquad
+\mathbb E_{u_{\rm bal}}\phi_i=b_i^{\rm raw},
+\]
+where \(w_p\) is the ensemble-averaged balanced program-label mass distribution and \(u_{\rm bal}\) is uniform on balanced labels. If \(s_i\) is the row normalization used in \(A,b\), then \(A_i p=m_i/s_i\) and \(b_i=b_i^{\rm raw}/s_i\).
+
+Define
+\[
+G([T])=\sum_{i=1}^{2113}\frac{z_i}{s_i}\phi_i([T]).
+\]
+The triangle inequality gives \(\|G\|_\infty\le M\), with the exact coefficient bound
+\[
+M=\sum_i\frac{|z_i|}{s_i}
+=\frac{48834410514256017587079}{11529215046068469760}
+=4235.709917728427\ldots.
+\]
+The finite-pool dual theorem gives
+\[
+\mathbb E_{u_{\rm bal}}G-\mathbb E_{w_p}G
+=z^{\mathsf T}(b-Ap)>\beta-\delta.
+\]
+The total-variation dual inequality therefore yields the additional exact corollary
+\[
+\boxed{
+\operatorname{TV}(w_p,u_{\rm bal})
+>
+\frac{9347391123134860821080377}
+{190759416071312568699527343750}
+=4.900094221110678\times10^{-5}.
+}
+\]
+This bound is for mixtures supported on the exact 197-column pool. It is a classical program-label distribution (equivalently, dephased-register trace-distance) statement. It is **not** a Choi-state trace-distance or channel diamond-distance bound. It also does not extend to arbitrary continuous couplings, since the same dual has the certified uniform-ray escape above.
