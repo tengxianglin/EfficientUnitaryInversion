@@ -1991,3 +1991,6 @@ This is a genuine continuum obstruction for that restricted family, not a finite
 
 
 The exterior-power Fourier representation also extends the single-path obstruction to every real scale \(\alpha\), not only \([0,2]\): for each \(L\), the score is \(P_L(\cos\theta_L(\alpha))\), and the Bernstein proof is uniform on the full domain \(\cos\theta\in[-1,1]\). The verifier is being strengthened with negative and out-of-period direct-evaluation checks before this all-real statement is promoted in the machine-readable certificate.
+
+
+The exact program-character/DPP identity yields one additional rigorous consequence: the same restricted-family moment separator implies a total-variation distance \(>1/36000\) between the ensemble-averaged balanced program-mass distribution and the uniform balanced-label distribution in a selected parity sector. This follows by testing the distribution difference against a bounded dihedral-orbit character; it is a classical/dephased-program statement, not a Choi- or diamond-distance bound. See `THEORY_PROGRAM_DPP.md` and `THEORY_CONTINUOUS_SINGLE_PATH_FOURTH_OBSTRUCTION_N21.md`.
