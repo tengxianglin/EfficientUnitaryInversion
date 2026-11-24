@@ -257,6 +257,8 @@ def main():
     pool_hash = hashlib.sha256(pool.astype("<f8", copy=False).tobytes()).hexdigest()
     pool_indices = rng.choice(len(pool), size=min(POOL_SAMPLE_COUNT, len(pool)), replace=False)
 
+    connected = []
+    multisegment = []
     # Reuse the previous certified escape only as an optimization seed. It is
     # already one of the 6,124 columns and is separated by the new dual.
     previous_escape = json.loads(PREVIOUS_ESCAPE_CERT.read_text())
@@ -276,8 +278,6 @@ def main():
         }
         collection.append((np.asarray(exact_couplings, dtype=float), label))
 
-    connected = []
-    multisegment = []
     for index in pool_indices:
         c = np.asarray(pool[int(index), :41], dtype=float)
         connected.append((c, {"source": "frozen_seed_pool", "pool_index": int(index)}))
