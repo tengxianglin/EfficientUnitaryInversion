@@ -165,9 +165,9 @@ def main():
         and not value["strictly_below_target_certified"]
     ]
     if escape_kinds:
-        status = "arb_certified_6125_dual_general_gapped_escape"
+        status = "arb_certified_6127_dual_general_gapped_escape"
     elif ambiguous_kinds:
-        status = "arb_6125_dual_candidate_score_ambiguous"
+        status = "arb_6127_dual_candidate_score_ambiguous"
     else:
         status = "no_escape_in_this_finite_multistart_search"
 
