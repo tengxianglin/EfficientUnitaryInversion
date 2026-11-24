@@ -1931,3 +1931,30 @@ Consequently the full 27-seed grid is accounted for: 25 candidates require stric
 
 
 The sign pattern also gives a multi-atom corollary. For any nonnegative weights \(\tau\) on any subset of the 27 grid atoms, preserving the base 22 constraints forces old weights \(p-M^{-1}V\tau\), and the distant residual becomes \(\Delta_0+\sum_j\sigma_j\tau_j\). Since all 25 nonduplicate slopes are strictly positive and the two duplicate slopes are exactly zero, this residual is at least \(\Delta_0>0\). Thus no nonnegative mixture of any subset of this finite fractional grid repairs the distant probe while preserving the base constraints. This remains a finite-grid obstruction only.
+
+
+## 2026-11-24: positive 41-atom n=21 two-fourth-probe ensemble
+
+A deterministic 8,241-column fractional-path discovery (all lengths L=2,...,42 and alpha=k/100, k=0,...,200) found a multi-atom repair of the 22-atom design's distant fourth-order residual. The independent 384-bit Arb verifier certifies a 41-atom physical ensemble (the 22 base atoms plus 19 fractional open paths) with every weight strictly positive. It preserves all 21 distance-averaged second moments and matches both q_{0123}=1/533 and q_{0,2,21,23}=1/533 exactly.
+
+The exact interpolation factor is
+\[
+\gamma=0.86839903706115658184287441518140630184539297518602\ldots,
+\]
+and the minimum final weight is
+\[
+0.000110852097544644610007668601156342369587115893874\ldots>0.
+\]
+The 384-bit certificate reports all 21 second-moment residual intervals and both fourth-probe residual intervals containing zero. It also certifies strict failures for q_{0,1,2,4} and q_{0,10,20,30}; this is not a complete fourth-order design.
+
+A separate 384-bit Arb Farkas certificate covers the 861-seed coarse grid L=2,...,42, alpha=k/10 and proves no nonnegative mixture from any subset of that finite grid can repair the distant probe while preserving the base constraints. Its dual cost is 0.01199999912229604678... versus base residual 0.01293923164095380719..., with minimum candidate dual slack 0.00147717709277052838... . The positive construction uses the finer 0.01 grid and therefore does not contradict the coarse-grid theorem. Both finite-grid results are strictly scoped; neither is a continuum no-go.
+
+Evidence:
+- [theory and exact affine proof](THEORY_LOW_MOMENT_TWO_FOURTH_PROBE_ENSEMBLE_N21.md)
+- [discovery transcript](evidence/ising_low_moment_two_fourth_discovery_n21.json)
+- [384-bit positive-ensemble certificate](evidence/ising_low_moment_two_fourth_ensemble_n21.json)
+- [861-seed Farkas certificate](evidence/ising_fractional_grid_cone_n21.json)
+- [successful exact workflow 45315065442](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45315065442)
+- [evidence commit 69dfb15](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/69dfb15)
+
+**Revised paper priority:** use the 41-atom ensemble as a warm start for column generation against all 1,440 fourth-order dihedral orbits. It does not yet satisfy all fourth-order moments, all sixth/eighth-order moments, or the all-even-principal-minor joint-parity condition. The conditional n=21 diamond theorem remains conditional.
