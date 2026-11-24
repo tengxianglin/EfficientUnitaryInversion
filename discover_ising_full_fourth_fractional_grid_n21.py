@@ -17,6 +17,19 @@ from scipy.optimize import linprog
 from ising_fourth_moments import FourthMoments, orbit_key
 from verify_ising_low_moment_design import build_rotation
 
+
+def json_safe(value):
+    """Recursively convert NumPy scalars/arrays to strict JSON-native values."""
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, dict):
+        return {str(key): json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_safe(item) for item in value]
+    return value
+
 ROOT = Path(__file__).resolve().parent
 WARM_CERT = ROOT / "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
 OUTPUT = ROOT / "evidence/ising_full_fourth_fractional_grid_n21.json"
@@ -194,13 +207,24 @@ def self_test(system):
         raise RuntimeError(
             "expected even-L<42 counterexample to alpha reflection was not found"
         )
+    # Regression-test strict JSON serialization of NumPy scalar values that
+    # appear in orbit representatives and canonical keys.
+    serialization_probe = json.loads(json.dumps(json_safe({
+        "integer": np.int64(7),
+        "floating": np.float64(0.25),
+        "array": np.asarray([1, 2], dtype=np.int64),
+    })))
+    if serialization_probe != {"integer": 7, "floating": 0.25, "array": [1, 2]}:
+        raise RuntimeError("NumPy-to-JSON normalization regression failed")
+
     return {
         "block_comparison_cases": cases,
         "valid_spin_symmetry_cases": spin_cases,
         "max_block_feature_defect": max_block_defect,
         "max_valid_spin_symmetry_defect": max_spin_defect,
         "L2_alpha_0.17_vs_1.83_counterexample_defect": even_noninvariance,
-        "status": "block regression and restricted spin symmetry passed",
+        "numpy_json_serialization_roundtrip": True,
+        "status": "block regression, restricted spin symmetry, and JSON serialization passed",
     }
 
 def solve_full_grid(system, warm, warm_sha):
@@ -433,7 +457,7 @@ def solve_full_grid(system, warm, warm_sha):
                     "floating_finite_grid_separator_candidate_not_arb_certified"
                 )
 
-    OUTPUT.write_text(json.dumps(output, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(json_safe(output), indent=2) + "\n")
     print(json.dumps(output, indent=2), flush=True)
 
 
@@ -454,7 +478,7 @@ def main():
         raise RuntimeError("unexpected 41-atom warm certificate shape")
     result = solve_full_grid(system, warm, hashlib.sha256(raw).hexdigest())
     result["self_test"] = test
-    OUTPUT.write_text(json.dumps(result, indent=2) + "\n")
+    OUTPUT.write_text(json.dumps(json_safe(result), indent=2) + "\n")
 
 
 if __name__ == "__main__":
