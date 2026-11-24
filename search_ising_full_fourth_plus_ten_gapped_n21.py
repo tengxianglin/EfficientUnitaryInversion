@@ -55,7 +55,7 @@ def load_functional():
     if (
         finite.get("base_atom_count") != 22
         or finite.get("fractional_grid_count") != 6101
-        or finite.get("general_gapped_count") != 8
+        or finite.get("general_gapped_count") != 10
         or finite.get("dual_nonzero_coefficients") != 85
     ):
         raise RuntimeError("the 6,133-column certificate has unexpected pool/dual dimensions")
