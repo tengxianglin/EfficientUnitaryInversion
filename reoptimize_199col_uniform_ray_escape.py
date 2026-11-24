@@ -203,8 +203,8 @@ def main():
     previous_uniform_couplings = [Fraction(value) for value in previous_time_cert["uniform_couplings_exact_decimal"]]
     if len(previous_uniform_couplings) != 41 or any(value != previous_t for value in previous_uniform_couplings):
         raise RuntimeError("196-column previous time is not a uniform 41-edge path")
-    if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != previous_t:
-        raise RuntimeError("197-column parent has a different 196-column uniform-ray time")
+    if Fraction(parent_lp["parent_196col_uniform_ray_time_exact_rational"]) != previous_t:
+        raise RuntimeError("198-column parent has a different 196-column ancestor time")
 
     if time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_197col_dual_certificate_sha256") or time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_197col_lp_sha256"):
         raise RuntimeError("197-column time does not pin the exact 197-column ancestor dual/LP")
