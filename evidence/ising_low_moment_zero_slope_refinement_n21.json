@@ -1,0 +1,41 @@
+{
+  "status": "768_bit_zero_slope_refinement_complete",
+  "complete": true,
+  "precision_bits": 768,
+  "interval_backend": "python-flint / Arb",
+  "base_input_sha256": "d8c5a0ed699f7757d171c4e05913704fc280f9e35d0bba04ad5af768df2a7807",
+  "base_atoms": 22,
+  "base_matrix_determinant": "[3.0881698083078972967562192115607217954819723784528293005387320407978720653609717665701106784578944272396127215297017190677285058914828804971232908368846396413504424843495005078279596459236478946128752987635976966045246756e-24 +/- 5.31e-245]",
+  "base_distant_probe": [
+    0,
+    2,
+    21,
+    23
+  ],
+  "base_distant_residual": "[0.012939231640953807196234659213035933463994299878363868866944227463315818228321950611542061183700748114763952373189152725183525873016640565933572340737391855750572207324471135395555518004983483511071268679335359844554688 +/- 9.11e-220]",
+  "candidates": [
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 41,
+        "alpha": "3/2"
+      },
+      "slope_interval": "[+/- 3.42e-220]",
+      "strictly_positive": false,
+      "strictly_negative": false,
+      "contains_zero": true
+    },
+    {
+      "atom": {
+        "kind": "fractional",
+        "length": 42,
+        "alpha": "5/4"
+      },
+      "slope_interval": "[+/- 1.57e-220]",
+      "strictly_positive": false,
+      "strictly_negative": false,
+      "contains_zero": true
+    }
+  ],
+  "scope": "This refines only the two candidates whose 384-bit slope intervals contained zero. If an interval still contains zero, the case remains unresolved; no exact-zero identity is inferred from interval overlap."
+}
