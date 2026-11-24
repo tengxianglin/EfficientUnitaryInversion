@@ -71,7 +71,7 @@ Thus this particular fractional seed cannot repair the distant fourth probe by i
 The two interval slopes that still contain zero at 768 bits are exact duplicate even-minor columns, by the spin representation of the fractional open path. Let \(G_L\) be the real skew-symmetric tridiagonal matrix with \((G_L)_{r,r+1}=\sqrt{(r+1)(L-r-1)}\) and \((G_L)_{r+1,r}=-\sqrt{(r+1)(L-r-1)}\), for \(r=0,\ldots,L-2\). Put \(J_y^{(j)}=G_L/2\), where \(j=(L-1)/2\); this is the real skew form of the spin-\(j\) generator and has eigenvalues \(im\), \(m=-j,\ldots,j\). Since the physical path generator has entries \(2c_r=\alpha\pi\sqrt{(r+1)(L-r-1)}/2\), the length-\(L\) block is
 \[
 R_{L,\alpha}=\exp(\alpha\pi J_y^{(j)}).
-]
+\]
 Transposition sends \(\alpha\) to \(-\alpha\).
 
 For \(L=41\), \(j=20\) is integer, so \(\exp(2\pi J_y^{(20)})=I\). Therefore
@@ -120,6 +120,6 @@ The verifier reconstructs the base \(22\times22\) system and every candidate rot
 
 ## Scope and next step
 
-This is a finite-grid, single-new-atom result. It is not a no-go theorem for two or more new atoms, continuous fractional-transfer parameters, arbitrary gapped couplings, or the full all-even-moment ensemble. It does not activate the conditional n=21 joint-parity diamond theorem.
+This is a finite-grid convex-cone obstruction for nonnegative mixtures of any subset of the 27 predeclared fractional seeds. It is not a no-go theorem for continuous fractional-transfer parameters outside the grid, arbitrary gapped couplings, or the full all-even-moment ensemble. It does not activate the conditional n=21 joint-parity diamond theorem.
 
 The next decisive step is to move beyond this finite fractional grid and use multi-atom column generation over general gapped couplings, enforcing the complete fourth-order orbit family rather than one distant probe at a time. Any resulting ensemble must still pass all higher even moments before the long-ring diamond theorem becomes unconditional.
