@@ -25,7 +25,14 @@ For even \(L<42\), however, the full matrix is
 \[
 (-R_{L,\alpha}^{\mathsf T})\oplus I_{42-L},
 \]
-not the global negative transpose. A quartet may contain an odd number of active vertices and the remaining vertices in the idle identity block. Its principal determinant then changes sign. The same issue already appears in degree two. The CI self-test exposed this: at \(L=2,\alpha=0.17\), the full feature vectors at \(\alpha\) and \(2-\alpha\) differ by \(0.36745044512677993\) in maximum norm, while the block-minor implementation agrees with the independent full-matrix computation. Thus the overbroad all-\(L\) reduction is false and is not used.
+not the global negative transpose. A quartet may contain an odd number of active vertices and the remaining vertices in the idle identity block. Its principal determinant then changes sign. This has an exact two-index witness already at \(L=2\): with \(\theta=\pi\alpha/2\),
+\[
+R_{2,\alpha}\oplus I_{40}
+=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}\oplus I_{40},
+\qquad
+\det R_{\{0,2\},\{0,2\}}=\cos\theta.
+\]
+At \(2-\alpha\), the same principal minor is \(-\cos\theta\), so it is not invariant unless \(\cos\theta=0\). The CI self-test also found that the full feature vectors at \(L=2,\alpha=0.17\) and \(2-\alpha\) differ by \(0.36745044512677993\) in maximum norm, while the block-minor implementation agrees with the independent full-matrix computation. Thus the overbroad all-\(L\) reduction is false and is not used.
 
 The corrected exact grid is:
 - odd \(L=3,5,\ldots,41\): \(\alpha=k/100,\ k=0,\ldots,100\);
