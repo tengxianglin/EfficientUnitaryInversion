@@ -90,6 +90,26 @@ def main():
             "couplings": [str(value) for value in couplings],
         }
         rotation = build_rotation(atom)
+        orthogonality_checks = 0
+        for row in range(42):
+            for column in range(42):
+                inner = sum(
+                    (rotation[k, row] * rotation[k, column] for k in range(42)),
+                    arb(0),
+                )
+                expected = arb(1) if row == column else arb(0)
+                defect = inner - expected
+                if not defect.contains(0):
+                    raise RuntimeError(
+                        f"{kind} candidate is not Arb-certified orthogonal at "
+                        f"({row},{column}): {defect}"
+                    )
+                orthogonality_checks += 1
+        determinant = rotation.det()
+        if not determinant.contains(1):
+            raise RuntimeError(
+                f"{kind} candidate determinant is not certified to equal one: {determinant}"
+            )
         score = full_score(rotation, system, coefficient_by_feature)
         gap = target_score - score
         discovery_score = float(record["score_float"])
@@ -110,6 +130,10 @@ def main():
             "arb_score_interval": str(score),
             "arb_target_minus_score_interval": str(gap),
             "float_arb_midpoint_discrepancy": discrepancy,
+            "orthogonality_matrix_entries_checked": orthogonality_checks,
+            "orthogonality_all_interval_defects_contain_zero": True,
+            "determinant_interval": str(determinant),
+            "determinant_contains_one": True,
             "strict_separator_escape_certified": escaped,
             "strictly_below_target_certified": separated,
         }
