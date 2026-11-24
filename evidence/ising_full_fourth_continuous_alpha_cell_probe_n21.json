@@ -1,0 +1,22 @@
+{
+  "status": "continuous_alpha_cell_interval_inconclusive",
+  "complete_for_declared_cell": true,
+  "precision_bits": 128,
+  "interval_backend": "python-flint / Arb interval matrix exponential",
+  "diagnostic_sha256": "9140ecf1003a70fd6ac3b58d2ba965980016dd7ef7dd7395e623ef03bc21aefd",
+  "warm_certificate_sha256": "33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5",
+  "length": 40,
+  "alpha_interval": "[1.84 +/- 5.01e-3]",
+  "alpha_interval_lower": "[1.8349999999807914718985557556152343750 +/- 2.83e-39]",
+  "alpha_interval_upper": "[1.8450000000192085281014442443847656250 +/- 2.83e-39]",
+  "target_score_interval": "[0.348780417164148374075762081266546035 +/- 1.84e-37]",
+  "score_interval_over_entire_alpha_cell": "[+/- 3.84e+24]",
+  "gap_interval_over_entire_alpha_cell": "[+/- 3.84e+24]",
+  "gap_lower_endpoint": "[-3833306565981992577400831.6791097518384 +/- 2.49e-14]",
+  "gap_upper_endpoint": "[3833306565981992577400832.3208902481616 +/- 1.07e-14]",
+  "required_strict_floor": "1/4",
+  "midpoint_alpha": "46/25",
+  "midpoint_gap_interval": "[0.2670364051058191014905072842124 +/- 8.71e-32]",
+  "strictly_above_floor_over_entire_cell": false,
+  "scope": "If certified, every alpha in [1.835,1.845] for the L=40 single-open-path family has separator gap strictly greater than 1/4. This is only one continuum cell; it does not cover other path lengths, other alpha cells, multi-segment paths, arbitrary gapped couplings, or the full physical family."
+}
