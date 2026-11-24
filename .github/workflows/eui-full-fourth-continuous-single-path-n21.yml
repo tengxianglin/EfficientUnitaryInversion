@@ -1,0 +1,69 @@
+name: EUI n=21 global continuous single-open-path separator
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "certify_ising_full_fourth_continuous_single_path_n21.py"
+      - ".github/workflows/eui-full-fourth-continuous-single-path-n21.yml"
+      - "verify_ising_full_fourth_fractional_grid_dual_arb.py"
+      - "verify_ising_low_moment_design.py"
+      - "ising_fourth_moments.py"
+      - "evidence/ising_full_fourth_fractional_grid_n21.json"
+      - "evidence/ising_full_fourth_fractional_grid_dual_arb_n21.json"
+      - "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-full-fourth-continuous-single-path-n21
+  cancel-in-progress: false
+
+jobs:
+  continuous-single-path:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Compile global continuous-path verifier
+        run: python -m py_compile certify_ising_full_fourth_continuous_single_path_n21.py
+      - name: Certify every continuous alpha path by Fourier-Bernstein bounds
+        run: python certify_ising_full_fourth_continuous_single_path_n21.py
+      - name: Commit continuous-path evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/ising_full_fourth_continuous_single_path_n21.json
+          if git diff --cached --quiet; then
+            echo "No continuous-path evidence changes."
+            exit 0
+          fi
+          git commit -m "Record global continuous single-path Arb certificate"
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload continuous-path evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n21-continuous-single-path-fourth-separator
+          path: evidence/ising_full_fourth_continuous_single_path_n21.json
+          if-no-files-found: error
