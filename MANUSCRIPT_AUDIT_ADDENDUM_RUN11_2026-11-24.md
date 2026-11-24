@@ -159,3 +159,22 @@ Combining the dual gap \(\beta-\delta\) with the total-variation dual inequality
 =4.900094221110678\times10^{-5}.
 \]
 This is a classical balanced program-label mass (equivalently dephased-register trace-distance) result, finite-pool only. It is not a Choi-state trace-distance or channel diamond-distance guarantee. The derivation is recorded in [the 197-column theory note](THEORY_197COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md).
+
+
+## Explicit finite-time escape of the 197-column dual is now certified
+
+The bounded positive-ray search found the exact rational time
+\[
+t=\frac{14386899302852951223}{250000000000000}
+=57547.597211411804892>0,
+\]
+with all 41 internal open-path couplings equal to \(t\). The independent 128-bit Arb verifier certifies
+\[
+S_{197}(e^{tK_*})
+\in[0.55379539820858412380775878883\pm2.37\times10^{-30}]>0.
+\]
+This is an explicit finite physical path outside the pinned 197-column pool. It directly refutes global separation by the 197-column dual, without relying only on the dense-torus existence argument. The finite 197-column minimax theorem is unaffected.
+
+Evidence: [search transcript](evidence/197col_uniform_ray_time_search_n21.json), [128-bit Arb certificate](evidence/197col_uniform_ray_time_arb_n21.json), [independent verifier](verify_197col_uniform_ray_time_arb.py), [successful workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828), [commit b3d85e7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b3d85e763465a62c7015ded2c803de27746753a6).
+
+Next: append this sixth explicit equal-coupling path as column 1655 and reoptimize the fixed 2,113-row mixed-order design. The 198-column result must receive its own rational dual/Arb certificate; no extension of the 197-column theorem is assumed.
