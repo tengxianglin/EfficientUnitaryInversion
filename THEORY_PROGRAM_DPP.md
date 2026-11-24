@@ -239,3 +239,51 @@ promise remains distinct from this static program-design problem.
 ## Follow-up: full moments reject the six screening seeds
 
 The [fourth-moment hierarchy and seed-pool audit](THEORY_FOURTH_MOMENT_HIERARCHY.md) certifies that all six fixed screening seeds, and any positive mixture of their dihedral images, fail a distance-two moment. Thus the near-target matching-mass observations do not yield a uniform construction. It also provides exact fourth/second-order dependency reduction and a separately labeled 1600-column numerical full-fourth-order experiment.
+
+
+## 6. Moment separation implies a quantitative program-mass TV obstruction
+
+This section combines the exact character identity (3)--(4) with the 2026-11-24 continuous single-path separator. It adds a distributional consequence, not a diamond-norm claim.
+
+Let \(\mathcal L\) be the balanced logical Pauli-label set, \(u\) its uniform distribution, and \(w_c\) the physical program-mass distribution in one selected parity sector. For every even Majorana index set \(I\), define the well-defined quotient character
+\[
+\chi_I([T])=(-1)^{|I\cap T|}.
+\]
+It is well-defined under \(T\sim T^c\) because \(|I|\) is even. Equation (3) gives
+\[
+\mathbb E_{[T]\sim w_c}\chi_I([T])=\det R(c)_{I,I}.
+\]
+For a dihedral orbit \(O\) of two- or four-element sets, put
+\[
+\phi_O([T])=\frac1{|O|}\sum_{I\in O}\chi_I([T]),
+\qquad |\phi_O([T])|\le1.
+\]
+The distance-averaged second moments and fourth-order orbit moments used in the \(n=21\) separator are exactly the expectations of these bounded orbit tests. The target coordinate \(b_O\) is their expectation under \(u\), with
+\[
+b_I=(-1)^{v(I)+k}\frac{\binom{21}{k}}{\binom{42}{2k}},
+\qquad |I|=2k,\quad k=1,2.
+\]
+
+For any probability measure \(\mu\) over physical seeds, let \(w_\mu=\mathbb E_{c\sim\mu}w_c\). The global single-open-path certificate proves, for every \(\mu\) supported on the 22 pinned base atoms and the full single-open-path family,
+\[
+\|b-A\mu\|_\infty>\frac1{18000}
+\]
+on 1,313 retained moment coordinates. Each retained coordinate is an actual orbit test \(\phi_O\). Hence at least one \(O\) obeys
+\[
+\left|\mathbb E_{w_\mu}\phi_O-\mathbb E_u\phi_O\right|>\frac1{18000}.
+\]
+For probability distributions \(P,Q\) and any \(f\) with \(\|f\|_\infty\le1\),
+\[
+|\mathbb E_Pf-\mathbb E_Qf|\le2\,\mathrm{TV}(P,Q).
+\]
+Therefore
+\[
+\boxed{\mathrm{TV}(w_\mu,u)>\frac1{36000}.}
+\]
+Equivalently, the trace distance between the dephased balanced-label registers is bounded below:
+\[
+\frac12\left\|\operatorname{diag}(w_\mu)-\operatorname{diag}(u)\right\|_1
+>\frac1{36000}.
+\]
+
+This is an exact obstruction to approximate uniformity of the **classical program-mass distribution** for the stated restricted family, valid for arbitrary probability measures rather than only finite mixtures. It is not a Choi-state or channel diamond-distance bound: the map from this dephased program-label discrepancy to implemented inversion error remains a separate problem. The result is in one selected parity sector; gapped-seed gauge compatibility can be invoked separately when a joint-parity statement is needed.
