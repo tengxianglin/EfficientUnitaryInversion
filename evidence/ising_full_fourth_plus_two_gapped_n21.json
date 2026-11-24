@@ -1,0 +1,1414 @@
+{
+  "status": "floating_full_fourth_6125_column_separator_candidate_not_arb_certified",
+  "complete": true,
+  "n": 21,
+  "candidate_count": 6125,
+  "base_atom_count": 22,
+  "fractional_grid_count": 6101,
+  "general_gapped_count": 2,
+  "parent_diagnostic_sha256": "714ee596648b92f69a9aaf00ff3c83288a2b08c8bc1e0029fee82d0e3c4ad485",
+  "parent_certificate_sha256": "03b549f31f7bfb9fec3817f47b08c126597b5a46f5d0a90d8076d535b1e94ad7",
+  "new_escape_certificate_sha256": "3e4f8472fa66582780e97e305ef077defb9223d5531b4c4970ce772437b23ef9",
+  "appended_gapped_columns": [
+    {
+      "kind": "parent_general_gapped",
+      "source": "6,124-column parent pool",
+      "couplings_exact_rational": [
+        "10995746457380539/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "30760904116023913/100000000000000000",
+        "7844436505718253/1250000000000000",
+        "19999999999999999/20000000000000000000000",
+        "4319731151500509/250000000000000",
+        "19999999999999999/20000000000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "47121390380018537/10000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "45971526733162351/5000000000000000",
+        "20702547243871847/10000000000000000",
+        "6107480579411059/5000000000000000000000",
+        "7853956166909083/2500000000000000",
+        "19999999999999999/20000000000000000000000",
+        "5890609100232489/1250000000000000",
+        "19999999999999999/20000000000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "15708882884128461/10000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "34984818085915421/10000000000000000",
+        "29108911820485317/5000000000000000",
+        "10935883046569421/1000000000000000",
+        "2865863735014127/2000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "78541096619160253/10000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "15706283576967013/5000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "18355749524114573/5000000000000000",
+        "79192801730088993/10000000000000000",
+        "19328846152843717/5000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "47123458773760687/10000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "31416196862359369/5000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "14136875754932209/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "17882084520070909/10000000000000000",
+        "15068335922648679/2500000000000000",
+        "0"
+      ],
+      "feature_sha256_le_f64": "92a93b96010b426f6d562ab9b3c4806e224b07c89c9460af5bd61ab938a1213d",
+      "independent_full_feature_defect": 6.5503158452884236e-15
+    },
+    {
+      "kind": "new_general_gapped_escape",
+      "source": "256-bit Arb escape from parent dual",
+      "couplings_exact_rational": [
+        "21926344690354547/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "7811114214766631/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "78449671631909/3125000000000",
+        "3889582497163851/2500000000000000",
+        "1590025809565073/1000000000000000",
+        "47339569432789941/10000000000000000000",
+        "3122487964272133/200000000000000",
+        "8836603252286519/10000000000000000",
+        "11019653146524291/1000000000000000",
+        "7640980002808273/5000000000000000",
+        "6252674562544307/250000000000000",
+        "19999999999999999/20000000000000000000000",
+        "14125202761823497/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "22010770580247669/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "37358608815506069/5000000000000000",
+        "6739308883953819/500000000000000",
+        "481150989243437/40000000000000",
+        "19999999999999999/20000000000000000000000",
+        "22015591358875803/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "17281025377703589/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "6229294127923387/250000000000000",
+        "29331486635704147/10000000000000000",
+        "5539383304568963/500000000000000",
+        "19999999999999999/20000000000000000000000",
+        "18815739792863113/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "16301129903163691/10000000000000000",
+        "51472532273961549/1000000000000000000",
+        "25192470329143369/1000000000000000",
+        "19999999999999999/20000000000000000000000",
+        "141943091208939/10000000000000",
+        "15228690290457161/5000000000000000",
+        "19740803119135041/1000000000000000",
+        "41648125399846423/5000000000000000",
+        "43540938964674263/5000000000000000",
+        "0"
+      ],
+      "feature_sha256_le_f64": "6b922cf34ddfaa86177ac548a136cc1c894e8ecd83f0df31b1c245201b500d69",
+      "independent_full_feature_defect": 3.697042672001771e-14
+    }
+  ],
+  "fractional_grid": "L=2,...,42; odd L and L=42 use k=0,...,100; even L<42 use k=0,...,200; one shared alpha=0 identity column",
+  "symmetry_reduction": "For odd L (integer spin), the full block-diagonal matrix transposes under alpha->2-alpha. For L=42, the half-integer spin global sign acts on the full matrix and leaves every even principal minor invariant. For even L<42, the sign acts only on the active block while the idle complement stays identity; odd-size active subminors therefore change sign, so no reduction is made for those lengths.",
+  "warm_certificate_sha256": "33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5",
+  "candidate_feature_sha256_le_f64": "8215cc7d27475a89b648f0061befa765eb635ac5d1ff26e2714af168bf9d1faa",
+  "full_feature_count": 1461,
+  "fourth_orbit_count": 1440,
+  "quartet_count": 111930,
+  "reduced_equations_including_normalization": 1314,
+  "exact_hierarchy_pivot_minor_determinant": "824633720832",
+  "max_warm_grid_mapping_defect": 1.3475331961387838e-14,
+  "warm_start": {
+    "atom_count": 41,
+    "minimum_weight_midpoint": 0.0001108520975446446,
+    "weight_sum_midpoint": 0.9999999999999999,
+    "max_second_residual_midpoint": 5.551115123125783e-17,
+    "max_fourth_residual_midpoint": 0.005755628385234898,
+    "local_probe_residual_midpoint": -2.3852447794681098e-17,
+    "distant_probe_residual_midpoint": -3.469446951953614e-18,
+    "top_20_fourth_residuals": [
+      {
+        "representative": [
+          0,
+          10,
+          20,
+          30
+        ],
+        "canonical_gap_key": [
+          10,
+          10,
+          10,
+          12
+        ],
+        "residual_midpoint": 0.005755628385234898,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          4,
+          21,
+          25
+        ],
+        "canonical_gap_key": [
+          4,
+          17,
+          4,
+          17
+        ],
+        "residual_midpoint": 0.0053178152982067805,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          1,
+          5,
+          6
+        ],
+        "canonical_gap_key": [
+          1,
+          4,
+          1,
+          36
+        ],
+        "residual_midpoint": 0.005284897281480024,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          3,
+          21,
+          24
+        ],
+        "canonical_gap_key": [
+          3,
+          18,
+          3,
+          18
+        ],
+        "residual_midpoint": 0.005259812404124043,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          1,
+          9,
+          10
+        ],
+        "canonical_gap_key": [
+          1,
+          8,
+          1,
+          32
+        ],
+        "residual_midpoint": 0.005042248003536758,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "canonical_gap_key": [
+          1,
+          1,
+          2,
+          38
+        ],
+        "residual_midpoint": -0.004912977759388861,
+        "target": -0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          3,
+          19,
+          22
+        ],
+        "canonical_gap_key": [
+          3,
+          16,
+          3,
+          20
+        ],
+        "residual_midpoint": 0.004884520805337733,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          2,
+          8,
+          10
+        ],
+        "canonical_gap_key": [
+          2,
+          6,
+          2,
+          32
+        ],
+        "residual_midpoint": 0.0047957611922238436,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          8,
+          21,
+          29
+        ],
+        "canonical_gap_key": [
+          8,
+          13,
+          8,
+          13
+        ],
+        "residual_midpoint": 0.004716450652127409,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          3,
+          13,
+          16
+        ],
+        "canonical_gap_key": [
+          3,
+          10,
+          3,
+          26
+        ],
+        "residual_midpoint": 0.004679701807517257,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          2,
+          6,
+          8
+        ],
+        "canonical_gap_key": [
+          2,
+          4,
+          2,
+          34
+        ],
+        "residual_midpoint": 0.004630398030798851,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          2,
+          18,
+          20
+        ],
+        "canonical_gap_key": [
+          2,
+          16,
+          2,
+          22
+        ],
+        "residual_midpoint": 0.00459165776456935,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          1,
+          7,
+          8
+        ],
+        "canonical_gap_key": [
+          1,
+          6,
+          1,
+          34
+        ],
+        "residual_midpoint": 0.004573667590753375,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          3,
+          7,
+          10
+        ],
+        "canonical_gap_key": [
+          3,
+          4,
+          3,
+          32
+        ],
+        "residual_midpoint": 0.004426230041215891,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          10,
+          21,
+          31
+        ],
+        "canonical_gap_key": [
+          10,
+          11,
+          10,
+          11
+        ],
+        "residual_midpoint": 0.004327557987718559,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          3,
+          15,
+          18
+        ],
+        "canonical_gap_key": [
+          3,
+          12,
+          3,
+          24
+        ],
+        "residual_midpoint": 0.004230639892099609,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          3,
+          11,
+          14
+        ],
+        "canonical_gap_key": [
+          3,
+          8,
+          3,
+          28
+        ],
+        "residual_midpoint": 0.004195764130700296,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          1,
+          19,
+          20
+        ],
+        "canonical_gap_key": [
+          1,
+          18,
+          1,
+          22
+        ],
+        "residual_midpoint": 0.004129528453039655,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          4,
+          20,
+          24
+        ],
+        "canonical_gap_key": [
+          4,
+          16,
+          4,
+          18
+        ],
+        "residual_midpoint": 0.004094316569536644,
+        "target": 0.001876172607879925
+      },
+      {
+        "representative": [
+          0,
+          6,
+          21,
+          27
+        ],
+        "canonical_gap_key": [
+          6,
+          15,
+          6,
+          15
+        ],
+        "residual_midpoint": 0.004056413263536451,
+        "target": 0.001876172607879925
+      }
+    ]
+  },
+  "primal": {
+    "status_code": 2,
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "success": false
+  },
+  "scope": "Floating finite-pool feasibility test over 22 pinned base atoms, 6,101 corrected fractional single-open-path grid atoms, the parent connected gapped path, and one newly Arb-certified connected gapped escape (6,125 columns total). It is not an interval certificate, a continuous-parameter theorem, or a global physical obstruction.",
+  "dual": {
+    "status_code": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "success": true,
+    "normalized_l1_upper_bound": 0.9999999999999998,
+    "target_score": 0.37309805969680737,
+    "maximum_candidate_score": 0.11172524195976183,
+    "threshold": 0.1117252419597063,
+    "recomputed_gap": 0.2613728177371011,
+    "maximum_pricing_constraint_violation": 5.552502901906564e-14,
+    "nonzero_coefficients": [
+      {
+        "feature_index": 177,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          7,
+          8
+        ],
+        "coefficient": -35.376099799594265
+      },
+      {
+        "feature_index": 146,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          6,
+          7
+        ],
+        "coefficient": -35.27744552515511
+      },
+      {
+        "feature_index": 426,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          5,
+          13
+        ],
+        "coefficient": 20.003846189523266
+      },
+      {
+        "feature_index": 416,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          20
+        ],
+        "coefficient": 19.80427211861626
+      },
+      {
+        "feature_index": 417,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          21
+        ],
+        "coefficient": -19.510170941295645
+      },
+      {
+        "feature_index": 414,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          18
+        ],
+        "coefficient": 19.174274869001508
+      },
+      {
+        "feature_index": 538,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          8,
+          35
+        ],
+        "coefficient": -17.800981462026833
+      },
+      {
+        "feature_index": 508,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          7,
+          33
+        ],
+        "coefficient": 16.839463015320632
+      },
+      {
+        "feature_index": 738,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          7,
+          23
+        ],
+        "coefficient": -14.302779966385764
+      },
+      {
+        "feature_index": 236,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          9,
+          13
+        ],
+        "coefficient": -14.274543496982645
+      },
+      {
+        "feature_index": 418,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          22
+        ],
+        "coefficient": 13.265818222894131
+      },
+      {
+        "feature_index": 258,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          10,
+          11
+        ],
+        "coefficient": 12.247318492630598
+      },
+      {
+        "feature_index": 430,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          5,
+          17
+        ],
+        "coefficient": 10.536316935285969
+      },
+      {
+        "feature_index": 410,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          14
+        ],
+        "coefficient": 10.280215340697383
+      },
+      {
+        "feature_index": 429,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          5,
+          16
+        ],
+        "coefficient": -10.242474492069357
+      },
+      {
+        "feature_index": 413,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          17
+        ],
+        "coefficient": -10.222520464143155
+      },
+      {
+        "feature_index": 428,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          5,
+          15
+        ],
+        "coefficient": 10.180055406641001
+      },
+      {
+        "feature_index": 112,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          4,
+          39
+        ],
+        "coefficient": 10.03736315553126
+      },
+      {
+        "feature_index": 1112,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          17,
+          25
+        ],
+        "coefficient": -9.861994060930984
+      },
+      {
+        "feature_index": 709,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          6,
+          9
+        ],
+        "coefficient": -9.829001892682724
+      },
+      {
+        "feature_index": 77,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          3,
+          40
+        ],
+        "coefficient": 9.467479403837725
+      },
+      {
+        "feature_index": 319,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          12,
+          30
+        ],
+        "coefficient": 8.777562875973473
+      },
+      {
+        "feature_index": 439,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          5,
+          26
+        ],
+        "coefficient": -8.233954426837935
+      },
+      {
+        "feature_index": 234,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          9,
+          11
+        ],
+        "coefficient": -8.051553428926226
+      },
+      {
+        "feature_index": 103,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          4,
+          30
+        ],
+        "coefficient": 7.988299393887368
+      },
+      {
+        "feature_index": 318,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          12,
+          29
+        ],
+        "coefficient": -7.698196496990541
+      },
+      {
+        "feature_index": 415,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          19
+        ],
+        "coefficient": -7.597322495909542
+      },
+      {
+        "feature_index": 1097,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          16,
+          20
+        ],
+        "coefficient": -7.492060014800655
+      },
+      {
+        "feature_index": 741,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          7,
+          26
+        ],
+        "coefficient": 7.02543513561016
+      },
+      {
+        "feature_index": 1088,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          15,
+          23
+        ],
+        "coefficient": -6.427808952857737
+      },
+      {
+        "feature_index": 564,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          9,
+          35
+        ],
+        "coefficient": 6.174166522298596
+      },
+      {
+        "feature_index": 207,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          8,
+          10
+        ],
+        "coefficient": -6.156528582069195
+      },
+      {
+        "feature_index": 475,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          6,
+          30
+        ],
+        "coefficient": 5.971360321332938
+      },
+      {
+        "feature_index": 419,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          23
+        ],
+        "coefficient": -5.820712510241725
+      },
+      {
+        "feature_index": 182,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          7,
+          13
+        ],
+        "coefficient": -5.616316997306998
+      },
+      {
+        "feature_index": 513,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          8,
+          10
+        ],
+        "coefficient": 5.562828484813782
+      },
+      {
+        "feature_index": 724,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          6,
+          24
+        ],
+        "coefficient": -5.36492861408437
+      },
+      {
+        "feature_index": 510,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          7,
+          35
+        ],
+        "coefficient": 5.319494011213585
+      },
+      {
+        "feature_index": 233,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          9,
+          10
+        ],
+        "coefficient": 5.194727141505221
+      },
+      {
+        "feature_index": 441,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          5,
+          28
+        ],
+        "coefficient": -5.190614517499717
+      },
+      {
+        "feature_index": 411,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          15
+        ],
+        "coefficient": -4.8961504641921785
+      },
+      {
+        "feature_index": 1341,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          6,
+          18,
+          24
+        ],
+        "coefficient": -4.8508629008439845
+      },
+      {
+        "feature_index": 1413,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          7,
+          21,
+          28
+        ],
+        "coefficient": -4.018633904503184
+      },
+      {
+        "feature_index": 945,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          19,
+          26
+        ],
+        "coefficient": -3.8198086962789857
+      },
+      {
+        "feature_index": 509,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          7,
+          34
+        ],
+        "coefficient": -3.312770914515672
+      },
+      {
+        "feature_index": 338,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          14,
+          15
+        ],
+        "coefficient": 3.162083679974065
+      },
+      {
+        "feature_index": 753,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          7,
+          38
+        ],
+        "coefficient": -3.0838329069545316
+      },
+      {
+        "feature_index": 456,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          6,
+          11
+        ],
+        "coefficient": -2.840468707264148
+      },
+      {
+        "feature_index": 1398,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          7,
+          18,
+          25
+        ],
+        "coefficient": -2.623735886569471
+      },
+      {
+        "feature_index": 1123,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          18,
+          28
+        ],
+        "coefficient": -2.571361024434699
+      },
+      {
+        "feature_index": 927,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          17,
+          22
+        ],
+        "coefficient": -2.4960317870683064
+      },
+      {
+        "feature_index": 721,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          6,
+          21
+        ],
+        "coefficient": 2.4791727807549724
+      },
+      {
+        "feature_index": 722,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          6,
+          22
+        ],
+        "coefficient": -2.462433781650806
+      },
+      {
+        "feature_index": 167,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          6,
+          28
+        ],
+        "coefficient": -2.3308704883065627
+      },
+      {
+        "feature_index": 1453,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          9,
+          19,
+          32
+        ],
+        "coefficient": -1.8886455216499163
+      },
+      {
+        "feature_index": 298,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          11,
+          29
+        ],
+        "coefficient": 1.8576523429822207
+      },
+      {
+        "feature_index": 914,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          16,
+          19
+        ],
+        "coefficient": -1.8353665511564283
+      },
+      {
+        "feature_index": 533,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          8,
+          30
+        ],
+        "coefficient": 1.6497475328815818
+      },
+      {
+        "feature_index": 332,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          13,
+          25
+        ],
+        "coefficient": 1.64838124638896
+      },
+      {
+        "feature_index": 660,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          15,
+          17
+        ],
+        "coefficient": 1.5780642377026632
+      },
+      {
+        "feature_index": 946,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          20,
+          23
+        ],
+        "coefficient": -1.4395133828091116
+      },
+      {
+        "feature_index": 110,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          4,
+          37
+        ],
+        "coefficient": 1.429795721933128
+      },
+      {
+        "feature_index": 938,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          18,
+          25
+        ],
+        "coefficient": -1.206114171987438
+      },
+      {
+        "feature_index": 1353,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          6,
+          20,
+          26
+        ],
+        "coefficient": -1.1921545267555618
+      },
+      {
+        "feature_index": 767,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          8,
+          24
+        ],
+        "coefficient": -1.0993378631610695
+      },
+      {
+        "feature_index": 1365,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          7,
+          15,
+          22
+        ],
+        "coefficient": -0.939883390434716
+      },
+      {
+        "feature_index": 847,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          11,
+          32
+        ],
+        "coefficient": 0.8807072375959691
+      },
+      {
+        "feature_index": 1,
+        "kind": "second",
+        "distance": 2,
+        "representative": null,
+        "coefficient": -0.8796951240823444
+      },
+      {
+        "feature_index": 274,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          10,
+          27
+        ],
+        "coefficient": -0.5611621485338251
+      },
+      {
+        "feature_index": 1460,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          10,
+          21,
+          31
+        ],
+        "coefficient": -0.544106931660493
+      },
+      {
+        "feature_index": 349,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          1,
+          14,
+          26
+        ],
+        "coefficient": 0.5348670149567022
+      },
+      {
+        "feature_index": 408,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "coefficient": 0.5313327972129404
+      },
+      {
+        "feature_index": 1086,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          15,
+          21
+        ],
+        "coefficient": -0.48870400827598337
+      },
+      {
+        "feature_index": 1243,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          5,
+          17,
+          24
+        ],
+        "coefficient": -0.3769288651036131
+      },
+      {
+        "feature_index": 1129,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          20,
+          24
+        ],
+        "coefficient": -0.2472150641899899
+      },
+      {
+        "feature_index": 718,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          3,
+          6,
+          18
+        ],
+        "coefficient": -0.2118720620315296
+      },
+      {
+        "feature_index": 458,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          2,
+          6,
+          13
+        ],
+        "coefficient": -0.15995086441821996
+      },
+      {
+        "feature_index": 1073,
+        "kind": "fourth",
+        "distance": null,
+        "representative": [
+          0,
+          4,
+          14,
+          22
+        ],
+        "coefficient": -0.11593580438978303
+      }
+    ]
+  },
+  "self_test": {
+    "block_comparison_cases": 25,
+    "valid_spin_symmetry_cases": 20,
+    "max_block_feature_defect": 1.1102230246251565e-16,
+    "max_valid_spin_symmetry_defect": 2.1066481892262345e-14,
+    "L2_alpha_0.17_vs_1.83_counterexample_defect": 0.36745044512677993,
+    "numpy_json_serialization_roundtrip": true,
+    "status": "block regression, restricted spin symmetry, and JSON serialization passed"
+  }
+}
