@@ -285,8 +285,8 @@ def main():
         raise RuntimeError("199-column finite-time certificate is not a uniform 41-edge path")
     if latest_time_cert.get("dual_certificate_sha256") != parent_dual_sha or latest_time_cert.get("lp_transcript_sha256") != parent_lp_sha or latest_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("199-column finite-time certificate does not pin the exact parent dual/LP/cut design")
-    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != latest_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != t_latest:
-        raise RuntimeError("199-column parent LP does not pin its own finite-time escape")
+    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != new_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != t_new:
+        raise RuntimeError("199-column parent LP does not pin its own 198-dual finite-time escape")
     if lp.get("parent_199col_uniform_ray_time_arb_certificate_sha256") != latest_time_cert_sha or Fraction(lp.get("parent_199col_uniform_ray_time_exact_rational")) != t_latest:
         raise RuntimeError("200-column LP does not pin the 199-column finite-time escape")
     if len(base_uniform_couplings) != 41 or any(value != base_t for value in base_uniform_couplings):
