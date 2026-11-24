@@ -1958,3 +1958,15 @@ Evidence:
 - [evidence commit 69dfb15](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/69dfb15)
 
 **Revised paper priority:** use the 41-atom ensemble as a warm start for column generation against all 1,440 fourth-order dihedral orbits. It does not yet satisfy all fourth-order moments, all sixth/eighth-order moments, or the all-even-principal-minor joint-parity condition. The conditional n=21 diamond theorem remains conditional.
+
+
+## 2026-11-24: full fourth-order orbit screen of the 41-atom candidate
+
+A deterministic floating audit evaluated all 111,930 four-subsets and all 1,440 dihedral fourth-order orbits of the Arb-certified 41-atom ensemble. It found 1,438/1,440 absolute residuals above 1e-8 and 720/1,440 relative absolute errors above 1/3. The largest midpoint residual is 0.0057556283852348965 at {0,10,20,30}. The 384-bit Arb ensemble certificate independently proves this probe's residual is strictly positive and the {0,1,2,4} residual strictly negative. The full-orbit counts and ranking are floating diagnostics, not interval proofs for every orbit.
+
+- [full-orbit audit JSON](evidence/ising_low_moment_two_fourth_fourth_audit_n21.json)
+- [audit script](audit_ising_low_moment_two_fourth_ensemble_fourth_orbits.py)
+- [successful workflow 45315655489](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45315655489)
+- [evidence commit 42d32b9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/42d32b9)
+
+The 41-atom ensemble is a useful low-moment warm start, but it is far from a fourth-order uniform design. The next step remains full 1,440-orbit column generation, not a claim of near-complete joint parity.
