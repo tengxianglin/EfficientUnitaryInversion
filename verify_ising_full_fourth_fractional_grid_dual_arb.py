@@ -24,6 +24,7 @@ WARM_CERT = ROOT / "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
 OUTPUT = ROOT / "evidence/ising_full_fourth_fractional_grid_dual_arb_n21.json"
 N = 42
 PRECISION_BITS = 128
+SEPARATION_FLOOR = Fraction(1, 4)
 
 
 def fractional_block(length, alpha):
@@ -233,9 +234,9 @@ def main():
         rotation = build_rotation(atom)
         score = full_score(rotation, system, coefficient_by_feature)
         gap = target_score - score
-        if not gap > 0:
+        if not gap > rational(SEPARATION_FLOOR):
             raise RuntimeError(
-                f"separator fails on base atom {base_index}: gap={gap}"
+                f"separator margin is not above 1/4 on base atom {base_index}: gap={gap}"
             )
         if minimum_gap is None or float(gap) < float(minimum_gap):
             minimum_gap = gap
@@ -254,9 +255,9 @@ def main():
                 block, length, second_coefficients, entries
             )
             gap = target_score - score
-            if not gap > 0:
+            if not gap > rational(SEPARATION_FLOOR):
                 raise RuntimeError(
-                    f"separator fails at L={length}, alpha={alpha_fraction}: gap={gap}"
+                    f"separator margin is not above 1/4 at L={length}, alpha={alpha_fraction}: gap={gap}"
                 )
             if minimum_gap is None or float(gap) < float(minimum_gap):
                 minimum_gap = gap
@@ -269,8 +270,8 @@ def main():
 
     if checked != 6123:
         raise RuntimeError(f"checked {checked} columns instead of 6123")
-    if not minimum_gap > 0:
-        raise RuntimeError("the minimum candidate separation is not strict")
+    if not minimum_gap > rational(SEPARATION_FLOOR):
+        raise RuntimeError("the selected smallest candidate gap is not above 1/4")
 
     result = {
         "status": "arb_certified_finite_6123_column_full_fourth_separator",
@@ -292,8 +293,9 @@ def main():
             for index, value in sorted(coefficient_by_feature.items())
         ],
         "target_score_interval": str(target_score),
-        "minimum_candidate_gap_interval": str(minimum_gap),
-        "minimum_gap_candidate_by_midpoint": minimum_label,
+        "certified_common_gap_lower_bound": "1/4",
+        "smallest_gap_candidate_interval_by_midpoint_selection": str(minimum_gap),
+        "smallest_gap_candidate_by_midpoint": minimum_label,
         "block_pricing_self_test": test,
         "proof": (
             "Let a_j be each of the 6,123 candidate feature columns restricted "
@@ -301,9 +303,11 @@ def main():
             "exact target. The frozen rational vector y satisfies y^T b > "
             "y^T a_j for every candidate j, as independently enclosed by Arb. "
             "For any probability vector p on this finite pool, "
-            "y^T(sum_j p_j a_j) <= max_j y^T a_j < y^T b, contradicting "
-            "the required moment equations. Hence the exact finite pool is "
-            "infeasible."
+            "y^T b - y^T a_j > 1/4 for every candidate j. For any "
+            "probability vector p on this finite pool, "
+            "y^T b - y^T(sum_j p_j a_j) > 1/4, contradicting the required "
+            "moment equations. Hence the exact finite pool is infeasible "
+            "with a certified common separation margin greater than 1/4."
         ),
         "scope": (
             "This is a rigorous obstruction for exactly the 22 pinned base "
