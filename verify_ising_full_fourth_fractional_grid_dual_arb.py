@@ -228,16 +228,29 @@ def main():
 
     minimum_gap = None
     minimum_label = None
+    minimum_gap_lower = None
+    minimum_gap_lower_label = None
+    quarter_floor = rational(SEPARATION_FLOOR)
+    quarter_margin_certified = True
+    first_quarter_failure = None
     checked = 0
     base_atoms = warm["atoms"][:22]
     for base_index, atom in enumerate(base_atoms):
         rotation = build_rotation(atom)
         score = full_score(rotation, system, coefficient_by_feature)
         gap = target_score - score
-        if not gap > rational(SEPARATION_FLOOR):
-            raise RuntimeError(
-                f"separator margin is not above 1/4 on base atom {base_index}: gap={gap}"
-            )
+        if not gap > 0:
+            raise RuntimeError(f"strict finite separator fails on base atom {base_index}: gap={gap}")
+        lower = gap.lower()
+        if minimum_gap_lower is None or lower < minimum_gap_lower:
+            minimum_gap_lower = lower
+            minimum_gap_lower_label = {"kind": "base", "base_index": base_index}
+        if not lower > quarter_floor:
+            quarter_margin_certified = False
+            if first_quarter_failure is None:
+                first_quarter_failure = {
+                    "kind": "base", "base_index": base_index, "gap_interval": str(gap)
+                }
         if minimum_gap is None or float(gap) < float(minimum_gap):
             minimum_gap = gap
             minimum_label = {"kind": "base", "base_index": base_index}
@@ -255,10 +268,19 @@ def main():
                 block, length, second_coefficients, entries
             )
             gap = target_score - score
-            if not gap > rational(SEPARATION_FLOOR):
+            if not gap > 0:
                 raise RuntimeError(
-                    f"separator margin is not above 1/4 at L={length}, alpha={alpha_fraction}: gap={gap}"
+                    f"strict finite separator fails at L={length}, alpha={alpha_fraction}: gap={gap}"
                 )
+            lower = gap.lower()
+            label = {"kind": "fractional", "length": length, "alpha": str(alpha_fraction)}
+            if minimum_gap_lower is None or lower < minimum_gap_lower:
+                minimum_gap_lower = lower
+                minimum_gap_lower_label = label
+            if not lower > quarter_floor:
+                quarter_margin_certified = False
+                if first_quarter_failure is None:
+                    first_quarter_failure = {**label, "gap_interval": str(gap)}
             if minimum_gap is None or float(gap) < float(minimum_gap):
                 minimum_gap = gap
                 minimum_label = {
@@ -270,8 +292,8 @@ def main():
 
     if checked != 6123:
         raise RuntimeError(f"checked {checked} columns instead of 6123")
-    if not minimum_gap > rational(SEPARATION_FLOOR):
-        raise RuntimeError("the selected smallest candidate gap is not above 1/4")
+    if minimum_gap_lower is None or not minimum_gap_lower > 0:
+        raise RuntimeError("no strictly positive global Arb lower endpoint was established")
 
     result = {
         "status": "arb_certified_finite_6123_column_full_fourth_separator",
@@ -293,7 +315,11 @@ def main():
             for index, value in sorted(coefficient_by_feature.items())
         ],
         "target_score_interval": str(target_score),
-        "certified_common_gap_lower_bound": "1/4",
+        "quarter_unit_margin_certified": quarter_margin_certified,
+        "certified_common_gap_lower_bound": "1/4" if quarter_margin_certified else None,
+        "first_candidate_not_certified_above_quarter": first_quarter_failure,
+        "minimum_candidate_gap_lower_endpoint": str(minimum_gap_lower),
+        "minimum_gap_lower_endpoint_candidate": minimum_gap_lower_label,
         "smallest_gap_candidate_interval_by_midpoint_selection": str(minimum_gap),
         "smallest_gap_candidate_by_midpoint": minimum_label,
         "block_pricing_self_test": test,
@@ -302,12 +328,14 @@ def main():
             "to the 1,313 independent moment rows, and let b be the corresponding "
             "exact target. The frozen rational vector y satisfies y^T b > "
             "y^T a_j for every candidate j, as independently enclosed by Arb. "
-            "For any probability vector p on this finite pool, "
-            "y^T b - y^T a_j > 1/4 for every candidate j. For any "
-            "probability vector p on this finite pool, "
-            "y^T b - y^T(sum_j p_j a_j) > 1/4, contradicting the required "
-            "moment equations. Hence the exact finite pool is infeasible "
-            "with a certified common separation margin greater than 1/4."
+            "For any probability vector p on this finite pool, the convex "
+            "combination gap is the probability-weighted average of these "
+            "strictly positive column gaps, so it is strictly positive and "
+            "the exact finite pool is infeasible."
+            + (" Every individual gap lower endpoint also exceeds 1/4, "
+               "giving a certified common margin greater than 1/4."
+               if quarter_margin_certified else
+               " The stronger 1/4 common-margin test was not certified.")
         ),
         "scope": (
             "This is a rigorous obstruction for exactly the 22 pinned base "
