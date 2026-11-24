@@ -148,7 +148,7 @@
   "complete": true,
   "connected_random_count": 256,
   "coupling_convention": "A[j,j+1]=2*c[j], A[j+1,j]=-2*c[j], j=0,...,40; c[41]=0. The wrap edge is exactly cut. Internal zero couplings split the open path.",
-  "elapsed_seconds": 51.620684245999996,
+  "elapsed_seconds": 41.697036804,
   "escape_discovery_margin": 1e-06,
   "fractional_perturbation_count": 128,
   "gradient_self_test": {
