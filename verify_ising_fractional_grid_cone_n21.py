@@ -187,6 +187,7 @@ def main():
             "subset of this exact finite grid can repair the distant probe "
             "while preserving the 22 base constraints."
         ),
+        "output": str(OUTPUT.relative_to(ROOT)),
         "scope": (
             "This is a rigorous finite-grid convex-cone obstruction for "
             "L=2,...,42 and alpha in {0,0.1,...,2}. It does not cover "
