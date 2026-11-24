@@ -1,0 +1,33 @@
+name: EUI Pauli classifier regression
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "tests/test_pauli_classifier_regression.py"
+      - "utils/hamiltonian_utils.py"
+      - "utils/comb.py"
+      - "pauli_solution_search.py"
+      - ".github/workflows/eui-pauli-classifier-regression.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: eui-pauli-classifier-regression
+  cancel-in-progress: false
+
+jobs:
+  classifier-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Compile classifier and comb-search entry points
+        run: |
+          python -m py_compile utils/hamiltonian_utils.py utils/comb.py pauli_solution_search.py
+      - name: Run dependency-light classifier regression
+        run: |
+          python -m unittest discover -s tests -p "test_pauli_classifier_regression.py" -v
