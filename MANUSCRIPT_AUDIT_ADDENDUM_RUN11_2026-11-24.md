@@ -76,3 +76,14 @@ The 6,129-column full-second/fourth workflow has produced a diagnostic JSON with
 4. Do not infer Choi-state trace distance or channel diamond distance from the program-label TV/moment bounds without a separate operational theorem.
 5. Do not describe Appendix B's average over 10,000 random Hamiltonians as a worst-case guarantee.
 6. No manuscript-source edit is claimed because manuscript and supplement source files are not tracked in this repository.
+
+
+## 197-column mixed-order discovery (2026-11-24)
+
+The first completed 197-column HiGHS run (workflow [45418660688](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45418660688)) successfully appended the fifth explicit uniform positive-coupling path at column 1654. On the same fixed 2,113-row design it returned
+\[
+\epsilon_{197}^{\rm HiGHS}=0.41510755390323995>\frac13,
+\]
+with independently recomputed maximum residual 0.41510755390327847 and binary64 primal/dual gap below \(4\times10^{-16}\). The floating dual has \(\ell_1\)-norm 1 and discovery objective 0.4151075539032396.
+
+This is **not yet a theorem**: the floating dual has not been rationalized and Arb-verified on all 197 columns. The independent verifier is now tracked at [verify_197col_uniform_ray_dual_arb.py](verify_197col_uniform_ray_dual_arb.py). The verifier's Python compilation passed in the first workflow run. The follow-up workflow [45420486905](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45420486905) is queued to re-run all pinned ancestor certificates, recompute the 197-column LP, rationalize the new dual, and certify all 197 column inequalities at 128-bit Arb precision. No 197-column finite-pool lower bound is claimed until that verification completes.
