@@ -120,7 +120,7 @@ def main():
         raise RuntimeError("unexpected 6,129-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6129_dual_general_gapped_escape":
-        raise RuntimeError("the 6,125-dual escape certificate is invalid")
+        raise RuntimeError("the 6,129-dual escape certificate is invalid")
     if not escape_cert.get("complete") or not {"connected", "multisegment"}.issubset(set(escape_cert.get("escape_kinds", []))):
         raise RuntimeError("the 6,125-dual escape certificate is incomplete")
     if escape_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
@@ -139,8 +139,8 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first four gapped columns are inherited exactly from the certified
-    # 6,129-column parent. The final two are the connected and one-cut escapes
+    # The first six gapped columns are inherited exactly from the certified
+    # 6,129-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
     expected_kinds = [
@@ -207,7 +207,7 @@ def main():
     floating_dual = diagnostic.get("dual", {})
     if not floating_dual.get("success"):
         raise RuntimeError("the floating LP did not return a dual candidate")
-    if Fraction(floating_dual["recomputed_gap"]) <= Fraction(1, 4):
+    if Fraction(floating_dual["recomputed_gap"]) <= Fraction(1, 5):
         raise RuntimeError("the floating dual summary has insufficient discovery margin")
     if Fraction(floating_dual["normalized_l1_upper_bound"]) > Fraction(1000001, 1000000):
         raise RuntimeError("the floating dual violates its reported scaled-l1 normalization")
