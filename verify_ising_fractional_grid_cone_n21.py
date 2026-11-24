@@ -182,7 +182,7 @@ def main():
             "sigma_j+lambda^T u_j>0 for all 861 candidates, and "
             "lambda^T p<Delta_0. Any nonnegative added weights tau that keep "
             "the old weights p-U tau nonnegative satisfy U tau<=p. Hence "
-            "-sigma^T tau < = lambda^T U tau <= lambda^T p < Delta_0, "
+            "-sigma^T tau <= lambda^T U tau <= lambda^T p < Delta_0, "
             "so Delta_0+sigma^T tau>0. Thus no nonnegative mixture of any "
             "subset of this exact finite grid can repair the distant probe "
             "while preserving the 22 base constraints."
