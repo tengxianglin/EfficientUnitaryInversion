@@ -95,3 +95,28 @@ It does not establish an all-even-principal-minor obstruction or a positive join
 ## Next decisive step
 
 Price this *new* exact rational dual over the full 41-coupling nonuniform gapped open-path family. Search for a certified negative-slack seed. If one exists, freeze its rational couplings and independently Arb-certify the escape before appending it and reoptimizing. If the search finds no escape, that is only finite numerical evidence; a continuum no-go still requires a rigorous global pricing argument.
+
+## Corollary: finite-pool program-mass total-variation lower bound
+
+The exact program/DPP identity in `THEORY_PROGRAM_DPP.md` states that, for every even Majorana index set (I),
+[
+mathbb E_{[T]sim w_R}(-1)^{|I\cap T|}=det R_{I,I}.
+]
+For each second-order distance orbit or fourth-order dihedral orbit (O), define
+[
+phi_O([T])=\frac1{|O|}\sum_{I\in O}(-1)^{|I\cap T|}.
+]
+Each summand is (pm1), hence (|phi_O|_inftyle1). The 1,461 coordinates of (F(R)) are precisely expectations of these bounded orbit characters (with the same orbit averaging, including the antipodal second-order orbit). The target vector (b) is the corresponding expectation under the uniform balanced-label distribution (u_{\rm bal}).
+
+For a mixture (p) on (mathcal P_{6125}), the certified moment theorem gives
+[
+\max_O|\mathbb E_{w_p}\phi_O-\mathbb E_{u_{\rm bal}}\phi_O|
+=\|b-Ap\|_\infty>\frac1{2665}.
+]
+The variational inequality for total variation, (|\mathbb E_P f-\mathbb E_Q f|\le2\operatorname{TV}(P,Q)) when (|f|_infty\le1), therefore yields
+[
+oxed{\operatorname{TV}(w_p,u_{\rm bal})>\frac1{5330}.}
+]
+Equivalently, the trace distance between the corresponding dephased program-label registers exceeds (1/5330).
+
+**Scope:** this is a lower bound on the classical program-label mass distribution (or its dephased register) for mixtures supported on this exact 6,125-column pool. It is not a Choi-state trace-distance or channel diamond-distance bound, and it does not cover arbitrary gapped couplings outside the pool.
