@@ -185,3 +185,44 @@ The search is discovery only; this exact-rational interval is the proof. See the
 
 The paper-central blockers remain: construct an exact positive ensemble satisfying every even-principal-minor constraint at \(n=21\), or prove a global physical-family obstruction; establish a separate operational bridge to Choi/diamond error; and recover the actual manuscript/supplement source files. No manuscript-source edit is claimed because no tracked .tex, .bib, or compiled .pdf is present.
 
+
+
+## 2026-11-25 continuation: 200-column mixed-order theorem and exact TV corollary
+
+A new **200-column / 2,113-row mixed-order finite-pool obstruction** is now certified. The exact rational dual has \\(\\|z\\|_1=1\\), and 128-bit Arb checks all 200 physical columns. The maximum shifted-column upper endpoint is
+\\[
+-6.28103085754082\\times10^{-10}<0.
+\\]
+The exact minimax lower bound is
+\\[
+\\eta_{200}\\ge
+\\frac{604278563840813954190133571}
+{1537228672809866429000000000}
+=0.39309607902139015\\ldots>\\frac13.
+\\]
+The 2,113 rows contain 1,461 complete second-/fourth-order coordinates, 645 selected/cut sixth-order rows, and seven selected eighth-order rows. This is a theorem for the exact 200 listed physical columns and fixed row design only. The sixth/eighth inventories are incomplete; the result is not a continuous-family obstruction or an operational Choi/diamond converse.
+
+The certificate was independently generated and committed in [29f7a3b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/29f7a3b3eb2f08b92650a40c5d37027aeed510e9); the successful 128-bit Arb run is [workflow 45468281881](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45468281881). The formal note is [THEORY_200COL_MIXED_ORDER_RATIONAL_DUAL_AUDIT_N21.md](THEORY_200COL_MIXED_ORDER_RATIONAL_DUAL_AUDIT_N21.md).
+
+### Program-mass TV consequence
+
+The exact dual and row scales yield the bounded-character coefficient norm
+\\[
+M=\\frac{91957325757615679956959}{23058430092147996435}.
+\\]
+Consequently every probability mixture on this 200-column pool in one selected parity sector satisfies
+\\[
+\\operatorname{TV}(w_p,u_{\\rm bal})>
+\\frac{1812835691522441862570400713}
+{36782930303046271982783600000000}
+\\approx4.9284700174425941841\\times10^{-5}.
+\\]
+This is a balanced program-label mass / dephased-register trace-distance statement only. The exact rational derivation is independently reproduced by [verify_200col_program_mass_tv_bound.py](verify_200col_program_mass_tv_bound.py), with frozen output [200col_program_mass_tv_bound_n21.json](evidence/200col_program_mass_tv_bound_n21.json). [Workflow 45470696682](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45470696682) passed the exact recomputation and byte-for-byte evidence comparison.
+
+### 6,131-column full-fourth reoptimization
+
+The 6,129-column dual was escaped by two additional paths, so the full second-/fourth-order candidate pool was expanded to 6,131 columns (22 base + 6,101 fractional-grid + eight exact-rational gapped paths). Its current floating LP diagnostic has 82 nonzero dual coefficients and recomputed gap 0.24950334835092092. The first Arb attempt failed only at a stale harness assertion expecting 80 coefficients; no interval inequality had yet failed and no 6,131-column theorem was claimed. The assertion and stale scope comments were corrected in [commit 2dd6c7a](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/2dd6c7ad02f3461c4ddf29a9d5a23351645e8e50). The corrected full reoptimization/Arb workflow [45469881533](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45469881533) has passed compilation/regressions and the LP step; its independent Arb verifier is still running. No 6,131-column theorem is promoted until that verifier completes.
+
+## Source audit status
+
+A recursive Git tree inspection found 926 tracked paths and no `.tex`, `.bib`, `.bbl`, `.bst`, `.pdf`, `.docx`, `.odt`, or `.rtf` manuscript/supplement artifact. The accessible paper remains [arXiv:2506.20570v1](https://arxiv.org/html/2506.20570v1). Thus no manuscript-source edit is claimed; the current paper-facing changes are theory notes, exact certificates, reproducibility scripts, and this claim-scope audit.
