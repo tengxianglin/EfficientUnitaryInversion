@@ -221,3 +221,16 @@ Evidence and workflow:
 This result is a positive physical ensemble for 21 second moments and two specified fourth-order dihedral probes only. It does not satisfy the full set of 1,440 fourth-order orbits, all sixth/eighth-order minors, or the all-even-principal-minor target. It therefore does not activate the conditional n=21 joint-parity diamond theorem.
 
 The next decisive task is column generation with the complete 1,440 fourth-order orbit constraints. The current 41-atom ensemble is a warm start, not a final program-uniform design. Any subsequent claim must retain exact positive weights and independently certify the full orbit system before moving to higher even orders.
+
+## Full 1,440-orbit fourth-order diagnostic
+
+The 41-atom ensemble was subsequently screened over all 111,930 four-subsets, grouped into all 1,440 dihedral orbits. This is a floating diagnostic on midpoint rotations and weights, not an interval proof for every orbit. It finds:
+
+- 1,438/1,440 orbits have absolute residual above 1e-8;
+- 720/1,440 orbits have relative absolute error above 1/3;
+- maximum absolute residual midpoint is 0.0057556283852348965 at representative {0,10,20,30}, whose target is 0.001876172607879925.
+
+The independent 384-bit Arb certificate already proves the residual at {0,10,20,30} is strictly positive (interval [0.00576 +/- 7.86e-6]) and the residual at {0,1,2,4} is strictly negative. The all-orbit count/ranking remains a numerical diagnostic; the exact two-probe positive result is unchanged.
+
+Reproducible output: [full fourth-orbit diagnostic](evidence/ising_low_moment_two_fourth_fourth_audit_n21.json), [audit script](audit_ising_low_moment_two_fourth_ensemble_fourth_orbits.py), [workflow 45315655489](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45315655489), [evidence commit 42d32b9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/42d32b9).
+
