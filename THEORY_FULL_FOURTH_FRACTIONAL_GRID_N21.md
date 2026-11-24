@@ -65,3 +65,44 @@ The self-test compares the block-minor implementation against the independent fu
 ## Current status
 
 The corrected experiment is queued by the accompanying GitHub Actions workflow. No full fourth-order feasibility or obstruction claim is made until its result is observed and, where possible, independently interval-certified.
+
+
+## 2026-11-24 finite-grid LP result and independent Arb follow-up
+
+The corrected 6,123-column / 1,314-equality discovery run is
+[workflow 45342873531](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45342873531).
+Its block-minor/spin-symmetry/JSON self-test passed. HiGHS reported the
+primal equality system **infeasible** and returned a floating separator
+candidate with 80 nonzero coefficients. In the row-scaled feature
+coordinates used by the discovery LP, the reported target score is
+0.3487804171641443, the largest candidate score is 0.08174401205804915,
+and the recomputed gap is 0.2670364051060969. The frozen output is
+[evidence/ising_full_fourth_fractional_grid_n21.json](evidence/ising_full_fourth_fractional_grid_n21.json).
+
+This is **not yet a theorem**: the HiGHS dual was originally binary64.
+The exact decimal coefficients have been frozen as rational inputs, and
+the independent verifier
+[verify_ising_full_fourth_fractional_grid_dual_arb.py](verify_ising_full_fourth_fractional_grid_dual_arb.py)
+checks the separator score against every one of the 6,123 physical columns
+using 128-bit Arb. The corresponding workflow is
+[.github/workflows/eui-full-fourth-fractional-grid-arb-n21.yml](.github/workflows/eui-full-fourth-fractional-grid-arb-n21.yml).
+It uses the exact block-minor reduction to price only the 80 nonzero
+fourth-order orbit coefficients, plus the selected second moments. The
+proof target is the strict finite-pool inequality
+\[
+y^{\mathsf T}b>\max_{1\le j\le6123}y^{\mathsf T}a_j,
+\]
+which alone excludes every probability mixture on this exact finite pool.
+No \(\ell_1\)-norm or continuous-parameter claim is needed for this
+finite convex-hull separation.
+
+A workflow plumbing defect was also fixed: \`solve_full_grid\` now returns
+its diagnostic to \`main\` after writing it, instead of returning \`None\`.
+The earlier run had completed the LP and printed the full JSON before
+failing at that missing return. This does not change the numerical result.
+
+Even if Arb confirms the separator, its scope remains exactly the 22
+pinned base atoms plus the corrected 6,101-column fractional
+single-open-path grid. It will not exclude intermediate alpha values,
+arbitrary gapped couplings, or multi-segment paths outside the grid, and
+it does not resolve the continuous-family ensemble question.
