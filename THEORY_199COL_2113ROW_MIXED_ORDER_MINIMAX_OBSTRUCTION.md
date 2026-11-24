@@ -87,7 +87,7 @@ Equivalently, the trace distance of the corresponding **dephased program-label r
 
 - The finite-pool theorem and TV corollary apply only to the exact 199 columns and this fixed 2,113-row design.
 - The 645 sixth-order and 7 eighth-order rows are selected/cut inventories, not complete higher-order orbit systems.
-- A finite-pool dual is not automatically a separator of the continuous physical family. The 199-column dual is currently undergoing its own 21-dimensional uniform-path torus pricing; only a strictly positive independent Arb interval would establish an escape from this particular dual.
+- A finite-pool dual is not automatically a separator of the continuous physical family. For the 199-column dual, a deterministic 16-start search found a positive 21-torus point with binary64 score 1.3039304930013147. The independent 128-bit Arb certificate encloses the exact-decimal phase point at \([1.3039304930013150180208493982584973\pm6.62\times10^{-35}]>0\). By the exact rational-independence/dense-ray theorem for the 42-site uniform open path, continuity implies that some finite equal-positive-coupling time (t>0) escapes this particular dual. This does not invalidate the finite 199-column theorem.
 - The program-mass TV statement is classical/dephased. It is **not** a Choi-state trace-distance or channel diamond-distance bound.
 - The full (n=21) all-even-principal-minor positive ensemble (or a global physical-family obstruction), the operational Choi/diamond bridge, and tracked manuscript/supplement sources remain open.
 
@@ -99,7 +99,15 @@ Equivalently, the trace distance of the corresponding **dephased program-label r
 - [Exact program-mass TV verifier](verify_199col_program_mass_tv_bound.py)
 - [199-column reoptimization](reoptimize_199col_uniform_ray_escape.py)
 - [199-column torus pricing discovery](discover_199col_uniform_torus_pricing.py)
+- [199-column torus search transcript](evidence/199col_uniform_torus_search_n21.json)
+- [Independent 128-bit Arb torus certificate](evidence/199col_uniform_torus_arb_n21.json)
 - [Dense-torus theorem](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md)
 - [Successful reoptimization workflow](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45442617400)
 - [Successful 128-bit Arb dual-certification workflow](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45443651012)
-- [199-column torus pricing workflow](.github/workflows/eui-199col-uniform-torus-pricing.yml)
+- [199-column torus pricing workflow 45445503907](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45445503907)
+- [199-column finite-time pricing workflow](.github/workflows/eui-199col-uniform-ray-time.yml)
+
+
+## Explicit finite-time refinement
+
+The positive torus witness proves existence of a finite positive equal-coupling time by density, but it does not itself identify that time. A separate bounded search over six windows (10^{-3}) through (10^8), followed by an exact-decimal 128-bit Arb verifier, is now running. The search and verifier are pinned in `discover_199col_uniform_ray_time_escape.py` and `verify_199col_uniform_ray_time_arb.py`; workflow [45446134912](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45446134912) is the current run. A decimal candidate will be accepted only if its exact rational value is positive and the independently enclosed pricing interval is strictly positive.
