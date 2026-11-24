@@ -124,3 +124,10 @@ The verifier reconstructs the base \(22\times22\) system and every candidate rot
 This is a finite-grid convex-cone obstruction for nonnegative mixtures of any subset of the 27 predeclared fractional seeds. It is not a no-go theorem for continuous fractional-transfer parameters outside the grid, arbitrary gapped couplings, or the full all-even-moment ensemble. It does not activate the conditional n=21 joint-parity diamond theorem.
 
 The next decisive step is to move beyond this finite fractional grid and use multi-atom column generation over general gapped couplings, enforcing the complete fourth-order orbit family rather than one distant probe at a time. Any resulting ensemble must still pass all higher even moments before the long-ring diamond theorem becomes unconditional.
+
+
+## 2026-11-24 correction in scope: a finer grid produces a positive multi-atom repair
+
+The 27-seed convex-cone obstruction above remains correct for exactly its predeclared finite set. It is not stable as a statement about the continuous fractional family. A deterministic 8,241-column search over L=2,...,42 and alpha=k/100 found 19 new fractional atoms which, together with all 22 base atoms, give a positive 41-atom ensemble matching the 21 second moments and both the consecutive and distant fourth-order probes. The independent 384-bit Arb certificate is in [evidence/ising_low_moment_two_fourth_ensemble_n21.json](evidence/ising_low_moment_two_fourth_ensemble_n21.json); the derivation is in [THEORY_LOW_MOMENT_TWO_FOURTH_PROBE_ENSEMBLE_N21.md](THEORY_LOW_MOMENT_TWO_FOURTH_PROBE_ENSEMBLE_N21.md).
+
+A separate 861-seed Farkas certificate also excludes all nonnegative mixtures from the exact coarse grid alpha=k/10, but the finer 0.01 grid bypasses that finite-family obstruction. Therefore neither the 27-seed nor 861-seed result is a global no-go for fractional physical paths. The 41-atom construction still fails other fourth-order probes and does not satisfy the all-even-minor joint-parity condition.
