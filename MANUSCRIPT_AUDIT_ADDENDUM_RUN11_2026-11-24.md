@@ -87,3 +87,37 @@ The first completed 197-column HiGHS run (workflow [45418660688](https://github.
 with independently recomputed maximum residual 0.41510755390327847 and binary64 primal/dual gap below \(4\times10^{-16}\). The floating dual has \(\ell_1\)-norm 1 and discovery objective 0.4151075539032396.
 
 This is **not yet a theorem**: the floating dual has not been rationalized and Arb-verified on all 197 columns. The independent verifier is now tracked at [verify_197col_uniform_ray_dual_arb.py](verify_197col_uniform_ray_dual_arb.py). The verifier's Python compilation passed in the first workflow run. The follow-up workflow [45420486905](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45420486905) is queued to re-run all pinned ancestor certificates, recompute the 197-column LP, rationalize the new dual, and certify all 197 column inequalities at 128-bit Arb precision. No 197-column finite-pool lower bound is claimed until that verification completes.
+
+
+## Final run-11 correction: 197-column mixed-order dual is now Arb-certified
+
+The pending statement in the preceding section is superseded by the completed authoritative workflow [45420486905](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45420486905), which successfully re-ran the pinned 197-column LP and independently certified its rational dual.
+
+For the exact 197-column pool and 2,113-row design (1,461 complete second-/fourth-order rows, 645 selected/cut sixth-order rows, and seven selected eighth-order rows), the 128-bit Arb verifier certifies all 197 rational-dual inequalities. The exact dual has
+\[
+\|z\|_1=\frac{2305843009213687359}{2305843009213693952}<1,
+\]
+\[
+\beta=\lambda+z^{\mathsf T}b
+=\frac{957172851239594049}{2305843009213693952},
+\qquad \delta=10^{-10},
+\]
+and hence the finite-pool minimax lower bound
+\[
+\min_{p\in\Delta_{197}}\|Ap-b\|_\infty
+\ge
+\beta-\delta
+=\frac{9347391123134860821080377}{22517998136852480000000000}
+=0.415107553803245\ldots>\frac13.
+\]
+The largest Arb upper endpoint among the 197 shifted column inequalities is
+\[
+-6.236499982702207\times10^{-11}<0.
+\]
+The exact dual support is 63 rows (2 low-order, 59 sixth-order, 2 eighth-order). This is a finite-pool theorem only; the 645 sixth and seven eighth rows are selected/cut inventories, not complete higher-order orbit systems.
+
+Evidence: [certificate JSON](evidence/55probe_197col_uniform_ray_escape_dual_certificate_n21.json), [independent verifier](verify_197col_uniform_ray_dual_arb.py), [theory note](THEORY_197COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md), [workflow 45420486905](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45420486905), and [certificate commit 3ba48b8](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/3ba48b8ee85f69906613c817e20e69e1c05bea10).
+
+A new 21-dimensional uniform-path torus-pricing search against this 197-column rational dual is now running in [workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355). A positive candidate will count as a continuous-ray escape only after the exact-decimal phase vector is independently certified by Arb. Failure of this finite multi-start search is not a global separation proof.
+
+The 197-column result does not resolve the full all-even-principal-minor ensemble problem, the global continuous physical-family problem, or the separate Choi/diamond operational bridge. No manuscript-source edit is claimed: the repository still lacks tracked manuscript/supplement TeX, Bib, and PDF files.
