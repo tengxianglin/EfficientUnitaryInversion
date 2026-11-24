@@ -1,0 +1,137 @@
+{
+  "status": "positive_finite_uniform_ray_candidate_found",
+  "complete": true,
+  "discovery_only": true,
+  "dual_certificate_sha256": "d5bc214a70bdb610c034ef673252be8d7109d31b18a33d4bc5ac25e9c993e06f",
+  "lp_transcript_sha256": "b2bf21c4656b0e46e544a3fe1f72ffea651ea7f138e2c518b17609c6633ddf00",
+  "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
+  "torus_arb_certificate_sha256": "404fce590f56a4a67810f996c52fb140fca465d7d32ec9cbdbc2ba3e929707dd",
+  "torus_phase_vector_sha256": "dfc9860be79dcaad49971cbc28f0ad5fe9fa0eca77475fcda7f848a782138813",
+  "torus_pricing_interval": "[1.3026969054283107647764243746907199 +/- 8.46e-35]",
+  "uniform_path": "c_j=t for j=0,...,40, with closing edge zero and t>0",
+  "frequency_formula": "omega_k=4*cos(k*pi/43), k=1,...,21",
+  "search_ranges": [
+    [
+      0.001,
+      1000.0
+    ],
+    [
+      1000.0,
+      10000.0
+    ],
+    [
+      10000.0,
+      100000.0
+    ],
+    [
+      100000.0,
+      1000000.0
+    ],
+    [
+      1000000.0,
+      10000000.0
+    ],
+    [
+      10000000.0,
+      100000000.0
+    ]
+  ],
+  "max_iterations_per_range": 200,
+  "population_size": 20,
+  "best_t_exact_decimal": "59359.823944678282714",
+  "best_score_binary64": 0.45787261743545166,
+  "candidate_found": true,
+  "records": [
+    {
+      "range_index": 0,
+      "bounds": [
+        0.001,
+        1000.0
+      ],
+      "seed": 2026112501,
+      "iterations": 50,
+      "function_evaluations": 1022,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully.",
+      "t_exact_decimal": "958.216294415786251",
+      "score_at_optimizer_t_binary64": 0.24259907709348205,
+      "score_at_rounded_t_binary64": 0.24259907709348205
+    },
+    {
+      "range_index": 1,
+      "bounds": [
+        1000.0,
+        10000.0
+      ],
+      "seed": 2026112502,
+      "iterations": 32,
+      "function_evaluations": 674,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully.",
+      "t_exact_decimal": "4373.221580682517924",
+      "score_at_optimizer_t_binary64": 0.350648310794618,
+      "score_at_rounded_t_binary64": 0.350648310794618
+    },
+    {
+      "range_index": 2,
+      "bounds": [
+        10000.0,
+        100000.0
+      ],
+      "seed": 2026112503,
+      "iterations": 200,
+      "function_evaluations": 4036,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "t_exact_decimal": "59359.823944678282714",
+      "score_at_optimizer_t_binary64": 0.45787261743545166,
+      "score_at_rounded_t_binary64": 0.45787261743545166
+    },
+    {
+      "range_index": 3,
+      "bounds": [
+        100000.0,
+        1000000.0
+      ],
+      "seed": 2026112504,
+      "iterations": 200,
+      "function_evaluations": 4052,
+      "optimizer_success": false,
+      "optimizer_message": "Maximum number of iterations has been exceeded.",
+      "t_exact_decimal": "507751.186841514252592",
+      "score_at_optimizer_t_binary64": 0.3864517661684372,
+      "score_at_rounded_t_binary64": 0.3864517661684372
+    },
+    {
+      "range_index": 4,
+      "bounds": [
+        1000000.0,
+        10000000.0
+      ],
+      "seed": 2026112505,
+      "iterations": 62,
+      "function_evaluations": 1292,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully.",
+      "t_exact_decimal": "1192984.877728522988036",
+      "score_at_optimizer_t_binary64": 0.35457019949566065,
+      "score_at_rounded_t_binary64": 0.35457019949566065
+    },
+    {
+      "range_index": 5,
+      "bounds": [
+        10000000.0,
+        100000000.0
+      ],
+      "seed": 2026112506,
+      "iterations": 71,
+      "function_evaluations": 1508,
+      "optimizer_success": true,
+      "optimizer_message": "Optimization terminated successfully.",
+      "t_exact_decimal": "83580770.282893389463425",
+      "score_at_optimizer_t_binary64": 0.3665776276051167,
+      "score_at_rounded_t_binary64": 0.3665776276051167
+    }
+  ],
+  "scope": "A positive binary64 score is only a discovery candidate. An explicit finite-time physical escape is established only if the independent 128-bit Arb verifier certifies the exact decimal t>0 against the pinned 198-column rational dual. Failure of these bounded searches does not undo the already certified positive torus point and dense-ray existence theorem."
+}
