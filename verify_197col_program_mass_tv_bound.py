@@ -6,8 +6,10 @@ coefficient L1 bound from the pinned rational dual and exact row scales.
 import hashlib
 import json
 from fractions import Fraction
+from pathlib import Path
 
-from audit_complete_sixth_moments import ROOT
+ROOT = Path(__file__).resolve().parent
+EXPECTED_CERT_SHA256 = "9a0b5bff2a99e8482e6bc2421529482e0232026b"
 
 CERT_PATH = ROOT / "evidence/55probe_197col_uniform_ray_escape_dual_certificate_n21.json"
 THEORY_PATH = ROOT / "THEORY_PROGRAM_DPP.md"
@@ -30,6 +32,8 @@ def main():
     cert_raw = CERT_PATH.read_bytes()
     theory_raw = THEORY_PATH.read_bytes()
     cert = json.loads(cert_raw)
+    if sha(cert_raw) != EXPECTED_CERT_SHA256:
+        raise RuntimeError("the exact rational dual certificate hash changed")
     if cert.get("status") != "strict_197col_2113row_uniform_ray_escape_minimax_obstruction" or not cert.get("complete"):
         raise RuntimeError("the 197-column rational dual is not strictly Arb-certified")
     if (cert.get("column_count"), cert.get("row_count")) != (197, ROW_COUNT):
