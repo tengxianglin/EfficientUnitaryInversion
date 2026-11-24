@@ -460,6 +460,7 @@ def solve_full_grid(system, warm, warm_sha):
     serialized = json.dumps(json_safe(output), indent=2) + "\n"
     OUTPUT.write_text(serialized)
     print(serialized, end="", flush=True)
+    return output
 
 
 def main():
