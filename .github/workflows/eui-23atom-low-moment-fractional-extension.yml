@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "verify_ising_low_moment_fractional_extension.py"
+      - "verify_ising_low_moment_zero_slope_refinement.py"
       - "verify_ising_low_moment_design.py"
       - "verify_ising_two_mirror_obstruction.py"
       - "verify_ising_minor_obstruction.py"
@@ -35,11 +36,16 @@ jobs:
           OPENBLAS_NUM_THREADS: "2"
           PYTHONDONTWRITEBYTECODE: "1"
         run: python verify_ising_low_moment_fractional_extension.py
-      - name: Commit only the generated certificate
+      - name: Refine the two unresolved slopes at 768-bit Arb
+        env:
+          OPENBLAS_NUM_THREADS: "2"
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python verify_ising_low_moment_zero_slope_refinement.py
+      - name: Commit only the generated certificates
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add evidence/ising_low_moment_fractional_extension_n21.json
+          git add evidence/ising_low_moment_fractional_extension_n21.json evidence/ising_low_moment_zero_slope_refinement_n21.json
           if git diff --cached --quiet; then
             echo "No certificate changes to commit."
             exit 0
@@ -50,5 +56,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: eui-n21-fractional-low-moment-extension
-          path: evidence/ising_low_moment_fractional_extension_n21.json
+          path: |
+            evidence/ising_low_moment_fractional_extension_n21.json
+            evidence/ising_low_moment_zero_slope_refinement_n21.json
           if-no-files-found: error
