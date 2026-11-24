@@ -86,7 +86,7 @@ Reproduction:
 - [198-column reoptimizer](reoptimize_198col_uniform_ray_escape.py)
 - [Successful reoptimization workflow 45424946690](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45424946690)
 - [Successful dual-certification workflow 45425975195](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45425975195)
-- [Dual certificate commit fa265bd](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/fa265bd)
+- [Dual certificate commit fa265bd](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/fa265bdd0215706f547fa5ed00b8e8cff9c0ae4b)
 
 ## Scope and next continuum pricing
 
