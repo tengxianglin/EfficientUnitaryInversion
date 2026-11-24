@@ -148,8 +148,8 @@ def main():
         "new_general_gapped_escape",
         "new_connected_escape",
         "new_multisegment_escape",
-        "new_connected_escape_6129_dual",
-        "new_two_segment_escape_6129_dual",
+        "new_connected_escape_6127_dual",
+        "new_two_segment_escape_6127_dual",
         "new_connected_escape_from_6129_dual",
         "new_two_segment_escape_from_6129_dual",
     ]
