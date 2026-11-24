@@ -252,7 +252,7 @@ def solve_full_grid(system, warm, warm_sha):
         raise RuntimeError("the 6,125-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != parent_sha:
         raise RuntimeError("the parent Arb certificate does not pin the current parent diagnostic")
-    if parent.get("status") != "floating_full_fourth_6127_column_separator_candidate_not_arb_certified":
+    if parent.get("status") != "floating_full_fourth_6125_column_separator_candidate_not_arb_certified":
         raise RuntimeError("the parent diagnostic is not the pinned 6,125-column reoptimization")
     if parent.get("candidate_count") != 6125 or len(parent.get("appended_gapped_columns", [])) != 2:
         raise RuntimeError("the parent diagnostic does not contain exactly two appended gapped paths")
