@@ -87,9 +87,9 @@ Equivalently, the trace distance of the corresponding **dephased program-label r
 
 - The finite-pool theorem and TV corollary apply only to the exact 199 columns and this fixed 2,113-row design.
 - The 645 sixth-order and 7 eighth-order rows are selected/cut inventories, not complete higher-order orbit systems.
-- A finite-pool dual is not automatically a separator of the continuous physical family. For the 199-column dual, a deterministic 16-start search found a positive 21-torus point with binary64 score 1.3039304930013147. The independent 128-bit Arb certificate encloses the exact-decimal phase point at \([1.3039304930013150180208493982584973\pm6.62\times10^{-35}]>0\). By the exact rational-independence/dense-ray theorem for the 42-site uniform open path, continuity implies that some finite equal-positive-coupling time (t>0) escapes this particular dual. This does not invalidate the finite 199-column theorem.
+- A finite-pool dual is not automatically a separator of the continuous physical family. For the 199-column dual, a deterministic 16-start search found a positive 21-torus point with binary64 score 1.3039304930013147. The independent 128-bit Arb certificate encloses the exact-decimal phase point at \([1.3039304930013150180208493982584973\pm6.62\times10^{-35}]>0\). By the exact rational-independence/dense-ray theorem for the 42-site uniform open path, continuity implies that some finite equal-positive-coupling time \\(t>0\\) escapes this particular dual. This does not invalidate the finite 199-column theorem.
 - The program-mass TV statement is classical/dephased. It is **not** a Choi-state trace-distance or channel diamond-distance bound.
-- The full (n=21) all-even-principal-minor positive ensemble (or a global physical-family obstruction), the operational Choi/diamond bridge, and tracked manuscript/supplement sources remain open.
+- The full \\(n=21\\) all-even-principal-minor positive ensemble (or a global physical-family obstruction), the operational Choi/diamond bridge, and tracked manuscript/supplement sources remain open.
 
 ## Reproducibility
 
