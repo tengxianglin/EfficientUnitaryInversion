@@ -66,7 +66,7 @@ If the LP is above 1/3, its floating dual is only a discovery candidate and requ
 
 ## Separate 6,129-column low-order track
 
-The 6,129-column full-second/fourth workflow has produced a diagnostic JSON with 6,129 candidates, but its status remains explicitly `floating_full_fourth_6125_column_separator_candidate_not_arb_certified`. It is not a theorem and is not used to support any manuscript claim in this addendum. The metadata-consistent rerun 45398176444 failed at the artifact-commit step after the LP step completed; the earlier 45397929610 run committed the diagnostic. A new exact-rational/Arb certificate is required before any finite-pool claim is made for this expanded pool.
+The 6,129-column full-second/fourth workflow has produced a diagnostic JSON with 6,129 candidates, but its status remains explicitly `floating_full_fourth_6125_column_separator_candidate_not_arb_certified`. It is not a theorem and is not used to support any manuscript claim in this addendum. The metadata-consistent rerun 45398176444 completed the LP step but failed its artifact commit with a Git add/add conflict because the earlier 45397929610 run had already committed the same evidence path. The 6,129-column JSON is present from 45397929610; 45398176444 is not a second independent LP result. A new exact-rational/Arb certificate is required before any finite-pool claim is made for this expanded pool.
 
 ## Manuscript claim discipline
 
