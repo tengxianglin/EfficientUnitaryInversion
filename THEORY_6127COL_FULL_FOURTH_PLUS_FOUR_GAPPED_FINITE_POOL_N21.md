@@ -118,3 +118,52 @@ The diagnostic's status string still contains the parent label “6125”, while
 Theorem 1 is a **finite-pool** statement. The new dual has not yet been priced over the continuous 41-parameter nonuniform positive-coupling family. A deterministic multistart search against this new rational dual is now running; a found escape must be frozen and Arb-certified. Failure to find an escape is not a continuum proof.
 
 The larger EUI target remains the all-even-principal-minor positive-ensemble condition. The conditional joint-parity diamond theorem is not made unconditional by this finite-pool result. A separate per-instance bridge from moment residuals to Choi/diamond error is still required.
+
+
+## 6. Certified escapes from this 6,127-column dual
+
+A deterministic pricing search (516 initial candidates, 12 local optimizations) found both a connected positive-coupling candidate and a two-segment candidate. The floating search is discovery only. Both candidates were frozen as exact rationals and independently checked with 256-bit Arb.
+
+### Connected escape
+
+All 41 interior couplings are strictly positive, with
+\[
+c_{\min}=\frac{19999999999999999}{20000000000000000000000}
+=9.9999999999999995\times10^{-7},
+\qquad c_{41}=0.
+\]
+The exact rational 83-term dual has target score interval
+\[
+y^{\mathsf T}b\in[0.3376849105545040233646771790\ldots],
+\]
+whereas the candidate score is
+\[
+y^{\mathsf T}F(R(c))\in[38.9158519590268092355833556258\ldots].
+\]
+Thus Arb certifies
+\[
+\boxed{
+y^{\mathsf T}(b-F(R(c)))
+\in[-38.5781670484723052122186784467\ldots]<0.
+}
+\]
+
+### Two-segment escape
+
+A second exact-rational path has a single internal cut at edge 35. Arb certifies
+\[
+\boxed{
+y^{\mathsf T}(b-F(R(c)))
+\in[-28.4051423560518348782887806660\ldots]<0.
+}
+\]
+
+For each candidate, the verifier checks all 1,764 entries of (R^{\mathsf T}R-I) with Arb intervals containing zero, and the determinant interval contains one. The floating/Arb score discrepancies are below (2.1\times10^{-13}).
+
+Evidence:
+- [256-bit Arb escape certificate](evidence/ising_full_fourth_plus_four_gapped_escape_arb_n21.json)
+- [independent verifier](verify_ising_full_fourth_plus_four_gapped_escape_arb_n21.py)
+- [successful workflow 45397267570](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45397267570)
+- [certificate commit 3bcff7c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/3bcff7c3697c393bafd7981a076c50609b6ffbcb)
+
+These are exact escapes from this particular 6,127-column dual. They do not invalidate Theorem 1, which is tied to its exact finite pool, and do not prove global feasibility or infeasibility. The next full-fourth reoptimization appends both paths, giving 6,129 columns; its floating LP output will require a new independent Arb certificate.
