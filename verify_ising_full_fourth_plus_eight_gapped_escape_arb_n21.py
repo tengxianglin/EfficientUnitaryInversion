@@ -46,6 +46,10 @@ def main():
         raise RuntimeError("the 6,131-column Arb certificate is incomplete")
     if finite.get("diagnostic_sha256") != diagnostic_sha:
         raise RuntimeError("the finite certificate does not pin the current discovery diagnostic")
+    if diagnostic.get("candidate_count") != 6131 or len(diagnostic.get("appended_gapped_columns", [])) != 8:
+        raise RuntimeError("the discovery diagnostic does not contain the exact 6,131-column/eight-gapped pool")
+    if finite.get("general_gapped_count") != 8 or finite.get("full_feature_count") != 1461:
+        raise RuntimeError("the finite certificate has unexpected gapped or full-feature dimensions")
     if finite.get("dual_scaled_l1_exact") != "1" or finite.get("dual_full_coordinate_l1_upper_bound") != 533:
         raise RuntimeError("the finite certificate lacks exact dual normalization/norm bound")
     if finite.get("dual_nonzero_coefficients") != 82:
@@ -54,7 +58,7 @@ def main():
         "floating_general_gapped_separator_escape_candidate",
         "no_escape_found_in_deterministic_multistart_search",
     } or not search.get("complete"):
-        raise RuntimeError("the 6,129-dual search did not report a completed deterministic search")
+        raise RuntimeError("the 6,131-dual search did not report a completed deterministic search")
     pins = search.get("pins", {})
     if pins.get("diagnostic_sha256") != diagnostic_sha:
         raise RuntimeError("search result is not pinned to the current 6,131-column diagnostic")
