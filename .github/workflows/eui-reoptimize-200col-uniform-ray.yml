@@ -36,10 +36,11 @@ jobs:
           python -m unittest tests/test_eighth_orbit_enumeration.py
           python -m unittest tests/test_uniform_path_torus_basis.py
           python -m py_compile reoptimize_200col_uniform_ray_escape.py verify_199col_uniform_ray_dual_arb.py verify_199col_uniform_torus_pricing_arb.py verify_199col_uniform_ray_time_arb.py
-      - name: Re-certify the exact 199-column parent and explicit physical escape
+      - name: Re-certify the 199-column dual, torus point, and finite-time escape
         run: |
           python verify_199col_uniform_ray_dual_arb.py
           python verify_199col_uniform_torus_pricing_arb.py
+          python discover_199col_uniform_ray_time_escape.py
           python verify_199col_uniform_ray_time_arb.py
       - name: Remove stale 200-column LP outputs
         run: |
@@ -54,6 +55,9 @@ jobs:
           git config user.email "41898282+actions-bot@users.noreply.github.com"
           mkdir -p /tmp/eui-200/evidence
           for f in \
+            evidence/199col_uniform_torus_arb_n21.json \
+            evidence/199col_uniform_ray_time_search_n21.json \
+            evidence/199col_uniform_ray_time_arb_n21.json \
             evidence/joint_low_six_eighth_lp_200col_uniform_ray_escape_n21.json \
             evidence/candidate_joint_input_200col_uniform_ray_escape_n21.json; do
             if [ -f "$f" ]; then cp "$f" /tmp/eui-200/evidence/; fi
@@ -64,6 +68,9 @@ jobs:
             rm -f evidence/joint_low_six_eighth_lp_200col_uniform_ray_escape_n21.json
             rm -f evidence/candidate_joint_input_200col_uniform_ray_escape_n21.json
             for f in \
+              evidence/199col_uniform_torus_arb_n21.json \
+              evidence/199col_uniform_ray_time_search_n21.json \
+              evidence/199col_uniform_ray_time_arb_n21.json \
               evidence/joint_low_six_eighth_lp_200col_uniform_ray_escape_n21.json \
               evidence/candidate_joint_input_200col_uniform_ray_escape_n21.json; do
               if [ -f "/tmp/eui-200/$f" ]; then
@@ -84,6 +91,9 @@ jobs:
         with:
           name: eui-200col-mixed-order-reoptimization
           path: |
+            evidence/199col_uniform_torus_arb_n21.json
+            evidence/199col_uniform_ray_time_search_n21.json
+            evidence/199col_uniform_ray_time_arb_n21.json
             evidence/joint_low_six_eighth_lp_200col_uniform_ray_escape_n21.json
             evidence/candidate_joint_input_200col_uniform_ray_escape_n21.json
           if-no-files-found: warn
