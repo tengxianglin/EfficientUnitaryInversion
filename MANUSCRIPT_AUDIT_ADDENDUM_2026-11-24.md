@@ -138,7 +138,7 @@ Both new paths have been appended to the full second-/fourth-order pool. The fir
 
 ## 2026-11-25 continuation: certified 6,129-column low-order pool and 198-column mixed-order track
 
-The preceding 6,127-column status is historical. The exact low-order pool has since been extended to **6,129 columns** by adding two exact-rational gapped paths. The 80-term rational dual is independently certified over all columns: 512-bit Arb for the 22 base and six gapped paths, and 128-bit Arb for the 6,101 fractional grid columns. The strict shifted-column lower endpoint is
+The preceding 6,127-column status and the earlier sentence saying the 6,129-column LP was pending are historical and superseded by the certified result below. The exact low-order pool has since been extended to **6,129 columns** by adding two exact-rational gapped paths. The 80-term rational dual is independently certified over all columns: 512-bit Arb for the 22 base and six gapped paths, and 128-bit Arb for the 6,101 fractional grid columns. The strict shifted-column lower endpoint is
 \[
 0.2374306538960380051374786212565\ldots>\frac15.
 \]
