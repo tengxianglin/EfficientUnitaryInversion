@@ -222,8 +222,8 @@ def main():
         if index not in reduced or not 0 <= index < 1461:
             raise RuntimeError(f"dual uses invalid/non-independent feature index {index}")
         raw_coefficients[index] = Fraction(item["coefficient"])
-    if len(raw_coefficients) != 80:
-        raise RuntimeError(f"expected 80 nonzero dual coefficients, got {len(raw_coefficients)}")
+    if len(raw_coefficients) != 82:
+        raise RuntimeError(f"expected 82 nonzero dual coefficients, got {len(raw_coefficients)}")
 
     # The LP scales second moments by 41 and fourth-order orbit moments by
     # 533. Rationalize the decimal dual exactly, then impose ||D^{-1} y||_1=1.
@@ -311,7 +311,7 @@ def main():
     if checked_base != 22 or checked_grid != 6101:
         raise RuntimeError(f"wrong base/grid counts: base={checked_base}, grid={checked_grid}")
 
-    # Evaluate all four exact-rational gapped paths independently at 512 bits.
+    # Evaluate all eight exact-rational gapped paths independently at 512 bits.
     ctx.prec = BASE_PRECISION_BITS
     for index, column in enumerate(appended):
         couplings = [Fraction(x) for x in column["couplings_exact_rational"]]
@@ -389,7 +389,7 @@ def main():
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "four inherited/previously certified gapped paths, and two newly "
+            "six inherited/previously certified gapped paths, and two newly "
             "certified escapes from the 6,129-column dual. It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "arbitrary multi-segment paths, all even principal minors, or an "
