@@ -94,7 +94,7 @@ def main():
     )
     interval_gap = target_score - interval_score
 
-    point_block = fractional_block(length, rational(Fraction(46, 25)))
+    point_block = fractional_generator(length, rational(Fraction(46, 25))).exp()
     point_score = block_score(
         point_block,
         length,
