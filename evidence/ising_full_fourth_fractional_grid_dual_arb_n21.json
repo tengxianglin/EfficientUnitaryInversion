@@ -2,6 +2,8 @@
   "status": "arb_certified_finite_6123_column_full_fourth_separator",
   "complete": true,
   "precision_bits": 128,
+  "base_atom_precision_bits": 512,
+  "fractional_grid_precision_bits": 128,
   "interval_backend": "python-flint / Arb",
   "diagnostic_sha256": "9140ecf1003a70fd6ac3b58d2ba965980016dd7ef7dd7395e623ef03bc21aefd",
   "warm_certificate_sha256": "33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5",
@@ -341,12 +343,13 @@
   "first_candidate_not_certified_above_quarter": {
     "kind": "base",
     "base_index": 14,
-    "gap_interval": "[0.3 +/- 0.0826]"
+    "gap_interval": "[0.3 +/- 0.0542]"
   },
-  "minimum_candidate_gap_lower_endpoint": "[0.21749801718911490586323302472291255525 +/- 3.17e-39]",
+  "minimum_candidate_gap_lower_endpoint": "[0.24582960282501167800945800030885005606 +/- 4.26e-39]",
   "minimum_gap_lower_endpoint_candidate": {
-    "kind": "base",
-    "base_index": 14
+    "kind": "fractional",
+    "length": 41,
+    "alpha": "1/2"
   },
   "smallest_gap_candidate_interval_by_midpoint_selection": "[0.2670364051058191014905072842124 +/- 8.71e-32]",
   "smallest_gap_candidate_by_midpoint": {
