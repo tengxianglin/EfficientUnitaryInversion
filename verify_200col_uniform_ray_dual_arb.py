@@ -214,8 +214,8 @@ def main():
         raise RuntimeError("197-column uniform-ray time is invalid or duplicates an ancestor path")
     if Fraction(parent_lp["uniform_ray_time_exact_rational"]) != Fraction(new_time_cert["t_exact_rational"]):
         raise RuntimeError("199-column parent has a different 198-column uniform-ray time")
-    if new_time_cert.get("dual_certificate_sha256") != parent_dual_sha or new_time_cert.get("lp_transcript_sha256") != parent_lp_sha or new_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
-        raise RuntimeError("198-column finite-time certificate does not pin the exact 198-column dual/LP/cut design")
+    if new_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_198col_dual_certificate_sha256") or new_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_198col_lp_sha256") or new_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("198-column finite-time certificate does not pin the exact 198-column ancestor dual/LP/cut design")
     if new_time_cert.get("status") != "certified_finite_uniform_ray_escape" or not new_time_cert.get("finite_physical_escape_certified"):
         raise RuntimeError("198-column time certificate is not a strict Arb-certified physical escape")
     t_new = Fraction(new_time_cert["t_exact_rational"])
