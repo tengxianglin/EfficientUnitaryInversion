@@ -121,3 +121,23 @@ Evidence: [certificate JSON](evidence/55probe_197col_uniform_ray_escape_dual_cer
 A new 21-dimensional uniform-path torus-pricing search against this 197-column rational dual is now running in [workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355). A positive candidate will count as a continuous-ray escape only after the exact-decimal phase vector is independently certified by Arb. Failure of this finite multi-start search is not a global separation proof.
 
 The 197-column result does not resolve the full all-even-principal-minor ensemble problem, the global continuous physical-family problem, or the separate Choi/diamond operational bridge. No manuscript-source edit is claimed: the repository still lacks tracked manuscript/supplement TeX, Bib, and PDF files.
+
+
+## Final continuum correction: the 197-column dual has a certified uniform-ray escape
+
+The new 197-column finite-pool theorem remains valid, but its particular rational dual is **not** a global separator of the continuous physical family. The 21-dimensional uniform-path torus search [workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355) found an exact-decimal phase vector; the independent 128-bit Arb verifier certifies
+\[
+S_{197}(R(\theta_*))
+\in
+[1.7152449127664802147236733367025386
+\pm5.20\times10^{-35}]>0.
+\]
+The exact phase vector and all input hashes are stored in [the torus Arb certificate](evidence/197col_uniform_torus_arb_n21.json). The pricing gradient's maximum relative self-test defect was \(2.4667717161121613\times10^{-9}\); this is only a discovery diagnostic, while the Arb interval is the proof.
+
+By the already proved rational independence of the 21 frequencies \(4\cos(k\pi/43)\), the equal-positive-coupling open-path orbit is dense in the 21-torus. Continuity therefore implies existence of some finite \(t>0\) with positive pricing against the 197-column dual. This refutes extension of that *particular dual* to the continuous equal-coupling ray. It does not invalidate the exact finite 197-column theorem or prove feasibility/infeasibility of the full physical-family moment problem.
+
+A separate search for an explicit finite decimal time is running in [workflow 45422810828](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422810828); only a positive Arb interval will be accepted as an explicit-time certificate.
+
+Evidence and theory: [197-column theorem and escape note](THEORY_197COL_2113ROW_UNIFORM_RAY_ESCAPE_MINIMAX_OBSTRUCTION.md), [search transcript](evidence/197col_uniform_torus_search_n21.json), [128-bit Arb torus certificate](evidence/197col_uniform_torus_arb_n21.json), [independent verifier](verify_197col_uniform_torus_pricing_arb.py), and [workflow 45422332355](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45422332355).
+
+The remaining paper-central blockers are unchanged: a positive ensemble satisfying every even principal-minor constraint at n=21 (or a global obstruction), a separate per-instance operational bridge to Choi/diamond distance, and tracked manuscript/supplement source files.
