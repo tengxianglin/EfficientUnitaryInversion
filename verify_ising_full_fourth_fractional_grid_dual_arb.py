@@ -1,5 +1,7 @@
 """128-bit Arb verification of the 6,123-column full-fourth finite-grid separator.
 
+# The corresponding workflow is path-triggered by this verifier and its frozen inputs.
+
 The floating LP only discovers a rational candidate separator. This verifier
 reconstructs its coefficients as exact decimal rationals and checks, with Arb,
 that its score on every listed physical column is strictly below its exact
