@@ -1,0 +1,25 @@
+{
+  "status": "certified_199col_program_mass_tv_lower_bound",
+  "complete": true,
+  "arithmetic": "exact Python fractions",
+  "column_count": 199,
+  "row_count": 2113,
+  "row_blocks": {
+    "low_complete": 1461,
+    "sixth_selected_plus_all_cuts": 645,
+    "eighth_selected": 7
+  },
+  "dual_certificate_sha256": "a3c32bb5e54f442b559187c2777304718eec0f5602b5b8c67f7b792fa32dd2be",
+  "lp_transcript_sha256": "7ee9eec7ae9c8a14d9506537f00620e05e4430503b8ca7707db8050752c0271d",
+  "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
+  "dual_l1_norm_exact": "1",
+  "dual_objective_exact": "3708878342006156685/9223372036854800563",
+  "dual_slack_delta": "1/10000000000",
+  "moment_residual_lower_bound_exact": "37088783410838194813145199437/92233720368548005630000000000",
+  "program_character_sup_norm_bound_exact": "181246491308462426915523/46116860184274002815",
+  "program_character_sup_norm_bound_decimal": 3930.156792640191,
+  "program_mass_tv_lower_bound_exact": "37088783410838194813145199437/724985965233849707662092000000000",
+  "program_mass_tv_lower_bound_decimal": 5.115793296615739e-05,
+  "interpretation": "For every probability mixture supported on the exact 199-column pool, the ensemble-averaged balanced program-label mass distribution has TV distance strictly greater than the stated rational bound from the uniform balanced-label distribution. Equivalently this bounds the trace distance of the corresponding dephased program registers.",
+  "scope": "Finite 199-column pool and fixed 2,113-row mixed-order design only. The sixth/eighth inventories are selected/cut, not complete. This is not a Choi-state trace-distance or channel diamond-distance bound, and it does not extend to arbitrary continuous physical couplings."
+}

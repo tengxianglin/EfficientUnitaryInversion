@@ -7,7 +7,7 @@
   "dual_certificate_sha256": "a3c32bb5e54f442b559187c2777304718eec0f5602b5b8c67f7b792fa32dd2be",
   "lp_transcript_sha256": "7ee9eec7ae9c8a14d9506537f00620e05e4430503b8ca7707db8050752c0271d",
   "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
-  "discovery_sha256": "a1b7ba2f99be3a60277a26dd9d5a69f6249665602d0ae38a3f29249b89458fdb",
+  "discovery_sha256": "467f1d4bea19cfe2832171a6e35caee02eb58d0bfd5af9d477e4817ec4745ed1",
   "parent_198col_torus_search_sha256": "1ad28836e13e0627efb087f54af6e1d2f29b6ad72f9f18be51bfdfd0413beed4",
   "parent_198col_torus_arb_sha256": "404fce590f56a4a67810f996c52fb140fca465d7d32ec9cbdbc2ba3e929707dd",
   "dense_torus_theory_sha256": "123c137df1a4bff8c017d8c7e1aa49fc8f39b1a54f5535651327bd18bd65aa71",
