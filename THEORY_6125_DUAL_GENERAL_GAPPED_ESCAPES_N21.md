@@ -11,55 +11,54 @@ The finite-pool theorem remains valid: these candidates are outside its exact 6,
 ## Exact target and Arb scores
 
 The 78-term dual has target score
-[
-y^{mathsf T}bin
-[0.3730980596968074923019997412068832567693162667ldots].
-]
+\[
+y^{\mathsf T}b\in[0.3730980596968074923019997412068832567693162667\ldots].
+\]
 
 ### Connected positive-coupling escape
 
-The 42-site open path has (c_{41}=0) and all 41 interior couplings strictly positive. The minimum interior coupling is
-[
-rac{19999999999999999}{20000000000000000000000}
-=9.9999999999999995	imes10^{-7}.
-]
+The 42-site open path has \(c_{41}=0\) and all 41 interior couplings strictly positive. The minimum interior coupling is
+\[
+\frac{19999999999999999}{20000000000000000000000}
+=9.9999999999999995\times10^{-7}.
+\]
 At 256-bit Arb,
-[
-y^{mathsf T}F(R(c))
-in[13.39534571134364063663490148997725698945ldots],
-]
+\[
+y^{\mathsf T}F(R(c))
+\in[13.39534571134364063663490148997725698945\ldots],
+\]
 so
-[
-oxed{
-y^{mathsf T}(b-F(R(c)))
-in[-13.02224765164683314433290174877037373268ldots]<0.
+\[
+\boxed{
+y^{\mathsf T}(b-F(R(c)))
+\in[-13.02224765164683314433290174877037373268\ldots]<0.
 }
-]
+\]
 
 ### Multi-segment escape
 
-A second path has internal cuts at edges (16) and (26), hence three open segments. At 256-bit Arb,
-[
-y^{mathsf T}F(R(c))
-in[27.03109850670501738179435107722054517357ldots],
-]
+A second path has internal cuts at edges \(16\) and \(26\), hence three open segments. At 256-bit Arb,
+\[
+y^{\mathsf T}F(R(c))
+\in[27.03109850670501738179435107722054517357\ldots],
+\]
 and
-[
-oxed{
-y^{mathsf T}(b-F(R(c)))
-in[-26.65800044700820988949235133601366191680ldots]<0.
+\[
+\boxed{
+y^{\mathsf T}(b-F(R(c)))
+\in[-26.65800044700820988949235133601366191680\ldots]<0.
 }
-]
+\]
 
-For each candidate the verifier checks all 1,764 entries of (R^{mathsf T}R-I) with Arb intervals containing zero and certifies (det R) contains 1. The Arb/floating score discrepancies are below (3.0	imes10^{-13}).
+For each candidate the verifier checks all 1,764 entries of \(R^{\mathsf T}R-I\) with Arb intervals containing zero and certifies \(\det R\) contains 1. The Arb/floating score discrepancies are below \(3.0\times10^{-13}\).
 
 ## Reproducibility
 
-- Search transcript: `evidence/ising_full_fourth_plus_two_gapped_search_n21.json`.
-- Search script: `search_ising_full_fourth_plus_two_gapped_n21.py`.
+- Search transcript: evidence/ising_full_fourth_plus_two_gapped_search_n21.json.
+- Search script: search_ising_full_fourth_plus_two_gapped_n21.py.
 - Search workflow: [45378179718](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45378179718).
-- Independent 256-bit verifier: `verify_ising_full_fourth_plus_two_gapped_escape_arb_n21.py`.
-- Arb escape certificate: `evidence/ising_full_fourth_plus_two_gapped_escape_arb_n21.json`.
+- Independent 256-bit verifier: verify_ising_full_fourth_plus_two_gapped_escape_arb_n21.py.
+- Arb escape certificate: evidence/ising_full_fourth_plus_two_gapped_escape_arb_n21.json.
 - Arb workflow: [45378513134](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45378513134).
 - Certificate commit: [aed0e00](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/aed0e007753d93990791d93c3ec0e13a1668f2cd).
 
