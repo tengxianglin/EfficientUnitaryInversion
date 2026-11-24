@@ -1,0 +1,43 @@
+name: EUI exact 197-column program-mass TV corollary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_197col_program_mass_tv_bound.py"
+      - ".github/workflows/eui-197col-program-mass-tv.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-197col-program-mass-tv
+  cancel-in-progress: true
+
+jobs:
+  exact-tv-corollary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify exact rational TV corollary
+        run: |
+          python -m py_compile verify_197col_program_mass_tv_bound.py
+          python verify_197col_program_mass_tv_bound.py
+      - name: Commit exact TV evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/197col_program_mass_tv_bound_n21.json
+          git commit -m "Record exact 197-column program-mass TV corollary"
+          git push origin HEAD:main
+      - name: Upload exact TV certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-197col-program-mass-tv
+          path: evidence/197col_program_mass_tv_bound_n21.json
+          if-no-files-found: error
