@@ -13,7 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CERT = ROOT / "evidence/55probe_200col_uniform_ray_escape_dual_certificate_n21.json"
 OUTPUT = ROOT / "evidence/200col_program_mass_tv_bound_n21.json"
-EXPECTED_CERT_SHA256 = "11a65b9b12dcaafa22cc1c40d923c8e47bc92d45"
+EXPECTED_CERT_SHA256 = "b00da3fd3a500bcbb69af98be718f1d30a3a5007693daaa5d7930aa7b6ad9b52"
+EXPECTED_CERT_GIT_BLOB_SHA = "11a65b9b12dcaafa22cc1c40d923c8e47bc92d45"
 
 
 def main():
@@ -73,6 +74,7 @@ def main():
         "status": "exact_rational_program_mass_tv_corollary_from_200col_arb_dual",
         "complete": True,
         "source_certificate_sha256": digest,
+        "source_certificate_git_blob_sha": EXPECTED_CERT_GIT_BLOB_SHA,
         "source_certificate_status": cert["status"],
         "source_precision_bits": cert["precision_bits"],
         "column_count": cert["column_count"],
