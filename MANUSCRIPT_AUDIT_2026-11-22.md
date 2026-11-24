@@ -1970,3 +1970,12 @@ A deterministic floating audit evaluated all 111,930 four-subsets and all 1,440 
 - [evidence commit 42d32b9](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/42d32b9)
 
 The 41-atom ensemble is a useful low-moment warm start, but it is far from a fourth-order uniform design. The next step remains full 1,440-orbit column generation, not a claim of near-complete joint parity.
+
+
+## 2026-11-24 addendum: complete fourth-order finite-grid obstruction and one continuous cell
+
+The full 1,440-orbit fourth-order target was tested against 6,123 physical columns (22 pinned base atoms plus 6,101 corrected fractional single-open-path seeds). A frozen 80-term rational separator has a 128-bit Arb certificate checking every column. For each column (a_j), (y^Tb-y^Ta_j>0); hence no probability mixture on this exact finite pool satisfies the complete second-/fourth-order target. See [the certificate](evidence/ising_full_fourth_fractional_grid_dual_arb_n21.json), [the independent verifier](verify_ising_full_fourth_fractional_grid_dual_arb.py), and [the theory note](THEORY_FULL_FOURTH_FRACTIONAL_GRID_N21.md).
+
+A stronger continuous-parameter step now certifies one full interval cell, not merely its sampled midpoint: for the length-40 fractional open path, all (alphain[1.835,1.845]) have separator gap (>1/4). The 512-bit Arb certificate uses a degree-40 scalar Taylor model and an exterior-power operator-norm remainder; its certified lower gap endpoint is (0.2643780467418314563ldots). Evidence is [here](evidence/ising_full_fourth_continuous_alpha_cell_probe_n21.json), with reproducible code in [probe_ising_full_fourth_continuous_alpha_cell_n21.py](probe_ising_full_fourth_continuous_alpha_cell_n21.py).
+
+These results remain sharply scoped. The finite-grid theorem excludes only the pinned 6,123-column pool. The continuous Taylor certificate covers only one (L=40) alpha cell; the other cells and path lengths are not yet covered. Neither result is a global obstruction for arbitrary gapped couplings or multi-segment paths, and neither supplies the missing operational moment-to-Choi/diamond bridge. The repository still has no tracked manuscript TeX/Bib/PDF source; the public arXiv v1 remains the inspected manuscript reference.
