@@ -174,3 +174,12 @@ literature-wide novelty or journal-readiness claim.
 ## Follow-up: single fractional-segment extension screen (2026-11-24)
 
 A 384-bit Arb affine-reweighting test added each of 27 previously absent fractional-segment seeds from the predeclared \((L,\alpha)\) grid and asked whether one new positive weight could repair the distant fourth-order probe \(\{0,2,21,23\}\) while preserving the 21 second moments, the consecutive fourth probe, and normalization. Twenty-five candidates have strictly positive affine slopes (hence negative required new weights), and two are exact duplicate even-minor columns by spin periodicity. Thus every one of the 27 candidate slopes is nonnegative. The affine formula then proves a stronger finite-family result: no nonnegative mixture of any subset of these 27 seeds can repair the distant fourth probe while preserving the 22 base constraints. This does not rule out fractional parameters outside the grid or general gapped couplings. See [the exact affine reduction and convex-cone obstruction](THEORY_LOW_MOMENT_FRACTIONAL_SINGLE_ATOM_SCREEN_N21.md).
+
+
+## Follow-up: positive 41-atom two-fourth-probe ensemble (2026-11-24)
+
+A deterministic 8,241-column fractional-path LP found 19 new fractional open paths that, together with the original 22 atoms, repair the distant fourth probe. The exact Arb verifier uses the frozen decimal LP weights only as a seed, rescales them by the exact interval factor gamma, and independently certifies all 41 final weights strictly positive. It verifies all 21 distance moments and both q_{0,1,2,3}=1/533 and q_{0,2,21,23}=1/533 with 384-bit Arb.
+
+The minimum final weight is 0.0001108520975446446100... and the maximum is 0.3065707132581335893.... Two other fourth-order probes are still strict failures, so this is not a complete fourth-order design. See [the full derivation](THEORY_LOW_MOMENT_TWO_FOURTH_PROBE_ENSEMBLE_N21.md) and [the exact certificate](evidence/ising_low_moment_two_fourth_ensemble_n21.json).
+
+The earlier 27-seed and 861-seed results remain valid finite-family obstructions for their exact candidate sets. The 861-seed coarse grid is bypassed by the finer 0.01 grid; neither finite-grid obstruction is a global no-go for fractional paths or general gapped couplings.
