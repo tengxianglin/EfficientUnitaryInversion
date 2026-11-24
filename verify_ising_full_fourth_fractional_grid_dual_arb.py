@@ -121,7 +121,7 @@ def block_score(block, length, second_coefficients, fourth_entries):
 def full_score(rotation, system, coefficient_by_feature):
     second = full_second_moments(rotation)
     score = sum(
-        (coefficient_by_feature.get(d, Fraction(0)) * second[d]
+        (rational(coefficient_by_feature.get(d, Fraction(0))) * second[d]
          for d in range(21)),
         arb(0),
     )
@@ -199,6 +199,9 @@ def main():
         coefficient_by_feature[index] = Fraction(item["coefficient"])
     if len(coefficient_by_feature) != 80:
         raise RuntimeError("expected the frozen 80-term rational separator")
+    reduced_feature_indices = set(system.reduced_indices())
+    if not set(coefficient_by_feature).issubset(reduced_feature_indices):
+        raise RuntimeError("separator uses a feature outside the pinned reduced equality system")
     if any(index < 0 or index >= 1461 for index in coefficient_by_feature):
         raise RuntimeError("dual coefficient feature index is out of range")
 
