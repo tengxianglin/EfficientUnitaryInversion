@@ -1,4 +1,4 @@
-"""128-bit Arb certification of the 200-column LP dual, including all seven explicit uniform-ray paths."""
+"""128-bit Arb certification of the 200-column LP dual, including all eight explicit uniform-ray paths."""
 import hashlib
 import json
 from fractions import Fraction
@@ -415,8 +415,8 @@ def main():
         "complete": True,
         "precision_bits": ctx.prec,
         "interval_backend": "python-flint 0.8.0 / Arb",
-        "parent_198col_lp_sha256": parent_lp_sha,
-        "parent_198col_dual_certificate_sha256": parent_dual_sha,
+        "parent_198col_lp_sha256": parent_lp.get("parent_198col_lp_sha256"),
+        "parent_198col_dual_certificate_sha256": parent_lp.get("parent_198col_dual_certificate_sha256"),
         "parent_197col_lp_sha256": parent_lp.get("parent_197col_lp_sha256"),
         "parent_197col_dual_certificate_sha256": parent_lp.get("parent_197col_dual_certificate_sha256"),
         "parent_196col_lp_sha256": parent_lp.get("parent_196col_lp_sha256"),
@@ -447,6 +447,7 @@ def main():
         "parent_196col_uniform_ray_time_arb_certificate_sha256": previous_time_cert_sha,
         "uniform_ray_time_arb_certificate_sha256": latest_time_cert_sha,
         "parent_198col_uniform_ray_time_arb_certificate_sha256": new_time_cert_sha,
+        "parent_198col_uniform_ray_time_exact_rational": str(t_new),
         "lp_transcript_sha256": lp_sha,
         "candidate_152col_sha256": candidate152_sha,
         "cut_lp_transcript_sha256": cut_lp_sha,
