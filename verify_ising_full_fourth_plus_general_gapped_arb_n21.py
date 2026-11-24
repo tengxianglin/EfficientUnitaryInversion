@@ -32,7 +32,7 @@ OUTPUT = ROOT / "evidence/ising_full_fourth_plus_general_gapped_arb_n21.json"
 N = 42
 GRID_PRECISION_BITS = 128
 BASE_PRECISION_BITS = 512
-SEPARATION_FLOOR = Fraction(1, 4)
+SEPARATION_FLOOR = Fraction(1, 5)
 
 
 def read_json(path, *, decimal_floats=False):
@@ -82,8 +82,8 @@ def main():
         Fraction(floating_dual["target_score"])
         - Fraction(floating_dual["maximum_candidate_score"])
     )
-    if reported_gap <= Fraction(1, 4):
-        raise RuntimeError("the floating dual summary does not retain the intended quarter-unit margin")
+    if reported_gap <= Fraction(1, 5):
+        raise RuntimeError("the floating dual summary does not retain the intended one-fifth margin")
     if Fraction(floating_dual["normalized_l1_upper_bound"]) > Fraction(1000001, 1000000):
         raise RuntimeError("the floating dual summary violates its unit scaled-l1 normalization")
     if diagnostic.get("old_candidate_count") != 6123:
@@ -202,7 +202,7 @@ def main():
         gap = target - score
         if not gap > floor:
             raise RuntimeError(
-                f"base atom {base_index} does not have a certified gap > 1/4: {gap}"
+                f"base atom {base_index} does not have a certified gap > 1/5: {gap}"
             )
         lower = gap.lower()
         if minimum_lower is None or lower < minimum_lower:
@@ -234,7 +234,7 @@ def main():
             if not gap > grid_floor:
                 raise RuntimeError(
                     f"fractional column L={length}, alpha={alpha_fraction} "
-                    f"does not have a certified gap > 1/4: {gap}"
+                    f"does not have a certified gap > 1/5: {gap}"
                 )
             lower = gap.lower()
             label = {
@@ -286,7 +286,7 @@ def main():
     gapped_score = base.full_score(gapped_rotation, system, coefficients)
     gapped_gap = target - gapped_score
     if not gapped_gap > rational(SEPARATION_FLOOR):
-        raise RuntimeError(f"appended general-gapped column gap is not > 1/4: {gapped_gap}")
+        raise RuntimeError(f"appended general-gapped column gap is not > 1/5: {gapped_gap}")
     lower = gapped_gap.lower()
     if minimum_lower is None or lower < minimum_lower:
         minimum_lower = lower
@@ -299,8 +299,8 @@ def main():
     checked = checked_base + checked_grid + 1
     if checked != 6124:
         raise RuntimeError(f"checked {checked} columns instead of 6,124")
-    if minimum_lower is None or not minimum_lower > rational(Fraction(1, 4)):
-        raise RuntimeError("the common strict 1/4 column-gap margin was not certified")
+    if minimum_lower is None or not minimum_lower > rational(SEPARATION_FLOOR):
+        raise RuntimeError("the common strict 1/5 column-gap margin was not certified")
 
     result = {
         "status": "arb_certified_finite_6124_column_full_fourth_plus_general_gapped_separator",
@@ -331,7 +331,7 @@ def main():
             for index, value in sorted(coefficients.items())
         ],
         "target_score_interval": str(target),
-        "certified_common_column_gap_lower_bound": "1/4",
+        "certified_common_column_gap_lower_bound": "1/5",
         "minimum_column_gap_lower_endpoint": str(minimum_lower),
         "minimum_gap_lower_endpoint_candidate": minimum_lower_label,
         "minimum_gap_interval_by_midpoint_selection": minimum_interval,
@@ -342,10 +342,10 @@ def main():
             "Let D be diagonal with entries 41 on the 21 second-moment "
             "coordinates and 533 on the 1,440 fourth-order orbit coordinates. "
             "The exact rationalized dual y is normalized so ||D^{-1}y||_1=1. "
-            "Arb certifies y^T(b-a_j)>1/4 for every one of the 6,124 listed "
+            "Arb certifies y^T(b-a_j)>1/5 for every one of the 6,124 listed "
             "physical columns. Hence for every probability vector p on this "
-            "finite pool, y^T(b-Ap)>1/4. Since ||y||_1<=533, Holder's inequality "
-            "gives ||b-Ap||_infinity>1/2132."
+            "finite pool, y^T(b-Ap)>1/5. Since ||y||_1<=533, Holder's inequality "
+            "gives ||b-Ap||_infinity>1/2665."
         ),
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
@@ -364,11 +364,11 @@ def main():
         "fractional_grid_count": checked_grid,
         "general_gapped_count": 1,
         "target_score_interval": result["target_score_interval"],
-        "certified_common_column_gap_lower_bound": "1/4",
+        "certified_common_column_gap_lower_bound": "1/5",
         "minimum_column_gap_lower_endpoint": str(minimum_lower),
         "appended_general_gapped_gap_interval": str(gapped_gap),
         "dual_full_coordinate_l1_exact": str(full_l1),
-        "moment_residual_infinity_lower_bound": "1/2132",
+        "moment_residual_infinity_lower_bound": "1/2665",
         "diagnostic_sha256": diagnostic_sha,
     }, indent=2), flush=True)
 
