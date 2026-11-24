@@ -74,3 +74,42 @@ Both 256-bit verifiers check all 1,764 orthogonality entries and certify determi
 - [Issue #5](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/5)
 
 The next decisive step is to inspect the 6,125-column LP output, then certify either an exact positive primal or a new rational dual with independent Arb checks. Any new dual must again be priced on fresh nonuniform positive-coupling paths before a broader no-go statement is considered.
+
+
+## Late-run correction: 6,127-column certificate supersedes the pending 6,125-column state
+
+The earlier sentence above saying that the 6,125-column follow-up LP was still pending is historical and is now superseded. The 6,125-column pool was expanded by the two independently Arb-certified escapes from its dual, producing a 6,127-column full-second/fourth LP. HiGHS returned a floating infeasibility/dual candidate; the new 83-term rationalized dual has now been independently certified.
+
+**Certified finite-pool theorem.** For exactly 6,127 columns (22 pinned base atoms, 6,101 corrected fractional single-open-path grid atoms, and four exact-rational gapped paths: three connected and one three-segment), the exact rational dual satisfies
+\[
+\|D^{-1}y\|_1=1,\qquad D=\operatorname{diag}(41I_{21},533I_{1440}),
+\]
+and Arb certifies
+\[
+y^{\mathsf T}(b-F(R_j))>\frac15
+\]
+for all 6,127 listed columns. The minimum certified lower endpoint is
+\[
+0.2413486692674136993452754291\ldots>\frac15
+\]
+at base atom 14. The exact full-coordinate norm is
+\[
+\|y\|_1=
+\frac{10763356977938966597333}{20499999999999938401}
+<533.
+\]
+Consequently, every probability mixture on this exact finite pool obeys
+\[
+\|b-Ap\|_\infty>\frac1{2665},
+\qquad
+\operatorname{TV}(w_p,u_{\rm bal})>\frac1{5330}.
+\]
+The second inequality is a program-label mass/dephased-register result derived from bounded orbit characters. It is **not** a Choi-state trace-distance or channel diamond-distance bound.
+
+Verification: [successful Arb workflow 45396006111](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45396006111), [certificate commit b4de3ef](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b4de3ef66e000ed4502afbeeb8a5c030c6613a38), [formal finite-pool theorem note](THEORY_6127COL_FULL_FOURTH_PLUS_FOUR_GAPPED_FINITE_POOL_N21.md), [independent verifier](verify_ising_full_fourth_plus_four_gapped_arb_n21.py).
+
+The diagnostic JSON has a stale status label containing “6125”, although its explicit candidate_count is 6127. The verifier records this legacy-label flag and checks the explicit count and input hashes. The label should be corrected when the diagnostic is next regenerated; it does not enter the dual inequalities.
+
+**Scope remains finite.** This certificate does not cover arbitrary continuous nonuniform couplings, arbitrary multi-segment paths, the all-even-principal-minor system, or a Choi/diamond operational error. A deterministic multistart pricing search against this new 83-term dual is now queued in [workflow 45396671388](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45396671388). A found escape must be frozen and Arb-certified; failure to find one is not a continuum proof.
+
+The main paper blockers remain unchanged: construct an exact positive all-even-minor ensemble at n=21 or prove a global physical obstruction, and establish a separate per-instance operational bridge to Choi/diamond distance. No tracked manuscript TeX/Bib/PDF source is present, so no manuscript-source edit is claimed.
