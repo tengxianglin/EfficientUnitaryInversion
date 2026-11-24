@@ -1,4 +1,4 @@
-"""192-bit Arb screen of single fractional-segment extensions at n=21.
+"""384-bit Arb screen of single fractional-segment extensions at n=21.
 
 The frozen 22-atom low-moment ensemble is kept fixed in its 21 distance
 moments, consecutive fourth probe and normalization. Each candidate
@@ -33,7 +33,7 @@ def dot(weights, values):
 
 
 def main():
-    ctx.prec = 192
+    ctx.prec = 384
     raw = INPUT.read_bytes()
     data = json.loads(raw)
     assert len(data["atoms"]) == 22
@@ -142,7 +142,7 @@ def main():
             "base_distant_residual": str(base_distant - distant_target),
             "scope": (
                 "Every listed single-segment fractional candidate was checked "
-                "with 192-bit Arb. None can be added alone with a strictly "
+                "with 384-bit Arb. None can be added alone with a strictly "
                 "positive new weight while preserving the 21 second moments, "
                 "the consecutive fourth probe, normalization, and the distant "
                 "fourth target. This is only a finite-grid rejection, not a "
