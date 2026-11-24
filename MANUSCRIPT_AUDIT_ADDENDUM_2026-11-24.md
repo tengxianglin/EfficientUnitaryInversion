@@ -49,11 +49,11 @@ The 6,125-column LP returned a floating infeasibility/dual candidate in diagnost
 
 The exact rational dual certified on the 6,125-column finite pool has two independently Arb-certified escapes outside that pool. A connected 42-site open path with all 41 interior couplings strictly positive gives
 \[
-y^{\\mathsf T}(b-F(R(c)))< -13.0222476516468331,
+y^{\mathsf T}(b-F(R(c)))< -13.0222476516468331,
 \]
 and a three-segment path with cuts at edges 16 and 26 gives a second escape with
 \[
-y^{\\mathsf T}(b-F(R(c)))< -26.6580004470082098.
+y^{\mathsf T}(b-F(R(c)))< -26.6580004470082098.
 \]
 Both 256-bit verifiers check all 1,764 orthogonality entries and certify determinant one. This does not invalidate the exact 6,125-column finite-pool theorem; it prevents promoting its particular dual to a full-family separator. See [escape certificate commit aed0e00](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/aed0e007753d93990791d93c3ec0e13a1668f2cd) and [workflow 45378513134](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45378513134).
 
