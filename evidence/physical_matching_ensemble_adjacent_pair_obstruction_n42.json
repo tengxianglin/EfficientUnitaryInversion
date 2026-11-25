@@ -101,7 +101,7 @@
   "n": 21,
   "proof_lemmas": {
     "full_support": "A fixed-point-free involutive cycle automorphism is an edge-axis reflection or the half-turn. Every edge-axis reflection has exactly two adjacent matched pairs.",
-    "halfturn_exclusion": "For p(j)=j+n and odd n, J=P_M D is an orthogonal complex structure. A commutes with J and e^A=J=iI on the induced complex vector space. The antipodal permutation has no cycle-edge support, so tr_R(JA)=0; also tr_R(A)=0, hence tr_C(A)=0. But the n complex eigenphases are theta_l=pi/2+2*pi*k_l, so their sum is pi/2*(n+4K), which cannot vanish for odd n.",
+    "halfturn_exclusion": "For p(j)=j+n and odd n, J=P_M D is an orthogonal complex structure. A commutes with J and e^A=J=iI on the induced complex vector space. The antipodal permutation has no cycle-edge support, so tr_R(JA)=0; also tr_R(A)=0, hence tr_C(A)=0. But the n complex eigenphases are theta_l=pi/2+2*pi*k_l, so their sum pi/2*(n+4K), which cannot vanish for odd n.",
     "proper_support": "Every component is an even path and the fixed-point-free path automorphism is reversal. Each component contributes its central adjacent matched pair. If there is only one component, it spans all N vertices and its endpoint pair across the unique missing cycle edge is a second adjacent matched pair.",
     "support_graph": "A commutes with exp(A)=P_M D, so conjugation by the signed permutation preserves the nonzero-edge support graph. Since exp(A) is block diagonal over support components and is a signed permutation, the matching permutation preserves each component."
   },
