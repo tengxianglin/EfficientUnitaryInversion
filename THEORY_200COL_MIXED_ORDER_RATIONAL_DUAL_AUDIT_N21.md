@@ -118,3 +118,58 @@ Reproduce the exact rational post-processing with:
 - `evidence/200col_program_mass_tv_bound_n21.json`
 
 The verifier pins the source Arb certificate SHA256 and recomputes M and the TV fraction using only Python's `fractions.Fraction`; it does not rerun the interval pricing itself.
+
+
+## Continuous uniform-path escape of the 200-column dual (certified 2026-11-25)
+
+The finite 200-column theorem above is unchanged, but its particular dual is **not** a separator of the continuous physical family. This has now been established in two independent stages.
+
+### Positive torus witness
+
+On the exact 21-torus parameterization of the 42-site uniform open path, a deterministic four-start cofactor-gradient search found the exact-decimal phase vector stored in evidence/200col_uniform_torus_search_n21.json. The maximum relative defect in the analytic-gradient checks was \(7.26\times10^{-9}\). The optimizer is discovery only.
+
+The independent 128-bit Arb verifier certifies
+\[
+S_{200}(R(\theta_*))
+\in
+[1.4530576032069032574827532865451450
+\pm5.50\times10^{-35}]>0.
+\]
+The certificate pins the exact 200-column rational dual, its LP transcript, and the 2,113-row cut design. Combined with the exact dense-orbit theorem for the uniform 42-site open-path generator, this already proves existence of some finite positive time with positive pricing.
+
+### Explicit finite-time physical witness
+
+A deterministic six-start one-dimensional search then found
+\[
+t_* = 666454.439114346168935
+=\frac{133290887822869233787}{200000000000000}>0.
+\]
+For the physical open path
+\[
+c_0=\cdots=c_{40}=t_*,\qquad c_{41}=0,
+\]
+all 41 internal couplings are strictly positive. The independent 128-bit Arb verifier certifies
+\[
+S_{200}(e^{t_*K_*})
+\in
+[0.1462687155056939188352076552
+\pm1.54\times10^{-29}]>0.
+\]
+Thus this is an explicit connected physical path escaping the **particular 200-column dual**, not merely a torus-closure argument.
+
+### Exact scope
+
+- The 200-column / 2,113-row finite-pool lower bound and its program-label TV corollary remain valid for the exact pinned 200 columns.
+- The explicit path proves that the same dual cannot be extended unchanged to the full continuous physical family.
+- It does **not** invalidate the finite-pool theorem, prove feasibility or infeasibility of the full continuous-family moment problem, complete the sixth/eighth orbit inventories, or imply a Choi/diamond operational bound.
+- The 645 sixth-order rows and seven eighth-order rows remain selected/cut, not complete.
+
+### Reproduction
+
+- Torus search and evidence: discover_200col_uniform_torus_pricing.py, evidence/200col_uniform_torus_search_n21.json.
+- Independent torus Arb certificate: verify_200col_uniform_torus_pricing_arb.py, evidence/200col_uniform_torus_arb_n21.json.
+- Finite-time search and evidence: discover_200col_uniform_ray_time_escape.py, evidence/200col_uniform_ray_time_search_n21.json.
+- Independent finite-time Arb certificate: verify_200col_uniform_ray_time_arb.py, evidence/200col_uniform_ray_time_arb_n21.json.
+- Successful torus workflow: [45584351764](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45584351764).
+- Successful finite-time workflow: [45585112087](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45585112087).
+- Evidence commits: [435c7cd](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/435c7cd2c354e5e4530ba65185a51b294ed36d89), [1c19fe2](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1c19fe23500a74205531d1220e8029f02ada67ec).
