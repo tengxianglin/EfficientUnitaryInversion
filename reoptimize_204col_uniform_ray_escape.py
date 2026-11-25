@@ -1,4 +1,4 @@
-"""Binary64 discovery LP after appending the 202-dual Arb-certified uniform-ray path as column 1660.
+"""Binary64 discovery LP after appending the 203-dual Arb-certified uniform-ray path as column 1661.
 
 The LP is discovery only. An above-cap result needs a new exact rational dual
 and independent Arb checks of all 204 columns. A below-cap result needs an
@@ -304,6 +304,20 @@ def main():
     if parent_lp.get("continuous_escape_arb_certificate_sha256") != escape_hashes:
         raise RuntimeError("192-column parent escape-certificate ancestry mismatch")
 
+    next2_t = Fraction(next2_time_cert["t_exact_rational"])
+    if next2_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_202col_dual_certificate_sha256") or next2_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_202col_lp_sha256") or next2_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("202-column ancestor time certificate does not pin the parent ancestry")
+    if next2_time_cert.get("status") != "certified_finite_uniform_ray_escape" or not next2_time_cert.get("complete") or not next2_time_cert.get("finite_physical_escape_certified"):
+        raise RuntimeError("202-column ancestor finite-time path lacks a complete strict Arb certificate")
+    if next2_t <= 0 or Fraction(next2_time_cert["t_exact_decimal"]) != next2_t or next2_t in (base_t, parent_t, grandparent_t, greatgrandparent_t, previous_t, t, t_new, t_latest, t_final, next_t):
+        raise RuntimeError("202-column ancestor finite-time path is invalid or duplicates an earlier path")
+    next2_uniform_couplings = [Fraction(value) for value in next2_time_cert["uniform_couplings_exact_decimal"]]
+    if len(next2_uniform_couplings) != 41 or any(value != next2_t for value in next2_uniform_couplings):
+        raise RuntimeError("202-column ancestor finite-time certificate is not a uniform 41-edge path")
+    if parent_lp.get("parent_202col_dual_escape_time_arb_certificate_sha256") != next2_time_cert_sha or Fraction(parent_lp.get("parent_202col_dual_escape_time_exact_rational")) != next2_t:
+        raise RuntimeError("203-column parent does not pin the exact 202-column escape path")
+    next2_uniform_path = next2_uniform_couplings + [Fraction(0)]
+
     parent_order = [int(value) for value in parent_lp["column_order"]]
     if len(parent_order) != 203 or len(set(parent_order)) != 203 or 1660 not in parent_order:
         raise RuntimeError("203-column parent ordering is not unique or omits the 202-column path")
@@ -355,7 +369,7 @@ def main():
         elif column == 1659:
             physical_columns.append(next_uniform_path)
         elif column == 1660:
-            physical_columns.append(next2_uniform_couplings + [Fraction(0)])
+            physical_columns.append(next2_uniform_path)
         else:
             raise RuntimeError(f"unknown parent physical column label {column}")
     if next_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_201col_dual_certificate_sha256") or next_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_201col_lp_sha256") or next_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
@@ -367,22 +381,9 @@ def main():
     if len(next_uniform_couplings) != 41 or any(value != next_t for value in next_uniform_couplings):
         raise RuntimeError("201-column finite-time certificate is not a uniform 41-edge path")
     if parent_lp.get("parent_201col_uniform_ray_time_arb_certificate_sha256") != next_time_cert_sha or Fraction(parent_lp.get("parent_201col_uniform_ray_time_exact_rational")) != next_t:
-        raise RuntimeError("202-column parent does not pin the 201-column finite-time ancestor certificate")
-    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != next_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != next_t:
-        raise RuntimeError("202-column parent current path differs from the 201-column finite-time certificate")
-
-    next2_t = Fraction(next2_time_cert["t_exact_rational"])
-    if next2_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_202col_dual_certificate_sha256") or next2_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_202col_lp_sha256") or next2_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
-        raise RuntimeError("202-column ancestor time certificate does not pin the parent ancestry")
-    if next2_time_cert.get("status") != "certified_finite_uniform_ray_escape" or not next2_time_cert.get("complete") or not next2_time_cert.get("finite_physical_escape_certified"):
-        raise RuntimeError("202-column ancestor finite-time path lacks a complete strict Arb certificate")
-    if next2_t <= 0 or Fraction(next2_time_cert["t_exact_decimal"]) != next2_t or next2_t in (base_t, parent_t, grandparent_t, greatgrandparent_t, previous_t, t, t_new, t_latest, t_final, next_t):
-        raise RuntimeError("202-column ancestor finite-time path is invalid or duplicates an earlier path")
-    next2_uniform_couplings = [Fraction(value) for value in next2_time_cert["uniform_couplings_exact_decimal"]]
-    if len(next2_uniform_couplings) != 41 or any(value != next2_t for value in next2_uniform_couplings):
-        raise RuntimeError("202-column ancestor finite-time certificate is not a uniform 41-edge path")
-    if parent_lp.get("parent_202col_dual_escape_time_arb_certificate_sha256") != next2_time_cert_sha or Fraction(parent_lp.get("parent_202col_dual_escape_time_exact_rational")) != next2_t:
-        raise RuntimeError("203-column parent does not pin the exact 202-column escape path")
+        raise RuntimeError("203-column parent does not pin the 201-column finite-time ancestor certificate")
+    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != next2_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != next2_t:
+        raise RuntimeError("203-column parent current path differs from the 202-column finite-time certificate")
 
     next3_t = Fraction(next3_time_cert["t_exact_rational"])
     if next3_time_cert.get("dual_certificate_sha256") != parent_dual_sha or next3_time_cert.get("lp_transcript_sha256") != parent_lp_sha or next3_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
@@ -628,8 +629,6 @@ def main():
         "parent_202col_dual_escape_time_exact_rational": str(next2_t),
         "parent_203col_uniform_ray_time_arb_certificate_sha256": next3_time_cert_sha,
         "parent_203col_uniform_ray_time_exact_rational": str(next3_t),
-        "parent_203col_uniform_ray_time_arb_certificate_sha256": next3_time_cert_sha,
-        "parent_203col_uniform_ray_time_exact_rational": str(next3_t),
         "uniform_ray_time_arb_certificate_sha256": next3_time_cert_sha,
         "uniform_ray_time_exact_rational": str(next3_t),
         "uniform_ray_time_exact_decimal": next3_time_cert["t_exact_decimal"],
@@ -671,7 +670,7 @@ def main():
         "finite_candidate_below_one_third": bool(result.fun < 1 / 3),
         "scope": (
             "Binary64 HiGHS discovery on the fixed 2,113-row mixed-order design after appending "
-            "the exact Arb-certified 202-dual uniform positive-coupling path as physical column 1660. "
+            "the exact Arb-certified 203-dual uniform positive-coupling path as physical column 1661. "
             "A sub-1/3 result is discovery only until an exact rational primal passes Arb on all "
             "pinned rows and a complete 63,133-orbit sixth-order audit. An above-cap result requires "
             "a new exact rational dual and independent Arb verification against all 204 physical columns."
@@ -742,10 +741,8 @@ def main():
             "parent_201col_uniform_ray_time_exact_rational": str(next_t),
             "parent_202col_dual_escape_time_arb_certificate_sha256": next2_time_cert_sha,
             "parent_202col_dual_escape_time_exact_rational": str(next2_t),
-        "parent_203col_uniform_ray_time_arb_certificate_sha256": next3_time_cert_sha,
-        "parent_203col_uniform_ray_time_exact_rational": str(next3_t),
             "parent_203col_uniform_ray_time_arb_certificate_sha256": next3_time_cert_sha,
-        "parent_203col_uniform_ray_time_exact_rational": str(next3_t),
+            "parent_203col_uniform_ray_time_exact_rational": str(next3_t),
         "uniform_ray_time_arb_certificate_sha256": next3_time_cert_sha,
             "uniform_ray_time_exact_rational": str(next3_t),
             "parent_194col_uniform_ray_time_exact_rational": str(grandparent_t),
