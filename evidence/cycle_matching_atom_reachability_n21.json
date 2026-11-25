@@ -1,0 +1,149 @@
+{
+  "status": "certified_cycle_matching_atom_structural_reachability_bound",
+  "complete": true,
+  "N": 42,
+  "generator": "A(c)[j,j+1]=2*c_j; A(c)[j+1,j]=-2*c_j, cyclic indices",
+  "matching_atom": "R_M=P_M D, D[j,j]=(-1)^j",
+  "theorem": "Every matching atom equal to exp(A(c)) is bipartite. With a nonempty zero-edge set, the cuts lie in one edge-parity class and f reverses each even path component. With all edges active, f is one of 21 edge-axis reflections or the half-turn.",
+  "proper_support_cut_set_count": 4194302,
+  "full_support_fixed_point_free_dihedral_count": 22,
+  "reachable_matching_atom_count_upper_bound": 4194324,
+  "total_perfect_matchings": "13113070457687988603440625",
+  "reachable_fraction_upper_bound_exact": "466036/1457007828631998733715625",
+  "reachable_fraction_upper_bound_decimal": "3.19858267637152310402580941603361792538620027400482508820824E-19",
+  "unreachable_uniform_matching_mass_lower_bound_exact": "1457007828631998733249589/1457007828631998733715625",
+  "unreachable_uniform_matching_mass_lower_bound_decimal": "0.999999999999999999680141732362847689597419058396638207461380",
+  "same_parity_pair_target_in_Q_basis": "-1/41",
+  "consequence": "No probability measure supported only on physically reachable matching atoms can reproduce the target: every such atom has zero same-parity 2x2 principal minors, while the target is -1/41.",
+  "frozen_non_bipartite_matching_same_parity_pairs": [
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      4,
+      30
+    ],
+    [
+      5,
+      25
+    ],
+    [
+      9,
+      41
+    ],
+    [
+      10,
+      36
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      23,
+      29
+    ],
+    [
+      26,
+      32
+    ],
+    [
+      33,
+      35
+    ]
+  ],
+  "small_exact_commutant_cross_checks": [
+    {
+      "N": 4,
+      "matching_count": 3,
+      "commutant_nullity_histogram": {
+        "2": 1,
+        "3": 2
+      },
+      "all_exact_ranks_match_edge_orbit_formula": true,
+      "exact_matchings_checked": 3
+    },
+    {
+      "N": 6,
+      "matching_count": 15,
+      "commutant_nullity_histogram": {
+        "1": 3,
+        "2": 6,
+        "3": 3,
+        "4": 3
+      },
+      "all_exact_ranks_match_edge_orbit_formula": true,
+      "exact_matchings_checked": 15
+    },
+    {
+      "N": 8,
+      "matching_count": 105,
+      "commutant_nullity_histogram": {
+        "0": 8,
+        "1": 16,
+        "2": 38,
+        "3": 28,
+        "4": 11,
+        "5": 4
+      },
+      "all_exact_ranks_match_edge_orbit_formula": true,
+      "exact_matchings_checked": 105
+    }
+  ],
+  "small_cut_set_cross_checks": [
+    {
+      "N": 4,
+      "nonempty_same_parity_cut_sets_checked": 6,
+      "distinct_segment_mirror_matchings": 2,
+      "all_segment_mirror_matchings_are_bipartite": true,
+      "formula_cut_set_count": 6
+    },
+    {
+      "N": 6,
+      "nonempty_same_parity_cut_sets_checked": 14,
+      "distinct_segment_mirror_matchings": 5,
+      "all_segment_mirror_matchings_are_bipartite": true,
+      "formula_cut_set_count": 14
+    },
+    {
+      "N": 8,
+      "nonempty_same_parity_cut_sets_checked": 30,
+      "distinct_segment_mirror_matchings": 14,
+      "all_segment_mirror_matchings_are_bipartite": true,
+      "formula_cut_set_count": 30
+    },
+    {
+      "N": 10,
+      "nonempty_same_parity_cut_sets_checked": 62,
+      "distinct_segment_mirror_matchings": 37,
+      "all_segment_mirror_matchings_are_bipartite": true,
+      "formula_cut_set_count": 62
+    }
+  ],
+  "full_cycle_dihedral_cross_checks": [
+    {
+      "N": 6,
+      "fixed_point_free_involutive_dihedral_maps": 4,
+      "expected_count": 4,
+      "all_are_bipartite_matchings": true
+    },
+    {
+      "N": 10,
+      "fixed_point_free_involutive_dihedral_maps": 6,
+      "expected_count": 6,
+      "all_are_bipartite_matchings": true
+    },
+    {
+      "N": 42,
+      "fixed_point_free_involutive_dihedral_maps": 22,
+      "expected_count": 22,
+      "all_are_bipartite_matchings": true
+    }
+  ],
+  "scope": "This bounds the reachable atoms inside the perfect-matching signed-permutation ensemble only. It does not rule out a positive measure supported on non-permutation cycle exponentials."
+}
