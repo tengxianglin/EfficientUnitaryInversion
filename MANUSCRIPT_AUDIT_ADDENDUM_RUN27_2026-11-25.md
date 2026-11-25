@@ -30,7 +30,19 @@ Evidence:
 
 This is a continuous-family escape for the **particular 203-column dual**, not a failure of its finite-pool theorem. It is not a full-family positive-ensemble construction or global converse. The selected 645 sixth-order and seven eighth-order rows are not complete orbit systems. The program-mass TV corollary remains a dephased program-label statement, not a Choi trace-distance or channel diamond-distance bound.
 
-A bounded one-dimensional finite-time search and a separate exact-time Arb verifier have been added. Until that certificate is positive, the explicit finite-time witness remains pending; the dense-ray theorem already proves existence of some finite positive time.
+The bounded one-dimensional search and independent exact-time Arb verification are now complete. The exact time is
+\[
+t_{203}=\frac{5594112299050130881369}{500000000000000}>0,
+\]
+with all 41 internal path couplings equal to this value and the closing edge zero. The 128-bit Arb pricing interval is
+\[
+S_{203}(e^{t_{203}K_*})
+\in[0.239195582173375959879219615\pm6.80\times10^{-28}]>0.
+\]
+The lower endpoint is independently enclosed by
+[0.23919558217337595987921961432058489809 +/- 2.23e-39], strictly positive.
+
+The first finite-time verifier attempt exposed two stale 202-column dimension literals in the adapted 203-column verifier. They were corrected to 203, the verifier's exception JSON newline was repaired, stale evidence removal was added to the workflow, and the complete rerun passed. Successful CI: [45628510382](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45628510382). Search and Arb outputs are pinned by evidence/203col_uniform_ray_time_search_n21.json and evidence/203col_uniform_ray_time_arb_n21.json.
 
 ## Manuscript source status
 
