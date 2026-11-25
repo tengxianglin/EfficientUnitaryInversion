@@ -1,0 +1,29 @@
+name: EUI cycle matching atom reachability
+on:
+  push:
+    paths:
+      - "THEORY_CYCLE_MATCHING_ATOM_REACHABILITY_N42.md"
+      - "verify_cycle_matching_atom_reachability.py"
+      - "verify_perfect_matching_atom_cycle_unreachability.py"
+      - "evidence/cycle_matching_atom_reachability_n21.json"
+      - ".github/workflows/eui-cycle-matching-atom-reachability.yml"
+  pull_request:
+    paths:
+      - "THEORY_CYCLE_MATCHING_ATOM_REACHABILITY_N42.md"
+      - "verify_cycle_matching_atom_reachability.py"
+      - "verify_perfect_matching_atom_cycle_unreachability.py"
+      - "evidence/cycle_matching_atom_reachability_n21.json"
+      - ".github/workflows/eui-cycle-matching-atom-reachability.yml"
+  workflow_dispatch:
+jobs:
+  exact-reachability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile verifier
+        run: python -m py_compile verify_perfect_matching_atom_cycle_unreachability.py verify_cycle_matching_atom_reachability.py
+      - name: Recompute exact structural and commutant checks
+        run: python verify_cycle_matching_atom_reachability.py
