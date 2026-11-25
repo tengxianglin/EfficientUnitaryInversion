@@ -54,3 +54,12 @@ The earlier matching-atom parity theorem remains a statement about the particula
 ## Next highest-value action
 
 Do not continue single-atom searches in the same ansatz. The next decisive problem is the **convex hull of the period-two family**: derive a linear inequality valid for every real (a,b), or construct a positive measure whose displacement-resolved pair-minor functions average to -1/41. If that subfamily is excluded, move to general non-periodic cycle couplings; if it is feasible, use the construction to identify what extra degrees of freedom are essential at N=42.
+
+
+## Literature check added after the first audit
+
+- Ehler & Gräf, *Constructive Approximation* 49, 29–58 (2019), DOI 10.1007/s00365-018-9443-5: general Grassmannian cubatures and designs. This supports the geometric framing, not the restricted-cycle result.
+- Wan et al., *Communications in Mathematical Physics* 404, 629–700 (2023), DOI 10.1007/s00220-023-04844-0: matchgate 3-design from Haar matchgates and a discrete Clifford-matchgate ensemble. It concerns the full matchgate group, not the fixed-cycle one-exponential support.
+- Boccato, Pieroni & Trevisan, arXiv:2504.08971: trace/TV/Wasserstein relations between Slater determinant states and their DPPs. Potentially relevant to a future operational bridge, but not a channel diamond-norm theorem for EUI.
+
+The theory note now records this novelty boundary. The hosted workflow still has no reported run; exact local verification remains the current reproducibility evidence.
