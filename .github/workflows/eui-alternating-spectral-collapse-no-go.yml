@@ -1,0 +1,27 @@
+name: EUI alternating spectral-collapse no-go
+on:
+  push:
+    paths:
+      - "THEORY_ALTERNATING_SPECTRAL_COLLAPSE_NO_GO.md"
+      - "verify_alternating_spectral_collapse_no_go.py"
+      - "evidence/alternating_spectral_collapse_no_go.json"
+      - ".github/workflows/eui-alternating-spectral-collapse-no-go.yml"
+  pull_request:
+    paths:
+      - "THEORY_ALTERNATING_SPECTRAL_COLLAPSE_NO_GO.md"
+      - "verify_alternating_spectral_collapse_no_go.py"
+      - "evidence/alternating_spectral_collapse_no_go.json"
+      - ".github/workflows/eui-alternating-spectral-collapse-no-go.yml"
+  workflow_dispatch:
+jobs:
+  exact-rational-ansatz-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile verifier
+        run: python -m py_compile verify_alternating_spectral_collapse_no_go.py
+      - name: Verify exact rational identities and small-size minors
+        run: python verify_alternating_spectral_collapse_no_go.py
