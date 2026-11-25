@@ -137,7 +137,8 @@ def main():
 
     seed_raw = SEED_POOL_PATH.read_bytes()
     seed = np.load(SEED_POOL_PATH, allow_pickle=False)
-    seed_sha = sha(seed_raw)
+    seed_file_sha = sha(seed_raw)
+    seed_sha = sha(np.asarray(seed, dtype="<f8").tobytes())
     if seed.shape != (1600, 42) or seed_sha != "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315":
         raise RuntimeError("frozen seed-pool hash/shape mismatch")
     if lp.get("seed_pool_sha256_le_f64") != sha(np.asarray(seed, dtype="<f8").tobytes()):
@@ -147,6 +148,8 @@ def main():
     if len(all_columns) != CANONICAL_COUNT or lp.get("canonical_all_columns_sha256_le_f64") != all_sha:
         raise RuntimeError("canonical inventory count/hash mismatch")
 
+    if escapes[0].get("status") != "certified_continuous_path_dual_escape" or escapes[0].get("complete") is not True or not escapes[0].get("strictly_positive"):
+        raise RuntimeError("first nonuniform escape lacks a strict Arb certificate")
     if candidate152.get("escape_couplings_exact") != escapes[0].get("candidate_couplings_exact"):
         raise RuntimeError("152-column candidate differs from its first Arb-certified escape")
     escape_couplings = [[Fraction(value) for value in candidate152["escape_couplings_exact"]]]
@@ -260,7 +263,8 @@ def main():
         "parent_203col_uniform_ray_time_arb_certificate_sha256": parent_time_sha,
         "parent_152col_candidate_sha256": candidate152_sha,
         "cut_lp_transcript_sha256": cut_lp_sha,
-        "seed_pool_sha256": seed_sha,
+        "seed_pool_file_sha256": seed_file_sha,
+        "seed_pool_sha256_le_f64": seed_sha,
         "canonical_all_columns_sha256_le_f64": all_sha,
         "column_order_sha256": column_order_sha,
         "column_order": column_order,
