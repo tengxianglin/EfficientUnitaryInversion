@@ -39,3 +39,15 @@ This closes the matching-atom route: no reweighting or pruning of physically rea
 ## Next highest-value action
 
 Move beyond signed matching atoms. The exact SO(42) matching ensemble is a useful unrestricted benchmark, but its physically reachable subset is separated from the target already by adjacent-pair moments. The next decisive task is to derive a functional valid on the full continuous family Q(c)=exp(A(c))D, or to construct a non-matching positive physical ensemble satisfying all even principal-minor moments. The existing 35-atom period-two construction only covers all pairs and four quartic translation orbits; it is not a complete fourth-order or all-order design.
+
+
+## Hosted verification completed
+
+The first three CI attempts failed only at the final byte-for-byte evidence comparison; the exact arithmetic verifier itself passed each time. The committed JSON had small schema/wording drift from the verifier's deterministic output. Those fields were synchronized, and the final workflow run [45716770550](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45716770550) succeeded on commit d267415d787e7c04925ea79a053f63c23ea0c9a0. The hosted run passed Python compilation, exact arithmetic/structural regression, and the committed-evidence reproducibility check.
+
+Earlier failed runs are retained as provenance:
+- [45716285247](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45716285247)
+- [45716369589](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45716369589)
+- [45716594263](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45716594263)
+
+These failures were serialization consistency issues, not failures of the theorem or the exact arithmetic regression.
