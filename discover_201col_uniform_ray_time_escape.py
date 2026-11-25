@@ -12,6 +12,7 @@ from discover_201col_uniform_torus_pricing import DualPricing
 ROOT = Path(__file__).resolve().parent
 TORUS_CERT_PATH = ROOT / "evidence/201col_uniform_torus_arb_n21.json"
 OUTPUT_DEFAULT = ROOT / "evidence/201col_uniform_ray_time_search_n21.json"
+SEED = 202611251837
 
 
 def sha(raw):
@@ -43,7 +44,7 @@ def main():
         value, gradient = pricing.value_gradient(phases)
         return value, float(np.dot(gradient, omega))
 
-    rng = np.random.default_rng(202611251837)
+    rng = np.random.default_rng(SEED)
     starts = rng.uniform(0.0, 1.0e8, size=args.starts)
     records = []
     best = None
@@ -102,7 +103,7 @@ def main():
         "search_domain": "[1e-9, 1e8]",
         "starts": args.starts,
         "max_iterations_per_start": args.maxiter,
-        "seed": 202611251720,
+        "seed": SEED,
         "best_t_exact_decimal": best["t_exact_decimal"] if best else None,
         "best_score_binary64": best["score_at_rounded_t_binary64"] if best else None,
         "candidate_found": candidate_found,
