@@ -87,7 +87,7 @@ def main():
         raise RuntimeError("diagnostic does not contain exactly 6,137 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
-    if diagnostic.get("general_gapped_count") != 16 or len(diagnostic.get("appended_gapped_columns", [])) != 14:
+    if diagnostic.get("general_gapped_count") != 16 or len(diagnostic.get("appended_gapped_columns", [])) != 16:
         raise RuntimeError("diagnostic does not contain exactly sixteen appended gapped paths")
     if diagnostic.get("full_feature_count") != 1461:
         raise RuntimeError("unexpected full feature count")
