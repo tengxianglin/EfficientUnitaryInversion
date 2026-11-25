@@ -299,8 +299,10 @@ def main():
         raise RuntimeError("199-column finite-time certificate is not a uniform 41-edge path")
     if t_final <= 0 or Fraction(final_time_cert["t_exact_decimal"]) != t_final or t_final in (base_t, parent_t, grandparent_t, greatgrandparent_t, previous_t, t, t_new, t_latest):
         raise RuntimeError("200-column finite-time path is invalid or duplicates an ancestor")
-    if final_time_cert.get("dual_certificate_sha256") != parent_dual_sha or final_time_cert.get("lp_transcript_sha256") != parent_lp_sha or final_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
-        raise RuntimeError("200-column finite-time certificate does not pin the exact 200-column dual/LP/cut design")
+    if final_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_200col_dual_certificate_sha256") or final_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_200col_lp_sha256") or final_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
+        raise RuntimeError("200-column finite-time certificate does not pin the exact 200-column ancestor dual/LP/cut design")
+    if parent_lp.get("parent_200col_uniform_ray_time_arb_certificate_sha256") != final_time_cert_sha:
+        raise RuntimeError("201-column parent does not pin the 200-column finite-time certificate")
     if len(final_uniform_couplings) != 41 or any(value != t_final for value in final_uniform_couplings):
         raise RuntimeError("200-column finite-time certificate is not a uniform 41-edge path")
     if latest_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_199col_dual_certificate_sha256") or latest_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_199col_lp_sha256") or latest_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
