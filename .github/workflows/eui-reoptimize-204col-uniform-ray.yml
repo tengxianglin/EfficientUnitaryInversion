@@ -1,4 +1,4 @@
-name: EUI 204-column mixed-order reoptimization after explicit 202-dual escape
+name: EUI 204-column mixed-order reoptimization after explicit 203-dual escape
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
           python -m unittest tests/test_eighth_orbit_enumeration.py
           python -m unittest tests/test_uniform_path_torus_basis.py
           python -m py_compile reoptimize_204col_uniform_ray_escape.py verify_203col_uniform_ray_dual_arb.py verify_203col_program_mass_tv_bound.py verify_203col_uniform_torus_pricing_arb.py verify_203col_uniform_ray_time_arb.py
-      - name: Re-certify the exact 202-column parent and its explicit continuous escape
+      - name: Re-certify the exact 203-column parent and its explicit continuous escape
         run: |
           python verify_203col_uniform_ray_dual_arb.py
           python verify_203col_program_mass_tv_bound.py
