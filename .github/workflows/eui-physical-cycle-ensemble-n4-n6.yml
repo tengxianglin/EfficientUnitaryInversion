@@ -1,0 +1,29 @@
+name: EUI exact physical cycle ensembles N4 N6
+on:
+  push:
+    paths:
+      - "THEORY_PHYSICAL_CYCLE_ENSEMBLE_N4_N6.md"
+      - "verify_physical_cycle_ensemble_n4_n6.py"
+      - "evidence/physical_cycle_ensemble_n4_n6.json"
+      - ".github/workflows/eui-physical-cycle-ensemble-n4-n6.yml"
+  pull_request:
+    paths:
+      - "THEORY_PHYSICAL_CYCLE_ENSEMBLE_N4_N6.md"
+      - "verify_physical_cycle_ensemble_n4_n6.py"
+      - "evidence/physical_cycle_ensemble_n4_n6.json"
+      - ".github/workflows/eui-physical-cycle-ensemble-n4-n6.yml"
+  workflow_dispatch:
+jobs:
+  exact-small-cycle-ensembles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned symbolic verifier dependency
+        run: python -m pip install sympy==1.14.0
+      - name: Compile exact verifier
+        run: python -m py_compile verify_physical_cycle_ensemble_n4_n6.py
+      - name: Recompute all even principal minors
+        run: python verify_physical_cycle_ensemble_n4_n6.py
