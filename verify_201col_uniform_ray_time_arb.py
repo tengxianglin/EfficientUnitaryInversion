@@ -205,5 +205,18 @@ def main():
     }, indent=2), flush=True)
 
 
+
+# Preserve a machine-readable failure diagnostic: the workflow commits this
+# file under its always-run evidence step even when an unexpected check fails.
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:
+        OUTPUT_PATH.write_text(json.dumps({
+            "status": "arb_verifier_exception",
+            "complete": False,
+            "precision_bits": PRECISION_BITS,
+            "exception_type": type(exc).__name__,
+            "exception": str(exc),
+        }, indent=2) + "\\n")
+        raise
