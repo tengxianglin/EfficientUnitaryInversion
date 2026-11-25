@@ -1,62 +1,19 @@
 {
-  "status": "exact_physical_matching_ensemble_adjacent_pair_obstruction",
-  "complete": true,
-  "theorem_scope": "N=4m+2, N>=6",
   "N": 42,
-  "n": 21,
-  "theorem": "Every perfect-matching atom R_M=P_M D that equals exp(A(c)) for a real skew generator supported on the N-cycle has at least two matching edges that are cycle edges.",
-  "proof_lemmas": {
-    "support_graph": "A commutes with exp(A)=P_M D, so conjugation by the signed permutation preserves the nonzero-edge support graph. Since exp(A) is block diagonal over support components and is a signed permutation, the matching permutation preserves each component.",
-    "proper_support": "Every component is an even path and the fixed-point-free path automorphism is reversal. Each component contributes its central adjacent matched pair. If there is only one component, it spans all N vertices and its endpoint pair across the unique missing cycle edge is a second adjacent matched pair.",
-    "full_support": "A fixed-point-free involutive cycle automorphism is an edge-axis reflection or the half-turn. Every edge-axis reflection has exactly two adjacent matched pairs.",
-    "halfturn_exclusion": "For p(j)=j+n and odd n, J=P_M D is an orthogonal complex structure. A commutes with J and e^A=J=iI on the induced complex vector space. The antipodal permutation has no cycle-edge support, so tr_R(JA)=0; also tr_R(A)=0, hence tr_C(A)=0. But the n complex eigenphases are theta_l=pi/2+2*pi*k_l, so their sum pi/2*(n+4K) cannot vanish for odd n."
-  },
   "N42_checks": {
-    "edge_axis_reflections_checked": 21,
+    "bipartite_perfect_matchings": 51090942171709440000,
     "edge_axis_reflection_adjacent_pair_counts": [
       2
     ],
+    "edge_axis_reflections_checked": 21,
     "halfturn": {
       "adjacent_matched_pairs": 0,
-      "half_turn_shift": 21,
-      "half_turn_shift_is_odd": true,
+      "n_mod_2": 1,
       "trace_sum_zero_impossible": true
     },
     "proper_path_compositions": {
-      "composition_count": 1048576,
-      "component_count_distribution": {
-        "1": 1,
-        "2": 20,
-        "3": 190,
-        "4": 1140,
-        "5": 4845,
-        "6": 15504,
-        "7": 38760,
-        "8": 77520,
-        "9": 125970,
-        "10": 167960,
-        "11": 184756,
-        "12": 167960,
-        "13": 125970,
-        "14": 77520,
-        "15": 38760,
-        "16": 15504,
-        "17": 4845,
-        "18": 1140,
-        "19": 190,
-        "20": 20,
-        "21": 1
-      },
       "adjacent_pair_count_by_component_count": {
         "1": 2,
-        "2": 2,
-        "3": 3,
-        "4": 4,
-        "5": 5,
-        "6": 6,
-        "7": 7,
-        "8": 8,
-        "9": 9,
         "10": 10,
         "11": 11,
         "12": 12,
@@ -67,67 +24,66 @@
         "17": 17,
         "18": 18,
         "19": 19,
+        "2": 2,
         "20": 20,
-        "21": 21
+        "21": 21,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9
       },
-      "minimum_adjacent_pair_count": 2
+      "component_count_distribution": {
+        "1": 1,
+        "10": 167960,
+        "11": 184756,
+        "12": 167960,
+        "13": 125970,
+        "14": 77520,
+        "15": 38760,
+        "16": 15504,
+        "17": 4845,
+        "18": 1140,
+        "19": 190,
+        "2": 20,
+        "20": 20,
+        "21": 1,
+        "3": 190,
+        "4": 1140,
+        "5": 4845,
+        "6": 15504,
+        "7": 38760,
+        "8": 77520,
+        "9": 125970
+      },
+      "composition_count": 1048576,
+      "minimum": 2
     },
-    "total_perfect_matchings": "13113070457687988603440625",
-    "bipartite_perfect_matchings": "51090942171709440000",
-    "uniform_matching_mass_on_same_parity_atoms": "67281972161/67282234305",
     "separating_functional": {
-      "definition": "Lambda(Q)=-sum_j det(Q_{ {j,j+1},{j,j+1} }) with cyclic indices",
-      "minimum_on_reachable_matching_atoms": 2,
       "balanced_target_value": "42/41",
+      "definition": "Lambda(Q)=-sum_{j=0}^{N-1} det(Q_{ {j,j+1},{j,j+1} }) with cyclic indices",
+      "minimum_on_reachable_matching_atoms": 2,
       "strict_gap": "40/41"
-    }
+    },
+    "total_perfect_matchings": 13113070457687988603440625,
+    "uniform_matching_mass_on_same_parity_atoms": "67281972161/67282234305"
   },
-  "small_size_checks": [
-    {
-      "N": 6,
-      "n": 3,
-      "edge_axis_reflections": 3,
-      "adjacent_pairs_per_edge_axis_reflection": 2,
-      "halfturn": {
-        "adjacent_matched_pairs": 0,
-        "half_turn_shift": 3,
-        "half_turn_shift_is_odd": true,
-        "trace_sum_zero_impossible": true
-      },
-      "target_adjacent_score": "6/5",
-      "strict_gap_to_two": "4/5"
-    },
-    {
-      "N": 10,
-      "n": 5,
-      "edge_axis_reflections": 5,
-      "adjacent_pairs_per_edge_axis_reflection": 2,
-      "halfturn": {
-        "adjacent_matched_pairs": 0,
-        "half_turn_shift": 5,
-        "half_turn_shift_is_odd": true,
-        "trace_sum_zero_impossible": true
-      },
-      "target_adjacent_score": "10/9",
-      "strict_gap_to_two": "8/9"
-    },
-    {
-      "N": 42,
-      "n": 21,
-      "edge_axis_reflections": 21,
-      "adjacent_pairs_per_edge_axis_reflection": 2,
-      "halfturn": {
-        "adjacent_matched_pairs": 0,
-        "half_turn_shift": 21,
-        "half_turn_shift_is_odd": true,
-        "trace_sum_zero_impossible": true
-      },
-      "target_adjacent_score": "42/41",
-      "strict_gap_to_two": "40/41"
-    }
-  ],
   "N4_counterexample": {
     "N": 4,
+    "adjacent_matched_pairs": 0,
+    "couplings": [
+      "pi/4",
+      "pi/4",
+      "-pi/4",
+      "-pi/4"
+    ],
+    "identities": [
+      "K^T=-K",
+      "K^3=-4K",
+      "exp((pi/2)K)=I+K^2/2=P_M D"
+    ],
     "matching": [
       [
         0,
@@ -138,19 +94,59 @@
         3
       ]
     ],
-    "couplings": [
-      "pi/4",
-      "pi/4",
-      "-pi/4",
-      "-pi/4"
-    ],
-    "adjacent_matched_pairs": 0,
-    "identities": [
-      "K^T=-K",
-      "K^3=-4K",
-      "exp((pi/2)K)=I+K^2/2=P_M D"
-    ],
-    "purpose": "Counterexample outside N=4m+2; the congruence hypothesis is essential."
+    "role": "Counterexample outside N=4m+2; the congruence hypothesis is essential."
   },
-  "scope_limit": "The separator applies only to physically reachable signed perfect-matching atoms and their positive mixtures. It is not proved for arbitrary cycle exponentials Q=exp(A(c))D, so the full physical convex-hull problem remains open."
+  "complete": true,
+  "n": 21,
+  "proof_lemmas": {
+    "full_support": "A fixed-point-free involutive cycle automorphism is an edge-axis reflection or the half-turn. Every edge-axis reflection has exactly two adjacent matched pairs.",
+    "halfturn_exclusion": "For p(j)=j+n and odd n, J=P_M D is an orthogonal complex structure. A commutes with J and e^A=J=iI on the induced complex vector space. The antipodal permutation has no cycle-edge support, so tr_R(JA)=0; also tr_R(A)=0, hence tr_C(A)=0. But the n complex eigenphases are theta_l=pi/2+2*pi*k_l, so their sum is pi/2*(n+4K), which cannot vanish for odd n.",
+    "proper_support": "Every component is an even path and the fixed-point-free path automorphism is reversal. Each component contributes its central adjacent matched pair. If there is only one component, it spans all N vertices and its endpoint pair across the unique missing cycle edge is a second adjacent matched pair.",
+    "support_graph": "A commutes with exp(A)=P_M D, so conjugation by the signed permutation preserves the nonzero-edge support graph. Since exp(A) is block diagonal over support components and is a signed permutation, the matching permutation preserves each component."
+  },
+  "scope_limit": "The separator applies only to physically reachable signed perfect-matching atoms and their positive mixtures. It is not proved for arbitrary cycle exponentials Q=exp(A(c))D, so the full physical convex-hull problem remains open.",
+  "small_size_checks": [
+    {
+      "N": 6,
+      "adjacent_pairs_per_edge_axis_reflection": 2,
+      "edge_axis_reflections": 3,
+      "halfturn": {
+        "adjacent_matched_pairs": 0,
+        "n_mod_2": 1,
+        "trace_sum_zero_impossible": true
+      },
+      "n": 3,
+      "strict_gap_to_two": "4/5",
+      "target_adjacent_score": "6/5"
+    },
+    {
+      "N": 10,
+      "adjacent_pairs_per_edge_axis_reflection": 2,
+      "edge_axis_reflections": 5,
+      "halfturn": {
+        "adjacent_matched_pairs": 0,
+        "n_mod_2": 1,
+        "trace_sum_zero_impossible": true
+      },
+      "n": 5,
+      "strict_gap_to_two": "8/9",
+      "target_adjacent_score": "10/9"
+    },
+    {
+      "N": 42,
+      "adjacent_pairs_per_edge_axis_reflection": 2,
+      "edge_axis_reflections": 21,
+      "halfturn": {
+        "adjacent_matched_pairs": 0,
+        "n_mod_2": 1,
+        "trace_sum_zero_impossible": true
+      },
+      "n": 21,
+      "strict_gap_to_two": "40/41",
+      "target_adjacent_score": "42/41"
+    }
+  ],
+  "status": "exact_physical_matching_ensemble_adjacent_pair_obstruction",
+  "theorem": "Every perfect-matching atom R_M=P_M D that equals exp(A(c)) for a real skew generator supported on the N-cycle has at least two matching edges that are cycle edges.",
+  "theorem_scope": "N=4m+2, N>=6"
 }
