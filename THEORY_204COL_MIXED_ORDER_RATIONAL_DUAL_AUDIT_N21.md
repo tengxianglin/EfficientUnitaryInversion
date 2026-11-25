@@ -79,3 +79,32 @@ The new 204-column dual must be priced separately over the 21-dimensional unifor
 - Certification run: [45657144300](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45657144300)
 - 204-column torus discovery/verifier: `discover_204col_uniform_torus_pricing.py`, `verify_204col_uniform_torus_pricing_arb.py`
 - Torus workflow: `.github/workflows/eui-204col-uniform-torus-pricing.yml`
+
+
+## 6. Continuous uniform-path torus pricing (Run 29)
+
+The exact 204-column dual has now been priced at a point of the full 21-dimensional uniform-path torus. The deterministic discovery used eight starts, at most 120 L-BFGS-B iterations per start, seed `202611260040`, NumPy 2.3.5 and SciPy 1.15.3. The analytic cofactor gradient was checked against complex-step and central differences; the maximum recorded relative defect was `1.2278706314693422e-8`.
+
+The exact rational-decimal phase vector is stored in `evidence/204col_uniform_torus_search_n21.json` and pinned by SHA-256
+`a6b82adb080f1e0193a6bea86f192308efb925f9f35ec79fe44d844480432c40`.
+Independent 128-bit Arb evaluation gives
+\[
+S_{204}(R(\theta_*))
+\in
+[1.423049113389920506173001037795141
+\pm 6.68\times10^{-34}]>0.
+\]
+The lower endpoint is itself enclosed by
+`[1.4230491133899205061730010377951403322 +/- 1.50e-38]`,
+strictly above zero.
+
+Evidence:
+- [204-column torus search](evidence/204col_uniform_torus_search_n21.json)
+- [independent 128-bit Arb certificate](evidence/204col_uniform_torus_arb_n21.json)
+- [discovery script](discover_204col_uniform_torus_pricing.py), [Arb verifier](verify_204col_uniform_torus_pricing_arb.py)
+- [successful CI workflow 45657547014](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45657547014)
+- [dense-ray theorem](THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md)
+
+**Theorem-level consequence.** The exact dense-ray theorem, continuity, and the strictly positive Arb interval prove existence of at least one finite positive time on the equal-positive-coupling 42-site open-path ray for which the 204-column dual pricing is positive.
+
+**Scope.** This refutes global separation by this particular 204-column dual on the continuous equal-coupling physical ray. It does not invalidate the exact 204-column finite-pool minimax theorem, prove feasibility or infeasibility of the complete physical-family moment problem, complete the selected sixth/eighth-order orbit systems, or imply a Choi/diamond-distance bound. An explicit rational finite time is being searched and must receive its own independent Arb certificate.
