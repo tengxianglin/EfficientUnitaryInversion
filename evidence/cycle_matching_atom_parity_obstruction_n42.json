@@ -1,0 +1,37 @@
+{
+  "N": 42,
+  "bipartite_perfect_matchings": 51090942171709440000,
+  "complete": true,
+  "max_physical_fraction_decimal": 3.896184523416147e-06,
+  "max_physical_fraction_of_uniform_matching_support": "262144/67282234305",
+  "minimum_unreachable_fraction": "67281972161/67282234305",
+  "minimum_unreachable_fraction_decimal": 0.9999961038154765,
+  "minimum_unreachable_percentage": 99.99961038154765,
+  "modulus_condition": "N=4m+2",
+  "modulus_counterexample": {
+    "N": 4,
+    "couplings": ["pi/4", "pi/4", "-pi/4", "-pi/4"],
+    "exact_identity": "K^T=-K, K^3=-4K, exp((pi/2)K)=I+K^2/2=P_M D",
+    "generator": "A=(pi/2)K",
+    "matching": [[0, 2], [1, 3]],
+    "purpose": "Shows the N=4m+2 hypothesis cannot be dropped: N=4 admits a same-parity reachable matching atom."
+  },
+  "proof_lemmas": [
+    "A commutes with exp(A)=R_M, so conjugation by the signed permutation R_M preserves the nonzero-edge support graph of A.",
+    "Because A is block diagonal over connected components of its support graph, exp(A) is too; the matching permutation therefore preserves each component.",
+    "Every nontrivial proper connected subgraph component of a cycle is a path. A fixed-point-free path automorphism is reversal of an even path, which pairs opposite bipartition classes.",
+    "If the support graph is the full cycle, a fixed-point-free involutive dihedral automorphism is either an edge-axis reflection or the half-turn. Edge-axis reflections swap parity; for N=4m+2 the half-turn shift N/2 is odd and also swaps parity.",
+    "An isolated vertex would be fixed by exp(A), contradicting that a perfect matching has no fixed points. Hence every matched pair lies in one of the path/cycle components above and is cross-parity."
+  ],
+  "same_parity_matchings_proved_unreachable": 13113019366745816894000625,
+  "scope": "This excludes every same-parity perfect-matching atom at N=42 and bounds the physically reachable fraction of the uniform perfect-matching support. It does not exclude a different positive measure on physical cycle exponentials with the same complete moments, and it does not classify all cross-parity atoms.",
+  "small_N_exhaustive_counts": [
+    {"N": 4, "bipartite_matchings": 2, "exact_bipartite_fraction": "2/3", "same_parity_pair_matchings": 1, "theorem_applies": false, "total_perfect_matchings": 3},
+    {"N": 6, "bipartite_matchings": 6, "exact_bipartite_fraction": "2/5", "same_parity_pair_matchings": 9, "theorem_applies": true, "total_perfect_matchings": 15},
+    {"N": 8, "bipartite_matchings": 24, "exact_bipartite_fraction": "8/35", "same_parity_pair_matchings": 81, "theorem_applies": false, "total_perfect_matchings": 105},
+    {"N": 10, "bipartite_matchings": 120, "exact_bipartite_fraction": "8/63", "same_parity_pair_matchings": 825, "theorem_applies": true, "total_perfect_matchings": 945}
+  ],
+  "status": "exact_cycle_matching_atom_parity_obstruction_N42",
+  "theorem": "For N=4m+2, if a signed perfect-matching matrix R_M=P_M D is exp(A) for a real skew-symmetric A supported on the N-cycle, then every edge of M joins opposite cycle bipartition classes.",
+  "total_perfect_matchings": 13113070457687988603440625
+}
