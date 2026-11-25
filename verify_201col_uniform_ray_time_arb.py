@@ -43,10 +43,7 @@ def main():
         DISCOVERY_PATH.read_bytes(),
         TORUS_THEORY_PATH.read_bytes(),
     ]
-    cert, lp, cut, torus, discovery = [
-        json.loads(value) if index < 5 else None
-        for index, value in enumerate(raw)
-    ]
+    cert, lp, cut, torus, discovery = [json.loads(value) for value in raw[:5]]
     cert_sha, lp_sha, cut_sha, torus_sha, discovery_sha, theory_sha = map(sha, raw)
 
     if cert.get("status") != "strict_201col_2113row_uniform_ray_escape_minimax_obstruction" or not cert.get("complete"):
