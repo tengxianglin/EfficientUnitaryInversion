@@ -1,0 +1,63 @@
+name: EUI perfect-matching atom cycle-reachability audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_perfect_matching_atom_cycle_unreachability.py"
+      - ".github/workflows/eui-perfect-matching-cycle-unreachability.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-perfect-matching-cycle-unreachability
+  cancel-in-progress: true
+
+jobs:
+  verify-commutant-obstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile and run exact commutant checks
+        run: |
+          python -m py_compile verify_perfect_matching_atom_cycle_unreachability.py
+          rm -f evidence/perfect_matching_atom_cycle_unreachable_n21.json
+          python verify_perfect_matching_atom_cycle_unreachability.py
+      - name: Commit exact commutant evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-matching-commutant/evidence
+          if [ -f evidence/perfect_matching_atom_cycle_unreachable_n21.json ]; then
+            cp evidence/perfect_matching_atom_cycle_unreachable_n21.json /tmp/eui-matching-commutant/evidence/
+          fi
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            if [ -f /tmp/eui-matching-commutant/evidence/perfect_matching_atom_cycle_unreachable_n21.json ]; then
+              cp /tmp/eui-matching-commutant/evidence/perfect_matching_atom_cycle_unreachable_n21.json evidence/
+              git add evidence/perfect_matching_atom_cycle_unreachable_n21.json
+            fi
+            if ! git diff --cached --quiet; then
+              git commit -m "Record exact cycle-commutant obstruction for a matching atom"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload exact commutant evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-perfect-matching-cycle-commutant
+          path: evidence/perfect_matching_atom_cycle_unreachable_n21.json
+          if-no-files-found: warn
