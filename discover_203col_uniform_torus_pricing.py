@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parent
 CERT_PATH = ROOT / "evidence/55probe_203col_uniform_ray_escape_dual_certificate_n21.json"
 LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_203col_uniform_ray_escape_n21.json"
 CUT_LP_PATH = ROOT / "evidence/joint_low_six_eighth_lp_152col_full_sixth_cuts_n21.json"
-PARENT_SEARCH_PATH = ROOT / "evidence/203col_uniform_torus_search_n21.json"
+PARENT_SEARCH_PATH = ROOT / "evidence/202col_uniform_torus_search_n21.json"
 OUTPUT_DEFAULT = ROOT / "evidence/203col_uniform_torus_search_n21.json"
 
 LOW_COUNT = 1461
