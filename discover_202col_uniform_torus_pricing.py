@@ -107,27 +107,27 @@ class DualPricing:
         if (self.cert.get("column_count"), self.cert.get("row_count")) != (202, 2113):
             raise RuntimeError("unexpected 202-column certificate dimensions")
         if self.cert.get("lp_transcript_sha256") != self.lp_sha:
-            raise RuntimeError("201-column certificate/LP hash mismatch")
+            raise RuntimeError("202-column certificate/LP hash mismatch")
         if self.cert.get("cut_lp_transcript_sha256") != self.cut_sha or self.lp.get("cut_lp_transcript_sha256") != self.cut_sha:
-            raise RuntimeError("201-column evidence does not pin the exact cut design")
+            raise RuntimeError("202-column evidence does not pin the exact cut design")
         if self.lp.get("status") != "202col_uniform_ray_escape_lp_above_one_third":
-            raise RuntimeError("201-column LP is not the expected above-cap discovery")
+            raise RuntimeError("202-column LP is not the expected above-cap discovery")
         if (self.lp.get("columns"), self.lp.get("rows")) != (202, 2113):
-            raise RuntimeError("unexpected 201-column LP dimensions")
+            raise RuntimeError("unexpected 202-column LP dimensions")
         if self.parent_search.get("status") != "positive_uniform_torus_candidate_found" or not self.parent_search.get("candidate_found"):
-            raise RuntimeError("200-column warm-start torus search is not positive")
+            raise RuntimeError("201-column warm-start torus search is not positive")
         if self.parent_search.get("dual_certificate_sha256") != self.cert.get("parent_201col_dual_certificate_sha256"):
-            raise RuntimeError("200-column warm start does not pin the parent dual")
+            raise RuntimeError("201-column warm start does not pin the parent dual")
         if self.parent_search.get("lp_transcript_sha256") != self.cert.get("parent_201col_lp_sha256"):
-            raise RuntimeError("200-column warm start does not pin the parent LP")
+            raise RuntimeError("201-column warm start does not pin the parent LP")
         self.parent_phases = self.parent_search["best_candidate_phases_exact_decimal"]
         if len(self.parent_phases) != 21:
-            raise RuntimeError("200-column warm start has the wrong phase dimension")
+            raise RuntimeError("201-column warm start has the wrong phase dimension")
 
         zq = [Fraction(value) for value in self.cert["dual_vector_rational"]]
         norm = sum((abs(value) for value in zq), Fraction(0))
         if len(zq) != 2113 or norm != Fraction(self.cert["dual_l1_norm_exact"]) or norm > 1:
-            raise RuntimeError("exact 201-column dual dimension/L1 normalization mismatch")
+            raise RuntimeError("exact 202-column dual dimension/L1 normalization mismatch")
         self.z = np.asarray([float(value) for value in zq], dtype=float)
         self.lam = float(Fraction(self.cert["dual_lambda_exact"]) - Fraction(self.cert["dual_slack_delta"]))
         self.active = np.flatnonzero(self.z)
@@ -137,9 +137,9 @@ class DualPricing:
             sum(row >= SIXTH_END for row in self.active),
         )
         if len(self.active) != 66 or active_blocks != (4, 59, 3):
-            raise RuntimeError(f"unexpected 201-column active dual support: {active_blocks}")
+            raise RuntimeError(f"unexpected 202-column active dual support: {active_blocks}")
         if self.cert.get("active_dual_rows") != {"total": 66, "low": 4, "sixth": 59, "eighth": 3}:
-            raise RuntimeError("201-column certificate active-row metadata mismatch")
+            raise RuntimeError("202-column certificate active-row metadata mismatch")
 
         system = FourthMoments(21)
         system.exact_target_check()
