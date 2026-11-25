@@ -68,7 +68,11 @@ Commits:
 - [19101a3](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/19101a30f03e120be53e1857e10089bff9556110): workflow;
 - [e7d02c2](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e7d02c2b46dba08bf5071a4e5d858b683679a9b4): update 201-column theory note.
 
-The deterministic search transcript is now committed at `evidence/201col_uniform_ray_time_search_n21.json`. It used 12 starts, 400 iterations/start, and seed `202611251837`, finding the binary64 candidate t=3952466.400764009915292 with score 0.3771886165386608. This remains discovery only. The first exact-time verifier run exposed a six-to-five unpacking error; the verifier was corrected in [commit f52f73f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/f52f73fcdf5c016224b18043cf6207111f098d10), and its failure path now writes machine-readable diagnostics. The Arb output JSON is not yet visible on `main`, so no explicit physical time is certified. The existence of some finite time nevertheless follows already from the independently certified positive torus point plus the dense-ray theorem.
+The deterministic search transcript is committed at `evidence/201col_uniform_ray_time_search_n21.json`. It used 12 starts, 400 iterations/start, and seed `202611251837`, finding t=3952466.400764009915292. The first exact-time verifier run exposed a six-to-five unpacking error; this was corrected in [commit f52f73f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/f52f73fcdf5c016224b18043cf6207111f098d10), with machine-readable failure diagnostics retained. The retry completed and committed the independent 128-bit Arb certificate in [commit 64eec82](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/64eec826ca5028b989ea16f5804dcabbbc387909). It certifies the exact time
+`t*=3952466.400764009915292 = 988116600191002478823/250000000000000`
+and the physical path c_0=...=c_40=t*, c_41=0, with pricing interval
+`[0.377188616201919344495682431 +/- 4.22e-28]`
+whose lower endpoint is strictly positive. Thus this is an explicit finite-time physical escape from the 201-column dual, not just a dense-torus existence argument.
 
 ## Public manuscript and supplement audit
 
