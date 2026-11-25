@@ -92,11 +92,11 @@ def main():
     if lp.get("status") != "204col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (204, 2113):
         raise RuntimeError("204-column LP transcript is not the pinned above-cap discovery")
     if parent_search.get("status") != "positive_uniform_torus_candidate_found" or not parent_search.get("candidate_found"):
-        raise RuntimeError("pinned 202-column parent torus search is not positive")
+        raise RuntimeError("pinned 203-column parent torus search is not positive")
     if parent_search.get("dual_certificate_sha256") != cert.get("parent_203col_dual_certificate_sha256"):
-        raise RuntimeError("parent torus search does not pin the exact 202-column dual")
+        raise RuntimeError("parent torus search does not pin the exact 203-column dual")
     if parent_search.get("lp_transcript_sha256") != cert.get("parent_203col_lp_sha256"):
-        raise RuntimeError("parent torus search does not pin the exact 202-column LP")
+        raise RuntimeError("parent torus search does not pin the exact 203-column LP")
     if discovery.get("dual_certificate_sha256") != cert_sha or discovery.get("lp_transcript_sha256") != lp_sha:
         raise RuntimeError("204-column discovery does not pin the exact dual and LP")
     if discovery.get("cut_lp_transcript_sha256") != cut_sha:
@@ -161,7 +161,7 @@ def main():
     active_sixth = [i for i in active if LOW_COUNT <= i < SIXTH_END]
     active_eighth = [i for i in active if i >= SIXTH_END]
     active_blocks = {"total": len(active), "low": len(active_low), "sixth": len(active_sixth), "eighth": len(active_eighth)}
-    expected_blocks = {"total": 68, "low": 4, "sixth": 61, "eighth": 3}
+    expected_blocks = {"total": 71, "low": 4, "sixth": 64, "eighth": 3}
     if active_blocks != cert.get("active_dual_rows") or active_blocks != expected_blocks:
         raise RuntimeError("204-column active dual row support mismatch")
 
@@ -206,7 +206,7 @@ def main():
         "dual_slack_delta": str(delta),
         "certified_minimax_lower_bound": str(objective - delta),
         "interpretation": (
-            "A strictly positive Arb interval at this exact rational point of the uniform-path torus, combined with the pinned rational-independence/dense-ray theorem, proves existence of some finite t>0 on the equal-positive-coupling physical open path with positive 203-dual pricing."
+            "A strictly positive Arb interval at this exact rational point of the uniform-path torus, combined with the pinned rational-independence/dense-ray theorem, proves existence of some finite t>0 on the equal-positive-coupling physical open path with positive 204-dual pricing."
             if strict_positive else
             "The binary64 candidate did not yield a strictly positive Arb interval; no uniform-ray escape is certified."
         ),
