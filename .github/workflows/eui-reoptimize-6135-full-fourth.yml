@@ -1,4 +1,5 @@
 name: EUI 6,135-column full-fourth reoptimization and Arb certification
+# The verifier selects the strongest predeclared rational floor below the Arb minimum.
 
 on:
   push:
