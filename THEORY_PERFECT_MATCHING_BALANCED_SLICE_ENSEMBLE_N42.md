@@ -165,3 +165,20 @@ For small cycles, exact rational commutant-nullity enumeration gives:
 - N=8: 8 of 105 excluded.
 
 A positive commutant nullity is only a necessary-condition pass, not proof of reachability. The n=21 certificate proves that the **uniform perfect-matching ensemble itself** is not a physical cycle ensemble, because it assigns positive weight to an unreachable atom. It does **not** show that the same balanced-slice target is outside the convex hull of other physical cycle exponentials.
+
+
+## 8. Cycle-parity obstruction for almost all N=42 matching atoms
+
+A general support-graph theorem now strengthens the single frozen-atom commutator certificate. For every cycle length \(N=4m+2\), if \(P_MD=e^{A(c)}\) for a real skew generator supported on the cycle, then the perfect matching \(M\) must be bipartite: every matched pair joins an even vertex to an odd vertex. The proof uses invariance of the nonzero-edge support graph under the matching permutation and the classification of fixed-point-free involutions of paths and even cycles.
+
+At \(N=42\), only \(21!\) of the \(41!!\) perfect matchings are bipartite. Thus at most
+\[
+\frac{21!}{41!!}=\frac{262144}{67282234305}
+\]
+of the uniform matching support can be physically reachable, and at least
+\[
+\frac{67281972161}{67282234305}=0.9999961038154765\ldots
+\]
+of its mass lies on atoms proved unreachable. This quantifies the limitation of the particular unrestricted-SO(42) matching representation; it does **not** rule out a different physical positive measure with the same moments.
+
+See [the full parity theorem](THEORY_CYCLE_MATCHING_ATOM_PARITY_OBSTRUCTION_N42.md), [exact verifier](verify_cycle_matching_atom_parity_obstruction.py), [machine-readable evidence](evidence/cycle_matching_atom_parity_obstruction_n42.json), and [workflow](.github/workflows/eui-cycle-matching-parity-obstruction.yml). The theorem is specific to \(N\equiv2\pmod4\); an exact N=4 same-parity reachable atom is included as a counterexample to dropping the congruence hypothesis.
