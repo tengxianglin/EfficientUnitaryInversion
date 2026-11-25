@@ -126,3 +126,30 @@ and LP SHA-256
 `98b07b734dcb86c4bff1a28d550d1b1a3dda64857d05d2c38c8136c10de280ba`.
 
 Together with the rational-independence/dense-ray result in `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md`, continuity implies that **some finite positive equal-coupling open-path time exists** at which this particular 202-column dual has positive pricing. This is an existential conclusion, not yet an explicit rational-time certificate. The dedicated finite-time search and Arb verifier are running separately; no numerical finite-time claim should be made until their evidence is committed.
+
+
+## Explicit finite-time physical escape of the 202-column dual (Run 25, 2026-11-25)
+
+The positive torus pricing certificate above has now been strengthened to an explicit finite-time witness. The deterministic one-dimensional search used 12 starts, at most 400 L-BFGS-B iterations per start, and seed `202611251840`. It selected
+\[
+ t_{202}=2906260.875695546623319
+ =\frac{2906260875695546623319}{1000000000000000}>0.
+\]
+For the 42-site open path,
+\[
+ c_0=\cdots=c_{40}=t_{202},\qquad c_{41}=0,
+\]
+so all 41 internal couplings are strictly positive. The independent 128-bit Arb verifier (python-flint 0.8.0) certifies
+\[
+ S_{202}(e^{t_{202}K_*})
+ \in[0.1751293387639196832622918436\pm5.42\times10^{-29}]>0.
+\]
+Its lower-endpoint enclosure is
+\[
+ [0.17512933876391968326229184354589133476\pm1.71\times10^{-39}],
+\]
+which is strictly positive. The certificate pins the 202-column rational dual, 202-column LP, cut design, torus certificate and deterministic search transcript by SHA-256. The successful end-to-end workflow is [45618890398](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45618890398); the earlier attempt [45618516687](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45618516687) failed on a verifier-dimension bug, corrected in commit [dd27977](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/dd2797752e177b4a339279ee27c3a254e9168bc1).
+
+**Interpretation.** This is a direct physical counterexample to global separation by this particular 202-column dual. It does not invalidate the exact 202-column finite-pool minimax theorem, prove feasibility or infeasibility of the full continuous family, complete the selected sixth/eighth moments, or imply a Choi/diamond bound.
+
+The next finite-pool cutting-plane step is now implemented in `reoptimize_203col_uniform_ray_escape.py`: append this exact path as physical column 1660 and rerun the same 2,113-row mixed-order LP. Its pinned workflow is `.github/workflows/eui-reoptimize-203col-uniform-ray.yml`. A binary64 result remains discovery only; any above-cap result must be rationalized and independently Arb-certified on all 203 columns, while any below-cap result requires an exact primal audit and full sixth-order separation.
