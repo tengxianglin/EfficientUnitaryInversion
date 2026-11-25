@@ -1,0 +1,7 @@
+{
+  "status": "arb_verifier_exception",
+  "complete": false,
+  "precision_bits": 128,
+  "exception_type": "RuntimeError",
+  "exception": "203-column certificate dimensions mismatch"
+}\n
