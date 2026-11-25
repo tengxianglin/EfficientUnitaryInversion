@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "verify_201col_uniform_ray_dual_arb.py"
+      - "verify_201col_program_mass_tv_bound.py"
       - "evidence/joint_low_six_eighth_lp_201col_uniform_ray_escape_n21.json"
       - ".github/workflows/eui-certify-201col-uniform-ray-dual.yml"
   workflow_dispatch:
@@ -77,6 +78,7 @@ jobs:
             git fetch origin +refs/heads/main:refs/remotes/origin/main
             git reset --hard origin/main
             rm -f evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json
+            rm -f evidence/201col_program_mass_tv_bound_n21.json
             for f in \
               evidence/200col_uniform_ray_time_search_n21.json \
               evidence/200col_uniform_ray_time_arb_n21.json \
@@ -103,4 +105,5 @@ jobs:
             evidence/200col_uniform_ray_time_search_n21.json
             evidence/200col_uniform_ray_time_arb_n21.json
             evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json
+            evidence/201col_program_mass_tv_bound_n21.json
           if-no-files-found: warn
