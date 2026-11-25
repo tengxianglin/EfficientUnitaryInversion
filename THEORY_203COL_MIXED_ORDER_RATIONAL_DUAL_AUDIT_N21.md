@@ -107,3 +107,43 @@ Evidence:
 **Theorem-level consequence.** The exact dense-ray theorem in `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md`, together with continuity and the strictly positive Arb interval, proves that there exists at least one finite (t>0) on the equal-positive-coupling 42-site open path for which the 203-column dual pricing is positive.
 
 **Scope.** This refutes global separation by this particular 203-column dual on the continuous equal-coupling physical ray. It does not invalidate the exact 203-column finite-pool theorem, prove feasibility or infeasibility of the complete physical-family moment problem, complete the selected sixth/eighth-order orbit system, or imply a Choi/diamond-distance bound. The torus certificate proves existence of a finite physical time by density; an explicit exact-rational time is being searched and must still receive its own Arb certificate.
+
+
+## 7. Explicit finite-time physical escape of the 203-column dual (Run 27)
+
+The positive torus certificate has now been converted into a concrete finite-time witness on the physical equal-coupling ray. A deterministic one-dimensional search used 12 starts, at most 400 L-BFGS-B iterations per start, and seed 202611252230. The best binary64 discovery candidate was
+\[
+t_{203}=11188224.598100261762738.
+\]
+It is frozen exactly as
+\[
+\boxed{
+t_{203}=\frac{5594112299050130881369}{500000000000000}>0.
+}
+\]
+For the 42-site open path, take
+\[
+c_0=c_1=\cdots=c_{40}=t_{203},\qquad c_{41}=0.
+\]
+Thus every one of the 41 internal couplings is strictly positive.
+
+The independent 128-bit Arb verifier recomputed the 203-dual pricing from the exact rational time and certifies
+\[
+\boxed{
+S_{203}(e^{t_{203}K_*})
+\in[0.239195582173375959879219615
+\pm6.80\times10^{-28}]>0.
+}
+\]
+The lower-endpoint enclosure is
+[0.23919558217337595987921961432058489809 +/- 2.23e-39],
+strictly positive.
+
+Evidence:
+- [finite-time search transcript](evidence/203col_uniform_ray_time_search_n21.json)
+- [independent 128-bit Arb certificate](evidence/203col_uniform_ray_time_arb_n21.json)
+- [finite-time workflow 45628510382](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45628510382), successful
+- evidence commit [a3b9ef3](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a3b9ef364340431d2df95ab629afc6ca7bbcb8f5)
+- [discovery script](discover_203col_uniform_ray_time_escape.py), [independent verifier](verify_203col_uniform_ray_time_arb.py)
+
+This is an explicit physical counterexample to global separation by the particular 203-column dual. It leaves intact the exact 203-column finite-pool minimax theorem. It does not establish feasibility/infeasibility of the full all-even-principal-minor positive-ensemble problem, complete the selected sixth/eighth-order orbit systems, or imply a Choi/diamond-distance bound.
