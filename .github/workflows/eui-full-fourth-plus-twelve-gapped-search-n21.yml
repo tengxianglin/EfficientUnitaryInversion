@@ -59,6 +59,47 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin +refs/heads/main:refs/remotes/origin/main
             git reset --hard origin/main
+            python - <<'PY'
+            import hashlib
+            import json
+            from pathlib import Path
+
+            staged = Path("/tmp/eui-6135-pricing/evidence")
+            search_path = staged / "ising_full_fourth_plus_twelve_gapped_search_n21.json"
+            escape_path = staged / "ising_full_fourth_plus_twelve_gapped_escape_arb_n21.json"
+            if not search_path.exists():
+                print("No search transcript was produced; refusing to publish pricing evidence.")
+                raise SystemExit(1)
+
+            search_raw = search_path.read_bytes()
+            search = json.loads(search_raw)
+            pins = search.get("pins", {})
+            diagnostic_raw = Path("evidence/ising_full_fourth_plus_twelve_gapped_n21.json").read_bytes()
+            certificate_raw = Path("evidence/ising_full_fourth_plus_twelve_gapped_arb_n21.json").read_bytes()
+            current_diagnostic = hashlib.sha256(diagnostic_raw).hexdigest()
+            current_certificate = hashlib.sha256(certificate_raw).hexdigest()
+            if pins.get("diagnostic_sha256") != current_diagnostic:
+                raise SystemExit(
+                    "Refusing stale pricing commit: parent diagnostic changed "
+                    f"(run={pins.get('diagnostic_sha256')}, main={current_diagnostic})."
+                )
+            if pins.get("finite_certificate_sha256") != current_certificate:
+                raise SystemExit(
+                    "Refusing stale pricing commit: parent Arb certificate changed "
+                    f"(run={pins.get('finite_certificate_sha256')}, main={current_certificate})."
+                )
+
+            if escape_path.exists():
+                escape_raw = escape_path.read_bytes()
+                escape = json.loads(escape_raw)
+                if escape.get("diagnostic_sha256") != current_diagnostic:
+                    raise SystemExit("Refusing stale escape certificate: diagnostic pin mismatch.")
+                if escape.get("finite_certificate_sha256") != current_certificate:
+                    raise SystemExit("Refusing stale escape certificate: finite-certificate pin mismatch.")
+                if escape.get("search_sha256") != hashlib.sha256(search_raw).hexdigest():
+                    raise SystemExit("Refusing stale escape certificate: search-transcript pin mismatch.")
+            print("Parent diagnostic, finite certificate, search, and escape pins are consistent.")
+            PY
             rm -f evidence/ising_full_fourth_plus_twelve_gapped_search_n21.json evidence/ising_full_fourth_plus_twelve_gapped_escape_arb_n21.json
             for f in /tmp/eui-6135-pricing/evidence/*.json; do
               [ -f "$f" ] || continue
