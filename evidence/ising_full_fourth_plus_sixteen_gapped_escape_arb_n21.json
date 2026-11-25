@@ -161,7 +161,7 @@
   "interval_backend": "python-flint / Arb",
   "precision_bits": 256,
   "proof_scope": "A certified candidate with y^T(b-F(R(c)))<0 is an exact escape from this particular rational dual, which is rigorously positive on the 6,139-column finite pool. A connected escape has all 41 interior couplings strictly positive and the wrap edge zero. This refutes extending this dual unchanged to the full connected general-gapped family. It does not invalidate the finite-pool certificate, prove global feasibility/infeasibility, construct an all-even-minor ensemble, or imply a Choi/diamond-distance bound. A failure to find an escape would certify only the listed finite multistart candidates, not a continuum upper bound.",
-  "search_sha256": "baded008be5c92b7f939141d6d5aad09a3b91efeea8028fe3d5e8f4f12caea9b",
+  "search_sha256": "7126efbf28b49d2a1b6038355283c1cbcf451b27f017b2d4d22c4cb952e186be",
   "status": "arb_certified_6139_dual_general_gapped_escape",
   "target_score_interval": "[0.252204106296020224308690460946997047680570934768546638615263875373196678378 +/- 5.27e-76]"
 }
