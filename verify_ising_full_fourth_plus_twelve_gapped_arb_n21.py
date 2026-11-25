@@ -332,7 +332,16 @@ def main():
         raise RuntimeError(f"verified {checked} columns instead of exactly 6,135")
     if minimum["minimum_lower"] is None or not minimum["minimum_lower"] > floor:
         raise RuntimeError("the common strict 1/5 Arb lower bound was not established")
-    chosen_floor = Fraction(1, 4) if minimum["minimum_lower"] > rational(Fraction(1, 4)) else Fraction(1, 5)
+    # Use the strongest simple rational floor justified by the certified Arb minimum.
+    # The 6,135-column minimum is about 0.2387958, so 23879/100000 is
+    # safely below it and sharpens the published residual/TV constants.
+    floor_candidates = (Fraction(1, 4), Fraction(23879, 100000), Fraction(1, 5))
+    chosen_floor = next(
+        (candidate for candidate in floor_candidates if minimum["minimum_lower"] > rational(candidate)),
+        None,
+    )
+    if chosen_floor is None:
+        raise RuntimeError("no predeclared rational separation floor is certified")
     residual_bound = chosen_floor / Fraction(533)
     tv_bound = residual_bound / 2
 
