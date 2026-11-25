@@ -132,3 +132,16 @@ The two newly certified exact-rational paths are being appended to the 6,135 poo
 - [6,137-column Arb verifier](verify_ising_full_fourth_plus_fourteen_gapped_arb_n21.py)
 
 The 6,137 workflow is intentionally not launched until the 6,135 parent certificate and its escape certificate have matching current SHA-256 pins. The sharper 6,135 rational-floor verifier rerun is still pending; if it rewrites the parent certificate, the 6,135 escape verifier must be rerun before the 6,137 pool is certified. This preserves the evidence chain rather than silently accepting a stale parent hash.
+
+
+## 9. Parent-hash refresh after the sharper-floor rerun
+
+The 256-bit escape evidence in commit 2ad5b3d was generated against the previous 6,135 diagnostic SHA-256 647bdce0b83bfa6f86dcb2e1e211ff8a310c657c79dfbc22f4af9229802f8ba7 and previous finite-certificate SHA-256 8618589ab8a195f3980408d9722e861f6f899caa7086c6f2d2118347a76f7d90.
+
+The sharper-floor rerun subsequently rewrote the 6,135 diagnostic and certificate. The current hashes are:
+- diagnostic:  eb0493da0cadf4408c43fe7ff371ce52d20dbc21fbd329f2669f90465e6adc43;
+- finite certificate: 1b7a8f17e6332d66cd4508d0179ebb13919bc7db4873b2d6810e7558435a19dd.
+
+The current diagnostic target-score midpoint is 0.32116716988338767, whereas the old search transcript pinned 0.3211671698834419. Therefore the old escape certificate must **not** be treated as a certificate for the current rationalized dual, even though the numerical values are close. The 6,135 finite-pool theorem and sharpened bounds remain certified; only the continuous-escape provenance must be refreshed.
+
+The continuous-pricing workflow was retriggered in commit [8e6a1af](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8e6a1af70a4b67cfe00f4f581573648919adfd91). Until a new search transcript and 256-bit Arb certificate pin the current hashes, there is no current-dual continuous-escape claim. The 6,137 discovery/verifier scripts are staged, but their workflow is withheld until this parent/escape chain is current.
