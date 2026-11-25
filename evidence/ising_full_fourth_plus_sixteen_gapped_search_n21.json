@@ -1,47 +1,47 @@
 {
   "best_connected": {
     "couplings_exact_decimal": [
-      "6.4405269433446577",
-      "2.5500322962175441",
-      "11.990615606120146",
-      "2.3736413082964649",
+      "6.4405269437415384",
+      "2.5500322966394533",
+      "11.990615606456343",
+      "2.3736413087180006",
       "9.9999999999999995e-07",
-      "6.2831853125503914",
+      "6.2831853126655508",
       "9.9999999999999995e-07",
-      "7.8539816324593623",
+      "7.853981632536736",
       "9.9999999999999995e-07",
-      "3.1415926286781648",
+      "3.1415926301400825",
       "9.9999999999999995e-07",
-      "4.7123889058687265",
-      "9.9999999999999995e-07",
-      "9.9999999999999995e-07",
-      "6.1292270328542537",
-      "15.201577877721171",
-      "5.6667558819777684",
-      "9.9999999999999995e-07",
-      "3.9719203838269879",
-      "6.2232363559056667",
-      "3.1060561757505929",
+      "4.7123889079756651",
       "9.9999999999999995e-07",
       "9.9999999999999995e-07",
-      "5.2924142592601706",
-      "5.5415586812559692",
-      "2.331074239842613",
+      "6.1292270742728769",
+      "15.201577858534412",
+      "5.6667558961097733",
       "9.9999999999999995e-07",
-      "1.5714232540791209",
-      "0.30738946366895648",
-      "10.991187153831355",
+      "3.9719203861623291",
+      "6.2232363594117768",
+      "3.106056179397731",
       "9.9999999999999995e-07",
       "9.9999999999999995e-07",
-      "10.995574303292587",
+      "5.2924142595210082",
+      "5.5415586795749761",
+      "2.3310742452864512",
       "9.9999999999999995e-07",
-      "3.141592602318358",
+      "1.5714232564593942",
+      "0.30738946372777298",
+      "10.991187154334602",
       "9.9999999999999995e-07",
-      "4.7123889825847822",
       "9.9999999999999995e-07",
-      "28.274333874979025",
+      "10.995574301616593",
       "9.9999999999999995e-07",
-      "1.5707963215171927",
+      "3.1415926056812165",
+      "9.9999999999999995e-07",
+      "4.7123889823196325",
+      "9.9999999999999995e-07",
+      "28.274333875546038",
+      "9.9999999999999995e-07",
+      "1.57079632181339",
       "0"
     ],
     "internal_zero_edges": [],
@@ -49,7 +49,7 @@
       "index": 128,
       "source": "independent_lognormal"
     },
-    "maximum_coupling": "28.274333874979025",
+    "maximum_coupling": "28.274333875546038",
     "minimum_positive_coupling": "9.9999999999999995e-07",
     "optimized": true,
     "optimizer": {
@@ -58,51 +58,51 @@
       "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
       "success": true
     },
-    "score_float": "26.461606593076535",
-    "target_minus_score_float": "-26.209402486780515"
+    "score_float": "26.461606593076525",
+    "target_minus_score_float": "-26.209402486780505"
   },
   "best_multisegment": {
     "couplings_exact_decimal": [
-      "6.2176357084876779",
-      "20.440312974941005",
-      "5.4396709433182817",
+      "6.2176357085874416",
+      "20.440312974937413",
+      "5.439670943210702",
       "1e-08",
-      "7.8539817718497558",
+      "7.8539817718453806",
       "1e-08",
-      "15.545237349838489",
-      "2.2551533111685385",
+      "15.545237343763727",
+      "2.2551533531541916",
       "1e-08",
-      "20.420352223002876",
-      "1e-08",
-      "0",
-      "26.512423208431809",
-      "28.40874014229178",
-      "39.925248628169129",
+      "20.420352223012831",
       "1e-08",
       "0",
-      "3.141592641712494",
+      "26.512423202089249",
+      "28.408740134791802",
+      "39.925248637723591",
+      "1e-08",
+      "0",
+      "3.1415926417118127",
       "0",
       "1e-08",
-      "1.5707963206646396",
+      "1.5707963206655364",
       "0",
       "1e-08",
       "1e-08",
-      "1.5707963385778927",
+      "1.5707963385765233",
       "1e-08",
-      "3.1415926710487629",
+      "3.1415926710495397",
       "1e-08",
-      "1.5707963172716961",
-      "1e-08",
-      "1e-08",
-      "1.5707952114624875",
+      "1.5707963172720356",
       "1e-08",
       "1e-08",
-      "1.5707964822632865",
-      "1e-08",
-      "1.5707963035662389",
+      "1.5707952114956782",
       "1e-08",
       "1e-08",
-      "4.7123889552568095",
+      "1.5707964822589431",
+      "1e-08",
+      "1.5707963035673442",
+      "1e-08",
+      "1e-08",
+      "4.7123889552493408",
       "1e-08",
       "0"
     ],
@@ -130,7 +130,7 @@
         21
       ]
     },
-    "maximum_coupling": "39.925248628169129",
+    "maximum_coupling": "39.925248637723591",
     "minimum_positive_coupling": "1e-08",
     "optimized": true,
     "optimizer": {
@@ -139,26 +139,26 @@
       "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
       "success": true
     },
-    "score_float": "30.48133449964951",
-    "target_minus_score_float": "-30.22913039335349"
+    "score_float": "30.48133449964946",
+    "target_minus_score_float": "-30.22913039335344"
   },
-  "best_overall_gap": "-30.22913039335349",
+  "best_overall_gap": "-30.22913039335344",
   "best_overall_kind": "multisegment",
-  "best_overall_score": "30.48133449964951",
+  "best_overall_score": "30.48133449964946",
   "complete": true,
   "connected_random_count": 256,
   "coupling_convention": "A[j,j+1]=2*c[j], A[j+1,j]=-2*c[j], j=0,...,40; c[41]=0. The wrap edge is exactly cut. Internal zero couplings split the open path.",
-  "elapsed_seconds": 80.694678425,
+  "elapsed_seconds": 54.49471100299999,
   "escape_discovery_margin": 1e-06,
   "fractional_perturbation_count": 128,
   "gradient_self_test": {
     "absolute_errors": [
-      5.19360110473599e-11,
-      9.925255062270821e-11,
-      2.2600188387400522e-10
+      5.908606937055083e-11,
+      4.3741343880299155e-11,
+      1.7049039957584e-10
     ],
     "base_value": -1.2069908354196297,
-    "maximum_absolute_error": 2.2600188387400522e-10,
+    "maximum_absolute_error": 1.7049039957584e-10,
     "tested_coordinates": [
       0,
       20,
@@ -180,13 +180,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 179,
+          "function_evaluations": 183,
           "iterations": 160,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 17.626879129798795,
-        "score_before": 1.0888522970144403,
+        "score_after": 17.614941945447555,
+        "score_before": 1.088852297014316,
         "start_index": 85,
         "start_label": {
           "pool_index": 1412,
@@ -201,8 +201,8 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 26.461606593076535,
-        "score_before": 0.8088027685504944,
+        "score_after": 26.461606593076525,
+        "score_before": 0.8088027685504923,
         "start_index": 384,
         "start_label": {
           "index": 128,
@@ -217,8 +217,8 @@
           "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
           "success": true
         },
-        "score_after": 2.027632907719792,
-        "score_before": 0.6231574540669663,
+        "score_after": 2.0276329077197106,
+        "score_before": 0.6231574540668992,
         "start_index": 225,
         "start_label": {
           "pool_index": 64,
@@ -234,7 +234,7 @@
           "success": true
         },
         "score_after": 25.925344768570056,
-        "score_before": 0.6104252789885003,
+        "score_before": 0.6104252789885004,
         "start_index": 269,
         "start_label": {
           "index": 13,
@@ -244,13 +244,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 193,
+          "function_evaluations": 195,
           "iterations": 160,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 3.1378697845832577,
-        "score_before": 0.4585122160716933,
+        "score_after": 3.1402808659641304,
+        "score_before": 0.45851221607169657,
         "start_index": 61,
         "start_label": {
           "pool_index": 341,
@@ -265,8 +265,8 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 20.292263961689688,
-        "score_before": 0.4323916154563085,
+        "score_after": 20.292263961689763,
+        "score_before": 0.4323916154563058,
         "start_index": 474,
         "start_label": {
           "index": 218,
@@ -276,13 +276,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 161,
-          "iterations": 145,
+          "function_evaluations": 163,
+          "iterations": 146,
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 21.311483353717527,
-        "score_before": 0.4167416764824559,
+        "score_after": 21.311483353717506,
+        "score_before": 0.41674167648245614,
         "start_index": 513,
         "start_label": {
           "alpha": 0.5512630993626199,
@@ -294,13 +294,13 @@
       {
         "kind": "connected",
         "optimizer": {
-          "function_evaluations": 178,
+          "function_evaluations": 180,
           "iterations": 160,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 2.683824992154616,
-        "score_before": 0.39824895713267067,
+        "score_after": 2.6838239996495985,
+        "score_before": 0.3982489571326704,
         "start_index": 119,
         "start_label": {
           "pool_index": 387,
@@ -315,43 +315,11 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 2.880079294398827,
-        "score_before": 0.3946184648026259,
+        "score_after": 2.880079294398629,
+        "score_before": 0.39461846480262847,
         "start_index": 194,
         "start_label": {
           "pool_index": 19,
-          "source": "frozen_seed_pool"
-        }
-      },
-      {
-        "kind": "connected",
-        "optimizer": {
-          "function_evaluations": 181,
-          "iterations": 160,
-          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
-          "success": false
-        },
-        "score_after": 16.6459456223245,
-        "score_before": 0.3783607405091435,
-        "start_index": 130,
-        "start_label": {
-          "pool_index": 817,
-          "source": "frozen_seed_pool"
-        }
-      },
-      {
-        "kind": "connected",
-        "optimizer": {
-          "function_evaluations": 187,
-          "iterations": 160,
-          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
-          "success": false
-        },
-        "score_after": 8.945872005916842,
-        "score_before": 0.3760253342119342,
-        "start_index": 227,
-        "start_label": {
-          "pool_index": 642,
           "source": "frozen_seed_pool"
         }
       },
@@ -363,8 +331,40 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 3.681626549692362,
-        "score_before": 0.373964234800189,
+        "score_after": 16.74945664327089,
+        "score_before": 0.37836074050914326,
+        "start_index": 130,
+        "start_label": {
+          "pool_index": 817,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 192,
+          "iterations": 160,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 9.361588370587192,
+        "score_before": 0.3760253342119337,
+        "start_index": 227,
+        "start_label": {
+          "pool_index": 642,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 183,
+          "iterations": 160,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 3.6050354512998855,
+        "score_before": 0.373964234800186,
         "start_index": 196,
         "start_label": {
           "pool_index": 516,
@@ -379,8 +379,8 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 30.48133449964951,
-        "score_before": 0.5278401736270236,
+        "score_after": 30.48133449964946,
+        "score_before": 0.5278401736270218,
         "start_index": 155,
         "start_label": {
           "index": 148,
@@ -409,8 +409,8 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 18.321801663161907,
-        "score_before": 0.3179024612524668,
+        "score_after": 18.321801663161896,
+        "score_before": 0.31790246125247323,
         "start_index": 232,
         "start_label": {
           "index": 225,
@@ -432,13 +432,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 131,
-          "iterations": 106,
+          "function_evaluations": 130,
+          "iterations": 105,
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 27.326463927411385,
-        "score_before": 0.20562796157909863,
+        "score_after": 27.326463927405946,
+        "score_before": 0.205627961579103,
         "start_index": 97,
         "start_label": {
           "index": 90,
@@ -467,8 +467,8 @@
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 19.458203256725398,
-        "score_before": 0.1936630242144082,
+        "score_after": 19.51968805396253,
+        "score_before": 0.19366302421444537,
         "start_index": 154,
         "start_label": {
           "index": 147,
@@ -488,13 +488,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 180,
+          "function_evaluations": 178,
           "iterations": 160,
           "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
           "success": false
         },
-        "score_after": 15.901136821113095,
-        "score_before": 0.025774043422276995,
+        "score_after": 15.753029265280558,
+        "score_before": 0.025774043422275073,
         "start_index": 33,
         "start_label": {
           "index": 26,
@@ -512,13 +512,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 135,
+          "function_evaluations": 137,
           "iterations": 105,
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 20.87271411553648,
-        "score_before": 0.0157715459258313,
+        "score_after": 20.872714115534126,
+        "score_before": 0.01577154592589438,
         "start_index": 4,
         "start_label": {
           "column_kind": "new_multisegment_escape_from_6133_dual",
@@ -540,8 +540,8 @@
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 0.015771545924786145,
-        "score_before": 0.015771545924553664,
+        "score_after": 0.015771545924803673,
+        "score_before": 0.01577154592453731,
         "start_index": 0,
         "start_label": {
           "column_kind": "new_multisegment_escape",
@@ -556,13 +556,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 129,
-          "iterations": 110,
+          "function_evaluations": 133,
+          "iterations": 112,
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 16.894342607495815,
-        "score_before": 0.015771545924439793,
+        "score_after": 16.89434260749986,
+        "score_before": 0.015771545924449442,
         "start_index": 1,
         "start_label": {
           "column_kind": "new_two_segment_escape_6127_dual",
@@ -576,34 +576,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 3,
-          "iterations": 1,
-          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
-          "success": true
-        },
-        "score_after": 0.015771545924865578,
-        "score_before": 0.015771545924412295,
-        "start_index": 2,
-        "start_label": {
-          "column_kind": "new_two_segment_escape_from_6129_dual",
-          "segment_count": 3,
-          "source": "certified_6139_finite_pool",
-          "zero_edges": [
-            17,
-            29
-          ]
-        }
-      },
-      {
-        "kind": "multisegment",
-        "optimizer": {
           "function_evaluations": 91,
           "iterations": 63,
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 17.574267691096242,
-        "score_before": 0.015771545924411542,
+        "score_after": 17.574267691095763,
+        "score_before": 0.015771545924408117,
         "start_index": 6,
         "start_label": {
           "column_kind": "new_multisegment_escape_from_6137_dual",
@@ -618,13 +597,34 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 210,
-          "iterations": 160,
-          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
-          "success": false
+          "function_evaluations": 3,
+          "iterations": 1,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
         },
-        "score_after": 19.782691633921843,
-        "score_before": 0.015771545922851696,
+        "score_after": 0.015771545924866154,
+        "score_before": 0.015771545924400172,
+        "start_index": 2,
+        "start_label": {
+          "column_kind": "new_two_segment_escape_from_6129_dual",
+          "segment_count": 3,
+          "source": "certified_6139_finite_pool",
+          "zero_edges": [
+            17,
+            29
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 196,
+          "iterations": 152,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 19.781247632230503,
+        "score_before": 0.01577154592293247,
         "start_index": 3,
         "start_label": {
           "column_kind": "new_two_segment_escape_from_6131_dual",
@@ -641,13 +641,13 @@
       {
         "kind": "multisegment",
         "optimizer": {
-          "function_evaluations": 166,
-          "iterations": 144,
+          "function_evaluations": 180,
+          "iterations": 158,
           "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
           "success": true
         },
-        "score_after": 11.308134982702118,
-        "score_before": 0.015771545912381595,
+        "score_after": 11.308134982697865,
+        "score_before": 0.015771545912386657,
         "start_index": 5,
         "start_label": {
           "column_kind": "new_multisegment_escape_from_6135_dual",
