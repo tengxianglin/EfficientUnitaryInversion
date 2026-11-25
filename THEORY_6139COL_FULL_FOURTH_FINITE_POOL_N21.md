@@ -17,28 +17,28 @@ The frozen rational dual has 104 nonzero coefficients: one second-order coordina
 D=\operatorname{diag}(41 I_{21},533 I_{1440}),
 \]
 the verifier checks exactly
-[
+\[
 \|D^{-1}y\|_1=1,
 \qquad
 \|y\|_1=
 \frac{14164662956157091950169}{26649999999999965711}<533.
 \]
 The positive rational slack is certified for every one of the 6,139 columns. The smallest Arb lower endpoint is
-[
+\[
 0.23116168351538610661485619036098658\ldots
 \]
 (the fractional-grid column \(L=35,\alpha=1/2\)). The verifier therefore freezes the simpler exact rational common gap
-[
+\[
 \delta=\frac{231161}{100000}.
 \]
 
 **Theorem (finite-pool obstruction).** For every probability vector \(p\in\Delta_{6139}\),
-[
+\[
 \boxed{\|b-Ap\|_\infty>
 \frac{231161}{533000000}.}
 \]
 Using the exact program-character/DPP identity, each retained coordinate is the expectation of a bounded orbit character. Hence the associated balanced program-label distribution obeys
-[
+\[
 \boxed{\operatorname{TV}(w_p,u_{\rm bal})>
 \frac{231161}{1066000000}.}
 \]
