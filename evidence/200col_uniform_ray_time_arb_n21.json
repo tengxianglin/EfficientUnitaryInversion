@@ -8,7 +8,7 @@
   "cut_lp_transcript_sha256": "d1ad14762d00aa7e9dcdc197898273ac3b91bf8244f2c65c31072f761e22694f",
   "torus_arb_certificate_sha256": "11c3c1a0e03db3c434c7066088dcaffbda164de56e178f8946babf03080b8652",
   "torus_phase_vector_sha256": "5546f5a64cbb921330330fa7d586d50b959ca197f21503f3a5767033ca9a95c9",
-  "discovery_sha256": "8a7e1dbda7e440be7a0e830fa539e95b030e4571b2ddfdab1e4db16c74022fd3",
+  "discovery_sha256": "773d91c481dac37ac5fa26c20f9112c7357e380dcc39a2bf4e230567f70d5a68",
   "dense_torus_theory_sha256": "123c137df1a4bff8c017d8c7e1aa49fc8f39b1a54f5535651327bd18bd65aa71",
   "t_exact_decimal": "666454.439114346168935",
   "t_exact_rational": "133290887822869233787/200000000000000",
