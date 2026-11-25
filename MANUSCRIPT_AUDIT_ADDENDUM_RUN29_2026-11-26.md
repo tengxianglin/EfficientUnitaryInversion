@@ -76,7 +76,7 @@ Evidence:
 - `evidence/204col_uniform_torus_arb_n21.json`
 - workflow [45657547014](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45657547014), success.
 
-The finite-time search is now separately running in workflow [45658174449](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45658174449). No explicit rational time is claimed until the search transcript and independent Arb certificate are committed.
+The finite-time search and independent Arb verification completed successfully in workflow [45658174449](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45658174449). The exact physical time is t_204 = 60507754794885717332363/1000000000000000, with 41 identical strictly positive internal couplings and an Arb pricing interval [0.17865805637622197036695667 +/- 5.07e-27] > 0. See the appended perfect-matching result below.
 
 ## Scientific scope and blockers
 
@@ -86,9 +86,23 @@ The finite-time search is now separately running in workflow [45658174449](https
 
 The finite-pool dual is a certificate only for its 204 listed columns and fixed mixed-order row design. The torus escape shows this particular dual is not a global separator on the continuous equal-coupling ray; it does not invalidate the finite-pool theorem or settle full-family feasibility/infeasibility.
 
+## 3. Exact full-hierarchy positive ensemble over unrestricted SO(42)
+
+A new combinatorial theorem constructs a positive ensemble matching every even principal-minor target coordinate. For each perfect matching M of [42], let P_M be its transposition permutation matrix and D=diag(1,-1,...,1,-1). Then R_M=P_M D is in SO(42), and for |I|=2r,
+
+$E_M det(R_M)_{I,I}=(-1)^{sum(I)+r} C(21,r)/C(42,2r).$
+
+This is exactly the balanced-slice target for every even order 0,2,...,42. The ensemble is uniform over 41!! = 13113070457687988603440625 matchings. The proof uses the fact that a principal minor vanishes unless I is matching-closed; when closed, it equals (-1)^(sum(I)+r). The closure probability is C(21,r)/C(42,2r). The same moments follow from the balanced-sign recurrence.
+
+The exact-rational verifier exhaustively checked all perfect matchings and all even subsets for n=1,...,5 (483,840 checks at n=5), plus the n=21 closed-form hierarchy, all 21 second-order targets, all 111,930 fourth-order subsets, and 512 deterministic samples each for sixth and eighth order. Workflow [45659719208](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45659719208) succeeded.
+
+Crucial limitation: these are arbitrary signed permutations in SO(42), not known to lie in the fixed cyclic nearest-neighbour exponential family. Thus this solves the unrestricted SO(42) positive-ensemble relaxation, not the physical EUI problem.
+
+Evidence: [theory](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_PERFECT_MATCHING_BALANCED_SLICE_ENSEMBLE_N42.md), [verifier](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/verify_perfect_matching_balanced_slice_ensemble.py), [certificate](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/perfect_matching_balanced_slice_ensemble_n21.json).
+
 ## Next highest-value action
 
-Finish workflow 45658174449. If its 12-start finite-time search yields a candidate, require the exact rational time and 128-bit Arb pricing interval to be strictly positive before calling it an explicit physical escape. Then use the new dual's escape as column 205 for one more fixed-design cutting-plane diagnostic, but do not let column-count growth displace the central structural task: construct the complete positive ensemble or prove a global physical-family converse, and establish the operational Choi/diamond bridge.
+Advance [Issue #7](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/7): determine whether the balanced-slice target is in the closed convex hull of the fixed cyclic nearest-neighbour exponential family. Start by deriving exact reachability conditions for the perfect-matching atoms and exhaustively testing N=4,6,8. If the matching atoms are not reachable, test whether their moment target can nevertheless be represented by a positive mixture of cycle exponentials; otherwise seek a global cycle-family separator. Do not continue increasing finite-pool column counts unless a new candidate changes the physical convex-hull decision.
 
 ## Runtime/model note
 
