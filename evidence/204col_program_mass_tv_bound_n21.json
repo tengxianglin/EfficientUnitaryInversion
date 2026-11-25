@@ -1,0 +1,32 @@
+{
+  "status": "exact_rational_program_mass_tv_corollary_from_204col_arb_dual",
+  "complete": true,
+  "source_certificate_sha256": "1c1edc595c9ee3f28bd27c55cffd3ec67cff01889e5554daa51eaad1c0a0cc45",
+  "source_certificate_status": "strict_204col_2113row_uniform_ray_escape_minimax_obstruction",
+  "source_precision_bits": 128,
+  "column_count": 204,
+  "row_count": 2113,
+  "row_blocks": {
+    "second_order_complete": 21,
+    "fourth_order_complete": 1440,
+    "sixth_order_selected_and_cuts": 645,
+    "eighth_order_selected": 7
+  },
+  "row_scales_exact": {
+    "second_order": "1/41",
+    "fourth_order": "1/533",
+    "sixth_order": "5/19721",
+    "eighth_order": "1/19721"
+  },
+  "dual_l1_norm_exact": "4611686018426502061/4611686018427387904",
+  "dual_objective_exact": "1778181914757622867/4611686018427387904",
+  "dual_slack_exact": "1/100000000",
+  "moment_residual_lower_bound_exact": "694602292437797922939891/1801439850948198400000000",
+  "bounded_character_coefficient_norm_exact": "96758971929602252398869/23058430092136939520",
+  "bounded_character_coefficient_norm_decimal": "4196.25150294154812195082139558710565552246407605707645416260",
+  "program_mass_tv_lower_bound_exact": "17810315190712767254869/387656137538470562495468750",
+  "program_mass_tv_lower_bound_decimal": "0.0000459435914101715762213560030113805434233670967781148834006043",
+  "strict": true,
+  "proof": "For each retained row i, let phi_i be its dihedral-orbit average of the even-parity character (-1)^|I intersect T|. Then ||phi_i||_infinity <= 1 and E_{w_R} phi_i is the corresponding principal-minor moment. With exact row scale s_i, define G(T)=sum_i z_i phi_i(T)/s_i. Its sup norm is at most M=sum_i |z_i|/s_i. The Arb-certified dual gives E_u G - E_{w_p} G > objective-slack for every mixture p on the exact 204-column pool. By the TV dual inequality, TV(w_p,u) > (objective-slack)/(2M).",
+  "scope": "One selected parity sector and arbitrary probability mixtures over exactly the 204 certified physical columns. This is a balanced program-label mass / dephased label-register trace-distance statement, not a Choi trace-distance or channel diamond-distance lower bound."
+}
