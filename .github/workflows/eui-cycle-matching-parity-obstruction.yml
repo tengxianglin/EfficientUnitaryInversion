@@ -1,0 +1,27 @@
+name: EUI cycle matching parity obstruction
+on:
+  push:
+    paths:
+      - "THEORY_CYCLE_MATCHING_ATOM_PARITY_OBSTRUCTION_N42.md"
+      - "verify_cycle_matching_atom_parity_obstruction.py"
+      - "evidence/cycle_matching_atom_parity_obstruction_n42.json"
+      - ".github/workflows/eui-cycle-matching-parity-obstruction.yml"
+  pull_request:
+    paths:
+      - "THEORY_CYCLE_MATCHING_ATOM_PARITY_OBSTRUCTION_N42.md"
+      - "verify_cycle_matching_atom_parity_obstruction.py"
+      - "evidence/cycle_matching_atom_parity_obstruction_n42.json"
+      - ".github/workflows/eui-cycle-matching-parity-obstruction.yml"
+  workflow_dispatch:
+jobs:
+  exact-parity-obstruction:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile verifier
+        run: python -m py_compile verify_cycle_matching_atom_parity_obstruction.py
+      - name: Recompute exact matching counts and N42 bound
+        run: python verify_cycle_matching_atom_parity_obstruction.py
