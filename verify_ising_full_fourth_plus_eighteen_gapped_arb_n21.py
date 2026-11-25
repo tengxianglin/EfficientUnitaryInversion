@@ -82,9 +82,9 @@ def main():
     }
 
     if diagnostic.get("status") != "floating_full_fourth_6141_column_separator_candidate_not_arb_certified":
-        raise RuntimeError("unexpected 6,139-column diagnostic status")
+        raise RuntimeError("unexpected 6,141-column diagnostic status")
     if diagnostic.get("candidate_count") != 6141:
-        raise RuntimeError("diagnostic does not contain exactly 6,139 columns")
+        raise RuntimeError("diagnostic does not contain exactly 6,141 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 18 or len(diagnostic.get("appended_gapped_columns", [])) != 18:
@@ -105,15 +105,15 @@ def main():
         ("warm_certificate_sha256", "warm_certificate_sha256"),
     ):
         if diagnostic.get(field) != hashes[key]:
-            raise RuntimeError(f"the 6,139-column diagnostic does not pin {field}")
+            raise RuntimeError(f"the 6,141-column diagnostic does not pin {field}")
 
-    if parent_cert.get("status") != "arb_certified_finite_6141_column_full_fourth_plus_eighteen_gapped_separator":
+    if parent_cert.get("status") != "arb_certified_finite_6139_column_full_fourth_plus_sixteen_gapped_separator":
         raise RuntimeError("the 6,139-column parent certificate is invalid")
-    if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6137:
+    if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6139:
         raise RuntimeError("the 6,139-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the parent certificate does not pin the current parent diagnostic")
-    if parent.get("status") != "floating_full_fourth_6139_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6137:
+    if parent.get("status") != "floating_full_fourth_6139_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6139:
         raise RuntimeError("unexpected 6,139-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6139_dual_general_gapped_escape":
@@ -136,7 +136,7 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first fourteen gapped columns are inherited exactly from the certified
+    # The first sixteen gapped columns are inherited exactly from the certified
     # 6,139-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
@@ -165,7 +165,7 @@ def main():
 
     parent_appended = parent["appended_gapped_columns"]
     if len(parent_appended) != 16:
-        raise RuntimeError("the 6,139-column parent does not contain fourteen gapped paths")
+        raise RuntimeError("the 6,139-column parent does not contain sixteen gapped paths")
     for index in range(16):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
@@ -179,7 +179,7 @@ def main():
     for label, kind in expected_escape.items():
         result = escape_cert["candidate_results"][kind]
         if not result.get("strict_separator_escape_certified"):
-            raise RuntimeError(f"the {kind} candidate is not an Arb-certified escape from the 6,137 dual")
+            raise RuntimeError(f"the {kind} candidate is not an Arb-certified escape from the 6,139 dual")
         search_values = [
             Fraction(x) for x in escape_search[f"best_{kind}"]["couplings_exact_decimal"]
         ]
@@ -207,7 +207,7 @@ def main():
         if index == 17:
             expected_new_cuts = escape_cert["candidate_results"]["multisegment"]["internal_zero_edges"]
             if zero_edges != expected_new_cuts or not zero_edges:
-                raise RuntimeError("the new 6,137-dual multi-segment escape has inconsistent cuts")
+                raise RuntimeError("the new 6,139-dual multi-segment escape has inconsistent cuts")
 
     floating_dual = diagnostic.get("dual", {})
     if not floating_dual.get("success"):
@@ -228,7 +228,7 @@ def main():
             raise RuntimeError(f"dual uses invalid/non-independent feature index {index}")
         raw_coefficients[index] = Fraction(item["coefficient"])
     if not raw_coefficients:
-        raise RuntimeError("the 6,139-column diagnostic contains no nonzero dual coefficients")
+        raise RuntimeError("the 6,141-column diagnostic contains no nonzero dual coefficients")
 
     # The LP scales second moments by 41 and fourth-order orbit moments by
     # 533. Rationalize the decimal dual exactly, then impose ||D^{-1} y||_1=1.
@@ -335,7 +335,7 @@ def main():
 
     checked = checked_base + checked_grid + checked_gapped
     if checked != 6141 or checked_gapped != 18:
-        raise RuntimeError(f"verified {checked} columns instead of exactly 6,139")
+        raise RuntimeError(f"verified {checked} columns instead of exactly 6,141")
     if minimum["minimum_lower"] is None or not minimum["minimum_lower"] > floor:
         raise RuntimeError("the common strictly positive Arb lower bound was not established")
     # Use the strongest simple rational floor justified by the certified Arb minimum.
