@@ -63,3 +63,19 @@ Do not continue single-atom searches in the same ansatz. The next decisive probl
 - Boccato, Pieroni & Trevisan, arXiv:2504.08971: trace/TV/Wasserstein relations between Slater determinant states and their DPPs. Potentially relevant to a future operational bridge, but not a channel diamond-norm theorem for EUI.
 
 The theory note now records this novelty boundary. The available status endpoint still exposes no hosted check for this push; exact local verification remains the current reproducibility evidence.
+
+
+## Final source/evidence synchronization
+
+The uploaded verifier and committed evidence were synchronized byte-for-byte with the locally executed files:
+- verifier blob SHA: 69599d029c04d55945881f69b7c6b917248fc9b5
+- evidence blob SHA: a7192c55f8c1f956a135bbe243db4f02fe2fe89b
+
+Follow-up commits:
+- 4f41434ce460094015d18ecacea9cc84e45e238a — literature positioning in the theory note.
+- 7cffa4cc6ae4eaa0e37086175e56dce06647af1f — literature/CI caveat in the audit.
+- 88752c2a9a57228962ddbdffadae941f1770b6f9 — precise hosted-status wording.
+- 6c70c25a9c00c8afa22aa7c83983a40d64e9b763 — evidence synchronized to verifier output.
+- 8e11ce33eec9cf65e6f6fdf132c53b089acd5033 — verifier synchronized to locally executed source.
+
+The exact local run and committed artifact bytes now agree; hosted CI status remains unclaimed.
