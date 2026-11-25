@@ -105,21 +105,21 @@ class DualPricing:
         if self.cert.get("status") != "strict_201col_2113row_uniform_ray_escape_minimax_obstruction" or not self.cert.get("complete"):
             raise RuntimeError("the exact 201-column dual is not Arb-certified")
         if (self.cert.get("column_count"), self.cert.get("row_count")) != (201, 2113):
-            raise RuntimeError("unexpected 200-column certificate dimensions")
+            raise RuntimeError("unexpected 201-column certificate dimensions")
         if self.cert.get("lp_transcript_sha256") != self.lp_sha:
             raise RuntimeError("201-column certificate/LP hash mismatch")
         if self.cert.get("cut_lp_transcript_sha256") != self.cut_sha or self.lp.get("cut_lp_transcript_sha256") != self.cut_sha:
             raise RuntimeError("201-column evidence does not pin the exact cut design")
         if self.lp.get("status") != "201col_uniform_ray_escape_lp_above_one_third":
-            raise RuntimeError("200-column LP is not the expected above-cap discovery")
+            raise RuntimeError("201-column LP is not the expected above-cap discovery")
         if (self.lp.get("columns"), self.lp.get("rows")) != (201, 2113):
-            raise RuntimeError("unexpected 200-column LP dimensions")
+            raise RuntimeError("unexpected 201-column LP dimensions")
         if self.parent_search.get("status") != "positive_uniform_torus_candidate_found" or not self.parent_search.get("candidate_found"):
             raise RuntimeError("200-column warm-start torus search is not positive")
         if self.parent_search.get("dual_certificate_sha256") != self.cert.get("parent_200col_dual_certificate_sha256"):
-            raise RuntimeError("199-column warm start does not pin the parent dual")
+            raise RuntimeError("200-column warm start does not pin the parent dual")
         if self.parent_search.get("lp_transcript_sha256") != self.cert.get("parent_200col_lp_sha256"):
-            raise RuntimeError("199-column warm start does not pin the parent LP")
+            raise RuntimeError("200-column warm start does not pin the parent LP")
         self.parent_phases = self.parent_search["best_candidate_phases_exact_decimal"]
         if len(self.parent_phases) != 21:
             raise RuntimeError("200-column warm start has the wrong phase dimension")
