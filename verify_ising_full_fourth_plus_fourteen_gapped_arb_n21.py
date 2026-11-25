@@ -82,9 +82,9 @@ def main():
     }
 
     if diagnostic.get("status") != "floating_full_fourth_6137_column_separator_candidate_not_arb_certified":
-        raise RuntimeError("unexpected 6,135-column diagnostic status")
+        raise RuntimeError("unexpected 6,137-column diagnostic status")
     if diagnostic.get("candidate_count") != 6137:
-        raise RuntimeError("diagnostic does not contain exactly 6,135 columns")
+        raise RuntimeError("diagnostic does not contain exactly 6,137 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 14 or len(diagnostic.get("appended_gapped_columns", [])) != 14:
