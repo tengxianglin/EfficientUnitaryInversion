@@ -56,3 +56,14 @@ The program-mass TV bounds concern the balanced program-label distribution/depha
 Read the corrected 6,141 workflow's actual result. If it yields a dual, independently price that exact dual over continuous positive/general-gapped paths and Arb-certify any frozen escape before adding it. If it yields a primal, freeze the support/weights and independently verify the complete 1,461-coordinate residual. Do not extrapolate any finite-pool theorem to the continuous family.
 
 The current execution environment cannot change its model selection to GPT-6.1-sol Max; no model switch is claimed.
+
+## Post-audit refresh (2026-11-25, 04:59 UTC)
+
+The deterministic 6,139-dual pricing workflow was rerun against the refreshed finite certificate and succeeded again: [workflow 45550004161](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45550004161), evidence commit `3f1d5fae696a3e3a428304e98d8cf32569c80d6a). The current frozen Arb intervals are:
+
+- Connected path: ([-26.20940248677975330532500069462903387096527750760617930150028583597970395\ldots\pm4.39\times10^{-72}]<0).
+- Five-segment path: ([-30.22913039335334084872133552629950046305661562639125881662670819414718008\ldots\pm7.96\times10^{-72}]<0).
+
+The 6,141 workflow was refreshed to pin this latest parent evidence and set `cancel-in-progress: true`, so stale runs are cancelled rather than allowed to publish against an obsolete parent chain. The prior runs 45549909617 and 45549928060 were cancelled. The current authoritative run is [45550376910](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45550376910), on head `65e4853a3c3c5c2742d2e33c32a5aa9aaf81b739). Python compilation and the block-minor/spin-symmetry/serialization regressions passed; the 6,141-column LP is still running, with Arb certification pending. No 6,141 theorem is claimed yet.
+
+Issue #5's current-frontier section and progress comment were refreshed to link the current 6,139 escape evidence and the new authoritative 6,141 run.
