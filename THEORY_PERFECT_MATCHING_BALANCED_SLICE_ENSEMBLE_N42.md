@@ -129,3 +129,39 @@ For n=21 it verifies the closed-form matching probability and balanced-slice rec
 The exact support size is
 `41!! = 13113070457687988603440625`,
 with equal atom weight the reciprocal. The verifier explicitly records `physical_cycle_reachability_certified = false`; no physical-family claim is inferred from this SO(42) relaxation.
+
+
+## 7. Exact cycle-commutant exclusion for one n=21 matching atom
+
+The perfect-matching ensemble is not itself supported entirely on the fixed cycle exponential family. This can be proved for one explicit atom without computing a matrix logarithm.
+
+For a perfect matching M, suppose R_M=P_M D=e^{A(c)} with
+\[
+A(c)=2\sum_{j=0}^{41}c_j B_j,
+\qquad
+(B_j)_{j,(j+1)\bmod42}=1,
+\quad
+(B_j)_{(j+1)\bmod42,j}=-1.
+\]
+Every matrix commutes with its exponential, so necessarily
+\[
+[A(c),R_M]=0.
+\]
+Flattening the 42x42 commutators [B_j,R_M] gives an integer 1764x42 matrix C; the necessary condition is Cc=0.
+
+For the frozen matching
+`[(0,11),(1,38),(2,8),(3,13),(4,30),(5,25),(6,21),(7,14),(9,41),(10,36),(12,37),(15,18),(16,28),(17,40),(19,22),(20,27),(23,29),(24,31),(26,32),(33,35),(34,39)]`,
+the verifier extracts 42 pivot rows whose 42x42 minor has determinant
+\[
+\det C_{\rm pivot}\equiv 1\pmod{65521}.
+\]
+Thus this integer determinant is nonzero, C has full column rank over Q and R, and the only commuting cycle generator is c=0. That would imply e^{A(c)}=I, whereas R_M is a nonidentity signed permutation. Therefore this particular atom is **provably unreachable** by e^{A(c)} for every real coupling vector c.
+
+The exact modular certificate is in `evidence/perfect_matching_atom_cycle_unreachable_n21.json`; verifier `verify_perfect_matching_atom_cycle_unreachability.py`; workflow [45660576732](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45660576732), success.
+
+For small cycles, exact rational commutant-nullity enumeration gives:
+- N=4: 0 of 3 matching atoms excluded by the zero-commutant test;
+- N=6: 0 of 15 excluded;
+- N=8: 8 of 105 excluded.
+
+A positive commutant nullity is only a necessary-condition pass, not proof of reachability. The n=21 certificate proves that the **uniform perfect-matching ensemble itself** is not a physical cycle ensemble, because it assigns positive weight to an unreachable atom. It does **not** show that the same balanced-slice target is outside the convex hull of other physical cycle exponentials.
