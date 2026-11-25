@@ -25,6 +25,7 @@ def cyclic_corr_ggt(g: tuple[int, ...]) -> tuple[int, ...]:
     return tuple(sum(g[k] * g[(k-d) % n] for k in range(n)) for d in range(n))
 
 
+
 def verify_correlation_conventions():
     # Check the cyclic-convolution formulas against direct integer matrix products.
     for mask in (0, 1, 0x155, (1 << (n//2)) - 1):
@@ -68,7 +69,7 @@ def phase_classification():
             # has ratio exactly +/-1. Check the full vector identity.
             if all(u[j] == -v[j] for j in range(n)):
                 counts['ratio_minus_one'] += 1
-                if not all(x == g[0] for x in g):
+                if not (all(x == g[0] for x in g)):
                     nonconstant_minus.append((mask, g, cyclic_corr_ggt(g)))
             elif all(u[j] == v[j] for j in range(n)):
                 counts['ratio_plus_one'] += 1
@@ -177,16 +178,12 @@ def main():
         'u_zero_only': 2046,
         'v_zero_only': 2046,
         'ratio_minus_one': 2046,
-        'ratio_plus_one': 0,
         'both_zero': 2,
         'total': 2097152,
     })
     assert len(nonconstant_minus) == 2046
-    assert constant_counts == Counter({
-        'rank2_inconsistent': 1018,
-        'rank2_linear_only': 4,
-        'rank1_consistent': 2,
-    })
+    assert constant_counts == Counter({'rank2_inconsistent': 1018, 'rank2_linear_only': 4,
+                                        'rank1_consistent': 2})
     assert len(constant_lines) == 2
     assert all(line[1:] in [(-2, -2, 40), (-2, 2, 40)] for line in constant_lines)
     assert nonconstant_counts == Counter({
@@ -205,18 +202,13 @@ def main():
     for r in range(n + 1):
         numerator = (-1) ** r * comb(n, r)
         denominator = comb(2*n, 2*r)
+        assert Fraction(numerator, denominator) * denominator == numerator
         reduced = Fraction(numerator, denominator)
-        assert reduced * denominator == numerator
-        haar_moments.append({
-            'order': 2*r,
-            'moment': f'{reduced.numerator}/{reduced.denominator}',
-            'subset_sum': numerator,
-        })
+        haar_moments.append({'order': 2*r, 'moment': f'{reduced.numerator}/{reduced.denominator}',
+                             'subset_sum': numerator})
 
-    mode0_pairs = sorted(
-        (u, v) for u in range(-6, 7) for v in range(-6, 7)
-        if u % 2 == 0 and v % 2 == 1 and u*u + v*v == 41
-    )
+    mode0_pairs = sorted((u, v) for u in range(-6, 7) for v in range(-6, 7)
+                         if u % 2 == 0 and v % 2 == 1 and u*u + v*v == 41)
     assert mode0_pairs == [(-4, -5), (-4, 5), (4, -5), (4, 5)]
 
     result = {
@@ -249,7 +241,7 @@ def main():
             'rank2_conclusion': 'All 24 feasible exact sign-pattern systems force X=Y=0, hence x=0 and c=s=1/sqrt(41).',
         },
         'transcendence_step': {
-            'fourier_mode_0': 'exp(i*4a)=(f_sum+i*g_sum)/sqrt(41), where f_sum is even, g_sum is odd, and f_sum^2+g_sum^2=41; hence f_sum=+/-4 and g_sum=+/-5.',
+            'fourier_mode_0': 'exp(i*4a)=(f_sum+i*g_sum)/sqrt(41), where f_sum is an even integer, g_sum is an odd integer, and f_sum^2+g_sum^2=41; hence f_sum=+/-4 and g_sum=+/-5.',
             'mode0_integer_pairs': [list(x) for x in mode0_pairs],
             'not_root_of_unity': 'If alpha were a root of unity, alpha+alpha^{-1}=+/-8/sqrt(41) would be an algebraic integer, but its square 64/41 is rational nonintegral.',
             'fourier_mode_1': 'exp(i*4a*cos(pi/21))=C_1+i*exp(-i*pi/21)*S_1 is algebraic because C_1,S_1 are cyclotomic algebraic numbers scaled by 1/sqrt(41).',
@@ -272,10 +264,9 @@ def main():
         'nonconstant_G_branch': result['nonconstant_G_branch_b_equals_minus_a']['counts'],
         'nonconstant_G_lines': result['nonconstant_G_branch_b_equals_minus_a']['rank1_consistent_lines'],
         'quadratic_solutions': len(solutions),
-        'all_X_Y_zero': all((x, y) == (0, 0) for _, _, x, y, _ in solutions),
+        'all_X_Y_zero': all((x,y)==(0,0) for _,_,x,y,_ in solutions),
         'output': str(OUT),
     }, indent=2))
-
 
 if __name__ == '__main__':
     main()
