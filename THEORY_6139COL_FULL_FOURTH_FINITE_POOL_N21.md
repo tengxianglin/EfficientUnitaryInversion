@@ -68,18 +68,18 @@ The deterministic pricing search evaluated 912 initial candidates (256 frozen-po
 It found two strict floating-point escape candidates. Both were frozen as exact rational couplings and independently certified with 256-bit Arb:
 
 1. **Connected positive-coupling path.** All 41 internal couplings are strictly positive; the open-chain wrap edge is zero. The minimum positive internal coupling is
-   [
+   \\[
    \frac{19999999999999999}{20000000000000000000000}\approx10^{-6}.
-   ]
+   \\]
    The certified target-minus-candidate interval is
-   [
+   \\[
    [-26.2094024867797243425\ldots\ \pm 5.80\times10^{-72}]<0.
-   ]
+   \\]
 
-2. **Five-segment path.** Internal zero edges are ({11,16,18,21}); the minimum positive coupling is (10^{-8}). Its certified target-minus-candidate interval is
-   [
+2. **Five-segment path.** Internal zero edges are ({11,16,18,21}); the minimum positive coupling is \\(10^{-8}\\). Its certified target-minus-candidate interval is
+   \\[
    [-30.229130393353341\ldots\ \pm 7.88\times10^{-72}]<0.
-   ]
+   \\]
 
 Both certificates verify all 1,764 entries of the 42-by-42 rotation's orthogonality defect and enclose determinant one. These are strict escapes of the **6,139-column dual**, not failures of the finite-pool theorem above.
 
