@@ -247,7 +247,7 @@ def main():
         raise RuntimeError("200-column parent does not pin the exact 198-column ancestor finite-time certificate")
     t_final = Fraction(final_time_cert["t_exact_rational"])
     if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != next2_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != Fraction(next2_time_cert["t_exact_rational"]):
-        raise RuntimeError("202-column parent current escape pin does not match the 201-column finite-time certificate")
+        raise RuntimeError("203-column parent current escape pin does not match the 202-column finite-time certificate")
     if Fraction(parent_lp.get("parent_198col_uniform_ray_time_exact_rational")) != t_new:
         raise RuntimeError("200-column parent has a different 198-column ancestor uniform-ray time")
 
@@ -269,7 +269,7 @@ def main():
     if final_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_200col_dual_certificate_sha256") or final_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_200col_lp_sha256") or final_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("200-column finite-time certificate does not pin the exact 200-column ancestor dual/LP/cut design")
     if parent_lp.get("parent_200col_uniform_ray_time_arb_certificate_sha256") != final_time_cert_sha:
-        raise RuntimeError("202-column parent does not pin the exact 200-column finite-time certificate")
+        raise RuntimeError("203-column parent does not pin the exact 200-column finite-time certificate")
     if final_time_cert.get("status") != "certified_finite_uniform_ray_escape" or not final_time_cert.get("complete") or not final_time_cert.get("finite_physical_escape_certified"):
         raise RuntimeError("200-column finite-time path lacks a complete strict Arb certificate")
     if t_final <= 0 or Fraction(final_time_cert["t_exact_decimal"]) != t_final or t_final in (base_t, parent_t, grandparent_t, greatgrandparent_t, previous_t, t, t_new, t_latest):
