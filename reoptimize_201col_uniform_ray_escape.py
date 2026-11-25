@@ -237,8 +237,10 @@ def main():
     new_uniform_couplings = [Fraction(value) for value in new_time_cert["uniform_couplings_exact_decimal"]]
     if len(new_uniform_couplings) != 41 or any(value != t_new for value in new_uniform_couplings):
         raise RuntimeError("198-column finite-time certificate is not a uniform 41-edge path")
-    if parent_lp.get("parent_198col_uniform_ray_time_arb_certificate_sha256") != new_time_cert_sha or parent_lp.get("uniform_ray_time_arb_certificate_sha256") != new_time_cert_sha:
-        raise RuntimeError("199-column parent does not pin the exact 198-column finite-time certificate")
+    if parent_lp.get("parent_198col_uniform_ray_time_arb_certificate_sha256") != new_time_cert_sha:
+        raise RuntimeError("200-column parent does not pin the exact 198-column ancestor finite-time certificate")
+    if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != latest_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != Fraction(latest_time_cert["t_exact_rational"]):
+        raise RuntimeError("200-column parent current escape pin does not match the 199-column finite-time certificate")
     if Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != t_new:
         raise RuntimeError("199-column parent has a different 198-column uniform-ray time")
 
