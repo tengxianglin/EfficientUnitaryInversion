@@ -112,7 +112,7 @@ def n21_closed_form_check():
         q_min = max(0, 2 * r - n)
         for parity in (0, 1):
             q = q_min if q_min % 2 == parity else q_min + 1
-            if q > n or 2 * r - q > n:
+            if q > 2 * r or q > n or 2 * r - q < 0 or 2 * r - q > n:
                 continue
             odd_indices = list(range(1, N, 2))[:q]
             even_indices = list(range(0, N, 2))[: 2 * r - q]
