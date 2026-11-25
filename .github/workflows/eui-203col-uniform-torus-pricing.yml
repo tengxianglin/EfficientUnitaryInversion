@@ -1,0 +1,95 @@
+name: EUI 203-column continuous torus pricing and Arb verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "discover_203col_uniform_torus_pricing.py"
+      - "verify_203col_uniform_torus_pricing_arb.py"
+      - ".github/workflows/eui-203col-uniform-torus-pricing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-203col-uniform-torus-pricing
+  cancel-in-progress: true
+
+jobs:
+  price-203:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Freeze inputs, run regressions, and compile the pricing tools
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
+          python -m py_compile discover_203col_uniform_torus_pricing.py verify_203col_uniform_torus_pricing_arb.py verify_203col_uniform_ray_dual_arb.py verify_203col_program_mass_tv_bound.py verify_202col_uniform_ray_dual_arb.py verify_202col_program_mass_tv_bound.py verify_202col_uniform_torus_pricing_arb.py
+      - name: Re-certify the exact 202-column parent and its torus warm start
+        run: |
+          python verify_202col_uniform_ray_dual_arb.py
+          python verify_202col_program_mass_tv_bound.py
+          python verify_202col_uniform_torus_pricing_arb.py
+      - name: Re-certify the exact 203-column finite-pool dual and TV corollary
+        run: |
+          python verify_203col_uniform_ray_dual_arb.py
+          python verify_203col_program_mass_tv_bound.py
+      - name: Remove stale 203-column torus outputs
+        run: |
+          rm -f evidence/203col_uniform_torus_search_n21.json
+          rm -f evidence/203col_uniform_torus_arb_n21.json
+      - name: Discover a positive point on the 203-dual uniform-path torus
+        run: python discover_203col_uniform_torus_pricing.py --starts 8 --maxiter 120
+      - name: Independently Arb-verify the exact 203-dual torus point
+        run: python verify_203col_uniform_torus_pricing_arb.py
+      - name: Commit 203-column torus search and Arb evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-203-torus/evidence
+          for f in \
+            evidence/203col_uniform_torus_search_n21.json \
+            evidence/203col_uniform_torus_arb_n21.json; do
+            if [ -f "$f" ]; then cp "$f" "/tmp/eui-203-torus/$f"; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            rm -f evidence/203col_uniform_torus_search_n21.json evidence/203col_uniform_torus_arb_n21.json
+            for f in \
+              evidence/203col_uniform_torus_search_n21.json \
+              evidence/203col_uniform_torus_arb_n21.json; do
+              if [ -f "/tmp/eui-203-torus/$f" ]; then
+                cp "/tmp/eui-203-torus/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Record 203-column continuous torus pricing"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 203-column torus pricing evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-203col-torus-pricing
+          path: |
+            evidence/203col_uniform_torus_search_n21.json
+            evidence/203col_uniform_torus_arb_n21.json
+          if-no-files-found: warn
