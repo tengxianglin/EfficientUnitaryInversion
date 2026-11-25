@@ -1,0 +1,69 @@
+name: EUI exact perfect-matching balanced-slice ensemble
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_perfect_matching_balanced_slice_ensemble.py"
+      - "THEORY_PERFECT_MATCHING_BALANCED_SLICE_ENSEMBLE_N42.md"
+      - "verify_ising_minor_obstruction.py"
+      - "ising_fourth_moments.py"
+      - "screen_ising_sixth_moments.py"
+      - ".github/workflows/eui-perfect-matching-balanced-slice.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-perfect-matching-balanced-slice
+  cancel-in-progress: true
+
+jobs:
+  verify-perfect-matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned exact-check dependencies
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3"
+      - name: Compile and run exact-rational ensemble verification
+        run: |
+          python -m py_compile verify_perfect_matching_balanced_slice_ensemble.py verify_ising_minor_obstruction.py
+          rm -f evidence/perfect_matching_balanced_slice_ensemble_n21.json
+          python verify_perfect_matching_balanced_slice_ensemble.py
+      - name: Commit exact-rational verification evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-perfect-matching/evidence
+          if [ -f evidence/perfect_matching_balanced_slice_ensemble_n21.json ]; then
+            cp evidence/perfect_matching_balanced_slice_ensemble_n21.json /tmp/eui-perfect-matching/evidence/
+          fi
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            if [ -f /tmp/eui-perfect-matching/evidence/perfect_matching_balanced_slice_ensemble_n21.json ]; then
+              cp /tmp/eui-perfect-matching/evidence/perfect_matching_balanced_slice_ensemble_n21.json evidence/
+              git add evidence/perfect_matching_balanced_slice_ensemble_n21.json
+            fi
+            if ! git diff --cached --quiet; then
+              git commit -m "Record exact perfect-matching balanced-slice ensemble certificate"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload exact-rational ensemble evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-perfect-matching-balanced-slice
+          path: evidence/perfect_matching_balanced_slice_ensemble_n21.json
+          if-no-files-found: warn
