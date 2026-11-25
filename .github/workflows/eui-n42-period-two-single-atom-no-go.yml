@@ -1,0 +1,36 @@
+name: EUI N42 period-two single-atom no-go
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "THEORY_N42_PERIOD_TWO_SINGLE_ATOM_NO_GO.md"
+      - "verify_n42_period_two_single_atom_no_go.py"
+      - "evidence/n42_period_two_single_atom_no_go.json"
+      - ".github/workflows/eui-n42-period-two-single-atom-no-go.yml"
+  pull_request:
+    paths:
+      - "THEORY_N42_PERIOD_TWO_SINGLE_ATOM_NO_GO.md"
+      - "verify_n42_period_two_single_atom_no_go.py"
+      - "evidence/n42_period_two_single_atom_no_go.json"
+      - ".github/workflows/eui-n42-period-two-single-atom-no-go.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile exact verifier
+        run: python -m py_compile verify_n42_period_two_single_atom_no_go.py
+      - name: Exhaustively verify all sign patterns and rational constraints
+        run: python verify_n42_period_two_single_atom_no_go.py
+      - name: Ensure committed evidence is reproducible
+        run: git diff --exit-code -- evidence/n42_period_two_single_atom_no_go.json
