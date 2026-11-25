@@ -99,7 +99,7 @@ jobs:
               if escape.get("search_sha256") != hashlib.sha256(search_raw).hexdigest():
                   raise SystemExit("Refusing stale escape certificate: search-transcript pin mismatch.")
           print("Parent diagnostic, finite certificate, search, and escape pins are consistent.")
-            PY
+          PY
             rm -f evidence/ising_full_fourth_plus_twelve_gapped_search_n21.json evidence/ising_full_fourth_plus_twelve_gapped_escape_arb_n21.json
             for f in /tmp/eui-6135-pricing/evidence/*.json; do
               [ -f "$f" ] || continue
