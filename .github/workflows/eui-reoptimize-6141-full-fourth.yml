@@ -1,4 +1,5 @@
 name: EUI 6,141-column full-fourth reoptimization and Arb certification
+# Re-run against the refreshed, hash-pinned 6,139-column parent escape certificate.
 
 on:
   push:
