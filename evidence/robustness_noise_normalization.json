@@ -1,0 +1,18 @@
+{
+  "status": "per_instance_l1_noise_normalization_passed",
+  "seed": 20261125,
+  "dtype": "float64",
+  "protocol_support_sizes": {
+    "1-slot n=3": [32, 31],
+    "3-slot-a n=3": [6, 57],
+    "3-slot-b n=3": [6, 57],
+    "7-slot n=3": [7, 56],
+    "15-slot n=4": [15, 240]
+  },
+  "deltas": [0.0, 0.001, 0.01, 0.1],
+  "samples_per_protocol_delta": 10000,
+  "cases_checked": 20,
+  "overall_max_abs_ratio_error": 5.551115123125783e-17,
+  "full_choi_fidelity_table_reproduced": false,
+  "limitation": "The normalization identity was tested with PyTorch 2.10.0 CPU. QuAIRKit is not installed in the current verification environment, so the Choi-fidelity table was not rerun."
+}

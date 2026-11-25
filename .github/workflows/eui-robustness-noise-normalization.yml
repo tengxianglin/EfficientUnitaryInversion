@@ -1,0 +1,28 @@
+name: EUI Appendix B noise normalization
+
+on:
+  push:
+    paths:
+      - "robustness_analysis.py"
+      - "utils/noise_scaling.py"
+      - "tests/test_robustness_noise_normalization.py"
+      - "evidence/robustness_noise_normalization.json"
+      - ".github/workflows/eui-robustness-noise-normalization.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0
+      - name: Run per-instance L1 normalization regression
+        run: python -m unittest tests/test_robustness_noise_normalization.py -v
