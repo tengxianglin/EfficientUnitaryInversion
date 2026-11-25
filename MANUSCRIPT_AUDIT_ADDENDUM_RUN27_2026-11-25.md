@@ -13,11 +13,11 @@ The discovery transcript records:
 - torus-basis regression defects below `5.4e-15`.
 
 The exact rational-decimal phase vector was independently evaluated using 128-bit Arb. The certified pricing interval is
-[
+\[
 S_{203}(R(\theta_*))
 \in[1.0825780781000278157417170733698968
 \pm7.99\times10^{-35}]>0.
-]
+\]
 This is a strict, finite-dimensional torus witness. Combined with the exact rational-independence/dense-ray theorem for the 42-site uniform open path, it proves existence of some finite positive equal-coupling physical time at which this particular 203-column dual has positive pricing.
 
 Evidence:
