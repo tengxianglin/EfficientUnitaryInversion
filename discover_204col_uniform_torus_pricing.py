@@ -113,7 +113,7 @@ class DualPricing:
             raise RuntimeError("204-column evidence does not pin the exact cut design")
         if self.lp.get("status") != "204col_uniform_ray_escape_lp_above_one_third":
             raise RuntimeError("204-column LP is not the expected above-cap discovery")
-        if (self.lp.get("columns"), self.lp.get("rows")) != (203, 2113):
+        if (self.lp.get("columns"), self.lp.get("rows")) != (204, 2113):
             raise RuntimeError("unexpected 204-column LP dimensions")
         if self.parent_search.get("status") != "positive_uniform_torus_candidate_found" or not self.parent_search.get("candidate_found"):
             raise RuntimeError("204-column warm-start torus search is not positive")
