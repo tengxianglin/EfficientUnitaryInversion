@@ -52,7 +52,7 @@ def main():
         raise RuntimeError("202-column certificate dimensions mismatch")
     if cert.get("lp_transcript_sha256") != lp_sha:
         raise RuntimeError("202-column certificate/LP hash mismatch")
-    if lp.get("status") != "202col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (201, 2113):
+    if lp.get("status") != "202col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (202, 2113):
         raise RuntimeError("202-column LP is not the pinned above-cap discovery")
     if cert.get("cut_lp_transcript_sha256") != cut_sha or lp.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("202-column evidence does not pin the exact 2,113-row cut design")
