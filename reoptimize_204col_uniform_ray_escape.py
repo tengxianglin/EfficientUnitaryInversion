@@ -304,6 +304,7 @@ def main():
     if parent_lp.get("continuous_escape_arb_certificate_sha256") != escape_hashes:
         raise RuntimeError("192-column parent escape-certificate ancestry mismatch")
 
+
     next2_t = Fraction(next2_time_cert["t_exact_rational"])
     if next2_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_202col_dual_certificate_sha256") or next2_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_202col_lp_sha256") or next2_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("202-column ancestor time certificate does not pin the parent ancestry")
