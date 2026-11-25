@@ -28,6 +28,7 @@ TORUS_THEORY_PATH = ROOT / "THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md"
 OUTPUT_PATH = ROOT / "evidence/203col_uniform_torus_arb_n21.json"
 
 PRECISION_BITS = 128
+EXPECTED_SEARCH_SEED = 202611252115
 LOW_COUNT = 1461
 SIXTH_END = 2106
 SIXTH_SCALE = Fraction(5, 19721)
@@ -100,6 +101,16 @@ def main():
         raise RuntimeError("203-column discovery does not pin the exact dual and LP")
     if discovery.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("203-column discovery does not pin the exact cut design")
+    if discovery.get("random_seed") != EXPECTED_SEARCH_SEED:
+        raise RuntimeError("203-column discovery random-seed provenance mismatch")
+    if discovery.get("phase_dimension") != 21 or discovery.get("phase_domain") != "[-pi,pi]^21 with periodic identification":
+        raise RuntimeError("203-column discovery phase-domain metadata mismatch")
+    if discovery.get("optimizer") != "L-BFGS-B" or discovery.get("phase_rounding_decimals") != 12:
+        raise RuntimeError("203-column optimizer/phase-rounding provenance mismatch")
+    if not isinstance(discovery.get("gradient_check_max_relative_defect"), (int, float)) or discovery["gradient_check_max_relative_defect"] > 2e-5:
+        raise RuntimeError("203-column analytic-gradient regression was not passed")
+    if discovery.get("starts") != len(discovery.get("records", [])) or discovery.get("starts", 0) < 1:
+        raise RuntimeError("203-column multi-start transcript is incomplete")
     if discovery.get("parent_202col_torus_search_sha256") != parent_sha:
         raise RuntimeError("203-column discovery does not pin the exact 202-column warm start")
 
@@ -109,6 +120,9 @@ def main():
             "complete": True,
             "strict_uniform_ray_escape_certified": False,
             "precision_bits": ctx.prec,
+            "random_seed": EXPECTED_SEARCH_SEED,
+            "starts": discovery.get("starts"),
+            "max_iterations_per_start": discovery.get("max_iterations_per_start"),
             "dual_certificate_sha256": cert_sha,
             "lp_transcript_sha256": lp_sha,
             "discovery_sha256": discovery_sha,
@@ -170,6 +184,11 @@ def main():
         "complete": True,
         "strict_uniform_ray_escape_certified": strict_positive,
         "precision_bits": ctx.prec,
+        "random_seed": EXPECTED_SEARCH_SEED,
+        "starts": discovery.get("starts"),
+        "max_iterations_per_start": discovery.get("max_iterations_per_start"),
+        "optimizer": discovery.get("optimizer"),
+        "gradient_check_max_relative_defect": discovery.get("gradient_check_max_relative_defect"),
         "interval_backend": "python-flint 0.8.0 / Arb",
         "dual_certificate_sha256": cert_sha,
         "lp_transcript_sha256": lp_sha,
