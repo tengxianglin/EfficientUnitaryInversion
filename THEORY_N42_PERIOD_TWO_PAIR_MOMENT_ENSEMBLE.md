@@ -138,3 +138,42 @@ Therefore a global physical-family obstruction cannot be proved from second-orde
 - Workflow: .github/workflows/eui-n42-period-two-pair-moment-ensemble.yml
 
 The certificate is a computer-assisted exact existence proof for pair moments only. It makes no Choi trace-distance or channel diamond-distance claim.
+
+
+## Final 256-bit Arb certificate (verified 2026-11-26)
+
+The hosted verifier completed successfully in workflow [45699551876](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45699551876). Its committed output is [evidence/n42_period_two_pair_moment_ensemble_arb.json](evidence/n42_period_two_pair_moment_ensemble_arb.json).
+
+Certified enclosures:
+- Moment-matrix determinant:
+  \[
+  [-8.2205599158252913008515952819085205385928775913251855325745736876337\times10^{-28}
+  \ \pm 1.41\times10^{-96}],
+  \]
+  which excludes zero.
+- Minimum weight:
+  \[
+  [0.000565383615274248869213747056131438992031541456272600328248238144429088
+  \ \pm 2.67\times10^{-73}]>\frac1{2000}.
+  \]
+- Weight sum contains exactly one.
+- All 861 unordered pair coordinates pass the interval target check.
+
+For the explicitly non-target quartic witness \(I=\{0,1,2,3\}\):
+\[
+\mathbb E\det Q_{I,I}
+\in[0.008326548825640481438490900780228651616527824966606615752786109235715705
+\pm4.40\times10^{-73}],
+\]
+whereas
+\[
+\tau_I=\frac{\binom{21}{2}}{\binom{42}{4}}
+=0.001876172607879924953095684803001876\ldots.
+\]
+The residual is certified:
+\[
+[0.006450376217760556485395215977226775443919945041653520067983107359543097
+\pm5.60\times10^{-73}]>\frac1{200}.
+\]
+
+Thus the pair-level convex-hull feasibility statement is rigorous, while this particular support is rigorously not a full fourth-order design.
