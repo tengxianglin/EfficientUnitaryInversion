@@ -109,3 +109,23 @@ The formula agrees with:
 - verify_ising_minor_obstruction.py::target, which already encodes the general (-1)^(sum i+r) C(n,r)/C(2n,2r) formula.
 
 An exact-rational verifier is supplied separately. Its exhaustive small-n checks validate the matching count and principal-minor sign, while its n=21 checks verify the complete closed-form hierarchy without enumerating 41!! matchings.
+
+
+## 6. Exact verification and reproducibility
+
+The exact-rational verifier is `verify_perfect_matching_balanced_slice_ensemble.py`; its machine-readable output is `evidence/perfect_matching_balanced_slice_ensemble_n21.json`. Workflow [45659719208](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45659719208) completed successfully.
+
+The verifier exhaustively enumerates every perfect matching and every even subset for small dimensions:
+| n | N=2n | perfect matchings | even subsets checked per matching | exact checks |
+|---:|---:|---:|---:|---:|
+| 1 | 2 | 1 | 2 | 2 |
+| 2 | 4 | 3 | 8 | 24 |
+| 3 | 6 | 15 | 32 | 480 |
+| 4 | 8 | 105 | 128 | 13,440 |
+| 5 | 10 | 945 | 512 | 483,840 |
+
+For n=21 it verifies the closed-form matching probability and balanced-slice recurrence for every order 0,2,...,42, checks all 21 repository second-order targets and all 111,930 fourth-order subsets, and checks 512 deterministic samples each at orders six and eight. The full higher-order statement follows from the general theorem, not from those samples.
+
+The exact support size is
+`41!! = 13113070457687988603440625`,
+with equal atom weight the reciprocal. The verifier explicitly records `physical_cycle_reachability_certified = false`; no physical-family claim is inferred from this SO(42) relaxation.
