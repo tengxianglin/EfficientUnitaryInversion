@@ -105,7 +105,7 @@ def main():
         ("warm_certificate_sha256", "warm_certificate_sha256"),
     ):
         if diagnostic.get(field) != hashes[key]:
-            raise RuntimeError(f"the 6,135-column diagnostic does not pin {field}")
+            raise RuntimeError(f"the 6,137-column diagnostic does not pin {field}")
 
     if parent_cert.get("status") != "arb_certified_finite_6135_column_full_fourth_plus_twelve_gapped_separator":
         raise RuntimeError("the 6,135-column parent certificate is invalid")
@@ -136,7 +136,7 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first ten gapped columns are inherited exactly from the certified
+    # The first twelve gapped columns are inherited exactly from the certified
     # 6,135-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
@@ -161,7 +161,7 @@ def main():
 
     parent_appended = parent["appended_gapped_columns"]
     if len(parent_appended) != 12:
-        raise RuntimeError("the 6,135-column parent does not contain ten gapped paths")
+        raise RuntimeError("the 6,135-column parent does not contain twelve gapped paths")
     for index in range(12):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
@@ -224,7 +224,7 @@ def main():
             raise RuntimeError(f"dual uses invalid/non-independent feature index {index}")
         raw_coefficients[index] = Fraction(item["coefficient"])
     if not raw_coefficients:
-        raise RuntimeError("the 6,135-column diagnostic contains no nonzero dual coefficients")
+        raise RuntimeError("the 6,137-column diagnostic contains no nonzero dual coefficients")
 
     # The LP scales second moments by 41 and fourth-order orbit moments by
     # 533. Rationalize the decimal dual exactly, then impose ||D^{-1} y||_1=1.
@@ -331,11 +331,11 @@ def main():
 
     checked = checked_base + checked_grid + checked_gapped
     if checked != 6137 or checked_gapped != 14:
-        raise RuntimeError(f"verified {checked} columns instead of exactly 6,135")
+        raise RuntimeError(f"verified {checked} columns instead of exactly 6,137")
     if minimum["minimum_lower"] is None or not minimum["minimum_lower"] > floor:
         raise RuntimeError("the common strictly positive Arb lower bound was not established")
     # Use the strongest simple rational floor justified by the certified Arb minimum.
-    # The 6,135-column minimum is about 0.2387958, so 23879/100000 is
+    # The 6,137-column minimum is about 0.2387958, so 23879/100000 is
     # safely below it and sharpens the published residual/TV constants.
     floor_candidates = (
         Fraction(1, 4),
