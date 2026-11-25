@@ -374,7 +374,7 @@
     "Schneider": "T. Schneider, Transzendenzuntersuchungen periodischer Funktionen. I. Transzendenz von Potenzen, J. Reine Angew. Math. 172 (1934), 65-69."
   },
   "transcendence_step": {
-    "fourier_mode_0": "exp(i*4a)=(f_sum+i*g_sum)/sqrt(41), where f_sum is even, g_sum is odd, and f_sum^2+g_sum^2=41; hence f_sum=+/-4 and g_sum=+/-5.",
+    "fourier_mode_0": "exp(i*4a)=(f_sum+i*g_sum)/sqrt(41), where f_sum is an even integer, g_sum is an odd integer, and f_sum^2+g_sum^2=41; hence f_sum=+/-4 and g_sum=+/-5.",
     "fourier_mode_1": "exp(i*4a*cos(pi/21))=C_1+i*exp(-i*pi/21)*S_1 is algebraic because C_1,S_1 are cyclotomic algebraic numbers scaled by 1/sqrt(41).",
     "mode0_integer_pairs": [
       [
