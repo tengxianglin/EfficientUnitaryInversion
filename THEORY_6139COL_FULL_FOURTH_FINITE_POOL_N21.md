@@ -61,4 +61,43 @@ The verifier now writes the correct 6,139-column scope and uses the certified ra
 
 This is a theorem for this exact finite candidate pool and these complete second-/fourth-order coordinates. It does **not** prove a global obstruction for all nonuniform gapped couplings or the continuous physical family. It does not impose all even-principal-minor constraints, and the program-mass TV bound is not a Choi-state trace-distance or channel diamond-distance bound. The 6,137-column dual's continuous escapes are part of the 16-path pool; they are not escapes of the new 6,139-column dual.
 
-The next decisive task is continuous pricing of this specific 104-term 6,139-column dual. A finite multistart search can discover a candidate escape, but only an exact-rational frozen path and independent Arb interval with strictly negative slack establish one. If no escape is found, that is only a finite search result, not a global certificate. The all-even-principal-minor positive-ensemble problem remains the paper-level bottleneck.
+## Continuous pricing of the 104-term 6,139-column dual
+
+The deterministic pricing search evaluated 912 initial candidates (256 frozen-pool samples, 256 connected random starts, 263 multi-segment starts, and 128 fractional perturbations). The analytic gradient self-test's maximum absolute error was (2.2600188387400522\times10^{-10}).
+
+It found two strict floating-point escape candidates. Both were frozen as exact rational couplings and independently certified with 256-bit Arb:
+
+1. **Connected positive-coupling path.** All 41 internal couplings are strictly positive; the open-chain wrap edge is zero. The minimum positive internal coupling is
+   [
+   \frac{19999999999999999}{20000000000000000000000}\approx10^{-6}.
+   ]
+   The certified target-minus-candidate interval is
+   [
+   [-26.2094024867797243425\ldots\ \pm 5.80\times10^{-72}]<0.
+   ]
+
+2. **Five-segment path.** Internal zero edges are ({11,16,18,21}); the minimum positive coupling is (10^{-8}). Its certified target-minus-candidate interval is
+   [
+   [-30.229130393353341\ldots\ \pm 7.88\times10^{-72}]<0.
+   ]
+
+Both certificates verify all 1,764 entries of the 42-by-42 rotation's orthogonality defect and enclose determinant one. These are strict escapes of the **6,139-column dual**, not failures of the finite-pool theorem above.
+
+Reproduction:
+
+- Search transcript: [evidence/ising_full_fourth_plus_sixteen_gapped_search_n21.json](evidence/ising_full_fourth_plus_sixteen_gapped_search_n21.json)
+- 256-bit Arb escape certificate: [evidence/ising_full_fourth_plus_sixteen_gapped_escape_arb_n21.json](evidence/ising_full_fourth_plus_sixteen_gapped_escape_arb_n21.json)
+- Search: [search_ising_full_fourth_plus_sixteen_gapped_n21.py](search_ising_full_fourth_plus_sixteen_gapped_n21.py)
+- Independent verifier: [verify_ising_full_fourth_plus_sixteen_gapped_escape_arb_n21.py](verify_ising_full_fourth_plus_sixteen_gapped_escape_arb_n21.py)
+- Successful workflow: [45549396031](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45549396031)
+- Evidence commit: `66cf75f52a48a219f94b0b52cb55cf6869d74682`.
+
+The two new exact-rational paths have been appended to the 6,139 pool. The next candidate set has 6,141 columns: 22 pinned base atoms, 6,101 fractional-grid atoms, and 18 exact-rational gapped paths (16 inherited from the certified 6,139 pool plus these two new escapes). The reoptimizer, independent Arb verifier, and workflow are:
+
+- [discover_ising_full_fourth_plus_eighteen_gapped_n21.py](discover_ising_full_fourth_plus_eighteen_gapped_n21.py)
+- [verify_ising_full_fourth_plus_eighteen_gapped_arb_n21.py](verify_ising_full_fourth_plus_eighteen_gapped_arb_n21.py)
+- [6,141-column workflow](.github/workflows/eui-reoptimize-6141-full-fourth.yml)
+
+The 6,141-column LP and Arb certification are now running. If a new dual is certified, the next step is continuous pricing of that dual; if a primal appears, freeze its support and weights and independently certify the full 1,461-coordinate residual. Neither branch licenses a global claim without the corresponding certificate.
+
+The next decisive task is to resolve the 6,141-column LP and then price its new dual or certify any primal support. A finite multistart search can discover a candidate escape, but only an exact-rational frozen path and independent Arb interval with strictly negative slack establish one. If no escape is found, that is only a finite search result, not a global certificate. The all-even-principal-minor positive-ensemble problem remains the paper-level bottleneck.
