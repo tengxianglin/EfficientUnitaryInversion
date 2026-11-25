@@ -152,20 +152,30 @@ The certificate pins the 201-column rational dual, the 201-column LP transcript,
 
 The exact dense-torus theorem in `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md` says that the positive-time equal-coupling orbit is dense in this torus. Since the pricing functional is continuous and the Arb lower endpoint above is strictly positive, there is an open neighborhood of \(\theta_*\) on which the pricing remains positive. Density therefore proves that **there exists at least one finite (t>0)** for which the physical equal-coupling open path has positive 201-dual pricing. This existence conclusion is rigorous; it does not identify a decimal value of (t).
 
-The explicit finite-time search has been staged and its deterministic discovery transcript is now committed:
+The explicit finite-time search and independent 128-bit Arb verification are now complete:
 - discovery: `discover_201col_uniform_ray_time_escape.py`;
-- independent exact-time verifier: `verify_201col_uniform_ray_time_arb.py`;
+- exact-time verifier: `verify_201col_uniform_ray_time_arb.py`;
 - workflow: `.github/workflows/eui-201col-uniform-ray-time.yml`;
-- search evidence: `evidence/201col_uniform_ray_time_search_n21.json`.
+- search evidence: `evidence/201col_uniform_ray_time_search_n21.json`;
+- Arb evidence: `evidence/201col_uniform_ray_time_arb_n21.json`.
 
-With 12 deterministic starts, 400 iterations per start, and seed `202611251837`, the binary64 optimizer found
+With 12 deterministic starts, 400 iterations per start, and seed `202611251837`, the search found
 [
-t_{\rm cand}=3952466.400764009915292,
-qquad
-S_{201}^{\rm float}=0.3771886165386608>0.
+t_* = 3952466.400764009915292
+= rac{988116600191002478823}{250000000000000}>0.
 ]
-This is **discovery only**: it is not yet a physical escape certificate. The exact-time Arb output file is not yet committed, so the decimal candidate must not be promoted to a theorem until the independent verifier encloses its score with a strictly positive lower endpoint.
+The physical open path has
+[
+c_0=cdots=c_{40}=t_*,qquad c_{41}=0,
+]
+so all 41 internal couplings are strictly positive. The independent 128-bit Arb verifier certifies
+[
+S_{201}(e^{t_*K_*})
+in[0.377188616201919344495682431
+pm4.22	imes10^{-28}]>0.
+]
+The lower endpoint is strictly positive. This is now an explicit finite-time physical escape from the particular 201-column dual, not merely a torus-density existence statement.
 
-A provenance defect in the initial search script was found before execution: its RNG used seed `202611251837` while the JSON metadata incorrectly reported `202611251720`. Commit [b975b24](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b975b24cf0b3fa9f7c7105e7d60538a76d4b4523) centralizes the seed as a constant and makes the recorded metadata match the actual RNG. The independent verifier also rejects a transcript whose seed metadata is not the pinned value. A verifier unpacking bug was found in the first run and corrected in [commit f52f73f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/f52f73fcdf5c016224b18043cf6207111f098d10); the verifier now preserves machine-readable diagnostics if another check fails.
+A provenance defect in the initial search script was found before execution: its RNG used seed `202611251837` while the JSON metadata incorrectly reported `202611251720`. Commit [b975b24](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/b975b24cf0b3fa9f7c7105e7d60538a76d4b4523) centralizes the seed as a constant and makes the recorded metadata match the actual RNG. The first Arb verifier run exposed a six-source unpacking bug, fixed in [commit f52f73f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/f52f73fcdf5c016224b18043cf6207111f098d10). The successful evidence commit is [64eec82](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/64eec826ca5028b989ea16f5804dcabbbc387909).
 
-**Scope:** the positive torus interval and density already refute global separation by this particular 201-column dual on the continuous equal-coupling physical ray. The finite-time candidate is a stronger explicit witness only after Arb passes. None of this invalidates the 201-column finite-pool theorem, proves feasibility or infeasibility of the complete physical-family ensemble problem, completes the selected sixth/eighth-order inventories, or implies a Choi/diamond-distance bound.
+**Scope:** this explicit witness refutes global separation by this particular 201-column dual on the continuous equal-coupling physical ray. It does not invalidate the 201-column finite-pool theorem, prove feasibility or infeasibility of the complete physical-family ensemble problem, complete the selected sixth/eighth-order inventories, or imply a Choi/diamond-distance bound. The next cutting-plane step is to append this exact path as column 202 and reoptimize the same 2,113-row design.
