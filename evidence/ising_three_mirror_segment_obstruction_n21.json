@@ -1,0 +1,25 @@
+{
+  "arithmetic": "exact fractions.Fraction; no floating-point operations",
+  "composition_count": 820,
+  "distinct_exact_slacks": 15,
+  "dual_denominator": 47,
+  "dual_l1_norm": "1",
+  "dual_numerator": [
+    -10, 8, -6, 6, -4, 2, -2, 2, 0, 2, 0, 0, 0, 0, 0, 0, 2, -2, 0, 0, 1
+  ],
+  "maximum_exact_slack": "192/13489",
+  "minimum_exact_slack": "2/40467",
+  "minimum_slack_attainers": 117,
+  "moment_count": 21,
+  "n": 21,
+  "program_mass_tv_lower_bound": "1/40467",
+  "scope": "convex mixtures of the 820 three-block perfect-mirror seeds, their dihedral images, and vertex-sign gauges",
+  "segment_count": 3,
+  "site_count": 42,
+  "status": "exact_rational_three_mirror_segment_obstruction",
+  "target_moments": [
+    "1/41", "-1/41", "1/41", "-1/41", "1/41", "-1/41", "1/41",
+    "-1/41", "1/41", "-1/41", "1/41", "-1/41", "1/41", "-1/41",
+    "1/41", "-1/41", "1/41", "-1/41", "1/41", "-1/41", "1/41"
+  ]
+}
