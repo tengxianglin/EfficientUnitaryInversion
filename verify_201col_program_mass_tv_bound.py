@@ -118,7 +118,7 @@ def main():
         ),
         "scope": (
             "One selected parity sector and arbitrary probability mixtures "
-            "over exactly the 200 certified physical columns. The conclusion "
+            "over exactly the 201 certified physical columns. The conclusion "
             "is for the balanced program-label mass distribution (equivalently "
             "the dephased label-register trace distance), not a Choi-state or "
             "channel diamond-distance lower bound. The 645 sixth-order rows "
