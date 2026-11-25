@@ -70,7 +70,7 @@ jobs:
           for f in \
             evidence/200col_uniform_ray_time_search_n21.json \
             evidence/200col_uniform_ray_time_arb_n21.json \
-            evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json \\
+            evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json \
             evidence/201col_program_mass_tv_bound_n21.json; do
             if [ -f "$f" ]; then cp "$f" /tmp/eui-201-cert/evidence/; fi
           done
@@ -82,7 +82,7 @@ jobs:
             for f in \
               evidence/200col_uniform_ray_time_search_n21.json \
               evidence/200col_uniform_ray_time_arb_n21.json \
-              evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json \\
+              evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json \
               evidence/201col_program_mass_tv_bound_n21.json; do
               if [ -f "/tmp/eui-201-cert/$f" ]; then
                 cp "/tmp/eui-201-cert/$f" "$f"
