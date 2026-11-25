@@ -8,7 +8,8 @@
     "edge_axis_reflections_checked": 21,
     "halfturn": {
       "adjacent_matched_pairs": 0,
-      "n_mod_2": 1,
+      "half_turn_shift": 21,
+      "half_turn_shift_is_odd": true,
       "trace_sum_zero_impossible": true
     },
     "proper_path_compositions": {
@@ -19,11 +20,11 @@
         "12": 12,
         "13": 13,
         "14": 14,
-        "15": 15,
-        "16": 16,
-        "17": 17,
-        "18": 18,
-        "19": 19,
+        "15": 77520,
+        "16": 15504,
+        "17": 4845,
+        "18": 1140,
+        "19": 190,
         "2": 2,
         "20": 20,
         "21": 21,
@@ -59,11 +60,11 @@
         "9": 125970
       },
       "composition_count": 1048576,
-      "minimum": 2
+      "minimum_adjacent_pair_count": 2
     },
     "separating_functional": {
       "balanced_target_value": "42/41",
-      "definition": "Lambda(Q)=-sum_{j=0}^{N-1} det(Q_{ {j,j+1},{j,j+1} }) with cyclic indices",
+      "definition": "Lambda(Q)=-sum_j det(Q_{ {j,j+1},{j,j+1} }) with cyclic indices",
       "minimum_on_reachable_matching_atoms": 2,
       "strict_gap": "40/41"
     },
@@ -94,7 +95,7 @@
         3
       ]
     ],
-    "role": "Counterexample outside N=4m+2; the congruence hypothesis is essential."
+    "purpose": "Counterexample outside N=4m+2; the congruence hypothesis is essential."
   },
   "complete": true,
   "n": 21,
@@ -112,7 +113,8 @@
       "edge_axis_reflections": 3,
       "halfturn": {
         "adjacent_matched_pairs": 0,
-        "n_mod_2": 1,
+        "half_turn_shift": 3,
+        "half_turn_shift_is_odd": true,
         "trace_sum_zero_impossible": true
       },
       "n": 3,
@@ -125,7 +127,8 @@
       "edge_axis_reflections": 5,
       "halfturn": {
         "adjacent_matched_pairs": 0,
-        "n_mod_2": 1,
+        "half_turn_shift": 5,
+        "half_turn_shift_is_odd": true,
         "trace_sum_zero_impossible": true
       },
       "n": 5,
@@ -138,7 +141,8 @@
       "edge_axis_reflections": 21,
       "halfturn": {
         "adjacent_matched_pairs": 0,
-        "n_mod_2": 1,
+        "half_turn_shift": 21,
+        "half_turn_shift_is_odd": true,
         "trace_sum_zero_impossible": true
       },
       "n": 21,
