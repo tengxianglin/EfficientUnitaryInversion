@@ -87,15 +87,15 @@ def main():
     if cert.get("status") != "strict_202col_2113row_uniform_ray_escape_minimax_obstruction" or not cert.get("complete"):
         raise RuntimeError("202-column dual is not independently Arb-certified")
     if (cert.get("column_count"), cert.get("row_count")) != (202, 2113):
-        raise RuntimeError("unexpected 201-column certificate dimensions")
+        raise RuntimeError("unexpected 202-column certificate dimensions")
     if cert.get("lp_transcript_sha256") != lp_sha:
-        raise RuntimeError("201-column certificate/LP hash mismatch")
+        raise RuntimeError("202-column certificate/LP hash mismatch")
     if cert.get("cut_lp_transcript_sha256") != cut_sha or lp.get("cut_lp_transcript_sha256") != cut_sha:
-        raise RuntimeError("201-column evidence does not pin the exact mixed-order row design")
-    if lp.get("status") != "202col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (201, 2113):
-        raise RuntimeError("201-column LP transcript is not the pinned above-cap discovery")
+        raise RuntimeError("202-column evidence does not pin the exact mixed-order row design")
+    if lp.get("status") != "202col_uniform_ray_escape_lp_above_one_third" or (lp.get("columns"), lp.get("rows")) != (202, 2113):
+        raise RuntimeError("202-column LP transcript is not the pinned above-cap discovery")
     if discovery.get("dual_certificate_sha256") != cert_sha or discovery.get("lp_transcript_sha256") != lp_sha:
-        raise RuntimeError("torus search does not pin the exact 201-column dual and LP")
+        raise RuntimeError("torus search does not pin the exact 202-column dual and LP")
     if discovery.get("cut_lp_transcript_sha256") != cut_sha:
         raise RuntimeError("torus search does not pin the exact cut design")
     if discovery.get("status") != "positive_uniform_torus_candidate_found" or not discovery.get("candidate_found"):
@@ -106,7 +106,7 @@ def main():
             "discovery_sha256": discovery_sha,
             "dual_certificate_sha256": cert_sha,
             "lp_transcript_sha256": lp_sha,
-            "scope": "The finite multi-start search found no positive candidate. This is not a global separation proof and does not certify the 201-column dual on the continuous uniform ray.",
+            "scope": "The finite multi-start search found no positive candidate. This is not a global separation proof and does not certify the 202-column dual on the continuous uniform ray.",
         }
         OUTPUT_PATH.write_text(json.dumps(result, indent=2) + "\n")
         print(json.dumps(result, indent=2), flush=True)
@@ -118,7 +118,7 @@ def main():
     entries = exact_torus_rotation(phase_strings)
     system, low_scales, sixth_rows, eighth_rows, target, row_blocks = load_exact_design(cut)
     if row_blocks != cert.get("row_blocks") or row_blocks != lp.get("row_blocks"):
-        raise RuntimeError("201-column exact row-block mismatch")
+        raise RuntimeError("202-column exact row-block mismatch")
     if len(sixth_rows) != 645 or len(eighth_rows) != 7:
         raise RuntimeError("unexpected mixed-order row inventory")
 
@@ -128,13 +128,13 @@ def main():
     norm = sum((abs(value) for value in z), Fraction(0))
     objective = lam + sum((value * target_value for value, target_value in zip(z, target)))
     if len(z) != 2113 or norm != Fraction(cert["dual_l1_norm_exact"]) or norm > 1:
-        raise RuntimeError("exact 201-column dual vector/norm mismatch")
+        raise RuntimeError("exact 202-column dual vector/norm mismatch")
     if objective != Fraction(cert["dual_objective_exact"]):
-        raise RuntimeError("exact 201-column dual objective mismatch")
+        raise RuntimeError("exact 202-column dual objective mismatch")
     if objective - delta != Fraction(cert["certified_minimax_lower_bound"]):
-        raise RuntimeError("exact 201-column minimax lower bound mismatch")
+        raise RuntimeError("exact 202-column minimax lower bound mismatch")
     if objective - delta <= Fraction(1, 3):
-        raise RuntimeError("201-column certified lower bound is not above one third")
+        raise RuntimeError("202-column certified lower bound is not above one third")
 
     active = [index for index, value in enumerate(z) if value]
     active_low = [index for index in active if index < LOW_COUNT]
@@ -148,7 +148,7 @@ def main():
     }
     expected_blocks = {"total": 66, "low": 4, "sixth": 59, "eighth": 3}
     if active_blocks != cert.get("active_dual_rows") or active_blocks != expected_blocks:
-        raise RuntimeError("201-column active dual row support mismatch")
+        raise RuntimeError("202-column active dual row support mismatch")
 
     fourth_groups = {
         row - 21: system.indices[system.ids == row - 21]
@@ -196,8 +196,8 @@ def main():
             "The binary64 candidate did not yield a strictly positive Arb interval; no uniform-ray escape is certified."
         ),
         "scope": (
-            "This refutes global separation by the particular 201-column dual if and only if "
-            "strict_uniform_ray_escape_certified is true. It does not invalidate the finite 201-column "
+            "This refutes global separation by the particular 202-column dual if and only if "
+            "strict_uniform_ray_escape_certified is true. It does not invalidate the finite 202-column "
             "mixed-order theorem, prove full-family feasibility/infeasibility, complete sixth/eighth "
             "orbit control, or imply a Choi/diamond operational bound."
         ),
