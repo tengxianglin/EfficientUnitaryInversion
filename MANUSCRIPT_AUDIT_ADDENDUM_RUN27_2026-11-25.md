@@ -46,4 +46,4 @@ The first finite-time verifier attempt exposed two stale 202-column dimension li
 
 ## Manuscript source status
 
-The repository's recursive tree has 1,076 entries and still contains no editable `.tex`, `.bib`, `.pdf`, or separately versioned supplementary manuscript source. The public version previously audited is arXiv:2506.20570v1. This repository addendum records research evidence; it does not claim the public manuscript was edited.
+The repository's recursive tree has 1,085 entries and still contains no editable `.tex`, `.bib`, `.pdf`, or separately versioned supplementary manuscript source. The public version previously audited is arXiv:2506.20570v1. This repository addendum records research evidence; it does not claim the public manuscript was edited.
