@@ -87,12 +87,12 @@ The exact rational-decimal phase vector is stored in
 `evidence/203col_uniform_torus_search_n21.json` and pinned by SHA-256
 `7477552fc810d4438138130a5fee7baebbe3fc33490bd50ad17544478e3cb5d3`.
 Independent 128-bit Arb evaluation gives
-[
+\[
 S_{203}(R(\theta_*))
 \in
 [1.0825780781000278157417170733698968
 \pm 7.99\times10^{-35}]>0.
-]
+\]
 The lower endpoint itself is enclosed by
 `[1.0825780781000278157417170733698967202 +/- 3.69e-38]`,
 strictly above zero. The certificate pins the exact 203-column rational dual, LP transcript, mixed-order cut design, discovery transcript, 202-column warm-start transcript, and dense-torus theorem source.
