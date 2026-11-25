@@ -69,6 +69,14 @@ python -m unittest tests/test_pauli_classifier_regression.py
 
 These checks do not require QuAIRKit. The numerical comb searches and noise simulations require the dependencies listed below and should be reported as finite numerical evidence unless an algebraic certificate is available.
 
+The Appendix B perturbation test requires PyTorch but not QuAIRKit:
+
+~~~bash
+python -m unittest tests/test_robustness_noise_normalization.py -v
+~~~
+
+The out-of-support Gaussian direction is normalized per sample so its realized coefficient L1 norm is exactly delta times the in-support L1 norm (up to floating-point roundoff).
+
 ## Usage
 
 ### 1. Search for Optimal Comb Configurations
