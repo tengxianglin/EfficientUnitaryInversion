@@ -316,11 +316,11 @@ def solve_full_grid(system, warm, warm_sha):
                 "alpha": str(alpha),
             })
 
-    # Preserve all eight previously certified gapped columns, then append the
+    # Preserve all twelve previously certified gapped columns, then append the
     # connected and two-segment escapes from the newly certified 6,135 dual.
     parent_columns = parent["appended_gapped_columns"]
     if len(parent_columns) != 12:
-        raise RuntimeError("expected exactly eight parent gapped columns")
+        raise RuntimeError("expected exactly twelve parent gapped columns")
     appended_labels = []
     for parent_column in parent_columns:
         couplings = [Fraction(value) for value in parent_column["couplings_exact_rational"]]
