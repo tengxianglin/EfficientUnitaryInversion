@@ -40,3 +40,15 @@ The Arb workflow is the authoritative check. The frozen HiGHS candidate pool is 
 ## Next highest-value action
 
 Augment the pair-feasible period-two mixture with fourth-order orbit constraints. First solve a small candidate LP over additional positive \((a,b)\) atoms, then freeze any candidate support and certify the exact-real weights and all selected quartic orbit moments with Arb. A finite-pool solution is not a global physical-family theorem; the complete all-even-moment target remains the final criterion.
+
+
+## Final hosted verification
+
+Workflow [45699551876](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45699551876) completed successfully. The exact-real interval solve certifies:
+- determinant interval excludes zero;
+- minimum weight is greater than \(1/2000\);
+- weight sum is one;
+- all 861 second-order principal-minor coordinates equal the target;
+- the quartic witness \(\{0,1,2,3\}\) misses the target by more than \(1/200\).
+
+The first workflow attempt failed only because the verifier iterated over 42 indices for a 31-coordinate feature vector. This was corrected in commit 6df78435804f19425338cdeebb9d21e739d3e537; the rerun passed. The certificate was committed in 1cd42e69dfaee79da4243fa043e6d0636ec4698e.
