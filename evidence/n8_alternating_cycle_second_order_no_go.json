@@ -1,0 +1,48 @@
+{
+  "N": 8,
+  "R2_two_case": {
+    "contradiction": "9/49 > 1/7",
+    "equation": "z(z+rho)=(3*rho-z)^2",
+    "forced_z": "9/49",
+    "upper_bound": "1/7"
+  },
+  "R2_zero_case": {
+    "contradiction": "z+rho>0 forces rho=0",
+    "equation": "z(z+rho)=(z+rho)^2"
+  },
+  "all_16_sign_rows_checked": 16,
+  "complete": true,
+  "correlation_pair_set": [
+    [-2, 2],
+    [0, -2],
+    [0, 0],
+    [2, 2]
+  ],
+  "pair_minor_consequences": {
+    "C_first_row": "[x, eps*c, f*c, eps*c]",
+    "S_entries": "s times a circulant +/-1 sign matrix",
+    "c_squared": "x^2+rho",
+    "rho": "1/7",
+    "s_squared": "rho-x^2"
+  },
+  "pairs_surviving_eps_R1_equals_f_R2": [
+    [-2, 2],
+    [0, 0],
+    [2, 2]
+  ],
+  "parity_block_assumptions": [
+    "B=2(aI-bT) is real normal circulant for arbitrary real a,b",
+    "C=cos(sqrt(BB^T)) is symmetric circulant",
+    "S=B*sinc(sqrt(B^TB)) is real circulant",
+    "Q=[[C,-S],[-S^T,-C]] and C^2+SS^T=I"
+  ],
+  "remaining_R2_values": [0, 2],
+  "s_zero_case": {
+    "contradiction": "rho=1/7>0",
+    "forced_identity": "x*f=-c",
+    "squared_consequence": "z=z+rho"
+  },
+  "scope": "Excludes one N=8 cycle exponential with alternating real couplings. Does not exclude mixtures of such atoms or arbitrary non-period-two physical cycle couplings.",
+  "status": "exact_no_alternating_single_atom_N8_second_order",
+  "target_pair_minor": "-1/7"
+}
