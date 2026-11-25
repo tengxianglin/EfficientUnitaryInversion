@@ -24,6 +24,8 @@ from quairkit.database import bell_state, eye
 from quairkit.qinfo import dagger, state_fidelity
 
 
+from utils.noise_scaling import scale_out_of_support_coefficients
+
 from utils.hamiltonian_utils import (
     generate_unitaries,
     is_commuting,
@@ -45,7 +47,7 @@ def comb_1slot_noise_simulation(
 
     Compute the average Choi-state fidelity between V U V and U^\dagger for a randomly perturbed unitary.
 
-    - delta: scaling factor for the noise amplitude.
+    - delta: per-instance L1 ratio ||H_out||_1 / ||H_in||_1.
     - size: number of Monte Carlo samples.
     - num_qubits: number of qubits in U.
 
@@ -63,13 +65,11 @@ def comb_1slot_noise_simulation(
 
     # 2. Generate parameter batches:
     #    - S: random parameters
-    #    - S': random parameters scaled by delta * (sum of |S| params) / (sum of |S'| params)
+    #    - S': iid Gaussian directions, normalized per instance to L1 ratio delta
     #    - t: global time parameter
     params_S = torch.randn(size, len(S))
     params_Sp = torch.randn(size, len(S_prime))
-    sum_S = params_S.abs().sum(dim=1, keepdim=True)
-    sum_Sp = params_Sp.abs().sum(dim=1, keepdim=True)
-    params_Sp *= delta * sum_S / sum_Sp
+    params_Sp = scale_out_of_support_coefficients(params_S, params_Sp, delta)
     t = torch.rand(size, 1)
     params = torch.cat([params_S, params_Sp, t], dim=1)
 
@@ -91,7 +91,7 @@ def comb_3slot_a_noise_simulation(
 
     Compute the average Choi-state fidelity of the sequence V0 U V1 U V0 U V1 under noise.
 
-    - delta: scaling factor for the noise amplitude.
+    - delta: per-instance L1 ratio ||H_out||_1 / ||H_in||_1.
     - size: number of Monte Carlo samples.
     - num_qubits: number of qubits in U.
 
@@ -108,12 +108,10 @@ def comb_3slot_a_noise_simulation(
     S_prime = [p for p in omega if p not in S]
     pauli_support = S + S_prime
 
-    # 2. Generate parameters: S part random, S_prime part scaled by delta
+    # 2. Generate parameters: S part random, S_prime part normalized per instance to L1 ratio delta
     params_S = torch.randn(size, len(S))
     params_Sp = torch.randn(size, len(S_prime))
-    sum_S = params_S.abs().sum(dim=1, keepdim=True)
-    sum_Sp = params_Sp.abs().sum(dim=1, keepdim=True)
-    params_Sp = params_Sp * (delta * sum_S / sum_Sp)
+    params_Sp = scale_out_of_support_coefficients(params_S, params_Sp, delta)
     t = torch.rand(size, 1)
     params = torch.cat([params_S, params_Sp, t], dim=1)
     U_batch = generate_unitaries(pauli_support, params, num_qubits=num_qubits)
@@ -138,7 +136,7 @@ def comb_3slot_b_noise_simulation(
 
     Compute the average Choi-state fidelity of the sequence V0 U V1 U V0 U V1 under noise.
 
-    - delta: scaling factor for the noise amplitude.
+    - delta: per-instance L1 ratio ||H_out||_1 / ||H_in||_1.
     - size: number of Monte Carlo samples.
     - num_qubits: number of qubits in U.
 
@@ -158,9 +156,7 @@ def comb_3slot_b_noise_simulation(
     # Construct parameters: S part random, S_prime part scaled by delta
     params_S = torch.randn(size, len(S))
     params_Sp = torch.randn(size, len(S_prime))
-    sum_S = params_S.abs().sum(dim=1, keepdim=True)
-    sum_Sp = params_Sp.abs().sum(dim=1, keepdim=True)
-    params_Sp = params_Sp * (delta * sum_S / sum_Sp)
+    params_Sp = scale_out_of_support_coefficients(params_S, params_Sp, delta)
     t = torch.rand(size, 1)
     params = torch.cat([params_S, params_Sp, t], dim=1)
     U_batch = generate_unitaries(pauli_support, params, num_qubits=num_qubits)
@@ -187,7 +183,7 @@ def comb_recurrence_7slot_noise_simulation(
     Compute the average Choi-state fidelity of the symmetric 7-slot comb
     with U under noise.
 
-    - delta: scaling factor for the noise amplitude.
+    - delta: per-instance L1 ratio ||H_out||_1 / ||H_in||_1.
     - size: number of Monte Carlo samples.
     - num_qubits: number of qubits in U.
 
@@ -207,9 +203,7 @@ def comb_recurrence_7slot_noise_simulation(
     # 2. Generate parameters: S part random, S_prime part scaled by delta
     params_S = torch.randn(size, len(S))
     params_Sp = torch.randn(size, len(S_prime))
-    sum_S = params_S.abs().sum(dim=1, keepdim=True)
-    sum_Sp = params_Sp.abs().sum(dim=1, keepdim=True)
-    params_Sp = params_Sp * (delta * sum_S / sum_Sp)
+    params_Sp = scale_out_of_support_coefficients(params_S, params_Sp, delta)
     t = torch.rand(size, 1)
     params = torch.cat([params_S, params_Sp, t], dim=1)
     U_batch = generate_unitaries(pauli_support, params, num_qubits=num_qubits)
@@ -242,7 +236,7 @@ def comb_recurrence_15slot_noise_simulation(
     Compute the average Choi-state fidelity of the 15-slot comb
     with U under noise.
 
-    - delta: scaling factor for the noise amplitude.
+    - delta: per-instance L1 ratio ||H_out||_1 / ||H_in||_1.
     - size: number of Monte Carlo samples.
     - num_qubits: number of qubits in U.
 
@@ -262,9 +256,7 @@ def comb_recurrence_15slot_noise_simulation(
     # 2. Generate parameters: S part random, S_prime part scaled by delta
     params_S = torch.randn(size, len(S))
     params_Sp = torch.randn(size, len(S_prime))
-    sum_S = params_S.abs().sum(dim=1, keepdim=True)
-    sum_Sp = params_Sp.abs().sum(dim=1, keepdim=True)
-    params_Sp = params_Sp * (delta * sum_S / sum_Sp)
+    params_Sp = scale_out_of_support_coefficients(params_S, params_Sp, delta)
     t = torch.rand(size, 1)
     params = torch.cat([params_S, params_Sp, t], dim=1)
     U_batch = generate_unitaries(pauli_support, params, num_qubits=num_qubits)
@@ -290,7 +282,7 @@ def comb_recurrence_15slot_noise_simulation(
 
 
 if __name__ == "__main__":
-    deltas = reversed([0, 0.001, 0.01, 0.1])
+    deltas = [0, 0.001, 0.01, 0.1]
     results: List[tuple] = []
     for func in (
         # comb_1slot_noise_simulation,
