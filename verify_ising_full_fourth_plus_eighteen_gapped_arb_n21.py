@@ -3,7 +3,7 @@
 The floating HiGHS result is only a discovery candidate. This verifier freezes
 all decimal dual coefficients as exact rationals, imposes exact scaled-l1
 normalization, and independently prices 22 base atoms, 6,101 fractional-grid
-atoms, and sixteen exact-rational gapped paths.
+atoms, and eighteen exact-rational gapped paths.
 
 A successful result proves separation only for this exact finite pool. It is
 not a continuum obstruction and is not a Choi/diamond-distance lower bound.
