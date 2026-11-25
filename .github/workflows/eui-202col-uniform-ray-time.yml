@@ -7,7 +7,6 @@ on:
       - "evidence/202col_uniform_torus_arb_n21.json"
       - "discover_202col_uniform_ray_time_escape.py"
       - "verify_202col_uniform_ray_time_arb.py"
-      - ".github/workflows/eui-202col-uniform-ray-time.yml"
   workflow_dispatch:
 
 permissions:
