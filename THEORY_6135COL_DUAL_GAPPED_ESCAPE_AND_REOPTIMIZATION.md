@@ -83,3 +83,13 @@ The 6,133-column parent dual had two continuous gapped escapes, and those exact 
 The authoritative run [45519860433](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45519860433) completed successfully: LP solve, independent Arb verification, certificate commit, and artifact upload. The latest verifier refinement is commit [fbfa21c63b0adba7e3f08de0b03f9d9574029e1b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/fbfa21c63b0adba7e3f08de0b03f9d9574029e1b); its workflow rerun must confirm the sharper rational floor is reproduced from scratch.
 
 The next scientific action is continuous pricing of this **new 101-term dual** over the general gapped family. Any candidate escape must be frozen as exact rational couplings and independently Arb-certified before it is added to a new pool. In parallel, the paper-central target remains an exact positive ensemble satisfying every even-principal-minor constraint at \(n=21\), or a genuinely global physical-family obstruction.
+
+## 6. Continuous pricing of the new 6,135-column dual
+
+A deterministic multistart search and independent 256-bit Arb verifier have now been added for the new 101-term dual:
+
+- [Search source](search_ising_full_fourth_plus_twelve_gapped_n21.py)
+- [Independent escape verifier](verify_ising_full_fourth_plus_twelve_gapped_escape_arb_n21.py)
+- [GitHub Actions workflow](.github/workflows/eui-full-fourth-plus-twelve-gapped-search-n21.yml)
+
+The search uses the frozen seed pool, all 12 inherited/appended gapped paths, connected lognormal starts, fractional-profile perturbations, and multi-segment starts. It is discovery only: a found candidate is reconstructed from its frozen decimal as an exact rational and must pass Arb orthogonality, determinant-one, and exact-dual pricing checks. Failure to find an escape is not a global pricing bound.
