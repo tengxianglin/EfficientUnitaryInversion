@@ -1,0 +1,102 @@
+name: EUI 201-column rational dual and independent Arb certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_201col_uniform_ray_dual_arb.py"
+      - "evidence/joint_low_six_eighth_lp_201col_uniform_ray_escape_n21.json"
+      - ".github/workflows/eui-certify-201col-uniform-ray-dual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-certify-201col-uniform-ray-dual
+  cancel-in-progress: true
+
+jobs:
+  certify-201:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Regressions and compile the 201-column verifier
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
+          python -m py_compile verify_201col_uniform_ray_dual_arb.py verify_200col_uniform_ray_dual_arb.py verify_200col_program_mass_tv_bound.py verify_200col_uniform_torus_pricing_arb.py discover_200col_uniform_ray_time_escape.py verify_200col_uniform_ray_time_arb.py
+      - name: Re-certify the exact 200-column parent and finite-time escape
+        run: |
+          python verify_200col_uniform_ray_dual_arb.py
+          python verify_200col_program_mass_tv_bound.py
+          python verify_200col_uniform_torus_pricing_arb.py
+          python discover_200col_uniform_ray_time_escape.py
+          python verify_200col_uniform_ray_time_arb.py
+      - name: Rationalize and independently Arb-certify all 201 columns
+        run: |
+          python verify_201col_uniform_ray_dual_arb.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json")
+          x = json.loads(p.read_text())
+          if x.get("status") != "strict_201col_2113row_uniform_ray_escape_minimax_obstruction" or x.get("complete") is not True:
+              raise SystemExit("201-column rational/Arb certificate did not close")
+          if x.get("column_count") != 201 or len(x.get("column_dual_lhs_intervals", [])) != 201:
+              raise SystemExit("201-column certificate does not cover all 201 columns")
+          print("Strict 201-column Arb certificate confirmed.")
+          PY
+      - name: Commit the 201-column certificate and pinned parent time evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-201-cert/evidence
+          for f in \
+            evidence/200col_uniform_ray_time_search_n21.json \
+            evidence/200col_uniform_ray_time_arb_n21.json \
+            evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json; do
+            if [ -f "$f" ]; then cp "$f" /tmp/eui-201-cert/evidence/; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            rm -f evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json
+            for f in \
+              evidence/200col_uniform_ray_time_search_n21.json \
+              evidence/200col_uniform_ray_time_arb_n21.json \
+              evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json; do
+              if [ -f "/tmp/eui-201-cert/$f" ]; then
+                cp "/tmp/eui-201-cert/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Certify the 201-column mixed-order dual"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 201-column rational dual certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-201col-rational-dual-arb-certificate
+          path: |
+            evidence/200col_uniform_ray_time_search_n21.json
+            evidence/200col_uniform_ray_time_arb_n21.json
+            evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json
+          if-no-files-found: warn
