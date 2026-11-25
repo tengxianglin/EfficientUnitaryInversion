@@ -252,7 +252,7 @@ def solve_full_grid(system, warm, warm_sha):
         raise RuntimeError("the 6,139-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != parent_sha:
         raise RuntimeError("the parent Arb certificate does not pin the current parent diagnostic")
-    if parent.get("candidate_count") != 6139 or len(parent.get("appended_gapped_columns", [])) != 14:
+    if parent.get("candidate_count") != 6139 or len(parent.get("appended_gapped_columns", [])) != 16:
         raise RuntimeError("the parent diagnostic does not contain exactly sixteen appended gapped paths")
     if parent.get("status") not in {
         "floating_full_fourth_6139_column_separator_candidate_not_arb_certified",
@@ -319,7 +319,7 @@ def solve_full_grid(system, warm, warm_sha):
     # Preserve all sixteen previously certified gapped columns, then append the
     # connected and two-segment escapes from the newly certified 6,135 dual.
     parent_columns = parent["appended_gapped_columns"]
-    if len(parent_columns) != 14:
+    if len(parent_columns) != 16:
         raise RuntimeError("expected exactly sixteen parent gapped columns")
     appended_labels = []
     for parent_column in parent_columns:
