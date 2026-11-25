@@ -1,0 +1,171 @@
+{
+  "status": "exact_physical_cycle_balanced_slice_ensembles_N4_N6",
+  "complete": true,
+  "construction": "For N=4 and N=6, alternating real cycle couplings c_(2j)=a, c_(2j+1)=b produce Q=exp(A(c))D with every even principal minor equal to (-1)^r*C(n,r)/C(2n,2r).",
+  "N4": {
+    "parameters": {
+      "theta": "arccos(1/3)",
+      "c_even": "(pi + theta)/4",
+      "c_odd": "(pi - theta)/4",
+      "singular_frequencies": [
+        "theta",
+        "pi"
+      ],
+      "C_block": "-I_2 + (2/3) J_2",
+      "S_block": "(sqrt(2)/3) J_2",
+      "numeric_c_even": "1.09313801773264198",
+      "numeric_c_odd": "0.477658309062254639"
+    },
+    "N": 4,
+    "Q_exact_matrix": [
+      [
+        "-1/3",
+        "-sqrt(2)/3",
+        "2/3",
+        "-sqrt(2)/3"
+      ],
+      [
+        "-sqrt(2)/3",
+        "1/3",
+        "-sqrt(2)/3",
+        "-2/3"
+      ],
+      [
+        "2/3",
+        "-sqrt(2)/3",
+        "-1/3",
+        "-sqrt(2)/3"
+      ],
+      [
+        "-sqrt(2)/3",
+        "-2/3",
+        "-sqrt(2)/3",
+        "1/3"
+      ]
+    ],
+    "symmetric": true,
+    "involution": true,
+    "trace": "0",
+    "determinant": "1",
+    "R_QD_determinant": "1",
+    "R_QD_orthogonal": true,
+    "chiral_identity": "D R D = R^T",
+    "even_principal_minor_orders": {
+      "2": {
+        "subset_count": 6,
+        "exact_target": "-1/3",
+        "distinct_observed_values": [
+          "-1/3"
+        ]
+      },
+      "4": {
+        "subset_count": 1,
+        "exact_target": "1",
+        "distinct_observed_values": [
+          "1"
+        ]
+      }
+    },
+    "nonempty_even_subsets_checked": 7
+  },
+  "N6": {
+    "parameters": {
+      "theta": "arccos(4/5)",
+      "d": "theta/2",
+      "c_even": "(3*d + sqrt(3*(pi^2-d^2)))/6",
+      "c_odd": "c_even - d",
+      "singular_values": [
+        "theta",
+        "pi",
+        "pi"
+      ],
+      "C_block": "-I_3 + (3/5) J_3",
+      "S_block": "(1/5) J_3",
+      "numeric_c_even": "1.06300613346007632",
+      "numeric_c_odd": "0.741255579063434129"
+    },
+    "N": 6,
+    "Q_exact_matrix": [
+      [
+        "-2/5",
+        "-1/5",
+        "3/5",
+        "-1/5",
+        "3/5",
+        "-1/5"
+      ],
+      [
+        "-1/5",
+        "2/5",
+        "-1/5",
+        "-3/5",
+        "-1/5",
+        "-3/5"
+      ],
+      [
+        "3/5",
+        "-1/5",
+        "-2/5",
+        "-1/5",
+        "3/5",
+        "-1/5"
+      ],
+      [
+        "-1/5",
+        "-3/5",
+        "-1/5",
+        "2/5",
+        "-1/5",
+        "-3/5"
+      ],
+      [
+        "3/5",
+        "-1/5",
+        "3/5",
+        "-1/5",
+        "-2/5",
+        "-1/5"
+      ],
+      [
+        "-1/5",
+        "-3/5",
+        "-1/5",
+        "-3/5",
+        "-1/5",
+        "2/5"
+      ]
+    ],
+    "symmetric": true,
+    "involution": true,
+    "trace": "0",
+    "determinant": "-1",
+    "R_QD_determinant": "1",
+    "R_QD_orthogonal": true,
+    "chiral_identity": "D R D = R^T",
+    "even_principal_minor_orders": {
+      "2": {
+        "subset_count": 15,
+        "exact_target": "-1/5",
+        "distinct_observed_values": [
+          "-1/5"
+        ]
+      },
+      "4": {
+        "subset_count": 15,
+        "exact_target": "1/5",
+        "distinct_observed_values": [
+          "1/5"
+        ]
+      },
+      "6": {
+        "subset_count": 1,
+        "exact_target": "-1",
+        "distinct_observed_values": [
+          "-1"
+        ]
+      }
+    },
+    "nonempty_even_subsets_checked": 31
+  },
+  "scope": "These are exact physical constructions for N=4 and N=6 only. They do not establish a construction or a no-go theorem for N=42."
+}
