@@ -46,7 +46,7 @@ jobs:
           python -m py_compile discover_ising_full_fourth_plus_eighteen_gapped_n21.py verify_ising_full_fourth_plus_eighteen_gapped_arb_n21.py
       - name: Run block-minor, spin-symmetry, and serialization regressions
         run: python discover_ising_full_fourth_plus_eighteen_gapped_n21.py --self-test-only
-      - name: Reoptimize all 1,461 second-/fourth-order coordinates on 6,139 physical columns
+      - name: Reoptimize all 1,461 second-/fourth-order coordinates on 6,141 physical columns
         run: python discover_ising_full_fourth_plus_eighteen_gapped_n21.py
       - name: Independently Arb-certify the frozen 6,141-column dual
         run: python verify_ising_full_fourth_plus_eighteen_gapped_arb_n21.py
@@ -67,8 +67,8 @@ jobs:
           from pathlib import Path
 
           staged = Path("/tmp/eui-6141/evidence")
-          diagnostic_path = staged / "ising_full_fourth_plus_sixteen_gapped_n21.json"
-          certificate_path = staged / "ising_full_fourth_plus_sixteen_gapped_arb_n21.json"
+          diagnostic_path = staged / "ising_full_fourth_plus_eighteen_gapped_n21.json"
+          certificate_path = staged / "ising_full_fourth_plus_eighteen_gapped_arb_n21.json"
           if not diagnostic_path.exists():
               print("No 6,141-column diagnostic was produced; refusing to publish.")
               raise SystemExit(1)
@@ -88,7 +88,7 @@ jobs:
           for field, current in pins.items():
               if diagnostic.get(field) != current:
                   raise SystemExit(
-                      f"Refusing stale 6,139 diagnostic: {field} "
+                      f"Refusing stale 6,141 diagnostic: {field} "
                       f"(run={diagnostic.get(field)}, main={current})."
                   )
 
@@ -96,11 +96,11 @@ jobs:
               certificate_raw = certificate_path.read_bytes()
               certificate = json.loads(certificate_raw)
               if certificate.get("diagnostic_sha256") != hashlib.sha256(diagnostic_raw).hexdigest():
-                  raise SystemExit("Refusing stale 6,139 Arb certificate: diagnostic pin mismatch.")
+                  raise SystemExit("Refusing stale 6,141 Arb certificate: diagnostic pin mismatch.")
               for field, current in pins.items():
                   if certificate.get(field) != current:
-                      raise SystemExit(f"Refusing stale 6,139 Arb certificate: {field} mismatch.")
-          print("6,139 diagnostic and Arb certificate pins match the current 6,135 parent chain.")
+                      raise SystemExit(f"Refusing stale 6,141 Arb certificate: {field} mismatch.")
+          print("6,141 diagnostic and Arb certificate pins match the current 6,139 parent chain.")
           PY
             rm -f evidence/ising_full_fourth_plus_eighteen_gapped_n21.json evidence/ising_full_fourth_plus_eighteen_gapped_arb_n21.json
             for f in /tmp/eui-6141/evidence/*.json; do
