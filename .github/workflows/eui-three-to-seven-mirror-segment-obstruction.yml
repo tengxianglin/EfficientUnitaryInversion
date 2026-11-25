@@ -1,0 +1,39 @@
+name: EUI exact three-to-seven mirror-segment obstruction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - verify_ising_three_to_seven_mirror_segment_obstruction.py
+      - evidence/ising_three_to_seven_mirror_segment_obstruction_n21.json
+      - .github/workflows/eui-three-to-seven-mirror-segment-obstruction.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-rational-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Enumerate all 5,358,536 compositions with exact integer arithmetic
+        run: |
+          python verify_ising_three_to_seven_mirror_segment_obstruction.py \
+            --output /tmp/three_to_seven_mirror.json
+      - name: Compare the regenerated exact evidence
+        run: |
+          python - <<'PY'
+          import json
+          with open("/tmp/three_to_seven_mirror.json", encoding="utf-8") as handle:
+              actual = json.load(handle)
+          with open("evidence/ising_three_to_seven_mirror_segment_obstruction_n21.json", encoding="utf-8") as handle:
+              expected = json.load(handle)
+          if actual != expected:
+              raise SystemExit("regenerated exact mirror-segment evidence differs")
+          print("Exact three-to-seven mirror-segment evidence matches.")
+          PY
