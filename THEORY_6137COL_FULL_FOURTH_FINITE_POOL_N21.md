@@ -103,3 +103,67 @@ The authoritative workflow [45539976654](https://github.com/tengxianglin/Efficie
 The next decisive experiment is to price this **new 94-term 6,137-column dual** on connected positive-coupling and general multi-segment open paths. Search is only a deterministic discovery step. Any candidate must be frozen as exact rational couplings and independently Arb-checked for all orthogonality entries, determinant one, and strict dual escape. Failure to find an escape is not a continuum upper bound.
 
 In parallel, the paper-central question remains construction of an exact positive ensemble satisfying every even-principal-minor constraint at (n=21), or a genuinely global physical-family obstruction, together with a rigorous bridge to an operational Choi/diamond metric.
+
+
+---
+
+## 6. Continuous pricing of the certified 6,137-column dual — completed
+
+This section supersedes the earlier sentence in Section 4 saying that continuous pricing of the 6,137 dual was still open.
+
+The 94-term rational dual certified above has now been strictly escaped by two exact-rational general-gapped open paths. The search was deterministic multistart discovery; the mathematical signs below come from the independent 256-bit Arb certificate, not from the floating optimizer.
+
+The certificate pins:
+- finite-pool diagnostic SHA-256: `68c7c989198e8276d3b4c954cf26413039b26352f5d14e82c8daf9c1c18924ac`;
+- finite-pool Arb certificate SHA-256: `59953f81d03223000d58051df9c70bddda8c582ac1cbfa4149cbcc1fae0b6d99`;
+- search transcript SHA-256: `9ea13ee742834d7fa5189974c684fa74f6015bdb152e64e114cb1d1daf6f9747`.
+
+### Connected positive-coupling escape
+
+The 42-site open path has (c_{41}=0) and all 41 internal couplings strictly positive. Its minimum positive coupling is
+[
+rac{19999999999999999}{20000000000000000000000}
+=9.9999999999999995	imes10^{-7}.
+]
+The exact-rational coupling vector is stored in `evidence/ising_full_fourth_plus_fourteen_gapped_escape_arb_n21.json`.
+
+Arb certifies
+[
+y^{mathsf T}(b-F(R(c)))
+in[-19.964971496200965374176154802738282774770390451849943331558707138535637886
+pm2.82	imes10^{-73}]<0.
+]
+
+### Multi-segment escape
+
+The second exact-rational path has internal zero edges ({4,5}), minimum positive coupling (10^{-8}), and three connected segments. Its exact coupling vector is in the same certificate file.
+
+Arb certifies
+[
+y^{mathsf T}(b-F(R(c)))
+in[-24.358461528831097759646486125750408844060050182748224150215770577931946518
+pm8.41	imes10^{-73}]<0.
+]
+
+Both candidates pass 1,764 interval orthogonality-entry checks and determinant-one interval checks. The search evaluated 910 initial candidates; its analytic Frechet-gradient self-test had maximum absolute error (3.01	imes10^{-10}). These search statistics explain discovery only; the frozen rational candidates and strict Arb signs establish the escapes.
+
+Evidence:
+- [256-bit Arb escape certificate](evidence/ising_full_fourth_plus_fourteen_gapped_escape_arb_n21.json)
+- [Deterministic search transcript](evidence/ising_full_fourth_plus_fourteen_gapped_search_n21.json)
+- [Successful continuous-pricing workflow 45541488163](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45541488163)
+- [Evidence commit 649cc8f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/649cc8f9f70688f21aa74c2054a59f430246028f)
+
+**Logical scope.** These are strict escapes from this particular 6,137-column dual. They do not invalidate the finite-pool theorem in Sections 1–3, prove that the full physical-family moment target is feasible or infeasible, or imply a Choi/diamond-distance bound. In particular, the connected escape has every internal edge positive, so the failure is not an artifact of allowing internal cuts.
+
+## 7. Next finite-pool test: 6,139 columns
+
+The two newly certified paths have been appended to the 6,137 pool, preserving its fourteen exact-rational gapped paths. The new candidate design therefore has 22 base atoms, 6,101 fractional-grid atoms, and 16 gapped paths, for 6,139 columns, with the same 1,461 complete second-/fourth-order coordinates.
+
+The new discovery script, independent verifier, and workflow are:
+- `discover_ising_full_fourth_plus_sixteen_gapped_n21.py`;
+- `verify_ising_full_fourth_plus_sixteen_gapped_arb_n21.py`;
+- `.github/workflows/eui-reoptimize-6139-full-fourth.yml`.
+
+The corrected run [45545125000](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45545125000) is pending at the time of this note. No 6,139-column LP or Arb theorem is claimed until that run finishes. The parent and path-count pins were corrected in commits [0234e78](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/0234e78beefa237b5807acc8e0217676d5b0968b) and [85414be](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/85414be96052c2496166307b620b941628c29f57).
+
+The paper-central blockers remain the exact positive ensemble satisfying all even-principal-minor constraints at (n=21), or a global physical-family obstruction, and a rigorously quantified operational Choi/diamond bridge.
