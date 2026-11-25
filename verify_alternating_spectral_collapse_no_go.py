@@ -114,7 +114,7 @@ def main():
     encoded = json.dumps(result, indent=2, sort_keys=True) + "\n"
     if not EVIDENCE.exists():
         EVIDENCE.write_text(encoded)
-    elif EVIDENCE.read_text() != encoded:
+    elif json.loads(EVIDENCE.read_text()) != result:
         raise AssertionError("committed evidence differs from exact rational recomputation")
     print(json.dumps({
         "status": result["status"],
