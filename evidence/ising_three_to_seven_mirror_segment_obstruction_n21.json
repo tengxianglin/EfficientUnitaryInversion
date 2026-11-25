@@ -1,0 +1,192 @@
+{
+  "status": "exact_rational_three_to_seven_mirror_segment_obstruction",
+  "n": 21,
+  "site_count": 42,
+  "segment_counts": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "total_compositions": 5358536,
+  "dual_numerator": [
+    -10,
+    8,
+    -6,
+    6,
+    -4,
+    2,
+    -2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    -2,
+    0,
+    0,
+    1
+  ],
+  "dual_denominator": 47,
+  "dual_l1_norm": "1",
+  "target_moments": [
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41",
+    "-1/41",
+    "1/41"
+  ],
+  "common_slack_denominator": 80934,
+  "overall_minimum_slack": "2/40467",
+  "overall_minimum_slack_attainers": 155,
+  "program_mass_tv_lower_bound": "1/40467",
+  "per_segment_count": [
+    {
+      "segment_count": 3,
+      "composition_count": 820,
+      "minimum_slack": "2/40467",
+      "minimum_slack_attainers": 117,
+      "minimum_example": [
+        1,
+        1,
+        40
+      ],
+      "maximum_slack": "192/13489",
+      "maximum_example": [
+        10,
+        16,
+        16
+      ],
+      "distinct_exact_slacks": 15,
+      "nonpositive_count": 0
+    },
+    {
+      "segment_count": 4,
+      "composition_count": 10660,
+      "minimum_slack": "2/40467",
+      "minimum_slack_attainers": 38,
+      "minimum_example": [
+        1,
+        2,
+        1,
+        38
+      ],
+      "maximum_slack": "1027/40467",
+      "maximum_example": [
+        8,
+        8,
+        10,
+        16
+      ],
+      "distinct_exact_slacks": 26,
+      "nonpositive_count": 0
+    },
+    {
+      "segment_count": 5,
+      "composition_count": 101270,
+      "minimum_slack": "4/1927",
+      "minimum_slack_attainers": 30,
+      "minimum_example": [
+        1,
+        1,
+        1,
+        1,
+        38
+      ],
+      "maximum_slack": "1478/40467",
+      "maximum_example": [
+        8,
+        8,
+        8,
+        8,
+        10
+      ],
+      "distinct_exact_slacks": 35,
+      "nonpositive_count": 0
+    },
+    {
+      "segment_count": 6,
+      "composition_count": 749398,
+      "minimum_slack": "4/1927",
+      "minimum_slack_attainers": 6,
+      "minimum_example": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        37
+      ],
+      "maximum_slack": "86/1927",
+      "maximum_example": [
+        6,
+        6,
+        6,
+        8,
+        8,
+        8
+      ],
+      "distinct_exact_slacks": 43,
+      "nonpositive_count": 0
+    },
+    {
+      "segment_count": 7,
+      "composition_count": 4496388,
+      "minimum_slack": "166/40467",
+      "minimum_slack_attainers": 7,
+      "minimum_example": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        36
+      ],
+      "maximum_slack": "299/5781",
+      "maximum_example": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "distinct_exact_slacks": 48,
+      "nonpositive_count": 0
+    }
+  ],
+  "two_segment_scope_counterexample": {
+    "composition": [
+      1,
+      41
+    ],
+    "same_dual_slack": "-80/40467"
+  },
+  "independent_direct_matrix_crosschecks": 700,
+  "arithmetic": "integer exact during exhaustive scan; fractions.Fraction only for reduced output; no floating point",
+  "scope": "all ordered compositions of 42 into k=3,4,5,6,7 positive contiguous perfect-mirror blocks; convex mixtures, dihedral images, and vertex-sign gauges. This is not a theorem for arbitrary couplings or k>=8."
+}
