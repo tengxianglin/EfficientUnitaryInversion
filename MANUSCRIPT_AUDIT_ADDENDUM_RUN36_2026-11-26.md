@@ -33,3 +33,8 @@ This is a partial moment design, not a full fourth-order or all-even-principal-m
 - .github/workflows/eui-n42-period-two-pair-plus-quartic.yml
 
 The next step is to increase the set of quartic orbit constraints while allowing additional positive period-two atoms. Finite-pool LPs are discovery only; any existence claim requires the same exact-real Arb solve and explicit scope limits.
+
+
+## Hosted Arb verification completed
+
+Workflow [45700330683](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45700330683) succeeded. The final certificate was committed at 1913788319fc39eeec1c61424e4a6a93fd91c62f. It certifies the 35-by-35 determinant excludes zero, all weights exceed 1/1000, all 861 pair coordinates match, all 84 translated quartic coordinates match, and the separate quartic witness has residual greater than 1/400.
