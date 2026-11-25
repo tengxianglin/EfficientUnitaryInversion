@@ -1,0 +1,25 @@
+name: EUI physical matching adjacent-pair obstruction
+on:
+  push:
+    paths:
+      - "THEORY_PHYSICAL_MATCHING_ENSEMBLE_ADJACENT_PAIR_OBSTRUCTION_N42.md"
+      - "verify_physical_matching_ensemble_adjacent_pair_obstruction.py"
+      - "evidence/physical_matching_ensemble_adjacent_pair_obstruction_n42.json"
+      - ".github/workflows/eui-physical-matching-adjacent-pair-obstruction.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run exact arithmetic and structural regression
+        run: python verify_physical_matching_ensemble_adjacent_pair_obstruction.py
+      - name: Require committed evidence to be reproducible
+        run: git diff --exit-code -- evidence/physical_matching_ensemble_adjacent_pair_obstruction_n42.json
