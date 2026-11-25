@@ -243,3 +243,14 @@ Classical transcendence references:
 **Not proved:** no positive mixture of period-two atoms; no impossibility for general non-periodic 42-cycle couplings; no global physical-family convex-hull separator; and no Choi/diamond operational bound.
 
 The next useful test is the convex hull of the period-two family, not another single-atom search. Any such mixture must average the displacement-resolved pair-minor functions to the constant \(-1/41\); a valid exclusion must therefore be a linear inequality holding for every \((a,b)\), not an extrapolation from this single-atom theorem.
+
+
+## Literature positioning (checked 2026-11-26)
+
+This result should be positioned as a **restricted-support obstruction**, not as a new general Grassmannian-design theorem.
+
+1. Ehler and Gräf study polynomial spaces, cubatures, and \(t\)-designs on real Grassmannians, including orthogonally invariant Haar measures and analytic low-degree design families (*Constructive Approximation* 49, 29–58 (2019), [DOI 10.1007/s00365-018-9443-5](https://doi.org/10.1007/s00365-018-9443-5)). This is the natural general mathematical setting for the Haar target identified above.
+2. Wan et al., “Matchgate Shadows for Fermionic Quantum Simulation,” prove that the first three moments of Haar-random matchgate circuits agree with a discrete Clifford-matchgate ensemble (*Communications in Mathematical Physics* 404, 629–700 (2023), [DOI 10.1007/s00220-023-04844-0](https://doi.org/10.1007/s00220-023-04844-0)). Their ensemble uses the full continuous matchgate group and a discrete subgroup; it does not address the one-exponential, fixed-cycle-edge support \(e^{A(c)}\) studied here, nor the present all-even-principal-minor target.
+3. Boccato, Pieroni, and Trevisan relate distances between Slater determinant states and their induced determinantal point processes, with trace/total-variation and Wasserstein estimates ([arXiv:2504.08971](https://arxiv.org/abs/2504.08971)). This is potentially relevant to a future classical/quantum distance bridge, but it is not a channel diamond-norm bound for EUI.
+
+The specific gap isolated here is therefore: **can the Haar-Grassmannian principal-minor moment vector be represented by a positive measure supported on the fixed-cycle one-exponential orbit?** The theorem above excludes only a single period-two atom. It does not settle the period-two convex hull, much less the full physical orbit. No broad novelty claim is made from this literature check alone.
