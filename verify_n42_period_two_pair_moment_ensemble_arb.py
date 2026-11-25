@@ -119,7 +119,7 @@ def verify():
     if not all(residual[i,0].contains(0) for i in range(m)):
         raise AssertionError("selected pair-moment equations failed")
     averaged=[]
-    for i in range(2*n):
+    for i in range(len(columns[0])):
         averaged.append(sum((weights[j,0]*columns[j][i] for j in range(m)),arb(0)))
         if not (averaged[-1]-target).contains(0):
             raise AssertionError(f"pair-feature coordinate {i} misses the target")
