@@ -149,6 +149,8 @@ def main():
         "new_two_segment_escape_6127_dual",
         "new_connected_escape_from_6129_dual",
         "new_two_segment_escape_from_6129_dual",
+        "new_connected_escape_from_6131_dual",
+        "new_two_segment_escape_from_6131_dual",
         "new_connected_escape_from_6133_dual",
         "new_multisegment_escape_from_6133_dual",
     ]
