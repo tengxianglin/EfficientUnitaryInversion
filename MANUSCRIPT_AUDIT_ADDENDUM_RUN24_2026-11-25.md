@@ -41,3 +41,13 @@ The pool is 183 canonical columns + 9 nonuniform positive open paths + 10 unifor
 This result is strictly for the 202-column finite pool and fixed 2,113-row design. It does not extend to all canonical columns, all continuous physical paths, complete sixth/eighth moments, or channel diamond distance.
 
 A separate 202-dual torus pricing workflow is now running. If a positive torus interval is certified, the next step is an exact finite-time search and Arb check. The current 202-column finite-pool theorem must not be conflated with a global physical-family theorem.
+
+
+## Continuous-family follow-up
+
+The 202-column dual also has a strictly positive continuous-torus pricing witness. An eight-start, 120-iteration search found a binary64 score of 0.9971550877716457; the exact decimal phase vector was independently certified by 128-bit Arb:
+[
+S_{202}(R(\theta_*))\in
+[0.997155087771645424273385402820507\pm5.10\times10^{-34}]>0.
+]
+The verifier pins the exact 202-column dual and LP hashes. By the dense-orbit theorem for the uniform positive-coupling ray, this proves existence of some finite positive physical time escaping this particular dual. An explicit finite-time rational witness is still pending; the separate search/Arb workflow is in progress.
