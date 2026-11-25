@@ -1,0 +1,92 @@
+name: EUI 204-column rational dual and independent Arb certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evidence/joint_low_six_eighth_lp_204col_uniform_ray_escape_n21.json"
+      - "verify_204col_uniform_ray_dual_arb.py"
+      - "verify_204col_program_mass_tv_bound.py"
+      - ".github/workflows/eui-certify-204col-uniform-ray-dual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-certify-204col-uniform-ray-dual
+  cancel-in-progress: true
+
+jobs:
+  certify-204:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Regressions and compile the 204-column certification tools
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
+          python -m py_compile verify_204col_uniform_ray_dual_arb.py verify_204col_program_mass_tv_bound.py verify_203col_uniform_ray_dual_arb.py verify_203col_program_mass_tv_bound.py verify_203col_uniform_ray_time_arb.py
+      - name: Re-certify the exact 203-column parent and its explicit finite-time escape
+        run: |
+          python verify_203col_uniform_ray_dual_arb.py
+          python verify_203col_program_mass_tv_bound.py
+          python verify_203col_uniform_ray_time_arb.py
+      - name: Remove stale 204-column certification outputs
+        run: |
+          rm -f evidence/55probe_204col_uniform_ray_escape_dual_certificate_n21.json
+          rm -f evidence/204col_program_mass_tv_bound_n21.json
+      - name: Rationalize and independently Arb-certify all 204 columns
+        run: python verify_204col_uniform_ray_dual_arb.py
+      - name: Verify the exact-rational program-mass TV corollary
+        run: python verify_204col_program_mass_tv_bound.py
+      - name: Commit 204-column dual and TV evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-204-cert/evidence
+          for f in \
+            evidence/55probe_204col_uniform_ray_escape_dual_certificate_n21.json \
+            evidence/204col_program_mass_tv_bound_n21.json; do
+            if [ -f "$f" ]; then cp "$f" /tmp/eui-204-cert/evidence/; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in \
+              evidence/55probe_204col_uniform_ray_escape_dual_certificate_n21.json \
+              evidence/204col_program_mass_tv_bound_n21.json; do
+              if [ -f "/tmp/eui-204-cert/$f" ]; then
+                cp "/tmp/eui-204-cert/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Certify the 204-column mixed-order dual and TV corollary"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 204-column certification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-204col-rational-dual-arb-certificate
+          path: |
+            evidence/55probe_204col_uniform_ray_escape_dual_certificate_n21.json
+            evidence/204col_program_mass_tv_bound_n21.json
+            evidence/joint_low_six_eighth_lp_204col_uniform_ray_escape_n21.json
+          if-no-files-found: warn
