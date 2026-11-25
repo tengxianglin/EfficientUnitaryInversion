@@ -93,3 +93,42 @@ A deterministic multistart search and independent 256-bit Arb verifier have now 
 - [GitHub Actions workflow](.github/workflows/eui-full-fourth-plus-twelve-gapped-search-n21.yml)
 
 The search uses the frozen seed pool, all 12 inherited/appended gapped paths, connected lognormal starts, fractional-profile perturbations, and multi-segment starts. It is discovery only: a found candidate is reconstructed from its frozen decimal as an exact rational and must pass Arb orthogonality, determinant-one, and exact-dual pricing checks. Failure to find an escape is not a global pricing bound.
+
+
+## 7. Continuous escape of the 6,135-column dual (256-bit Arb)
+
+The new 101-term dual was priced on connected and multi-segment open paths. The deterministic search evaluated 908 initial candidates (random seed 20261127), used L-BFGS-B with analytic Frechet gradients (12 starts per class, at most 160 iterations), and passed gradient self-tests with maximum absolute error \(1.4598736802762247\times10^{-10}\). Search time was 89.96 s. These are discovery statistics only.
+
+The independent 256-bit Arb certificate is [evidence/ising_full_fourth_plus_twelve_gapped_escape_arb_n21.json](evidence/ising_full_fourth_plus_twelve_gapped_escape_arb_n21.json), pinned to the exact search transcript [evidence/ising_full_fourth_plus_twelve_gapped_search_n21.json](evidence/ising_full_fourth_plus_twelve_gapped_search_n21.json) and the 6,135-column parent diagnostic/certificate.
+
+The target score interval is
+\[
+[0.321167169883441891720217398682819719066979250535922876218093482325363297972
+\pm4.08\times10^{-76}].
+\]
+Two exact-rational candidates are strict escapes:
+
+1. **Connected:** all 41 internal couplings are positive, with minimum \(19999999999999999/20000000000000000000000\). Arb certifies
+\[
+y^{\mathsf T}(b-F(R(c)))\in
+[-26.157407375828305275291539049492401738948470292029244527892433256798474110
+\pm2.58\times10^{-73}]<0.
+\]
+2. **Multi-segment:** internal zero edges are exactly \(\{2,8,14,34\}\), and the minimum positive coupling is \(10^{-8}\). Arb certifies
+\[
+y^{\mathsf T}(b-F(R(c)))\in
+[-29.0202659222329264370830935075472903097715424919454197347578133979724768
+\pm4.07\times10^{-71}]<0.
+\]
+
+Both candidates pass 1,764 Arb orthogonality-entry checks and determinant-one interval checks. Thus the 6,135-column dual is **not** a global separator for either the connected positive-coupling family or the general multi-segment family. This does not invalidate the finite-pool theorem and does not settle whether another global obstruction exists.
+
+Evidence commit: [2ad5b3d](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/2ad5b3dfef9cf3a3fc945c4e25f52376362c3b87).
+
+## 8. Next finite-pool reoptimization
+
+The two newly certified exact-rational paths are being appended to the 6,135 pool, giving a 6,137-column, 1,461-coordinate full-second-/fourth-order LP. The discovery and independent verifier are committed as:
+- [6,137-column LP source](discover_ising_full_fourth_plus_fourteen_gapped_n21.py)
+- [6,137-column Arb verifier](verify_ising_full_fourth_plus_fourteen_gapped_arb_n21.py)
+
+The 6,137 workflow is intentionally not launched until the 6,135 parent certificate and its escape certificate have matching current SHA-256 pins. The sharper 6,135 rational-floor verifier rerun is still pending; if it rewrites the parent certificate, the 6,135 escape verifier must be rerun before the 6,137 pool is certified. This preserves the evidence chain rather than silently accepting a stale parent hash.
