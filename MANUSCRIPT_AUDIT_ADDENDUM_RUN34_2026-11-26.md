@@ -40,7 +40,7 @@ Commits:
 - 4f3e3049c2c64f6919b09078d41b5017243b903f — theory note.
 - ccecf4c26f27585fc38c79476984025289c04197 — CI workflow.
 
-The workflow file is present on main. Its hosted run status had not yet been observed at the time of this note; local compile and full exact verification are complete.
+The workflow file is present on main. The commit-status endpoint returned no status checks; the available commit-workflow listing is limited to pull-request-triggered runs, so no hosted push-run result is claimed. Local compile and full exact verification are complete.
 
 ## What this does not prove
 
@@ -62,4 +62,4 @@ Do not continue single-atom searches in the same ansatz. The next decisive probl
 - Wan et al., *Communications in Mathematical Physics* 404, 629–700 (2023), DOI 10.1007/s00220-023-04844-0: matchgate 3-design from Haar matchgates and a discrete Clifford-matchgate ensemble. It concerns the full matchgate group, not the fixed-cycle one-exponential support.
 - Boccato, Pieroni & Trevisan, arXiv:2504.08971: trace/TV/Wasserstein relations between Slater determinant states and their DPPs. Potentially relevant to a future operational bridge, but not a channel diamond-norm theorem for EUI.
 
-The theory note now records this novelty boundary. The hosted workflow still has no reported run; exact local verification remains the current reproducibility evidence.
+The theory note now records this novelty boundary. The available status endpoint still exposes no hosted check for this push; exact local verification remains the current reproducibility evidence.
