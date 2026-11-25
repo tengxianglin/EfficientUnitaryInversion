@@ -241,6 +241,7 @@ def main():
         raise RuntimeError("198-column finite-time certificate is not a uniform 41-edge path")
     if parent_lp.get("parent_198col_uniform_ray_time_arb_certificate_sha256") != new_time_cert_sha:
         raise RuntimeError("200-column parent does not pin the exact 198-column ancestor finite-time certificate")
+    t_final = Fraction(final_time_cert["t_exact_rational"])
     if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != final_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != t_final:
         raise RuntimeError("201-column parent current escape pin does not match the 200-column finite-time certificate")
     if Fraction(parent_lp.get("parent_198col_uniform_ray_time_exact_rational")) != t_new:
@@ -267,7 +268,6 @@ def main():
         raise RuntimeError("201-column parent does not pin the exact 200-column finite-time certificate")
     if final_time_cert.get("status") != "certified_finite_uniform_ray_escape" or not final_time_cert.get("complete") or not final_time_cert.get("finite_physical_escape_certified"):
         raise RuntimeError("200-column finite-time path lacks a complete strict Arb certificate")
-    t_final = Fraction(final_time_cert["t_exact_rational"])
     if t_final <= 0 or Fraction(final_time_cert["t_exact_decimal"]) != t_final or t_final in (base_t, parent_t, grandparent_t, greatgrandparent_t, previous_t, t, t_new, t_latest):
         raise RuntimeError("200-column finite-time path is invalid or duplicates an existing path")
     final_uniform_couplings = [Fraction(value) for value in final_time_cert["uniform_couplings_exact_decimal"]]
