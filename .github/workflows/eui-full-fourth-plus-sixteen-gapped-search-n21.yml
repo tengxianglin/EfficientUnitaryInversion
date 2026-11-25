@@ -10,6 +10,7 @@ on:
       - ".github/workflows/eui-full-fourth-plus-sixteen-gapped-search-n21.yml"
       - "evidence/ising_full_fourth_plus_sixteen_gapped_n21.json"
       - "evidence/ising_full_fourth_plus_sixteen_gapped_arb_n21.json"
+      - "THEORY_6139COL_FULL_FOURTH_FINITE_POOL_N21.md"
       - "evidence/seed_pool_n21_frozen.npy"
       - "ising_fourth_moments.py"
       - "ising_moment_pricing.py"
