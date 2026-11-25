@@ -1,0 +1,37 @@
+name: EUI exact three-mirror-segment obstruction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_ising_three_mirror_segment_obstruction.py"
+      - "evidence/ising_three_mirror_segment_obstruction_n21.json"
+      - "THEORY_THREE_MIRROR_SEGMENT_OBSTRUCTION_N21.md"
+      - ".github/workflows/eui-three-mirror-segment-obstruction.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-rational-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Enumerate all 820 three-block mirror seeds with exact rationals
+        run: python verify_ising_three_mirror_segment_obstruction.py > /tmp/three-mirror-evidence.json
+      - name: Compare exact output with the committed evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          actual = json.loads(Path("/tmp/three-mirror-evidence.json").read_text())
+          committed = json.loads(Path("evidence/ising_three_mirror_segment_obstruction_n21.json").read_text())
+          if actual != committed:
+              raise SystemExit("exact three-mirror evidence differs from the committed record")
+          print("All 820 compositions, exact dual slacks, and the TV corollary match.")
+          PY
