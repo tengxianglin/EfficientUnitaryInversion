@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/tengxianglin/EfficientUnitaryInversion",
+  "branch": "codex/eui-grid-pro-20261014",
+  "baseline": "62fa763aff42e4bedf82b5de19bc9f05c5ed83b2",
+  "commit": "28c7e0ffb833a88f6980011ffecf48c7fbe2f1b1",
+  "pushed": true,
+  "remote_ref_readback": "28c7e0ffb833a88f6980011ffecf48c7fbe2f1b1",
+  "verified_utc": "2026-10-14T09:36:56.085517+00:00",
+  "pr": {
+    "headRefName": "codex/eui-grid-pro-20261014",
+    "headRefOid": "28c7e0ffb833a88f6980011ffecf48c7fbe2f1b1",
+    "isDraft": true,
+    "state": "OPEN",
+    "title": "Audit proper-grid one-query classification and coefficient-tied spans",
+    "url": "https://github.com/tengxianglin/EfficientUnitaryInversion/pull/2"
+  },
+  "remote_key_files": [
+    {
+      "path": "research/grid_discovery_20261014_r1/code/comb_certificate.py",
+      "sha256": "1b8db6eb62e2c527fa32c569ce77a0d967082cb775d32407a71f6054f7f137aa",
+      "remote_git_blob_sha": "3e2af6c4a4af32a97b82cfae46b85172ea073a8b",
+      "bytes": 3843,
+      "matched": true
+    },
+    {
+      "path": "research/grid_discovery_20261014_r2_20261014T091523Z/results/T1_final/ledger.json",
+      "sha256": "b70d747278c89fbebbb8c4bf80c98e0d5118f8bf59bec69a80a9f1956d71942a",
+      "remote_git_blob_sha": "2449ed2ce966b03db0a6d7e23d510b27b2c2f647",
+      "bytes": 3765,
+      "matched": true
+    },
+    {
+      "path": "research/grid_discovery_20261014_r2_20261014T091523Z/results/T4_final/summary.json",
+      "sha256": "ff18640927f8922135117de06f6a4d8494cf578b1ab0bd6ea73ed764b1e9f6f6",
+      "remote_git_blob_sha": "1138482fc7f861f975458d01e793034db6be6599",
+      "bytes": 7745,
+      "matched": true
+    }
+  ],
+  "worktree_clean": true,
+  "pro_relay_status": "prepared_for_manual_relay; not sent",
+  "input_r1_github_delivery_status": "Historical R1 push=false is unchanged; this new receipt records R2 actual Git delivery."
+}

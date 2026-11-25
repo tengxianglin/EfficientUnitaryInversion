@@ -1,0 +1,1137 @@
+{
+  "title": "Exact phase-free 3-qubit Pauli grid examples",
+  "arithmetic": "GF(2) labels and Gaussian-integer polynomial coefficients; no random sampling",
+  "scope": "eight hand-picked supports, including matched pairs inside one fixed W; not a full n=3 classification",
+  "grid_rule": "P[i,0] XOR P[i,1] = P[i,2] and P[0,j] XOR P[1,j] = P[2,j]",
+  "transpose_lcu_scope": "normalized Pauli-conjugation LCU only; lambda is not an arbitrary-comb lower bound",
+  "verification": {
+    "four_target_grids_satisfy_all_six_line_checks": true,
+    "controls_do_not_claim_full_grid": true,
+    "custom_has_rank_two_symplectic_form": true,
+    "new_grid_has_rank_four_symplectic_form": true,
+    "same_W_matched_pair": true,
+    "matched_pair_has_different_envelopes": true,
+    "matched_pair_has_different_exact_lambdas": true,
+    "matched_q4_pair_has_same_coarse_counts": true,
+    "matched_q4_pair_has_different_envelope_and_lambda": true,
+    "rank_two_and_rank_four_examples_have_expected_lambdas": true
+  },
+  "examples": [
+    {
+      "name": "custom_S1",
+      "role": "target_grid",
+      "notes": "Historical custom support used with the original 4U^T formula; that formula is not admitted.",
+      "grid": [
+        [
+          "XXI",
+          "IYX",
+          "XZX"
+        ],
+        [
+          "ZZI",
+          "YII",
+          "XZI"
+        ],
+        [
+          "YYI",
+          "YYX",
+          "IIX"
+        ]
+      ],
+      "ordered_tags": [
+        "XXI",
+        "IYX",
+        "XZX",
+        "ZZI",
+        "YII",
+        "XZI",
+        "YYI",
+        "YYX",
+        "IIX"
+      ],
+      "support_hash": "faec01e9750ca6473e403f7ae74468a94b9fbcd56da7a6f9ee2cad7772dd3728",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "XXI",
+          "right": "IYX",
+          "third": "XZX",
+          "phase_free_product": "XZX",
+          "phase_exponent_i": 1,
+          "pass": true
+        },
+        {
+          "left": "ZZI",
+          "right": "YII",
+          "third": "XZI",
+          "phase_free_product": "XZI",
+          "phase_exponent_i": 3,
+          "pass": true
+        },
+        {
+          "left": "YYI",
+          "right": "YYX",
+          "third": "IIX",
+          "phase_free_product": "IIX",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "XXI",
+          "right": "ZZI",
+          "third": "YYI",
+          "phase_free_product": "YYI",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "IYX",
+          "right": "YII",
+          "third": "YYX",
+          "phase_free_product": "YYX",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "XZX",
+          "right": "XZI",
+          "third": "IIX",
+          "phase_free_product": "IIX",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "all_three_pairs_per_line_pass": true,
+      "full_row_column_rule": true,
+      "gf2_rank": 4,
+      "symplectic_rank": 2,
+      "radical_dimension": 4,
+      "radical": [
+        "III",
+        "IIX",
+        "YYI",
+        "YYX"
+      ],
+      "commutant_phase_free_size": 4,
+      "pairwise_anticommuting_pairs": 12,
+      "odd_y_count": 2,
+      "envelope_coordinate_support_size": 16,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "envelope_saturated": true,
+      "transpose_lcu": {
+        "method": "exact Walsh inversion on saturated envelope",
+        "lambda": 2,
+        "branch_count": 4,
+        "coefficient_numerators_over_2^m": [
+          8,
+          0,
+          0,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          8,
+          -8,
+          0
+        ],
+        "postselection_probability": "1/4"
+      }
+    },
+    {
+      "name": "new_structure_grid",
+      "role": "target_grid",
+      "notes": "Later structure-preserving grid; its separate 16-term transpose identity was independently checked.",
+      "grid": [
+        [
+          "XXI",
+          "IYX",
+          "XZX"
+        ],
+        [
+          "ZZZ",
+          "XXY",
+          "YYX"
+        ],
+        [
+          "YYZ",
+          "XZZ",
+          "ZXI"
+        ]
+      ],
+      "ordered_tags": [
+        "XXI",
+        "IYX",
+        "XZX",
+        "ZZZ",
+        "XXY",
+        "YYX",
+        "YYZ",
+        "XZZ",
+        "ZXI"
+      ],
+      "support_hash": "472b5a25d8a433c553456b22e5ba66bedf561e64779ed3cbb8c361b8b756d824",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "XXI",
+          "right": "IYX",
+          "third": "XZX",
+          "phase_free_product": "XZX",
+          "phase_exponent_i": 1,
+          "pass": true
+        },
+        {
+          "left": "ZZZ",
+          "right": "XXY",
+          "third": "YYX",
+          "phase_free_product": "YYX",
+          "phase_exponent_i": 1,
+          "pass": true
+        },
+        {
+          "left": "YYZ",
+          "right": "XZZ",
+          "third": "ZXI",
+          "phase_free_product": "ZXI",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "XXI",
+          "right": "ZZZ",
+          "third": "YYZ",
+          "phase_free_product": "YYZ",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "IYX",
+          "right": "XXY",
+          "third": "XZZ",
+          "phase_free_product": "XZZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "XZX",
+          "right": "YYX",
+          "third": "ZXI",
+          "phase_free_product": "ZXI",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "all_three_pairs_per_line_pass": true,
+      "full_row_column_rule": true,
+      "gf2_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 1,
+      "radical": [
+        "III"
+      ],
+      "commutant_phase_free_size": 4,
+      "pairwise_anticommuting_pairs": 18,
+      "odd_y_count": 2,
+      "envelope_coordinate_support_size": 16,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "envelope_saturated": true,
+      "transpose_lcu": {
+        "method": "exact Walsh inversion on saturated envelope",
+        "lambda": 4,
+        "branch_count": 16,
+        "coefficient_numerators_over_2^m": [
+          4,
+          4,
+          4,
+          -4,
+          4,
+          -4,
+          4,
+          4,
+          -4,
+          -4,
+          4,
+          -4,
+          -4,
+          4,
+          4,
+          4
+        ],
+        "postselection_probability": "1/16"
+      }
+    },
+    {
+      "name": "S2_frozen",
+      "role": "target_grid",
+      "notes": "Formal frozen S2; official project target is dagger, while transpose is a control here.",
+      "grid": [
+        [
+          "XXI",
+          "YYI",
+          "ZZI"
+        ],
+        [
+          "IXX",
+          "IYY",
+          "IZZ"
+        ],
+        [
+          "XIX",
+          "YIY",
+          "ZIZ"
+        ]
+      ],
+      "ordered_tags": [
+        "XXI",
+        "YYI",
+        "ZZI",
+        "IXX",
+        "IYY",
+        "IZZ",
+        "XIX",
+        "YIY",
+        "ZIZ"
+      ],
+      "support_hash": "37af50fa4abaebfbfce01b6d7b01485d1bca40cfe0537eb0c3bf6ac17b66cf0c",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "XXI",
+          "right": "YYI",
+          "third": "ZZI",
+          "phase_free_product": "ZZI",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "IXX",
+          "right": "IYY",
+          "third": "IZZ",
+          "phase_free_product": "IZZ",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "XIX",
+          "right": "YIY",
+          "third": "ZIZ",
+          "phase_free_product": "ZIZ",
+          "phase_exponent_i": 2,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "XXI",
+          "right": "IXX",
+          "third": "XIX",
+          "phase_free_product": "XIX",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "YYI",
+          "right": "IYY",
+          "third": "YIY",
+          "phase_free_product": "YIY",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "ZZI",
+          "right": "IZZ",
+          "third": "ZIZ",
+          "phase_free_product": "ZIZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "all_three_pairs_per_line_pass": true,
+      "full_row_column_rule": true,
+      "gf2_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 1,
+      "radical": [
+        "III"
+      ],
+      "commutant_phase_free_size": 4,
+      "pairwise_anticommuting_pairs": 18,
+      "odd_y_count": 0,
+      "envelope_coordinate_support_size": 10,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "envelope_saturated": false,
+      "transpose_lcu": {
+        "method": "explicit one-Pauli transpose witness on partial envelope",
+        "lambda": 1,
+        "branch_count": 1,
+        "witnesses": [
+          "III",
+          "XXX",
+          "ZZZ",
+          "YYY"
+        ],
+        "postselection_probability": "1"
+      }
+    },
+    {
+      "name": "S2_same_W_saturated",
+      "role": "target_grid",
+      "notes": "Matched grid in the same phase-free W as S2_frozen, but with a saturated transpose envelope.",
+      "grid": [
+        [
+          "XXI",
+          "YYI",
+          "ZZI"
+        ],
+        [
+          "ZIZ",
+          "XIX",
+          "YIY"
+        ],
+        [
+          "YXZ",
+          "ZYX",
+          "XZY"
+        ]
+      ],
+      "ordered_tags": [
+        "XXI",
+        "YYI",
+        "ZZI",
+        "ZIZ",
+        "XIX",
+        "YIY",
+        "YXZ",
+        "ZYX",
+        "XZY"
+      ],
+      "support_hash": "2f2cf2eec37f73e6e52dc50e946a0eb0a1427d469fe87fbde6f9595eed5fc6bc",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "XXI",
+          "right": "YYI",
+          "third": "ZZI",
+          "phase_free_product": "ZZI",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "ZIZ",
+          "right": "XIX",
+          "third": "YIY",
+          "phase_free_product": "YIY",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "YXZ",
+          "right": "ZYX",
+          "third": "XZY",
+          "phase_free_product": "XZY",
+          "phase_exponent_i": 3,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "XXI",
+          "right": "ZIZ",
+          "third": "YXZ",
+          "phase_free_product": "YXZ",
+          "phase_exponent_i": 3,
+          "pass": true
+        },
+        {
+          "left": "YYI",
+          "right": "XIX",
+          "third": "ZYX",
+          "phase_free_product": "ZYX",
+          "phase_exponent_i": 3,
+          "pass": true
+        },
+        {
+          "left": "ZZI",
+          "right": "YIY",
+          "third": "XZY",
+          "phase_free_product": "XZY",
+          "phase_exponent_i": 3,
+          "pass": true
+        }
+      ],
+      "all_three_pairs_per_line_pass": true,
+      "full_row_column_rule": true,
+      "gf2_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 1,
+      "radical": [
+        "III"
+      ],
+      "commutant_phase_free_size": 4,
+      "pairwise_anticommuting_pairs": 21,
+      "odd_y_count": 3,
+      "envelope_coordinate_support_size": 16,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "envelope_saturated": true,
+      "transpose_lcu": {
+        "method": "exact Walsh inversion on saturated envelope",
+        "lambda": 4,
+        "branch_count": 16,
+        "coefficient_numerators_over_2^m": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          -4,
+          -4,
+          4,
+          -4,
+          4,
+          -4,
+          -4,
+          4,
+          4,
+          -4
+        ],
+        "postselection_probability": "1/16"
+      }
+    },
+    {
+      "name": "same_W_q4_partial",
+      "role": "matched_pair",
+      "notes": "Same W and coarse q/commutation counts as same_W_q4_saturated; partial envelope with a one-Pauli witness.",
+      "grid": [
+        [
+          "ZIZ",
+          "ZZI",
+          "IZZ"
+        ],
+        [
+          "XIX",
+          "YXZ",
+          "ZXY"
+        ],
+        [
+          "YIY",
+          "XYZ",
+          "ZYX"
+        ]
+      ],
+      "ordered_tags": [
+        "ZIZ",
+        "ZZI",
+        "IZZ",
+        "XIX",
+        "YXZ",
+        "ZXY",
+        "YIY",
+        "XYZ",
+        "ZYX"
+      ],
+      "support_hash": "bdea916bcbaa7b43e9692802eb1050f9f434cd77baa8bfd681ecfe439da1d7b8",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "ZIZ",
+          "right": "ZZI",
+          "third": "IZZ",
+          "phase_free_product": "IZZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "XIX",
+          "right": "YXZ",
+          "third": "ZXY",
+          "phase_free_product": "ZXY",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "YIY",
+          "right": "XYZ",
+          "third": "ZYX",
+          "phase_free_product": "ZYX",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "ZIZ",
+          "right": "XIX",
+          "third": "YIY",
+          "phase_free_product": "YIY",
+          "phase_exponent_i": 2,
+          "pass": true
+        },
+        {
+          "left": "ZZI",
+          "right": "YXZ",
+          "third": "XYZ",
+          "phase_free_product": "XYZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "IZZ",
+          "right": "ZXY",
+          "third": "ZYX",
+          "phase_free_product": "ZYX",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "all_three_pairs_per_line_pass": true,
+      "full_row_column_rule": true,
+      "gf2_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 1,
+      "radical": [
+        "III"
+      ],
+      "commutant_phase_free_size": 4,
+      "pairwise_anticommuting_pairs": 18,
+      "odd_y_count": 4,
+      "envelope_coordinate_support_size": 10,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "envelope_saturated": false,
+      "transpose_lcu": {
+        "method": "explicit one-Pauli transpose witness on partial envelope",
+        "lambda": 1,
+        "branch_count": 1,
+        "witnesses": [
+          "IZI",
+          "XYX",
+          "ZIZ",
+          "YXY"
+        ],
+        "postselection_probability": "1"
+      }
+    },
+    {
+      "name": "same_W_q4_saturated",
+      "role": "matched_pair",
+      "notes": "Matched to same_W_q4_partial: same W, m, symplectic rank, q-odd count, and anti-edge count, but saturated envelope.",
+      "grid": [
+        [
+          "ZIZ",
+          "ZZI",
+          "IZZ"
+        ],
+        [
+          "YZX",
+          "ZYX",
+          "XXI"
+        ],
+        [
+          "XZY",
+          "IXX",
+          "XYZ"
+        ]
+      ],
+      "ordered_tags": [
+        "ZIZ",
+        "ZZI",
+        "IZZ",
+        "YZX",
+        "ZYX",
+        "XXI",
+        "XZY",
+        "IXX",
+        "XYZ"
+      ],
+      "support_hash": "97cca35f1fd413839858943b4831891dee8ca30cfff7a4946d722f80166641c4",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "ZIZ",
+          "right": "ZZI",
+          "third": "IZZ",
+          "phase_free_product": "IZZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "YZX",
+          "right": "ZYX",
+          "third": "XXI",
+          "phase_free_product": "XXI",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "XZY",
+          "right": "IXX",
+          "third": "XYZ",
+          "phase_free_product": "XYZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "ZIZ",
+          "right": "YZX",
+          "third": "XZY",
+          "phase_free_product": "XZY",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "ZZI",
+          "right": "ZYX",
+          "third": "IXX",
+          "phase_free_product": "IXX",
+          "phase_exponent_i": 3,
+          "pass": true
+        },
+        {
+          "left": "IZZ",
+          "right": "XXI",
+          "third": "XYZ",
+          "phase_free_product": "XYZ",
+          "phase_exponent_i": 1,
+          "pass": true
+        }
+      ],
+      "all_three_pairs_per_line_pass": true,
+      "full_row_column_rule": true,
+      "gf2_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 1,
+      "radical": [
+        "III"
+      ],
+      "commutant_phase_free_size": 4,
+      "pairwise_anticommuting_pairs": 18,
+      "odd_y_count": 4,
+      "envelope_coordinate_support_size": 16,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "envelope_saturated": true,
+      "transpose_lcu": {
+        "method": "exact Walsh inversion on saturated envelope",
+        "lambda": 4,
+        "branch_count": 16,
+        "coefficient_numerators_over_2^m": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          -4,
+          -4,
+          4,
+          -4,
+          4,
+          -4,
+          4,
+          -4,
+          -4,
+          4
+        ],
+        "postselection_probability": "1/16"
+      }
+    },
+    {
+      "name": "frozen_S1_control",
+      "role": "control_not_full_grid",
+      "notes": "The current configs/s1_transpose.json support; its three rows satisfy the rule, but not all columns.",
+      "grid": [
+        [
+          "XXI",
+          "IYX",
+          "XZX"
+        ],
+        [
+          "ZZI",
+          "IIZ",
+          "ZZZ"
+        ],
+        [
+          "XYI",
+          "IYY",
+          "XIY"
+        ]
+      ],
+      "ordered_tags": [
+        "XXI",
+        "IYX",
+        "XZX",
+        "ZZI",
+        "IIZ",
+        "ZZZ",
+        "XYI",
+        "IYY",
+        "XIY"
+      ],
+      "support_hash": "4eb3be9da712ce72f762e5f444a4bb16dbfeaa2ad9ee2f8f03b4d0788aa03ebd",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "XXI",
+          "right": "IYX",
+          "third": "XZX",
+          "phase_free_product": "XZX",
+          "phase_exponent_i": 1,
+          "pass": true
+        },
+        {
+          "left": "ZZI",
+          "right": "IIZ",
+          "third": "ZZZ",
+          "phase_free_product": "ZZZ",
+          "phase_exponent_i": 0,
+          "pass": true
+        },
+        {
+          "left": "XYI",
+          "right": "IYY",
+          "third": "XIY",
+          "phase_free_product": "XIY",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "XXI",
+          "right": "ZZI",
+          "third": "XYI",
+          "phase_free_product": "YYI",
+          "phase_exponent_i": 2,
+          "pass": false
+        },
+        {
+          "left": "IYX",
+          "right": "IIZ",
+          "third": "IYY",
+          "phase_free_product": "IYY",
+          "phase_exponent_i": 3,
+          "pass": true
+        },
+        {
+          "left": "XZX",
+          "right": "ZZZ",
+          "third": "XIY",
+          "phase_free_product": "YIY",
+          "phase_exponent_i": 2,
+          "pass": false
+        }
+      ],
+      "all_three_pairs_per_line_pass": false,
+      "full_row_column_rule": false,
+      "gf2_rank": 5,
+      "symplectic_rank": 4,
+      "radical_dimension": 2,
+      "radical": [
+        "III",
+        "ZZZ"
+      ],
+      "commutant_phase_free_size": 2,
+      "pairwise_anticommuting_pairs": 17,
+      "odd_y_count": 3,
+      "envelope_coordinate_support_size": 32,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        22,
+        29,
+        32,
+        32,
+        32,
+        32
+      ],
+      "envelope_saturated": true,
+      "transpose_lcu": {
+        "method": "exact Walsh inversion on saturated envelope",
+        "lambda": 4,
+        "branch_count": 16,
+        "coefficient_numerators_over_2^m": [
+          8,
+          0,
+          0,
+          8,
+          0,
+          8,
+          8,
+          0,
+          8,
+          0,
+          0,
+          -8,
+          0,
+          -8,
+          8,
+          0,
+          -8,
+          0,
+          0,
+          8,
+          0,
+          -8,
+          8,
+          0,
+          8,
+          0,
+          0,
+          8,
+          0,
+          -8,
+          -8,
+          0
+        ],
+        "postselection_probability": "1/16"
+      }
+    },
+    {
+      "name": "row_only_full_M8",
+      "role": "control_not_full_grid",
+      "notes": "Row-only full-M8 counterexample; included to show why the column condition matters.",
+      "grid": [
+        [
+          "IXZ",
+          "YZI",
+          "YYZ"
+        ],
+        [
+          "YYI",
+          "IZY",
+          "YXY"
+        ],
+        [
+          "XXI",
+          "IXX",
+          "XIX"
+        ]
+      ],
+      "ordered_tags": [
+        "IXZ",
+        "YZI",
+        "YYZ",
+        "YYI",
+        "IZY",
+        "YXY",
+        "XXI",
+        "IXX",
+        "XIX"
+      ],
+      "support_hash": "a2d1f85a041f68aca1b9cf2a85fdbd84a08e13c2b0ae3ed10de04f81f72efea1",
+      "all_nine_distinct_nonidentity": true,
+      "row_checks": [
+        {
+          "left": "IXZ",
+          "right": "YZI",
+          "third": "YYZ",
+          "phase_free_product": "YYZ",
+          "phase_exponent_i": 3,
+          "pass": true
+        },
+        {
+          "left": "YYI",
+          "right": "IZY",
+          "third": "YXY",
+          "phase_free_product": "YXY",
+          "phase_exponent_i": 1,
+          "pass": true
+        },
+        {
+          "left": "XXI",
+          "right": "IXX",
+          "third": "XIX",
+          "phase_free_product": "XIX",
+          "phase_exponent_i": 0,
+          "pass": true
+        }
+      ],
+      "column_checks": [
+        {
+          "left": "IXZ",
+          "right": "YYI",
+          "third": "XXI",
+          "phase_free_product": "YZZ",
+          "phase_exponent_i": 1,
+          "pass": false
+        },
+        {
+          "left": "YZI",
+          "right": "IZY",
+          "third": "IXX",
+          "phase_free_product": "YIY",
+          "phase_exponent_i": 0,
+          "pass": false
+        },
+        {
+          "left": "YYZ",
+          "right": "YXY",
+          "third": "XIX",
+          "phase_free_product": "IZX",
+          "phase_exponent_i": 2,
+          "pass": false
+        }
+      ],
+      "all_three_pairs_per_line_pass": false,
+      "full_row_column_rule": false,
+      "gf2_rank": 6,
+      "symplectic_rank": 6,
+      "radical_dimension": 1,
+      "radical": [
+        "III"
+      ],
+      "commutant_phase_free_size": 1,
+      "pairwise_anticommuting_pairs": 20,
+      "odd_y_count": 2,
+      "envelope_coordinate_support_size": 64,
+      "envelope_coordinate_support_counts_by_degree": [
+        1,
+        10,
+        23,
+        46,
+        58,
+        64,
+        64,
+        64
+      ],
+      "envelope_saturated": true,
+      "transpose_lcu": {
+        "method": "exact Walsh inversion on saturated envelope",
+        "lambda": 8,
+        "branch_count": 64,
+        "coefficient_numerators_over_2^m": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          -8,
+          8,
+          -8,
+          8,
+          -8,
+          8,
+          -8,
+          -8,
+          8,
+          8,
+          -8,
+          8,
+          -8,
+          -8,
+          8,
+          -8,
+          -8,
+          8,
+          8,
+          8,
+          8,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8,
+          -8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          -8,
+          8,
+          -8,
+          -8,
+          8,
+          -8,
+          8,
+          8,
+          -8,
+          -8,
+          8,
+          8,
+          -8,
+          -8,
+          8,
+          -8,
+          -8,
+          8,
+          8,
+          -8,
+          -8,
+          8,
+          8
+        ],
+        "postselection_probability": "1/64"
+      }
+    }
+  ]
+}

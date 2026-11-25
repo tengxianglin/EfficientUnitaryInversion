@@ -1,0 +1,334 @@
+{
+  "B": 55,
+  "q": 14,
+  "grid": [
+    [
+      "XII",
+      "YII",
+      "ZII"
+    ],
+    [
+      "YXI",
+      "ZIY",
+      "XXY"
+    ],
+    [
+      "ZXI",
+      "XIY",
+      "YXY"
+    ]
+  ],
+  "parameter_order": "row-major nine independent real coefficients",
+  "star_witness": "YIX",
+  "star_generator_residuals": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "dagger_conjugators": [
+    "III",
+    "XII",
+    "YII",
+    "ZII"
+  ],
+  "dagger_lcu_coefficients": [
+    "-1/2",
+    "1/2",
+    "1/2",
+    "1/2"
+  ],
+  "star": {
+    "ordered_gates": [
+      {
+        "gate": "Y",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "ORACLE_FWD",
+        "qubits": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "gate": "Y",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          2
+        ]
+      }
+    ],
+    "cost": {
+      "one_qubit": 4,
+      "two_qubit": 0,
+      "by_primitive": {
+        "Y": 2,
+        "X": 2
+      },
+      "forward_oracle_calls": 1
+    },
+    "A": 0,
+    "workspace": 3,
+    "K": 1,
+    "P": 1,
+    "Q": 1,
+    "success_probability": 1,
+    "postselection": null
+  },
+  "dagger": {
+    "ordered_gates": [
+      {
+        "gate": "H",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "H",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          0,
+          2
+        ]
+      },
+      {
+        "gate": "Sdag",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          1,
+          2
+        ]
+      },
+      {
+        "gate": "S",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "ORACLE_FWD",
+        "qubits": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "gate": "Sdag",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          1,
+          2
+        ]
+      },
+      {
+        "gate": "S",
+        "qubits": [
+          2
+        ]
+      },
+      {
+        "gate": "CX",
+        "qubits": [
+          0,
+          2
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "CZ",
+        "qubits": [
+          0,
+          1
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          1
+        ]
+      },
+      {
+        "gate": "X",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "H",
+        "qubits": [
+          0
+        ]
+      },
+      {
+        "gate": "H",
+        "qubits": [
+          1
+        ]
+      }
+    ],
+    "cost": {
+      "one_qubit": 12,
+      "two_qubit": 5,
+      "by_primitive": {
+        "H": 4,
+        "CX": 4,
+        "Sdag": 2,
+        "S": 2,
+        "X": 4,
+        "CZ": 1
+      },
+      "forward_oracle_calls": 1
+    },
+    "A": 2,
+    "workspace": 5,
+    "K": 1,
+    "P": 1,
+    "Q": 1,
+    "success_probability": 0.25,
+    "postselection": {
+      "ancillas": [
+        0,
+        1
+      ],
+      "outcome": "00"
+    },
+    "wire_order": [
+      "ancA",
+      "ancD",
+      "q0",
+      "q1",
+      "q2"
+    ]
+  },
+  "samples": [
+    {
+      "sample": 0,
+      "coefficients": [
+        4,
+        4,
+        3,
+        -4,
+        4,
+        2,
+        3,
+        4,
+        -2
+      ],
+      "theta": 0.137,
+      "residuals": {
+        "dagger_success_block": 7.239119747132969e-16,
+        "dagger_probability_operator": 6.116971650759088e-16,
+        "dagger_reference_Choi": 2.2682263634296447e-16,
+        "full_unitarity": 4.648989973684791e-15,
+        "star_success_block": 9.200381974040506e-16,
+        "star_reference_Choi": 4.664712378959225e-16,
+        "star_probability_operator": 9.311609304836194e-16
+      }
+    },
+    {
+      "sample": 1,
+      "coefficients": [
+        0,
+        -4,
+        0,
+        1,
+        2,
+        -4,
+        -4,
+        4,
+        1
+      ],
+      "theta": 0.137,
+      "residuals": {
+        "dagger_success_block": 7.429164680134242e-16,
+        "dagger_probability_operator": 6.589804746993976e-16,
+        "dagger_reference_Choi": 2.436451542804803e-16,
+        "full_unitarity": 5.2022508806577604e-15,
+        "star_success_block": 6.982515191195111e-16,
+        "star_reference_Choi": 3.85008317062689e-16,
+        "star_probability_operator": 7.337901080159298e-16
+      }
+    },
+    {
+      "sample": 2,
+      "coefficients": [
+        -4,
+        1,
+        1,
+        -2,
+        -1,
+        1,
+        4,
+        0,
+        1
+      ],
+      "theta": 0.137,
+      "residuals": {
+        "dagger_success_block": 6.114143571293282e-16,
+        "dagger_probability_operator": 6.250641315715179e-16,
+        "dagger_reference_Choi": 2.040234978765527e-16,
+        "full_unitarity": 5.649616653594833e-15,
+        "star_success_block": 5.661420956469935e-16,
+        "star_reference_Choi": 2.795951641554772e-16,
+        "star_probability_operator": 7.654349787018994e-16
+      }
+    }
+  ],
+  "raw_arrays": "B55_q14_raw.npz",
+  "raw_sha256": "7bbf02ce7145be8ce39a8fbc893d9eeb817665ca5569dc8042265f745a77007d",
+  "query_contract": "one unmodified uncontrolled original 8x8 forward U",
+  "gate_contract": "all-to-all known H,X,Y,Z,S,Sdag,CX,CZ; CY fully decomposed; no hardware routing claim",
+  "Choi_contract": "normalized maximally entangled physical system/reference, dimension 8 each",
+  "limitations": [
+    "Construction counts only; no gate/ancilla optimality",
+    "No multi-controlled gate hidden in counts",
+    "No target architecture or SWAP routing assumed"
+  ]
+}

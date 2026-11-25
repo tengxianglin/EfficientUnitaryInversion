@@ -1,0 +1,1 @@
+{"cases": 3, "status": "exact-comb-certificates-v1", "cpu_seconds": 0.004249017000000022}

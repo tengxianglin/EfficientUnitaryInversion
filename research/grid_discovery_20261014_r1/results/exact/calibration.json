@@ -1,0 +1,500 @@
+{
+  "source_hash": "ec33ce9f9f8f66b08ea0345016c8e6a3c11d0be8c68a7f4928258ff1040bd386",
+  "examples": [
+    {
+      "name": "custom_S1",
+      "proper": true,
+      "envelope": 16,
+      "counts": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "source_lambda": 2,
+      "grid": [
+        [
+          "XXI",
+          "IYX",
+          "XZX"
+        ],
+        [
+          "ZZI",
+          "YII",
+          "XZI"
+        ],
+        [
+          "YYI",
+          "YYX",
+          "IIX"
+        ]
+      ],
+      "B": 45,
+      "q": 10,
+      "line_phases": [
+        1,
+        3,
+        0,
+        2,
+        0,
+        0
+      ],
+      "cost": {
+        "lambda": "2",
+        "walsh_numerators_denominator_16": [
+          8,
+          0,
+          0,
+          0,
+          0,
+          -8,
+          0,
+          0,
+          0,
+          0,
+          8,
+          0,
+          0,
+          0,
+          0,
+          8
+        ],
+        "dual": [
+          "1/8",
+          "1/8",
+          "-1/8",
+          "1/8",
+          "1/8",
+          "1/8",
+          "1/8",
+          "-1/8",
+          "-1/8",
+          "1/8",
+          "1/8",
+          "1/8",
+          "1/8",
+          "-1/8",
+          "1/8",
+          "1/8"
+        ],
+        "primal_dual_gap": "0"
+      }
+    },
+    {
+      "name": "new_structure_grid",
+      "proper": true,
+      "envelope": 16,
+      "counts": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "source_lambda": 4,
+      "grid": [
+        [
+          "XXI",
+          "IYX",
+          "XZX"
+        ],
+        [
+          "ZZZ",
+          "XXY",
+          "YYX"
+        ],
+        [
+          "YYZ",
+          "XZZ",
+          "ZXI"
+        ]
+      ],
+      "B": 33,
+      "q": 10,
+      "line_phases": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "cost": {
+        "lambda": "4",
+        "walsh_numerators_denominator_16": [
+          4,
+          -4,
+          4,
+          4,
+          -4,
+          4,
+          -4,
+          -4,
+          4,
+          -4,
+          4,
+          4,
+          4,
+          -4,
+          4,
+          4
+        ],
+        "dual": [
+          "1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "-1/4",
+          "-1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "1/4"
+        ],
+        "primal_dual_gap": "0"
+      }
+    },
+    {
+      "name": "S2_frozen",
+      "proper": true,
+      "envelope": 10,
+      "counts": [
+        1,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "source_lambda": 1,
+      "grid": [
+        [
+          "XXI",
+          "YYI",
+          "ZZI"
+        ],
+        [
+          "IXX",
+          "IYY",
+          "IZZ"
+        ],
+        [
+          "XIX",
+          "YIY",
+          "ZIZ"
+        ]
+      ],
+      "B": 12,
+      "q": 0,
+      "line_phases": [
+        2,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "cost": {
+        "lambda": "1",
+        "character_witness": 0,
+        "primal_dual_gap": "0"
+      }
+    },
+    {
+      "name": "S2_same_W_saturated",
+      "proper": true,
+      "envelope": 16,
+      "counts": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "source_lambda": 4,
+      "grid": [
+        [
+          "XXI",
+          "YYI",
+          "ZZI"
+        ],
+        [
+          "ZIZ",
+          "XIX",
+          "YIY"
+        ],
+        [
+          "YXZ",
+          "ZYX",
+          "XZY"
+        ]
+      ],
+      "B": 26,
+      "q": 0,
+      "line_phases": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cost": {
+        "lambda": "4",
+        "walsh_numerators_denominator_16": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          -4,
+          4,
+          -4,
+          4,
+          -4,
+          -4,
+          4,
+          4,
+          4,
+          -4,
+          -4
+        ],
+        "dual": [
+          "1/4",
+          "1/4",
+          "1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "-1/4",
+          "1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "-1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "-1/4"
+        ],
+        "primal_dual_gap": "0"
+      }
+    },
+    {
+      "name": "same_W_q4_partial",
+      "proper": true,
+      "envelope": 10,
+      "counts": [
+        1,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "source_lambda": 1,
+      "grid": [
+        [
+          "ZIZ",
+          "ZZI",
+          "IZZ"
+        ],
+        [
+          "XIX",
+          "YXZ",
+          "ZXY"
+        ],
+        [
+          "YIY",
+          "XYZ",
+          "ZYX"
+        ]
+      ],
+      "B": 12,
+      "q": 8,
+      "line_phases": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "cost": {
+        "lambda": "1",
+        "character_witness": 8,
+        "primal_dual_gap": "0"
+      }
+    },
+    {
+      "name": "same_W_q4_saturated",
+      "proper": true,
+      "envelope": 16,
+      "counts": [
+        1,
+        10,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "source_lambda": 4,
+      "grid": [
+        [
+          "ZIZ",
+          "ZZI",
+          "IZZ"
+        ],
+        [
+          "YZX",
+          "ZYX",
+          "XXI"
+        ],
+        [
+          "XZY",
+          "IXX",
+          "XYZ"
+        ]
+      ],
+      "B": 28,
+      "q": 12,
+      "line_phases": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        1
+      ],
+      "cost": {
+        "lambda": "4",
+        "walsh_numerators_denominator_16": [
+          4,
+          4,
+          -4,
+          -4,
+          4,
+          -4,
+          4,
+          -4,
+          4,
+          -4,
+          -4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "dual": [
+          "1/4",
+          "1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "-1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "-1/4",
+          "1/4",
+          "-1/4"
+        ],
+        "primal_dual_gap": "0"
+      }
+    },
+    {
+      "name": "frozen_S1_control",
+      "proper": false,
+      "envelope": 32,
+      "counts": [
+        1,
+        10,
+        22,
+        29,
+        32,
+        32,
+        32,
+        32
+      ],
+      "source_lambda": 4,
+      "grid": [
+        [
+          "XXI",
+          "IYX",
+          "XZX"
+        ],
+        [
+          "ZZI",
+          "IIZ",
+          "ZZZ"
+        ],
+        [
+          "XYI",
+          "IYY",
+          "XIY"
+        ]
+      ]
+    },
+    {
+      "name": "row_only_full_M8",
+      "proper": false,
+      "envelope": 64,
+      "counts": [
+        1,
+        10,
+        23,
+        46,
+        58,
+        64,
+        64,
+        64
+      ],
+      "source_lambda": 8,
+      "grid": [
+        [
+          "IXZ",
+          "YZI",
+          "YYZ"
+        ],
+        [
+          "YYI",
+          "IZY",
+          "YXY"
+        ],
+        [
+          "XXI",
+          "IXX",
+          "XIX"
+        ]
+      ]
+    }
+  ],
+  "independent_calibration_passed": true
+}

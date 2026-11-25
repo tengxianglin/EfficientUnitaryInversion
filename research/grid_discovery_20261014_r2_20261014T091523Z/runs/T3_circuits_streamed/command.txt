@@ -1,0 +1,1 @@
+["python", "code/compile_all_anti.py", "--input", "../grid_discovery_20261014_r1/results/validation/all_anti_grids.json", "--seed", "20261015", "--samples-per-grid", "3", "--output", "results/T3_circuits_streamed"]

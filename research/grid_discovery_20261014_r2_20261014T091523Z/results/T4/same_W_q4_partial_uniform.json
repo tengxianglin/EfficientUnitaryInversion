@@ -1,0 +1,683 @@
+{
+  "schema": "tied-span-v1",
+  "grid_name": "same_W_q4_partial",
+  "constraint": "uniform",
+  "grid": [
+    [
+      "ZIZ",
+      "ZZI",
+      "IZZ"
+    ],
+    [
+      "XIX",
+      "YXZ",
+      "ZXY"
+    ],
+    [
+      "YIY",
+      "XYZ",
+      "ZYX"
+    ]
+  ],
+  "C": [
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      1
+    ]
+  ],
+  "coordinates": "64 Hermitian Pauli IXYZ base4; gaussian integer coefficients imaginary part proved zero by exact recurrence",
+  "full_degree_bound": 7,
+  "graded_degree_bound": {
+    "even": 14,
+    "odd": 15
+  },
+  "independent_graded_status": "not_applicable",
+  "full": {
+    "rank": 3,
+    "pivot_coordinates": [
+      0,
+      15,
+      17
+    ],
+    "echelon_basis": [
+      {
+        "0": "1"
+      },
+      {
+        "51": "1",
+        "60": "1",
+        "15": "1",
+        "17": "1",
+        "39": "1",
+        "54": "1",
+        "34": "1",
+        "27": "1",
+        "57": "1"
+      },
+      {
+        "51": "1",
+        "17": "1",
+        "34": "1"
+      }
+    ],
+    "independent_coefficient_rows": [
+      0,
+      1,
+      2
+    ]
+  },
+  "even": {
+    "rank": 3,
+    "pivot_coordinates": [
+      0,
+      15,
+      17
+    ],
+    "echelon_basis": [
+      {
+        "0": "1"
+      },
+      {
+        "15": "1",
+        "60": "1",
+        "27": "1",
+        "39": "1",
+        "57": "1",
+        "54": "1"
+      },
+      {
+        "51": "1",
+        "34": "1",
+        "17": "1"
+      }
+    ],
+    "independent_coefficient_rows": [
+      0,
+      2,
+      4
+    ]
+  },
+  "odd": {
+    "rank": 3,
+    "pivot_coordinates": [
+      0,
+      15,
+      17
+    ],
+    "echelon_basis": [
+      {
+        "51": "-1/6",
+        "0": "1",
+        "17": "-1/6",
+        "34": "-1/6"
+      },
+      {
+        "51": "1",
+        "60": "1",
+        "15": "1",
+        "17": "1",
+        "39": "1",
+        "54": "1",
+        "34": "1",
+        "27": "1",
+        "57": "1"
+      },
+      {
+        "51": "1",
+        "17": "1",
+        "34": "1"
+      }
+    ],
+    "independent_coefficient_rows": [
+      1,
+      3,
+      5
+    ]
+  },
+  "union_support_size": 10,
+  "support_equals_span_dimension": false,
+  "first_support_span_gap": {
+    "degree": 1,
+    "support_size": 10,
+    "span_rank": 2
+  },
+  "coverage": [
+    {
+      "degree": 0,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 1,
+      "even_rank": 1,
+      "odd_rank": 0,
+      "union_support_through_degree7": 1
+    },
+    {
+      "degree": 1,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 2,
+      "even_rank": 1,
+      "odd_rank": 1,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 2,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 2,
+      "odd_rank": 1,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 3,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 2,
+      "odd_rank": 2,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 4,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 2,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 5,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 6,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 7,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 8,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 9,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 10,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 11,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 12,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 13,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 14,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 15,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "union_support_through_degree7": 10
+    }
+  ],
+  "coefficient_rows": [
+    {
+      "degree": 0,
+      "exponents": [
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        1
+      ],
+      "coefficients": {
+        "15": 1,
+        "17": 1,
+        "27": 1,
+        "34": 1,
+        "39": 1,
+        "51": 1,
+        "54": 1,
+        "57": 1,
+        "60": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        2
+      ],
+      "coefficients": {
+        "0": 9,
+        "15": 4,
+        "27": 4,
+        "39": 4,
+        "54": 4,
+        "57": 4,
+        "60": 4
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        3
+      ],
+      "coefficients": {
+        "0": 24,
+        "15": 21,
+        "17": 17,
+        "27": 21,
+        "34": 17,
+        "39": 21,
+        "51": 17,
+        "54": 21,
+        "57": 21,
+        "60": 21
+      }
+    },
+    {
+      "degree": 4,
+      "exponents": [
+        4
+      ],
+      "coefficients": {
+        "0": 177,
+        "15": 104,
+        "17": 32,
+        "27": 104,
+        "34": 32,
+        "39": 104,
+        "51": 32,
+        "54": 104,
+        "57": 104,
+        "60": 104
+      }
+    },
+    {
+      "degree": 5,
+      "exponents": [
+        5
+      ],
+      "coefficients": {
+        "0": 720,
+        "15": 521,
+        "17": 321,
+        "27": 521,
+        "34": 321,
+        "39": 521,
+        "51": 321,
+        "54": 521,
+        "57": 521,
+        "60": 521
+      }
+    },
+    {
+      "degree": 6,
+      "exponents": [
+        6
+      ],
+      "coefficients": {
+        "0": 4089,
+        "15": 2604,
+        "17": 1120,
+        "27": 2604,
+        "34": 1120,
+        "39": 2604,
+        "51": 1120,
+        "54": 2604,
+        "57": 2604,
+        "60": 2604
+      }
+    },
+    {
+      "degree": 7,
+      "exponents": [
+        7
+      ],
+      "coefficients": {
+        "0": 18984,
+        "15": 13021,
+        "17": 7057,
+        "27": 13021,
+        "34": 7057,
+        "39": 13021,
+        "51": 7057,
+        "54": 13021,
+        "57": 13021,
+        "60": 13021
+      }
+    },
+    {
+      "degree": 8,
+      "exponents": [
+        8
+      ],
+      "coefficients": {
+        "0": 99297,
+        "15": 65104,
+        "17": 30912,
+        "27": 65104,
+        "34": 30912,
+        "39": 65104,
+        "51": 30912,
+        "54": 65104,
+        "57": 65104,
+        "60": 65104
+      }
+    },
+    {
+      "degree": 9,
+      "exponents": [
+        9
+      ],
+      "coefficients": {
+        "0": 483360,
+        "15": 325521,
+        "17": 167681,
+        "27": 325521,
+        "34": 167681,
+        "39": 325521,
+        "51": 167681,
+        "54": 325521,
+        "57": 325521,
+        "60": 325521
+      }
+    },
+    {
+      "degree": 10,
+      "exponents": [
+        10
+      ],
+      "coefficients": {
+        "0": 2456169,
+        "15": 1627604,
+        "17": 799040,
+        "27": 1627604,
+        "34": 799040,
+        "39": 1627604,
+        "51": 799040,
+        "54": 1627604,
+        "57": 1627604,
+        "60": 1627604
+      }
+    },
+    {
+      "degree": 11,
+      "exponents": [
+        11
+      ],
+      "coefficients": {
+        "0": 12162744,
+        "15": 8138021,
+        "17": 4113297,
+        "27": 8138021,
+        "34": 4113297,
+        "39": 8138021,
+        "51": 4113297,
+        "54": 8138021,
+        "57": 8138021,
+        "60": 8138021
+      }
+    },
+    {
+      "degree": 12,
+      "exponents": [
+        12
+      ],
+      "coefficients": {
+        "0": 61168017,
+        "15": 40690104,
+        "17": 20212192,
+        "27": 40690104,
+        "34": 20212192,
+        "39": 40690104,
+        "51": 20212192,
+        "54": 40690104,
+        "57": 40690104,
+        "60": 40690104
+      }
+    },
+    {
+      "degree": 13,
+      "exponents": [
+        13
+      ],
+      "coefficients": {
+        "0": 304777200,
+        "15": 203450521,
+        "17": 102123841,
+        "27": 203450521,
+        "34": 102123841,
+        "39": 203450521,
+        "51": 102123841,
+        "54": 203450521,
+        "57": 203450521,
+        "60": 203450521
+      }
+    },
+    {
+      "degree": 14,
+      "exponents": [
+        14
+      ],
+      "coefficients": {
+        "0": 1527074649,
+        "15": 1017252604,
+        "17": 507430560,
+        "27": 1017252604,
+        "34": 507430560,
+        "39": 1017252604,
+        "51": 507430560,
+        "54": 1017252604,
+        "57": 1017252604,
+        "60": 1017252604
+      }
+    },
+    {
+      "degree": 15,
+      "exponents": [
+        15
+      ],
+      "coefficients": {
+        "0": 7625807304,
+        "15": 5086263021,
+        "17": 2546718737,
+        "27": 5086263021,
+        "34": 2546718737,
+        "39": 5086263021,
+        "51": 2546718737,
+        "54": 5086263021,
+        "57": 5086263021,
+        "60": 5086263021
+      }
+    }
+  ],
+  "transpose": {
+    "span_invariant": false,
+    "images": [
+      {
+        "input_pivot": 0,
+        "ambient_image": {
+          "0": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "0": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 15,
+        "ambient_image": {
+          "51": "1",
+          "60": "1",
+          "15": "1",
+          "17": "1",
+          "39": "-1",
+          "54": "-1",
+          "34": "1",
+          "27": "-1",
+          "57": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "15": "1"
+        },
+        "outside_span_remainder": {
+          "39": "-2",
+          "54": "-2",
+          "27": "-2",
+          "57": "-2"
+        }
+      },
+      {
+        "input_pivot": 17,
+        "ambient_image": {
+          "51": "1",
+          "17": "1",
+          "34": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "17": "1"
+        },
+        "outside_span_remainder": {}
+      }
+    ]
+  },
+  "rays": [
+    {
+      "characteristic_polynomial": "x**8 - 36*x**6 + 64*x**5 + 294*x**4 - 1152*x**3 + 1564*x**2 - 960*x + 225",
+      "squarefree_monic_coefficients": [
+        "1",
+        "1",
+        "-17",
+        "15"
+      ],
+      "distinct_eigenvalue_count": 3,
+      "candidate_gamma": "-2/3",
+      "reflection_identity": false,
+      "reflection_defect_coefficients": [
+        "1120/27"
+      ],
+      "beta": [
+        -1
+      ]
+    },
+    {
+      "characteristic_polynomial": "x**8 - 36*x**6 - 64*x**5 + 294*x**4 + 1152*x**3 + 1564*x**2 + 960*x + 225",
+      "squarefree_monic_coefficients": [
+        "1",
+        "-1",
+        "-17",
+        "-15"
+      ],
+      "distinct_eigenvalue_count": 3,
+      "candidate_gamma": "2/3",
+      "reflection_identity": false,
+      "reflection_defect_coefficients": [
+        "-1120/27"
+      ],
+      "beta": [
+        1
+      ]
+    }
+  ],
+  "first_phase_aware_kill": {
+    "characteristic_polynomial": "x**8 - 36*x**6 + 64*x**5 + 294*x**4 - 1152*x**3 + 1564*x**2 - 960*x + 225",
+    "squarefree_monic_coefficients": [
+      "1",
+      "1",
+      "-17",
+      "15"
+    ],
+    "distinct_eigenvalue_count": 3,
+    "candidate_gamma": "-2/3",
+    "reflection_identity": false,
+    "reflection_defect_coefficients": [
+      "1120/27"
+    ],
+    "beta": [
+      -1
+    ]
+  },
+  "claim_status": "exact-finite",
+  "amplitude_condition_unclosed": "Dagger/star killed by exact non-symmetric ray; independent all-domain family amplitude lemma must apply.",
+  "limitations": "No support-union rank substitution. Degree7 CH applies full span only; parity uses CH of H\u00b2 through14/15. Independent graded closure not inferred."
+}

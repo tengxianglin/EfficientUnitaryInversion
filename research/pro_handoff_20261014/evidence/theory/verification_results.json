@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "scope": "independent exact and complex128 checks of claims extracted from the 2026-09-07 audio/manuscript",
+  "conventions": {
+    "qubit_order": "left-to-right q0 tensor ... tensor q(n-1)",
+    "pauli": "P(x|z)=i^(x.z) X^x Z^z",
+    "transpose": "ordinary matrix transpose",
+    "dagger": "conjugate transpose",
+    "star": "entrywise complex conjugation",
+    "random_seed": 20260907,
+    "dtype": "complex128",
+    "tolerance": 2e-13
+  },
+  "seven_generator_family": {
+    "status": "VERIFIED",
+    "support": [
+      "YXX",
+      "IYX",
+      "YZX",
+      "IIY",
+      "YIZ",
+      "XYZ",
+      "ZYZ"
+    ],
+    "gf2_rank": 6,
+    "unique_relation": "xor(Gamma_1,...,Gamma_7)=0",
+    "common_anticommuting_paulis": 0,
+    "character_sums": [
+      -5,
+      -1,
+      3,
+      7
+    ],
+    "lambda": "4/3",
+    "kraus_amplitude": "3/4",
+    "success_probability": "9/16",
+    "random_trials": 32,
+    "max_h_squared_residual": 9.085933854892943e-15,
+    "max_ut_equals_udagger_residual": 9.525724650651812e-15,
+    "max_lcu_identity_residual": 9.099754335233484e-15,
+    "max_success_operator_residual": 1.7314843201649673e-15,
+    "explicit_ancilla_circuit_block_residual": 2.827263080910571e-15
+  },
+  "general_clifford_inversion_family": {
+    "status": "VERIFIED_NEW_PROJECT_LEVEL_GENERALIZATION",
+    "identity": "U^dagger=(-U+sum_j Gamma_j U Gamma_j)/(m-1)",
+    "hypotheses": "real H coefficients and pairwise anticommuting Hermitian involutions Gamma_j, m>1",
+    "maximal_pauli_frame_corollary": {
+      "m": "2n+1",
+      "lambda": "(n+1)/n",
+      "branches": "2n+2",
+      "success_probability": "[n/(n+1)]^2",
+      "ancillas_standard": "ceil(log2(2n+2))",
+      "query_resource": "K=P=Q=1, postselected"
+    },
+    "optimality_scope": "exact within the one-query Pauli-conjugation LCU dictionary on span{I,Gamma_j}",
+    "transpose_boundary": "odd Y parity is needed for U^T=U^dagger, not for the dagger identity itself",
+    "frames_n1_to_n5": [
+      {
+        "n": 1,
+        "m": 3,
+        "support": [
+          "X",
+          "Y",
+          "Z"
+        ],
+        "gf2_rank": 2,
+        "unique_odd_relation": "xor(all frame labels)=0",
+        "y_parities": [
+          0,
+          1,
+          0
+        ],
+        "lambda": "2",
+        "success_probability": "1/4",
+        "random_trials": 8,
+        "max_identity_residual": 1.2409670270757026e-15
+      },
+      {
+        "n": 2,
+        "m": 5,
+        "support": [
+          "XI",
+          "YI",
+          "ZX",
+          "ZY",
+          "ZZ"
+        ],
+        "gf2_rank": 4,
+        "unique_odd_relation": "xor(all frame labels)=0",
+        "y_parities": [
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "lambda": "3/2",
+        "success_probability": "4/9",
+        "random_trials": 8,
+        "max_identity_residual": 2.2885204265022498e-15
+      },
+      {
+        "n": 3,
+        "m": 7,
+        "support": [
+          "XII",
+          "YII",
+          "ZXI",
+          "ZYI",
+          "ZZX",
+          "ZZY",
+          "ZZZ"
+        ],
+        "gf2_rank": 6,
+        "unique_odd_relation": "xor(all frame labels)=0",
+        "y_parities": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "lambda": "4/3",
+        "success_probability": "9/16",
+        "random_trials": 8,
+        "max_identity_residual": 6.448528500227191e-15
+      },
+      {
+        "n": 4,
+        "m": 9,
+        "support": [
+          "XIII",
+          "YIII",
+          "ZXII",
+          "ZYII",
+          "ZZXI",
+          "ZZYI",
+          "ZZZX",
+          "ZZZY",
+          "ZZZZ"
+        ],
+        "gf2_rank": 8,
+        "unique_odd_relation": "xor(all frame labels)=0",
+        "y_parities": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "lambda": "5/4",
+        "success_probability": "16/25",
+        "random_trials": 8,
+        "max_identity_residual": 1.244949641784032e-14
+      },
+      {
+        "n": 5,
+        "m": 11,
+        "support": [
+          "XIIII",
+          "YIIII",
+          "ZXIII",
+          "ZYIII",
+          "ZZXII",
+          "ZZYII",
+          "ZZZXI",
+          "ZZZYI",
+          "ZZZZX",
+          "ZZZZY",
+          "ZZZZZ"
+        ],
+        "gf2_rank": 10,
+        "unique_odd_relation": "xor(all frame labels)=0",
+        "y_parities": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "lambda": "6/5",
+        "success_probability": "25/36",
+        "random_trials": 4,
+        "max_identity_residual": 1.5426544448737737e-14
+      }
+    ],
+    "global_max_dense_residual": 1.5426544448737737e-14
+  },
+  "pairwise_frame_optimality_dichotomy": {
+    "status": "VERIFIED",
+    "theorem": "For pairwise-anticommuting Pauli labels, the relation kernel is either empty or the all-ones vector. Independent labels admit a common anticommuting Pauli and Lambda=1; the unique odd relation forbids it and gives Lambda=(m+1)/(m-1).",
+    "scope": "one-query Pauli-conjugation LCU on span{I,Gamma_j}",
+    "representative_exact_cases": [
+      {
+        "n": 2,
+        "m": 2,
+        "gf2_rank": 2,
+        "dependent_unique_odd_relation": false,
+        "common_anticommuting_paulis": 4,
+        "lambda_optimum": "1"
+      },
+      {
+        "n": 2,
+        "m": 3,
+        "gf2_rank": 3,
+        "dependent_unique_odd_relation": false,
+        "common_anticommuting_paulis": 2,
+        "lambda_optimum": "1"
+      },
+      {
+        "n": 2,
+        "m": 5,
+        "gf2_rank": 4,
+        "dependent_unique_odd_relation": true,
+        "common_anticommuting_paulis": 0,
+        "lambda_optimum": "3/2"
+      },
+      {
+        "n": 3,
+        "m": 3,
+        "gf2_rank": 2,
+        "dependent_unique_odd_relation": true,
+        "common_anticommuting_paulis": 0,
+        "lambda_optimum": "2"
+      },
+      {
+        "n": 3,
+        "m": 4,
+        "gf2_rank": 4,
+        "dependent_unique_odd_relation": false,
+        "common_anticommuting_paulis": 4,
+        "lambda_optimum": "1"
+      },
+      {
+        "n": 3,
+        "m": 5,
+        "gf2_rank": 5,
+        "dependent_unique_odd_relation": false,
+        "common_anticommuting_paulis": 2,
+        "lambda_optimum": "1"
+      },
+      {
+        "n": 3,
+        "m": 7,
+        "gf2_rank": 6,
+        "dependent_unique_odd_relation": true,
+        "common_anticommuting_paulis": 0,
+        "lambda_optimum": "4/3"
+      }
+    ]
+  },
+  "diagonal_sign_maps": {
+    "status": "VERIFIED_WITH_NOVELTY_BOUNDARY",
+    "classification": [
+      {
+        "n": 1,
+        "type": "linear",
+        "affine_dimension": 2,
+        "number_of_maps": 4
+      },
+      {
+        "n": 1,
+        "type": "quadratic_refinement",
+        "affine_dimension": 2,
+        "number_of_maps": 4
+      },
+      {
+        "n": 2,
+        "type": "linear",
+        "affine_dimension": 4,
+        "number_of_maps": 16
+      },
+      {
+        "n": 2,
+        "type": "quadratic_refinement",
+        "affine_dimension": 4,
+        "number_of_maps": 16
+      },
+      {
+        "n": 3,
+        "type": "linear",
+        "affine_dimension": 6,
+        "number_of_maps": 64
+      },
+      {
+        "n": 3,
+        "type": "quadratic_refinement",
+        "affine_dimension": 6,
+        "number_of_maps": 64
+      }
+    ],
+    "theorem": {
+      "linear_signs": "r(v)=ell(v): complex-linear automorphisms or conjugate-linear anti-automorphisms",
+      "quadratic_signs": "r(v)=q(v)+ell(v): complex-linear anti-automorphisms or conjugate-linear automorphisms"
+    },
+    "literal_odd_x_rule": {
+      "identity": "r_X(v)=q(v)+parity(x)=sign of Ad[Z^tensor n] after transpose",
+      "map": "F_X(M)=Z^tensor n M^T Z^tensor n",
+      "dual": "G_X(F_X(M))=M^dagger with G_X(N)=Z^tensor n N^* Z^tensor n",
+      "dense_checks": [
+        {
+          "n": 1,
+          "max_residual": 3.2487068343022356e-16
+        },
+        {
+          "n": 2,
+          "max_residual": 2.4939894443226933e-15
+        },
+        {
+          "n": 3,
+          "max_residual": 1.5954507478758854e-14
+        }
+      ],
+      "pauli_lcu_cost_invariance": {
+        "status": "VERIFIED",
+        "reason": "multiplying the transpose target by a Pauli character only permutes LCU coefficient columns",
+        "exact_checks": [
+          {
+            "n": 1,
+            "characters_checked": 4
+          },
+          {
+            "n": 2,
+            "characters_checked": 16
+          },
+          {
+            "n": 3,
+            "characters_checked": 64
+          }
+        ]
+      },
+      "boundary": "This is a Pauli-conjugated transpose/star pair, not a new full-algebra map class."
+    }
+  },
+  "commuting_product_deletion": {
+    "status": "DISPROVED_AS_GENERAL_ENVELOPE_OR_DAGGER_EQUIVALENCE",
+    "cumulative_envelope_counterexample": {
+      "full_support": [
+        "XI",
+        "IX",
+        "XX",
+        "ZI",
+        "IZ"
+      ],
+      "reduced_support": [
+        "XI",
+        "IX",
+        "ZI",
+        "IZ"
+      ],
+      "commuting_product_relation": "XX = XI * IX",
+      "full_degree_dimensions": [
+        1,
+        5,
+        7,
+        9
+      ],
+      "reduced_degree_dimensions": [
+        1,
+        4,
+        5,
+        4
+      ],
+      "full_envelope_dimension": 10,
+      "reduced_envelope_dimension": 9,
+      "coordinate_lost_by_deletion": "YY"
+    },
+    "heisenberg_two_site_graded_counterexample": {
+      "full_support": [
+        "XX",
+        "YY",
+        "ZZ"
+      ],
+      "reduced_support": [
+        "XX",
+        "YY"
+      ],
+      "same_phase_free_span": true,
+      "same_ungraded_commuting_envelope": [
+        "II",
+        "XX",
+        "YY",
+        "ZZ"
+      ],
+      "full_E1_intersect_E2": [
+        "XX",
+        "YY",
+        "ZZ"
+      ],
+      "reduced_E1_intersect_E2": [],
+      "full_common_anticommuting_paulis": 0,
+      "reduced_common_anticommuting_examples": [
+        "ZI",
+        "YX",
+        "IZ",
+        "XY"
+      ],
+      "transpose_action": "identity on both families because all coordinates have even Y parity"
+    },
+    "conclusion": "Deleting a commuting product can change even the cumulative exponential envelope; when it happens to preserve that envelope, it can still change graded parity and fixed-scalar one-query dagger feasibility.",
+    "dagger_scope": "one forward query, fixed parameter-independent gates, a clean successful block, and one fixed nonzero success scalar",
+    "heisenberg_chain_canonical_ranks": [
+      {
+        "sites": 2,
+        "phase_free_rank": 2,
+        "symplectic_rank": 0,
+        "radical_dimension": 2,
+        "active_logical_qubits": 0,
+        "abstract_pauli_algebra": "direct_sum_4(M_1(C))"
+      },
+      {
+        "sites": 3,
+        "phase_free_rank": 4,
+        "symplectic_rank": 4,
+        "radical_dimension": 0,
+        "active_logical_qubits": 2,
+        "abstract_pauli_algebra": "M_4(C)"
+      },
+      {
+        "sites": 4,
+        "phase_free_rank": 6,
+        "symplectic_rank": 4,
+        "radical_dimension": 2,
+        "active_logical_qubits": 2,
+        "abstract_pauli_algebra": "direct_sum_4(M_4(C))"
+      },
+      {
+        "sites": 5,
+        "phase_free_rank": 8,
+        "symplectic_rank": 8,
+        "radical_dimension": 0,
+        "active_logical_qubits": 4,
+        "abstract_pauli_algebra": "M_16(C)"
+      },
+      {
+        "sites": 6,
+        "phase_free_rank": 10,
+        "symplectic_rank": 8,
+        "radical_dimension": 2,
+        "active_logical_qubits": 4,
+        "abstract_pauli_algebra": "direct_sum_4(M_16(C))"
+      },
+      {
+        "sites": 7,
+        "phase_free_rank": 12,
+        "symplectic_rank": 12,
+        "radical_dimension": 0,
+        "active_logical_qubits": 6,
+        "abstract_pauli_algebra": "M_64(C)"
+      },
+      {
+        "sites": 8,
+        "phase_free_rank": 14,
+        "symplectic_rank": 12,
+        "radical_dimension": 2,
+        "active_logical_qubits": 6,
+        "abstract_pauli_algebra": "direct_sum_4(M_64(C))"
+      },
+      {
+        "sites": 9,
+        "phase_free_rank": 16,
+        "symplectic_rank": 16,
+        "radical_dimension": 0,
+        "active_logical_qubits": 8,
+        "abstract_pauli_algebra": "M_256(C)"
+      },
+      {
+        "sites": 10,
+        "phase_free_rank": 18,
+        "symplectic_rank": 16,
+        "radical_dimension": 2,
+        "active_logical_qubits": 8,
+        "abstract_pauli_algebra": "direct_sum_4(M_256(C))"
+      }
+    ],
+    "chain_boundary": "For a chain with m edges, the XX/ZZ generator Gram rank is 2*rank(A_path_m): full when m is even and deficient by two when m is odd. A uniform m-logical-qubit compression therefore needs a center-sector caveat."
+  }
+}

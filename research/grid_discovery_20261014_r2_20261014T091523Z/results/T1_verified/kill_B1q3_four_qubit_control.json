@@ -1,0 +1,43 @@
+{
+  "kill_criterion": {
+    "Bmask": 1,
+    "qmask": 3,
+    "rank": 2,
+    "radical": [
+      0,
+      4,
+      8,
+      12
+    ],
+    "q_on_radical": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gauss_sum": -8,
+    "allowed_n3": false,
+    "reason": "forbidden_rank2_minus_quotient"
+  },
+  "four_qubit_control": {
+    "seeds": [
+      "YIII",
+      "ZYII",
+      "IIXI",
+      "IIIX"
+    ],
+    "grid": [
+      "YIII",
+      "ZYII",
+      "XYII",
+      "IIXI",
+      "IIIX",
+      "IIXX",
+      "YIXI",
+      "ZYIX",
+      "XYXX"
+    ],
+    "observed_Bmask": 1,
+    "observed_qmask": 3
+  }
+}

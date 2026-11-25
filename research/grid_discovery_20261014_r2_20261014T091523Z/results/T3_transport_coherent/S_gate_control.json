@@ -1,0 +1,7 @@
+{
+  "C": "diag(1,i)",
+  "theta": 0.37,
+  "naive_transpose_residual": 1.022802896496509,
+  "corrected_transpose_residual": 0.0,
+  "expected": "naive fails; target-aware passes"
+}

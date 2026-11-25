@@ -1,0 +1,1 @@
+["python", "./code/diagnose_t4_equality.py"]

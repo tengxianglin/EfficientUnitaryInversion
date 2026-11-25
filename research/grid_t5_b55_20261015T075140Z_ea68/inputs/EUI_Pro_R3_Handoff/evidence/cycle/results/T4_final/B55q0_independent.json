@@ -1,0 +1,3345 @@
+{
+  "schema": "tied-span-v1",
+  "grid_name": "B55q0",
+  "constraint": "independent",
+  "grid": [
+    [
+      "XII",
+      "ZII",
+      "YII"
+    ],
+    [
+      "ZXI",
+      "YIY",
+      "XXY"
+    ],
+    [
+      "YXI",
+      "XIY",
+      "ZXY"
+    ]
+  ],
+  "C": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "coordinates": "64 Hermitian Pauli IXYZ base4; gaussian integer coefficients imaginary part proved zero by exact recurrence",
+  "full_degree_bound": 3,
+  "graded_degree_bound": null,
+  "independent_graded_status": "not_claimed",
+  "full": {
+    "rank": 16,
+    "pivot_coordinates": [
+      0,
+      2,
+      4,
+      6,
+      16,
+      18,
+      20,
+      22,
+      32,
+      34,
+      36,
+      38,
+      48,
+      50,
+      52,
+      54
+    ],
+    "echelon_basis": [
+      {
+        "0": "1"
+      },
+      {
+        "2": "1"
+      },
+      {
+        "4": "1"
+      },
+      {
+        "6": "1"
+      },
+      {
+        "16": "1"
+      },
+      {
+        "18": "1"
+      },
+      {
+        "20": "1"
+      },
+      {
+        "22": "1"
+      },
+      {
+        "32": "1"
+      },
+      {
+        "34": "1"
+      },
+      {
+        "36": "1"
+      },
+      {
+        "38": "1"
+      },
+      {
+        "48": "1"
+      },
+      {
+        "50": "1"
+      },
+      {
+        "52": "1"
+      },
+      {
+        "54": "1"
+      }
+    ],
+    "independent_coefficient_rows": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      13,
+      15,
+      17,
+      38,
+      49,
+      51
+    ]
+  },
+  "even": {
+    "rank": 4,
+    "pivot_coordinates": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "echelon_basis": [
+      {
+        "0": "1"
+      },
+      {
+        "2": "1"
+      },
+      {
+        "4": "1"
+      },
+      {
+        "6": "1"
+      }
+    ],
+    "independent_coefficient_rows": [
+      0,
+      13,
+      15,
+      17
+    ]
+  },
+  "odd": {
+    "rank": 12,
+    "pivot_coordinates": [
+      16,
+      18,
+      20,
+      22,
+      32,
+      34,
+      36,
+      38,
+      48,
+      50,
+      52,
+      54
+    ],
+    "echelon_basis": [
+      {
+        "16": "1"
+      },
+      {
+        "18": "1"
+      },
+      {
+        "20": "1"
+      },
+      {
+        "22": "1"
+      },
+      {
+        "32": "1"
+      },
+      {
+        "34": "1"
+      },
+      {
+        "36": "1"
+      },
+      {
+        "38": "1"
+      },
+      {
+        "48": "1"
+      },
+      {
+        "50": "1"
+      },
+      {
+        "52": "1"
+      },
+      {
+        "54": "1"
+      }
+    ],
+    "independent_coefficient_rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      38,
+      49,
+      51
+    ]
+  },
+  "union_support_size": 16,
+  "support_equals_span_dimension": true,
+  "first_support_span_gap": null,
+  "coverage": [
+    {
+      "degree": 0,
+      "nonzero_monomials": 1,
+      "full_rank_through_degree7": 1,
+      "even_rank": 1,
+      "odd_rank": 0,
+      "union_support_through_degree7": 1
+    },
+    {
+      "degree": 1,
+      "nonzero_monomials": 9,
+      "full_rank_through_degree7": 10,
+      "even_rank": 1,
+      "odd_rank": 9,
+      "union_support_through_degree7": 10
+    },
+    {
+      "degree": 2,
+      "nonzero_monomials": 18,
+      "full_rank_through_degree7": 13,
+      "even_rank": 4,
+      "odd_rank": 9,
+      "union_support_through_degree7": 13
+    },
+    {
+      "degree": 3,
+      "nonzero_monomials": 138,
+      "full_rank_through_degree7": 16,
+      "even_rank": 4,
+      "odd_rank": 12,
+      "union_support_through_degree7": 16
+    }
+  ],
+  "coefficient_rows": [
+    {
+      "degree": 0,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 1,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "4": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "6": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "2": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "4": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "2": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "6": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "4": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "2": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "6": 2
+      }
+    },
+    {
+      "degree": 2,
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "0": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coefficients": {
+        "50": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "22": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "coefficients": {
+        "32": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficients": {
+        "48": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficients": {
+        "20": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "38": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "52": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficients": {
+        "16": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficients": {
+        "38": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "20": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "48": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "32": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "50": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficients": {
+        "50": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficients": {
+        "22": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "36": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "18": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "52": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "16": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "38": 6
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "20": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "34": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "54": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "48": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficients": {
+        "20": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coefficients": {
+        "34": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "16": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "52": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "36": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "54": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "50": 6
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "22": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "18": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "38": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "38": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "50": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coefficients": {
+        "52": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coefficients": {
+        "16": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coefficients": {
+        "38": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "48": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "20": 6
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "32": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "18": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "54": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "50": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "34": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "20": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "38": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "18": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "22": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "50": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "54": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "20": 2
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coefficients": {
+        "54": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coefficients": {
+        "18": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coefficients": {
+        "36": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "22": 3
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "34": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "52": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "32": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "48": 1
+      }
+    },
+    {
+      "degree": 3,
+      "exponents": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coefficients": {
+        "16": 1
+      }
+    }
+  ],
+  "transpose": {
+    "span_invariant": true,
+    "images": [
+      {
+        "input_pivot": 0,
+        "ambient_image": {
+          "0": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "0": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 2,
+        "ambient_image": {
+          "2": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "2": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 4,
+        "ambient_image": {
+          "4": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "4": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 6,
+        "ambient_image": {
+          "6": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "6": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 16,
+        "ambient_image": {
+          "16": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "16": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 18,
+        "ambient_image": {
+          "18": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "18": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 20,
+        "ambient_image": {
+          "20": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "20": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 22,
+        "ambient_image": {
+          "22": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "22": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 32,
+        "ambient_image": {
+          "32": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "32": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 34,
+        "ambient_image": {
+          "34": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "34": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 36,
+        "ambient_image": {
+          "36": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "36": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 38,
+        "ambient_image": {
+          "38": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "38": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 48,
+        "ambient_image": {
+          "48": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "48": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 50,
+        "ambient_image": {
+          "50": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "50": "-1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 52,
+        "ambient_image": {
+          "52": "1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "52": "1"
+        },
+        "outside_span_remainder": {}
+      },
+      {
+        "input_pivot": 54,
+        "ambient_image": {
+          "54": "-1"
+        },
+        "image_coordinates_in_echelon_basis": {
+          "54": "-1"
+        },
+        "outside_span_remainder": {}
+      }
+    ]
+  },
+  "rays": [],
+  "first_phase_aware_kill": null,
+  "claim_status": "exact-finite",
+  "amplitude_condition_unclosed": "Finite ray passes alone establish no instrument. For these B55 subfamilies, the enclosing independent family already supplies star p1 and dagger p1/4 after T2/T3 verification. Improved probabilities or alternative phase-dependent instruments require global cross-direction amplitude compatibility and CP comb certificates.",
+  "limitations": "No support-union rank substitution. Degree7 CH applies full span only; parity uses CH of H\u00b2 through14/15. Independent graded closure not inferred."
+}

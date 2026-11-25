@@ -1,0 +1,16 @@
+........................................................................ [ 94%]
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+______________ test_calibration_controls_not_in_proper_population ______________
+
+    def test_calibration_controls_not_in_proper_population():
+        c=json.loads((ROOT/'results/exact/calibration.json').read_text())
+        # Inspect the recorded flags; do not rename custom_S1 to frozen S1.
+>       if isinstance(c,dict):c=c['cases']
+                                ^^^^^^^^^^
+E       KeyError: 'cases'
+
+tests/test_grid.py:91: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_grid.py::test_calibration_controls_not_in_proper_population - KeyError: 'cases'
+1 failed, 75 passed in 2.31s

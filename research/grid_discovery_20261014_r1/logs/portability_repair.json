@@ -1,0 +1,7 @@
+{
+  "reason": "Original summary metadata assumed input ZIP is adjacent to extracted directory. Repository frozen directory need not have that archive. Make ZIP hash optional, always hash frozen manifest. No algebra code changed.",
+  "old_sha256": "dae4b00abc363e6648143c52643e8079ad8f004f929b4adcd6665bce24e60bd1",
+  "new_sha256": "662c351092f2e3aef502cebafc2bb9295d1217f2c907369756e450009706f718",
+  "old_executed_source": "logs/source_versions/grid_check_initial.py",
+  "verification": "fresh portable rerun recorded separately"
+}

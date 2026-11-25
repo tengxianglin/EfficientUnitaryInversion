@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_SAVED_ARTIFACT_REPLAY",
+  "encodings": 37,
+  "circuit_samples": 90,
+  "nontrivial_center_permutations": 13,
+  "max_replay_residual": 9.200381974040506e-16,
+  "artifacts_sha256_checked": true,
+  "authoritative_transport": "results/T3_transport_verified",
+  "authoritative_circuits": "results/T3_circuits_streamed"
+}

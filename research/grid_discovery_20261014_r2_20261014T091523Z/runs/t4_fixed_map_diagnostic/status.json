@@ -1,0 +1,33 @@
+{
+  "run_id": "t4_fixed_map_diagnostic",
+  "group": "T4",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:23:43.555998+00:00",
+  "end_utc": "2026-10-14T09:23:44.172299+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "./code/t4_fixed_map.py",
+    "--input",
+    "./results/T4",
+    "--output",
+    "./results/T4_fixed_maps.json"
+  ],
+  "cpu_seconds": 0.5806330000000001,
+  "wall_seconds": 0.6163245653733611,
+  "budget": {
+    "group_cpu_seconds": 480,
+    "remaining_before": 474.122742,
+    "ram_mib": 2048,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/t4_fixed_map_diagnostic/stdout.txt",
+    "runs/t4_fixed_map_diagnostic/stderr.txt",
+    "runs/t4_fixed_map_diagnostic/command.txt",
+    "runs/t4_fixed_map_diagnostic/environment.txt"
+  ]
+}

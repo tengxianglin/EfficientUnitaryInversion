@@ -1,0 +1,29 @@
+{
+  "run_id": "r1_frozen_verify",
+  "group": "R1",
+  "host": "quair07-local",
+  "device": "CPU",
+  "start_utc": "2026-10-14T09:17:20.678337+00:00",
+  "end_utc": "2026-10-14T09:17:21.998427+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "../research/pro_handoff_20261014/verify_bundle.py"
+  ],
+  "cpu_seconds": 0.02923,
+  "wall_seconds": 1.3201121082529426,
+  "budget": {
+    "group_cpu_seconds": 120,
+    "remaining_before": 120,
+    "ram_mib": 1024,
+    "concurrency": 1,
+    "gpu": 0
+  },
+  "artifact_paths": [
+    "runs/r1_frozen_verify/stdout.txt",
+    "runs/r1_frozen_verify/stderr.txt",
+    "runs/r1_frozen_verify/command.txt",
+    "runs/r1_frozen_verify/environment.txt"
+  ]
+}

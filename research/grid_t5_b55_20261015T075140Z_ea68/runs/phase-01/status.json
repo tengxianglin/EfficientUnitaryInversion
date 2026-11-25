@@ -1,0 +1,30 @@
+{
+  "run_id": "phase-01",
+  "group": "phase",
+  "state": "completed",
+  "exit_code": 0,
+  "command": [
+    "python",
+    "code/t5_phase_control.py",
+    "--output",
+    "results/T5_phase"
+  ],
+  "host": "quair07-System-Product-Name",
+  "device": "CPU",
+  "start_utc": "2026-10-15T07:57:07.608602+00:00",
+  "end_utc": "2026-10-15T07:57:07.813194+00:00",
+  "cpu_seconds": 0.20206999999999997,
+  "wall_seconds": 0.20457315724343061,
+  "max_rss_kib": 51832,
+  "disk_bytes": 11311693,
+  "budget": {
+    "cpu_remaining": 40,
+    "wall_remaining": 100,
+    "address_space_bytes": 2147483648,
+    "disk_bytes": 100663296
+  },
+  "reason": "",
+  "artifact_paths": [
+    "runs/phase-01"
+  ]
+}

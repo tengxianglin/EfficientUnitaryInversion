@@ -1,0 +1,611 @@
+{
+  "status": "COMPLETED",
+  "cases": [
+    {
+      "n": 2,
+      "boundary": "open",
+      "axes": "XYZ",
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "support": [
+        "XX",
+        "YY",
+        "ZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "FIXED_AMPLITUDE_LINEAR_OBSTRUCTION",
+      "matrix_sha256": "acdd15a170da7f553481c436e1424b0ef528b5ffb64b8b07deade1a0410cc0de",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "2",
+        "-3"
+      ],
+      "minimal_polynomial_degree": 2,
+      "exact_annihilation": true,
+      "mixed_parity": true,
+      "even_odd_overlap_entry": {
+        "row": 0,
+        "column": 0,
+        "value": "-2"
+      },
+      "common_anticommuting_pauli_count": 0,
+      "pauli_witness": null,
+      "binary_rank": 2,
+      "symplectic_rank": 0,
+      "radical_dimension": 2,
+      "numerical_corroboration": null,
+      "elapsed_seconds": 0.00105468207038939
+    },
+    {
+      "n": 2,
+      "boundary": "open",
+      "axes": "XZ",
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "support": [
+        "XX",
+        "ZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "EXACT_DETERMINISTIC_PAULI_INVERTER",
+      "matrix_sha256": "a47a9f075e48cda96d1c8aa298d48f39cc212228b1cff8ea48c8d0d7ad10a3b5",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "0",
+        "-4",
+        "0"
+      ],
+      "minimal_polynomial_degree": 3,
+      "exact_annihilation": true,
+      "mixed_parity": false,
+      "even_odd_overlap_entry": null,
+      "common_anticommuting_pauli_count": 4,
+      "pauli_witness": "IY",
+      "binary_rank": 2,
+      "symplectic_rank": 0,
+      "radical_dimension": 2,
+      "numerical_corroboration": {
+        "seed": 20260909,
+        "trials": 17,
+        "dtype": "complex128",
+        "tolerance": 1e-12,
+        "max_dagger_residual_frobenius": 0.0
+      },
+      "elapsed_seconds": 0.0020127149764448404
+    },
+    {
+      "n": 3,
+      "boundary": "open",
+      "axes": "XYZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "support": [
+        "XXI",
+        "YYI",
+        "ZZI",
+        "IXX",
+        "IYY",
+        "IZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "FIXED_AMPLITUDE_LINEAR_OBSTRUCTION",
+      "matrix_sha256": "b6ee69773fb21258fd131330298dde05c8e610baa6af7341ff07b69522dc083e",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "2",
+        "-8",
+        "0"
+      ],
+      "minimal_polynomial_degree": 3,
+      "exact_annihilation": true,
+      "mixed_parity": true,
+      "even_odd_overlap_entry": {
+        "row": 0,
+        "column": 0,
+        "value": "8"
+      },
+      "common_anticommuting_pauli_count": 0,
+      "pauli_witness": null,
+      "binary_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 0,
+      "numerical_corroboration": null,
+      "elapsed_seconds": 0.0020687931682914495
+    },
+    {
+      "n": 3,
+      "boundary": "open",
+      "axes": "XZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "support": [
+        "XXI",
+        "ZZI",
+        "IXX",
+        "IZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "EXACT_DETERMINISTIC_PAULI_INVERTER",
+      "matrix_sha256": "f5453e291abda65f6d35fb461f6d6882f79ee61ee9a19951569e1090d57342a4",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "0",
+        "-8",
+        "0"
+      ],
+      "minimal_polynomial_degree": 3,
+      "exact_annihilation": true,
+      "mixed_parity": false,
+      "even_odd_overlap_entry": null,
+      "common_anticommuting_pauli_count": 4,
+      "pauli_witness": "IYI",
+      "binary_rank": 4,
+      "symplectic_rank": 4,
+      "radical_dimension": 0,
+      "numerical_corroboration": {
+        "seed": 20260909,
+        "trials": 17,
+        "dtype": "complex128",
+        "tolerance": 1e-12,
+        "max_dagger_residual_frobenius": 6.2689262385472375e-15
+      },
+      "elapsed_seconds": 0.0046599439810961485
+    },
+    {
+      "n": 4,
+      "boundary": "open",
+      "axes": "XYZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "support": [
+        "XXII",
+        "YYII",
+        "ZZII",
+        "IXXI",
+        "IYYI",
+        "IZZI",
+        "IIXX",
+        "IIYY",
+        "IIZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "FIXED_AMPLITUDE_LINEAR_OBSTRUCTION",
+      "matrix_sha256": "220c9284c62f7ab8f44fb74b568e1bf18bbd721df025f98e8ee73c35690c32c4",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "6",
+        "-17",
+        "-76",
+        "111",
+        "102",
+        "-63"
+      ],
+      "minimal_polynomial_degree": 6,
+      "exact_annihilation": true,
+      "mixed_parity": true,
+      "even_odd_overlap_entry": {
+        "row": 0,
+        "column": 0,
+        "value": "288"
+      },
+      "common_anticommuting_pauli_count": 0,
+      "pauli_witness": null,
+      "binary_rank": 6,
+      "symplectic_rank": 4,
+      "radical_dimension": 2,
+      "numerical_corroboration": null,
+      "elapsed_seconds": 0.005953514017164707
+    },
+    {
+      "n": 4,
+      "boundary": "open",
+      "axes": "XZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "support": [
+        "XXII",
+        "ZZII",
+        "IXXI",
+        "IZZI",
+        "IIXX",
+        "IIZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "EXACT_DETERMINISTIC_PAULI_INVERTER",
+      "matrix_sha256": "5408fac0516dab66c57f4fc9f02b639844fc14699fb613f6974c3cbd56d4d15e",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "0",
+        "-36",
+        "0",
+        "384",
+        "0",
+        "-1344",
+        "0",
+        "1280",
+        "0"
+      ],
+      "minimal_polynomial_degree": 9,
+      "exact_annihilation": true,
+      "mixed_parity": false,
+      "even_odd_overlap_entry": null,
+      "common_anticommuting_pauli_count": 4,
+      "pauli_witness": "IYIY",
+      "binary_rank": 6,
+      "symplectic_rank": 4,
+      "radical_dimension": 2,
+      "numerical_corroboration": {
+        "seed": 20260909,
+        "trials": 17,
+        "dtype": "complex128",
+        "tolerance": 1e-12,
+        "max_dagger_residual_frobenius": 9.871859364291288e-15
+      },
+      "elapsed_seconds": 0.010690436931326985
+    },
+    {
+      "n": 5,
+      "boundary": "open",
+      "axes": "XYZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "support": [
+        "XXIII",
+        "YYIII",
+        "ZZIII",
+        "IXXII",
+        "IYYII",
+        "IZZII",
+        "IIXXI",
+        "IIYYI",
+        "IIZZI",
+        "IIIXX",
+        "IIIYY",
+        "IIIZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "FIXED_AMPLITUDE_LINEAR_OBSTRUCTION",
+      "matrix_sha256": "a67233f8ec8cdb9fa1ea61ca0c5a2ce561aaa242d5b490e4f040381667660874",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "8",
+        "-36",
+        "-288",
+        "512",
+        "3328",
+        "-3648",
+        "-13824",
+        "12544",
+        "14336",
+        "-12288"
+      ],
+      "minimal_polynomial_degree": 10,
+      "exact_annihilation": true,
+      "mixed_parity": true,
+      "even_odd_overlap_entry": {
+        "row": 0,
+        "column": 0,
+        "value": "40960"
+      },
+      "common_anticommuting_pauli_count": 0,
+      "pauli_witness": null,
+      "binary_rank": 8,
+      "symplectic_rank": 8,
+      "radical_dimension": 0,
+      "numerical_corroboration": null,
+      "elapsed_seconds": 0.020066594937816262
+    },
+    {
+      "n": 5,
+      "boundary": "open",
+      "axes": "XZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "support": [
+        "XXIII",
+        "ZZIII",
+        "IXXII",
+        "IZZII",
+        "IIXXI",
+        "IIZZI",
+        "IIIXX",
+        "IIIZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "EXACT_DETERMINISTIC_PAULI_INVERTER",
+      "matrix_sha256": "a0119af50ea24cf6cdea906c9b55f7d443a2df11aca4930ad31150220b01fe21",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "0",
+        "-48",
+        "0",
+        "624",
+        "0",
+        "-2560",
+        "0",
+        "3072",
+        "0"
+      ],
+      "minimal_polynomial_degree": 9,
+      "exact_annihilation": true,
+      "mixed_parity": false,
+      "even_odd_overlap_entry": null,
+      "common_anticommuting_pauli_count": 4,
+      "pauli_witness": "IYIYI",
+      "binary_rank": 8,
+      "symplectic_rank": 8,
+      "radical_dimension": 0,
+      "numerical_corroboration": {
+        "seed": 20260909,
+        "trials": 17,
+        "dtype": "complex128",
+        "tolerance": 1e-12,
+        "max_dagger_residual_frobenius": 3.8927193185700424e-14
+      },
+      "elapsed_seconds": 0.037347589852288365
+    },
+    {
+      "n": 6,
+      "boundary": "open",
+      "axes": "XYZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "support": [
+        "XXIIII",
+        "YYIIII",
+        "ZZIIII",
+        "IXXIII",
+        "IYYIII",
+        "IZZIII",
+        "IIXXII",
+        "IIYYII",
+        "IIZZII",
+        "IIIXXI",
+        "IIIYYI",
+        "IIIZZI",
+        "IIIIXX",
+        "IIIIYY",
+        "IIIIZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "FIXED_AMPLITUDE_LINEAR_OBSTRUCTION",
+      "matrix_sha256": "7ffc76b59466fb89a6e2f11c026645edb305e101b6f5aaac173e2bbeb3955db6",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "20",
+        "22",
+        "-1692",
+        "-6795",
+        "57104",
+        "306888",
+        "-981232",
+        "-6476366",
+        "8974744",
+        "74828292",
+        "-39599176",
+        "-486665854",
+        "38264912",
+        "1703814472",
+        "254236880",
+        "-2811092211",
+        "-617490700",
+        "1629293526",
+        "356539140",
+        "-104001975"
+      ],
+      "minimal_polynomial_degree": 20,
+      "exact_annihilation": true,
+      "mixed_parity": true,
+      "even_odd_overlap_entry": {
+        "row": 0,
+        "column": 0,
+        "value": "-45298483200"
+      },
+      "common_anticommuting_pauli_count": 0,
+      "pauli_witness": null,
+      "binary_rank": 10,
+      "symplectic_rank": 8,
+      "radical_dimension": 2,
+      "numerical_corroboration": null,
+      "elapsed_seconds": 0.09940127888694406
+    },
+    {
+      "n": 6,
+      "boundary": "open",
+      "axes": "XZ",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "support": [
+        "XXIIII",
+        "ZZIIII",
+        "IXXIII",
+        "IZZIII",
+        "IIXXII",
+        "IIZZII",
+        "IIIXXI",
+        "IIIZZI",
+        "IIIIXX",
+        "IIIIZZ"
+      ],
+      "parameter_domain": "H(a)=a*H0, all real a",
+      "status": "EXACT_DETERMINISTIC_PAULI_INVERTER",
+      "matrix_sha256": "2c7b440612802520acdcf3a57793129486e08e5328d010b1d51cf245da2b9f17",
+      "minimal_polynomial_coefficients_descending": [
+        "1",
+        "0",
+        "-180",
+        "0",
+        "13536",
+        "0",
+        "-559296",
+        "0",
+        "14069760",
+        "0",
+        "-225865728",
+        "0",
+        "2359529472",
+        "0",
+        "-16053583872",
+        "0",
+        "69999329280",
+        "0",
+        "-188716941312",
+        "0",
+        "295085015040",
+        "0",
+        "-238874001408",
+        "0",
+        "78920024064",
+        "0",
+        "-3288334336",
+        "0"
+      ],
+      "minimal_polynomial_degree": 27,
+      "exact_annihilation": true,
+      "mixed_parity": false,
+      "even_odd_overlap_entry": null,
+      "common_anticommuting_pauli_count": 4,
+      "pauli_witness": "IYIYIY",
+      "binary_rank": 10,
+      "symplectic_rank": 8,
+      "radical_dimension": 2,
+      "numerical_corroboration": {
+        "seed": 20260909,
+        "trials": 17,
+        "dtype": "complex128",
+        "tolerance": 1e-12,
+        "max_dagger_residual_frobenius": 5.3044029732021446e-14
+      },
+      "elapsed_seconds": 0.21285801799967885
+    }
+  ],
+  "self_check": "PASS",
+  "versions": {
+    "numpy": "1.26.4",
+    "sympy": "1.13.2"
+  },
+  "elapsed_seconds": 0.44133879407308996,
+  "negative_scope": "No fixed complex-linear L and fixed nonzero c with L(U(a))=c*U(a)^dagger for every real a; not an arbitrary channel or phase-dependent no-go.",
+  "positive_scope": "A listed Pauli V gives V->U->V, Q=1,A=0,p=1, including arbitrary real independent coefficients on this support.",
+  "parity_compatible_scope": "Linear map condition only; a physical construction requires a separate certificate."
+}

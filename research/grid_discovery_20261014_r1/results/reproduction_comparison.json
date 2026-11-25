@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "runs": 2,
+  "comparisons": [
+    {
+      "run": "initial",
+      "path": "physical_n2.json",
+      "equal": "exact JSON value",
+      "first_sha256": "47c10a195005da351804c0e03c132e729afe36fa422f03bd51c160302588f8a7",
+      "rerun_sha256": "47c10a195005da351804c0e03c132e729afe36fa422f03bd51c160302588f8a7"
+    },
+    {
+      "run": "initial",
+      "path": "physical_n3.json",
+      "equal": "exact JSON value",
+      "first_sha256": "8804563ddf8afcd109323d5bb4fa18c85fd2aad766c3340a31abdfee1930ccc8",
+      "rerun_sha256": "8804563ddf8afcd109323d5bb4fa18c85fd2aad766c3340a31abdfee1930ccc8"
+    },
+    {
+      "run": "initial",
+      "path": "exact/calibration.json",
+      "equal": "exact JSON value",
+      "first_sha256": "856c9137e8557463c0e63eac9009881329dc40747df9fc0ecda55649d631dbd2",
+      "rerun_sha256": "856c9137e8557463c0e63eac9009881329dc40747df9fc0ecda55649d631dbd2"
+    },
+    {
+      "run": "initial",
+      "path": "exact/abstract64.json",
+      "equal": "exact JSON value",
+      "first_sha256": "5f710f5b524bd625e196f34f9933b89863f7e347a8df408929603063432cc963",
+      "rerun_sha256": "5f710f5b524bd625e196f34f9933b89863f7e347a8df408929603063432cc963"
+    },
+    {
+      "run": "initial",
+      "path": "exact/embedding1024.json",
+      "equal": "exact JSON value",
+      "first_sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f",
+      "rerun_sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f"
+    },
+    {
+      "run": "initial",
+      "path": "validation/matrix_raw.json",
+      "equal": "exact JSON value",
+      "first_sha256": "71f6afbdc8f41260fde2c5e71de187fca385d015b9d5174f49bf0f6e519cb9a0",
+      "rerun_sha256": "71f6afbdc8f41260fde2c5e71de187fca385d015b9d5174f49bf0f6e519cb9a0"
+    },
+    {
+      "run": "initial",
+      "path": "validation/gauge_certificates.json",
+      "equal": "exact JSON value",
+      "first_sha256": "eda28195a18f56ca9bf10e356c4cd85b11070db9f71164163dc1373a0426dbdb",
+      "rerun_sha256": "eda28195a18f56ca9bf10e356c4cd85b11070db9f71164163dc1373a0426dbdb"
+    },
+    {
+      "run": "initial",
+      "path": "validation/all_anti_grids.json",
+      "equal": "exact JSON value",
+      "first_sha256": "7ce67351da95230f4e1fb2c3436044d8a3b2723aa5296734a3e7f4d97ed7bebe",
+      "rerun_sha256": "7ce67351da95230f4e1fb2c3436044d8a3b2723aa5296734a3e7f4d97ed7bebe"
+    },
+    {
+      "run": "initial",
+      "path": "validation/controls.json",
+      "equal": "exact JSON value",
+      "first_sha256": "52178de056f0afe824a473938570a87e61b1a5162d812d999634930a52573906",
+      "rerun_sha256": "52178de056f0afe824a473938570a87e61b1a5162d812d999634930a52573906"
+    },
+    {
+      "run": "initial",
+      "path": "validation/H3_seven_case_coefficients.json",
+      "equal": "exact JSON value",
+      "first_sha256": "0aadd62949788d74a81d236d1680c821c6389e3524e767011a0728b9076f9042",
+      "rerun_sha256": "0aadd62949788d74a81d236d1680c821c6389e3524e767011a0728b9076f9042"
+    },
+    {
+      "run": "initial",
+      "path": "comb_certificates.json",
+      "equal": "all exact certificate cases; timing excluded"
+    },
+    {
+      "run": "portable",
+      "path": "physical_n2.json",
+      "equal": "exact JSON value",
+      "first_sha256": "47c10a195005da351804c0e03c132e729afe36fa422f03bd51c160302588f8a7",
+      "rerun_sha256": "47c10a195005da351804c0e03c132e729afe36fa422f03bd51c160302588f8a7"
+    },
+    {
+      "run": "portable",
+      "path": "physical_n3.json",
+      "equal": "exact JSON value",
+      "first_sha256": "8804563ddf8afcd109323d5bb4fa18c85fd2aad766c3340a31abdfee1930ccc8",
+      "rerun_sha256": "8804563ddf8afcd109323d5bb4fa18c85fd2aad766c3340a31abdfee1930ccc8"
+    },
+    {
+      "run": "portable",
+      "path": "exact/calibration.json",
+      "equal": "exact JSON value",
+      "first_sha256": "856c9137e8557463c0e63eac9009881329dc40747df9fc0ecda55649d631dbd2",
+      "rerun_sha256": "856c9137e8557463c0e63eac9009881329dc40747df9fc0ecda55649d631dbd2"
+    },
+    {
+      "run": "portable",
+      "path": "exact/abstract64.json",
+      "equal": "exact JSON value",
+      "first_sha256": "5f710f5b524bd625e196f34f9933b89863f7e347a8df408929603063432cc963",
+      "rerun_sha256": "5f710f5b524bd625e196f34f9933b89863f7e347a8df408929603063432cc963"
+    },
+    {
+      "run": "portable",
+      "path": "exact/embedding1024.json",
+      "equal": "exact JSON value",
+      "first_sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f",
+      "rerun_sha256": "b317cdfabcc8487b36c30d0784386e08561890bf5afc95b355847c6df13d4d7f"
+    },
+    {
+      "run": "portable",
+      "path": "validation/matrix_raw.json",
+      "equal": "exact JSON value",
+      "first_sha256": "71f6afbdc8f41260fde2c5e71de187fca385d015b9d5174f49bf0f6e519cb9a0",
+      "rerun_sha256": "71f6afbdc8f41260fde2c5e71de187fca385d015b9d5174f49bf0f6e519cb9a0"
+    },
+    {
+      "run": "portable",
+      "path": "validation/gauge_certificates.json",
+      "equal": "exact JSON value",
+      "first_sha256": "eda28195a18f56ca9bf10e356c4cd85b11070db9f71164163dc1373a0426dbdb",
+      "rerun_sha256": "eda28195a18f56ca9bf10e356c4cd85b11070db9f71164163dc1373a0426dbdb"
+    },
+    {
+      "run": "portable",
+      "path": "validation/all_anti_grids.json",
+      "equal": "exact JSON value",
+      "first_sha256": "7ce67351da95230f4e1fb2c3436044d8a3b2723aa5296734a3e7f4d97ed7bebe",
+      "rerun_sha256": "7ce67351da95230f4e1fb2c3436044d8a3b2723aa5296734a3e7f4d97ed7bebe"
+    },
+    {
+      "run": "portable",
+      "path": "validation/controls.json",
+      "equal": "exact JSON value",
+      "first_sha256": "52178de056f0afe824a473938570a87e61b1a5162d812d999634930a52573906",
+      "rerun_sha256": "52178de056f0afe824a473938570a87e61b1a5162d812d999634930a52573906"
+    },
+    {
+      "run": "portable",
+      "path": "validation/H3_seven_case_coefficients.json",
+      "equal": "exact JSON value",
+      "first_sha256": "0aadd62949788d74a81d236d1680c821c6389e3524e767011a0728b9076f9042",
+      "rerun_sha256": "0aadd62949788d74a81d236d1680c821c6389e3524e767011a0728b9076f9042"
+    },
+    {
+      "run": "portable",
+      "path": "comb_certificates.json",
+      "equal": "all exact certificate cases; timing excluded"
+    }
+  ],
+  "portable_check": "Input directory had no adjacent ZIP; optional ZIP hash is null, frozen manifest hash is recorded."
+}

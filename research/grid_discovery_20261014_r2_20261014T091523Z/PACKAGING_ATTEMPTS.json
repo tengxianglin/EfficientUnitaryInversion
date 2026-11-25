@@ -1,0 +1,6 @@
+{
+  "initial_gate": "failed before publication",
+  "cause": "Static absolute-path regex mistook a colon followed by a JSON-escaped newline in an inline Python command for a Windows drive path.",
+  "repair": "Preserved exact raw command in ZIP; extracted identical inline body as code/replay_T3_executed.py and explicitly labelled equivalent projected invocation.",
+  "science_effect": "none; no scientific rerun, tolerance change or evidence deletion"
+}

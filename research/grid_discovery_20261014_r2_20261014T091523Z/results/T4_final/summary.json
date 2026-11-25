@@ -1,0 +1,282 @@
+{
+  "state": "completed",
+  "families": [
+    {
+      "grid": "same_W_q4_partial",
+      "constraint": "independent",
+      "full_rank": 10,
+      "even_rank": null,
+      "odd_rank": null,
+      "support_size": 10,
+      "transpose_invariant": true,
+      "ray_count": 0,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "same_W_q4_partial_independent.json",
+      "state": "completed",
+      "sha256": "d47d2e97a421834dc5112015c05fe81349216247d65ac6d7c78a18f18a7858f4"
+    },
+    {
+      "grid": "same_W_q4_partial",
+      "constraint": "row",
+      "full_rank": 7,
+      "even_rank": 7,
+      "odd_rank": 7,
+      "support_size": 10,
+      "transpose_invariant": true,
+      "ray_count": 26,
+      "spectral_kills": 8,
+      "first_kill_beta": [
+        -1,
+        -1,
+        -1
+      ],
+      "artifact": "same_W_q4_partial_row.json",
+      "state": "completed",
+      "sha256": "61c4b04ded4d698481d835047fa9b2b10f033f7b8b3d227a55d7f7882fc81943"
+    },
+    {
+      "grid": "same_W_q4_partial",
+      "constraint": "column",
+      "full_rank": 4,
+      "even_rank": 4,
+      "odd_rank": 4,
+      "support_size": 10,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 12,
+      "first_kill_beta": [
+        -1,
+        -1,
+        -1
+      ],
+      "artifact": "same_W_q4_partial_column.json",
+      "state": "completed",
+      "sha256": "89313368afcffd749e424ab1c10d29afade86162ab87dad57c7c9b4070a4142f"
+    },
+    {
+      "grid": "same_W_q4_partial",
+      "constraint": "uniform",
+      "full_rank": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "support_size": 10,
+      "transpose_invariant": false,
+      "ray_count": 2,
+      "spectral_kills": 2,
+      "first_kill_beta": [
+        -1
+      ],
+      "artifact": "same_W_q4_partial_uniform.json",
+      "state": "completed",
+      "sha256": "8c2648f8262a3e26408b0f78e5d4193de04859c247d38847b0f6e7ac36d37299"
+    },
+    {
+      "grid": "same_W_q4_saturated",
+      "constraint": "independent",
+      "full_rank": 16,
+      "even_rank": null,
+      "odd_rank": null,
+      "support_size": 16,
+      "transpose_invariant": true,
+      "ray_count": 0,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "same_W_q4_saturated_independent.json",
+      "state": "completed",
+      "sha256": "15b1cefd4070fc27afc222d345c950307eb1292fd598d293edb02bc4348d7d3a"
+    },
+    {
+      "grid": "same_W_q4_saturated",
+      "constraint": "row",
+      "full_rank": 7,
+      "even_rank": 7,
+      "odd_rank": 7,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 8,
+      "first_kill_beta": [
+        -1,
+        -1,
+        -1
+      ],
+      "artifact": "same_W_q4_saturated_row.json",
+      "state": "completed",
+      "sha256": "803cc3d0dc95242da68743680fa1dedc3209660f7ede8421629cb57c0db0965f"
+    },
+    {
+      "grid": "same_W_q4_saturated",
+      "constraint": "column",
+      "full_rank": 5,
+      "even_rank": 5,
+      "odd_rank": 5,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 16,
+      "first_kill_beta": [
+        -1,
+        -1,
+        -1
+      ],
+      "artifact": "same_W_q4_saturated_column.json",
+      "state": "completed",
+      "sha256": "3235c69bb52bac6063a4ccab66667f6c65e203abe1acc5ec493c072ed8e411ac"
+    },
+    {
+      "grid": "same_W_q4_saturated",
+      "constraint": "uniform",
+      "full_rank": 3,
+      "even_rank": 3,
+      "odd_rank": 3,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 2,
+      "spectral_kills": 2,
+      "first_kill_beta": [
+        -1
+      ],
+      "artifact": "same_W_q4_saturated_uniform.json",
+      "state": "completed",
+      "sha256": "84cd3247f6a3b2e3049b9094db52813a83a78b73be049eb3a499a7cba1f340d7"
+    },
+    {
+      "grid": "B4q0",
+      "constraint": "independent",
+      "full_rank": 16,
+      "even_rank": null,
+      "odd_rank": null,
+      "support_size": 16,
+      "transpose_invariant": true,
+      "ray_count": 0,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "B4q0_independent.json",
+      "state": "completed",
+      "sha256": "344ccab67f50f08fb7e66c4c524a982504c8021da62401f83109b53e0a76f7c2"
+    },
+    {
+      "grid": "B4q0",
+      "constraint": "row",
+      "full_rank": 12,
+      "even_rank": 12,
+      "odd_rank": 12,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 16,
+      "first_kill_beta": [
+        -1,
+        -1,
+        -1
+      ],
+      "artifact": "B4q0_row.json",
+      "state": "completed",
+      "sha256": "11acb3cf2bc56f05863f668e25c28cb051ee0c2cdc6ca2491cbd2fd945f8fcb0"
+    },
+    {
+      "grid": "B4q0",
+      "constraint": "column",
+      "full_rank": 12,
+      "even_rank": 12,
+      "odd_rank": 12,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 16,
+      "first_kill_beta": [
+        -1,
+        -1,
+        -1
+      ],
+      "artifact": "B4q0_column.json",
+      "state": "completed",
+      "sha256": "cb5fd16532d268149d2eed265db8d30443f8586a92760c02d31a0e7aba4a0c99"
+    },
+    {
+      "grid": "B4q0",
+      "constraint": "uniform",
+      "full_rank": 6,
+      "even_rank": 5,
+      "odd_rank": 5,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 2,
+      "spectral_kills": 2,
+      "first_kill_beta": [
+        -1
+      ],
+      "artifact": "B4q0_uniform.json",
+      "state": "completed",
+      "sha256": "403a536861629b0153922f6d85e55509e5168fc71b486b37af7deff51dc76524"
+    },
+    {
+      "grid": "B55q0",
+      "constraint": "independent",
+      "full_rank": 16,
+      "even_rank": null,
+      "odd_rank": null,
+      "support_size": 16,
+      "transpose_invariant": true,
+      "ray_count": 0,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "B55q0_independent.json",
+      "state": "completed",
+      "sha256": "fd3d76d94bac4b79ef4cb8b6bc576aff92931677b1076c4316489223b3520a3f"
+    },
+    {
+      "grid": "B55q0",
+      "constraint": "row",
+      "full_rank": 6,
+      "even_rank": 2,
+      "odd_rank": 4,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "B55q0_row.json",
+      "state": "completed",
+      "sha256": "36c6df426dfca5a20111b9d754660b19510f4a7b2e91302b69820cc79e4a3eef"
+    },
+    {
+      "grid": "B55q0",
+      "constraint": "column",
+      "full_rank": 6,
+      "even_rank": 2,
+      "odd_rank": 4,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 26,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "B55q0_column.json",
+      "state": "completed",
+      "sha256": "f469332fff18130503d6d89879c077ae9a56c50e14a98eb692915a7e378054ef"
+    },
+    {
+      "grid": "B55q0",
+      "constraint": "uniform",
+      "full_rank": 4,
+      "even_rank": 2,
+      "odd_rank": 2,
+      "support_size": 16,
+      "transpose_invariant": false,
+      "ray_count": 2,
+      "spectral_kills": 0,
+      "first_kill_beta": null,
+      "artifact": "B55q0_uniform.json",
+      "state": "completed",
+      "sha256": "f2f3e1efab89c655e9afee01dd6125fb07190b01b63a63713a9aa3810c1f00a1"
+    }
+  ],
+  "expected_families": 16,
+  "cpu_seconds": 1.0165828270000001,
+  "code_sha256": "21b02fddbed601d9c6cfb960b9f2459b1c0b246669318c22d97e4ff63d097e16",
+  "input_hashes": {
+    "exact/calibration.json": "856c9137e8557463c0e63eac9009881329dc40747df9fc0ecda55649d631dbd2",
+    "validation/all_anti_grids.json": "7ce67351da95230f4e1fb2c3436044d8a3b2723aa5296734a3e7f4d97ed7bebe"
+  }
+}

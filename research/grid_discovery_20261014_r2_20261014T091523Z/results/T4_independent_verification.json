@@ -1,0 +1,190 @@
+{
+  "status": "passed",
+  "families": [
+    {
+      "file": "B4q0_column.json",
+      "sha256": "6826ff71bd1bd5994a1bb2ad895ae067688ea82b013cdb89b30b6a7bf7a9cbfa",
+      "independent_ranks": {
+        "full": 12,
+        "even": 12,
+        "odd": 12
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B4q0_independent.json",
+      "sha256": "b631dc2f120ae4d8a69fcb3d34e7cf4a6525a220d65271518acf4168d1033e27",
+      "independent_ranks": {
+        "full": 16
+      },
+      "dense_integer_power_checks": 8,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B4q0_row.json",
+      "sha256": "8bbf3cab0b85ad5a16df215aa2a38456abc84ebe3d7340e8a2e016b98396d5e1",
+      "independent_ranks": {
+        "full": 12,
+        "even": 12,
+        "odd": 12
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B4q0_uniform.json",
+      "sha256": "4bc5fda2a476f606553f767f6062653b2c953293aa3f6f3648df60a26798545a",
+      "independent_ranks": {
+        "full": 6,
+        "even": 5,
+        "odd": 5
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B55q0_column.json",
+      "sha256": "20025d1dc14ea5d6ba8c2ec9c8e1fed5e62dfe39a2595cf113c39662a1bc2f2f",
+      "independent_ranks": {
+        "full": 6,
+        "even": 2,
+        "odd": 4
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B55q0_independent.json",
+      "sha256": "57bcccab5c4ff4694327d6c3e52a988756e5d3bb259cce42a733c16821231e65",
+      "independent_ranks": {
+        "full": 16
+      },
+      "dense_integer_power_checks": 8,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B55q0_row.json",
+      "sha256": "22c2f32729441c50be43fb178d11d1bb080a9d14fcdd320a3a3477d8a7f81ede",
+      "independent_ranks": {
+        "full": 6,
+        "even": 2,
+        "odd": 4
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "B55q0_uniform.json",
+      "sha256": "c4ae11d8d72bc14ee203cadaaf9af853bafe2926d2d62e16222b1986308ef007",
+      "independent_ranks": {
+        "full": 4,
+        "even": 2,
+        "odd": 2
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_partial_column.json",
+      "sha256": "c7db31d82c4d447626838862964c01576aed0130b3b2eadc899dfe1f136ccc3e",
+      "independent_ranks": {
+        "full": 4,
+        "even": 4,
+        "odd": 4
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_partial_independent.json",
+      "sha256": "f1812fdab8e9ed09c508055dc6aaae37112a7bdf091f540218b124c79184bbe1",
+      "independent_ranks": {
+        "full": 10
+      },
+      "dense_integer_power_checks": 8,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_partial_row.json",
+      "sha256": "efa8b01838457b3e86c4b9bd00d733bd5680bb8090347509a49bc6bb98d4da07",
+      "independent_ranks": {
+        "full": 7,
+        "even": 7,
+        "odd": 7
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_partial_uniform.json",
+      "sha256": "19570e0284ff164f99dcbdab3198a349ef191a686e74da2c2ae8f95ace2c3205",
+      "independent_ranks": {
+        "full": 3,
+        "even": 3,
+        "odd": 3
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_saturated_column.json",
+      "sha256": "9747e62d18ac1fed0cf3ee4562ab4751b20b5bf79206e221eff4de504b7c819e",
+      "independent_ranks": {
+        "full": 5,
+        "even": 5,
+        "odd": 5
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_saturated_independent.json",
+      "sha256": "09bc90987f22acd0be44a6ec2573a9cd8c2bd6fe83f4a2742306e6ab2f61bed2",
+      "independent_ranks": {
+        "full": 16
+      },
+      "dense_integer_power_checks": 8,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_saturated_row.json",
+      "sha256": "939a912af14373ae4e95afc91d956a2760bda4a5d19e993de3a29c3b38a9e09c",
+      "independent_ranks": {
+        "full": 7,
+        "even": 7,
+        "odd": 7
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    },
+    {
+      "file": "same_W_q4_saturated_uniform.json",
+      "sha256": "8bbd4ae1900575b943ac3bfd453e80453e3af0f136a4b465b39cf23744e044a2",
+      "independent_ranks": {
+        "full": 3,
+        "even": 3,
+        "odd": 3
+      },
+      "dense_integer_power_checks": 32,
+      "transpose_invariance_matched": true,
+      "status": "passed"
+    }
+  ],
+  "checks": "Dense SymPy exact matrix powers at two fixed integer beta vectors per family, all retained degrees; independent DomainMatrix rational ranks; transpose augmented rank. Sampling power equality corroborates recurrence; exact full coefficient generation and CH bound are separate arguments."
+}

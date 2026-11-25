@@ -1,0 +1,35 @@
+{
+  "uniform_commuting_triple": {
+    "characteristic_polynomial": "x**8 - 12*x**6 - 16*x**5 + 30*x**4 + 96*x**3 + 100*x**2 + 48*x + 9",
+    "squarefree_monic_coefficients": [
+      "1",
+      "-2",
+      "-3"
+    ],
+    "distinct_eigenvalue_count": 2,
+    "candidate_gamma": "2",
+    "reflection_identity": true,
+    "reflection_defect_coefficients": [
+      "0"
+    ]
+  },
+  "independent_1_2_4": {
+    "characteristic_polynomial": "x**8 - 84*x**6 - 128*x**5 + 1974*x**4 + 5376*x**3 - 4724*x**2 - 13440*x + 11025",
+    "squarefree_monic_coefficients": [
+      "1",
+      "0",
+      "-42",
+      "-64",
+      "105"
+    ],
+    "distinct_eigenvalue_count": 4,
+    "candidate_gamma": "0",
+    "reflection_identity": false,
+    "reflection_defect_coefficients": [
+      "128",
+      "0"
+    ]
+  },
+  "status": "passed",
+  "scope": "Exact spectra ignoring multiplicities; necessary amplitude condition only."
+}

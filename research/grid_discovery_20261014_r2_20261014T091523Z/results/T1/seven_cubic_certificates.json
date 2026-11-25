@@ -1,0 +1,107 @@
+[
+  {
+    "Cmask": 8,
+    "Bmask": 4,
+    "triple": [
+      2,
+      4,
+      15
+    ],
+    "coefficient": [
+      6,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  },
+  {
+    "Cmask": 17,
+    "Bmask": 29,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "coefficient": [
+      -2,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  },
+  {
+    "Cmask": 25,
+    "Bmask": 21,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "coefficient": [
+      -2,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  },
+  {
+    "Cmask": 34,
+    "Bmask": 46,
+    "triple": [
+      1,
+      4,
+      12
+    ],
+    "coefficient": [
+      -2,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  },
+  {
+    "Cmask": 42,
+    "Bmask": 38,
+    "triple": [
+      1,
+      4,
+      12
+    ],
+    "coefficient": [
+      -2,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  },
+  {
+    "Cmask": 51,
+    "Bmask": 63,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "coefficient": [
+      -2,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  },
+  {
+    "Cmask": 59,
+    "Bmask": 55,
+    "triple": [
+      1,
+      2,
+      10
+    ],
+    "coefficient": [
+      -2,
+      0
+    ],
+    "all_C_edges_one": true,
+    "sum_label": 9
+  }
+]

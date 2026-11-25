@@ -1,0 +1,141 @@
+{
+  "task": "T1",
+  "method": "independent_RREF_x_GL4_and_single_letter_Pauli",
+  "seed": null,
+  "GPU": 0,
+  "source_helpers_imported": [],
+  "gates": [
+    {
+      "name": "B1q3_singular_radical_minus_quotient",
+      "passed": true,
+      "details": {
+        "Bmask": 1,
+        "qmask": 3,
+        "rank": 2,
+        "radical": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "q_on_radical": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "gauss_sum": -8,
+        "allowed_n3": false,
+        "reason": "forbidden_rank2_minus_quotient"
+      }
+    },
+    {
+      "name": "B1q3_four_qubit_positive_control",
+      "passed": true,
+      "details": {
+        "seeds": [
+          "YIII",
+          "ZYII",
+          "IIXI",
+          "IIIX"
+        ],
+        "grid": [
+          "YIII",
+          "ZYII",
+          "XYII",
+          "IIXI",
+          "IIIX",
+          "IIXX",
+          "YIXI",
+          "ZYIX",
+          "XYXX"
+        ],
+        "observed_Bmask": 1,
+        "observed_qmask": 3
+      }
+    },
+    {
+      "name": "n2_all_ordered_bases_20160_types280",
+      "passed": true,
+      "details": {
+        "basis_count": 20160,
+        "type_count": 280
+      }
+    },
+    {
+      "name": "n3_RREF651_GL4_20160_complete",
+      "passed": true,
+      "details": {
+        "RREF": 651,
+        "GL4": 20160,
+        "ordered_bases": 13124160
+      }
+    },
+    {
+      "name": "B1q3_n3_zero",
+      "passed": true,
+      "details": {
+        "count": 0
+      }
+    },
+    {
+      "name": "n3_criterion_all1024",
+      "passed": true,
+      "details": {
+        "allowed": 973,
+        "forbidden": 51
+      }
+    },
+    {
+      "name": "H2_H3_phase_Gram_all64",
+      "passed": true,
+      "details": {
+        "B_types": 64,
+        "H2_monomials_per_type": 45,
+        "H3_monomials_per_type": 165,
+        "H2_only_saturated": 34,
+        "needs_H3": 29,
+        "special_dimension10_Bmask": 12,
+        "all_exact_integer_checks_passed": true
+      }
+    },
+    {
+      "name": "quadratic_orbit_census",
+      "passed": true,
+      "details": {
+        "abstract": 44,
+        "physical": 37
+      }
+    }
+  ],
+  "coverage": {
+    "n2_subspaces": 1,
+    "n2_ordered_bases": 20160,
+    "n3_subspaces": 651,
+    "n3_ordered_bases": 13124160,
+    "n3_type_count": 973,
+    "all1024_criteria": 1024,
+    "all64_polynomial_phase_Gram": 64,
+    "physical_quadratic_orbits": 37
+  },
+  "claims": [
+    {
+      "status": "exact-finite",
+      "scope": "n2/n3 all ordered independent four-generator bases and 64 lifted cubic/phase/Gram cases"
+    },
+    {
+      "status": "analytic-checked",
+      "scope": "proper independent nine-coefficient grid cubic closure argument and embedding dimension/Witt argument"
+    },
+    {
+      "status": "not_run",
+      "scope": "general tied coefficient spaces, auxiliary minimality, arbitrary nonproper grids"
+    }
+  ],
+  "elapsed_wall_seconds_internal": 4.057981491088867,
+  "code_sha256": {
+    "audit_rref.py": "d833d267b391ff06ee2582dca203deeec37875fde297285282e8c9c278fcef5c",
+    "rref_census.cpp": "fab3f3479bac1286449f42d174d118a83f9a6fccac18f27241f258b63aac7ebe"
+  },
+  "state": "completed"
+}
