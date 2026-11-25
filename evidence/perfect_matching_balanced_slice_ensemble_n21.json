@@ -6,6 +6,7 @@
   "group": "SO(42)",
   "ensemble": "uniform over R_M=P_M D, M a perfect matching of [42]",
   "matching_count": 13113070457687988603440625,
+  "matching_count_exact": "13113070457687988603440625",
   "equal_atom_weight_exact": "1/13113070457687988603440625",
   "all_even_principal_minor_orders": [
     0,
