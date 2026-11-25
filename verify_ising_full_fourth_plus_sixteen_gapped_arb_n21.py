@@ -84,7 +84,7 @@ def main():
     if diagnostic.get("status") != "floating_full_fourth_6139_column_separator_candidate_not_arb_certified":
         raise RuntimeError("unexpected 6,139-column diagnostic status")
     if diagnostic.get("candidate_count") != 6139:
-        raise RuntimeError("diagnostic does not contain exactly 6,137 columns")
+        raise RuntimeError("diagnostic does not contain exactly 6,139 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 16 or len(diagnostic.get("appended_gapped_columns", [])) != 16:
@@ -117,9 +117,9 @@ def main():
         raise RuntimeError("unexpected 6,139-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6137_dual_general_gapped_escape":
-        raise RuntimeError("the 6,135-dual escape certificate is invalid")
+        raise RuntimeError("the 6,137-dual escape certificate is invalid")
     if not escape_cert.get("complete") or not {"connected", "multisegment"}.issubset(set(escape_cert.get("escape_kinds", []))):
-        raise RuntimeError("the 6,135-dual escape certificate is incomplete")
+        raise RuntimeError("the 6,137-dual escape certificate is incomplete")
     if escape_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the escape certificate does not pin the 6,139-column parent diagnostic")
     if escape_cert.get("finite_certificate_sha256") != hashes["parent_certificate_sha256"]:
@@ -333,15 +333,16 @@ def main():
 
     checked = checked_base + checked_grid + checked_gapped
     if checked != 6139 or checked_gapped != 16:
-        raise RuntimeError(f"verified {checked} columns instead of exactly 6,137")
+        raise RuntimeError(f"verified {checked} columns instead of exactly 6,139")
     if minimum["minimum_lower"] is None or not minimum["minimum_lower"] > floor:
         raise RuntimeError("the common strictly positive Arb lower bound was not established")
     # Use the strongest simple rational floor justified by the certified Arb minimum.
-    # The 6,139-column minimum is about 0.2387958, so 23879/100000 is
-    # safely below it and sharpens the published residual/TV constants.
+    # The certified minimum lower endpoint is about 0.2311616835. The exact
+    # rational floor 231161/1000000 is strictly below that Arb endpoint.
     floor_candidates = (
         Fraction(1, 4),
         Fraction(23879, 100000),
+        Fraction(231161, 1000000),
         Fraction(1, 5),
         Fraction(1, 10),
         Fraction(1, 100),
@@ -402,7 +403,7 @@ def main():
             "Let D be diagonal with entries 41 on the 21 second-moment coordinates "
             "and 533 on the 1,440 fourth-order orbit coordinates. The exact "
             "rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies "
-            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,137 listed physical columns. "
+            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,139 listed physical columns. "
             "Hence every probability mixture p on this exact finite pool obeys "
             f"y^T(b-Ap)>{chosen_floor}. Since ||y||_1<=533, Holder gives "
             f"||b-Ap||_infinity>{residual_bound}. Each retained moment coordinate is "
@@ -412,8 +413,9 @@ def main():
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "fourteen inherited/previously certified gapped paths, and two newly "
-            "certified escapes from the 6,135-column dual. It does not cover "
+            "sixteen exact-rational gapped paths (fourteen inherited from the "
+            "6,137-column pool and two newly Arb-certified escapes from its dual). "
+            "It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "arbitrary multi-segment paths, all even principal minors, or an "
             "operational Choi/diamond-distance guarantee."
