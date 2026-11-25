@@ -113,7 +113,7 @@
     "passed": 5
   },
   "candidate_count": 6139,
-  "certified_common_column_gap_lower_bound": "1/5",
+  "certified_common_column_gap_lower_bound": "231161/1000000",
   "complete": true,
   "diagnostic_sha256": "b456515c60930c0e253f9239615acc59d2bd816d540bdad9e35840f5d58ad7f3",
   "diagnostic_status_label_legacy": false,
@@ -557,7 +557,7 @@
     "kind": "fractional",
     "length": 35
   },
-  "moment_residual_infinity_lower_bound": "1/2665",
+  "moment_residual_infinity_lower_bound": "231161/533000000",
   "new_escape_certificate_sha256": "90e12bcae62d05496ba5f1b207875b75fcd3914ccda5e56913dfb5196ebcbf43",
   "new_escape_certificate_status": "arb_certified_6137_dual_general_gapped_escape",
   "new_escape_search_sha256": "9ea13ee742834d7fa5189974c684fa74f6015bdb152e64e114cb1d1daf6f9747",
@@ -567,10 +567,10 @@
   "parent_diagnostic_sha256": "68c7c989198e8276d3b4c954cf26413039b26352f5d14e82c8daf9c1c18924ac",
   "precision_bits_base_and_gapped": 512,
   "precision_bits_fractional_grid": 128,
-  "program_mass_tv_lower_bound": "1/5330",
-  "proof": "Let D be diagonal with entries 41 on the 21 second-moment coordinates and 533 on the 1,440 fourth-order orbit coordinates. The exact rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies y^T(b-a_j)>1/5 for every one of the 6,137 listed physical columns. Hence every probability mixture p on this exact finite pool obeys y^T(b-Ap)>1/5. Since ||y||_1<=533, Holder gives ||b-Ap||_infinity>1/2665. Each retained moment coordinate is a bounded orbit-character expectation, so the program-mass TV distance is >1/5330.",
+  "program_mass_tv_lower_bound": "231161/1066000000",
+  "proof": "Let D be diagonal with entries 41 on the 21 second-moment coordinates and 533 on the 1,440 fourth-order orbit coordinates. The exact rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies y^T(b-a_j)>231161/1000000 for every one of the 6,139 listed physical columns. Hence every probability mixture p on this exact finite pool obeys y^T(b-Ap)>231161/1000000. Since ||y||_1<=533, Holder gives ||b-Ap||_infinity>231161/533000000. Each retained moment coordinate is a bounded orbit-character expectation, so the program-mass TV distance is >231161/1066000000.",
   "quartet_count": 111930,
-  "scope": "This is a rigorous finite-pool obstruction for exactly 22 pinned base atoms, 6,101 corrected fractional single-open-path grid atoms, fourteen inherited/previously certified gapped paths, and two newly certified escapes from the 6,135-column dual. It does not cover other nonuniform gapped couplings, the continuous gapped family, arbitrary multi-segment paths, all even principal minors, or an operational Choi/diamond-distance guarantee.",
+  "scope": "This is a rigorous finite-pool obstruction for exactly 22 pinned base atoms, 6,101 corrected fractional single-open-path grid atoms, sixteen exact-rational gapped paths (fourteen inherited from the 6,137-column pool and two newly Arb-certified escapes from its dual). It does not cover other nonuniform gapped couplings, the continuous gapped family, arbitrary multi-segment paths, all even principal minors, or an operational Choi/diamond-distance guarantee.",
   "status": "arb_certified_finite_6139_column_full_fourth_plus_sixteen_gapped_separator",
   "target_score_interval": "[0.25220410629602022430869046094699704768057093476854663861526387537319667837834981881954615066555112583181839291116524004581142705234206119429726820851543 +/- 4.67e-153]",
   "warm_certificate_sha256": "33cc0432fe8639ef22f0153fcc31e060a48cba5cb638fa500edaddc43b9560d5"
