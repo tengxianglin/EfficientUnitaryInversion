@@ -305,6 +305,10 @@ def main():
         raise RuntimeError("192-column parent escape-certificate ancestry mismatch")
 
 
+    next_t = Fraction(next_time_cert["t_exact_rational"])
+    next_uniform_couplings = [Fraction(value) for value in next_time_cert["uniform_couplings_exact_decimal"]]
+    next_uniform_path = next_uniform_couplings + [Fraction(0)]
+
     next2_t = Fraction(next2_time_cert["t_exact_rational"])
     if next2_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_202col_dual_certificate_sha256") or next2_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_202col_lp_sha256") or next2_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("202-column ancestor time certificate does not pin the parent ancestry")
@@ -337,9 +341,6 @@ def main():
     new_uniform_path = new_uniform_couplings + [Fraction(0)]
     latest_uniform_path = latest_uniform_couplings + [Fraction(0)]
     final_uniform_path = final_uniform_couplings + [Fraction(0)]
-    next_t = Fraction(next_time_cert["t_exact_rational"])
-    next_uniform_couplings = [Fraction(value) for value in next_time_cert["uniform_couplings_exact_decimal"]]
-    next_uniform_path = next_uniform_couplings + [Fraction(0)]
     physical_columns = []
     for column in parent_order:
         if column < CANONICAL_COUNT:
