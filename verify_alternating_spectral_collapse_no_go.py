@@ -121,7 +121,7 @@ def main():
         "N4_even_subsets": result["small_size_exact_checks"][0]["nonempty_even_subsets_checked"],
         "N6_even_subsets": result["small_size_exact_checks"][1]["nonempty_even_subsets_checked"],
         "N8_required_cos": result["excluded_sizes"][0]["required_cos_lambda"],
-        "N42_required_cos": result["N42_required_cos"],
+        "N42_required_cos": result["N42_required_cos_lambda"],
         "evidence": str(EVIDENCE.relative_to(ROOT)),
     }, indent=2), flush=True)
 
