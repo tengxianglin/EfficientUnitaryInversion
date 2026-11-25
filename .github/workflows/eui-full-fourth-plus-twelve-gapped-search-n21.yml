@@ -1,4 +1,5 @@
 name: EUI 6,135-dual continuous general-gapped pricing and Arb verification
+# Re-run whenever the parent diagnostic or rational Arb certificate hash changes.
 
 on:
   push:
