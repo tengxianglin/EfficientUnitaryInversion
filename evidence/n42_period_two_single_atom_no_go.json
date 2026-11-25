@@ -1,0 +1,400 @@
+{
+  "N": 42,
+  "complete": true,
+  "constant_G_branch": {
+    "F_patterns": 1024,
+    "counts": {
+      "rank1_consistent": 2,
+      "rank2_inconsistent": 1018,
+      "rank2_linear_only": 4
+    },
+    "line_exclusion": "For X in [0,1], Y^2=X(X+1), |Y|<=sqrt(2), -2X +/- 2Y + 40 > 0.",
+    "rank1_consistent_lines": [
+      [
+        0,
+        -2,
+        -2,
+        40
+      ],
+      [
+        1023,
+        -2,
+        2,
+        40
+      ]
+    ]
+  },
+  "geometric_interpretation": {
+    "haar_target": "For Haar Q=O D O^T, det(I+tQ)=(1-t^2)^21. Orthogonal invariance makes each order-2r principal-minor expectation equal (-1)^r*C(21,r)/C(42,2r).",
+    "moments": [
+      {
+        "moment": "1/1",
+        "order": 0,
+        "subset_sum": 1
+      },
+      {
+        "moment": "-1/41",
+        "order": 2,
+        "subset_sum": -21
+      },
+      {
+        "moment": "1/533",
+        "order": 4,
+        "subset_sum": 210
+      },
+      {
+        "moment": "-5/19721",
+        "order": 6,
+        "subset_sum": -1330
+      },
+      {
+        "moment": "1/19721",
+        "order": 8,
+        "subset_sum": 5985
+      },
+      {
+        "moment": "-3/216931",
+        "order": 10,
+        "subset_sum": -20349
+      },
+      {
+        "moment": "3/611351",
+        "order": 12,
+        "subset_sum": 54264
+      },
+      {
+        "moment": "-3/1363783",
+        "order": 14,
+        "subset_sum": -116280
+      },
+      {
+        "moment": "5/4091349",
+        "order": 16,
+        "subset_sum": 203490
+      },
+      {
+        "moment": "-17/20456745",
+        "order": 18,
+        "subset_sum": -293930
+      },
+      {
+        "moment": "323/470505135",
+        "order": 20,
+        "subset_sum": 352716
+      },
+      {
+        "moment": "-323/470505135",
+        "order": 22,
+        "subset_sum": -352716
+      },
+      {
+        "moment": "17/20456745",
+        "order": 24,
+        "subset_sum": 293930
+      },
+      {
+        "moment": "-5/4091349",
+        "order": 26,
+        "subset_sum": -203490
+      },
+      {
+        "moment": "3/1363783",
+        "order": 28,
+        "subset_sum": 116280
+      },
+      {
+        "moment": "-3/611351",
+        "order": 30,
+        "subset_sum": -54264
+      },
+      {
+        "moment": "3/216931",
+        "order": 32,
+        "subset_sum": 20349
+      },
+      {
+        "moment": "-1/19721",
+        "order": 34,
+        "subset_sum": -5985
+      },
+      {
+        "moment": "5/19721",
+        "order": 36,
+        "subset_sum": 1330
+      },
+      {
+        "moment": "-1/533",
+        "order": 38,
+        "subset_sum": -210
+      },
+      {
+        "moment": "1/41",
+        "order": 40,
+        "subset_sum": 21
+      },
+      {
+        "moment": "-1/1",
+        "order": 42,
+        "subset_sum": -1
+      }
+    ],
+    "physical_Q": "Q=exp(A(c))D=exp(A(c)/2) D exp(-A(c)/2), a symmetric orthogonal involution with 21 eigenvalues +1 and 21 eigenvalues -1.",
+    "projector": "P=(I+Q)/2 is a rank-21 real orthogonal projector, hence a point of Gr_R(21,42)."
+  },
+  "n": 21,
+  "nonconstant_G_branch_b_equals_minus_a": {
+    "F_patterns": 1024,
+    "G_patterns": 2046,
+    "counts": {
+      "rank1_consistent": 4,
+      "rank1_inconsistent": 4088,
+      "rank2_inconsistent": 2086892,
+      "rank2_linear_only": 4096,
+      "rank2_solution": 24
+    },
+    "pair_count": 2095104,
+    "quadratic_solutions": [
+      [
+        101,
+        912344,
+        0,
+        0,
+        8
+      ],
+      [
+        101,
+        1184807,
+        0,
+        0,
+        8
+      ],
+      [
+        187,
+        213347,
+        0,
+        0,
+        16
+      ],
+      [
+        187,
+        1883804,
+        0,
+        0,
+        16
+      ],
+      [
+        228,
+        360275,
+        0,
+        0,
+        32
+      ],
+      [
+        228,
+        1736876,
+        0,
+        0,
+        32
+      ],
+      [
+        332,
+        189344,
+        0,
+        0,
+        8
+      ],
+      [
+        332,
+        1907807,
+        0,
+        0,
+        8
+      ],
+      [
+        354,
+        1018107,
+        0,
+        0,
+        24
+      ],
+      [
+        354,
+        1079044,
+        0,
+        0,
+        24
+      ],
+      [
+        368,
+        442035,
+        0,
+        0,
+        16
+      ],
+      [
+        368,
+        1655116,
+        0,
+        0,
+        16
+      ],
+      [
+        655,
+        442035,
+        0,
+        0,
+        16
+      ],
+      [
+        655,
+        1655116,
+        0,
+        0,
+        16
+      ],
+      [
+        669,
+        1018107,
+        0,
+        0,
+        24
+      ],
+      [
+        669,
+        1079044,
+        0,
+        0,
+        24
+      ],
+      [
+        691,
+        189344,
+        0,
+        0,
+        8
+      ],
+      [
+        691,
+        1907807,
+        0,
+        0,
+        8
+      ],
+      [
+        795,
+        360275,
+        0,
+        0,
+        32
+      ],
+      [
+        795,
+        1736876,
+        0,
+        0,
+        32
+      ],
+      [
+        836,
+        213347,
+        0,
+        0,
+        16
+      ],
+      [
+        836,
+        1883804,
+        0,
+        0,
+        16
+      ],
+      [
+        922,
+        912344,
+        0,
+        0,
+        8
+      ],
+      [
+        922,
+        1184807,
+        0,
+        0,
+        8
+      ]
+    ],
+    "rank1_consistent_lines": [
+      [
+        0,
+        2048,
+        2,
+        -2,
+        36
+      ],
+      [
+        0,
+        2095103,
+        2,
+        -2,
+        36
+      ],
+      [
+        1023,
+        2048,
+        2,
+        2,
+        36
+      ],
+      [
+        1023,
+        2095103,
+        2,
+        2,
+        36
+      ]
+    ],
+    "rank1_line_exclusion": "For X in [0,1], Y^2=X(X+1), |Y|<=sqrt(2), 2X +/- 2Y + 36 > 0.",
+    "rank2_conclusion": "All 24 feasible exact sign-pattern systems force X=Y=0, hence x=0 and c=s=1/sqrt(41)."
+  },
+  "phase_sign_patterns": {
+    "both_zero": 2,
+    "nonproportional": 2091012,
+    "ratio_minus_one": 2046,
+    "ratio_plus_one": 0,
+    "total": 2097152,
+    "u_zero_only": 2046,
+    "v_zero_only": 2046
+  },
+  "rho": "1/41",
+  "scope": "Single period-two atom only. This does not exclude positive mixtures of period-two atoms or arbitrary non-periodic cycle-coupling ensembles.",
+  "status": "exact_exhaustive_N42_period_two_single_atom_pair_moment_no_go",
+  "theorem": "No real alternating couplings c_(2j)=a,c_(2j+1)=b on the 42-cycle produce a single physical Q=exp(A(c))D whose every two-site principal minor equals -1/41.",
+  "transcendence_reference": {
+    "Gelfond": "A. O. Gelfond, Sur le septieme probleme de D. Hilbert, C. R. Acad. Sci. URSS 2 (1934), 1-6.",
+    "Schneider": "T. Schneider, Transzendenzuntersuchungen periodischer Funktionen. I. Transzendenz von Potenzen, J. Reine Angew. Math. 172 (1934), 65-69."
+  },
+  "transcendence_step": {
+    "fourier_mode_0": "exp(i*4a)=(f_sum+i*g_sum)/sqrt(41), where f_sum is even, g_sum is odd, and f_sum^2+g_sum^2=41; hence f_sum=+/-4 and g_sum=+/-5.",
+    "fourier_mode_1": "exp(i*4a*cos(pi/21))=C_1+i*exp(-i*pi/21)*S_1 is algebraic because C_1,S_1 are cyclotomic algebraic numbers scaled by 1/sqrt(41).",
+    "mode0_integer_pairs": [
+      [
+        -4,
+        -5
+      ],
+      [
+        -4,
+        5
+      ],
+      [
+        4,
+        -5
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "not_root_of_unity": "If alpha were a root of unity, alpha+alpha^{-1}=+/-8/sqrt(41) would be an algebraic integer, but its square 64/41 is rational nonintegral.",
+    "theorem": "Gelfond-Schneider: if alpha is algebraic and not 0 or 1, and beta is algebraic irrational, every value of alpha^beta is transcendental. Here beta=cos(pi/21), contradicting algebraicity of exp(i*4a*beta)."
+  }
+}
