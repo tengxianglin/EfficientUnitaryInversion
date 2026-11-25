@@ -1,0 +1,32 @@
+{
+  "status": "exact_rational_program_mass_tv_corollary_from_203col_arb_dual",
+  "complete": true,
+  "source_certificate_sha256": "07ce815ce469fc2df9bf43a10ae0bfad3231fe24319422255717e536b7d6b2ee",
+  "source_certificate_status": "strict_203col_2113row_uniform_ray_escape_minimax_obstruction",
+  "source_precision_bits": 128,
+  "column_count": 203,
+  "row_count": 2113,
+  "row_blocks": {
+    "second_order_complete": 21,
+    "fourth_order_complete": 1440,
+    "sixth_order_selected_and_cuts": 645,
+    "eighth_order_selected": 7
+  },
+  "row_scales_exact": {
+    "second_order": "1/41",
+    "fourth_order": "1/533",
+    "sixth_order": "5/19721",
+    "eighth_order": "1/19721"
+  },
+  "dual_l1_norm_exact": "1",
+  "dual_objective_exact": "19815229691242147/51240955760304989",
+  "dual_slack_exact": "1/1000000000",
+  "moment_residual_lower_bound_exact": "19815229640001191239695011/51240955760304989000000000",
+  "bounded_character_coefficient_norm_exact": "211472894201127314769/51240955760304989",
+  "bounded_character_coefficient_norm_decimal": "4127.02868366381572773766810990125482274629075327898277925189",
+  "program_mass_tv_lower_bound_exact": "19815229640001191239695011/422945788402254629538000000000",
+  "program_mass_tv_lower_bound_decimal": "0.0000468505188687571304729012519191399919112326779388255370326517",
+  "strict": true,
+  "proof": "For each retained row i, let phi_i be its dihedral-orbit average of the even-parity character (-1)^|I intersect T|. Then ||phi_i||_infinity <= 1 and E_{w_R} phi_i is the corresponding principal-minor moment. With exact row scale s_i, define G(T)=sum_i z_i phi_i(T)/s_i. Its sup norm is at most M=sum_i |z_i|/s_i. The Arb-certified dual gives E_u G - E_{w_p} G > objective-slack for every mixture p on the exact 203-column pool. By the TV dual inequality, TV(w_p,u) > (objective-slack)/(2M).",
+  "scope": "One selected parity sector and arbitrary probability mixtures over exactly the 203 certified physical columns. This is a balanced program-label mass / dephased label-register trace-distance statement, not a Choi trace-distance or channel diamond-distance lower bound. The 645 sixth-order and seven eighth-order rows are selected/cut inventories, not complete orbit systems."
+}
