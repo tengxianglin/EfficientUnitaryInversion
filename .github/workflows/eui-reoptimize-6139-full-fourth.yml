@@ -1,0 +1,131 @@
+name: EUI 6,139-column full-fourth reoptimization and Arb certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "discover_ising_full_fourth_plus_sixteen_gapped_n21.py"
+      - "verify_ising_full_fourth_plus_sixteen_gapped_arb_n21.py"
+      - ".github/workflows/eui-reoptimize-6139-full-fourth.yml"
+      - "evidence/ising_full_fourth_plus_fourteen_gapped_n21.json"
+      - "evidence/ising_full_fourth_plus_fourteen_gapped_arb_n21.json"
+      - "evidence/ising_full_fourth_plus_fourteen_gapped_escape_arb_n21.json"
+      - "evidence/ising_full_fourth_plus_fourteen_gapped_search_n21.json"
+      - "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
+      - "ising_fourth_moments.py"
+      - "verify_ising_low_moment_design.py"
+      - "verify_ising_full_fourth_fractional_grid_dual_arb.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-reoptimize-6139-full-fourth
+  cancel-in-progress: false
+
+jobs:
+  reoptimize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned numerical and interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Compile discovery and independent Arb verifier
+        run: |
+          python -m py_compile discover_ising_full_fourth_plus_sixteen_gapped_n21.py verify_ising_full_fourth_plus_sixteen_gapped_arb_n21.py
+      - name: Run block-minor, spin-symmetry, and serialization regressions
+        run: python discover_ising_full_fourth_plus_sixteen_gapped_n21.py --self-test-only
+      - name: Reoptimize all 1,461 second-/fourth-order coordinates on 6,139 physical columns
+        run: python discover_ising_full_fourth_plus_sixteen_gapped_n21.py
+      - name: Independently Arb-certify the frozen 6,139-column dual
+        run: python verify_ising_full_fourth_plus_sixteen_gapped_arb_n21.py
+      - name: Commit only this run's diagnostic and certificate (race-safe)
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p /tmp/eui-6139/evidence
+          for f in evidence/ising_full_fourth_plus_sixteen_gapped_n21.json evidence/ising_full_fourth_plus_sixteen_gapped_arb_n21.json; do
+            if [ -f "$f" ]; then cp "$f" /tmp/eui-6139/evidence/; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          staged = Path("/tmp/eui-6139/evidence")
+          diagnostic_path = staged / "ising_full_fourth_plus_sixteen_gapped_n21.json"
+          certificate_path = staged / "ising_full_fourth_plus_sixteen_gapped_arb_n21.json"
+          if not diagnostic_path.exists():
+              print("No 6,139-column diagnostic was produced; refusing to publish.")
+              raise SystemExit(1)
+
+          diagnostic_raw = diagnostic_path.read_bytes()
+          diagnostic = json.loads(diagnostic_raw)
+          def sha(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          pins = {
+              "parent_diagnostic_sha256": sha("evidence/ising_full_fourth_plus_fourteen_gapped_n21.json"),
+              "parent_certificate_sha256": sha("evidence/ising_full_fourth_plus_fourteen_gapped_arb_n21.json"),
+              "new_escape_certificate_sha256": sha("evidence/ising_full_fourth_plus_fourteen_gapped_escape_arb_n21.json"),
+              "new_escape_search_sha256": sha("evidence/ising_full_fourth_plus_fourteen_gapped_search_n21.json"),
+              "warm_certificate_sha256": sha("evidence/ising_low_moment_two_fourth_ensemble_n21.json"),
+          }
+          for field, current in pins.items():
+              if diagnostic.get(field) != current:
+                  raise SystemExit(
+                      f"Refusing stale 6,139 diagnostic: {field} "
+                      f"(run={diagnostic.get(field)}, main={current})."
+                  )
+
+          if certificate_path.exists():
+              certificate_raw = certificate_path.read_bytes()
+              certificate = json.loads(certificate_raw)
+              if certificate.get("diagnostic_sha256") != hashlib.sha256(diagnostic_raw).hexdigest():
+                  raise SystemExit("Refusing stale 6,139 Arb certificate: diagnostic pin mismatch.")
+              for field, current in pins.items():
+                  if certificate.get(field) != current:
+                      raise SystemExit(f"Refusing stale 6,139 Arb certificate: {field} mismatch.")
+          print("6,139 diagnostic and Arb certificate pins match the current 6,135 parent chain.")
+          PY
+            rm -f evidence/ising_full_fourth_plus_sixteen_gapped_n21.json evidence/ising_full_fourth_plus_sixteen_gapped_arb_n21.json
+            for f in /tmp/eui-6139/evidence/*.json; do
+              [ -f "$f" ] || continue
+              cp "$f" evidence/
+              git add "evidence/$(basename "$f")"
+            done
+            if git diff --cached --quiet; then
+              echo "No new 6,139-column outputs were produced."
+              exit 0
+            fi
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+actions-bot@users.noreply.github.com"
+            git commit -m "Record 6,139-column full-fourth reoptimization"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 6,139-column diagnostic and Arb certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-6139-full-fourth-reoptimization
+          path: |
+            evidence/ising_full_fourth_plus_sixteen_gapped_n21.json
+            evidence/ising_full_fourth_plus_sixteen_gapped_arb_n21.json
+          if-no-files-found: warn
+          retention-days: 90
