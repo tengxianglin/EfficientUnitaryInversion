@@ -108,3 +108,21 @@ This is a lower bound for the balanced program-label mass distribution (equivale
 4. It does not imply a Choi or diamond operational error bound.
 
 The 202-column dual's continuous uniform-path pricing is a separate question. A positive torus Arb interval would refute global separation by this particular dual; a subsequent exact finite-time Arb witness would make that escape explicit. Until those checks finish, no continuous-family conclusion is asserted.
+
+
+## Continuous uniform-path pricing of the 202-column dual
+
+The 21-dimensional torus search used eight deterministic starts and at most 120 L-BFGS-B iterations per start. The best binary64 discovery score was 0.9971550877716457. Analytic-gradient checks against complex-step and central differences had maximum reported relative defect (2.1910138333004715\times10^{-9}).
+
+The exact decimal phase vector was independently evaluated with 128-bit Arb:
+[
+S_{202}(R(\theta_*))\in
+[0.997155087771645424273385402820507
+\pm5.10\times10^{-34}]>0.
+]
+The interval lower endpoint is strictly positive. The Arb output pins the 202-column dual SHA-256
+`e76b964f36192069070647964c415c0f87308c26552ca718aa119acf62586187`
+and LP SHA-256
+`98b07b734dcb86c4bff1a28d550d1b1a3dda64857d05d2c38c8136c10de280ba`.
+
+Together with the rational-independence/dense-ray result in `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md`, continuity implies that **some finite positive equal-coupling open-path time exists** at which this particular 202-column dual has positive pricing. This is an existential conclusion, not yet an explicit rational-time certificate. The dedicated finite-time search and Arb verifier are running separately; no numerical finite-time claim should be made until their evidence is committed.
