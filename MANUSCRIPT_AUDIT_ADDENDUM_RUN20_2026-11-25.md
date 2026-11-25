@@ -84,3 +84,13 @@ No formal manuscript source edit is claimed because no TeX/Bib/PDF source is tra
 - **Not implied:** a worst-case Hamiltonian guarantee, a worst-case input guarantee, or a channel diamond-norm bound.
 
 Next highest-value action: obtain the editable manuscript source and the pinned QuAIRKit environment, correct (B.1)–(B.2), and regenerate all five Appendix B rows with fixed seeds and archived raw means.
+
+
+## Commit and CI identifiers
+
+- Production refactor: [2c0e620](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/2c0e620879a368373667888edae321e612f518a7).
+- Shared helper, tests, evidence, workflow and this audit: [5a7e045](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/5a7e045012e2cf97b7a18c69607b7d50784a9128).
+- README verification instructions: [3810fdae](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/3810fdae773e5dac49400c6625d28da095edfebf).
+- Production-wiring assertion and py_compile step: [08b68c5](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/08b68c5ade068970ced05bebb419fa0a0ce0c62c).
+- Final workflow: [45564164419 — SUCCESS](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45564164419).
+- Final main HEAD at audit close: 08b68c5ade068970ced05bebb419fa0a0ce0c62c.
