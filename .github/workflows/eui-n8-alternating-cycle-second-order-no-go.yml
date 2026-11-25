@@ -1,0 +1,27 @@
+name: EUI N8 alternating-cycle second-order no-go
+on:
+  push:
+    paths:
+      - "THEORY_N8_ALTERNATING_CYCLE_SECOND_ORDER_NO_GO.md"
+      - "verify_n8_alternating_cycle_second_order_no_go.py"
+      - "evidence/n8_alternating_cycle_second_order_no_go.json"
+      - ".github/workflows/eui-n8-alternating-cycle-second-order-no-go.yml"
+  pull_request:
+    paths:
+      - "THEORY_N8_ALTERNATING_CYCLE_SECOND_ORDER_NO_GO.md"
+      - "verify_n8_alternating_cycle_second_order_no_go.py"
+      - "evidence/n8_alternating_cycle_second_order_no_go.json"
+      - ".github/workflows/eui-n8-alternating-cycle-second-order-no-go.yml"
+  workflow_dispatch:
+jobs:
+  exact-sign-pattern-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile verifier
+        run: python -m py_compile verify_n8_alternating_cycle_second_order_no_go.py
+      - name: Exhaust exact circulant sign patterns
+        run: python verify_n8_alternating_cycle_second_order_no_go.py
