@@ -184,6 +184,7 @@ def main():
         "group": "SO(42)",
         "ensemble": "uniform over R_M=P_M D, M a perfect matching of [42]",
         "matching_count": large["perfect_matching_support_size"],
+        "matching_count_exact": str(large["perfect_matching_support_size"]),
         "equal_atom_weight_exact": large["equal_atom_weight_exact"],
         "all_even_principal_minor_orders": list(range(0, 43, 2)),
         "small_n_exhaustive_checks": small,
