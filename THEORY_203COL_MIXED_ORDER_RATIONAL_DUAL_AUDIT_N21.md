@@ -76,3 +76,34 @@ The 203-column dual has not yet been priced over the full 21-dimensional uniform
 - TV verifier: `verify_203col_program_mass_tv_bound.py`
 - Certification workflow: `.github/workflows/eui-certify-203col-uniform-ray-dual.yml`
 - Certification run: [45624017940](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45624017940)
+
+
+## 6. Continuous uniform-path torus pricing of the 203-column dual (Run 27)
+
+The exact 203-column dual has now been priced at a point of the full 21-dimensional uniform-path torus. The deterministic discovery used eight starts, at most 120 L-BFGS-B iterations per start, seed `202611252115`, NumPy 2.3.5 and SciPy 1.15.3. The analytic cofactor gradient was checked against complex-step and central differences; the maximum recorded relative defect was
+`2.590572462859631e-9`. The explicit spectral-basis regressions had maximum absolute defects below `5.4e-15`.
+
+The exact rational-decimal phase vector is stored in
+`evidence/203col_uniform_torus_search_n21.json` and pinned by SHA-256
+`7477552fc810d4438138130a5fee7baebbe3fc33490bd50ad17544478e3cb5d3`.
+Independent 128-bit Arb evaluation gives
+[
+S_{203}(R(\theta_*))
+\in
+[1.0825780781000278157417170733698968
+\pm 7.99\times10^{-35}]>0.
+]
+The lower endpoint itself is enclosed by
+`[1.0825780781000278157417170733698967202 +/- 3.69e-38]`,
+strictly above zero. The certificate pins the exact 203-column rational dual, LP transcript, mixed-order cut design, discovery transcript, 202-column warm-start transcript, and dense-torus theorem source.
+
+Evidence:
+- [203-column torus search](evidence/203col_uniform_torus_search_n21.json)
+- [independent 128-bit Arb certificate](evidence/203col_uniform_torus_arb_n21.json)
+- [discovery and verifier scripts](discover_203col_uniform_torus_pricing.py), [Arb verifier](verify_203col_uniform_torus_pricing_arb.py)
+- [successful CI workflow 45627659423](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45627659423)
+- evidence commit [e3e8b5c](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e3e8b5cec6892f190dcc434140e27710c890c7e7)
+
+**Theorem-level consequence.** The exact dense-ray theorem in `THEORY_UNIFORM_42SITE_PATH_DENSE_TORUS.md`, together with continuity and the strictly positive Arb interval, proves that there exists at least one finite (t>0) on the equal-positive-coupling 42-site open path for which the 203-column dual pricing is positive.
+
+**Scope.** This refutes global separation by this particular 203-column dual on the continuous equal-coupling physical ray. It does not invalidate the exact 203-column finite-pool theorem, prove feasibility or infeasibility of the complete physical-family moment problem, complete the selected sixth/eighth-order orbit system, or imply a Choi/diamond-distance bound. The torus certificate proves existence of a finite physical time by density; an explicit exact-rational time is being searched and must still receive its own Arb certificate.
