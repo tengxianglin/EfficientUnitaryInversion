@@ -87,3 +87,30 @@ Next, enlarge the quartic orbit set and run a positive-mixture search over new p
 - Independent verifier: verify_n42_period_two_pair_plus_quartic_ensemble_arb.py
 - Arb certificate: evidence/n42_period_two_pair_plus_quartic_ensemble_arb.json
 - Workflow: .github/workflows/eui-n42-period-two-pair-plus-quartic.yml
+
+
+## Final 256-bit Arb certificate
+
+Hosted workflow [45700330683](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45700330683) completed successfully. The committed certificate is [evidence/n42_period_two_pair_plus_quartic_ensemble_arb.json](evidence/n42_period_two_pair_plus_quartic_ensemble_arb.json).
+
+Certified enclosures:
+- 35-by-35 determinant:
+  \[
+  [-2.5294907776628440894301002851793321218013715992352612443051815438462\times10^{-37}
+  \pm4.33\times10^{-105}],
+  \]
+  excluding zero.
+- Minimum weight:
+  \[
+  [0.001179891547235591485841352512144002126567974337446336779962198932561366
+  \pm2.93\times10^{-73}]>\frac1{1000}.
+  \]
+- Weight sum contains one.
+- All 861 pair coordinates and all 84 matched quartic translates pass.
+- The unmatched witness \(J=\{0,2,21,23\}\) has residual
+  \[
+  [0.0046611915692632708730310450742487380437296127750735010948008663060902537
+  \pm6.36\times10^{-74}]>\frac1{400}.
+  \]
+
+This is a certified partial design with four fourth-order translation orbits, not a full fourth-order design.
