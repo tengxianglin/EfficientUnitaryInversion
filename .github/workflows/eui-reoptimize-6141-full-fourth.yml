@@ -23,7 +23,7 @@ permissions:
 
 concurrency:
   group: eui-reoptimize-6141-full-fourth
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   reoptimize:
