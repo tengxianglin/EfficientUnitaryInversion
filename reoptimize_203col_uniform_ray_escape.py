@@ -109,7 +109,7 @@ def main():
     escapes, escape_hashes = zip(*(load_json(path) for path in ESCAPE_PATHS))
     escapes, escape_hashes = list(escapes), list(escape_hashes)
 
-    if parent_lp.get("status") != "203col_uniform_ray_escape_lp_above_one_third":
+    if parent_lp.get("status") != "202col_uniform_ray_escape_lp_above_one_third":
         raise RuntimeError("202-column parent LP is not the expected above-cap discovery")
     if (parent_lp.get("columns"), parent_lp.get("rows")) != (202, 2113):
         raise RuntimeError("unexpected 202-column parent dimensions")
