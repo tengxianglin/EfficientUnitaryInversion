@@ -107,3 +107,23 @@ Advance [Issue #7](https://github.com/tengxianglin/EfficientUnitaryInversion/iss
 ## Runtime/model note
 
 Repository changes and GitHub Actions runs are real. The requested GPT-6.1-sol Max model tier cannot be selected from this execution environment, so no model-switch claim is made.
+
+
+## 4. Exact physical-reachability exclusion for one matching atom
+
+A necessary-condition test was completed for the perfect-matching relaxation. If R_M=P_M D were e^{A(c)} for the fixed 42-cycle generator, then A(c) would commute with R_M. The 42 cycle-generator basis commutators form an integer 1764x42 matrix C.
+
+For one frozen perfect matching, an exact modular certificate gives a 42x42 pivot minor with determinant 1 modulo 65521. Therefore C has full column rank over Q/R, so the only commuting cycle generator is zero; its exponential is I, not R_M. This proves that this particular atom is not in the physical cycle exponential family for any real couplings.
+
+Exact rational commutant-nullity enumeration over all matchings gives 0/3 atoms excluded at N=4, 0/15 at N=6, and 8/105 at N=8. Positive nullity is inconclusive and is not reported as reachability.
+
+Evidence:
+- verifier: `verify_perfect_matching_atom_cycle_unreachability.py`
+- certificate: `evidence/perfect_matching_atom_cycle_unreachable_n21.json`
+- successful workflow: [45660576732](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45660576732)
+- updated proof: [THEORY_PERFECT_MATCHING_BALANCED_SLICE_ENSEMBLE_N42.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_PERFECT_MATCHING_BALANCED_SLICE_ENSEMBLE_N42.md)
+
+This shows the uniform perfect-matching representation itself is not supported entirely on the physical cycle family. It does not rule out a different positive physical ensemble with the same complete moments.
+
+The focused reachability question is tracked in [Issue #7](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/7).
+
