@@ -28,6 +28,7 @@ LOW_COUNT = 1461
 SIXTH_END = 2106
 SIXTH_SCALE = 5.0 / 19721.0
 EIGHTH_SCALE = 1.0 / 19721.0
+SEARCH_SEED = 202611252115
 
 
 def sha(raw):
@@ -293,7 +294,7 @@ def main():
     if gradient_defect > 2e-5:
         raise RuntimeError(f"analytic torus pricing gradient failed: {checks}")
 
-    rng = np.random.default_rng(202611252115)
+    rng = np.random.default_rng(SEARCH_SEED)
     starts = [
         np.zeros(21),
         np.full(21, np.pi / 2.0),
@@ -348,6 +349,12 @@ def main():
         "gradient_check_max_relative_defect": gradient_defect,
         "regression_checks": pricing.regression,
         "starts": len(starts),
+        "starts_requested": args.starts,
+        "random_seed": SEARCH_SEED,
+        "numpy_version": np.__version__,
+        "scipy_version": __import__("scipy").__version__,
+        "optimizer": "L-BFGS-B",
+        "phase_rounding_decimals": 12,
         "max_iterations_per_start": args.maxiter,
         "best_candidate_phases_exact_decimal": best["phases_exact_decimal"] if best else None,
         "best_candidate_score_binary64": best["rounded_score_binary64"] if best else None,
