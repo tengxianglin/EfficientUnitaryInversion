@@ -36,7 +36,7 @@ jobs:
           python freeze_seed_pool.py
           python -m unittest tests/test_eighth_orbit_enumeration.py
           python -m unittest tests/test_uniform_path_torus_basis.py
-          python -m py_compile verify_201col_uniform_ray_dual_arb.py verify_200col_uniform_ray_dual_arb.py verify_200col_program_mass_tv_bound.py verify_200col_uniform_torus_pricing_arb.py discover_200col_uniform_ray_time_escape.py verify_200col_uniform_ray_time_arb.py
+          python -m py_compile verify_201col_uniform_ray_dual_arb.py verify_201col_program_mass_tv_bound.py verify_200col_uniform_ray_dual_arb.py verify_200col_program_mass_tv_bound.py verify_200col_uniform_torus_pricing_arb.py discover_200col_uniform_ray_time_escape.py verify_200col_uniform_ray_time_arb.py
       - name: Re-certify the exact 200-column parent and finite-time escape
         run: |
           python verify_200col_uniform_ray_dual_arb.py
@@ -58,7 +58,9 @@ jobs:
               raise SystemExit("201-column certificate does not cover all 201 columns")
           print("Strict 201-column Arb certificate confirmed.")
           PY
-      - name: Commit the 201-column certificate and pinned parent time evidence
+      - name: Verify the exact-rational program-mass TV corollary
+        run: python verify_201col_program_mass_tv_bound.py
+      - name: Commit the 201-column certificate, TV corollary, and pinned parent time evidence
         if: always()
         run: |
           git config user.name "github-actions[bot]"
@@ -67,7 +69,8 @@ jobs:
           for f in \
             evidence/200col_uniform_ray_time_search_n21.json \
             evidence/200col_uniform_ray_time_arb_n21.json \
-            evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json; do
+            evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json \\
+            evidence/201col_program_mass_tv_bound_n21.json; do
             if [ -f "$f" ]; then cp "$f" /tmp/eui-201-cert/evidence/; fi
           done
           for attempt in 1 2 3; do
@@ -77,7 +80,8 @@ jobs:
             for f in \
               evidence/200col_uniform_ray_time_search_n21.json \
               evidence/200col_uniform_ray_time_arb_n21.json \
-              evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json; do
+              evidence/55probe_201col_uniform_ray_escape_dual_certificate_n21.json \\
+              evidence/201col_program_mass_tv_bound_n21.json; do
               if [ -f "/tmp/eui-201-cert/$f" ]; then
                 cp "/tmp/eui-201-cert/$f" "$f"
                 git add "$f"
