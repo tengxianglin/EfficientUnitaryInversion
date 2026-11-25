@@ -241,8 +241,8 @@ def main():
         raise RuntimeError("200-column parent does not pin the exact 198-column ancestor finite-time certificate")
     if parent_lp.get("uniform_ray_time_arb_certificate_sha256") != latest_time_cert_sha or Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != Fraction(latest_time_cert["t_exact_rational"]):
         raise RuntimeError("200-column parent current escape pin does not match the 199-column finite-time certificate")
-    if Fraction(parent_lp.get("uniform_ray_time_exact_rational")) != t_new:
-        raise RuntimeError("199-column parent has a different 198-column uniform-ray time")
+    if Fraction(parent_lp.get("parent_198col_uniform_ray_time_exact_rational")) != t_new:
+        raise RuntimeError("200-column parent has a different 198-column ancestor uniform-ray time")
 
     if latest_time_cert.get("dual_certificate_sha256") != parent_lp.get("parent_199col_dual_certificate_sha256") or latest_time_cert.get("lp_transcript_sha256") != parent_lp.get("parent_199col_lp_sha256") or latest_time_cert.get("cut_lp_transcript_sha256") != cut_lp_sha:
         raise RuntimeError("199-column finite-time certificate does not pin the exact 199-column ancestor dual/LP/cut design")
