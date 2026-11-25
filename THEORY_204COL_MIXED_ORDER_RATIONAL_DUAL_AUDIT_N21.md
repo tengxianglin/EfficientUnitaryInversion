@@ -108,3 +108,42 @@ Evidence:
 **Theorem-level consequence.** The exact dense-ray theorem, continuity, and the strictly positive Arb interval prove existence of at least one finite positive time on the equal-positive-coupling 42-site open-path ray for which the 204-column dual pricing is positive.
 
 **Scope.** This refutes global separation by this particular 204-column dual on the continuous equal-coupling physical ray. It does not invalidate the exact 204-column finite-pool minimax theorem, prove feasibility or infeasibility of the complete physical-family moment problem, complete the selected sixth/eighth-order orbit systems, or imply a Choi/diamond-distance bound. An explicit rational finite time is being searched and must receive its own independent Arb certificate.
+
+
+## 7. Explicit finite-time physical escape (Run 29)
+
+The positive torus witness was followed by a deterministic one-dimensional search on
+\[
+\theta_k(t)=t\omega_k,\qquad \omega_k=4\cos(k\pi/43).
+\]
+The search used 12 starts, at most 400 L-BFGS-B iterations per start, seed `202611260041`, and the bounded interval `[1e-9,1e8]`. It found the decimal candidate
+`60507754.794885717332363`, with binary64 pricing score `0.17865805910343283`.
+
+Freeze the time as the exact rational
+\[
+\boxed{t_{204}=\frac{60507754794885717332363}{1000000000000000}>0.}
+\]
+For the 42-site open path,
+\[
+c_0=\cdots=c_{40}=t_{204},\qquad c_{41}=0.
+\]
+All 41 internal couplings are strictly positive.
+
+Independent 128-bit Arb evaluation against the exact 204-column rational dual gives
+\[
+\boxed{
+S_{204}(e^{t_{204}K_*})
+\in[0.17865805637622197036695667\pm5.07\times10^{-27}]>0.
+}
+\]
+The recorded lower-endpoint enclosure is
+`[0.17865805637622197036695666493690376794 +/- 2.52e-39]`,
+strictly above zero.
+
+Evidence:
+- [finite-time search transcript](evidence/204col_uniform_ray_time_search_n21.json)
+- [independent 128-bit Arb certificate](evidence/204col_uniform_ray_time_arb_n21.json)
+- [finite-time discovery](discover_204col_uniform_ray_time_escape.py), [Arb verifier](verify_204col_uniform_ray_time_arb.py)
+- [successful workflow 45658174449](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45658174449)
+
+This is an explicit finite-time physical escape, stronger than the torus/density existential statement. It refutes global separation by this particular 204-column dual on the continuous equal-coupling physical ray. It does not invalidate the fixed 204-column finite-pool theorem, prove full-family feasibility/infeasibility, complete sixth/eighth orbit control, or imply a Choi/diamond operational bound.
