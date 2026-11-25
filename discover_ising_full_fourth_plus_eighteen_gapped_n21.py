@@ -317,7 +317,7 @@ def solve_full_grid(system, warm, warm_sha):
             })
 
     # Preserve all sixteen previously certified gapped columns, then append the
-    # connected and two-segment escapes from the newly certified 6,135 dual.
+    # connected and two-segment escapes from the newly certified 6,139 dual.
     parent_columns = parent["appended_gapped_columns"]
     if len(parent_columns) != 16:
         raise RuntimeError("expected exactly sixteen parent gapped columns")
