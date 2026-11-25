@@ -1,0 +1,94 @@
+name: EUI 202-column rational dual and independent Arb certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evidence/joint_low_six_eighth_lp_202col_uniform_ray_escape_n21.json"
+      - "verify_202col_uniform_ray_dual_arb.py"
+      - "verify_202col_program_mass_tv_bound.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-certify-202col-uniform-ray-dual
+  cancel-in-progress: true
+
+jobs:
+  certify-202:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned numerical stack
+        run: python -m pip install "numpy==2.3.5" "scipy==1.15.3" "python-flint==0.8.0"
+      - name: Regressions and compile the 202-column certification tools
+        run: |
+          python freeze_seed_pool.py
+          python -m unittest tests/test_eighth_orbit_enumeration.py
+          python -m unittest tests/test_uniform_path_torus_basis.py
+          python -m py_compile verify_202col_uniform_ray_dual_arb.py verify_202col_program_mass_tv_bound.py verify_201col_uniform_ray_dual_arb.py verify_201col_program_mass_tv_bound.py verify_201col_uniform_ray_time_arb.py
+      - name: Rationalize and independently Arb-certify all 202 columns
+        run: python verify_202col_uniform_ray_dual_arb.py
+      - name: Verify the exact-rational program-mass TV corollary when a strict dual exists
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import subprocess
+          p = Path("evidence/55probe_202col_uniform_ray_escape_dual_certificate_n21.json")
+          if not p.exists():
+              raise SystemExit("202-column dual verifier did not produce its certificate output")
+          x = json.loads(p.read_text())
+          if x.get("status") == "strict_202col_2113row_uniform_ray_escape_minimax_obstruction" and x.get("complete") is True:
+              subprocess.run(["python", "verify_202col_program_mass_tv_bound.py"], check=True)
+          else:
+              print("No strict 202-column dual: exact primal audit is the required branch.")
+          PY
+      - name: Commit 202-column dual, TV result, or non-obstruction diagnostic
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          mkdir -p /tmp/eui-202-cert/evidence
+          for f in \
+            evidence/55probe_202col_uniform_ray_escape_dual_certificate_n21.json \
+            evidence/202col_program_mass_tv_bound_n21.json; do
+            if [ -f "$f" ]; then cp "$f" /tmp/eui-202-cert/evidence/; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            for f in \
+              evidence/55probe_202col_uniform_ray_escape_dual_certificate_n21.json \
+              evidence/202col_program_mass_tv_bound_n21.json; do
+              if [ -f "/tmp/eui-202-cert/$f" ]; then
+                cp "/tmp/eui-202-cert/$f" "$f"
+                git add "$f"
+              fi
+            done
+            if ! git diff --cached --quiet; then
+              git commit -m "Certify the 202-column mixed-order dual and TV corollary"
+            fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload 202-column certification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-202col-rational-dual-arb-certificate
+          path: |
+            evidence/55probe_202col_uniform_ray_escape_dual_certificate_n21.json
+            evidence/202col_program_mass_tv_bound_n21.json
+          if-no-files-found: warn
