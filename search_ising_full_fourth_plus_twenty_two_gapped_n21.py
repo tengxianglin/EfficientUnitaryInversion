@@ -55,8 +55,8 @@ def load_functional():
     if (
         finite.get("base_atom_count") != 22
         or finite.get("fractional_grid_count") != 6101
-        or finite.get("general_gapped_count") != 20
-        or finite.get("dual_nonzero_coefficients") != 103
+        or finite.get("general_gapped_count") != 22
+        or finite.get("dual_nonzero_coefficients") != 107
     ):
         raise RuntimeError("the 6,145-column certificate has unexpected pool/dual dimensions")
 
@@ -68,8 +68,8 @@ def load_functional():
         int(item["feature_index"]): item["coefficient"]
         for item in finite["dual_coefficients_exact_rational"]
     }
-    if len(exact) != 103 or set(exact) != set(metadata):
-        raise RuntimeError("the 103-term Arb dual does not match the discovery metadata")
+    if len(exact) != 107 or set(exact) != set(metadata):
+        raise RuntimeError("the 107-term Arb dual does not match the discovery metadata")
 
     second = ["0"] * 21
     terms = []
