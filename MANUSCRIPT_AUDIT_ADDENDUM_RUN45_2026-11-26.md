@@ -34,18 +34,18 @@ The resulting certificate is:
 
 Certified facts:
 - 107 nonzero exact-rational dual coefficients;
-- exact scaled dual norm \\(\\|D^{-1}y\\|_1=1\\), with (D=\\operatorname{diag}(41I_{21},533I_{1440}));
-- exact full-coordinate dual norm \\(\\|y\\|_1=533\\);
-- common rational column gap (1/5);
-- minimum Arb lower endpoint approximately (0.2206104558375831>1/5);
+- exact scaled dual norm \(\|D^{-1}y\|_1=1\), with \(D=\operatorname{diag}(41I_{21},533I_{1440})\);
+- exact full-coordinate dual norm \(\|y\|_1=533\);
+- common rational column gap \(1/5\);
+- minimum Arb lower endpoint approximately \(0.2206104558375831>1/5\);
 - 22 base/gapped columns checked at 512-bit Arb and 6,101 fractional-grid columns at 128-bit Arb.
 
 Consequently, for every probability mixture over **this exact 6,145-column pool**,
-\\[
-\\|b-Ap\\|_\\infty>\\frac{1}{2665},
-\\qquad
-\\operatorname{TV}(w_p,u_{\\rm bal})>\\frac{1}{5330}.
-\\]
+\[
+\|b-Ap\|_\infty>\frac{1}{2665},
+\qquad
+\operatorname{TV}(w_p,u_{\rm bal})>\frac{1}{5330}.
+\]
 The TV statement concerns the balanced program-label distribution / dephased classical label register. It is not a Choi trace-distance or channel diamond-distance bound.
 
 The LP diagnostic reports HiGHS dual optimality and primal infeasibility, but those floating solver statuses are discovery metadata only. The finite-pool theorem is certified by the independently reconstructed exact-rational dual and Arb column pricing.
@@ -66,5 +66,5 @@ The guard was corrected in commit [63007ea](https://github.com/tengxianglin/Effi
 ## Proof boundary and next action
 
 - **Proved:** a strict second-/fourth-order separation for the exact pinned 6,145-column finite pool.
-- **Not proved:** separation of all continuous physical couplings; feasibility/infeasibility of the complete all-even-principal-minor positive ensemble at (n=21); full sixth/eighth and higher-order control; or a program-label-to-Choi/diamond operational bridge.
+- **Not proved:** separation of all continuous physical couplings; feasibility/infeasibility of the complete all-even-principal-minor positive ensemble at \(n=21\); full sixth/eighth and higher-order control; or a program-label-to-Choi/diamond operational bridge.
 - **Next:** finish continuous pricing of the 6,145 dual. If an Arb-certified escape is found, append that exact-rational path and reoptimize; if none is found, report only the finite search result and do not call it a global bound. In parallel, the paper-level target remains an exact positive physical ensemble satisfying every even-principal-minor moment, or a global proof covering all allowed couplings.
