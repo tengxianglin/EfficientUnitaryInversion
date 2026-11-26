@@ -1,0 +1,823 @@
+{
+  "best_connected": {
+    "couplings_exact_decimal": [
+      "1.5707963137209948",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "2.3120468313564024",
+      "2.1269800147542086",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707964039992222",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "4.7123889841529998",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707962947853586",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "23.561944886153629",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707962963692026",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707962441855088",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "0.089064377898904132",
+      "3.140330110817434",
+      "0.00043576119449001616",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707963338658284",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707962907526583",
+      "9.9999999999999995e-07",
+      "9.9999999999999995e-07",
+      "1.5707963164747534",
+      "9.9999999999999995e-07",
+      "0"
+    ],
+    "internal_zero_edges": [],
+    "label": {
+      "index": 354,
+      "source": "independent_lognormal"
+    },
+    "maximum_coupling": "23.561944886153629",
+    "minimum_positive_coupling": "9.9999999999999995e-07",
+    "optimized": true,
+    "optimizer": {
+      "function_evaluations": 69,
+      "iterations": 61,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "success": true
+    },
+    "score_float": "33.430200149029119",
+    "target_minus_score_float": "-33.181259273668417"
+  },
+  "best_multisegment": {
+    "couplings_exact_decimal": [
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1.427474226277604e-08",
+      "3.1415925889881935",
+      "1e-08",
+      "1.5707962520246879",
+      "1e-08",
+      "1e-08",
+      "1.5707963884008063",
+      "1e-08",
+      "1e-08",
+      "1.5707962525899972",
+      "1e-08",
+      "1e-08",
+      "1.5707962703405247",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1e-08",
+      "1.5707963998233898",
+      "1e-08",
+      "1e-08",
+      "1.5707963753823784",
+      "1e-08",
+      "0",
+      "18.500378239993953",
+      "82.22971068256075",
+      "98.421111515706116",
+      "1e-08",
+      "75.807336503528461",
+      "30.415461956316157",
+      "1e-08",
+      "42.411500947802892",
+      "0"
+    ],
+    "internal_zero_edges": [
+      32
+    ],
+    "label": {
+      "index": 140,
+      "segment_count": 2,
+      "segment_scales": [
+        0.655360550748345,
+        46.72085359231679
+      ],
+      "source": "piecewise_random_segments",
+      "zero_edges": [
+        32
+      ]
+    },
+    "maximum_coupling": "98.421111515706116",
+    "minimum_positive_coupling": "1e-08",
+    "optimized": true,
+    "optimizer": {
+      "function_evaluations": 167,
+      "iterations": 137,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "success": true
+    },
+    "score_float": "24.570070189997317",
+    "target_minus_score_float": "-24.321129314636611"
+  },
+  "best_overall_gap": "-33.181259273668417",
+  "best_overall_kind": "connected",
+  "best_overall_score": "33.430200149029119",
+  "complete": true,
+  "connected_random_count": 512,
+  "coupling_convention": "A[j,j+1]=2*c[j], A[j+1,j]=-2*c[j], j=0,...,40; c[41]=0. The wrap edge is exactly cut. Internal zero couplings split the open path.",
+  "elapsed_seconds": 75.85154941899998,
+  "escape_discovery_margin": 1e-06,
+  "fractional_perturbation_count": 256,
+  "gradient_self_test": {
+    "absolute_errors": [
+      1.4294204708775737e-10,
+      1.0827322372009007e-10,
+      1.947994265893982e-10
+    ],
+    "base_value": -1.2441919658716665,
+    "maximum_absolute_error": 1.947994265893982e-10,
+    "tested_coordinates": [
+      0,
+      20,
+      40
+    ]
+  },
+  "initial_candidates_evaluated": 1820,
+  "multisegment_random_count": 525,
+  "n": 21,
+  "optimization": {
+    "coupling_bounds": [
+      1e-06,
+      500.0
+    ],
+    "max_iterations_per_start": 180,
+    "method": "L-BFGS-B with analytic Frechet gradient",
+    "multisegment_zero_edges_fixed": true,
+    "records": [
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 185,
+          "iterations": 162,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 17.744549326853946,
+        "score_before": 1.681686160468041,
+        "start_index": 722,
+        "start_label": {
+          "index": 210,
+          "source": "independent_lognormal"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 204,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 16.79970797414094,
+        "score_before": 1.0536073462258861,
+        "start_index": 465,
+        "start_label": {
+          "pool_index": 1412,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 41,
+          "iterations": 39,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 25.142555434291058,
+        "score_before": 0.952788777120043,
+        "start_index": 774,
+        "start_label": {
+          "index": 262,
+          "source": "independent_lognormal"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 87,
+          "iterations": 83,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 12.739027283085631,
+        "score_before": 0.800103042527775,
+        "start_index": 750,
+        "start_label": {
+          "index": 238,
+          "source": "independent_lognormal"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 214,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 1.984933583239635,
+        "score_before": 0.6117776392511693,
+        "start_index": 313,
+        "start_label": {
+          "pool_index": 475,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 77,
+          "iterations": 71,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 1.9444873764881319,
+        "score_before": 0.5296261445421561,
+        "start_index": 227,
+        "start_label": {
+          "pool_index": 174,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 202,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 2.2243152909203205,
+        "score_before": 0.512043836877084,
+        "start_index": 104,
+        "start_label": {
+          "pool_index": 394,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 206,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 2.1000346643910035,
+        "score_before": 0.4251280952246665,
+        "start_index": 397,
+        "start_label": {
+          "pool_index": 212,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 204,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 2.0901283944781452,
+        "score_before": 0.41349220516082835,
+        "start_index": 1,
+        "start_label": {
+          "pool_index": 573,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 205,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 8.843949874658485,
+        "score_before": 0.4031112988762473,
+        "start_index": 114,
+        "start_label": {
+          "pool_index": 303,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 154,
+          "iterations": 137,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 2.0726608536941744,
+        "score_before": 0.3964816809122058,
+        "start_index": 509,
+        "start_label": {
+          "pool_index": 260,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 59,
+          "iterations": 52,
+          "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "success": true
+        },
+        "score_after": 1.5881982004583877,
+        "score_before": 0.38012323918847213,
+        "start_index": 375,
+        "start_label": {
+          "pool_index": 134,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 75,
+          "iterations": 64,
+          "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "success": true
+        },
+        "score_after": 1.6559908389278089,
+        "score_before": 0.37783747590146594,
+        "start_index": 172,
+        "start_label": {
+          "pool_index": 125,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 105,
+          "iterations": 93,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 2.0726608534325437,
+        "score_before": 0.37619933846897907,
+        "start_index": 394,
+        "start_label": {
+          "pool_index": 298,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 70,
+          "iterations": 59,
+          "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "success": true
+        },
+        "score_after": 1.5295108292017665,
+        "score_before": 0.3708850723025748,
+        "start_index": 148,
+        "start_label": {
+          "pool_index": 283,
+          "source": "frozen_seed_pool"
+        }
+      },
+      {
+        "kind": "connected",
+        "optimizer": {
+          "function_evaluations": 69,
+          "iterations": 61,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 33.43020014902912,
+        "score_before": 0.3704774176593472,
+        "start_index": 866,
+        "start_label": {
+          "index": 354,
+          "source": "independent_lognormal"
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 208,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 15.97322981090208,
+        "score_before": 0.31205813036863966,
+        "start_index": 472,
+        "start_label": {
+          "index": 459,
+          "segment_count": 4,
+          "segment_scales": [
+            6.617884140076539,
+            4.344169078021967,
+            35.45476393228945,
+            22.337963294324084
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            9,
+            15,
+            38
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 205,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 14.688267102300516,
+        "score_before": 0.3037339616015277,
+        "start_index": 219,
+        "start_label": {
+          "index": 206,
+          "segment_count": 3,
+          "segment_scales": [
+            57.791561931299846,
+            136.35455933892177,
+            18.2116528513593
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            27,
+            37
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 167,
+          "iterations": 137,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 24.570070189997317,
+        "score_before": 0.2754859391182125,
+        "start_index": 153,
+        "start_label": {
+          "index": 140,
+          "segment_count": 2,
+          "segment_scales": [
+            0.655360550748345,
+            46.72085359231679
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            32
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 201,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 6.369159858953738,
+        "score_before": 0.2112688279906869,
+        "start_index": 444,
+        "start_label": {
+          "index": 431,
+          "segment_count": 3,
+          "segment_scales": [
+            279.3722162444685,
+            26.58181403201214,
+            0.51992844437525
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            22,
+            35
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 198,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 17.185353906564817,
+        "score_before": 0.204826746804999,
+        "start_index": 99,
+        "start_label": {
+          "index": 86,
+          "segment_count": 5,
+          "segment_scales": [
+            214.59381312269335,
+            5.4820315512125894,
+            244.4778205505974,
+            10.405673300925546,
+            3.150939280729677
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            1,
+            7,
+            13,
+            39
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 199,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 14.156531821728818,
+        "score_before": 0.09827537683484758,
+        "start_index": 56,
+        "start_label": {
+          "index": 43,
+          "segment_count": 3,
+          "segment_scales": [
+            18.87237557004155,
+            1.9230092441715878,
+            201.7801163565769
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            37,
+            39
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 209,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 5.8098852628986455,
+        "score_before": 0.07031394204885148,
+        "start_index": 161,
+        "start_label": {
+          "index": 148,
+          "segment_count": 2,
+          "segment_scales": [
+            195.18669079130925,
+            80.92288594586479
+          ],
+          "source": "piecewise_random_segments",
+          "zero_edges": [
+            33
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 219,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 17.153724825594384,
+        "score_before": 0.02266075784888117,
+        "start_index": 4,
+        "start_label": {
+          "column_kind": "new_multisegment_escape_from_6133_dual",
+          "segment_count": 5,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            8,
+            13,
+            32,
+            35
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 147,
+          "iterations": 109,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 22.68981808916929,
+        "score_before": 0.022660757845672078,
+        "start_index": 9,
+        "start_label": {
+          "column_kind": "new_multisegment_escape_from_6143_dual",
+          "segment_count": 4,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            1,
+            31,
+            32
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 119,
+          "iterations": 90,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 16.216259157758017,
+        "score_before": 0.02266075784523139,
+        "start_index": 12,
+        "start_label": {
+          "column_kind": "new_multisegment_escape_from_6149_dual",
+          "segment_count": 2,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            35
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 3,
+          "iterations": 1,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 0.022660757845850834,
+        "score_before": 0.02266075784502817,
+        "start_index": 0,
+        "start_label": {
+          "column_kind": "new_multisegment_escape",
+          "segment_count": 3,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            16,
+            26
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 184,
+          "iterations": 135,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 20.638181975196744,
+        "score_before": 0.02266075784500464,
+        "start_index": 1,
+        "start_label": {
+          "column_kind": "new_two_segment_escape_6127_dual",
+          "segment_count": 2,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            35
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 214,
+          "iterations": 180,
+          "message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+          "success": false
+        },
+        "score_after": 17.932733155956598,
+        "score_before": 0.022660757844983538,
+        "start_index": 3,
+        "start_label": {
+          "column_kind": "new_two_segment_escape_from_6131_dual",
+          "segment_count": 5,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            12,
+            17,
+            29,
+            37
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 65,
+          "iterations": 50,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 19.708909040257616,
+        "score_before": 0.022660757844929727,
+        "start_index": 6,
+        "start_label": {
+          "column_kind": "new_multisegment_escape_from_6137_dual",
+          "segment_count": 3,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            4,
+            5
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 44,
+          "iterations": 30,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 13.856414755565307,
+        "score_before": 0.022660757844890068,
+        "start_index": 10,
+        "start_label": {
+          "column_kind": "new_multisegment_escape_from_6145_dual",
+          "segment_count": 3,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            18,
+            25
+          ]
+        }
+      },
+      {
+        "kind": "multisegment",
+        "optimizer": {
+          "function_evaluations": 3,
+          "iterations": 1,
+          "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+          "success": true
+        },
+        "score_after": 0.022660757844899623,
+        "score_before": 0.022660757844859224,
+        "start_index": 2,
+        "start_label": {
+          "column_kind": "new_two_segment_escape_from_6129_dual",
+          "segment_count": 3,
+          "source": "certified_6151_finite_pool",
+          "zero_edges": [
+            17,
+            29
+          ]
+        }
+      }
+    ],
+    "starts_per_class": 16
+  },
+  "pins": {
+    "diagnostic_sha256": "ff42a31507ed8e02ef962bfa0c91da12d3e1eae82ffdac35a12cc60cc34a497c",
+    "dual_nonzero_coefficients": 118,
+    "finite_certificate_sha256": "6b4b95f7ebf7f41f7abe3d40e2b7840de32116dce01f79cb2e99deb7016668c8",
+    "finite_certificate_status": "arb_certified_finite_6151_column_full_fourth_plus_twenty_eight_gapped_separator",
+    "target_score_exact": "132685486567256190815/533000000000000032377",
+    "target_score_float": "0.24894087536070578"
+  },
+  "pool_sample_count": 512,
+  "proof_scope": "Deterministic finite multistart and local-optimization discovery only. A score above the target is an escape candidate from the newly Arb-certified 6,151-column separator and must be independently verified with Arb. Failure to find one is not a global upper bound.",
+  "random_seed": 202611270247,
+  "run_label": "run52_2026-11-27_reprice_6151_certificate",
+  "seed_pool_sha256_le_f64": "93aa5acc6ac559b6b5f2dea3e780f86d47ddd2545e3972eead836d24b5054315",
+  "sign_gauge_reduction": "It is sufficient to search c[0:41]>=0: on an open path, a diagonal sign conjugation recursively removes every coupling sign; all principal minors and second-moment coordinates are invariant under that conjugation.",
+  "status": "floating_general_gapped_separator_escape_candidate",
+  "target_score_exact": "132685486567256190815/533000000000000032377",
+  "target_score_float": "0.24894087536070578"
+}
