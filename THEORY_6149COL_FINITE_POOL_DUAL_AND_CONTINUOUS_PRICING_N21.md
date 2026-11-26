@@ -84,3 +84,49 @@ with a strictly negative interval upper endpoint. Failure to find an escape is n
 4. Incorporate verified results into an editable manuscript source; the repository currently has research notes and audit addenda but no complete editable TeX/Bib manuscript source.
 
 A finite-pool separator and a continuous escape from a different dual are compatible. Neither settles full physical convex-hull membership.
+
+
+## 6. Continuous pricing of the 6,149-column dual: two certified escapes
+
+The deterministic pricing workflow [45842142632](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45842142632) completed successfully. Its finite search used seed `202611262241`, evaluated 1,818 starts, optimized 16 starts in each of the connected and multi-segment classes with L-BFGS-B and the analytic Fréchet gradient, and completed in 74.88 seconds. The finite-difference gradient self-test maximum absolute defect was (1.0638556702247115\times10^{-10}). This is a candidate-discovery search, not a global optimization theorem.
+
+The independent 256-bit Arb verifier certified both best candidates against the exact rational 106-term 6,149-column dual.
+
+### Connected escape
+
+All 41 internal couplings are strictly positive; the wrap edge is zero. The minimum internal coupling is
+[
+\frac{19999999999999999}{20000000000000000000000}\approx10^{-6}.
+]
+The target-minus-score interval is
+[
+[-28.988535237245591114040969525479118373780243642708482564441772663183324271
+\pm 8.08\times10^{-73}]<0.
+]
+
+### Multi-segment escape
+
+There is one internal cut, at edge 35, and the minimum positive coupling is (10^{-8}). The target-minus-score interval is
+[
+[-29.3124498332463992078096047892697695368233657693673495466858610419640643
+\pm 4.95\times10^{-71}]<0.
+]
+
+For each exact-rational path, the verifier checked all 1,764 orthogonality-matrix entries with Arb and certified that the determinant interval contains 1. The generator is exactly real skew-symmetric, so (e^{A(c)}\in SO(42)) also follows structurally.
+
+Evidence:
+- [search transcript](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/ising_full_fourth_plus_twenty_six_gapped_search_n21.json);
+- [independent 256-bit Arb escape certificate](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/ising_full_fourth_plus_twenty_six_gapped_escape_arb_n21.json);
+- [workflow 45842142632](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45842142632);
+- evidence commit [6334f7a](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/6334f7a11e604aab9605b977d73ab852ddafb34c).
+
+**Interpretation:** these paths refute extending this particular 6,149-column dual unchanged to the continuous connected/general-gapped family. They do not invalidate the finite-pool certificate, prove full-family feasibility or infeasibility, or construct an all-even-minor positive ensemble.
+
+## 7. Next cutting-plane pool
+
+The two new exact-rational escapes are appended to the 26 inherited gapped paths, giving 6,151 columns: 22 base + 6,101 fractional-grid + 28 gapped. The new discovery and independent Arb verifier are:
+- `discover_ising_full_fourth_plus_twenty_eight_gapped_n21.py`;
+- `verify_ising_full_fourth_plus_twenty_eight_gapped_arb_n21.py`;
+- [workflow 45842843414](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45842843414).
+
+At the time of this update, the corrected 6,151-column workflow is running. No 6,151-column LP or certificate result is claimed yet.
