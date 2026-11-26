@@ -1,4 +1,4 @@
-"""Independent Arb certificate for the 6,145-column n=21 full-fourth pool.
+"""Independent Arb certificate for the 6,147-column n=21 full-fourth pool.
 
 The floating HiGHS result is only a discovery candidate. This verifier freezes
 all decimal dual coefficients as exact rationals, imposes exact scaled-l1
@@ -82,13 +82,13 @@ def main():
     }
 
     if diagnostic.get("status") != "floating_full_fourth_6147_column_separator_candidate_not_arb_certified":
-        raise RuntimeError("unexpected 6,143-column diagnostic status")
+        raise RuntimeError("unexpected 6,147-column diagnostic status")
     if diagnostic.get("candidate_count") != 6147:
         raise RuntimeError("diagnostic does not contain exactly 6,147 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 24 or len(diagnostic.get("appended_gapped_columns", [])) != 24:
-        raise RuntimeError("diagnostic does not contain exactly twenty-two appended gapped paths")
+        raise RuntimeError("diagnostic does not contain exactly twenty-four appended gapped paths")
     if diagnostic.get("full_feature_count") != 1461:
         raise RuntimeError("unexpected full feature count")
     if diagnostic.get("fourth_orbit_count") != 1440 or diagnostic.get("quartet_count") != 111930:
@@ -105,25 +105,25 @@ def main():
         ("warm_certificate_sha256", "warm_certificate_sha256"),
     ):
         if diagnostic.get(field) != hashes[key]:
-            raise RuntimeError(f"the 6,143-column diagnostic does not pin {field}")
+            raise RuntimeError(f"the 6,147-column diagnostic does not pin {field}")
 
     if parent_cert.get("status") != "arb_certified_finite_6145_column_full_fourth_plus_twenty_two_gapped_separator":
-        raise RuntimeError("the 6,143-column parent certificate is invalid")
+        raise RuntimeError("the 6,145-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6145:
-        raise RuntimeError("the 6,143-column parent certificate is incomplete")
+        raise RuntimeError("the 6,145-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the parent certificate does not pin the current parent diagnostic")
     if parent.get("status") != "floating_full_fourth_6145_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6145:
-        raise RuntimeError("unexpected 6,143-column parent diagnostic")
+        raise RuntimeError("unexpected 6,145-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6145_dual_general_gapped_escape":
-        raise RuntimeError("the 6,143-dual escape certificate is invalid")
+        raise RuntimeError("the 6,145-dual escape certificate is invalid")
     if not escape_cert.get("complete") or not {"connected", "multisegment"}.issubset(set(escape_cert.get("escape_kinds", []))):
-        raise RuntimeError("the 6,143-dual escape certificate is incomplete")
+        raise RuntimeError("the 6,145-dual escape certificate is incomplete")
     if escape_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
-        raise RuntimeError("the escape certificate does not pin the 6,143-column parent diagnostic")
+        raise RuntimeError("the escape certificate does not pin the 6,145-column parent diagnostic")
     if escape_cert.get("finite_certificate_sha256") != hashes["parent_certificate_sha256"]:
-        raise RuntimeError("the escape certificate does not pin the 6,143-column parent finite-pool certificate")
+        raise RuntimeError("the escape certificate does not pin the 6,145-column parent finite-pool certificate")
     if escape_cert.get("search_sha256") != hashes["new_escape_search_sha256"]:
         raise RuntimeError("the escape certificate does not pin its search transcript")
     if escape_search.get("status") != "floating_general_gapped_separator_escape_candidate" or not escape_search.get("complete"):
@@ -136,8 +136,8 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first twenty gapped columns are inherited exactly from the certified
-    # 6,143-column parent. The final two are the connected and multi-segment escapes
+    # The first twenty-two gapped columns are inherited exactly from the certified
+    # 6,145-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
     expected_kinds = [
@@ -167,16 +167,16 @@ def main():
         "new_multisegment_escape_from_6145_dual",
     ]
     if [x.get("kind") for x in appended] != expected_kinds:
-        raise RuntimeError("unexpected ordering or labels for twenty appended gapped paths")
+        raise RuntimeError("unexpected ordering or labels for twenty-four appended gapped paths")
 
     parent_appended = parent["appended_gapped_columns"]
     if len(parent_appended) != 22:
-        raise RuntimeError("the 6,143-column parent does not contain twenty gapped paths")
+        raise RuntimeError("the 6,145-column parent does not contain twenty-two gapped paths")
     for index in range(22):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
         if expected != actual:
-            raise RuntimeError(f"appended path {index} differs from the certified 6,143-column parent pool")
+            raise RuntimeError(f"appended path {index} differs from the certified 6,145-column parent pool")
 
     expected_escape = {
         "new_connected_escape_from_6145_dual": "connected",
@@ -213,7 +213,7 @@ def main():
         if index == 23:
             expected_new_cuts = escape_cert["candidate_results"]["multisegment"]["internal_zero_edges"]
             if zero_edges != expected_new_cuts or not zero_edges:
-                raise RuntimeError("the new 6,143-dual multi-segment escape has inconsistent cuts")
+                raise RuntimeError("the new 6,145-dual multi-segment escape has inconsistent cuts")
 
     floating_dual = diagnostic.get("dual", {})
     if not floating_dual.get("success"):
@@ -234,7 +234,7 @@ def main():
             raise RuntimeError(f"dual uses invalid/non-independent feature index {index}")
         raw_coefficients[index] = Fraction(item["coefficient"])
     if not raw_coefficients:
-        raise RuntimeError("the 6,143-column diagnostic contains no nonzero dual coefficients")
+        raise RuntimeError("the 6,147-column diagnostic contains no nonzero dual coefficients")
 
     # The LP scales second moments by 41 and fourth-order orbit moments by
     # 533. Rationalize the decimal dual exactly, then impose ||D^{-1} y||_1=1.
@@ -322,7 +322,7 @@ def main():
     if checked_base != 22 or checked_grid != 6101:
         raise RuntimeError(f"wrong base/grid counts: base={checked_base}, grid={checked_grid}")
 
-    # Evaluate all twenty exact-rational gapped paths independently at 512 bits.
+    # Evaluate all twenty-four exact-rational gapped paths independently at 512 bits.
     ctx.prec = BASE_PRECISION_BITS
     for index, column in enumerate(appended):
         couplings = [Fraction(x) for x in column["couplings_exact_rational"]]
@@ -341,7 +341,7 @@ def main():
 
     checked = checked_base + checked_grid + checked_gapped
     if checked != 6147 or checked_gapped != 24:
-        raise RuntimeError(f"verified {checked} columns instead of exactly 6,143")
+        raise RuntimeError(f"verified {checked} columns instead of exactly 6,147")
     if minimum["minimum_lower"] is None or not minimum["minimum_lower"] > floor:
         raise RuntimeError("the common strictly positive Arb lower bound was not established")
     # Use the strongest simple rational floor justified by the certified Arb minimum.
@@ -411,7 +411,7 @@ def main():
             "Let D be diagonal with entries 41 on the 21 second-moment coordinates "
             "and 533 on the 1,440 fourth-order orbit coordinates. The exact "
             "rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies "
-            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,143 listed physical columns. "
+            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,147 listed physical columns. "
             "Hence every probability mixture p on this exact finite pool obeys "
             f"y^T(b-Ap)>{chosen_floor}. Since ||y||_1<=533, Holder gives "
             f"||b-Ap||_infinity>{residual_bound}. Each retained moment coordinate is "
@@ -419,13 +419,13 @@ def main():
             f"is >{tv_bound}."
         ),
         "scope": (
-            "This is a rigorous finite-pool obstruction for exactly 24 pinned "
+            "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "twenty exact-rational gapped paths (twenty-two inherited from the "
-            "6,143-column pool and two newly Arb-certified escapes from the 6,145-column dual). "
+            "twenty-four exact-rational gapped paths (twenty-two inherited from the certified "
+            "6,145-column pool and two newly Arb-certified escapes from the 6,145-column dual). "
             "It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
-            "arbitrary multi-segment paths, all even principal minors, or an "
+            "other arbitrary multi-segment paths, all even principal minors, or an "
             "operational Choi/diamond-distance guarantee."
         ),
     }
