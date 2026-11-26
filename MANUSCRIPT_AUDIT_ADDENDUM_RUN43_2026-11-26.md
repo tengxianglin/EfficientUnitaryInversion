@@ -19,16 +19,16 @@ Machine-readable certificate:
 - Exact rank reduction: 1,313 independent moment rows, 1,314 equalities including normalization.
 - Dual support: 103 nonzero coefficients.
 - Interval pricing: 512-bit Arb for base and gapped atoms; 128-bit Arb for fractional-grid atoms.
-- Exact scaled norm: \\(\\|D^{-1}y\\|_1=1\\), with \\(D=\\operatorname{diag}(41I_{21},533I_{1440})\\).
-- Exact full-coordinate norm: \\(18426978530271890734441/35533333333333334517<533\\).
-- Minimum observed Arb lower endpoint: approximately 0.2242378058366994375; a simpler common rational floor \\(1/5\\) is frozen.
+- Exact scaled norm: \(\\|D^{-1}y\\|_1=1\), with \(D=\\operatorname{diag}(41I_{21},533I_{1440})\).
+- Exact full-coordinate norm: \(18426978530271890734441/35533333333333334517<533\).
+- Minimum observed Arb lower endpoint: approximately 0.2242378058366994375; a simpler common rational floor \(1/5\) is frozen.
 
 Thus, for every probability vector on this exact finite pool, the certificate proves
-\\[
+\[
 \\|b-Ap\\|_\\infty>1/2665,
 \\qquad
 \\operatorname{TV}(w_p,u_{\\rm bal})>1/5330.
-\\]
+\]
 The TV quantity is the balanced program-label distribution / corresponding dephased classical label register, not Choi trace distance or channel diamond distance.
 
 ## Scope warning
