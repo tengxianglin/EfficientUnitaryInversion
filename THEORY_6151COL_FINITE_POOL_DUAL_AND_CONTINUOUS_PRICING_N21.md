@@ -72,3 +72,48 @@ The hosted run has passed dependency installation and Python compilation; the pr
 ## 5. Reproducibility
 
 The search and verifier pin both the 6,151 diagnostic and the 6,151 Arb certificate by SHA256. The verifier uses the exact rational dual coefficients in the finite certificate and reconstructs each candidate coupling from its frozen decimal string as a rational before Arb evaluation.
+
+
+## 4. Continuous pricing result for the 6,151 dual — two certified escapes
+
+Workflow [45879531992](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45879531992) completed successfully. The deterministic search used seed `202611270247`, evaluated 1,820 initial candidates, and ran 16 L-BFGS-B starts per class. Its analytic Fréchet-gradient finite-difference self-test had maximum absolute defect (1.947994265893982\times10^{-10}). These optimizer results are discovery only.
+
+The independent 256-bit Arb verifier certified both frozen candidates:
+
+1. **Connected path:** all 41 internal couplings are strictly positive; the minimum is
+   [
+   \frac{19999999999999999}{20000000000000000000000}\approx10^{-6}.
+   ]
+   The exact-rational path has Arb score
+   [
+   [33.4302001490294726321390\ldots\pm7.12\times10^{-73}],
+   ]
+   so target minus score is
+   [
+   [-33.1812592736687668483584\ldots\pm6.65\times10^{-73}]<0.
+   ]
+
+2. **Two-segment path:** the internal cut is edge 32 and the minimum positive coupling is (1/10^8). Its target-minus-score interval is
+   [
+   [-24.3211293146278319656689\ldots\pm4.64\times10^{-71}]<0.
+   ]
+
+For each path the verifier checked all 1,764 entries of the (42\times42) orthogonality matrix and certified determinant one. The result status is `arb_certified_6151_dual_general_gapped_escape`.
+
+This proves that the particular 6,151-column dual is not a global separator for the continuous connected/general-gapped physical family. The 6,151-column finite-pool theorem is unchanged and remains valid for its exact pinned columns. No full-family feasibility or infeasibility result follows.
+
+Evidence:
+- [Search transcript](evidence/ising_full_fourth_plus_twenty_eight_gapped_search_n21.json)
+- [256-bit Arb escape certificate](evidence/ising_full_fourth_plus_twenty_eight_gapped_escape_arb_n21.json)
+- [Workflow 45879531992](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45879531992)
+- [Evidence commit 170efc7](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/170efc7332ef5a4d9e6395f407ec38b03a4a9cce)
+
+## 5. 6,153-column continuation
+
+Both certified paths have been appended to the 6,151-column pool, giving 22 base + 6,101 fractional-grid + 30 exact-rational gapped paths = 6,153 columns. The new discovery and Arb-verification scripts are:
+
+- `discover_ising_full_fourth_plus_thirty_gapped_n21.py`;
+- `verify_ising_full_fourth_plus_thirty_gapped_arb_n21.py`;
+- workflow `eui-reoptimize-6153-full-fourth.yml`.
+
+The first hosted attempt [45880306574](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45880306574) stopped before the LP because a copied parent-status guard expected the 6,153 child label on the 6,151 parent diagnostic. This was a metadata guard error, not a numerical or mathematical failure. It was corrected in [commit 2733809](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/273380954425bedc055bd61d02098443c40f9304). Corrected run [45880550567](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45880550567) passed setup, compilation, and structural regressions; its full 1,461-coordinate LP is running. No 6,153-column result is claimed until the independent Arb stage completes.
