@@ -113,7 +113,7 @@ def main():
         raise RuntimeError("the 6,141-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the parent certificate does not pin the current parent diagnostic")
-    if parent.get("status") != "floating_full_fourth_6143_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6141:
+    if parent.get("status") != "floating_full_fourth_6141_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6141:
         raise RuntimeError("unexpected 6,141-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6141_dual_general_gapped_escape":
