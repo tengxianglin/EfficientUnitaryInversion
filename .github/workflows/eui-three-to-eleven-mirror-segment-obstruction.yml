@@ -1,0 +1,42 @@
+name: EUI exact three-to-eleven mirror-segment obstruction
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - verify_ising_three_to_eleven_mirror_segment_obstruction.cpp
+      - THEORY_THREE_TO_ELEVEN_MIRROR_SEGMENT_OBSTRUCTION_N21.md
+      - evidence/ising_three_to_eleven_mirror_segment_obstruction_n21.json
+      - .github/workflows/eui-three-to-eleven-mirror-segment-obstruction.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-rational-verification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile exact C++17 verifier
+        run: |
+          g++ -O3 -std=c++17 -Wall -Wextra -pedantic \
+            verify_ising_three_to_eleven_mirror_segment_obstruction.cpp \
+            -o /tmp/verify_three_to_eleven
+      - name: Enumerate all 1,594,831,694 compositions with integer arithmetic
+        run: |
+          /tmp/verify_three_to_eleven \
+            --output /tmp/three_to_eleven_evidence.json
+      - name: Compare regenerated exact evidence
+        run: |
+          python - <<'PY'
+          import json
+          with open("/tmp/three_to_eleven_evidence.json", encoding="utf-8") as handle:
+              actual = json.load(handle)
+          with open("evidence/ising_three_to_eleven_mirror_segment_obstruction_n21.json", encoding="utf-8") as handle:
+              expected = json.load(handle)
+          if actual != expected:
+              raise SystemExit("regenerated three-to-eleven evidence differs")
+          print("Exact three-to-eleven mirror-segment evidence matches.")
+          PY
