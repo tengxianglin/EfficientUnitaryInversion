@@ -85,3 +85,8 @@ Commits: discovery [42e22ef](https://github.com/tengxianglin/EfficientUnitaryInv
 - **Proved:** a strict second-/fourth-order separation for the exact pinned 6,145-column finite pool.
 - **Not proved:** separation of all continuous physical couplings; feasibility/infeasibility of the complete all-even-principal-minor positive ensemble at \(n=21\); full sixth/eighth and higher-order control; or a program-label-to-Choi/diamond operational bridge.
 - **Next:** finish continuous pricing of the 6,145 dual. If an Arb-certified escape is found, append that exact-rational path and reoptimize; if none is found, report only the finite search result and do not call it a global bound. In parallel, the paper-level target remains an exact positive physical ensemble satisfying every even-principal-minor moment, or a global proof covering all allowed couplings.
+
+
+## Public manuscript and appendix check
+
+The public manuscript was inspected directly: [arXiv:2506.20570v1 PDF](https://arxiv.org/pdf/2506.20570), a 13-page version dated 25 June 2025. Its appendices are A (unitary-inversion proofs and the F2 elimination construction), B (10,000-sample robustness simulations and Choi-state fidelity table), C (complex-conjugation proofs), D (numerically optimized PQComb examples with ancillas), and E (linear decompositions for unitary transpose and the modified QURA). The repository tree contains no editable TeX/Bib or local PDF copy, so this audit records the public version rather than claiming to edit the manuscript. The EUI finite-pool/cutting-plane results in this audit are not yet incorporated into that public manuscript.
