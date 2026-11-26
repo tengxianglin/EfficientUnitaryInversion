@@ -247,9 +247,9 @@ def solve_full_grid(system, warm, warm_sha):
     escape_search_sha = hashlib.sha256(escape_search_raw).hexdigest()
 
     if parent_cert.get("status") != "arb_certified_finite_6145_column_full_fourth_plus_twenty_two_gapped_separator":
-        raise RuntimeError("the pinned 6,143-column parent certificate is invalid")
+        raise RuntimeError("the pinned 6,145-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6145:
-        raise RuntimeError("the 6,143-column parent certificate is incomplete")
+        raise RuntimeError("the 6,145-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != parent_sha:
         raise RuntimeError("the parent Arb certificate does not pin the current parent diagnostic")
     if parent.get("candidate_count") != 6145 or len(parent.get("appended_gapped_columns", [])) != 22:
@@ -316,8 +316,8 @@ def solve_full_grid(system, warm, warm_sha):
                 "alpha": str(alpha),
             })
 
-    # Preserve all twenty previously certified gapped columns, then append the
-    # connected and two-segment escapes from the newly certified 6,143 dual.
+    # Preserve all twenty-two previously certified gapped columns, then append the
+    # connected and two-segment escapes from the newly certified 6,145 dual.
     parent_columns = parent["appended_gapped_columns"]
     if len(parent_columns) != 22:
         raise RuntimeError("expected exactly twenty-two parent gapped columns")
@@ -353,7 +353,7 @@ def solve_full_grid(system, warm, warm_sha):
 
     for label, kind, source in (
         ("new_connected_escape_from_6145_dual", "connected", "256-bit Arb escape from the 6,145-column dual"),
-        ("new_multisegment_escape_from_6145_dual", "multisegment", "256-bit Arb multi-segment escape from the 6,143-column dual"),
+        ("new_multisegment_escape_from_6145_dual", "multisegment", "256-bit Arb multi-segment escape from the 6,145-column dual"),
     ):
         result = escape_cert["candidate_results"][kind]
         couplings = [Fraction(value) for value in result["couplings_exact_rational"]]
@@ -515,7 +515,7 @@ def solve_full_grid(system, warm, warm_sha):
         },
         "scope": (
             "Floating finite-pool feasibility test over 22 pinned base atoms, "
-            "6,101 corrected fractional single-open-path grid atoms, twenty previously "
+            "6,101 corrected fractional single-open-path grid atoms, twenty-two previously "
             "Arb-certified gapped paths, "
             "and two new 256-bit-Arb-certified escapes from the 6,145-column dual (one connected and one multi-segment), "
             "for 6,147 columns total. "
