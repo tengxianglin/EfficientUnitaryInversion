@@ -61,7 +61,7 @@ Commits:
 - independent verifier: `2e9ede7c3d05caf10b362caa26c599e51f87ab53`;
 - workflow: `e76584bca118722e393d182a59fddc19549bb7d4`.
 
-Workflow [45787634578](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45787634578) was observed in progress. Python compilation had passed; deterministic block-minor, restricted-spin-symmetry, and JSON-serialization regressions were running. No 6,145-column LP or Arb result is claimed yet.
+Workflow [45787634578](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45787634578) was observed in progress. Python compilation and deterministic block-minor, restricted-spin-symmetry, and JSON-serialization regressions all passed. The 6,145-column LP was still running at the latest check; no LP or Arb result is claimed yet.
 
 ## Current proof boundary and next action
 
