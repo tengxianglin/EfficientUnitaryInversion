@@ -1,0 +1,29 @@
+{
+  "all_42_cycle_couplings_strictly_positive": true,
+  "base_point_target_minus_score_interval": "[-20.32400371225355344245380995963971064655930189928334198732661153575613794 +/- 3.93e-72]",
+  "complete": true,
+  "coupling_radius_exact": "1/2000000",
+  "diagnostic_sha256": "6ebfce397b53ee3e598f672f16f0db660fb1905d00decf5d643a6180a0526a68",
+  "dual_full_coordinate_l1_exact": "533",
+  "dual_score_lipschitz": "8528",
+  "escape_certificate_sha256": "9d3458aaaf11925e146e516175e0215ce19132d9815d517c80adaf323e684234",
+  "finite_certificate_sha256": "d309062cd1904dc45419494a9083fd86b3a1f72b0a5a0331b67a451366030a19",
+  "finite_pool_columns": 6153,
+  "full_dimensional_open_region": {
+    "explicit_wrap_edge_example": "1/4000000",
+    "internal_edges": "|c_j-c_j_star| < 1/2000000 for j=0,...,40",
+    "wrap_edge": "0 < c_41 < 1/2000000"
+  },
+  "generator_operator_norm_lipschitz": "4",
+  "method": "256-bit Arb base point + exact-rational Duhamel/Hadamard Lipschitz extension",
+  "minimum_internal_base_coupling_exact": "19999999999999999/20000000000000000000000",
+  "minimum_internal_coupling_after_perturbation_exact": "9999999999999999/20000000000000000000000",
+  "precision_bits_basepoint": 256,
+  "principal_minor_feature_lipschitz": "4",
+  "proof_scope": "Every cyclic coupling vector in the displayed full-dimensional open region has all 42 couplings strictly positive and violates this particular 6,153-column dual. The result follows from the 256-bit Arb base-point gap and an analytic Duhamel/Hadamard Lipschitz bound. It does not invalidate the finite-pool theorem, prove full-family convex-hull feasibility or infeasibility, construct an all-even-principal-minor ensemble, or imply a Choi/diamond-distance bound.",
+  "robust_target_minus_score_interval": "[-20.31973971225355344245380995963971064655930189928334198732661153575613794 +/- 3.93e-72]",
+  "robust_target_minus_score_upper_bound": "[-20.31973971225355344245380995963971064655930189928334198732661153575613793608 +/- 6.59e-76]",
+  "score_variation_bound_exact": "533/125000",
+  "search_sha256": "ef373995ceffaacce590b9b15faaa41998714a4b68fc5b7e39319a9e4cc9857b",
+  "status": "arb_basepoint_plus_analytic_full_cycle_positive_open_box_escape"
+}
