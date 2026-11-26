@@ -78,7 +78,7 @@ I appended both new paths to the certified 6,145 pool, producing 6,147 columns /
 - `verify_ising_full_fourth_plus_twenty_four_gapped_arb_n21.py`;
 - `.github/workflows/eui-reoptimize-6147-full-fourth.yml`.
 
-Commits: discovery [42e22ef](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/42e22efb9b66eb9621c99d2db75dc0157c4eab63), verifier [8ce7e0e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8ce7e0e39e9504529cebc376ea1a90784af78363), workflow [73f69bd](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/73f69bd80743c5db73a1cdeb1f5510187103f269). Reoptimization workflow [45805694896](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45805694896) was queued at the latest check. Its final LP and Arb results are pending.
+Commits: discovery [42e22ef](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/42e22efb9b66eb9621c99d2db75dc0157c4eab63), verifier [8ce7e0e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8ce7e0e39e9504529cebc376ea1a90784af78363), workflow [73f69bd](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/73f69bd80743c5db73a1cdeb1f5510187103f269). Reoptimization workflow [45805694896](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45805694896) is in progress. Compilation and block-minor/spin-symmetry/serialization regressions passed; the 6,147-column LP is running and independent Arb certification is pending.
 
 ## Proof boundary and next action
 
