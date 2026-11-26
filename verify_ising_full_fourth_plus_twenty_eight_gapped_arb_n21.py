@@ -1,4 +1,4 @@
-"""Independent Arb certificate for the 6,149-column n=21 full-fourth pool.
+"""Independent Arb certificate for the 6,151-column n=21 full-fourth pool.
 
 The floating HiGHS result is only a discovery candidate. This verifier freezes
 all decimal dual coefficients as exact rationals, imposes exact scaled-l1
@@ -82,7 +82,7 @@ def main():
     }
 
     if diagnostic.get("status") != "floating_full_fourth_6151_column_separator_candidate_not_arb_certified":
-        raise RuntimeError("unexpected 6,149-column diagnostic status")
+        raise RuntimeError("unexpected 6,151-column diagnostic status")
     if diagnostic.get("candidate_count") != 6151:
         raise RuntimeError("diagnostic does not contain exactly 6,151 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
@@ -107,7 +107,7 @@ def main():
         if diagnostic.get(field) != hashes[key]:
             raise RuntimeError(f"the 6,149-column diagnostic does not pin {field}")
 
-    if parent_cert.get("status") != "arb_certified_finite_6151_column_full_fourth_plus_twenty_eight_gapped_separator":
+    if parent_cert.get("status") != "arb_certified_finite_6149_column_full_fourth_plus_twenty_six_gapped_separator":
         raise RuntimeError("the 6,149-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6149:
         raise RuntimeError("the 6,149-column parent certificate is incomplete")
