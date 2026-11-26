@@ -47,3 +47,16 @@ The repository still has no editable manuscript/supplementary source (`.tex`, `.
 **Not proved:** separation of the full continuous gapped family; existence or nonexistence of a positive physical measure matching every even principal minor; a complete all-order physical converse; or a moment-residual-to-Choi/diamond bound.
 
 Next action: inspect workflow 45879531992. If an escape is Arb-certified, state precisely that this particular dual is not global and then decide whether one more finite-pool reoptimization has value. If no escape is found, do not claim a continuum theorem. Independently, continue the complete positive-ensemble and operational-bridge derivations rather than treating an expanding sequence of finite duals as the paper's final result.
+
+
+## 6. Continuous pricing of the 6,151 dual — completed after initial audit
+
+Workflow [45879531992](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45879531992) completed SUCCESS. It evaluated 1,820 deterministic starts and passed the analytic-gradient finite-difference check (maximum defect (1.947994265893982\times10^{-10})). The independent 256-bit Arb verifier certified two escapes:
+- connected, all 41 internal couplings strictly positive (minimum approximately (10^{-6})), with target-minus-score ([-33.1812592736687668\ldots\pm6.65\times10^{-73}]<0);
+- multi-segment with internal cut ({32}), minimum positive coupling (10^{-8}), with target-minus-score ([-24.3211293146278320\ldots\pm4.64\times10^{-71}]<0).
+
+Both checks included all 1,764 orthogonality entries and determinant one. This refutes only the 6,151 dual as a global separator; the finite-pool theorem remains valid.
+
+## 7. 6,153-column continuation status
+
+The two new exact-rational paths are now appended, producing 6,153 columns (22 base + 6,101 grid + 30 gapped). The first attempt [45880306574](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45880306574) stopped before the LP at a copied parent-status label check. The parent is the 6,151 diagnostic, so the correct expected status is `floating_full_fourth_6151_column_separator_candidate_not_arb_certified`, not the child 6,153 label. This metadata-only guard was fixed in commit [2733809](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/273380954425bedc055bd61d02098443c40f9304). Corrected workflow [45880550567](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45880550567) has passed setup, dependency installation, compilation, and structural regressions; the 6,153-column LP is running and independent Arb certification is pending. No 6,153-column theorem is claimed yet.
