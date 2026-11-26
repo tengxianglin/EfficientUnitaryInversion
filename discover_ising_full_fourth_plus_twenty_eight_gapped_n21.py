@@ -592,7 +592,7 @@ def solve_full_grid(system, warm, warm_sha):
             })
             if gap > 1e-8 and output["dual"]["normalized_l1_upper_bound"] <= 1 + 1e-7:
                 output["status"] = (
-                    "floating_full_fourth_6149_column_separator_candidate_not_arb_certified"
+                    "floating_full_fourth_6151_column_separator_candidate_not_arb_certified"
                 )
 
     serialized = json.dumps(json_safe(output), indent=2) + "\n"
