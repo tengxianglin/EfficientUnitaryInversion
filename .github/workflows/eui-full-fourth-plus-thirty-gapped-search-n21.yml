@@ -1,0 +1,124 @@
+name: EUI 6,153-dual continuous general-gapped pricing and Arb verification
+# Finite multistart discovery followed by independent interval verification.
+# A certified escape refutes only this particular finite-pool dual; no escape found is not a global bound.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "search_ising_full_fourth_plus_thirty_gapped_n21.py"
+      - "verify_ising_full_fourth_plus_thirty_gapped_escape_arb_n21.py"
+      - ".github/workflows/eui-full-fourth-plus-thirty-gapped-search-n21.yml"
+      - "evidence/ising_full_fourth_plus_thirty_gapped_n21.json"
+      - "evidence/ising_full_fourth_plus_thirty_gapped_arb_n21.json"
+      - "evidence/seed_pool_n21_frozen.npy"
+      - "ising_fourth_moments.py"
+      - "ising_moment_pricing.py"
+      - "verify_ising_low_moment_design.py"
+      - "verify_ising_full_fourth_fractional_grid_dual_arb.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-full-fourth-plus-thirty-gapped-search-n21
+  cancel-in-progress: true
+
+jobs:
+  price:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned numerical and interval stack
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 python-flint==0.9.0
+      - name: Compile deterministic search and independent Arb verifier
+        run: |
+          python -m py_compile search_ising_full_fourth_plus_thirty_gapped_n21.py verify_ising_full_fourth_plus_thirty_gapped_escape_arb_n21.py
+      - name: Price the exact rational 116-term 6,153-column dual
+        run: python search_ising_full_fourth_plus_thirty_gapped_n21.py
+      - name: Independently Arb-certify the best frozen physical candidates
+        run: python verify_ising_full_fourth_plus_thirty_gapped_escape_arb_n21.py
+      - name: Commit only this run's pricing evidence (race-safe)
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p /tmp/eui-6153-pricing/evidence
+          for f in evidence/ising_full_fourth_plus_thirty_gapped_search_n21.json evidence/ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json; do
+            if [ -f "$f" ]; then cp "$f" /tmp/eui-6153-pricing/evidence/; fi
+          done
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          staged = Path("/tmp/eui-6153-pricing/evidence")
+          search_path = staged / "ising_full_fourth_plus_thirty_gapped_search_n21.json"
+          escape_path = staged / "ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json"
+          if not search_path.exists():
+              print("No search transcript was produced; refusing to publish pricing evidence.")
+              raise SystemExit(1)
+
+          search_raw = search_path.read_bytes()
+          search = json.loads(search_raw)
+          pins = search.get("pins", {})
+          diagnostic_raw = Path("evidence/ising_full_fourth_plus_thirty_gapped_n21.json").read_bytes()
+          certificate_raw = Path("evidence/ising_full_fourth_plus_thirty_gapped_arb_n21.json").read_bytes()
+          current_diagnostic = hashlib.sha256(diagnostic_raw).hexdigest()
+          current_certificate = hashlib.sha256(certificate_raw).hexdigest()
+          if pins.get("diagnostic_sha256") != current_diagnostic:
+              raise SystemExit("Refusing stale pricing commit: diagnostic hash mismatch.")
+          if pins.get("finite_certificate_sha256") != current_certificate:
+              raise SystemExit("Refusing stale pricing commit: finite-certificate hash mismatch.")
+
+          if escape_path.exists():
+              escape_raw = escape_path.read_bytes()
+              escape = json.loads(escape_raw)
+              if escape.get("diagnostic_sha256") != current_diagnostic:
+                  raise SystemExit("Refusing stale escape certificate: diagnostic pin mismatch.")
+              if escape.get("finite_certificate_sha256") != current_certificate:
+                  raise SystemExit("Refusing stale escape certificate: finite-certificate pin mismatch.")
+              if escape.get("search_sha256") != hashlib.sha256(search_raw).hexdigest():
+                  raise SystemExit("Refusing stale escape certificate: search-transcript pin mismatch.")
+          print("6,153 diagnostic, finite certificate, search, and escape pins are consistent.")
+          PY
+            rm -f evidence/ising_full_fourth_plus_thirty_gapped_search_n21.json evidence/ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json
+            for f in /tmp/eui-6153-pricing/evidence/*.json; do
+              [ -f "$f" ] || continue
+              cp "$f" evidence/
+              git add "evidence/$(basename "$f")"
+            done
+            if git diff --cached --quiet; then
+              echo "No new pricing evidence was produced."
+              exit 0
+            fi
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+actions-bot@users.noreply.github.com"
+            git commit -m "Record continuous pricing of certified 6,153-column dual"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload search and Arb evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-6153-dual-general-gapped-pricing
+          path: |
+            evidence/ising_full_fourth_plus_thirty_gapped_search_n21.json
+            evidence/ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json
+          if-no-files-found: warn
+          retention-days: 90
