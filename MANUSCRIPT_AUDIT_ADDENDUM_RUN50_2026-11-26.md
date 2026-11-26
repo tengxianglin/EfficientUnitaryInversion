@@ -93,7 +93,7 @@ New files:
 
 The discovery code reconstructs all inherited exact-rational paths and both newly certified escapes before rebuilding the full 1,461-coordinate design. The independent verifier pins the 6,149 parent diagnostic/certificate and 6,149-dual escape search/certificate hashes, then prices all 6,151 columns at the configured Arb precisions.
 
-The first pricing workflow attempt failed at a copied guard that expected 24 instead of 26 gapped paths; no numerical pricing was run. That guard was corrected. The corrected 6,149-dual pricing workflow passed, and the 6,151 reoptimization workflow [45842843414](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45842843414) is currently in progress. No 6,151 LP or Arb result is claimed yet.
+The first 6,149-dual pricing workflow attempt failed at a copied guard that expected 24 instead of 26 gapped paths; no numerical pricing was run. That guard was corrected and the corrected 6,149-dual pricing workflow passed. The first 6,151 reoptimization run [45842843414](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45842843414) then failed before the LP at a copied parent-status guard that incorrectly expected the 6,151 child label on the 6,149 parent diagnostic. No 6,151 LP or Arb computation ran in that attempt. The guard has been corrected to expect the certified 6,149 parent label; the new run [45843103615](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45843103615) is queued. No 6,151 LP or Arb result is claimed yet.
 
 Mainline code commits:
 - discovery [49adf4f](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/49adf4fea7f420d57593b07bd6378f9e054f9a49);
