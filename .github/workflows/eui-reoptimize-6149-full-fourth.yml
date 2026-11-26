@@ -49,7 +49,7 @@ jobs:
           python -m py_compile discover_ising_full_fourth_plus_twenty_six_gapped_n21.py verify_ising_full_fourth_plus_twenty_six_gapped_arb_n21.py
       - name: Run block-minor, spin-symmetry, and serialization regressions
         run: python discover_ising_full_fourth_plus_twenty_six_gapped_n21.py --self-test-only
-      - name: Reoptimize all 1,461 second-/fourth-order coordinates on 6,147 physical columns
+      - name: Reoptimize all 1,461 second-/fourth-order coordinates on 6,149 physical columns
         run: python discover_ising_full_fourth_plus_twenty_six_gapped_n21.py
       - name: Independently Arb-certify the frozen 6,149-column dual
         run: python verify_ising_full_fourth_plus_twenty_six_gapped_arb_n21.py
