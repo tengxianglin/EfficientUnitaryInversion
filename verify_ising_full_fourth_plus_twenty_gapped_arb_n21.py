@@ -107,7 +107,7 @@ def main():
         if diagnostic.get(field) != hashes[key]:
             raise RuntimeError(f"the 6,143-column diagnostic does not pin {field}")
 
-    if parent_cert.get("status") != "arb_certified_finite_6143_column_full_fourth_plus_twenty_gapped_separator":
+    if parent_cert.get("status") != "arb_certified_finite_6141_column_full_fourth_plus_eighteen_gapped_separator":
         raise RuntimeError("the 6,141-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6141:
         raise RuntimeError("the 6,141-column parent certificate is incomplete")
