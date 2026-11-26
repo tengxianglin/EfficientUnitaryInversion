@@ -517,7 +517,7 @@ def solve_full_grid(system, warm, warm_sha):
             "Floating finite-pool feasibility test over 22 pinned base atoms, "
             "6,101 corrected fractional single-open-path grid atoms, twenty-four previously "
             "Arb-certified gapped paths, "
-            "and two new 256-bit-Arb-certified escapes from the 6,145-column dual (one connected and one multi-segment), "
+            "and two new 256-bit-Arb-certified escapes from the 6,147-column dual (one connected and one multi-segment), "
             "for 6,149 columns total. "
             "It is not an interval certificate, a continuous-parameter theorem, "
             "or a global physical obstruction."
