@@ -22,7 +22,7 @@ import verify_ising_full_fourth_fractional_grid_dual_arb as base
 
 ROOT = Path(__file__).resolve().parent
 DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_plus_thirty_gapped_n21.json"
-PARENT_DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_plus_thirty_gapped_n21.json"
+PARENT_DIAGNOSTIC = ROOT / "evidence/ising_full_fourth_plus_twenty_eight_gapped_n21.json"
 PARENT_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_twenty_eight_gapped_arb_n21.json"
 NEW_ESCAPE_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_twenty_eight_gapped_escape_arb_n21.json"
 NEW_ESCAPE_SEARCH = ROOT / "evidence/ising_full_fourth_plus_twenty_eight_gapped_search_n21.json"
@@ -108,22 +108,22 @@ def main():
             raise RuntimeError(f"the 6,153-column diagnostic does not pin {field}")
 
     if parent_cert.get("status") != "arb_certified_finite_6151_column_full_fourth_plus_twenty_eight_gapped_separator":
-        raise RuntimeError("the 6,153-column parent certificate is invalid")
+        raise RuntimeError("the 6,151-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6151:
-        raise RuntimeError("the 6,153-column parent certificate is incomplete")
+        raise RuntimeError("the 6,151-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the parent certificate does not pin the current parent diagnostic")
-    if parent.get("status") != "floating_full_fourth_6153_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6151:
-        raise RuntimeError("unexpected 6,153-column parent diagnostic")
+    if parent.get("status") != "floating_full_fourth_6151_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6151:
+        raise RuntimeError("unexpected 6,151-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6151_dual_general_gapped_escape":
         raise RuntimeError("the 6,151-dual escape certificate is invalid")
     if not escape_cert.get("complete") or not {"connected", "multisegment"}.issubset(set(escape_cert.get("escape_kinds", []))):
         raise RuntimeError("the 6,151-dual escape certificate is incomplete")
     if escape_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
-        raise RuntimeError("the escape certificate does not pin the 6,153-column parent diagnostic")
+        raise RuntimeError("the escape certificate does not pin the 6,151-column parent diagnostic")
     if escape_cert.get("finite_certificate_sha256") != hashes["parent_certificate_sha256"]:
-        raise RuntimeError("the escape certificate does not pin the 6,153-column parent finite-pool certificate")
+        raise RuntimeError("the escape certificate does not pin the 6,151-column parent finite-pool certificate")
     if escape_cert.get("search_sha256") != hashes["new_escape_search_sha256"]:
         raise RuntimeError("the escape certificate does not pin its search transcript")
     if escape_search.get("status") != "floating_general_gapped_separator_escape_candidate" or not escape_search.get("complete"):
@@ -137,12 +137,12 @@ def main():
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
     # The first twenty-eight gapped columns are inherited exactly from the certified
-    # 6,153-column parent. The final two are the connected and multi-segment escapes
+    # 6,151-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
     parent_appended = parent["appended_gapped_columns"]
     if len(parent_appended) != 28:
-        raise RuntimeError("the 6,153-column parent does not contain thirty gapped paths")
+        raise RuntimeError("the 6,151-column parent does not contain twenty-eight gapped paths")
     expected_kinds = [
         item["kind"] for item in parent_appended
     ] + [
@@ -156,7 +156,7 @@ def main():
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
         if expected != actual:
-            raise RuntimeError(f"appended path {index} differs from the certified 6,153-column parent pool")
+            raise RuntimeError(f"appended path {index} differs from the certified 6,151-column parent pool")
 
     expected_escape = {
         "new_connected_escape_from_6151_dual": "connected",
@@ -391,7 +391,7 @@ def main():
             "Let D be diagonal with entries 41 on the 21 second-moment coordinates "
             "and 533 on the 1,440 fourth-order orbit coordinates. The exact "
             "rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies "
-            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,151 listed physical columns. "
+            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,153 listed physical columns. "
             "Hence every probability mixture p on this exact finite pool obeys "
             f"y^T(b-Ap)>{chosen_floor}. Since ||y||_1<=533, Holder gives "
             f"||b-Ap||_infinity>{residual_bound}. Each retained moment coordinate is "
@@ -402,7 +402,7 @@ def main():
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
             "thirty exact-rational gapped paths (twenty-eight inherited from the certified "
-            "6,153-column pool and two newly Arb-certified escapes from the 6,153-column dual). "
+            "6,151-column pool and two newly Arb-certified escapes from the 6,151-column dual). "
             "It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "other arbitrary multi-segment paths, all even principal minors, or an "
