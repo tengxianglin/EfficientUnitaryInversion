@@ -1,4 +1,4 @@
-"""Full fourth-order finite-grid reoptimization after two new Arb-certified escapes from the 6,145-column dual.
+"""Full fourth-order finite-grid reoptimization after two new Arb-certified escapes from the 6,147-column dual.
 
 This is a floating discovery experiment. It does not certify feasibility or
 infeasibility of the continuous physical family.
@@ -247,9 +247,9 @@ def solve_full_grid(system, warm, warm_sha):
     escape_search_sha = hashlib.sha256(escape_search_raw).hexdigest()
 
     if parent_cert.get("status") != "arb_certified_finite_6147_column_full_fourth_plus_twenty_four_gapped_separator":
-        raise RuntimeError("the pinned 6,145-column parent certificate is invalid")
+        raise RuntimeError("the pinned 6,147-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6147:
-        raise RuntimeError("the 6,145-column parent certificate is incomplete")
+        raise RuntimeError("the 6,147-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != parent_sha:
         raise RuntimeError("the parent Arb certificate does not pin the current parent diagnostic")
     if parent.get("candidate_count") != 6147 or len(parent.get("appended_gapped_columns", [])) != 24:
@@ -317,7 +317,7 @@ def solve_full_grid(system, warm, warm_sha):
             })
 
     # Preserve all twenty-four previously certified gapped columns, then append the
-    # connected and two-segment escapes from the newly certified 6,145 dual.
+    # connected and two-segment escapes from the newly certified 6,147 dual.
     parent_columns = parent["appended_gapped_columns"]
     if len(parent_columns) != 24:
         raise RuntimeError("expected exactly twenty-four parent gapped columns")
@@ -518,7 +518,7 @@ def solve_full_grid(system, warm, warm_sha):
             "6,101 corrected fractional single-open-path grid atoms, twenty-four previously "
             "Arb-certified gapped paths, "
             "and two new 256-bit-Arb-certified escapes from the 6,145-column dual (one connected and one multi-segment), "
-            "for 6,147 columns total. "
+            "for 6,149 columns total. "
             "It is not an interval certificate, a continuous-parameter theorem, "
             "or a global physical obstruction."
         ),
