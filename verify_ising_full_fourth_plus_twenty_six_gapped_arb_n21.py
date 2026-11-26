@@ -136,10 +136,13 @@ def main():
     if warm.get("status") != "arb_certified_positive_41_atom_two_fourth_probe_ensemble" or len(warm.get("atoms", [])) != 41:
         raise RuntimeError("the pinned 41-atom warm certificate is invalid")
 
-    # The first twenty-two gapped columns are inherited exactly from the certified
+    # The first twenty-four gapped columns are inherited exactly from the certified
     # 6,145-column parent. The final two are the connected and multi-segment escapes
     # from that parent's dual, independently certified at 256-bit Arb.
     appended = diagnostic["appended_gapped_columns"]
+    parent_appended = parent["appended_gapped_columns"]
+    if len(parent_appended) != 24:
+        raise RuntimeError("the 6,147-column parent does not contain twenty-four gapped paths")
     expected_kinds = [
         item["kind"] for item in parent_appended
     ] + [
@@ -149,9 +152,6 @@ def main():
     if [x.get("kind") for x in appended] != expected_kinds:
         raise RuntimeError("unexpected ordering or labels for twenty-six appended gapped paths")
 
-    parent_appended = parent["appended_gapped_columns"]
-    if len(parent_appended) != 24:
-        raise RuntimeError("the 6,145-column parent does not contain twenty-two gapped paths")
     for index in range(24):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
         actual = [Fraction(x) for x in appended[index]["couplings_exact_rational"]]
@@ -210,7 +210,7 @@ def main():
         index = int(item["feature_index"])
         if index in raw_coefficients:
             raise RuntimeError(f"duplicate dual feature index {index}")
-        if index not in reduced or not 0 <= index < 1661:
+        if index not in reduced or not 0 <= index < 1461:
             raise RuntimeError(f"dual uses invalid/non-independent feature index {index}")
         raw_coefficients[index] = Fraction(item["coefficient"])
     if not raw_coefficients:
@@ -391,7 +391,7 @@ def main():
             "Let D be diagonal with entries 41 on the 21 second-moment coordinates "
             "and 533 on the 1,440 fourth-order orbit coordinates. The exact "
             "rationalized dual y is normalized so ||D^{-1}y||_1=1. Arb certifies "
-            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,147 listed physical columns. "
+            f"y^T(b-a_j)>{chosen_floor} for every one of the 6,149 listed physical columns. "
             "Hence every probability mixture p on this exact finite pool obeys "
             f"y^T(b-Ap)>{chosen_floor}. Since ||y||_1<=533, Holder gives "
             f"||b-Ap||_infinity>{residual_bound}. Each retained moment coordinate is "
@@ -402,7 +402,7 @@ def main():
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
             "twenty-six exact-rational gapped paths (twenty-four inherited from the certified "
-            "6,147-column pool and two newly Arb-certified escapes from the 6,147-column dual). "
+            "6,149-column pool and two newly Arb-certified escapes from the 6,147-column dual). "
             "It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "other arbitrary multi-segment paths, all even principal minors, or an "
