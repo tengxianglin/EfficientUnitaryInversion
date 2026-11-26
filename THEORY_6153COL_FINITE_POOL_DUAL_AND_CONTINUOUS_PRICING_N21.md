@@ -135,3 +135,6 @@ g(c)<-20.324+0.004264=-20.319736<0.
 This is a rigorous analytic extension of the Arb base-point escape to a **full-dimensional open region of strictly positive 42-cycle couplings**. It rules out the 6,153 dual as a separator even if the physical domain is restricted to all couplings strictly positive; it still says nothing by itself about whether the target belongs to the convex hull of the full physical family.
 
 The exact rational checks and Arb interval addition are reproduced by `verify_6153_connected_escape_neighborhood.py`; its machine-readable output is `evidence/ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json`.
+
+
+The open-box certificate was independently rerun in GitHub Actions workflow [45907210706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45907210706), with all steps successful. The exact-rational/Arb output is committed at [a56d3d8135ce305c18e3cca8c02b070b66948549](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a56d3d8135ce305c18e3cca8c02b070b66948549).
