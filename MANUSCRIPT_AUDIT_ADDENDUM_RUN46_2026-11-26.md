@@ -61,3 +61,8 @@ The pricing workflow is deliberately path-filtered on the search/verifier/eviden
 ## Next action
 
 Complete [workflow 45822057718](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45822057718), verify that the regenerated certificate prose agrees with its 6,147 / 22 / 6,101 / 24 machine counts, then run the new deterministic continuous-pricing workflow and independently certify any candidate escape. A no-escape multistart result must remain explicitly non-global.
+
+
+## Manuscript / appendix check
+
+The public manuscript was opened directly as [arXiv:2506.20570v1](https://arxiv.org/pdf/2506.20570), dated 25–26 June 2025, 13 pages. The PDF itself maps Appendix A to inversion proofs and the F2 Gaussian-elimination construction, Appendix B to robustness numerics, Appendix C to complex conjugation, Appendix D to PQComb-generated conjugation protocols, and Appendix E to transpose decompositions / modified QURA. No separate supplementary-information file is linked from the repository tree; the recursive tree has 1,200 entries and no `.tex`, `.bib`, `.bbl`, `.pdf`, Word, or archive manuscript/supplement files. The current EUI moment/finite-pool research is not part of that public v1 manuscript, and no claim is made that the paper text has been updated.
