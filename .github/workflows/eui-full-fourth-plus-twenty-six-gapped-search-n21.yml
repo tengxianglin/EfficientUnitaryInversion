@@ -22,7 +22,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: eui-full-fourth-plus-twenty-four-gapped-search-n21
+  group: eui-full-fourth-plus-twenty-six-gapped-search-n21
   cancel-in-progress: true
 
 jobs:
