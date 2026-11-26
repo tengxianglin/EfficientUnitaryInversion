@@ -8,6 +8,7 @@ on:
     paths:
       - "search_ising_full_fourth_plus_twenty_six_gapped_n21.py"
       - "verify_ising_full_fourth_plus_twenty_six_gapped_escape_arb_n21.py"
+      - ".github/workflows/eui-full-fourth-plus-twenty-six-gapped-search-n21.yml"
       - "evidence/ising_full_fourth_plus_twenty_six_gapped_n21.json"
       - "evidence/ising_full_fourth_plus_twenty_six_gapped_arb_n21.json"
       - "evidence/seed_pool_n21_frozen.npy"
