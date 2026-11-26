@@ -1,5 +1,5 @@
 name: EUI 6,151-column full-fourth reoptimization and Arb certification
-# Append two independently Arb-certified escapes from the 6,147-column dual.
+# Append two independently Arb-certified escapes from the 6,149-column dual.
 # The result remains a finite-pool theorem only.
 
 on:
@@ -90,17 +90,17 @@ jobs:
           }
           for field, current in pins.items():
               if diagnostic.get(field) != current:
-                  raise SystemExit(f"Refusing stale 6,147 parent chain: {field} mismatch.")
+                  raise SystemExit(f"Refusing stale 6,149 parent chain: {field} mismatch.")
 
           if certificate_path.exists():
               certificate_raw = certificate_path.read_bytes()
               certificate = json.loads(certificate_raw)
               if certificate.get("diagnostic_sha256") != hashlib.sha256(diagnostic_raw).hexdigest():
-                  raise SystemExit("Refusing stale 6,147 Arb certificate: diagnostic pin mismatch.")
+                  raise SystemExit("Refusing stale 6,149 Arb certificate: diagnostic pin mismatch.")
               for field, current in pins.items():
                   if certificate.get(field) != current:
-                      raise SystemExit(f"Refusing stale 6,147 parent chain in certificate: {field} mismatch.")
-          print("6,151 diagnostic and Arb certificate pins match the current 6,147 parent chain.")
+                      raise SystemExit(f"Refusing stale 6,149 parent chain in certificate: {field} mismatch.")
+          print("6,151 diagnostic and Arb certificate pins match the current 6,149 parent chain.")
           PY
             rm -f evidence/ising_full_fourth_plus_twenty_eight_gapped_n21.json evidence/ising_full_fourth_plus_twenty_eight_gapped_arb_n21.json
             for f in /tmp/eui-6151/evidence/*.json; do
