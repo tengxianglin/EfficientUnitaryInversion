@@ -59,3 +59,16 @@ The push modifies a path watched by `.github/workflows/eui-reoptimize-6151-full-
 - **Still unresolved:** full continuous-family separation or a complete physical positive ensemble; all-even-principal-minor feasibility at (n=21); higher-order moment closure; and the operational bridge to Choi/diamond distance.
 
 Next action: inspect the workflow triggered by repair commit `a1ac264`. If independent Arb certification succeeds, run continuous pricing on that newly certified dual. If it fails, classify the actual arithmetic/coverage failure from the verifier log before changing any scientific claim.
+
+
+## Post-repair static audit — child certificate metadata
+
+A second static pass over the full verifier found additional copied 6,149/26 labels in the *child output path*, distinct from the parent-status guard:
+
+- the child result status still said `arb_certified_finite_6149_column_full_fourth_plus_twenty_six_gapped_separator` despite checking 6,151 columns;
+- one child-diagnostic pin error and the appended-path order error still said twenty-six;
+- the gapped-column pricing comment and result scope still described twenty-six rather than twenty-eight paths.
+
+These would not change the interval arithmetic, but the stale result status would make the child certificate unsuitable as a correctly typed parent for the next cutting-plane round. They have now been corrected in [commit 1547246](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/15472461e8366eec3b1c741f72ed128394dce541). The intended child output status is now `arb_certified_finite_6151_column_full_fourth_plus_twenty_eight_gapped_separator`, while the pinned parent remains the 6,149-column / twenty-six-gapped certificate.
+
+The second verifier edit also triggers the watched workflow. No new workflow result has been observed yet; the 6,151 Arb theorem remains pending.
