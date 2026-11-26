@@ -74,10 +74,10 @@ The independent escape verifier reconstructs candidate couplings from frozen dec
 A workflow-trigger correction was also committed: the workflow file is included in its own push-path filter so that the first run is triggered when the new workflow is installed.
 
 Commits:
-- search script: `5790fe9a15769b19686756ab0dd516e559e5051c`;
-- Arb escape verifier: `e96cd1629588f8c679972a9b33b26dedf3ce507a`;
-- workflow: `b0947ad2c91bc4b132279b65cfd2a033b02dce5e`;
-- self-trigger correction: `dff7ded93ce99b9aa90c68657ec4f80ef89734fc`.
+- search script initial: `5790fe9a15769b19686756ab0dd516e559e5051c`; pool-count fix: `3caa37d198573bf906ea6a502b0dd7112fcef3e1`;
+- Arb escape verifier initial: `e96cd1629588f8c679972a9b33b26dedf3ce507a`; pool-count fix: `3aff95336236abd7eab1f51a487433d984c8e8ab`;
+- workflow: `b0947ad2c91bc4b132279b65cfd2a033b02dce5e`; self-trigger correction: `dff7ded93ce99b9aa90c68657ec4f80ef89734fc`; concurrency-group correction: `2809a895268e3cc6369c2068d1d20067e487d85c`;
+- theory note: `382bce0a629ac2f4424c1db054e6f4912e510d72`; audit: `3c0b496111220f1f0a1bd12a089afdfd4b12e662`.
 
 Continuous-pricing workflow [45841951059](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45841951059) was observed queued at the end of this run. Its search and Arb outcome are therefore not yet claimed.
 
