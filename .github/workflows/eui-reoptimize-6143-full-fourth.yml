@@ -68,8 +68,8 @@ jobs:
           from pathlib import Path
 
           staged = Path("/tmp/eui-6143/evidence")
-          diagnostic_path = staged / "ising_full_fourth_plus_eighteen_gapped_n21.json"
-          certificate_path = staged / "ising_full_fourth_plus_eighteen_gapped_arb_n21.json"
+          diagnostic_path = staged / "ising_full_fourth_plus_twenty_gapped_n21.json"
+          certificate_path = staged / "ising_full_fourth_plus_twenty_gapped_arb_n21.json"
           if not diagnostic_path.exists():
               print("No 6,143-column diagnostic was produced; refusing to publish.")
               raise SystemExit(1)
