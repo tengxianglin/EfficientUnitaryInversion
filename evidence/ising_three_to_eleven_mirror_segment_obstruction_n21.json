@@ -1,0 +1,29 @@
+{
+  "status": "exact_rational_three_to_eleven_mirror_segment_obstruction",
+  "site_count": 42,
+  "segment_counts": [3,4,5,6,7,8,9,10,11],
+  "total_compositions": 1594831694,
+  "dual_numerator": [-10,8,-6,6,-4,2,-2,2,0,2,0,0,0,0,0,0,2,-2,0,0,1],
+  "dual_denominator": 47,
+  "dual_l1_norm": "1",
+  "common_slack_denominator": 80934,
+  "overall_minimum_slack": "2/40467",
+  "overall_minimum_slack_attainers": 155,
+  "program_mass_tv_lower_bound": "1/40467",
+  "per_segment_count": [
+    {"segment_count": 3, "composition_count": 820, "minimum_slack": "2/40467", "minimum_slack_attainers": 117, "minimum_example": [1,1,40], "maximum_slack": "192/13489", "maximum_slack_attainers": 10, "maximum_example": [10,16,16], "nonpositive_count": 0},
+    {"segment_count": 4, "composition_count": 10660, "minimum_slack": "2/40467", "minimum_slack_attainers": 38, "minimum_example": [1,2,1,38], "maximum_slack": "1027/40467", "maximum_slack_attainers": 52, "maximum_example": [8,8,10,16], "nonpositive_count": 0},
+    {"segment_count": 5, "composition_count": 101270, "minimum_slack": "4/1927", "minimum_slack_attainers": 30, "minimum_example": [1,1,1,1,38], "maximum_slack": "1478/40467", "maximum_slack_attainers": 5, "maximum_example": [8,8,8,8,10], "nonpositive_count": 0},
+    {"segment_count": 6, "composition_count": 749398, "minimum_slack": "4/1927", "minimum_slack_attainers": 6, "minimum_example": [1,1,1,1,1,37], "maximum_slack": "86/1927", "maximum_slack_attainers": 20, "maximum_example": [6,6,6,8,8,8], "nonpositive_count": 0},
+    {"segment_count": 7, "composition_count": 4496388, "minimum_slack": "166/40467", "minimum_slack_attainers": 7, "minimum_example": [1,1,1,1,1,1,36], "maximum_slack": "299/5781", "maximum_slack_attainers": 1, "maximum_example": [6,6,6,6,6,6,6], "nonpositive_count": 0},
+    {"segment_count": 8, "composition_count": 22481940, "minimum_slack": "248/40467", "minimum_slack_attainers": 16, "minimum_example": [1,1,1,1,1,1,1,35], "maximum_slack": "2257/40467", "maximum_slack_attainers": 56, "maximum_example": [4,4,4,6,6,6,6,6], "nonpositive_count": 0},
+    {"segment_count": 9, "composition_count": 95548245, "minimum_slack": "110/13489", "minimum_slack_attainers": 27, "minimum_example": [1,1,1,1,1,1,1,1,34], "maximum_slack": "2462/40467", "maximum_slack_attainers": 81, "maximum_example": [3,5,5,3,5,5,3,6,7], "nonpositive_count": 0},
+    {"segment_count": 10, "composition_count": 350343565, "minimum_slack": "412/40467", "minimum_slack_attainers": 10, "minimum_example": [1,1,1,1,1,1,1,1,1,33], "maximum_slack": "2749/40467", "maximum_slack_attainers": 20, "maximum_example": [3,3,3,5,5,5,3,5,5,5], "nonpositive_count": 0},
+    {"segment_count": 11, "composition_count": 1121099408, "minimum_slack": "494/40467", "minimum_slack_attainers": 11, "minimum_example": [1,1,1,1,1,1,1,1,1,1,32], "maximum_slack": "2872/40467", "maximum_slack_attainers": 44, "maximum_example": [1,3,5,5,3,2,3,5,5,3,7], "nonpositive_count": 0}
+  ],
+  "two_segment_scope_counterexample": {"composition": [1,41], "same_dual_slack": "-80/40467"},
+  "independent_direct_matrix_crosschecks": 1000,
+  "crosscheck_rng_seed": 202611260834,
+  "arithmetic": "integer exact during exhaustive scan; exact rational output; no floating point",
+  "scope": "all ordered compositions of 42 into k=3,...,11 positive contiguous perfect-mirror blocks; convex mixtures, dihedral images, and vertex-sign gauges. This is not a theorem for arbitrary couplings or k>=12."
+}
