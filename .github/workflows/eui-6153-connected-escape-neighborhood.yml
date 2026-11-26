@@ -1,0 +1,84 @@
+name: EUI 6,153-dual full-cycle positive open-box certificate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_6153_connected_escape_neighborhood.py"
+      - "evidence/ising_full_fourth_plus_thirty_gapped_n21.json"
+      - "evidence/ising_full_fourth_plus_thirty_gapped_arb_n21.json"
+      - "evidence/ising_full_fourth_plus_thirty_gapped_search_n21.json"
+      - "evidence/ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json"
+      - ".github/workflows/eui-6153-connected-escape-neighborhood.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eui-6153-connected-escape-neighborhood
+  cancel-in-progress: true
+
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned interval arithmetic
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install python-flint==0.9.0
+      - name: Compile and run exact-rational / Arb neighborhood verifier
+        run: |
+          python -m py_compile verify_6153_connected_escape_neighborhood.py
+          python verify_6153_connected_escape_neighborhood.py
+      - name: Commit only the pinned neighborhood certificate (race-safe)
+        shell: bash
+        run: |
+          mkdir -p /tmp/eui-6153-open-box/evidence
+          cp evidence/ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json /tmp/eui-6153-open-box/evidence/
+          for attempt in 1 2 3; do
+            git fetch origin +refs/heads/main:refs/remotes/origin/main
+            git reset --hard origin/main
+            python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path("evidence")
+          out = json.loads((root / "ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json").read_text())
+          expected = {
+              "diagnostic_sha256": "ising_full_fourth_plus_thirty_gapped_n21.json",
+              "finite_certificate_sha256": "ising_full_fourth_plus_thirty_gapped_arb_n21.json",
+              "search_sha256": "ising_full_fourth_plus_thirty_gapped_search_n21.json",
+              "escape_certificate_sha256": "ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json",
+          }
+          for key, filename in expected.items():
+              actual = hashlib.sha256((root / filename).read_bytes()).hexdigest()
+              if out.get(key) != actual:
+                  raise SystemExit(f"Refusing stale open-box evidence: {key} mismatch.")
+          print("Open-box evidence pins match the current 6,153 source certificates.")
+          PY
+            cp /tmp/eui-6153-open-box/evidence/ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json evidence/
+            git add evidence/ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json
+            if git diff --cached --quiet; then
+              echo "Open-box certificate already current."
+              exit 0
+            fi
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+actions-bot@users.noreply.github.com"
+            git commit -m "Certify open positive-cycle escape region for 6153 dual"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - name: Upload open-box certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-6153-positive-cycle-open-box
+          path: evidence/ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json
+          if-no-files-found: warn
+          retention-days: 90

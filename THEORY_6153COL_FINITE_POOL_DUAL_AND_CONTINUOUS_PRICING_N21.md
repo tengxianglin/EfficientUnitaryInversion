@@ -49,26 +49,89 @@ This is a rigorous obstruction for exactly the 6,153 listed columns. It does not
 
 The 6,153 floating LP diagnostic reported a primal-infeasible / dual-optimal HiGHS status, target score 0.23817163642834843, maximum candidate score 0.012641010269954268, recomputed gap 0.22553062615849276, and maximum pricing-constraint violation 9.86e-14. These are discovery diagnostics; the finite-pool theorem rests on the exact rational dual and independent Arb column pricing, not on the floating LP status.
 
-## 3. Continuous pricing of this specific 6,153 dual
+## 3. Completed continuous pricing of this specific 6,153 dual
 
-A deterministic finite-multistart search and independent 256-bit Arb verifier are being added:
+Workflow [45892294782](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45892294782) completed SUCCESS. All nine job steps completed, including deterministic search, the independent 256-bit Arb verifier, evidence pin checks, and evidence commit [a25e50b8](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a25e50b8a31fb750e60f8802aa641e44a580764d).
 
-- Search: `search_ising_full_fourth_plus_thirty_gapped_n21.py`
-- Independent verifier: `verify_ising_full_fourth_plus_thirty_gapped_escape_arb_n21.py`
-- Workflow: `.github/workflows/eui-full-fourth-plus-thirty-gapped-search-n21.yml`
+The finite multistart search used seed `202611270434`, evaluated 1,822 initial candidates (512 connected random starts, 526 multi-segment random starts, 256 fractional perturbations plus the frozen seed-pool starts), and optimized 16 starts per class with L-BFGS-B and the analytic Fréchet gradient. Its finite-difference gradient self-test had maximum absolute defect (1.816526928877238\times10^{-10}). These are discovery diagnostics, not a continuum proof.
 
-The search reconstructs the exact 116-term rational dual from the 6,153 Arb certificate and prices connected and multi-segment open-path couplings. The search is finite numerical discovery only. A candidate counts as a physical escape only after its decimal couplings are frozen as exact rationals and the independent Arb verifier certifies all 1,764 orthogonality entries, determinant one, and a strictly negative target-minus-score interval.
+The independent verifier reconstructed the 116-term rational dual from the exact finite certificate, froze candidate couplings as exact rationals, and used 256-bit Arb. It certified two escapes:
 
-A successful connected escape would refute only this particular 6,153-column dual as a global separator, including on the strictly positive interior-edge family. Failure to find an escape is not a global bound.
+- **Connected open-path witness.** All 41 internal couplings are strictly positive, with exact minimum
+  [
+  c_{min}=\frac{19999999999999999}{20000000000000000000000}
+  \approx 10^{-6},
+  ]
+  and wrap coupling (c_{41}=0). The target-minus-score interval is
+  [
+  [-20.3240037122535534424538099596397106465\ldots
+  \pm 3.92\times10^{-72}]<0.
+  ]
+- **Four-segment witness.** Internal cuts are at edges ({12,30,33}), and the minimum positive coupling is (10^{-8}). Its target-minus-score interval is
+  [
+  [-27.8847046473750978838078064544366446125\ldots
+  \pm 6.17\times10^{-73}]<0.
+  ]
 
-## 4. Reproducibility and next decision
+For both candidates, Arb checked all 1,764 entries of the (42\times42) orthogonality defect matrix and certified determinant one. The verifier pins the diagnostic, finite certificate, and search transcript by SHA256. Thus the **particular 6,153-column rational dual is not a global separator**. This does not invalidate the finite-pool theorem or establish full-family convex-hull membership/nonmembership.
 
-The search and verifier pin the 6,153 diagnostic and Arb certificate by SHA256, reconstruct the rational dual from the exact certificate coefficients, and reject stale parent evidence.
+Evidence:
+- [Search transcript](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/ising_full_fourth_plus_thirty_gapped_search_n21.json)
+- [Independent 256-bit Arb escape certificate](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/evidence/ising_full_fourth_plus_thirty_gapped_escape_arb_n21.json)
+- [Workflow 45892294782](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45892294782)
+- [Evidence commit a25e50b](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a25e50b8a31fb750e60f8802aa641e44a580764d)
 
-Decision rule:
-1. If Arb certifies a connected escape, record the precise failure of this dual and only then consider another finite-pool reoptimization.
-2. If only a multi-segment escape is certified, report that narrower scope.
-3. If no escape is found, report only the finite search scope.
-4. If a positive primal ensemble is ever produced, independently certify every required moment rather than treating selected low-order rows as the complete all-even-minor problem.
+## 4. Decision after the continuous escape
 
-The paper-level target remains an exact positive physical measure matching every even principal minor, or a global separator valid for every allowed cycle coupling, together with a separate operational bridge to Choi/diamond error.
+The 6,153 finite-pool theorem remains valid for its exact 6,153 pinned columns. Its dual, however, is now explicitly refuted on the continuous family. Repeating the same cutting-plane cycle without a structural change would only produce another finite-pool theorem whose dual must be priced again.
+
+The next high-value work is therefore not an automatic 6,155-column expansion. It is to exploit the exact all-even-minor / complement-folded DPP formulation to seek either (i) a positive measure supported on the full cyclic physical family, or (ii) a global inequality with a proof valid for every allowed cycle coupling. The unrestricted (SO(42)) perfect-matching ensemble is a useful target identity but is not itself a physical cycle ensemble.
+
+## 5. A full-dimensional strictly-positive-cycle escape region
+
+The connected Arb witness above has (c_{41}^*=0), but this boundary feature can be removed analytically. Let (c^*\in\mathbb Q^{42}) be its exact rational coupling vector, and keep the 6,153-dual score
+[
+s(R)=y^{\mathsf T}F(R),\qquad g(c)=y^{\mathsf T}b-s(e^{A(c)}).
+]
+The finite certificate gives the exact coefficient bound (\|y\|_1=533). Set
+[
+\delta=\frac1{2,000,000},\qquad
+\mathcal B=\left\{c:\ |c_j-c_j^*|<\delta\ (0\le j\le40),\quad 0<c_{41}<\delta\right\}.
+]
+Every point of \(\mathcal B\) has all 42 cycle couplings strictly positive: the exact minimum of the first 41 base couplings exceeds \(\delta\), and the wrap coupling is positive by definition.
+
+For (c\in\mathcal B), each row and column of (A(c)-A(c^*)) has absolute sum at most (4\delta). Hence
+[
+\|A(c)-A(c^*)\|_2
+\le\sqrt{\|A(c)-A(c^*)\|_1\,\|A(c)-A(c^*)\|_\infty}
+\le4\delta.
+]
+Both generators are real skew-symmetric. Duhamel's identity and orthogonality of their exponentials therefore give
+[
+\|e^{A(c)}-e^{A(c^*)}\|_2
+\le\|A(c)-A(c^*)\|_2
+\le4\delta.
+]
+For any principal (m\times m) minor with (m\in\{2,4\}), multilinearity of the determinant and Hadamard's inequality imply
+[
+|\det R_{I,I}-\det S_{I,I}|\le m\|R-S\|_2.
+]
+The 21 second-order coordinates and 1,440 fourth-order coordinates are averages of such minors over cyclic or signed-dihedral orbits, so every feature coordinate changes by at most (4\|R-S\|_2). Consequently
+[
+|s(R)-s(S)|\le4\|y\|_1\|R-S\|_2
+\le 4\cdot533\cdot4\delta
+=8528\delta
+=\frac{533}{125000}
+=0.004264.
+]
+At the Arb-certified base point,
+[
+g(c^*)\in[-20.3240037122535534\ldots\pm3.92\times10^{-72}]< -20.324.
+]
+Thus throughout the entire open set \(\mathcal B\),
+[
+g(c)<-20.324+0.004264=-20.319736<0.
+]
+This is a rigorous analytic extension of the Arb base-point escape to a **full-dimensional open region of strictly positive 42-cycle couplings**. It rules out the 6,153 dual as a separator even if the physical domain is restricted to all couplings strictly positive; it still says nothing by itself about whether the target belongs to the convex hull of the full physical family.
+
+The exact rational checks and Arb interval addition are reproduced by `verify_6153_connected_escape_neighborhood.py`; its machine-readable output is `evidence/ising_full_fourth_plus_thirty_gapped_open_box_arb_n21.json`.
