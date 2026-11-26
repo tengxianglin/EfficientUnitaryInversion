@@ -90,3 +90,8 @@ The repository's default-branch code search for `documentclass`, bibliography, a
 - The global physical convex-hull question, exact all-even-principal-minor positive physical ensemble, and operational moment-to-Choi/diamond bridge remain unresolved.
 
 **Next highest-value action:** do not blindly add another pair of columns. Use the complement-folded projection-DPP formulation and the small-(N) reachability track to seek an exact positive measure for the full cycle family, or derive a structural inequality valid for every cyclic coupling. Any new finite-pool dual must be treated as a diagnostic until it survives continuous pricing.
+
+
+## Run 54 closeout — open-box certificate CI completed
+
+The exact-rational/Arb neighborhood verifier completed successfully in [workflow 45907210706](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45907210706). All job steps passed, and the machine-readable certificate was committed at [a56d3d8135ce305c18e3cca8c02b070b66948549](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/a56d3d8135ce305c18e3cca8c02b070b66948549). This closes the Run 54 evidence handoff: the 256-bit Arb base-point escape and exact-rational Lipschitz extension to a full-dimensional all-positive 42-coupling open box are both pinned in the repository. The finite-pool theorem remains limited to the exact 6,153 columns; no full-family convex-hull or Choi/diamond claim follows.
