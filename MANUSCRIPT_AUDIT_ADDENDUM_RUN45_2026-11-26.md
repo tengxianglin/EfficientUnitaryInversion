@@ -50,7 +50,7 @@ The TV statement concerns the balanced program-label distribution / dephased cla
 
 The LP diagnostic reports HiGHS dual optimality and primal infeasibility, but those floating solver statuses are discovery metadata only. The finite-pool theorem is certified by the independently reconstructed exact-rational dual and Arb column pricing.
 
-## Continuous pricing of the new 6,145 dual — added, first run diagnosed, retry pending
+## Continuous pricing of the 6,145 dual — two certified escapes; 6,147 reoptimization launched
 
 Added:
 - `search_ising_full_fourth_plus_twenty_two_gapped_n21.py`;
@@ -63,7 +63,22 @@ First workflow [45804242553](https://github.com/tengxianglin/EfficientUnitaryInv
 
 After correcting those discovery guards in [63007ea](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/63007eafca2b607c3ba81ed8b71146e856fb9d48), workflow [45804379602](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45804379602) completed the finite multistart search over 918 candidates in 68.34 s. The floating best connected candidate scored 34.513836412095124 against target 0.19243831518898824 (target-minus-score -34.321398096906137); the best multi-segment candidate scored 32.093379605640514. The analytic-gradient finite-difference self-test maximum absolute defect was \(9.25\times10^{-11}\). The search transcript was committed at [1f4f31e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/1f4f31e).
 
-That run then stopped in the independent verifier's initial metadata guard because it still expected 103 nonzero coefficients instead of 107. It did not reach the Arb orthogonality/determinant/score checks; the floating candidates are not yet certified escapes. I corrected the remaining verifier pin in [e093ace](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e093ace18b2692628e0b47a665ec48dc1b80439d). Corrected workflow [45804667694](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45804667694) is now running; inspect its final status before making any continuous-family claim.
+That run then stopped in the independent verifier's initial metadata guard because it still expected 103 nonzero coefficients instead of 107. It did not reach the Arb orthogonality/determinant/score checks. I corrected the remaining verifier pin in [e093ace](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/e093ace18b2692628e0b47a665ec48dc1b80439d).
+
+Corrected workflow [45804667694](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45804667694) completed successfully. Its independent 256-bit Arb verifier certified both frozen candidates as strict escapes from the 6,145 dual:
+- **Connected path:** all 41 interior couplings are strictly positive; the minimum is (19999999999999999/20000000000000000000000\\approx10^{-6}). The Arb score interval is ([34.5138364120951213827\\ldots\\pm3.51\\times10^{-73}]), while target-minus-score is ([-34.3213980969061331401\\ldots\\pm5.22\\times10^{-73}]<0).
+- **Multi-segment path:** internal zero edges are ({18,25}), and the minimum positive coupling is (10^{-8}). Its Arb score interval is ([32.0933796056406005745\\ldots\\pm7.11\\times10^{-73}]), while target-minus-score is ([-31.9009412904516123319\\ldots\\pm8.74\\times10^{-73}]<0).
+
+For each path the verifier checked all 1,764 entries of the (42\\times42) orthogonality matrix and enclosed determinant one; both score intervals are strictly below the target interval. The certificate and search transcript were published in evidence commit [67da190](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/67da190edc4c9a893c1f51863c3bcb70fb31815c).
+
+**Logical conclusion:** the exact 6,145-column finite-pool separator is valid for its pinned pool but is not a separator for the continuous physical family. The connected escape alone proves this for the connected open-chain subset; the multi-segment escape independently extends the counterexample to a cut path. Neither escape is a positive ensemble or a global converse.
+
+I appended both new paths to the certified 6,145 pool, producing 6,147 columns / 24 gapped paths, and added:
+- `discover_ising_full_fourth_plus_twenty_four_gapped_n21.py`;
+- `verify_ising_full_fourth_plus_twenty_four_gapped_arb_n21.py`;
+- `.github/workflows/eui-reoptimize-6147-full-fourth.yml`.
+
+Commits: discovery [42e22ef](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/42e22efb9b66eb9621c99d2db75dc0157c4eab63), verifier [8ce7e0e](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/8ce7e0e39e9504529cebc376ea1a90784af78363), workflow [73f69bd](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/73f69bd80743c5db73a1cdeb1f5510187103f269). Reoptimization workflow [45805694896](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45805694896) was queued at the latest check. Its final LP and Arb results are pending.
 
 ## Proof boundary and next action
 
