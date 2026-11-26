@@ -3,7 +3,7 @@
 The floating HiGHS result is only a discovery candidate. This verifier freezes
 all decimal dual coefficients as exact rationals, imposes exact scaled-l1
 normalization, and independently prices 22 base atoms, 6,101 fractional-grid
-atoms, and eighteen exact-rational gapped paths.
+atoms, and twenty exact-rational gapped paths.
 
 A successful result proves separation only for this exact finite pool. It is
 not a continuum obstruction and is not a Choi/diamond-distance lower bound.
@@ -81,14 +81,14 @@ def main():
         "warm_certificate_sha256": hashlib.sha256(warm_raw).hexdigest(),
     }
 
-    if diagnostic.get("status") != "floating_full_fourth_6141_column_separator_candidate_not_arb_certified":
+    if diagnostic.get("status") != "floating_full_fourth_6143_column_separator_candidate_not_arb_certified":
         raise RuntimeError("unexpected 6,143-column diagnostic status")
     if diagnostic.get("candidate_count") != 6143:
         raise RuntimeError("diagnostic does not contain exactly 6,141 columns")
     if diagnostic.get("base_atom_count") != 22 or diagnostic.get("fractional_grid_count") != 6101:
         raise RuntimeError("unexpected base/fractional-grid pool counts")
     if diagnostic.get("general_gapped_count") != 20 or len(diagnostic.get("appended_gapped_columns", [])) != 20:
-        raise RuntimeError("diagnostic does not contain exactly eighteen appended gapped paths")
+        raise RuntimeError("diagnostic does not contain exactly twenty appended gapped paths")
     if diagnostic.get("full_feature_count") != 1461:
         raise RuntimeError("unexpected full feature count")
     if diagnostic.get("fourth_orbit_count") != 1440 or diagnostic.get("quartet_count") != 111930:
@@ -113,7 +113,7 @@ def main():
         raise RuntimeError("the 6,141-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != hashes["parent_diagnostic_sha256"]:
         raise RuntimeError("the parent certificate does not pin the current parent diagnostic")
-    if parent.get("status") != "floating_full_fourth_6141_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6141:
+    if parent.get("status") != "floating_full_fourth_6143_column_separator_candidate_not_arb_certified" or parent.get("candidate_count") != 6141:
         raise RuntimeError("unexpected 6,141-column parent diagnostic")
 
     if escape_cert.get("status") != "arb_certified_6141_dual_general_gapped_escape":
