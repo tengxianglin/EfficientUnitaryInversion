@@ -3,7 +3,7 @@
 The floating HiGHS result is only a discovery candidate. This verifier freezes
 all decimal dual coefficients as exact rationals, imposes exact scaled-l1
 normalization, and independently prices 22 base atoms, 6,101 fractional-grid
-atoms, and twenty-four exact-rational gapped paths.
+atoms, and twenty-six exact-rational gapped paths.
 
 A successful result proves separation only for this exact finite pool. It is
 not a continuum obstruction and is not a Choi/diamond-distance lower bound.
@@ -27,7 +27,7 @@ PARENT_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_twenty_four_gapped_
 NEW_ESCAPE_CERTIFICATE = ROOT / "evidence/ising_full_fourth_plus_twenty_four_gapped_escape_arb_n21.json"
 NEW_ESCAPE_SEARCH = ROOT / "evidence/ising_full_fourth_plus_twenty_four_gapped_search_n21.json"
 WARM_CERTIFICATE = ROOT / "evidence/ising_low_moment_two_fourth_ensemble_n21.json"
-OUTPUT = ROOT / "evidence/ising_full_fourth_plus_twenty_four_gapped_arb_n21.json"
+OUTPUT = ROOT / "evidence/ising_full_fourth_plus_twenty_six_gapped_arb_n21.json"
 
 N = 42
 GRID_PRECISION_BITS = 128
@@ -107,7 +107,7 @@ def main():
         if diagnostic.get(field) != hashes[key]:
             raise RuntimeError(f"the 6,147-column diagnostic does not pin {field}")
 
-    if parent_cert.get("status") != "arb_certified_finite_6147_column_full_fourth_plus_twenty_two_gapped_separator":
+    if parent_cert.get("status") != "arb_certified_finite_6147_column_full_fourth_plus_twenty_four_gapped_separator":
         raise RuntimeError("the 6,145-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6147:
         raise RuntimeError("the 6,145-column parent certificate is incomplete")
@@ -302,7 +302,7 @@ def main():
     if checked_base != 22 or checked_grid != 6101:
         raise RuntimeError(f"wrong base/grid counts: base={checked_base}, grid={checked_grid}")
 
-    # Evaluate all twenty-four exact-rational gapped paths independently at 512 bits.
+    # Evaluate all twenty-six exact-rational gapped paths independently at 512 bits.
     ctx.prec = BASE_PRECISION_BITS
     for index, column in enumerate(appended):
         couplings = [Fraction(x) for x in column["couplings_exact_rational"]]
@@ -350,7 +350,7 @@ def main():
     tv_bound = residual_bound / 2
 
     result = {
-        "status": "arb_certified_finite_6149_column_full_fourth_plus_twenty_four_gapped_separator",
+        "status": "arb_certified_finite_6149_column_full_fourth_plus_twenty_six_gapped_separator",
         "complete": True,
         "interval_backend": "python-flint / Arb",
         "precision_bits_base_and_gapped": BASE_PRECISION_BITS,
@@ -401,8 +401,8 @@ def main():
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "twenty-four exact-rational gapped paths (twenty-two inherited from the certified "
-            "6,145-column pool and two newly Arb-certified escapes from the 6,145-column dual). "
+            "twenty-six exact-rational gapped paths (twenty-four inherited from the certified "
+            "6,147-column pool and two newly Arb-certified escapes from the 6,147-column dual). "
             "It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
             "other arbitrary multi-segment paths, all even principal minors, or an "
