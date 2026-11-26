@@ -44,12 +44,27 @@ The pricing script now records the stable label `run47_2026-11-26_reprice_correc
 - Search: deterministic finite multistart with L-BFGS-B and analytic Fréchet gradients.
 - Independent verifier: 256-bit Arb; candidate decimal couplings are parsed as exact rationals, all 1,764 orthogonality entries and determinant one are checked, and the exact rational 111-term dual is repriced.
 
-At the time of this audit, dependency installation and compilation passed; the pricing step was running. No continuous escape or global no-escape claim is made until the transcript and Arb result are inspected. A no-escape finite multistart outcome is not a continuum proof.
+Workflow [45824486175](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45824486175) completed successfully. It evaluated 1,816 initial candidates (512 frozen seed-pool, 512 random connected, 256 fractional-profile, and 523 multi-segment including pinned paths), optimized 16 starts per class, and passed a gradient finite-difference self-test with maximum absolute defect (1.643934988138085\\times10^{-10}).
+
+The independent 256-bit Arb certificate proves two exact-rational escapes from the 6,147 dual:
+- Connected: all 41 internal couplings strictly positive; minimum (19999999999999999/20000000000000000000000\\approx10^{-6}); target-minus-score interval ([-27.2455780603332145899570\\ldots\\pm6.53\\times10^{-73}]<0).
+- Two-segment: one internal cut at edge 35; minimum positive coupling (10^{-8}); target-minus-score interval ([-26.1266278136225508061655\\ldots\\pm3.35\\times10^{-71}]<0).
+
+Both exact-rational paths passed all 1,764 Arb orthogonality consistency checks and determinant-one interval checks; exact skew-symmetry of the generator gives the structural (SO(42)) property. These witnesses refute extending this particular 6,147-column dual unchanged to the connected/general-gapped family. They do not invalidate its finite-pool theorem or settle global convex-hull membership.
+
+A formal scope note is now committed: [THEORY_6147COL_FINITE_POOL_DUAL_AND_CONTINUOUS_ESCAPE_N21.md](https://github.com/tengxianglin/EfficientUnitaryInversion/blob/main/THEORY_6147COL_FINITE_POOL_DUAL_AND_CONTINUOUS_ESCAPE_N21.md).
 
 ## Proof boundary and next action
 
-- **Proved:** strict second-/fourth-order separation for exactly the pinned 6,147-column pool.
+- **Proved, finite scope:** strict second-/fourth-order separation for exactly the pinned 6,147-column pool.
+- **Proved counterexamples to that dual's global extension:** one connected and one two-segment exact-rational physical path, each independently Arb-priced below the 6,147 dual target.
 - **Not proved:** a separator for all real cycle/path couplings; a positive physical ensemble matching every even principal minor at n=21; complete sixth/eighth/higher-order control; or a program-label-to-Choi/diamond operational bridge.
-- **Next:** inspect workflow 45824486175; if an escape is certified, append the exact rational path and reoptimize; if no escape is found, retain the result strictly as finite multistart evidence and move to a genuinely global analytic pricing bound or positive-ensemble construction.
 
-Issue #5 was updated in comment [7192731781](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/5#issuecomment-7192731781).
+The two escapes have been appended to the 24 inherited gapped paths, giving a 6,149-column pool (22 base + 6,101 fractional grid + 26 gapped). New discovery and independent Arb-verification files are committed:
+- `discover_ising_full_fourth_plus_twenty_six_gapped_n21.py`
+- `verify_ising_full_fourth_plus_twenty_six_gapped_arb_n21.py`
+- [workflow 45826172005](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45826172005)
+
+At the time of this audit update, compilation and deterministic block-minor/spin-symmetry/serialization regressions had passed; the 6,149-column LP was still running. No 6,149-column theorem is claimed until independent Arb certification completes.
+
+Issue #5 was updated in comments [7192731781](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/5#issuecomment-7192731781) and [7192928947](https://github.com/tengxianglin/EfficientUnitaryInversion/issues/5#issuecomment-7192928947).
