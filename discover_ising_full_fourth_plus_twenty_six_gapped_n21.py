@@ -246,13 +246,13 @@ def solve_full_grid(system, warm, warm_sha):
     escape_sha = hashlib.sha256(escape_raw).hexdigest()
     escape_search_sha = hashlib.sha256(escape_search_raw).hexdigest()
 
-    if parent_cert.get("status") != "arb_certified_finite_6147_column_full_fourth_plus_twenty_two_gapped_separator":
+    if parent_cert.get("status") != "arb_certified_finite_6147_column_full_fourth_plus_twenty_four_gapped_separator":
         raise RuntimeError("the pinned 6,145-column parent certificate is invalid")
     if not parent_cert.get("complete") or parent_cert.get("candidate_count") != 6147:
         raise RuntimeError("the 6,145-column parent certificate is incomplete")
     if parent_cert.get("diagnostic_sha256") != parent_sha:
         raise RuntimeError("the parent Arb certificate does not pin the current parent diagnostic")
-    if parent.get("candidate_count") != 6147 or len(parent.get("appended_gapped_columns", [])) != 22:
+    if parent.get("candidate_count") != 6147 or len(parent.get("appended_gapped_columns", [])) != 24:
         raise RuntimeError("the parent diagnostic does not contain exactly twenty-four appended gapped paths")
     if parent.get("status") not in {
         "floating_full_fourth_6147_column_separator_candidate_not_arb_certified",
@@ -352,8 +352,8 @@ def solve_full_grid(system, warm, warm_sha):
         appended_labels.append(label_record)
 
     for label, kind, source in (
-        ("new_connected_escape_from_6147_dual", "connected", "256-bit Arb escape from the 6,145-column dual"),
-        ("new_multisegment_escape_from_6147_dual", "multisegment", "256-bit Arb multi-segment escape from the 6,145-column dual"),
+        ("new_connected_escape_from_6147_dual", "connected", "256-bit Arb escape from the 6,147-column dual"),
+        ("new_multisegment_escape_from_6147_dual", "multisegment", "256-bit Arb multi-segment escape from the 6,147-column dual"),
     ):
         result = escape_cert["candidate_results"][kind]
         couplings = [Fraction(value) for value in result["couplings_exact_rational"]]
