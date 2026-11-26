@@ -105,7 +105,7 @@ def main():
         ("warm_certificate_sha256", "warm_certificate_sha256"),
     ):
         if diagnostic.get(field) != hashes[key]:
-            raise RuntimeError(f"the 6,149-column diagnostic does not pin {field}")
+            raise RuntimeError(f"the 6,151-column diagnostic does not pin {field}")
 
     if parent_cert.get("status") != "arb_certified_finite_6149_column_full_fourth_plus_twenty_six_gapped_separator":
         raise RuntimeError("the 6,149-column parent certificate is invalid")
@@ -150,7 +150,7 @@ def main():
         "new_multisegment_escape_from_6149_dual",
     ]
     if [x.get("kind") for x in appended] != expected_kinds:
-        raise RuntimeError("unexpected ordering or labels for twenty-six appended gapped paths")
+        raise RuntimeError("unexpected ordering or labels for twenty-eight appended gapped paths")
 
     for index in range(26):
         expected = [Fraction(x) for x in parent_appended[index]["couplings_exact_rational"]]
@@ -302,7 +302,7 @@ def main():
     if checked_base != 22 or checked_grid != 6101:
         raise RuntimeError(f"wrong base/grid counts: base={checked_base}, grid={checked_grid}")
 
-    # Evaluate all twenty-six exact-rational gapped paths independently at 512 bits.
+    # Evaluate all twenty-eight exact-rational gapped paths independently at 512 bits.
     ctx.prec = BASE_PRECISION_BITS
     for index, column in enumerate(appended):
         couplings = [Fraction(x) for x in column["couplings_exact_rational"]]
@@ -350,7 +350,7 @@ def main():
     tv_bound = residual_bound / 2
 
     result = {
-        "status": "arb_certified_finite_6149_column_full_fourth_plus_twenty_six_gapped_separator",
+        "status": "arb_certified_finite_6151_column_full_fourth_plus_twenty_eight_gapped_separator",
         "complete": True,
         "interval_backend": "python-flint / Arb",
         "precision_bits_base_and_gapped": BASE_PRECISION_BITS,
@@ -401,7 +401,7 @@ def main():
         "scope": (
             "This is a rigorous finite-pool obstruction for exactly 22 pinned "
             "base atoms, 6,101 corrected fractional single-open-path grid atoms, "
-            "twenty-six exact-rational gapped paths (twenty-six inherited from the certified "
+            "twenty-eight exact-rational gapped paths (twenty-six inherited from the certified "
             "6,149-column pool and two newly Arb-certified escapes from the 6,149-column dual). "
             "It does not cover "
             "other nonuniform gapped couplings, the continuous gapped family, "
