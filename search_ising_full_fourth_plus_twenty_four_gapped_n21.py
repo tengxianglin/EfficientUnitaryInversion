@@ -24,6 +24,7 @@ FINITE_CERT = ROOT / "evidence/ising_full_fourth_plus_twenty_four_gapped_arb_n21
 OUTPUT = ROOT / "evidence/ising_full_fourth_plus_twenty_four_gapped_search_n21.json"
 N = 42
 RANDOM_SEED = 202611262037
+RUN_LABEL = "run47_2026-11-26_reprice_corrected_6147_certificate"
 POOL_SAMPLE_COUNT = 512
 CONNECTED_RANDOM_COUNT = 512
 MULTISEGMENT_RANDOM_COUNT = 512
@@ -354,6 +355,7 @@ def main():
     escape = overall_score > target + ESCAPE_DISCOVERY_MARGIN
 
     result = {
+        "run_label": RUN_LABEL,
         "status": (
             "floating_general_gapped_separator_escape_candidate"
             if escape
