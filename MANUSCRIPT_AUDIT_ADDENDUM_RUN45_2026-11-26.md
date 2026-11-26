@@ -38,7 +38,7 @@ Certified facts:
 - exact full-coordinate dual norm \(\|y\|_1=533\);
 - common rational column gap \(1/5\);
 - minimum Arb lower endpoint approximately \(0.2206104558375831>1/5\);
-- 22 base/gapped columns checked at 512-bit Arb and 6,101 fractional-grid columns at 128-bit Arb.
+- 22 base atoms plus 22 gapped paths (44 columns total) checked at 512-bit Arb, and 6,101 fractional-grid columns checked at 128-bit Arb.
 
 Consequently, for every probability mixture over **this exact 6,145-column pool**,
 \[
