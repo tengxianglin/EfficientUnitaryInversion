@@ -45,7 +45,7 @@ The result is restricted to N=8 and period-two couplings. It does not exclude ge
 - verify_n8_period_two_mixture_fourth_order_no_go.py: direct Arb matrix-exponential regression against the Fourier formulas at frozen exact-rational couplings, including positive, negative, and zero-edge parameters.
 - .github/workflows/eui-n8-period-two-mixture-fourth-order-no-go.yml: pinned python-flint 0.9.0 CI and committed machine-readable output at evidence/n8_period_two_mixture_fourth_order_no_go.json.
 
-The analytic AM-GM argument is the continuum proof. The finite Arb sample checks are implementation/regression evidence, not a substitute for that proof. Hosted CI was triggered by the workflow addition and is pending at the time of this note.
+The analytic AM-GM argument is the continuum proof. The finite Arb sample checks are implementation/regression evidence, not a substitute for that proof. Hosted workflow 45918793664 completed SUCCESS at 2026-11-27 00:47:46 UTC. Its job log confirms Python compilation, 256-bit Arb verification, evidence commit, and artifact upload all succeeded. The committed evidence is at evidence/n8_period_two_mixture_fourth_order_no_go.json (commit 1c47e42).
 
 ## Manuscript and supplementary-source audit
 
@@ -53,11 +53,11 @@ The repository tree was rechecked (1,246 entries at the start of this run). No e
 
 ## Changes, verified claims, blockers, and next action
 
-**Changed:** added the N=8 period-two mixture theorem, its independent Arb regression, and a dedicated CI workflow.
+**Changed:** added the N=8 period-two mixture theorem, its independent Arb regression, and a dedicated CI workflow; added Issue #7 comment 7206765005 with the result and scope.
 
 **Proved analytically:** for every real N=8 period-two parameter pair, the cyclically symmetrized selected quartic minor is at least the absolute value of the selected antipodal pair minor; hence every period-two mixture has full-feature infinity discrepancy at least 1/35 from the balanced target.
 
-**Finite verification pending:** hosted 256-bit Arb checks of the exact Fourier-to-minor formulas and frozen rational regression points. These do not establish the continuum theorem; the AM-GM proof does.
+**Finite verification passed:** hosted 256-bit Arb checked direct 8x8 matrix exponentials against both Fourier-to-minor formulas at nine frozen rational parameter pairs (seven strict AM-GM regression points, plus both zero-edge orientations). Formula residual intervals contain zero; the certified analytic margin is exactly 1/35. These finite checks validate the implementation only; the AM-GM derivation establishes the continuum theorem.
 
 **Still blocked:** full N=42 physical-cycle convex-hull membership/nonmembership; a complete N=42 positive physical ensemble; a global separator for arbitrary 42-edge couplings; and the operational moment-to-Choi/diamond bridge. The N=42 period-two partial ensemble remains valid within its stated 861 pair plus 84 selected quartic coordinates.
 
