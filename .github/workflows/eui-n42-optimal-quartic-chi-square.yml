@@ -1,0 +1,63 @@
+name: EUI N42 optimal quartic-harmonic chi-square certificate
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_n42_optimal_quartic_chi_square.py"
+      - "THEORY_N42_OPTIMAL_QUARTIC_CHI_SQUARE.md"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "verify_n42_period_two_six_quartic_all_orbits_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - ".github/workflows/eui-n42-optimal-quartic-chi-square.yml"
+  pull_request:
+    paths:
+      - "verify_n42_optimal_quartic_chi_square.py"
+      - "THEORY_N42_OPTIMAL_QUARTIC_CHI_SQUARE.md"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "verify_n42_period_two_six_quartic_all_orbits_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - ".github/workflows/eui-n42-optimal-quartic-chi-square.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-optimal-quartic-chi-square
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Check environment and compile
+        run: |
+          python -m pip check
+          python -m py_compile verify_n42_optimal_quartic_chi_square.py verify_n42_period_two_six_quartic_ensemble_arb.py verify_n42_period_two_six_quartic_all_orbits_arb.py
+      - name: Recompute positive weights and all 861 pair moments
+        run: python -c "import verify_n42_period_two_six_quartic_ensemble_arb as m; m.verify()"
+      - name: Recompute all 1,440 quartic orbit intervals
+        run: python verify_n42_period_two_six_quartic_all_orbits_arb.py
+      - name: Certify optimal quartic-harmonic chi-square bound
+        run: python verify_n42_optimal_quartic_chi_square.py
+      - name: Commit deterministic optimal certificate
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_optimal_quartic_chi_square_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify optimal N42 quartic chi-square bound"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload optimal quartic certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-optimal-quartic-chi-square
+          path: evidence/n42_optimal_quartic_chi_square_arb.json
+          if-no-files-found: error
