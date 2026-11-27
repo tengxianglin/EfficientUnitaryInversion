@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - "verify_n42_quartic_orbit_gram_chi_square.py"
+      - "THEORY_N42_QUARTIC_ORBIT_GRAM_CHI_SQUARE.md"
       - "evidence/n42_period_two_six_quartic_all_orbits_arb.json"
       - ".github/workflows/eui-n42-quartic-orbit-gram.yml"
   pull_request:
