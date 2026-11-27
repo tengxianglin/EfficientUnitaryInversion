@@ -77,3 +77,34 @@ all-even-moment ensemble. The tenth-orbit miss is specific to the frozen
 support. The 10-orbit candidate-pool infeasibility is not a global
 period-two-family theorem. No Choi trace-distance or diamond-distance bound
 is inferred from these program moments.
+
+
+## Follow-up: rationalized tenth-orbit dual rejected by a continuous Arb witness
+
+After the nine-orbit certificate, the ten-orbit floating candidate-pool LP
+was infeasible on its fixed 100,000 columns. A rationalized version of its
+floating Farkas vector was frozen with exact rational coefficients. The
+independent 256-bit Arb workflow
+[45933314487](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45933314487)
+certified a strictly-positive period-two physical point
+(a,b)=(8.94088796,97.09897923) at which the functional score is
+[-0.483006473660593274... +/- 8.31e-72], while its target score is
+[-0.999999264540337711... +/- 7.40e-75]. Thus this exact rational functional
+cannot be a global separator.
+
+Important limitation: the rationalized functional's nonnegativity on all
+100,000 finite-pool columns was only screened in binary64 (minimum about
+6.18e-7); those inequalities were not independently Arb-certified. No exact
+finite-pool Farkas theorem is claimed. The result only proves that this
+rationalized candidate has a continuous physical escape.
+
+New files:
+- `evidence/n42_period_two_tenth_orbit_dual_escape.json`
+- `verify_n42_period_two_tenth_orbit_dual_escape_arb.py`
+- `evidence/n42_period_two_tenth_orbit_dual_escape_arb.json`
+- `.github/workflows/eui-n42-period-two-tenth-orbit-dual-escape.yml`
+- `THEORY_N42_TENTH_ORBIT_DUAL_CONTINUOUS_ESCAPE.md`
+
+The CI committed the Arb evidence as `8baa9f1`. The next action is to derive
+a different finite-pool dual with a certified margin and subject it to
+continuous pricing before attempting a global claim.
