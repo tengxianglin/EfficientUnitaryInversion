@@ -38,11 +38,7 @@ jobs:
         run: |
           python -m pip check
           python -m py_compile verify_n42_optimal_quartic_chi_square.py verify_n42_period_two_six_quartic_ensemble_arb.py verify_n42_period_two_six_quartic_all_orbits_arb.py
-      - name: Recompute positive weights and all 861 pair moments
-        run: python -c "import verify_n42_period_two_six_quartic_ensemble_arb as m; m.verify()"
-      - name: Recompute all 1,440 quartic orbit intervals
-        run: python verify_n42_period_two_six_quartic_all_orbits_arb.py
-      - name: Certify optimal quartic-harmonic chi-square bound
+      - name: Recompute pair and quartic audits, then certify the optimal bound
         run: python verify_n42_optimal_quartic_chi_square.py
       - name: Commit deterministic optimal certificate
         if: github.event_name == 'push'
