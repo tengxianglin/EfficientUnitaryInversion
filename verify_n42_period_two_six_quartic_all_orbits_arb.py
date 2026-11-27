@@ -96,6 +96,7 @@ def verify():
     orbit_map = all_quartic_orbits()
     rows = []
     strict = []
+    strict_residuals = {}
     contains = []
     for I, orbit_size in sorted(orbit_map.items()):
         value = base.symmetrized_quartic_moment(
@@ -114,6 +115,7 @@ def verify():
             contains.append(record)
         else:
             strict.append(record)
+            strict_residuals[tuple(I)] = residual
 
     if not strict:
         raise AssertionError(
@@ -127,6 +129,18 @@ def verify():
     # this ranking is not claimed to certify the global maximum residual.
     worst = max(strict, key=lambda row: abs(float(row["residual_interval"].split(" +/- ")[0].strip("[]"))))
     assert not worst["residual_contains_zero"]
+
+    worst_residual = strict_residuals[tuple(worst["representative"])]
+    absolute_residual = worst_residual if worst_residual > 0 else -worst_residual
+    program_tv_lower_bound = absolute_residual / 2
+    chi_square_lower_bound = absolute_residual ** 2
+    plucker_dimension = comb(N, n)
+    frame_potential_target = base.rational(f"4/{plucker_dimension}")
+    frame_potential_lower_bound = frame_potential_target * (1 + chi_square_lower_bound)
+    if not (program_tv_lower_bound > base.rational("0.00275")):
+        raise AssertionError("moment witness did not certify the stated program-TV lower bound")
+    if not (chi_square_lower_bound > base.rational("3/100000")):
+        raise AssertionError("moment witness did not certify the stated chi-square lower bound")
 
     witness_keys = {
         canonical_orbit(tuple(map(int, I)))[0]
@@ -142,7 +156,7 @@ def verify():
     import hashlib
     input_sha256 = hashlib.sha256(INPUT.read_bytes()).hexdigest()
     result = {
-        "schema": "eui_n42_period_two_six_quartic_all_orbits_arb_v1",
+        "schema": "eui_n42_period_two_six_quartic_all_orbits_arb_v2",
         "status": "strict_counterexample_to_full_quartic_design_for_frozen_support",
         "N": N,
         "n": n,
@@ -160,6 +174,14 @@ def verify():
         "orbits_whose_residual_interval_contains_zero": len(contains),
         "orbits_with_strict_certified_mismatch": len(strict),
         "strict_counterexample": worst,
+        "program_label_tv_lower_bound_interval": str(program_tv_lower_bound),
+        "program_label_tv_lower_bound_gt_0.00275": True,
+        "chi_square_lower_bound_interval": str(chi_square_lower_bound),
+        "chi_square_lower_bound_gt_0.00003": True,
+        "plucker_dimension": plucker_dimension,
+        "frame_potential_target_interval": str(frame_potential_target),
+        "frame_potential_lower_bound_interval": str(frame_potential_lower_bound),
+        "fourier_test_function": "f_I(S)=product_{i in I}(2*1[i in S]-1), |f_I|=1",
         "counterexample_ranking": "largest absolute Arb midpoint among strict mismatches; not a certified global maximum",
         "matched_witness_orbits": len(witness_keys),
         "all_six_frozen_witness_orbits_rechecked": True,
@@ -180,6 +202,9 @@ def verify():
         "strict_mismatches": result["orbits_with_strict_certified_mismatch"],
         "target_contains_zero_count": result["orbits_whose_residual_interval_contains_zero"],
         "counterexample": worst,
+        "program_label_tv_lower_bound": str(program_tv_lower_bound),
+        "chi_square_lower_bound": str(chi_square_lower_bound),
+        "frame_potential_lower_bound": str(frame_potential_lower_bound),
         "moment_matrix_determinant": str(determinant),
     }, indent=2), flush=True)
 
