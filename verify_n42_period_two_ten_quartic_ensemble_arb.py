@@ -229,7 +229,7 @@ def verify():
 
     assert quartic_checks == len(all_quartets) == 399
 
-    # Candidate-specific tenth-orbit miss: this does not exclude other
+    # Candidate-specific eleventh-orbit miss: this does not exclude other
     # period-two mixtures or the full continuous physical family.
     unmatched_witness = [0, 6, 15, 21]
     unmatched_orbit = sorted({
@@ -294,7 +294,7 @@ def verify():
         "one_site_symmetrization": "Each base atom (a,b) and its translate (b,a) receive equal half weight.",
         "scope": (
             "Exact positive ensemble for all 861 pair coordinates and 399 distinct "
-            "fourth-order principal-minor coordinates belonging to nine specified "
+            "fourth-order principal-minor coordinates belonging to ten specified "
             "full translation orbits. This is not a full fourth-order or all-even-moment design."
         ),
         "discovery": data["discovery"],
