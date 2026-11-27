@@ -6,7 +6,7 @@ Date: 2026-11-28. Run 66. Base inspected: main at 15832cb21b9ec601bf8e1dc35c1a39
 
 This note gives an exact geometric reformulation of the full balanced-slice program-mass condition and a polynomial-time-per-sample falsification statistic. It does **not** construct an N=42 ensemble or prove a Choi/diamond bound.
 
-Let N=2n and let Q(c)=R(c)D be the balanced symmetric involution associated with a legal even-cycle seed, so Q=Q^T, Q^2=I and tr Q=0. Put
+Let N=2n and let Q(c)=R(c)D be the balanced symmetric involution associated with a legal even-cycle seed, so Q=Q^T, Q^2=I and tr Q=0. The DPP note uses the convention D R(c); the two conventions are related by D(RD)D=DR and therefore have identical principal minors. Put
 \[
 P(c)=\frac{I+Q(c)}2.
 \]
