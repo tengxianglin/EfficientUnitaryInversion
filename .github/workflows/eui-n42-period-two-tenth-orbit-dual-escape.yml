@@ -1,0 +1,57 @@
+name: EUI N42 tenth-orbit rationalized-dual escape
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evidence/n42_period_two_tenth_orbit_dual_escape.json"
+      - "verify_n42_period_two_tenth_orbit_dual_escape_arb.py"
+      - "verify_n42_period_two_nine_quartic_ensemble_arb.py"
+      - ".github/workflows/eui-n42-period-two-tenth-orbit-dual-escape.yml"
+  pull_request:
+    paths:
+      - "evidence/n42_period_two_tenth_orbit_dual_escape.json"
+      - "verify_n42_period_two_tenth_orbit_dual_escape_arb.py"
+      - "verify_n42_period_two_nine_quartic_ensemble_arb.py"
+      - ".github/workflows/eui-n42-period-two-tenth-orbit-dual-escape.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-period-two-tenth-orbit-dual-escape
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Check pinned environment
+        run: python -m pip check
+      - name: Validate frozen rational input
+        run: python -m json.tool evidence/n42_period_two_tenth_orbit_dual_escape.json > /dev/null
+      - name: Compile independent verifier
+        run: python -m py_compile verify_n42_period_two_tenth_orbit_dual_escape_arb.py verify_n42_period_two_nine_quartic_ensemble_arb.py
+      - name: Certify rationalized functional's target score and continuous physical escape
+        run: python verify_n42_period_two_tenth_orbit_dual_escape_arb.py
+      - name: Commit deterministic Arb evidence
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_period_two_tenth_orbit_dual_escape_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify rationalized tenth-orbit dual continuous escape"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload Arb certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-tenth-orbit-dual-escape
+          path: evidence/n42_period_two_tenth_orbit_dual_escape_arb.json
+          if-no-files-found: error
