@@ -14,24 +14,24 @@
   },
   "frozen_input_sha256": "b5d4ca660855eafbfdd8df95a4c353ea2f460a906533072289a71f03b17e21a0",
   "full_fourth_order_scan": {
-    "maximum_absolute_residual": 0.00468374467865546,
+    "maximum_absolute_residual": 0.004683744678655471,
     "maximum_absolute_residual_representative": [
       0,
       6,
       15,
       21
     ],
-    "maximum_positive_residual": 0.00468374467865546,
-    "maximum_reconstructed_weight": 0.12359437976020231,
-    "minimum_reconstructed_weight": 0.0012154713709117769,
+    "maximum_positive_residual": 0.004683744678655471,
+    "maximum_reconstructed_weight": 0.12359437976020242,
+    "minimum_reconstructed_weight": 0.0012154713709124146,
     "minimum_signed_residual": -0.002846716897533267,
     "orbit_count": 2670,
-    "selected_system_condition_number": 32938.85893081918,
+    "selected_system_condition_number": 32938.85893081944,
     "subset_count_from_orbit_sizes": 111930,
     "top_ten": [
       {
-        "absolute_residual": 0.00468374467865546,
-        "moment": 0.006559917286535385,
+        "absolute_residual": 0.004683744678655471,
+        "moment": 0.006559917286535396,
         "orbit_size": 42,
         "representative": [
           0,
@@ -39,11 +39,11 @@
           15,
           21
         ],
-        "signed_residual": 0.00468374467865546
+        "signed_residual": 0.004683744678655471
       },
       {
-        "absolute_residual": 0.004619950338021,
-        "moment": 0.006496122945900925,
+        "absolute_residual": 0.0046199503380210125,
+        "moment": 0.0064961229459009374,
         "orbit_size": 42,
         "representative": [
           0,
@@ -51,11 +51,11 @@
           12,
           27
         ],
-        "signed_residual": 0.004619950338021
+        "signed_residual": 0.0046199503380210125
       },
       {
-        "absolute_residual": 0.004456328233968543,
-        "moment": 0.006332500841848468,
+        "absolute_residual": 0.004456328233968529,
+        "moment": 0.006332500841848454,
         "orbit_size": 42,
         "representative": [
           0,
@@ -63,11 +63,11 @@
           15,
           28
         ],
-        "signed_residual": 0.004456328233968543
+        "signed_residual": 0.004456328233968529
       },
       {
-        "absolute_residual": 0.004134219173091472,
-        "moment": 0.006010391780971397,
+        "absolute_residual": 0.004134219173091481,
+        "moment": 0.006010391780971406,
         "orbit_size": 42,
         "representative": [
           0,
@@ -75,11 +75,11 @@
           13,
           19
         ],
-        "signed_residual": 0.004134219173091472
+        "signed_residual": 0.004134219173091481
       },
       {
-        "absolute_residual": 0.004057644700975773,
-        "moment": 0.005933817308855698,
+        "absolute_residual": 0.0040576447009757705,
+        "moment": 0.0059338173088556954,
         "orbit_size": 42,
         "representative": [
           0,
@@ -87,11 +87,11 @@
           14,
           20
         ],
-        "signed_residual": 0.004057644700975773
+        "signed_residual": 0.0040576447009757705
       },
       {
-        "absolute_residual": 0.003950311405576127,
-        "moment": 0.005826484013456052,
+        "absolute_residual": 0.003950311405576117,
+        "moment": 0.005826484013456042,
         "orbit_size": 42,
         "representative": [
           0,
@@ -99,11 +99,11 @@
           6,
           38
         ],
-        "signed_residual": 0.003950311405576127
+        "signed_residual": 0.003950311405576117
       },
       {
-        "absolute_residual": 0.003756873461265308,
-        "moment": 0.005633046069145233,
+        "absolute_residual": 0.0037568734612653124,
+        "moment": 0.005633046069145237,
         "orbit_size": 42,
         "representative": [
           0,
@@ -111,11 +111,11 @@
           9,
           13
         ],
-        "signed_residual": 0.003756873461265308
+        "signed_residual": 0.0037568734612653124
       },
       {
-        "absolute_residual": 0.00372901364986761,
-        "moment": 0.005605186257747535,
+        "absolute_residual": 0.003729013649867623,
+        "moment": 0.005605186257747548,
         "orbit_size": 42,
         "representative": [
           0,
@@ -123,11 +123,11 @@
           19,
           25
         ],
-        "signed_residual": 0.00372901364986761
+        "signed_residual": 0.003729013649867623
       },
       {
-        "absolute_residual": 0.0036178719671072865,
-        "moment": 0.0054940445749872115,
+        "absolute_residual": 0.003617871967107285,
+        "moment": 0.00549404457498721,
         "orbit_size": 42,
         "representative": [
           0,
@@ -135,11 +135,11 @@
           20,
           25
         ],
-        "signed_residual": 0.0036178719671072865
+        "signed_residual": 0.003617871967107285
       },
       {
-        "absolute_residual": 0.0036124488785547557,
-        "moment": 0.005488621486434681,
+        "absolute_residual": 0.003612448878554759,
+        "moment": 0.005488621486434684,
         "orbit_size": 42,
         "representative": [
           0,
@@ -147,7 +147,7 @@
           17,
           30
         ],
-        "signed_residual": 0.0036124488785547557
+        "signed_residual": 0.003612448878554759
       }
     ]
   },
@@ -156,7 +156,7 @@
   "scope": "Floating LP and full-orbit scan are discovery only; see the independent Arb certificate.",
   "search_box": "[0,1000]^2",
   "seed": 352,
-  "selected_equation_max_residual": 7.593925488436071e-14,
+  "selected_equation_max_residual": 1.7985612998927536e-14,
   "status": "reproduced_N42_period_two_ten_quartic_discovery",
   "support_reproduction": {
     "criterion": "same ordered support; max absolute coupling-coordinate difference <= 1e-9",

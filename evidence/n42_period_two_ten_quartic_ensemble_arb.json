@@ -164,7 +164,7 @@
   "pair_target_Q": "-1/41",
   "precision_bits": 256,
   "quartic_target": "[0.001876172607879924953095684803001876172607879924953095684803001876172607879925 +/- 7.91e-80]",
-  "scope": "Exact positive ensemble for all 861 pair coordinates and 399 distinct fourth-order principal-minor coordinates belonging to nine specified full translation orbits. This is not a full fourth-order or all-even-moment design.",
+  "scope": "Exact positive ensemble for all 861 pair coordinates and 399 distinct fourth-order principal-minor coordinates belonging to ten specified full translation orbits. This is not a full fourth-order or all-even-moment design.",
   "status": "certified_N42_period_two_ten_quartic_orbit_ensemble",
   "weight_floor_exact": "1/10000",
   "weight_sum": "[1.0000000000000000000000000000000000000000000000000000000000000000000 +/- 2.42e-69]",
