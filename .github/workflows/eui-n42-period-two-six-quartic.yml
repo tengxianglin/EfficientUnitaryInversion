@@ -1,0 +1,53 @@
+name: EUI N42 period-two six quartic orbits
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - ".github/workflows/eui-n42-period-two-six-quartic.yml"
+  pull_request:
+    paths:
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - ".github/workflows/eui-n42-period-two-six-quartic.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-period-two-six-quartic
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Check pinned environment
+        run: python -m pip check
+      - name: Compile verifier
+        run: python -m py_compile verify_n42_period_two_six_quartic_ensemble_arb.py
+      - name: Certify exact-real weights, all pair moments, and quartic orbits
+        run: python verify_n42_period_two_six_quartic_ensemble_arb.py
+      - name: Commit deterministic Arb certificate
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_period_two_six_quartic_ensemble_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify N42 period-two six-quartic partial ensemble"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload Arb certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-period-two-six-quartic
+          path: evidence/n42_period_two_six_quartic_ensemble_arb.json
+          if-no-files-found: error
