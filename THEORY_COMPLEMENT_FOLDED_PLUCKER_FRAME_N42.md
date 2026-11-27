@@ -177,7 +177,7 @@ For N=4, the three perfect matchings
 \[
 (01)(23),\quad (03)(12),\quad (02)(13)
 \]
-are all legal cycle exponentials. The first two use disjoint quarter-turn blocks; the third uses A=(pi/2)K with K^3=-4K and exp(A)=I+K^2/2. The dependency-free verifier checks these identities, all projection and Plucker-projector identities, and every gauge element exactly over the rationals.
+are all legal cycle exponentials. The first two use disjoint quarter-turn blocks; the third uses A=(pi/2)K with K^3=-4K and exp(A)=I+K^2/2. The dependency-free verifier checks these identities, all projection and Plucker-projector identities, every gauge element, and the four-determinant overlap formula for all 2,304 pairs of gauge-expanded states exactly over the rationals.
 
 For the equal mixture of the three physical matching seeds:
 - all six q(S) are exactly 1/6;
