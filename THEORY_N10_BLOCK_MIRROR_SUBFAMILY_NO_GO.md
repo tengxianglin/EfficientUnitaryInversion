@@ -115,4 +115,23 @@ Machine summary: [evidence/n10_block_mirror_subfamily_separator.json](evidence/n
 
 The N=8 construction is not a general block-composition recipe that extends automatically to the next even size. At N=10, the entire contiguous perfect-transfer signed-reversal ansatz is separated from the target by a strict rational margin.
 
-This does **not** imply that the N=10 target is outside the convex hull of all physical cycle exponentials. In particular, non-permutation exponentials and continuously varying couplings are not covered. The next useful question is whether a small number of non-perfect-transfer cycle atoms can repair the seven-orbit separator, or whether a different all-physical-family inequality exists.
+This does **not** imply that the N=10 target is outside the convex hull of all physical cycle exponentials. In particular, non-permutation exponentials and continuously varying couplings are not covered.
+
+## 5. A connected physical cycle escapes this restricted dual
+
+The seven-orbit functional is not a global separator for the full N=10 cycle family. Set every coupling equal to the exact rational
+\[
+c_0=\cdots=c_9=\frac{409}{100}.
+\]
+The independent 256-bit Arb verifier reconstructs \(R=e^{A(c)}\), forms \(Q=RD\), checks \(R^TR=I\), \(Q=Q^T\), \(Q^2=I\), \(\operatorname{tr}Q=0\), and \(\det R=1\), and directly evaluates all seven orbit averages. It certifies
+\[
+S(R)\in[-0.0029736260361924988743358517869826031222995682174649011732303449734630080
+\pm 6.02\times10^{-74}],
+\]
+which is strictly greater than both the block-family ceiling \(-2/35\) and the target score \(-74/2205\).
+
+Evidence: [256-bit Arb certificate](evidence/n10_uniform_cycle_escape_arb.json), [independent verifier](verify_n10_uniform_cycle_escape_arb.py), [CI workflow](.github/workflows/eui-n10-uniform-cycle-escape.yml), [workflow run 45969851019](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45969851019).
+
+This connected atom only disproves global validity of the block-family dual. It does **not** put the target in the full physical convex hull and does not weaken the exact block-family no-go.
+
+The next physical question is whether mixtures of non-perfect-transfer cycle atoms can match the target. Any finite search is discovery only; a positive answer needs an all-moment positive certificate, while a negative answer needs a separator valid over the full continuous coupling family.
