@@ -1,0 +1,125 @@
+{
+  "status": "frozen_rationalized_tenth_orbit_farkas_candidate",
+  "precision_bits": 256,
+  "dual_coefficients": [
+    "9150939/125000",
+    "6367971/500000",
+    "-850137/200000",
+    "852441/40000",
+    "3734909/1000000",
+    "1579663/500000",
+    "2660767/500000",
+    "13033117/250000",
+    "90035783/1000000",
+    "524037/62500",
+    "15337989/1000000",
+    "50350821/1000000",
+    "-547473/200000",
+    "-911301/1000000",
+    "-17617307/1000000",
+    "-9547981/1000000",
+    "-2183573/1000000",
+    "-497357/500000",
+    "-1513973/200000",
+    "-21195067/1000000",
+    "46792049/250000",
+    "-18814431/1000000",
+    "-6042621/1000000",
+    "-2931593/1000000",
+    "-6490823/1000000",
+    "-7684469/1000000",
+    "-1644741/100000",
+    "-55397/5000",
+    "-12090643/1000000",
+    "35811883/1000000",
+    "322801161/500000",
+    "-57019129/500000",
+    "45243307/1000000",
+    "10050893/125000",
+    "468335461/1000000",
+    "46591429/200000",
+    "563943947/1000000",
+    "112976923/1000000",
+    "11897933/500000",
+    "525875389/500000",
+    "3165781/1000000"
+  ],
+  "dual_coordinate_order": "30 pair features (10 same-parity then 20 cross-parity), ten symmetrized quartic representatives, normalization",
+  "quartic_witnesses": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      3,
+      10,
+      15
+    ],
+    [
+      0,
+      2,
+      4,
+      6
+    ],
+    [
+      0,
+      10,
+      20,
+      30
+    ],
+    [
+      0,
+      2,
+      21,
+      23
+    ],
+    [
+      6,
+      13,
+      14,
+      30
+    ],
+    [
+      0,
+      3,
+      19,
+      26
+    ],
+    [
+      0,
+      8,
+      20,
+      28
+    ],
+    [
+      0,
+      4,
+      8,
+      12
+    ],
+    [
+      0,
+      3,
+      18,
+      21
+    ]
+  ],
+  "escape_atom": {
+    "a": "8.94088796",
+    "b": "97.09897923",
+    "family": "period-two N=42 cycle; all couplings positive; include one-site translate for symmetrized quartic coordinates"
+  },
+  "source": {
+    "parent_problem": "10 quartic orbit constraints over the fixed 100000-candidate pool, NumPy 2.3.5 / SciPy 1.17.0, seed 351",
+    "method": "HiGHS floating Farkas vector; each coefficient rounded to 6 decimal places and the normalization coefficient increased by 1/1000000",
+    "floating_candidate_pool_min_score_after_shift": "0.0000006178714326843249",
+    "floating_candidate_pool_negative_count": 0,
+    "floating_target_score": "-0.9999992645403397",
+    "floating_escape_score": "-0.4830064736607489",
+    "note": "The candidate-pool score screen is floating discovery only. This file does not claim an exact Farkas certificate for all 100000 pool columns."
+  },
+  "scope": "The independent Arb verifier proves only that this exact rational functional has negative target score and a negative score on the specified strictly-positive period-two physical atom. It is therefore not a global separator. No finite-pool Farkas theorem is claimed."
+}
