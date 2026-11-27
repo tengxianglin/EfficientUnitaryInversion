@@ -1,0 +1,27 @@
+name: EUI perfect-matching cycle-edge distribution
+on:
+  push:
+    paths:
+      - "THEORY_PERFECT_MATCHING_CYCLE_EDGE_DISTRIBUTION_N42.md"
+      - "verify_perfect_matching_cycle_edge_distribution.py"
+      - "evidence/perfect_matching_cycle_edge_distribution_n42.json"
+      - ".github/workflows/eui-perfect-matching-cycle-edge-distribution.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-distribution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile verifier
+        run: python -m py_compile verify_perfect_matching_cycle_edge_distribution.py
+      - name: Recompute exact distribution and small-N brute-force checks
+        run: python verify_perfect_matching_cycle_edge_distribution.py
+      - name: Require frozen evidence to be reproducible
+        run: git diff --exit-code -- evidence/perfect_matching_cycle_edge_distribution_n42.json
