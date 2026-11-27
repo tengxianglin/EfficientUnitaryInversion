@@ -137,6 +137,15 @@ def main():
     support = np.flatnonzero(lp.x > 1e-10)
     discovered = [{"a": repr(float(a[i])), "b": repr(float(b[i]))} for i in support]
     if discovered != expected_atoms:
+        print(json.dumps({
+            "discovered_support_size": len(discovered),
+            "frozen_support_size": len(expected_atoms),
+            "first_discovered_atoms": discovered[:8],
+            "first_frozen_atoms": expected_atoms[:8],
+            "first_mismatch_indices": [
+                i for i, (x, y) in enumerate(zip(discovered, expected_atoms)) if x != y
+            ][:12],
+        }, indent=2), flush=True)
         raise AssertionError("pinned NumPy/SciPy LP no longer reproduces frozen support")
     selected_residual = float(np.max(np.abs(Aeq @ lp.x - beq)))
     _, _, weights, full_scan = scan(expected_atoms, witnesses)
