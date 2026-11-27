@@ -136,27 +136,38 @@ def main():
         raise RuntimeError(f"ten-orbit discovery LP failed: {lp.message}")
     support = np.flatnonzero(lp.x > 1e-10)
     discovered = [{"a": repr(float(a[i])), "b": repr(float(b[i]))} for i in support]
-    if discovered != expected_atoms:
+    # HiGHS may return a numerically different point on the same nearly
+    # degenerate basic support across runner builds.  The exact decimal strings
+    # in INPUT are the authoritative rational couplings for Arb; discovery is
+    # required to reproduce the ordered support only to this explicit tolerance.
+    support_match_atol = 1e-9
+    support_deltas = [
+        max(
+            abs(float(x["a"]) - float(y["a"])),
+            abs(float(x["b"]) - float(y["b"])),
+        )
+        for x, y in zip(discovered, expected_atoms)
+    ] if len(discovered) == len(expected_atoms) else []
+    max_support_delta = max(support_deltas, default=float("inf"))
+    if len(discovered) != len(expected_atoms) or max_support_delta > support_match_atol:
         mismatch_indices = [
-            i for i, (x, y) in enumerate(zip(discovered, expected_atoms)) if x != y
-        ]
+            i for i, (x, y) in enumerate(zip(discovered, expected_atoms))
+            if max(abs(float(x["a"]) - float(y["a"])),
+                   abs(float(x["b"]) - float(y["b"]))) > support_match_atol
+        ] if len(discovered) == len(expected_atoms) else []
         mismatch_details = [
-            {
-                "index": i,
-                "discovered": discovered[i],
-                "frozen": expected_atoms[i],
-            }
+            {"index": i, "discovered": discovered[i], "frozen": expected_atoms[i],
+             "max_abs_delta": support_deltas[i]}
             for i in mismatch_indices[:12]
         ]
         print(json.dumps({
             "discovered_support_size": len(discovered),
             "frozen_support_size": len(expected_atoms),
-            "first_discovered_atoms": discovered[:8],
-            "first_frozen_atoms": expected_atoms[:8],
-            "first_mismatch_indices": mismatch_indices[:12],
+            "support_match_atol": support_match_atol,
+            "max_support_delta": max_support_delta,
             "mismatch_details": mismatch_details,
         }, indent=2), flush=True)
-        raise AssertionError("pinned NumPy/SciPy LP no longer reproduces frozen support")
+        raise AssertionError("discovered support differs from frozen support beyond tolerance")
     selected_residual = float(np.max(np.abs(Aeq @ lp.x - beq)))
     _, _, weights, full_scan = scan(expected_atoms, witnesses)
     if full_scan["orbit_count"] != 2670 or full_scan["subset_count_from_orbit_sizes"] != 111930:
@@ -185,6 +196,11 @@ def main():
         "candidate_count": CANDIDATE_COUNT,
         "search_box": "[0,1000]^2",
         "support_size": len(support),
+        "support_reproduction": {
+            "criterion": "same ordered support; max absolute coupling-coordinate difference <= 1e-9",
+            "max_abs_parameter_difference": max_support_delta,
+            "frozen_decimal_inputs_are_authoritative_for_Arb": True,
+        },
         "selected_equation_max_residual": selected_residual,
         "frozen_input_sha256": hashlib.sha256(INPUT.read_bytes()).hexdigest(),
         "full_fourth_order_scan": full_scan,
