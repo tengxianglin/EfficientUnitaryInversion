@@ -52,13 +52,14 @@ The dependency-free exact verifier:
 - independently enumerates every perfect matching for N=4,6,8,10,12,14 and exactly matches the formula's full distribution;
 - freezes the complete 22-entry N=42 count distribution and first six factorial moments.
 
-Hosted workflow 46036070939 was triggered on the final workflow commit; its terminal status is recorded in the run discussion.
+Initial workflow 46036070939 failed only because the frozen JSON and recomputed JSON used different whitespace/indentation; the exact recomputation and brute-force checks had already passed. I changed the workflow to compare parsed JSON objects rather than raw file bytes. The corrected workflow 46036218302 completed SUCCESS, including compile, exact recomputation, all six brute-force comparisons, and semantic frozen-evidence comparison.
 
 Commits:
 - e330f55cc764754d517af9a6b13fcfebc8279bca — exact distribution theorem;
 - 18462010d94670773f171f531670c75aaf2e5473 — exact verifier;
 - 59b52bb64cdb8a53f53d8fc6049995f668418924 — frozen machine evidence;
-- 31a363bcf0379a765562e749732a22f7f3be8992 — CI workflow.
+- 31a363bcf0379a765562e749732a22f7f3be8992 — initial CI workflow;
+- 9d4f38d1df676e69a078837696069652e27b14d3 — semantic JSON evidence comparison.
 
 ## Scope and remaining blockers
 
