@@ -67,3 +67,17 @@ The Run 65 cycle-edge distribution and its 72.6616% exclusion bound are correct,
 - Final workflow 46055713490 passed compilation and exact Fraction recomputation after the theory update.
 - Intermediate run 46055662107 compiled successfully but failed the frozen-JSON equality check because the verifier update preceded the evidence synchronization. The subsequent synchronized run 46055666817 and final run 46055713490 both passed.
 - The verifier compares the four-determinant overlap expression with direct Plucker-projector traces for all 2,304 ordered pairs of the 48 N=4 gauge-expanded states, with exact zero discrepancy.
+
+
+## Run 64 candidate — deterministic program-mass TV bound
+
+The all-orbit Arb verifier now also uses the strict quartic residual as a bounded Fourier-test witness. For even I, f_I(S)=product_{i in I}(2*1[i in S]-1) has |f_I|=1 and expectation equal to the principal-minor moment under the complement-folded DPP distribution. Therefore any residual delta_I implies TV(program labels, uniform) >= |delta_I|/2.
+
+For I={0,3,19,26}, the frozen 74-labelled-atom candidate has:
+- certified program-label TV lower bound > 0.00275 (Arb interval center 0.00275475187796464245778...);
+- chi-square lower bound > 3.035e-5;
+- frame-potential lower bound 7.43160780079296891668...e-12, versus target 7.43138222392301096458...e-12.
+
+The frame-potential gap is only about 2.26e-16. A Hoeffding overlap Monte Carlo would require about 8.3e32 samples to resolve that gap at 99% confidence with a midpoint threshold, so the frame-potential sampler is a coarse falsifier only; the targeted quartic witness is much more informative for this near-candidate.
+
+The updated exact Arb workflow 46056278037 passed and regenerated the v2 evidence. This remains a candidate-specific program-mass TV statement, not a family-wide no-go or a channel diamond bound.
