@@ -107,3 +107,15 @@ These are universal affine dependencies between the pair and quartic feature coo
 - For future LPs, the 861 pair-indexed incidence relations can be used to detect redundant quartic equations and to check target-vector construction.
 - The Run-59 attempted no-go based on coefficient 21 is withdrawn. The correct coefficient is n-2=19 for N=42.
 - The accompanying Arb script directly sums all 780 incident quartic minors for frozen rational period-two samples and checks (1). These finite checks are regression evidence; the proof is the block-matrix argument above.
+
+
+## Independence of the pair-indexed incidence relations
+
+For N=42, the 861 relations (3), one for each pair I, are linearly independent. Let W be the 861-by-111,930 inclusion matrix with W_{I,K}=1 when I is contained in the four-subset K. Suppose a pair-weight vector x lies in the left kernel:
+\[
+\sum_{I\subset K,\ |I|=2}x_I=0
+\quad\text{for every four-subset }K.
+\]
+Fix distinct d,e and subtract the equations for K={a,b,c,d} and K={a,b,c,e}, where a,b,c are distinct and avoid d,e. With y_i=x_{id}-x_{ie}, this gives y_a+y_b+y_c=0 for every triple outside {d,e}. Since there are at least four such indices, comparing triples shows all y_i are equal; their triple sum then forces y_i=0. Hence x_{id}=x_{ie} for all i distinct from d,e. For each fixed i, x_{ij} is independent of j, and symmetry forces every x_{ij} to be the same constant. The original four-subset equation gives six times that constant equal to zero. Thus x=0 and rank(W)=861.
+
+Consequently the complete pair/fourth-moment vector has at least 861 independent universal affine dependencies. A full-coordinate LP can eliminate 861 quartic coordinates after choosing a pivot basis, or retain them as exact regression checks. After symmetry reduction, the corresponding orbit-averaged relations should be included in the row-rank audit rather than counted as new physical constraints.
