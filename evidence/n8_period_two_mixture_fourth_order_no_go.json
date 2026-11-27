@@ -1,0 +1,90 @@
+{
+  "status": "arb_verified_N8_period_two_mixture_fourth_order_no_go",
+  "complete": true,
+  "N": 8,
+  "precision_bits": 256,
+  "interval_backend": "python-flint / Arb",
+  "sample_count": 9,
+  "strict_amgm_sample_count": 7,
+  "samples": [
+    {
+      "a": "1/3",
+      "b": "2/5",
+      "pair_formula_residual": "[+/- 8.49e-77]",
+      "quartic_formula_residual": "[+/- 2.00e-76]",
+      "swapped_quartic_formula_residual": "[+/- 2.98e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.074004204534672754877551298407581751406346154466943738850555132714419871493 +/- 5.02e-76]"
+    },
+    {
+      "a": "3/2",
+      "b": "7/4",
+      "pair_formula_residual": "[+/- 1.14e-76]",
+      "quartic_formula_residual": "[+/- 2.23e-76]",
+      "swapped_quartic_formula_residual": "[+/- 3.18e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.378065067634997757469438546965742661079085984359147946944423877043214496562 +/- 3.43e-76]"
+    },
+    {
+      "a": "-2/3",
+      "b": "5/7",
+      "pair_formula_residual": "[+/- 2.87e-77]",
+      "quartic_formula_residual": "[+/- 2.82e-77]",
+      "swapped_quartic_formula_residual": "[+/- 5.18e-77]",
+      "symmetrized_quartic_minus_abs_pair": "[0.0095460848645575308441857880186678957972040560388109320127706827459857059219 +/- 2.13e-77]"
+    },
+    {
+      "a": "-3/2",
+      "b": "-5/4",
+      "pair_formula_residual": "[+/- 8.27e-77]",
+      "quartic_formula_residual": "[+/- 2.03e-76]",
+      "swapped_quartic_formula_residual": "[+/- 3.28e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.036837877610121057947705664527395907567661583776896629404906883004337401160 +/- 5.36e-76]"
+    },
+    {
+      "a": "7/5",
+      "b": "-9/8",
+      "pair_formula_residual": "[+/- 1.97e-76]",
+      "quartic_formula_residual": "[+/- 3.62e-76]",
+      "swapped_quartic_formula_residual": "[+/- 9.54e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.042553884902670742104595985092057219735459617056445491907102360309657859296 +/- 5.63e-76]"
+    },
+    {
+      "a": "2/7",
+      "b": "11/9",
+      "pair_formula_residual": "[+/- 2.06e-76]",
+      "quartic_formula_residual": "[+/- 3.57e-76]",
+      "swapped_quartic_formula_residual": "[+/- 7.53e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.023605661143773968580682492823996029536102994170085285016687243078488968740 +/- 4.98e-76]"
+    },
+    {
+      "a": "5/3",
+      "b": "1/4",
+      "pair_formula_residual": "[+/- 2.03e-76]",
+      "quartic_formula_residual": "[+/- 4.65e-76]",
+      "swapped_quartic_formula_residual": "[+/- 5.48e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.003187475194475008245805959626646745218275198385752448508034104177245300081 +/- 2.61e-76]"
+    },
+    {
+      "a": "0",
+      "b": "2/3",
+      "pair_formula_residual": "[+/- 3.00e-77]",
+      "quartic_formula_residual": "[+/- 3.34e-78]",
+      "swapped_quartic_formula_residual": "[+/- 3.47e-76]",
+      "symmetrized_quartic_minus_abs_pair": "[0.446194360169458536940288909144044741612651468003558226152139331888975715130 +/- 5.92e-76]"
+    },
+    {
+      "a": "2/3",
+      "b": "0",
+      "pair_formula_residual": "[+/- 3.00e-77]",
+      "quartic_formula_residual": "[+/- 3.47e-76]",
+      "swapped_quartic_formula_residual": "[+/- 3.34e-78]",
+      "symmetrized_quartic_minus_abs_pair": "[0.446194360169458536940288909144044741612651468003558226152139331888975715130 +/- 5.92e-76]"
+    }
+  ],
+  "pair_target_Q": "-1/7",
+  "quartic_target_Q": "3/35",
+  "target_pair_plus_quartic": "-2/35",
+  "dual_l1_norm": "1",
+  "certified_analytic_margin": "1/35",
+  "analytic_inequality": "cyclic-average K(a,b) >= |P(a,b)| for every real a,b",
+  "scope": "The analytic theorem excludes every probability measure over the N=8 period-two cycle family from the complete balanced-slice even-minor target, with full-feature l_infinity discrepancy at least 1/35. It does not exclude non-period-two N=8 couplings or the unrestricted N=42 cycle family. Arb samples verify the exact Fourier/minor formulas; the continuum inequality is proved analytically."
+}
