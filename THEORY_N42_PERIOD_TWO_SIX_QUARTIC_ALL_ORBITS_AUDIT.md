@@ -89,3 +89,57 @@ Artifacts:
 This proves a strict failure of the frozen support and its uniquely reconstructed weights. It does not prove that no other period-two positive ensemble can match all quartic orbits, and it does not exclude general non-period-two cycle couplings. It also says nothing by itself about sixth or higher moments, or about Choi/diamond distance.
 
 The next decisive search should use all 1,440 quartic orbit rows in a column-generation loop: retain the 30 independent pair constraints, add the most violated quartic orbit, price new positive (a,b) atoms against the current dual, and re-solve. Any resulting finite-pool dual remains pool-specific unless a global bound over all (a,b)>0 is proved.
+
+
+## 4. Program-mass TV consequence of the quartic witness
+
+The complement-folded DPP distribution gives a direct bounded test function for every even principal-minor moment. For an n-subset S of [2n], set
+\[
+x_i(S)=2\mathbf 1_{i\in S}-1,\qquad
+f_I(S)=\prod_{i\in I}x_i(S).
+\]
+For the projection DPP p_c, inclusion probabilities satisfy
+\[
+\Pr(J\subseteq S)=\det P(c)_{J,J}.
+\]
+Expanding the product therefore gives
+\[
+\mathbb E_{p_c}f_I
+=\sum_{J\subseteq I}2^{|J|}(-1)^{|I|-|J|}\det P(c)_{J,J}
+=\det(2P(c)_{I,I}-I)
+=\det Q(c)_{I,I}.
+\]
+Complementing S changes f_I by (-1)^|I|, so for even |I| the same expectation holds under the complement-folded q_c. Thus, for the ensemble distribution q-bar and uniform balanced-slice distribution u,
+\[
+\mathbb E_{\bar q}f_I-\mathbb E_u f_I
+=\bar m_I-\tau_I.
+\]
+Since |f_I|=1, total-variation duality yields the rigorous bound
+\[
+\boxed{\operatorname{TV}(\bar q,u)\ge
+\frac12|\bar m_I-\tau_I|.} \tag{7}
+\]
+Complement folding preserves TV when passing to the quotient program labels.
+
+For the certified witness I*={0,3,19,26}, the residual interval above implies
+\[
+\operatorname{TV}(\bar q,u)>
+0.00275.
+\]
+More precisely, half the residual interval is centered at
+0.002754751877964642457783866090394183703477824048091499045576238430730257
+with radius below 1.8e-73. This is a deterministic program-label discrepancy for the frozen 74-labelled-atom candidate, not a statement about every period-two or every physical ensemble.
+
+Combining (7) with the frame-potential identity gives
+\[
+\chi^2(\bar q\Vert u)\ge |\bar m_{I*}-1/533|^2
+>3.035\times10^{-5},
+\]
+and hence
+\[
+\operatorname{FP}>
+\frac4{\binom{42}{21}}\left(1+3.035\times10^{-5}\right).
+\]
+The absolute frame-potential gap certified this way is only about 2.26e-16. A direct Hoeffding overlap Monte Carlo would need on the order of 8e32 samples to resolve that gap at 99% confidence using a midpoint threshold. Therefore the frame-potential overlap estimator is a coarse falsifier for grossly nonuniform pools, not an efficient replacement for targeted moment witnesses or the complete orbit audit on near-feasible candidates.
+
+This TV statement is classical program-mass distance. It is not a Choi-state or channel diamond-distance lower bound.
