@@ -1,0 +1,39 @@
+name: EUI exact N8 physical cycle ensemble
+on:
+  push:
+    branches: [main]
+    paths:
+      - "THEORY_PHYSICAL_CYCLE_ENSEMBLE_N8.md"
+      - "verify_n8_physical_cycle_balanced_slice_ensemble.py"
+      - "evidence/n8_physical_cycle_balanced_slice_ensemble.json"
+      - ".github/workflows/eui-physical-cycle-ensemble-n8.yml"
+  pull_request:
+    paths:
+      - "THEORY_PHYSICAL_CYCLE_ENSEMBLE_N8.md"
+      - "verify_n8_physical_cycle_balanced_slice_ensemble.py"
+      - "evidence/n8_physical_cycle_balanced_slice_ensemble.json"
+      - ".github/workflows/eui-physical-cycle-ensemble-n8.yml"
+  workflow_dispatch:
+jobs:
+  exact-n8-physical-ensemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+      - name: Compile dependency-free exact verifier
+        run: python -m py_compile verify_n8_physical_cycle_balanced_slice_ensemble.py
+      - name: Recompute all even principal-minor moments exactly
+        run: python verify_n8_physical_cycle_balanced_slice_ensemble.py --output /tmp/n8_physical_cycle_balanced_slice_ensemble.json
+      - name: Validate JSON and compare committed certificate
+        run: |
+          python -m json.tool /tmp/n8_physical_cycle_balanced_slice_ensemble.json > /dev/null
+          cmp evidence/n8_physical_cycle_balanced_slice_ensemble.json /tmp/n8_physical_cycle_balanced_slice_ensemble.json
+      - name: Upload exact evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n8-physical-cycle-balanced-slice-ensemble
+          path: evidence/n8_physical_cycle_balanced_slice_ensemble.json
+          if-no-files-found: error
