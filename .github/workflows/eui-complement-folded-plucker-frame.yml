@@ -1,0 +1,26 @@
+name: EUI complement-folded Plucker frame identity
+
+on:
+  push:
+    paths:
+      - "THEORY_COMPLEMENT_FOLDED_PLUCKER_FRAME_N42.md"
+      - "verify_complement_folded_plucker_frame.py"
+      - "evidence/complement_folded_plucker_frame_n4.json"
+      - ".github/workflows/eui-complement-folded-plucker-frame.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-n4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile verifier
+        run: python -m py_compile verify_complement_folded_plucker_frame.py
+      - name: Recompute exact Fraction certificate
+        run: python verify_complement_folded_plucker_frame.py
