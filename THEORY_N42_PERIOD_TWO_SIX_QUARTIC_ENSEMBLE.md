@@ -65,20 +65,22 @@ The independent verifier uses 256-bit Arb with exact-rational decimal
 couplings. It certifies the \(37\times37\) matrix determinant excludes zero,
 all weights exceed \(1/10000\), all 861 pair coordinates equal \(-1/41\),
 and all 231 distinct translated quartic coordinates equal \(1/533\).
-The hosted certificate is pending; this note is not promoted to an exact
-existence theorem until the CI result succeeds.
+The independent 256-bit Arb certificate passed in GitHub Actions run 45931260609 (PR verification path). The workflow checked JSON validity, dependency consistency, Python compilation, exact-real matrix invertibility, strict weight positivity, all 861 pair coordinates, and all 231 quartic coordinates. The machine certificate is committed at evidence/n42_period_two_six_quartic_ensemble_arb.json.
 
 ## Scope
 
-If certified, this is a positive physical period-two ensemble matching all
-pair principal-minor coordinates and six full fourth-order translation
-orbits (231 distinct subsets). It remains a partial design, not a complete
-fourth-order design or an all-even-principal-minor ensemble. It implies no
-Choi trace-distance or channel diamond-distance bound.
+The computer-assisted exact existence result is now certified: a positive
+physical period-two ensemble of 74 atoms matches all 861 pair principal-minor
+coordinates and six full fourth-order translation orbits (231 distinct
+subsets). It remains a partial design, not a complete fourth-order design or
+an all-even-principal-minor ensemble. It implies no Choi trace-distance or
+channel diamond-distance bound.
 
 ## Reproducibility
 
 - Frozen support: evidence/n42_period_two_six_quartic_atoms.json
 - Independent verifier: verify_n42_period_two_six_quartic_ensemble_arb.py
 - Workflow: .github/workflows/eui-n42-period-two-six-quartic.yml
-- Expected certificate: evidence/n42_period_two_six_quartic_ensemble_arb.json
+- Certified machine evidence: evidence/n42_period_two_six_quartic_ensemble_arb.json
+- Workflow run: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45931260609
+- Evidence commit: https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c57dba80805be1a1d127ae7a3521e2ce61452913
