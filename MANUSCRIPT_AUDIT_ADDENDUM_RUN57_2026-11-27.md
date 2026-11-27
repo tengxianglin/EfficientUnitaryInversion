@@ -112,12 +112,12 @@ continuous pricing before attempting a global claim.
 
 ## Final repository state for this run
 
-- Final main HEAD: `98adb341787868b6b4e5b37189069a1edd0464e5`.
+- The audit was amended after the dual-escape evidence; consult the branch history for the final HEAD rather than freezing a self-referential commit hash in this file.
 - Tenth-orbit escape input: `e01a1ff`.
 - Independent Arb verifier: `1d16bf4`.
 - Escape CI workflow: `b4972c5`.
 - Arb certificate committed by CI: `8baa9f1`.
 - Dual-escape theory note: `9b94465`.
-- Initial audit append: `b9c7ed6`; final audit correction: `98adb34`.
+- Audit update commits: `b9c7ed6`, `98adb34`, and the final correction recorded in the branch history.
 - Both new workflows, [45932791312](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45932791312) and [45933314487](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45933314487), are confirmed completed with SUCCESS.
 - Issue #7 comments 7208820125 and 7208881702 record the nine-orbit ensemble and the separate rationalized-dual continuous escape. Issue #5 comment 7208820469 records the cross-track scope distinction.
