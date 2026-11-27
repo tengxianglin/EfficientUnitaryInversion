@@ -246,7 +246,8 @@
     "three_seed_mean_q_is_uniform": true,
     "mean_rank_two_projector_is_2_over_d_identity": true,
     "direct_frame_potential_matches_4_over_d": true,
-    "single_seed_frame_potential_and_tv_diagnostic": true
+    "single_seed_frame_potential_and_tv_diagnostic": true,
+    "four_determinant_overlap_formula_all_2304_pairs": true
   },
   "scope": "Exact N=4 verification of the Plucker/fusion-frame reformulation. It is not an N=42 ensemble or an operational Choi/diamond certificate."
 }
