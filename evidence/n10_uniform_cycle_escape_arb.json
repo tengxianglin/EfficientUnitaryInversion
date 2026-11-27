@@ -1,0 +1,93 @@
+{
+  "status": "arb_certified_connected_cycle_escape_from_N10_block_separator",
+  "precision_bits": 256,
+  "coupling_all_edges": "409/100",
+  "det_R_interval": "[1.00000000000000000000000000000000000000000000000000000000000000000000000 +/- 5.25e-73]",
+  "trace_Q_interval": "[+/- 2.22e-74]",
+  "block_family_score_ceiling": "-2/35",
+  "target_score": "-74/2205",
+  "connected_cycle_score_interval": "[-0.0029736260361924988743358517869826031222995682174649011732303449734630080 +/- 6.02e-74]",
+  "strictly_above_block_ceiling": true,
+  "strictly_above_target_score": true,
+  "orbit_scores": [
+    {
+      "representative": [
+        0,
+        1
+      ],
+      "orbit_size": 10,
+      "average_interval": "[-0.34621266753222101207781592781347995800836286983436770718777340075320083842 +/- 7.17e-75]"
+    },
+    {
+      "representative": [
+        0,
+        2
+      ],
+      "orbit_size": 10,
+      "average_interval": "[0.18712627939123834465697739935055471147649496364667617671348256416422954050 +/- 5.80e-75]"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "orbit_size": 10,
+      "average_interval": "[-0.03827737174521211443907239526498251362276040480878556820676301556399246015 +/- 7.26e-75]"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "orbit_size": 10,
+      "average_interval": "[-0.1168937670620418167679281977783756604096747976148682705879416257223230052 +/- 4.88e-74]"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "orbit_size": 10,
+      "average_interval": "[-0.03999680731576046536849875596991741699573842679477636961261214092516965511 +/- 7.35e-75]"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "orbit_size": 5,
+      "average_interval": "[-0.03603469266071189073099894337872754921113403435799922840669650001589500373 +/- 6.95e-75]"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "orbit_size": 5,
+      "average_interval": "[0.346077443597859557606541342902552934226690544852494257597385051905011125 +/- 3.11e-73]"
+    }
+  ],
+  "scope": "This certifies that the N=10 block-reversal separator is not a global separator for the full connected cycle-exponential family. It does not establish target convex-hull feasibility."
+}
