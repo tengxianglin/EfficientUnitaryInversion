@@ -149,7 +149,8 @@ def verify():
 
     pair_target = rational("-1/41")
     quartic_target = rational(Fraction(comb(n, 2), comb(N, 4)))
-    assert quartic_target == rational("1/533")
+    if not (quartic_target - rational("1/533")).contains(0):
+        raise AssertionError("balanced quartic target is not 1/533")
 
     # Thirty independent pair equations: ten same-parity and twenty cross-parity.
     # The omitted 21st cross equation follows from the exact row-norm identity.
