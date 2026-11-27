@@ -322,7 +322,7 @@ def main():
             "not an N=42 construction and implies no Choi/diamond-distance bound."
         ),
     }
-    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\\n")
+    OUTPUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps({
         "status": result["status"],
         "precision_bits": result["precision_bits"],
