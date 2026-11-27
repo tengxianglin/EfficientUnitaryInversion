@@ -53,3 +53,13 @@ Can all 1,440 quartic orbit residuals of the frozen N=42 period-two candidate be
 ## Next highest-value action
 
 Use the aggregate quartic Gram construction as a discovery metric for new general-cycle candidate pools, but do not mistake it for a global certificate. The decisive scientific target remains either (i) a strictly positive general-cycle ensemble matching the full even-minor hierarchy, or (ii) a global inequality valid for all real cycle couplings. Continue to use complete quartic-orbit checks and higher-even-order verification for every surviving candidate.
+
+## Final provenance and repeatability pass
+
+- Verifier commit: `2a244e0bfeb7ff5d8f3a04365d8571bc96dc4b78`.
+- Initial workflow commit: `4ddb92ee3973aa5e1523cf06a4931eecc3bb5d7d`.
+- Generated certificate commit: `2a70fb845cd30fc81f51f1751edf48fe199e9d06`.
+- Theory note commit: `afe406e822b304761df4ab127339539e7048a653`.
+- This audit commit is followed by workflow-trigger commit `bd82afc5362d99368eecbf631e9e8a9e7097bce4`.
+- The workflow was rerun after adding the theory-note path filter: [46065748274](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46065748274), SUCCESS. Both successful runs recomputed the same deterministic certificate.
+- Final observed main HEAD before this audit metadata refresh: `bd82afc5362d99368eecbf631e9e8a9e7097bce4`.
