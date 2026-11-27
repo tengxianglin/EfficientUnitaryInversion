@@ -116,6 +116,30 @@ def trace_product(left, right):
     )
 
 
+def unnormalized_matching_frames(matching):
+    """Return integer-scaled plus/minus frames; normalized columns divide by sqrt(2)."""
+    plus = [[F(0) for _ in range(N_PARTICLES)] for _ in range(N)]
+    minus = [[F(0) for _ in range(N_PARTICLES)] for _ in range(N)]
+    for column, (i, j) in enumerate(matching):
+        plus[i][column] = F(1)
+        plus[j][column] = F(1)
+        minus[i][column] = F(1)
+        minus[j][column] = F(-1)
+    return plus, minus
+
+
+def determinant_overlap_square(left, signs, right):
+    """Squared Slater overlap from integer-scaled frames, exactly over Fractions."""
+    overlap = [
+        [
+            sum(left[k][i] * signs[k] * right[k][j] for k in range(N))
+            for j in range(N_PARTICLES)
+        ]
+        for i in range(N_PARTICLES)
+    ]
+    return determinant(overlap) ** 2 / F(2 ** (2 * N_PARTICLES))
+
+
 def fraction_text(value):
     return str(value.numerator) if value.denominator == 1 else f"{value.numerator}/{value.denominator}"
 
@@ -192,9 +216,10 @@ def compute_certificate():
     D, physical_records = check_physical_matching_exponentials()
     seed_q = []
     gauge_states = []
+    state_metadata = []
     per_seed_twirl_checks = []
 
-    for matching in MATCHINGS:
+    for matching_index, matching in enumerate(MATCHINGS):
         Q = matching_involution(matching)
         assert matrix_equal(Q, transpose(Q))
         assert matrix_equal(multiply(Q, Q), identity(N))
@@ -239,6 +264,7 @@ def compute_certificate():
             assert trace(Pi) == 2
 
             seed_states.append(Pi)
+            state_metadata.append((matching_index, signs))
             for i in range(DIM):
                 for j in range(DIM):
                     twirl_sum[i][j] += Pi[i][j]
@@ -281,6 +307,25 @@ def compute_certificate():
     frame_potential_from_q = 4 * sum(value * value for value in q_average)
     target_frame_potential = F(4, DIM)
     assert frame_potential == frame_potential_from_q == target_frame_potential
+
+    matching_frames = [unnormalized_matching_frames(matching) for matching in MATCHINGS]
+    for left_index, (left_seed, left_signs) in enumerate(state_metadata):
+        U_left, V_left = matching_frames[left_seed]
+        for right_index, (right_seed, right_signs) in enumerate(state_metadata):
+            U_right, V_right = matching_frames[right_seed]
+            relative_signs = tuple(
+                left_signs[k] * right_signs[k] for k in range(N)
+            )
+            overlap_formula = sum((
+                determinant_overlap_square(U_left, relative_signs, U_right),
+                determinant_overlap_square(U_left, relative_signs, V_right),
+                determinant_overlap_square(V_left, relative_signs, U_right),
+                determinant_overlap_square(V_left, relative_signs, V_right),
+            ))
+            direct_overlap = trace_product(
+                gauge_states[left_index], gauge_states[right_index]
+            )
+            assert overlap_formula == direct_overlap
 
     first_seed_states = gauge_states[: 2 ** N]
     single_seed_frame_potential = sum(
@@ -328,6 +373,7 @@ def compute_certificate():
             "three_seed_mean_q_is_uniform": True,
             "mean_rank_two_projector_is_2_over_d_identity": True,
             "direct_frame_potential_matches_4_over_d": True,
+            "four_determinant_overlap_formula_all_2304_pairs": True,
             "single_seed_frame_potential_and_tv_diagnostic": True,
         },
         "scope": (
