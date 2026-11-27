@@ -1,0 +1,228 @@
+{
+  "schema": "eui_all_order_principal_minor_hierarchy_n42_v1",
+  "N": 42,
+  "n": 21,
+  "group": "dihedral D_42",
+  "group_order": 84,
+  "orbit_counts_by_subset_size": {
+    "0": 1,
+    "1": 1,
+    "2": 21,
+    "3": 147,
+    "4": 1440,
+    "5": 10222,
+    "6": 63133,
+    "7": 321741,
+    "8": 1408185,
+    "9": 5310667,
+    "10": 17527595,
+    "11": 50966816,
+    "12": 131672051,
+    "13": 303813800,
+    "14": 629347967,
+    "15": 1174710565,
+    "16": 1982362758,
+    "17": 3031752594,
+    "18": 4210830549,
+    "19": 5318837680,
+    "20": 6116747312,
+    "21": 6407924300
+  },
+  "hierarchy": [
+    {
+      "even_order": 2,
+      "odd_subset_size": 1,
+      "odd_orbit_count": 1,
+      "even_orbit_count": 21,
+      "incidence_rank": 1,
+      "remaining_even_orbit_coordinates": 20,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 4,
+      "odd_subset_size": 3,
+      "odd_orbit_count": 147,
+      "even_orbit_count": 1440,
+      "incidence_rank": 147,
+      "remaining_even_orbit_coordinates": 1293,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 6,
+      "odd_subset_size": 5,
+      "odd_orbit_count": 10222,
+      "even_orbit_count": 63133,
+      "incidence_rank": 10222,
+      "remaining_even_orbit_coordinates": 52911,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 8,
+      "odd_subset_size": 7,
+      "odd_orbit_count": 321741,
+      "even_orbit_count": 1408185,
+      "incidence_rank": 321741,
+      "remaining_even_orbit_coordinates": 1086444,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 10,
+      "odd_subset_size": 9,
+      "odd_orbit_count": 5310667,
+      "even_orbit_count": 17527595,
+      "incidence_rank": 5310667,
+      "remaining_even_orbit_coordinates": 12216928,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 12,
+      "odd_subset_size": 11,
+      "odd_orbit_count": 50966816,
+      "even_orbit_count": 131672051,
+      "incidence_rank": 50966816,
+      "remaining_even_orbit_coordinates": 80705235,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 14,
+      "odd_subset_size": 13,
+      "odd_orbit_count": 303813800,
+      "even_orbit_count": 629347967,
+      "incidence_rank": 303813800,
+      "remaining_even_orbit_coordinates": 325534167,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 16,
+      "odd_subset_size": 15,
+      "odd_orbit_count": 1174710565,
+      "even_orbit_count": 1982362758,
+      "incidence_rank": 1174710565,
+      "remaining_even_orbit_coordinates": 807652193,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 18,
+      "odd_subset_size": 17,
+      "odd_orbit_count": 3031752594,
+      "even_orbit_count": 4210830549,
+      "incidence_rank": 3031752594,
+      "remaining_even_orbit_coordinates": 1179077955,
+      "target_identity_exact": true
+    },
+    {
+      "even_order": 20,
+      "odd_subset_size": 19,
+      "odd_orbit_count": 5318837680,
+      "even_orbit_count": 6116747312,
+      "incidence_rank": 5318837680,
+      "remaining_even_orbit_coordinates": 797909632,
+      "target_identity_exact": true
+    }
+  ],
+  "even_order_variables_2_to_20": 13089961011,
+  "independent_adjacent_incidence_relations": 9885724233,
+  "remaining_orbit_coordinates_after_adjacent_hierarchy": 3204236778,
+  "small_exact_checks": {
+    "burnside_vs_bruteforce_N": [
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "restricted_incidence_rank": [
+      {
+        "N": 4,
+        "s": 1,
+        "rows": 1,
+        "columns": 2,
+        "rank": 1
+      },
+      {
+        "N": 6,
+        "s": 1,
+        "rows": 1,
+        "columns": 3,
+        "rank": 1
+      },
+      {
+        "N": 8,
+        "s": 1,
+        "rows": 1,
+        "columns": 4,
+        "rank": 1
+      },
+      {
+        "N": 8,
+        "s": 3,
+        "rows": 5,
+        "columns": 8,
+        "rank": 5
+      },
+      {
+        "N": 10,
+        "s": 1,
+        "rows": 1,
+        "columns": 5,
+        "rank": 1
+      },
+      {
+        "N": 10,
+        "s": 3,
+        "rows": 8,
+        "columns": 16,
+        "rank": 8
+      },
+      {
+        "N": 12,
+        "s": 1,
+        "rows": 1,
+        "columns": 6,
+        "rank": 1
+      },
+      {
+        "N": 12,
+        "s": 3,
+        "rows": 12,
+        "columns": 29,
+        "rank": 12
+      },
+      {
+        "N": 12,
+        "s": 5,
+        "rows": 38,
+        "columns": 50,
+        "rank": 38
+      }
+    ],
+    "rational_balanced_involution_identities": [
+      {
+        "N": 4,
+        "even_principal_minors_computed": 8,
+        "odd_subset_identities_checked": 8,
+        "all_residuals_exactly_zero": true
+      },
+      {
+        "N": 6,
+        "even_principal_minors_computed": 32,
+        "odd_subset_identities_checked": 32,
+        "all_residuals_exactly_zero": true
+      },
+      {
+        "N": 8,
+        "even_principal_minors_computed": 128,
+        "odd_subset_identities_checked": 128,
+        "all_residuals_exactly_zero": true
+      },
+      {
+        "N": 10,
+        "even_principal_minors_computed": 512,
+        "odd_subset_identities_checked": 512,
+        "all_residuals_exactly_zero": true
+      }
+    ]
+  },
+  "scope": "Residual-coordinate count after only consecutive odd-to-even incidence identities and complementary-minor reduction. It is not a claim that all remaining coordinates are algebraically independent or that no further physical/algebraic constraints exist.",
+  "status": "exact_combinatorial_hierarchy_and_orbit_count"
+}
