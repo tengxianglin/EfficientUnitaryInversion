@@ -260,8 +260,8 @@ def verify():
         "distinct_matched_quartic_coordinates": quartic_checks,
         "one_site_symmetrization": "Each base atom (a,b) and its translate (b,a) receive equal half weight.",
         "scope": (
-            "Exact positive ensemble for all 861 pair coordinates and 189 distinct "
-            "fourth-order principal-minor coordinates belonging to five specified "
+            "Exact positive ensemble for all 861 pair coordinates and 231 distinct "
+            "fourth-order principal-minor coordinates belonging to six specified "
             "full translation orbits. This is not a full fourth-order or all-even-moment design."
         ),
         "discovery": data["discovery"],
