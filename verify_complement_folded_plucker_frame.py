@@ -176,7 +176,7 @@ def check_physical_matching_exponentials():
             identity_text = "K^3=-4K and K is skew, hence exp((pi/2)K)=I+K^2/2"
             assert matrix_equal(R, exponential_polynomial)
 
-        assert matrix_equal(transpose(R) and multiply(transpose(R), R), identity(N))
+        assert matrix_equal(multiply(transpose(R), R), identity(N))
         assert determinant(R) == 1
         records.append({
             "matching": [list(pair) for pair in matching],
