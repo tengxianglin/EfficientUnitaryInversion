@@ -1,0 +1,24 @@
+name: EUI all-order principal-minor hierarchy
+on:
+  push:
+    paths:
+      - "verify_all_order_principal_minor_hierarchy.py"
+      - "evidence/all_order_principal_minor_hierarchy_n42.json"
+      - ".github/workflows/eui-all-order-principal-minor-hierarchy.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile verifier
+        run: python -m py_compile verify_all_order_principal_minor_hierarchy.py
+      - name: Recompute exact hierarchy and orbit counts
+        run: python verify_all_order_principal_minor_hierarchy.py
+      - name: Check frozen evidence reproducibility
+        run: git diff --exit-code -- evidence/all_order_principal_minor_hierarchy_n42.json
