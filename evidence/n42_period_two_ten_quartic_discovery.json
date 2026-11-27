@@ -1,0 +1,167 @@
+{
+  "candidate_count": 300000,
+  "discovery_only": true,
+  "eleventh_orbit_finite_pool_test": {
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)",
+    "representative": [
+      0,
+      6,
+      15,
+      21
+    ],
+    "scope": "Only this fixed 300000-candidate pool; not a continuum no-go.",
+    "status": "infeasible"
+  },
+  "frozen_input_sha256": "b5d4ca660855eafbfdd8df95a4c353ea2f460a906533072289a71f03b17e21a0",
+  "full_fourth_order_scan": {
+    "maximum_absolute_residual": 0.00468374467865546,
+    "maximum_absolute_residual_representative": [
+      0,
+      6,
+      15,
+      21
+    ],
+    "maximum_positive_residual": 0.00468374467865546,
+    "maximum_reconstructed_weight": 0.12359437976020231,
+    "minimum_reconstructed_weight": 0.0012154713709117769,
+    "minimum_signed_residual": -0.002846716897533267,
+    "orbit_count": 2670,
+    "selected_system_condition_number": 32938.85893081918,
+    "subset_count_from_orbit_sizes": 111930,
+    "top_ten": [
+      {
+        "absolute_residual": 0.00468374467865546,
+        "moment": 0.006559917286535385,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          6,
+          15,
+          21
+        ],
+        "signed_residual": 0.00468374467865546
+      },
+      {
+        "absolute_residual": 0.004619950338021,
+        "moment": 0.006496122945900925,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          6,
+          12,
+          27
+        ],
+        "signed_residual": 0.004619950338021
+      },
+      {
+        "absolute_residual": 0.004456328233968543,
+        "moment": 0.006332500841848468,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          1,
+          15,
+          28
+        ],
+        "signed_residual": 0.004456328233968543
+      },
+      {
+        "absolute_residual": 0.004134219173091472,
+        "moment": 0.006010391780971397,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          6,
+          13,
+          19
+        ],
+        "signed_residual": 0.004134219173091472
+      },
+      {
+        "absolute_residual": 0.004057644700975773,
+        "moment": 0.005933817308855698,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          6,
+          14,
+          20
+        ],
+        "signed_residual": 0.004057644700975773
+      },
+      {
+        "absolute_residual": 0.003950311405576127,
+        "moment": 0.005826484013456052,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          2,
+          6,
+          38
+        ],
+        "signed_residual": 0.003950311405576127
+      },
+      {
+        "absolute_residual": 0.003756873461265308,
+        "moment": 0.005633046069145233,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          4,
+          9,
+          13
+        ],
+        "signed_residual": 0.003756873461265308
+      },
+      {
+        "absolute_residual": 0.00372901364986761,
+        "moment": 0.005605186257747535,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          6,
+          19,
+          25
+        ],
+        "signed_residual": 0.00372901364986761
+      },
+      {
+        "absolute_residual": 0.0036178719671072865,
+        "moment": 0.0054940445749872115,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          3,
+          20,
+          25
+        ],
+        "signed_residual": 0.0036178719671072865
+      },
+      {
+        "absolute_residual": 0.0036124488785547557,
+        "moment": 0.005488621486434681,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          5,
+          17,
+          30
+        ],
+        "signed_residual": 0.0036124488785547557
+      }
+    ]
+  },
+  "numpy_version": "2.3.5",
+  "scipy_version": "1.17.0",
+  "scope": "Floating LP and full-orbit scan are discovery only; see the independent Arb certificate.",
+  "search_box": "[0,1000]^2",
+  "seed": 352,
+  "selected_equation_max_residual": 7.593925488436071e-14,
+  "status": "reproduced_N42_period_two_ten_quartic_discovery",
+  "support_reproduction": {
+    "criterion": "same ordered support; max absolute coupling-coordinate difference <= 1e-9",
+    "frozen_decimal_inputs_are_authoritative_for_Arb": true,
+    "max_abs_parameter_difference": 4.547473508864641e-13
+  },
+  "support_size": 41
+}
