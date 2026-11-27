@@ -27,10 +27,10 @@ jobs:
         run: python -m py_compile verify_n8_physical_cycle_balanced_slice_ensemble.py
       - name: Recompute all even principal-minor moments exactly
         run: python verify_n8_physical_cycle_balanced_slice_ensemble.py --output /tmp/n8_physical_cycle_balanced_slice_ensemble.json
-      - name: Validate JSON and compare committed certificate
+      - name: Validate and compare committed certificate semantically
         run: |
           python -m json.tool /tmp/n8_physical_cycle_balanced_slice_ensemble.json > /dev/null
-          cmp evidence/n8_physical_cycle_balanced_slice_ensemble.json /tmp/n8_physical_cycle_balanced_slice_ensemble.json
+          python -c "import json,pathlib; a=json.loads(pathlib.Path('evidence/n8_physical_cycle_balanced_slice_ensemble.json').read_text()); b=json.loads(pathlib.Path('/tmp/n8_physical_cycle_balanced_slice_ensemble.json').read_text()); assert a == b, 'committed certificate differs from exact recomputation'"
       - name: Upload exact evidence
         uses: actions/upload-artifact@v4
         with:
