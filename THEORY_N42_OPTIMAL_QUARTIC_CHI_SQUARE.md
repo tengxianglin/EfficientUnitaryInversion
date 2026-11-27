@@ -213,3 +213,68 @@ The workflow pins `python-flint==0.9.0` and freezes the resulting JSON certifica
 The Run 67 all-orbit Gram bound was mathematically valid but not optimal because its orbit coefficients did not account for orbit multiplicities and the exact lower-degree null constraints. Equation (4) removes that inefficiency analytically.
 
 This still rejects only the frozen 37-base / 74-labelled candidate. It does not exclude a different period-two measure, a general non-period-two cycle-exponential ensemble, or the full continuous physical family. The next decisive target remains a general-cycle positive ensemble or a global separator valid for every real coupling vector.
+
+
+## 8. General even-order harmonic hierarchy
+
+The quartic argument is one level of a general balanced-slice hierarchy. Let (mle n) be even, let (f_I(x)=prod_{iin I}x_i) for (|I|=m), and define
+[
+delta_I^{(m)}=mathbb E_q f_I-mathbb E_u f_I.
+]
+Define the down operator
+[
+(D_m a)_J=sum_{i
+otin J}a_{Jcup{i}},
+qquad |J|=m-1.
+]
+If all lower even moments through order (m-2) match, then the same balanced-sign identity gives
+[
+D_mdelta^{(m)}=0.
+]
+
+The order-(m) Gram kernel is
+[
+K^{(m)}_{I,J}=mathbb E_u[f_I f_J]
+=mu_{2m-2|Icap J|}.
+]
+The identical binomial-basis argument proves that it acts as a scalar on (ker D_m):
+[
+K^{(m)}a=lambda_m a,
+qquad
+lambda_m=sum_{j=0}^{m}(-1)^jinom mjmu_{2j}.
+]
+A closed form is
+[
+oxed{
+lambda_m=
+4^mrac{inom{N-2m}{n-m}}{inom Nn}
+quad (N=2n).
+} 	ag{5}
+]
+To see the closed form, take (m) disjoint pairs ((a_t,b_t)) and the harmonic coefficient vector whose nonzero entries are the (2^m) choices of one endpoint from each pair, with coefficient (prod_t(+1	ext{ for }a_t,-1	ext{ for }b_t)). Its polynomial is (prod_t(x_{a_t}-x_{b_t})). Its coefficient norm squared is (2^m), while its squared value is (4^m) exactly when all (m) pairs are split. The probability of this event under a uniform balanced sign vector is
+[
+2^minom{N-2m}{n-m}/inom Nn,
+]
+which yields (5).
+
+Therefore, whenever the lower even moments match,
+[
+oxed{
+chi^2(qVert u)ge
+rac{|delta^{(m)}|_2^2}{lambda_m},
+} 	ag{6}
+]
+and this is the optimal Cauchy--Schwarz lower bound obtainable from all order-(m) characters. The proof is exactly the same orthogonal decomposition used at order four. For (D_{42})-invariant residuals, the numerator is the orbit-size-weighted sum of squared orbit residuals.
+
+For (N=42), the exact eigenvalues checked by the verifier are
+[
+egin{array}{c|c}
+m&lambda_m\hline
+0&1\
+2&560/533\
+4&21888/19721\
+6&7938048/6724861\
+8&740884480/585062907
+end{array}
+]
+The current frozen candidate matches order two but not order four, so (6) is presently applied at (m=4). Applying it at (m=6) would require first matching all fourth-order moments (or explicitly projecting out the lower harmonic components); that condition is not met by this candidate.
