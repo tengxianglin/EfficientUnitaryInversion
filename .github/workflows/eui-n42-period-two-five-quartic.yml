@@ -28,11 +28,14 @@ jobs:
           python-version: "3.11"
       - name: Install pinned Arb dependency
         run: python -m pip install "python-flint==0.9.0"
+      - name: Check pinned environment
+        run: python -m pip check
       - name: Compile verifier
         run: python -m py_compile verify_n42_period_two_five_quartic_ensemble_arb.py
       - name: Certify exact-real weights, all pair moments, and quartic orbits
         run: python verify_n42_period_two_five_quartic_ensemble_arb.py
       - name: Commit deterministic Arb certificate
+        if: github.event_name == 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+actions-bot@users.noreply.github.com"
