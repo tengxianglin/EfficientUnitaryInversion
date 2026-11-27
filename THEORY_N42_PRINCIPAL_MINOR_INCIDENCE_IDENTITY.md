@@ -2,7 +2,7 @@
 
 ## Motivation and correction
 
-An attempted Run-59 separator based on the sum of all fourth-order principal minors containing a fixed pair was rejected by its first Arb regression. The proposed 2x2-block Desnanot–Jacobi shortcut was invalid: for disjoint 2-subsets I,J, the determinant of the 4x4 block matrix is not simply the product of the two diagonal-block determinants minus the product of the cross-block determinants.
+An attempted Run-59 separator based on the sum of all fourth-order principal minors containing a fixed pair was rejected by its first Arb regression. The proposed 2x2-block shortcut was invalid: for disjoint 2-subsets I,J, the determinant of the 4x4 block matrix is not simply the product of the two diagonal-block determinants minus the product of the cross-block determinants.
 
 The correct identity below is universal for every real symmetric involution of balanced signature. It is therefore **not** a period-two obstruction. Its value is structural: it gives exact linear dependencies between the pair and quartic moment coordinates and provides a strong implementation consistency check.
 
@@ -16,7 +16,6 @@ Let Q be a real symmetric involution of size 2n with trace zero. Fix a two-subse
 }
 \tag{1}
 \]
-
 No invertibility assumption is needed in the statement.
 
 ### Proof on a dense open set
@@ -36,7 +35,7 @@ Thus X has rank two. The subspace range(X^T) is B-invariant, and
 \[
 BX^T=-X^TT,
 \]
-so B restricted to range(X^T) is similar to -T. On ker(X), the last block equation gives B^2=I. Since Q and T have trace zero only in the special case tr(T)=0, we keep t=tr(T) general: tr(B)=-t, while the trace of B on range(X^T) is -t. Hence the restriction of B to ker(X) has trace zero. Its eigenvalues are therefore equally many +1 and -1.
+so B restricted to range(X^T) is similar to -T. On ker(X), the last block equation gives B^2=I. Since tr(Q)=0, we have tr(B)=-t, where t=tr(T); the trace of B on range(X^T) is also -t. Hence the restriction of B to ker(X) has trace zero. Its eigenvalues are therefore equally many +1 and -1.
 
 Consequently
 \[
@@ -106,5 +105,5 @@ These are universal affine dependencies between the pair and quartic feature coo
 - It does not prove or disprove existence of a positive physical ensemble.
 - It does not imply a Choi trace-distance or channel diamond-distance bound.
 - For future LPs, the 861 pair-indexed incidence relations can be used to detect redundant quartic equations and to check target-vector construction.
-- The Run-59 attempted no-go based on the incorrect coefficient 21 is withdrawn. The correct coefficient is n-2=19 for N=42.
+- The Run-59 attempted no-go based on coefficient 21 is withdrawn. The correct coefficient is n-2=19 for N=42.
 - The accompanying Arb script directly sums all 780 incident quartic minors for frozen rational period-two samples and checks (1). These finite checks are regression evidence; the proof is the block-matrix argument above.
