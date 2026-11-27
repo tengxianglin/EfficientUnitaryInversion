@@ -1,0 +1,37 @@
+name: EUI exact N10 block-mirror subfamily separator
+
+on:
+  push:
+    paths:
+      - "verify_n10_block_mirror_subfamily_separator.py"
+      - "evidence/n10_block_mirror_subfamily_separator.json"
+      - ".github/workflows/eui-n10-block-mirror-subfamily-separator.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-certificate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recompute exhaustive exact separator
+        run: python verify_n10_block_mirror_subfamily_separator.py > /tmp/n10_certificate.json
+      - name: Compare frozen evidence semantically
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          generated = json.loads(Path("/tmp/n10_certificate.json").read_text())
+          frozen = json.loads(Path("evidence/n10_block_mirror_subfamily_separator.json").read_text())
+          assert generated == frozen, "recomputed exact certificate differs from frozen evidence"
+          print("N=10 exact block-mirror separator: PASS")
+          print("compositions:", generated["composition_count"])
+          print("target score:", generated["target_score"])
+          print("maximum block score:", generated["maximum_block_family_score"])
+          print("certified L-infinity gap:", generated["certified_linf_moment_gap"])
+          PY
