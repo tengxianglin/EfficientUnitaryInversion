@@ -1,6 +1,28 @@
 {
   "N": 42,
   "all_triple_down_relations_interval_contain_zero": true,
+  "balanced_slice_harmonic_eigenvalue_hierarchy_even_degrees_0_to_8": [
+    {
+      "degree": 0,
+      "eigenvalue": "1"
+    },
+    {
+      "degree": 2,
+      "eigenvalue": "560/533"
+    },
+    {
+      "degree": 4,
+      "eigenvalue": "21888/19721"
+    },
+    {
+      "degree": 6,
+      "eigenvalue": "7938048/6724861"
+    },
+    {
+      "degree": 8,
+      "eigenvalue": "740884480/585062907"
+    }
+  ],
   "balanced_slice_moments_order_0_to_8": [
     "1",
     "-1/41",
