@@ -57,3 +57,13 @@ Apply the frame-potential falsifier to the broadest available N=42 general-cycle
 ## Run 65 matching-edge distribution clarification
 
 The Run 65 cycle-edge distribution and its 72.6616% exclusion bound are correct, but they are strictly weaker than the already-existing reachability theorem in THEORY_CYCLE_MATCHING_ATOM_REACHABILITY_N42.md. That theorem bounds the number of cycle-reachable signed matching atoms by 4,194,324 out of 41!!, so the uniform matching measure's unreachable mass is at least 0.9999999999999999996801417. The Run 65 edge-count statement should be treated as a transparent combinatorial corollary, not the strongest available matching-atom bound. Neither statement excludes non-permutation cycle-exponential mixtures.
+
+
+## Four-overlap estimator verification extension
+
+- Verifier implementation commit: db3dc782a9ae0f4c004ecd2bafb0468b75453a6e.
+- Frozen evidence synchronization commit: f80d41b74123606bbdc76f47cda197631dd91df4.
+- Theory-note update commit: 04309efc3312447418ca150992376046186226fe.
+- Final workflow 46055713490 passed compilation and exact Fraction recomputation after the theory update.
+- Intermediate run 46055662107 compiled successfully but failed the frozen-JSON equality check because the verifier update preceded the evidence synchronization. The subsequent synchronized run 46055666817 and final run 46055713490 both passed.
+- The verifier compares the four-determinant overlap expression with direct Plucker-projector traces for all 2,304 ordered pairs of the 48 N=4 gauge-expanded states, with exact zero discrepancy.
