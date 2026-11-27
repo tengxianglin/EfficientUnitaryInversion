@@ -43,3 +43,17 @@ This is a finite exact verification of the general identities, not an N=42 physi
 ## Next highest-value action
 
 Apply the frame-potential falsifier to the broadest available N=42 general-cycle candidate pools, using validated determinant overlaps and a pre-registered sample budget. Candidates that survive should still be subjected to the complete 1,440-quartic-orbit audit and then higher even-order checks; the frame potential is a screening tool, not a replacement for the all-moment theorem.
+
+
+## Final repository and CI identifiers
+
+- Initial theory/evidence commit: 95abd399de18d418ca08aeecb6d4b93b280405a0.
+- Verifier assertion cleanup: 54cbd4b003921cc0b1ed7e50cfb1d26243aed4e5.
+- Q=RD versus Q=DR convention note: 38fb9d514fc03fcdc6c14b4fd3bad0a48d229087.
+- Final main HEAD at audit completion: 38fb9d514fc03fcdc6c14b4fd3bad0a48d229087.
+- Exact workflow 46055397840 passed both compilation and exact Fraction recomputation; earlier pushes 46055308217 and 46055394899 also completed successfully.
+- The verifier was independently reviewed against the N=4 exact calculation; the hosted CI recomputation is the repository execution record.
+
+## Run 65 matching-edge distribution clarification
+
+The Run 65 cycle-edge distribution and its 72.6616% exclusion bound are correct, but they are strictly weaker than the already-existing reachability theorem in THEORY_CYCLE_MATCHING_ATOM_REACHABILITY_N42.md. That theorem bounds the number of cycle-reachable signed matching atoms by 4,194,324 out of 41!!, so the uniform matching measure's unreachable mass is at least 0.9999999999999999996801417. The Run 65 edge-count statement should be treated as a transparent combinatorial corollary, not the strongest available matching-atom bound. Neither statement excludes non-permutation cycle-exponential mixtures.
