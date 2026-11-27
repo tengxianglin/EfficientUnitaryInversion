@@ -35,16 +35,17 @@ The independent verifier:
 - checks all 861 pair principal-minor coordinates;
 - checks all 189 distinct translated quartic coordinates for the explicitly symmetrized ensemble.
 
-The hosted workflow is:
+The hosted workflows are:
 - .github/workflows/eui-n42-period-two-five-quartic.yml
+- .github/workflows/eui-n42-period-two-six-quartic.yml
 
-At audit time the expected Arb certificate had not yet appeared in the repository. Therefore this run claims a floating discovery and a frozen verification pipeline, not an exact existence theorem. The verifier/CI result must be inspected before upgrading the claim.
+The five-orbit 256-bit Arb verifier passed in PR workflow run 45930804656; its exact certificate is committed at e2c83f63eb0c924e66a05a8e38db6a44f81ec93d. The follow-up six-orbit search below further strengthens this result.
 
 ## Relation to Run 55
 
 The N=8 period-two arbitrary-mixture theorem remains correctly scoped to N=8 and the period-two subfamily. The N=42 candidate does not follow from that theorem. It is an independent construction at N=42.
 
-The new 36-atom candidate includes the former mismatched witness [0,2,21,23] while retaining the four previously matched quartic representatives. If the Arb certificate passes, it removes the support-specific limitation of the earlier 35-atom ensemble, but it still covers only 189 of the full fourth-order coordinates.
+The 36-base-atom candidate includes the former mismatched witness [0,2,21,23] while retaining the four previous representatives; its 72-atom symmetrization was Arb-certified for 861 pairs and 189 quartic coordinates. A second 100,000-candidate search then found a 37-base-atom support with one additional orbit [6,13,14,30]. Its 74-atom symmetrization was independently certified at 256 bits for all 861 pair coordinates and 231 distinct quartic coordinates. The six orbit sizes are 42,42,42,42,21,42.
 
 ## Manuscript and supplementary-source audit
 
@@ -65,11 +66,25 @@ Verified locally in the analysis:
 - the five symmetrized quartic targets are met to binary64 residual below 3e-14;
 - the five distinct full translation orbits contain 189 unique subsets.
 
-Not yet verified:
-- 256-bit Arb invertibility and strict positivity of the exact-real weights;
-- the 861 pair checks and 189 quartic checks with interval enclosures;
-- hosted workflow completion and committed machine certificate.
+Verified by hosted 256-bit Arb:
+- five-orbit certificate: 36x36 determinant interval excludes zero; minimum weight exceeds 1/10000; all 861 pair and 189 quartic coordinates pass;
+- six-orbit certificate: 37x37 determinant interval excludes zero; minimum weight exceeds 1/10000; all 861 pair and 231 quartic coordinates pass;
+- all base couplings are strictly positive, and the one-site symmetrizations have 72 and 74 atoms respectively.
+
+The six-orbit certificate has minimum exact coupling 27757624598893029/5000000000000000, minimum weight approximately 3.52877614818587e-4, and determinant interval centered at -6.65787118905551e-42 with radius 6.21e-109. The verifier passed in workflow run 45931260609. A stale five-orbit scope string in the first six-orbit evidence serialization was corrected in commit c57dba80805be1a1d127ae7a3521e2ce61452913; the numerical certificate and 231-coordinate count were unchanged.
 
 ## Next highest-value action
 
-Inspect the new hosted Arb workflow. If it succeeds, update Issue #7 and freeze the exact certificate, then add further quartic orbit constraints using the 100,000-candidate discovery framework. If it fails, diagnose the exact interval or matrix issue; do not describe the floating LP as a theorem.
+Continue from the certified six-orbit design: add quartic orbit constraints incrementally, and for the first infeasible finite pool extract a dual and run continuous pricing before making any global claim. The six-orbit result is still only a partial fourth-order design, not a complete physical ensemble or operational channel bound.
+
+
+## Six-orbit certificate and final run status
+
+- Six-orbit verifier: verify_n42_period_two_six_quartic_ensemble_arb.py.
+- Frozen support: evidence/n42_period_two_six_quartic_atoms.json.
+- Certified evidence: evidence/n42_period_two_six_quartic_ensemble_arb.json.
+- Six-orbit CI: https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/45931260609 (SUCCESS).
+- Six-orbit evidence commit: c14b86d7ccee852b06f98cfce9323bf01866144f, with scope metadata corrected in c57dba80805be1a1d127ae7a3521e2ce61452913.
+- PR #9 merged as 6ac328517830524f93b511faa3821ee977e6f029.
+
+Final verified result: a 74-atom strictly-positive period-two ensemble matches all 861 pair principal-minor coordinates and 231 fourth-order coordinates in six full translation orbits. The exact-real weights are reconstructed from the frozen rational couplings by a 37x37 Arb-certified system. This is not a full fourth-order design.
