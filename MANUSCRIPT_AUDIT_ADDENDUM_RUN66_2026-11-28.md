@@ -28,7 +28,7 @@ Issue #7 remains the highest-leverage scientific blocker. The new work derives a
 
 ## Exact finite verification
 
-The dependency-free Fraction verifier checks all three N=4 perfect matchings, their exact cycle-exponential polynomial identities, all 16 vertex-sign gauges per seed, every 2x2 Plucker minor, the rank-two projector identities, the exact mean projector I_6/3, and the exact frame-potential values. It also checks the single-seed diagnostic (FP=1, chi-square=1/2, TV=1/3).
+The dependency-free Fraction verifier checks all three N=4 perfect matchings, their exact cycle-exponential polynomial identities, all 16 vertex-sign gauges per seed, every 2x2 Plucker minor, the rank-two projector identities, the exact mean projector I_6/3, the exact frame-potential values, and the four-determinant overlap formula for all 2,304 pairs of gauge-expanded states. It also checks the single-seed diagnostic (FP=1, chi-square=1/2, TV=1/3).
 
 This is a finite exact verification of the general identities, not an N=42 physical construction.
 
