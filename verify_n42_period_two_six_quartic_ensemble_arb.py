@@ -180,7 +180,7 @@ def verify():
     )
     determinant = A.det()
     if determinant.contains(0):
-        raise AssertionError("36x36 moment matrix is not certified invertible")
+        raise AssertionError("37x37 moment matrix is not certified invertible")
 
     weights = A.solve(rhs)
     floor = rational(data["weight_floor"])
@@ -203,7 +203,7 @@ def verify():
     assert pair_count == comb(N, 2) == 861
 
     # The one-site symmetrization joins the two parity-related translation orbits.
-    # Check every distinct translate, not just the five representatives.
+    # Check every distinct translate, not just the six representatives.
     all_quartets = set()
     orbit_records = []
     quartic_checks = 0
@@ -243,7 +243,6 @@ def verify():
         "N": N,
         "base_atom_count": m,
         "expanded_atom_count_after_one_site_symmetrization": 2 * m,
-        "expanded_atom_count_after_one_site_symmetrization": 2 * m,
         "all_42_couplings_strictly_positive": True,
         "minimum_exact_coupling": str(min_coupling),
         "precision_bits": ctx.prec,
@@ -271,7 +270,6 @@ def verify():
     print(json.dumps({
         "status": result["status"],
         "base_atoms": m,
-        "expanded_atoms": 2 * m,
         "expanded_atoms": 2 * m,
         "determinant": result["moment_matrix_determinant"],
         "minimum_weight": result["minimum_weight"],
