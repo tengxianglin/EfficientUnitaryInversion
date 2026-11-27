@@ -67,22 +67,46 @@ def verify_down_relations(records):
     return checked
 
 
-def exact_lambda4():
-    """Fourth-harmonic eigenvalue of the balanced-slice quartic Gram kernel."""
-    moments = [
-        fmpq(1),
-        fmpq(-1, 41),
-        fmpq(1, 533),
-        fmpq(-15, 41 * 39 * 37),
-        fmpq(105, 41 * 39 * 37 * 35),
-    ]
-    value = sum(
-        (fmpq((-1) ** j * comb(4, j)) * moments[j] for j in range(5)),
-        fmpq(0),
-    )
-    if value != LAMBDA4:
-        raise AssertionError(f"unexpected lambda_4: {value}")
-    return moments, value
+def balanced_slice_moment(order):
+    """Uniform balanced-sign moment E[product of 'order' distinct signs]."""
+    if order % 2:
+        return fmpq(0)
+    value = fmpq(1)
+    for j in range(1, order // 2 + 1):
+        value *= fmpq(-(2 * j - 1), N - (2 * j - 1))
+    return value
+
+
+def exact_lambda_hierarchy():
+    """Check the Johnson-scheme harmonic eigenvalue formula at even orders."""
+    hierarchy = []
+    moments4 = None
+    lambda4 = None
+    for degree in (0, 2, 4, 6, 8):
+        moments = [balanced_slice_moment(2 * j) for j in range(degree + 1)]
+        finite_difference = sum(
+            (
+                fmpq((-1) ** j * comb(degree, j)) * moments[j]
+                for j in range(degree + 1)
+            ),
+            fmpq(0),
+        )
+        closed_form = fmpq(
+            4 ** degree * comb(N - 2 * degree, 21 - degree),
+            comb(N, 21),
+        )
+        if finite_difference != closed_form:
+            raise AssertionError(
+                f"harmonic eigenvalue mismatch at degree {degree}: "
+                f"{finite_difference} != {closed_form}"
+            )
+        hierarchy.append({"degree": degree, "eigenvalue": str(closed_form)})
+        if degree == 4:
+            moments4 = moments
+            lambda4 = finite_difference
+    if lambda4 != LAMBDA4:
+        raise AssertionError(f"unexpected lambda_4: {lambda4}")
+    return moments4, lambda4, hierarchy
 
 
 def verify():
@@ -100,7 +124,7 @@ def verify():
     assert data["orbits_with_strict_certified_mismatch"] == 1434
     assert data["orbits_whose_residual_interval_contains_zero"] == 6
 
-    moments, eigenvalue = exact_lambda4()
+    moments, eigenvalue, eigenvalue_hierarchy = exact_lambda_hierarchy()
     down_relations = verify_down_relations(data["all_orbit_records"])
 
     residual_norm2 = arb(0)
@@ -147,6 +171,7 @@ def verify():
         "triple_down_relations_checked": down_relations,
         "balanced_slice_moments_order_0_to_8": [str(x) for x in moments],
         "quartic_gram_harmonic_eigenvalue_exact": str(eigenvalue),
+        "balanced_slice_harmonic_eigenvalue_hierarchy_even_degrees_0_to_8": eigenvalue_hierarchy,
         "quartic_residual_l2_squared_interval": str(residual_norm2),
         "optimal_quartic_chi_square_lower_bound_interval": str(chi_square_lower_bound),
         "optimal_quartic_chi_square_lower_bound_gt_0.0823": True,
@@ -175,6 +200,7 @@ def verify():
         "status": result["status"],
         "quartic_residual_l2_squared_interval": result["quartic_residual_l2_squared_interval"],
         "lambda4_exact": result["quartic_gram_harmonic_eigenvalue_exact"],
+        "harmonic_eigenvalue_hierarchy": eigenvalue_hierarchy,
         "optimal_quartic_chi_square_lower_bound_interval": result[
             "optimal_quartic_chi_square_lower_bound_interval"
         ],
