@@ -1,0 +1,162 @@
+{
+  "candidate_count": 100000,
+  "discovery_only": true,
+  "frozen_input_sha256": "8d388409bbf7d0b8ef68dc8483bb5492a4876aa83d18e8ee0ced47a519a54d0c",
+  "full_fourth_order_scan": {
+    "maximum_absolute_residual": 0.004540390901740525,
+    "maximum_absolute_residual_representative": [
+      0,
+      3,
+      18,
+      21
+    ],
+    "maximum_positive_residual": 0.004540390901740525,
+    "maximum_reconstructed_weight": 0.09688351331494137,
+    "minimum_reconstructed_weight": 0.0007816680367403047,
+    "minimum_signed_residual": -0.003620152715417152,
+    "orbit_count": 2670,
+    "selected_system_condition_number": 10955.501701265322,
+    "subset_count_from_orbit_sizes": 111930,
+    "top_ten": [
+      {
+        "absolute_residual": 0.004540390901740525,
+        "moment": 0.00641656350962045,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          3,
+          18,
+          21
+        ],
+        "signed_residual": 0.004540390901740525
+      },
+      {
+        "absolute_residual": 0.004487767909218813,
+        "moment": 0.006363940517098738,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          3,
+          18,
+          27
+        ],
+        "signed_residual": 0.004487767909218813
+      },
+      {
+        "absolute_residual": 0.004408875235914412,
+        "moment": 0.006285047843794337,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          4,
+          12,
+          34
+        ],
+        "signed_residual": 0.004408875235914412
+      },
+      {
+        "absolute_residual": 0.00396429530402448,
+        "moment": 0.005840467911904405,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          5,
+          18,
+          29
+        ],
+        "signed_residual": 0.00396429530402448
+      },
+      {
+        "absolute_residual": 0.0039515460907692925,
+        "moment": 0.005827718698649217,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          8,
+          17,
+          25
+        ],
+        "signed_residual": 0.0039515460907692925
+      },
+      {
+        "absolute_residual": 0.0038434273460364278,
+        "moment": 0.005719599953916353,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          3,
+          8,
+          37
+        ],
+        "signed_residual": 0.0038434273460364278
+      },
+      {
+        "absolute_residual": 0.003830232118061829,
+        "moment": 0.005706404725941754,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          1,
+          9,
+          34
+        ],
+        "signed_residual": 0.003830232118061829
+      },
+      {
+        "absolute_residual": 0.0037456874756258557,
+        "moment": 0.005621860083505781,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          3,
+          8,
+          11
+        ],
+        "signed_residual": 0.0037456874756258557
+      },
+      {
+        "absolute_residual": 0.0036867646111323612,
+        "moment": 0.005562937219012286,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          5,
+          12,
+          17
+        ],
+        "signed_residual": 0.0036867646111323612
+      },
+      {
+        "absolute_residual": 0.0036693955235494614,
+        "moment": 0.005545568131429386,
+        "orbit_size": 42,
+        "representative": [
+          0,
+          5,
+          17,
+          30
+        ],
+        "signed_residual": 0.0036693955235494614
+      }
+    ]
+  },
+  "numpy_version": "2.3.5",
+  "scipy_version": "1.17.0",
+  "scope": "Floating LP and NumPy scan are discovery evidence only. The independent Arb certificate is the proof for the frozen support.",
+  "search_box": "[0,100]^2",
+  "seed": 351,
+  "selected_equation_max_residual": 8.881784197001252e-16,
+  "status": "reproduced_N42_period_two_nine_quartic_discovery",
+  "support_size": 40,
+  "tenth_orbit_finite_pool_test": {
+    "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)",
+    "representative": [
+      0,
+      3,
+      18,
+      21
+    ],
+    "scope": "Only this fixed 100000-candidate pool; not a continuum no-go.",
+    "status": "infeasible"
+  }
+}
