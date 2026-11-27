@@ -119,3 +119,18 @@ For N=42, the 861 relations (3), one for each pair I, are linearly independent. 
 Fix distinct d,e and subtract the equations for K={a,b,c,d} and K={a,b,c,e}, where a,b,c are distinct and avoid d,e. With y_i=x_{id}-x_{ie}, this gives y_a+y_b+y_c=0 for every triple outside {d,e}. Since there are at least four such indices, comparing triples shows all y_i are equal; their triple sum then forces y_i=0. Hence x_{id}=x_{ie} for all i distinct from d,e. For each fixed i, x_{ij} is independent of j, and symmetry forces every x_{ij} to be the same constant. The original four-subset equation gives six times that constant equal to zero. Thus x=0 and rank(W)=861.
 
 Consequently the complete pair/fourth-moment vector has at least 861 independent universal affine dependencies. A full-coordinate LP can eliminate 861 quartic coordinates after choosing a pivot basis, or retain them as exact regression checks. After symmetry reduction, the corresponding orbit-averaged relations should be included in the row-rank audit rather than counted as new physical constraints.
+
+
+## Relation to the pre-existing fourth-moment hierarchy
+
+This identity is **not a new independent EUI theorem**. The repository's earlier `THEORY_FOURTH_MOMENT_HIERARCHY.md` proves the stronger triple-set relation, for every odd n>=3,
+\[
+\sum_{\substack{K\supseteq S\\|K|=4}}\det Q_K
+=-\sum_{\substack{J\subseteq S\\|J|=2}}\det Q_J,
+\qquad |S|=3.
+\]
+The pair-incidence identity (1) follows by summing this relation over the 2n-2 triples S containing a fixed pair I and using
+\[
+\sum_{k\ne i}\det Q_{\{i,k\},\{i,k\}}=-1,
+\]
+which itself follows directly from tr(Q)=0 and the unit norm of row i. Each four-set containing I is counted twice in the summed triple relation, giving (1). The block/Schur-complement proof above is an independent derivation and the new CI is an independent direct 780-minor regression, not a claim of priority over the stronger hierarchy.
