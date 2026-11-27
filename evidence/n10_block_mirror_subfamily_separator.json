@@ -1,0 +1,104 @@
+{
+  "status": "exact_N10_block_mirror_subfamily_separator",
+  "N": 10,
+  "n": 5,
+  "family": "all ordered compositions of 10 into contiguous path blocks; each block is a perfect-transfer signed reversal; arbitrary D10 conjugates and probability mixtures are included",
+  "composition_count": 512,
+  "dihedral_group_order": 20,
+  "dual_terms": [
+    {
+      "representative": [
+        0,
+        1
+      ],
+      "orbit_size": 10,
+      "coefficient": "3/35",
+      "target_moment": "-1/9"
+    },
+    {
+      "representative": [
+        0,
+        2
+      ],
+      "orbit_size": 10,
+      "coefficient": "3/35",
+      "target_moment": "-1/9"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "orbit_size": 10,
+      "coefficient": "11/35",
+      "target_moment": "-1/21"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "orbit_size": 10,
+      "coefficient": "8/35",
+      "target_moment": "-1/21"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "orbit_size": 10,
+      "coefficient": "3/35",
+      "target_moment": "-1/21"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "orbit_size": 5,
+      "coefficient": "3/70",
+      "target_moment": "-1/21"
+    },
+    {
+      "representative": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "orbit_size": 5,
+      "coefficient": "11/70",
+      "target_moment": "1/9"
+    }
+  ],
+  "dual_l1_norm": "1/1",
+  "target_score": "-74/2205",
+  "maximum_block_family_score": "-2/35",
+  "minimum_block_family_score": "-38/175",
+  "certified_linf_moment_gap": "52/2205",
+  "maximizer_count": 82,
+  "distinct_score_count": 24,
+  "score_table_sha256": "79911ca8a15b51b84eab95720c0265dc52b7f9db6c44feab26b7d11ea5e16804",
+  "arithmetic": "exact integer and fractions.Fraction; no floating point"
+}
