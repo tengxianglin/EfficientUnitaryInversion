@@ -209,6 +209,62 @@ prior
 work; the EUI-specific result is the compact local pricing identity for the
 cycle involution.
 
+
+## A fully connected positive-cycle escape for one local coordinate
+
+The local oracle also exposes why it must not be promoted to a global
+separator. For the first probe \(S=\{0,1,2,3,4,5\}\), the frozen Run 70
+candidate has the 256-bit Arb-certified coordinate
+\[
+(P_6\delta_6)_S
+\in[-0.000604644388181486443843770485452175730900398725814867757300154235939399
+\pm4.37\times10^{-73}]<0.
+\]
+
+There is a physical atom with the opposite sign and with **all 42 cycle
+couplings strictly positive**. Start from the standard length-42
+perfect-transfer path couplings
+\[
+c_j^*=\frac{\pi}{4}\sqrt{(j+1)(41-j)},\quad j=0,\ldots,40,
+\qquad c_{41}^*=0.
+\]
+The path spin-chain identity gives
+\(R^*|j\rangle=(-1)^j|41-j\rangle\), so \(Q^*=R^*D\) is minus the reversal
+permutation. No pair \(\{j,41-j\}\) lies wholly inside \(S\). Hence every
+nonempty even principal minor of \(Q^*\) on a subset of \(S\) vanishes and
+\[
+W_S(Q^*)=\frac1{2849}>0.
+\]
+
+Now open the closing edge by \(\varepsilon=10^{-6}\), keeping all other
+couplings fixed. The new atom has all 42 couplings strictly positive. The
+generator perturbation has operator norm \(2\varepsilon\). Duhamel's identity
+for skew-symmetric generators gives
+\(\|Q-Q^*\|_2\le2\varepsilon\). For a \(k\)-minor of orthogonal matrices,
+determinant multilinearity and Hadamard's inequality give a change at most
+\(k\|Q-Q^*\|_2\). Therefore
+\[
+|W_S(Q)-W_S(Q^*)|
+\le2\varepsilon\left(6+\frac{60}{33}+\frac{30}{385}\right)
+=\frac{1216}{77}\varepsilon<16\varepsilon.
+\]
+Consequently
+\[
+\boxed{
+W_S(Q)>
+\frac1{2849}-\frac{1216}{77\cdot10^6}
+=\frac{14922}{44515625}>0.
+}
+\]
+
+Thus a strictly positive, non-period-two physical cycle atom has the
+opposite sign to the frozen candidate on this one harmonic coordinate. A
+unique convex reweighting of these two laws can cancel this coordinate.
+It does **not** match the remaining coordinates and is not a solution of the
+full moment problem. The perfect-transfer primitive is standard (Christandl
+et al., Phys. Rev. Lett. 92, 187902 (2004)); the EUI-specific point is the
+local-witness pricing and the explicit positive-cycle escape bound.
+
 ## Exact checks
 
 The dependency-free exact verifier checks the projection, variance, target
