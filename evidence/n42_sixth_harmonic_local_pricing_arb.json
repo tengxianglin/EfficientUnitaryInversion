@@ -39,6 +39,7 @@
   "n": 21,
   "precision_bits": 256,
   "probe_count": 12,
+  "probe_selection_method": "fixed S={0,...,5} plus eleven largest-magnitude Run 70 harmonic coordinates, ranked by binary64 midpoint",
   "probes": [
     {
       "32_minor_pricing_expectation_interval": "[-0.0006046443881814864438437704854521757309003987258148677573001542359393987 +/- 5.05e-74]",
@@ -309,7 +310,7 @@
   "quartic_orbit_certificate_sha256": "b9f4aaf33af2419174e0f48c111d786fbc3a159e7e1da8f3bb259629c05492ac",
   "run70_certificate_sha256": "7f3419999c3946f91cc41b630041402fb9ce69a8d79af75aaf1aab7b8aad767b",
   "schema": "eui_n42_sixth_harmonic_local_pricing_arb_v1",
-  "scope": "This verifies the compact local pricing identity against the Run 70 full-projection coordinate formula on twelve distinct D42 orbits of the frozen 37-base/74-labelled period-two candidate. The theorem itself applies to every real 42-cycle coupling vector because Q(c) is a symmetric involution with 21 eigenvalues of each sign. The probe computation is not a global separator and does not exclude the continuous physical convex hull or imply a Choi/diamond bound.",
+  "scope": "This verifies the compact local pricing identity against the Run 70 full-projection coordinate formula on twelve distinct D42 orbits of the frozen 37-base/74-labelled period-two candidate. Probe set: one fixed path-escape set plus eleven largest Run 70 residual coordinates. The theorem itself applies to every real 42-cycle coupling vector because Q(c) is a symmetric involution with 21 eigenvalues of each sign. The probe computation is not a global separator and does not exclude the continuous physical convex hull or imply a Choi/diamond bound.",
   "status": "local_pricing_identity_certified_on_frozen_n42_probes",
   "uniform_target_mean_exact": "0",
   "weight_input_sha256": "53144e15c92afa65a60e568499608ba30e2c25f645a4804414afde9de088fffd",
