@@ -352,6 +352,26 @@ def verify():
     if not (norm2_lower > 0):
         raise AssertionError("no positive full-projection lower bound was certified")
 
+    # Retain the largest-magnitude coordinate intervals as pricing probes.
+    # Binary64 is used only to rank the probes; every stored residual remains
+    # the original 256-bit Arb enclosure and no proof depends on the ranking.
+    ranked_coordinates = sorted(
+        orbit_records,
+        key=lambda item: abs(float(harmonic_by_mask[item[0]])),
+        reverse=True,
+    )
+    top_harmonic_coordinates = [
+        {
+            "mask": mask,
+            "indices": list(mask_to_tuple(mask)),
+            "orbit_size": orbit_size,
+            "residual_interval": str(harmonic_by_mask[mask]),
+            "absolute_residual_interval": str(abs(harmonic_by_mask[mask])),
+            "absolute_midpoint_for_ranking": abs(float(harmonic_by_mask[mask])),
+        }
+        for mask, orbit_size in ranked_coordinates[:64]
+    ]
+
     degree6_partial = norm2_lower / arb(lambda6)
     partial_beats_run69 = degree6_partial > run69_witness
     best_degree6 = degree6_partial if partial_beats_run69 else run69_witness
@@ -427,6 +447,11 @@ def verify():
         "frame_potential_lower_bound_interval": str(frame_potential_lower_bound),
         "frame_potential_lower_bound_gt_8.33e-12": True,
         "orbit_residual_digest_sha256": digest.hexdigest(),
+        "top_coordinate_ranking_method": (
+            "binary64 midpoint magnitude used only to select pricing probes; "
+            "all stored residual and absolute-residual intervals are 256-bit Arb"
+        ),
+        "top_harmonic_coordinates_by_abs_midpoint": top_harmonic_coordinates,
         "atom_input_sha256": atom_sha,
         "weight_input_sha256": weight_sha,
         "quartic_orbit_certificate_sha256": quartic_orbit_sha,
