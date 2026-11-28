@@ -17,35 +17,8 @@
     "cross_bipartite_edges": 441,
     "each_cross_edge_occurs_exactly_once": true,
     "same_parity_edges": 0,
-    "cycle_edges_per_matching": [
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2,
-      2
-    ],
-    "union_component_histogram_ordered_pairs": {
-      "1": 252,
-      "3": 126,
-      "7": 42,
-      "21": 21
-    },
+    "cycle_edges_per_matching": [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+    "union_component_histogram_ordered_pairs": {"1": 252, "3": 126, "7": 42, "21": 21},
     "union_components_formula": "components(M_t union M_s)=gcd(21,t-s)"
   },
   "pair_moment_minimax": {
@@ -73,7 +46,7 @@
     "chi_square_exact": "839949975821189/68719476736",
     "chi_square_decimal": 12222.88084421873,
     "frame_potential_exact": "12485/137438953472",
-    "frame_potential_decimal": 9.084033081308007e-8,
+    "frame_potential_decimal": 9.084033081308007e-08,
     "derivation": "q_M is uniform on the 2^21 transversals of M. M_t union M_s has gcd(21,t-s) alternating cycles, hence 2^gcd common transversals. Therefore sum_S q(S)^2=2^-42*(1/21)*sum_r 2^gcd(21,r)=99880/2^42."
   },
   "scope": "The 21 path-transfer atoms are in the real-coupling cycle family when zero couplings are allowed. Their mixture is pair-level optimal among bipartite perfect-matching mixtures but is not the balanced-slice target: it has zero same-parity pair moments and -1/21 cross-parity pair moments, rather than -1/41 for every pair. The chi-square and TV bounds are for this explicit program-label law, not Choi or diamond distance. This does not settle the convex hull of non-permutation cycle exponentials.",
