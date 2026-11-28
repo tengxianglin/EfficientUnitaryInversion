@@ -61,183 +61,123 @@
         4,
         5
       ],
+      "run70_stored_residual_interval": null,
       "single_coordinate_chi_square_lower_bound_interval": "[3.69666141588816193848175918001783434125016828739051444622110529886316e-7 +/- 4.85e-76]"
     },
     {
-      "32_minor_pricing_expectation_interval": "[0.0001286569561680287140646715493076942430127238076606918231514519204911909 +/- 5.30e-74]",
+      "32_minor_pricing_expectation_interval": "[-0.002973029812107923690548918719319973043249757785491486898013293008533452 +/- 1.86e-73]",
       "canonical_D42_representative": [
         0,
         1,
-        2,
-        3,
-        4,
-        6
-      ],
-      "difference_interval": "[+/- 8.81e-74]",
-      "direct_projection_coordinate_interval": "[0.000128656956168028714064671549307694243012723807660691823151451920491191 +/- 1.07e-73]",
-      "indices": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        6
-      ],
-      "single_coordinate_chi_square_lower_bound_interval": "[1.67369441332097067752737338167635687066456018498109635594775845818993e-8 +/- 6.30e-77]"
-    },
-    {
-      "32_minor_pricing_expectation_interval": "[0.0002127351839298275561909139142528830914791254564081418175335379557967595 +/- 5.17e-74]",
-      "canonical_D42_representative": [
-        0,
-        1,
-        2,
-        3,
-        5,
-        7
-      ],
-      "difference_interval": "[+/- 1.10e-73]",
-      "direct_projection_coordinate_interval": "[0.000212735183929827556190913914252883091479125456408141817533537955796760 +/- 5.25e-73]",
-      "indices": [
-        0,
-        1,
-        2,
-        3,
-        5,
-        7
-      ],
-      "single_coordinate_chi_square_lower_bound_interval": "[4.57602372927607494455838573186830203363569273642154942986978352479350e-8 +/- 3.76e-77]"
-    },
-    {
-      "32_minor_pricing_expectation_interval": "[-4.79942341027781427028185451798320230617703142809108587526356560072164e-5 +/- 4.52e-74]",
-      "canonical_D42_representative": [
-        0,
-        1,
-        2,
-        4,
-        6,
-        8
-      ],
-      "difference_interval": "[+/- 1.27e-73]",
-      "direct_projection_coordinate_interval": "[-4.7994234102778142702818545179832023061770314280910858752635656007216e-5 +/- 4.32e-73]",
-      "indices": [
-        0,
-        1,
-        2,
-        4,
-        6,
-        8
-      ],
-      "single_coordinate_chi_square_lower_bound_interval": "[2.3290979478420611780148252678184282302804370280618237607437319894448e-9 +/- 1.15e-77]"
-    },
-    {
-      "32_minor_pricing_expectation_interval": "[9.32154925869599767509429733820140886139525158987500494048836873323601e-5 +/- 3.83e-74]",
-      "canonical_D42_representative": [
-        0,
-        1,
-        3,
-        5,
-        7,
-        9
-      ],
-      "difference_interval": "[+/- 1.30e-73]",
-      "direct_projection_coordinate_interval": "[9.3215492586959976750942973382014088613952515898750049404883687332360e-5 +/- 2.39e-73]",
-      "indices": [
-        0,
-        1,
-        3,
-        5,
-        7,
-        9
-      ],
-      "single_coordinate_chi_square_lower_bound_interval": "[8.7858911706747957441537353801993567892929259220309728939051366504244e-9 +/- 3.77e-77]"
-    },
-    {
-      "32_minor_pricing_expectation_interval": "[0.0002318007405517016481721873194145802137599377970509069226506068017502814 +/- 8.61e-74]",
-      "canonical_D42_representative": [
-        0,
-        2,
-        4,
-        6,
-        8,
-        10
-      ],
-      "difference_interval": "[+/- 2.26e-73]",
-      "direct_projection_coordinate_interval": "[0.000231800740551701648172187319414580213759937797050906922650606801750281 +/- 5.40e-73]",
-      "indices": [
-        0,
-        2,
-        4,
-        6,
-        8,
-        10
-      ],
-      "single_coordinate_chi_square_lower_bound_interval": "[5.4329944307040073199460497161577371129504748335882312904489773384974e-8 +/- 5.16e-76]"
-    },
-    {
-      "32_minor_pricing_expectation_interval": "[-0.000512544940784501023539819507774126117334260767962853888678060865152950 +/- 1.40e-73]",
-      "canonical_D42_representative": [
-        0,
-        1,
-        10,
-        11,
-        20,
-        21
-      ],
-      "difference_interval": "[+/- 4.99e-73]",
-      "direct_projection_coordinate_interval": "[-0.000512544940784501023539819507774126117334260767962853888678060865152950 +/- 3.60e-73]",
-      "indices": [
-        0,
-        1,
-        10,
-        11,
-        20,
-        21
-      ],
-      "single_coordinate_chi_square_lower_bound_interval": "[2.65627799019370567906422517517359717487486217545815379306434582783562e-7 +/- 3.95e-76]"
-    },
-    {
-      "32_minor_pricing_expectation_interval": "[-9.60499965470918294513641227741980741362276031535221676278384338890491e-5 +/- 6.20e-74]",
-      "canonical_D42_representative": [
-        0,
-        3,
-        9,
+        14,
         15,
-        21,
-        27
+        28,
+        29
       ],
-      "difference_interval": "[+/- 1.18e-73]",
-      "direct_projection_coordinate_interval": "[-9.6049996547091829451364122774198074136227603153522167627838433889049e-5 +/- 1.56e-73]",
+      "difference_interval": "[+/- 4.56e-73]",
+      "direct_projection_coordinate_interval": "[-0.002973029812107923690548918719319973043249757785491486898013293008533452 +/- 3.47e-73]",
       "indices": [
         0,
-        3,
-        9,
+        1,
+        14,
         15,
-        21,
-        27
+        28,
+        29
       ],
-      "single_coordinate_chi_square_lower_bound_interval": "[9.3283391817920384598738616912937029888555139298201082118610018157781e-9 +/- 2.29e-77]"
+      "run70_stored_residual_interval": "[-0.002973029812107923690548918719319973043249757785491486898013293008533452 +/- 3.47e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[8.93733732315745870858510861012585530118140856590529717891888587854065e-6 +/- 3.82e-75]"
     },
     {
-      "32_minor_pricing_expectation_interval": "[0.0002238094436728156291659182500850370270049889134528399266838319405295095 +/- 3.41e-74]",
+      "32_minor_pricing_expectation_interval": "[-0.001948584735193275513494429669189097545168824996366540674729912572000039 +/- 3.24e-73]",
       "canonical_D42_representative": [
         0,
         5,
-        12,
+        14,
         19,
-        26,
+        28,
         33
       ],
-      "difference_interval": "[+/- 1.42e-73]",
-      "direct_projection_coordinate_interval": "[0.000223809443672815629165918250085037027004988913452839926683831940529509 +/- 5.91e-73]",
+      "difference_interval": "[+/- 4.01e-73]",
+      "direct_projection_coordinate_interval": "[-0.001948584735193275513494429669189097545168824996366540674729912572000039 +/- 5.15e-73]",
       "indices": [
         0,
         5,
-        12,
+        14,
         19,
-        26,
+        28,
         33
       ],
-      "single_coordinate_chi_square_lower_bound_interval": "[5.06484824089336383936750743040250155512879794332420939893281436030827e-8 +/- 9.11e-77]"
+      "run70_stored_residual_interval": "[-0.001948584735193275513494429669189097545168824996366540674729912572000039 +/- 5.15e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[3.83926609630177440473490021609353200302296458533598698618617037117821e-6 +/- 5.49e-75]"
+    },
+    {
+      "32_minor_pricing_expectation_interval": "[-0.001839867316720475592512310311997563906999542968836470645359707631397589 +/- 4.13e-73]",
+      "canonical_D42_representative": [
+        0,
+        3,
+        14,
+        17,
+        28,
+        31
+      ],
+      "difference_interval": "[+/- 4.81e-73]",
+      "direct_projection_coordinate_interval": "[-0.001839867316720475592512310311997563906999542968836470645359707631397589 +/- 6.19e-73]",
+      "indices": [
+        0,
+        3,
+        14,
+        17,
+        28,
+        31
+      ],
+      "run70_stored_residual_interval": "[-0.001839867316720475592512310311997563906999542968836470645359707631397589 +/- 6.19e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[3.42280873022692051283157123350518253673907944573885404288474093659115e-6 +/- 4.96e-75]"
+    },
+    {
+      "32_minor_pricing_expectation_interval": "[0.001534120984442646369289756478868256195644639057051279483689927981322861 +/- 4.72e-73]",
+      "canonical_D42_representative": [
+        0,
+        2,
+        4,
+        20,
+        22,
+        24
+      ],
+      "difference_interval": "[+/- 3.75e-73]",
+      "direct_projection_coordinate_interval": "[0.001534120984442646369289756478868256195644639057051279483689927981322861 +/- 5.18e-73]",
+      "indices": [
+        0,
+        2,
+        4,
+        20,
+        22,
+        24
+      ],
+      "run70_stored_residual_interval": "[0.001534120984442646369289756478868256195644639057051279483689927981322861 +/- 5.18e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[2.37973633983844744629224869230530550261292029908660795716941626097157e-6 +/- 1.32e-75]"
+    },
+    {
+      "32_minor_pricing_expectation_interval": "[-0.0014827095760850829410761886062417975696293728823669183858364909971403163 +/- 9.04e-74]",
+      "canonical_D42_representative": [
+        0,
+        2,
+        5,
+        7,
+        22,
+        27
+      ],
+      "difference_interval": "[+/- 3.02e-73]",
+      "direct_projection_coordinate_interval": "[-0.001482709576085082941076188606241797569629372882366918385836490997140316 +/- 5.11e-73]",
+      "indices": [
+        0,
+        2,
+        5,
+        7,
+        22,
+        27
+      ],
+      "run70_stored_residual_interval": "[-0.001482709576085082941076188606241797569629372882366918385836490997140316 +/- 5.11e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[2.222909626290206468497100951963724098991371047113980950640817709728242e-6 +/- 8.69e-76]"
     },
     {
       "32_minor_pricing_expectation_interval": "[-0.001468666832490641310159501829771417703071720906222727174188979069203087 +/- 2.35e-73]",
@@ -259,56 +199,130 @@
         28,
         35
       ],
+      "run70_stored_residual_interval": "[-0.001468666832490641310159501829771417703071720906222727174188979069203087 +/- 4.85e-73]",
       "single_coordinate_chi_square_lower_bound_interval": "[2.18100266322696079564487949990677962071139128296097829973362833538914e-6 +/- 4.90e-75]"
     },
     {
-      "32_minor_pricing_expectation_interval": "[-3.94822029106139313988265593068104972353619662424618215744536660959883e-5 +/- 5.45e-74]",
+      "32_minor_pricing_expectation_interval": "[0.001345085978332470668393735083211696663233959443556782638214142422827419 +/- 1.97e-73]",
       "canonical_D42_representative": [
         0,
         4,
-        15,
-        17,
-        21,
-        30
+        14,
+        18,
+        28,
+        32
       ],
-      "difference_interval": "[+/- 1.23e-73]",
-      "direct_projection_coordinate_interval": "[-3.9482202910613931398826559306810497235361966242461821574453666095988e-5 +/- 3.45e-73]",
+      "difference_interval": "[+/- 4.25e-73]",
+      "direct_projection_coordinate_interval": "[0.001345085978332470668393735083211696663233959443556782638214142422827419 +/- 3.44e-73]",
+      "indices": [
+        0,
+        4,
+        14,
+        18,
+        28,
+        32
+      ],
+      "run70_stored_residual_interval": "[0.001345085978332470668393735083211696663233959443556782638214142422827419 +/- 3.44e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[1.829404371695782236630422464320157052561250101621443011950326195659386e-6 +/- 8.01e-76]"
+    },
+    {
+      "32_minor_pricing_expectation_interval": "[-0.0012066983506354971635183138851914113662872912309342355727887992397857073 +/- 6.93e-74]",
+      "canonical_D42_representative": [
+        0,
+        4,
+        8,
+        15,
+        19,
+        23
+      ],
+      "difference_interval": "[+/- 2.64e-73]",
+      "direct_projection_coordinate_interval": "[-0.001206698350635497163518313885191411366287291230934235572788799239785707 +/- 5.33e-73]",
+      "indices": [
+        0,
+        4,
+        8,
+        15,
+        19,
+        23
+      ],
+      "run70_stored_residual_interval": "[-0.001206698350635497163518313885191411366287291230934235572788799239785707 +/- 5.33e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[1.472336436502152019761643350661850285890108810654867291782891062794295e-6 +/- 7.25e-76]"
+    },
+    {
+      "32_minor_pricing_expectation_interval": "[-0.001176747629902006630431358080835195702671327594680122943918150991994085 +/- 5.02e-73]",
+      "canonical_D42_representative": [
+        0,
+        5,
+        11,
+        18,
+        24,
+        29
+      ],
+      "difference_interval": "[+/- 3.47e-73]",
+      "direct_projection_coordinate_interval": "[-0.001176747629902006630431358080835195702671327594680122943918150991994085 +/- 6.55e-73]",
+      "indices": [
+        0,
+        5,
+        11,
+        18,
+        24,
+        29
+      ],
+      "run70_stored_residual_interval": "[-0.001176747629902006630431358080835195702671327594680122943918150991994085 +/- 6.55e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[1.400155549824649844453311944550567663052171619140281080413097277488195e-6 +/- 7.82e-76]"
+    },
+    {
+      "32_minor_pricing_expectation_interval": "[-0.0011374796073212205479328059479049731860811972462877696368504472813939188 +/- 5.30e-74]",
+      "canonical_D42_representative": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "difference_interval": "[+/- 2.28e-73]",
+      "direct_projection_coordinate_interval": "[-0.001137479607321220547932805947904973186081197246287769636850447281393919 +/- 3.75e-73]",
       "indices": [
         0,
         2,
-        13,
-        17,
-        29,
-        38
+        3,
+        4,
+        5,
+        7
       ],
-      "single_coordinate_chi_square_lower_bound_interval": "[1.5762038135616766763378313486212214094916747431708836594158176087316e-9 +/- 4.43e-77]"
+      "run70_stored_residual_interval": "[-0.001137479607321220547932805947904973186081197246287769636850447281393919 +/- 3.75e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[1.308268426723179094844681558127665688373428918860205276719894317696062e-6 +/- 5.39e-76]"
     },
     {
-      "32_minor_pricing_expectation_interval": "[-2.78785210428837041765096290766669632930416633082739916556084600410828e-5 +/- 4.03e-74]",
+      "32_minor_pricing_expectation_interval": "[-0.001080301012046074737405735611843367084148429595010734662105819775898485 +/- 3.86e-73]",
       "canonical_D42_representative": [
         0,
-        9,
-        13,
-        16,
-        23,
-        32
+        5,
+        10,
+        21,
+        26,
+        31
       ],
-      "difference_interval": "[+/- 1.13e-73]",
-      "direct_projection_coordinate_interval": "[-2.7878521042883704176509629076666963293041663308273991655608460041083e-5 +/- 2.72e-73]",
+      "difference_interval": "[+/- 4.16e-73]",
+      "direct_projection_coordinate_interval": "[-0.001080301012046074737405735611843367084148429595010734662105819775898485 +/- 6.21e-73]",
       "indices": [
-        1,
-        4,
-        11,
-        20,
-        30,
-        39
+        0,
+        5,
+        10,
+        21,
+        26,
+        31
       ],
-      "single_coordinate_chi_square_lower_bound_interval": "[7.8586705552388483093749810102775383968484605871473298176144622870517e-10 +/- 5.18e-78]"
+      "run70_stored_residual_interval": "[-0.001080301012046074737405735611843367084148429595010734662105819775898485 +/- 6.21e-73]",
+      "single_coordinate_chi_square_lower_bound_interval": "[1.180046680454459489288657672300340324535654192263021860533635106598396e-6 +/- 8.89e-76]"
     }
   ],
   "quartic_certificate_sha256": "c5acc1e15996700282fe9e4e27ecf412db18e2a3707a5240518bdf4e1c1bbdbe",
   "quartic_orbit_certificate_sha256": "b9f4aaf33af2419174e0f48c111d786fbc3a159e7e1da8f3bb259629c05492ac",
-  "run70_certificate_sha256": "7f3419999c3946f91cc41b630041402fb9ce69a8d79af75aaf1aab7b8aad767b",
+  "run70_certificate_sha256": "5f368cbb0ce9ecb042c7d11208e483aff8b04e7467156b4dff5547a756fc7419",
+  "run70_top_coordinate_count": 64,
+  "run70_top_coordinate_ranking_method": "binary64 midpoint magnitude used only to select pricing probes; all stored residual and absolute-residual intervals are 256-bit Arb",
   "schema": "eui_n42_sixth_harmonic_local_pricing_arb_v1",
   "scope": "This verifies the compact local pricing identity against the Run 70 full-projection coordinate formula on twelve distinct D42 orbits of the frozen 37-base/74-labelled period-two candidate. Probe set: one fixed path-escape set plus eleven largest Run 70 residual coordinates. The theorem itself applies to every real 42-cycle coupling vector because Q(c) is a symmetric involution with 21 eigenvalues of each sign. The probe computation is not a global separator and does not exclude the continuous physical convex hull or imply a Choi/diamond bound.",
   "status": "local_pricing_identity_certified_on_frozen_n42_probes",
