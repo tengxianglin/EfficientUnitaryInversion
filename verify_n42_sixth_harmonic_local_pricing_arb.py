@@ -70,6 +70,8 @@ def verify():
     quartic_cert = json.loads(quartic_cert_bytes)
     run70 = json.loads(run70_bytes)
 
+    top_rows = run70.get("top_harmonic_coordinates_by_abs_midpoint", [])
+    top_by_indices = {tuple(row["indices"]): row for row in top_rows}
     probes = [PROBES[0]]
     seen_orbits = {
         projection.canonical_mask(sum(1 << i for i in probes[0]))
@@ -176,6 +178,13 @@ def verify():
                 f"local pricing disagrees with the Run 70 projection at {indices}: "
                 f"{difference}"
             )
+        stored_top = top_by_indices.get(tuple(indices))
+        if stored_top is not None:
+            stored_interval = arb(stored_top["residual_interval"])
+            if not (stored_interval - direct_coordinate).contains(0):
+                raise AssertionError(
+                    f"recomputed coordinate disagrees with Run 70 stored interval at {indices}"
+                )
         if not records:
             first_probe_coordinate = direct_coordinate
         if direct_coordinate.contains(0):
@@ -192,6 +201,9 @@ def verify():
             "direct_projection_coordinate_interval": str(direct_coordinate),
             "32_minor_pricing_expectation_interval": str(priced_mean),
             "difference_interval": str(difference),
+            "run70_stored_residual_interval": (
+                stored_top["residual_interval"] if stored_top is not None else None
+            ),
             "single_coordinate_chi_square_lower_bound_interval": str(chi_lower),
         })
 
@@ -206,6 +218,8 @@ def verify():
         "precision_bits": ctx.prec,
         "probe_count": len(records),
         "probe_selection_method": "fixed S={0,...,5} plus eleven largest-magnitude Run 70 harmonic coordinates, ranked by binary64 midpoint",
+        "run70_top_coordinate_count": len(top_rows),
+        "run70_top_coordinate_ranking_method": run70.get("top_coordinate_ranking_method"),
         "distinct_D42_probe_orbits": len(canonical_orbits),
         "minors_per_atom_per_probe": 32,
         "local_witness_coefficients": {
