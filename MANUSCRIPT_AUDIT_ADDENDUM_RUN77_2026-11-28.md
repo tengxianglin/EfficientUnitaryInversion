@@ -74,3 +74,22 @@ If the physical model is explicitly restricted to c_j>0, the negative sector is 
 - No program-label TV to Choi trace-distance or channel diamond-distance bridge was added.
 - No formal manuscript source was present, so only theory, verification, and audit records were changed.
 - No model-routing control was available to select GPT-6.1-sol Max; no model switch is claimed.
+
+
+## Verification closure and negative-flux discovery check
+
+The first workflow attempt (46147410304) completed the exhaustive verifier successfully but failed the final evidence diff because the manually committed JSON used a different object-key order from the verifier's deterministic sorted-key serializer. No mathematical assertion failed. The evidence was regenerated in the verifier's canonical serialization and the theory note was clarified to connect Q=RD to Issue #7's original R=e^A convention.
+
+Final workflow [46147591590 — SUCCESS](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46147591590) passed compilation, exhaustive N=4,6,8,10 sign/zero-pattern audits, N=42 deterministic smoke tests, byte-for-byte evidence comparison, and artifact upload. Final theory blob SHA: 4c7514b3ba6ed58cbd643a0dba90d08fd838a7a4. Final evidence blob SHA: 1483fe176c2fa9d525b5fd9660fdc222e8baf455.
+
+A separate discovery-only numerical experiment used the first frozen primitive-period-42 Run 74 seed, once with positive holonomy and once with the same magnitudes but c_41 sign-flipped. For each version, binary64 matrix exponentiation and direct principal-minor evaluation produced D42-averaged pair and quartic columns (21 pair orbits and all 1,440 quartic orbits, covering all 861 pairs and 111,930 quartets). The two sectors are numerically distinct:
+- maximum pair-orbit column difference: 4.284806143635897e-4 at representative (0,13);
+- maximum quartic-orbit column difference: 1.6355762083186893e-4 at representative (0,2,10,34).
+
+For the Run 74 quartic witnesses, the D42-averaged residuals were:
+- (0,3,18,21): +5.954660660117054e-4 in the positive sector and +6.428598859629994e-4 in the negative sector;
+- (0,1,6,7): +7.591389344980759e-3 and +7.688365803689070e-3;
+- (0,3,19,26): +2.5273485084232975e-4 and +2.1768147711146097e-4.
+
+This is a single-seed binary64 discovery check, not an interval certificate and not an ensemble feasibility result. It confirms that the negative-holonomy column is not generally redundant; it does not show that it improves the current quartic residuals.
+
