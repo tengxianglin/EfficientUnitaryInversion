@@ -131,6 +131,7 @@ def verify():
         raise AssertionError("unexpected local-witness Lipschitz constant")
 
     records = []
+    first_probe_coordinate = None
     for indices in PROBES:
         direct_coordinate = projection.harmonic_residual(
             indices,
@@ -153,6 +154,8 @@ def verify():
                 f"local pricing disagrees with the Run 70 projection at {indices}: "
                 f"{difference}"
             )
+        if not records:
+            first_probe_coordinate = direct_coordinate
         if direct_coordinate.contains(0):
             chi_lower = arb(0)
         else:
@@ -170,8 +173,7 @@ def verify():
             "single_coordinate_chi_square_lower_bound_interval": str(chi_lower),
         })
 
-    first_probe_coordinate = arb(records[0]["direct_projection_coordinate_interval"])
-    if not (first_probe_coordinate < 0):
+    if first_probe_coordinate is None or not (first_probe_coordinate < 0):
         raise AssertionError("the frozen candidate's first local coordinate is not negative")
 
     result = {
