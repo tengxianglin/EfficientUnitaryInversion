@@ -37,3 +37,7 @@ The verifier checks all 21 matchings, all 441 cross edges, all 441 ordered atom-
 ## Next highest-value action
 
 Do not continue searching for a pair-balanced mixture of signed matching atoms: the 1-factorization is already pair-optimal, and the universal matching-subfamily lower bound is 13/28. Move to non-permutation cycle exponentials. Enforce all 861 pair constraints in the candidate mixture, then use the Run 71 32-minor local pricing oracle on the largest Run 70 sixth-harmonic coordinates to generate/certify new non-periodic columns. The first goal is a reproducible finite-pool primal/dual diagnostic; a global conclusion still requires a separator priced over every real coupling vector or an exact positive physical ensemble matching all even orders.
+
+## Final CI closure
+
+The first two workflow attempts reached the exact verifier and produced the expected rational outputs, but failed the final byte-for-byte evidence comparison because of JSON formatting only (float exponent and array pretty-printing). The committed certificate was normalized to the verifier's deterministic Python output. Final [workflow 46113888051](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46113888051) passed compilation, the exact verifier, evidence diff, and artifact upload. Final main HEAD: 6873c1ebb8c5d7bb8705822b52a341dde1c45710.
