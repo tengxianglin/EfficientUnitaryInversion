@@ -3,6 +3,31 @@
   "atom_input_sha256": "948ee6542ae8f358bae27614d7124acfd7d1c5db9bcbaf2db787449253a8cb0d",
   "chi_square_multiplier_exact": "8026447/7938048",
   "distinct_D42_probe_orbits": 12,
+  "fully_connected_positive_cycle_escape": {
+    "all_42_couplings_strictly_positive": true,
+    "boundary_witness_exact": "1/2849",
+    "closing_edge_epsilon": "1/1000000",
+    "frozen_candidate_coordinate_interval": "[-0.000604644388181486443843770485452175730900398725814867757300154235939399 +/- 4.38e-73]",
+    "generator_operator_norm_difference_bound": "2*epsilon",
+    "minimum_internal_coupling_expression": "pi*sqrt(41)/4 > 0",
+    "opposite_sign_physical_atom_certified": true,
+    "path_couplings": "c_j=(pi/4)*sqrt((j+1)*(41-j)) for j=0,...,40; c_41=1/1000000",
+    "positive_cycle_witness_lower_bound_exact": "14922/44515625",
+    "positive_cycle_witness_upper_bound_exact": "16328/44515625",
+    "probe_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "scope": "The positive-cycle atom cancels only the selected S={0,...,5} harmonic coordinate after a suitable convex reweighting. It does not match the other moment coordinates or solve the full convex-hull problem.",
+    "two_atom_mixture_can_cancel_this_one_coordinate": true,
+    "witness_lipschitz_constant_exact": "1216/77",
+    "witness_lipschitz_constant_less_than_16": true,
+    "zero_closing_edge_perfect_transfer_matching": "i <-> 41-i"
+  },
   "lambda6_exact": "7938048/6724861",
   "local_witness_coefficients": {
     "order_0": "1/2849",
