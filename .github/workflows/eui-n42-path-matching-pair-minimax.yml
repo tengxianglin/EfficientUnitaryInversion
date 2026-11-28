@@ -1,0 +1,41 @@
+name: EUI N42 path-matching 1-factorization pair minimax
+on:
+  push:
+    branches: [main]
+    paths:
+      - "THEORY_N42_PATH_MATCHING_1_FACTORIZATION_PAIR_MINIMAX.md"
+      - "verify_n42_path_matching_1_factorization_pair_minimax.py"
+      - "evidence/n42_path_matching_1_factorization_pair_minimax.json"
+      - ".github/workflows/eui-n42-path-matching-pair-minimax.yml"
+  pull_request:
+    paths:
+      - "THEORY_N42_PATH_MATCHING_1_FACTORIZATION_PAIR_MINIMAX.md"
+      - "verify_n42_path_matching_1_factorization_pair_minimax.py"
+      - "evidence/n42_path_matching_1_factorization_pair_minimax.json"
+      - ".github/workflows/eui-n42-path-matching-pair-minimax.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: eui-n42-path-matching-pair-minimax
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile and run exact verifier
+        run: |
+          python -m py_compile verify_n42_path_matching_1_factorization_pair_minimax.py
+          python verify_n42_path_matching_1_factorization_pair_minimax.py
+          git diff --exit-code -- evidence/n42_path_matching_1_factorization_pair_minimax.json
+      - name: Upload machine certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-path-matching-pair-minimax
+          path: evidence/n42_path_matching_1_factorization_pair_minimax.json
+          if-no-files-found: error
