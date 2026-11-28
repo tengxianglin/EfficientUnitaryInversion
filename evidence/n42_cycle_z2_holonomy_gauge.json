@@ -17,43 +17,43 @@
   "small_cycle_exhaustive_audits": [
     {
       "N": 4,
-      "signed_zero_edge_patterns_exhausted": 81,
-      "support_masks": 16,
+      "combined_gauge_dihedral_orbits": 7,
+      "combined_key_sha256": "de706a199ce1ffbee13fcaa90bad61b359126440a58b3945d0e003c79dd5bf99",
+      "full_support_gauge_orbits": 2,
       "gauge_orbits_over_all_patterns": 17,
       "nonfull_supports_with_one_gauge_orbit": 15,
-      "full_support_gauge_orbits": 2,
-      "combined_gauge_dihedral_orbits": 7,
-      "combined_key_sha256": "de706a199ce1ffbee13fcaa90bad61b359126440a58b3945d0e003c79dd5bf99"
+      "signed_zero_edge_patterns_exhausted": 81,
+      "support_masks": 16
     },
     {
       "N": 6,
-      "signed_zero_edge_patterns_exhausted": 729,
-      "support_masks": 64,
+      "combined_gauge_dihedral_orbits": 14,
+      "combined_key_sha256": "7c96ac9a632c0c56821571fe927c3b264168722fdc7ef563522128a53213b25d",
+      "full_support_gauge_orbits": 2,
       "gauge_orbits_over_all_patterns": 65,
       "nonfull_supports_with_one_gauge_orbit": 63,
-      "full_support_gauge_orbits": 2,
-      "combined_gauge_dihedral_orbits": 14,
-      "combined_key_sha256": "7c96ac9a632c0c56821571fe927c3b264168722fdc7ef563522128a53213b25d"
+      "signed_zero_edge_patterns_exhausted": 729,
+      "support_masks": 64
     },
     {
       "N": 8,
-      "signed_zero_edge_patterns_exhausted": 6561,
-      "support_masks": 256,
+      "combined_gauge_dihedral_orbits": 31,
+      "combined_key_sha256": "163541b1474c8406d184017be6dcdbc4700cd4f563a6cfb88db3058a3f3ed130",
+      "full_support_gauge_orbits": 2,
       "gauge_orbits_over_all_patterns": 257,
       "nonfull_supports_with_one_gauge_orbit": 255,
-      "full_support_gauge_orbits": 2,
-      "combined_gauge_dihedral_orbits": 31,
-      "combined_key_sha256": "163541b1474c8406d184017be6dcdbc4700cd4f563a6cfb88db3058a3f3ed130"
+      "signed_zero_edge_patterns_exhausted": 6561,
+      "support_masks": 256
     },
     {
       "N": 10,
-      "signed_zero_edge_patterns_exhausted": 59049,
-      "support_masks": 1024,
+      "combined_gauge_dihedral_orbits": 79,
+      "combined_key_sha256": "00099626bfbde1425be4a3ee2795763980314050df31020eae5a634a94645f27",
+      "full_support_gauge_orbits": 2,
       "gauge_orbits_over_all_patterns": 1025,
       "nonfull_supports_with_one_gauge_orbit": 1023,
-      "full_support_gauge_orbits": 2,
-      "combined_gauge_dihedral_orbits": 79,
-      "combined_key_sha256": "00099626bfbde1425be4a3ee2795763980314050df31020eae5a634a94645f27"
+      "signed_zero_edge_patterns_exhausted": 59049,
+      "support_masks": 1024
     }
   ],
   "status": "exact_small_cycle_gauge_classification_verified",

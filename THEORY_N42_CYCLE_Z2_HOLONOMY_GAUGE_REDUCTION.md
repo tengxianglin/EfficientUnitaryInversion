@@ -16,6 +16,12 @@ v(c)=\bigl(\det Q(c)_{I,I}\bigr)_{|I|\ {\rm even}}
 \]
 be the complete even-principal-minor feature vector. The same argument below actually preserves principal minors of every order.
 
+Issue #7 is written in the original R(c)=e^{A(c)} convention. Since R(c)=Q(c)D and D is diagonal,
+\\[
+\\det R(c)_{I,I}=\\left(\\prod_{i\\in I}D_{ii}\\right)\\det Q(c)_{I,I}.
+\\]
+This is a fixed coordinatewise sign change, independent of c. Hence the gauge-orbit and closed-convex-hull reductions below apply without change to the original R-feature vector and its signed target as well.
+
 Run 66 already identified the legal vertex-sign gauge. This note classifies its orbits exactly and identifies the residual Z2 invariant that is not removed by gauge transformations.
 
 ## Lemma 1 — exact gauge covariance
