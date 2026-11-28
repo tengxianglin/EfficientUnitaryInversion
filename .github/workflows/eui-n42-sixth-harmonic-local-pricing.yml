@@ -1,0 +1,75 @@
+name: EUI N42 sixth-harmonic local pricing oracle
+on:
+  push:
+    branches: [main]
+    paths:
+      - "THEORY_N42_SIXTH_HARMONIC_LOCAL_PRICING.md"
+      - "verify_harmonic_coordinate_pricing.py"
+      - "verify_n42_sixth_harmonic_local_pricing_arb.py"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "verify_n42_degree_six_harmonic_projection_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "evidence/n42_period_two_six_quartic_ensemble_arb.json"
+      - "evidence/n42_period_two_six_quartic_all_orbits_arb.json"
+      - "evidence/n42_optimal_quartic_chi_square_arb.json"
+      - "evidence/n42_degree_six_harmonic_projection_arb.json"
+      - ".github/workflows/eui-n42-sixth-harmonic-local-pricing.yml"
+  pull_request:
+    paths:
+      - "THEORY_N42_SIXTH_HARMONIC_LOCAL_PRICING.md"
+      - "verify_harmonic_coordinate_pricing.py"
+      - "verify_n42_sixth_harmonic_local_pricing_arb.py"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "verify_n42_degree_six_harmonic_projection_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "evidence/n42_period_two_six_quartic_ensemble_arb.json"
+      - "evidence/n42_period_two_six_quartic_all_orbits_arb.json"
+      - "evidence/n42_optimal_quartic_chi_square_arb.json"
+      - "evidence/n42_degree_six_harmonic_projection_arb.json"
+      - ".github/workflows/eui-n42-sixth-harmonic-local-pricing.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-sixth-harmonic-local-pricing
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Check environment and compile
+        run: |
+          python -m pip check
+          python -m py_compile \
+            verify_harmonic_coordinate_pricing.py \
+            verify_n42_sixth_harmonic_local_pricing_arb.py \
+            verify_n42_period_two_six_quartic_ensemble_arb.py \
+            verify_n42_degree_six_harmonic_projection_arb.py
+      - name: Run exact rational local-pricing regressions
+        run: python verify_harmonic_coordinate_pricing.py
+      - name: Compare compact pricing against the Run 70 N42 projection
+        run: python verify_n42_sixth_harmonic_local_pricing_arb.py
+      - name: Commit deterministic Arb certificate
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_sixth_harmonic_local_pricing_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify N42 local sixth-harmonic pricing probes"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload local-pricing certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-sixth-harmonic-local-pricing
+          path: evidence/n42_sixth_harmonic_local_pricing_arb.json
+          if-no-files-found: error
