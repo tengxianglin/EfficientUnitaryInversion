@@ -1,0 +1,24 @@
+name: EUI N42 bipartite matching minimax
+
+on:
+  push:
+    paths:
+      - 'verify_n42_bipartite_matching_minimax.py'
+      - 'evidence/n42_bipartite_matching_minimax.json'
+      - '.github/workflows/eui-n42-bipartite-matching-minimax.yml'
+  workflow_dispatch:
+
+jobs:
+  exact-rational-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile verifier
+        run: python -m py_compile verify_n42_bipartite_matching_minimax.py
+      - name: Recompute exact matching-mixture minimax certificate
+        run: python verify_n42_bipartite_matching_minimax.py > /tmp/recomputed.json
+      - name: Compare machine certificate byte-for-byte
+        run: diff -u evidence/n42_bipartite_matching_minimax.json /tmp/recomputed.json
