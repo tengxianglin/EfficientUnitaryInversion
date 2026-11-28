@@ -1,0 +1,63 @@
+name: EUI N42 degree-six harmonic witness
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_n42_degree_six_harmonic_witness_arb.py"
+      - "THEORY_N42_DEGREE_SIX_HARMONIC_WITNESS.md"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "evidence/n42_period_two_six_quartic_ensemble_arb.json"
+      - "evidence/n42_optimal_quartic_chi_square_arb.json"
+      - ".github/workflows/eui-n42-degree-six-harmonic-witness.yml"
+  pull_request:
+    paths:
+      - "verify_n42_degree_six_harmonic_witness_arb.py"
+      - "THEORY_N42_DEGREE_SIX_HARMONIC_WITNESS.md"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "evidence/n42_period_two_six_quartic_ensemble_arb.json"
+      - "evidence/n42_optimal_quartic_chi_square_arb.json"
+      - ".github/workflows/eui-n42-degree-six-harmonic-witness.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-degree-six-harmonic-witness
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Compile verifier and dependency
+        run: |
+          python -m pip check
+          python -m py_compile verify_n42_degree_six_harmonic_witness_arb.py verify_n42_period_two_six_quartic_ensemble_arb.py
+      - name: Regenerate the Run 68 quartic certificate
+        run: python verify_n42_optimal_quartic_chi_square.py
+      - name: Certify the independent degree-six harmonic contribution
+        run: python verify_n42_degree_six_harmonic_witness_arb.py
+      - name: Commit deterministic degree-six certificate
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_optimal_quartic_chi_square_arb.json evidence/n42_degree_six_harmonic_witness_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify N42 degree-six harmonic witness"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload degree-six certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-degree-six-harmonic-witness
+          path: evidence/n42_degree_six_harmonic_witness_arb.json
+          if-no-files-found: error
