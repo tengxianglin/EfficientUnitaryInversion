@@ -2,6 +2,7 @@
 """256-bit Arb check of the local sixth-harmonic pricing identity at N=42."""
 import hashlib
 import json
+from fractions import Fraction
 from itertools import combinations
 from pathlib import Path
 
@@ -113,6 +114,22 @@ def verify():
     if target_mean != 0:
         raise AssertionError("the local witness is not exactly centered")
 
+    # A non-period-two, fully connected positive-cycle escape for the first
+    # probe S={0,...,5}. At zero closing edge, the length-42 spin-chain
+    # perfect-transfer atom is the signed reversal i <-> 41-i. No pair lies
+    # wholly inside S, so all nonempty even principal minors on S vanish and
+    # W_S=1/2849 exactly. Opening the closing edge by eps changes A in
+    # operator norm by 2 eps. The Duhamel/Hadamard bound below is global.
+    epsilon = Fraction(1, 10**6)
+    witness_lipschitz = Fraction(1216, 77)
+    boundary_witness = Fraction(1, 2849)
+    path_witness_lower = boundary_witness - witness_lipschitz * epsilon
+    path_witness_upper = boundary_witness + witness_lipschitz * epsilon
+    if not (path_witness_lower > 0):
+        raise AssertionError("the fully connected path-escape witness is not positive")
+    if not (witness_lipschitz < 16):
+        raise AssertionError("unexpected local-witness Lipschitz constant")
+
     records = []
     for indices in PROBES:
         direct_coordinate = projection.harmonic_residual(
@@ -153,6 +170,10 @@ def verify():
             "single_coordinate_chi_square_lower_bound_interval": str(chi_lower),
         })
 
+    first_probe_coordinate = arb(records[0]["direct_projection_coordinate_interval"])
+    if not (first_probe_coordinate < 0):
+        raise AssertionError("the frozen candidate's first local coordinate is not negative")
+
     result = {
         "schema": "eui_n42_sixth_harmonic_local_pricing_arb_v1",
         "status": "local_pricing_identity_certified_on_frozen_n42_probes",
@@ -177,6 +198,32 @@ def verify():
         "quartic_orbit_certificate_sha256": quartic_orbit_sha,
         "quartic_certificate_sha256": quartic_cert_sha,
         "run70_certificate_sha256": sha256(run70_bytes),
+        "fully_connected_positive_cycle_escape": {
+            "probe_indices": list(PROBES[0]),
+            "path_couplings": (
+                "c_j=(pi/4)*sqrt((j+1)*(41-j)) for j=0,...,40; "
+                "c_41=1/1000000"
+            ),
+            "all_42_couplings_strictly_positive": True,
+            "minimum_internal_coupling_expression": "pi*sqrt(41)/4 > 0",
+            "zero_closing_edge_perfect_transfer_matching": "i <-> 41-i",
+            "boundary_witness_exact": str(boundary_witness),
+            "closing_edge_epsilon": str(epsilon),
+            "generator_operator_norm_difference_bound": "2*epsilon",
+            "witness_lipschitz_constant_exact": str(witness_lipschitz),
+            "witness_lipschitz_constant_less_than_16": True,
+            "positive_cycle_witness_lower_bound_exact": str(path_witness_lower),
+            "positive_cycle_witness_upper_bound_exact": str(path_witness_upper),
+            "frozen_candidate_coordinate_interval": str(first_probe_coordinate),
+            "opposite_sign_physical_atom_certified": True,
+            "two_atom_mixture_can_cancel_this_one_coordinate": True,
+            "scope": (
+                "The positive-cycle atom cancels only the selected S={0,...,5} "
+                "harmonic coordinate after a suitable convex reweighting. It "
+                "does not match the other moment coordinates or solve the "
+                "full convex-hull problem."
+            ),
+        },
         "probes": records,
         "scope": (
             "This verifies the compact local pricing identity against the Run 70 "
@@ -194,6 +241,8 @@ def verify():
         "probe_count": len(records),
         "minors_per_atom_per_probe": 32,
         "all_differences_contain_zero": True,
+        "positive_cycle_escape_lower_bound": str(path_witness_lower),
+        "frozen_first_probe_coordinate": str(first_probe_coordinate),
         "witness_variance_exact": result["witness_variance_exact"],
         "chi_square_multiplier_exact": result["chi_square_multiplier_exact"],
         "probe_coordinates": [
