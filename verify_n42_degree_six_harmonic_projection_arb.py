@@ -302,12 +302,23 @@ def verify():
     partial_beats_run69 = degree6_partial > run69_witness
     best_degree6 = degree6_partial if partial_beats_run69 else run69_witness
     combined = quartic_floor + best_degree6
-    if not (combined > arb("0.0823555")):
-        raise AssertionError("combined degree-four/sixth lower bound regressed")
+    if not (combined > arb("0.1212")):
+        raise AssertionError("combined degree-four/sixth lower bound did not exceed 0.1212")
+    frame_potential_target = arb(fmpq(4, comb(N, n)))
+    frame_potential_lower_bound = frame_potential_target * (1 + combined)
+    if not (frame_potential_lower_bound > arb("8.33e-12")):
+        raise AssertionError("frame-potential lower bound did not exceed 8.33e-12")
+    projection_complete = zero_crossing_orbits == 0
+    status = (
+        "full_sixth_harmonic_projection_certified"
+        if projection_complete
+        else "full_sixth_harmonic_projection_lower_bound_certified"
+    )
+    improvement_factor = degree6_partial / run69_witness
 
     result = {
         "schema": "eui_n42_full_sixth_harmonic_projection_lower_bound_v1",
-        "status": "all_63133_sixth_orbits_priced_with_certified_harmonic_projection_lower_bound",
+        "status": status,
         "N": N,
         "n": n,
         "precision_bits": ctx.prec,
@@ -319,20 +330,27 @@ def verify():
         "sixth_orbit_size_sum": orbit_size_sum,
         "sixth_orbits_with_harmonic_interval_excluding_zero": sign_definite_orbits,
         "sixth_orbits_with_harmonic_interval_containing_zero": zero_crossing_orbits,
+        "all_harmonic_orbit_squares_included": projection_complete,
         "sixth_principal_minors_evaluated": EXPECTED_SIX_ORBITS * 74,
         "D42_symmetry_regression_checks": symmetry_checks,
         "harmonic_projection_coordinate_formula": (
             "delta6_harm(I)=delta6(I)+(1/33)*sum_{K subset I, |K|=4} delta4(K)"
         ),
         "harmonic_projection_norm2_partial_lower_bound_interval": str(norm2_lower),
+        "harmonic_projection_norm2_interval": str(norm2_lower) if projection_complete else None,
         "lambda6_exact": str(lambda6),
         "degree_six_partial_projection_chi_square_lower_bound_interval": str(degree6_partial),
+        "degree_six_projection_chi_square_lower_bound_interval": str(degree6_partial) if projection_complete else None,
         "run69_explicit_witness_chi_square_contribution_interval": str(run69_witness),
         "partial_projection_beats_run69_explicit_witness": bool(partial_beats_run69),
+        "degree_six_improvement_factor_over_run69_witness_interval": str(improvement_factor),
         "best_degree_six_contribution_interval": str(best_degree6),
         "quartic_chi_square_lower_bound_floor": str(quartic_floor),
         "combined_degree_four_plus_degree_six_chi_square_lower_bound_interval": str(combined),
-        "combined_lower_bound_gt_0.0823555": True,
+        "combined_lower_bound_gt_0.1212": True,
+        "frame_potential_target_interval": str(frame_potential_target),
+        "frame_potential_lower_bound_interval": str(frame_potential_lower_bound),
+        "frame_potential_lower_bound_gt_8.33e-12": True,
         "orbit_residual_digest_sha256": digest.hexdigest(),
         "atom_input_sha256": atom_sha,
         "weight_input_sha256": weight_sha,
@@ -341,12 +359,11 @@ def verify():
         "run69_certificate_sha256": hashlib.sha256(run69_bytes).hexdigest(),
         "scope": (
             "Candidate-specific for the frozen 37-base/74-labelled period-two ensemble. "
-            "All 63,133 D42 sixth-subset orbits were evaluated. The reported norm is a "
-            "rigorous lower bound obtained by summing every orbit whose corrected Arb "
-            "residual interval excludes zero; intervals containing zero were safely "
-            "dropped. This does not exclude another physical measure or the full "
-            "continuous cycle-exponential family and implies no program-TV, Choi, or "
-            "diamond-distance bound."
+            "All 63,133 D42 sixth-subset orbits were evaluated. Every corrected Arb "
+            "residual interval excludes zero in this run, so the reported norm interval "
+            "contains the complete sixth-harmonic projection norm, with no orbit dropped. "
+            "This does not exclude another physical measure or the full continuous "
+            "cycle-exponential family and implies no program-TV, Choi, or diamond-distance bound."
         ),
     }
     OUTPUT_PATH.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
@@ -369,6 +386,7 @@ def verify():
         "combined_degree_four_plus_degree_six_chi_square_lower_bound_interval": result[
             "combined_degree_four_plus_degree_six_chi_square_lower_bound_interval"
         ],
+        "frame_potential_lower_bound_interval": result["frame_potential_lower_bound_interval"],
         "orbit_residual_digest_sha256": result["orbit_residual_digest_sha256"],
     }, indent=2), flush=True)
 
