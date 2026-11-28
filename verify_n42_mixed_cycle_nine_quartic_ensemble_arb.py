@@ -296,7 +296,8 @@ def verify():
         quartic_residuals.append(str(residual))
 
     extra_records = []
-    thresholds = [rational("1/500"), rational("1/250")]
+    threshold_strings = ["1/500", "1/250"]
+    thresholds = [rational(x) for x in threshold_strings]
     for r, witness in enumerate(extras):
         value = sum(
             (weights[j, 0] * extra_columns[j][r] for j in range(len(atoms))),
@@ -313,10 +314,7 @@ def verify():
             "moment": str(value),
             "target": "1/533",
             "residual": str(residual),
-            "strict_floor": str(Fraction(
-                thresholds[r].mid().numerator,
-                thresholds[r].mid().denominator
-            )) if hasattr(thresholds[r].mid(), "numerator") else ("1/500" if r == 0 else "1/250"),
+            "strict_floor": threshold_strings[r],
         })
 
     matched_orbits = [translation_orbit(I) for I in matched]
@@ -344,7 +342,7 @@ def verify():
         "unique_physical_atom_count": unique_atom_count,
         "all_physical_cycle_couplings_strictly_positive": True,
         "minimum_coupling_exact": str(minimum_coupling),
-        "minimum_weight": str(min(weights[j, 0] for j in range(len(atoms)))),
+        "minimum_weight": str(weights[min(range(len(atoms)), key=lambda j: float(weights[j, 0])), 0]),
         "weight_floor_exact": data["weight_floor"],
         "weight_sum": str(weight_sum),
         "nonperiodic_mass": str(nonperiodic_mass),
