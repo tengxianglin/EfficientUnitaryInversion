@@ -1,0 +1,62 @@
+{
+  "canonical_full_support": "(|c_0|,...,|c_40|, holonomy*|c_41|)",
+  "canonical_proper_support": "(|c_0|,...,|c_41|), retaining zero entries",
+  "closed_convex_hull_reduction": "The real-coupling feature family has the same closed convex hull as the union of the strictly-positive sector and the sector with the first N-1 couplings positive and the final coupling negative. Zero-edge canonical representatives lie in the closure of the strictly-positive sector by continuity.",
+  "gauge_action": "c_j -> epsilon_j epsilon_(j+1) c_j",
+  "holonomy": "product_j sign(c_j), defined only when every edge is nonzero",
+  "limitations": "The verifier is an exact finite sign-pattern audit for N<=10 plus a deterministic N=42 smoke test. The all-N gauge classification and closed-convex-hull reduction follow from the algebraic proof, not from extrapolation of these finite checks.",
+  "n42_deterministic_smoke": {
+    "N": 42,
+    "deterministic_random_patterns": 4096,
+    "distinct_support_masks_cached": 24576,
+    "result": "passed",
+    "scope": "smoke test only; the all-N statement is proved algebraically",
+    "seed": 20261128
+  },
+  "schema": "eui_n42_cycle_z2_holonomy_gauge_v1",
+  "small_cycle_exhaustive_audits": [
+    {
+      "N": 4,
+      "signed_zero_edge_patterns_exhausted": 81,
+      "support_masks": 16,
+      "gauge_orbits_over_all_patterns": 17,
+      "nonfull_supports_with_one_gauge_orbit": 15,
+      "full_support_gauge_orbits": 2,
+      "combined_gauge_dihedral_orbits": 7,
+      "combined_key_sha256": "de706a199ce1ffbee13fcaa90bad61b359126440a58b3945d0e003c79dd5bf99"
+    },
+    {
+      "N": 6,
+      "signed_zero_edge_patterns_exhausted": 729,
+      "support_masks": 64,
+      "gauge_orbits_over_all_patterns": 65,
+      "nonfull_supports_with_one_gauge_orbit": 63,
+      "full_support_gauge_orbits": 2,
+      "combined_gauge_dihedral_orbits": 14,
+      "combined_key_sha256": "7c96ac9a632c0c56821571fe927c3b264168722fdc7ef563522128a53213b25d"
+    },
+    {
+      "N": 8,
+      "signed_zero_edge_patterns_exhausted": 6561,
+      "support_masks": 256,
+      "gauge_orbits_over_all_patterns": 257,
+      "nonfull_supports_with_one_gauge_orbit": 255,
+      "full_support_gauge_orbits": 2,
+      "combined_gauge_dihedral_orbits": 31,
+      "combined_key_sha256": "163541b1474c8406d184017be6dcdbc4700cd4f563a6cfb88db3058a3f3ed130"
+    },
+    {
+      "N": 10,
+      "signed_zero_edge_patterns_exhausted": 59049,
+      "support_masks": 1024,
+      "gauge_orbits_over_all_patterns": 1025,
+      "nonfull_supports_with_one_gauge_orbit": 1023,
+      "full_support_gauge_orbits": 2,
+      "combined_gauge_dihedral_orbits": 79,
+      "combined_key_sha256": "00099626bfbde1425be4a3ee2795763980314050df31020eae5a634a94645f27"
+    }
+  ],
+  "status": "exact_small_cycle_gauge_classification_verified",
+  "target_N": 42,
+  "theorem_scope": "Vertex-sign gauge preserves every principal minor, at every order. For a proper edge support the support graph is a forest and all signs are gauge-removable. For full cycle support there are exactly two gauge classes, distinguished by Z2 holonomy. D42 preserves the holonomy and acts on the support/magnitude pattern."
+}
