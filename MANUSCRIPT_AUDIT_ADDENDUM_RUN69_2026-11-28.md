@@ -75,3 +75,23 @@ The pinned-Arb verifier and GitHub Actions workflow record the outward-rounded w
 ## Next highest-value action
 
 Use the exact projection formula to design a structured D42-invariant sixth-order orbit computation. Before paying for all 63,133 six-subset orbits, test the orbit-space operator on the low-dimensional harmonic components and compare the resulting full projection norm against the explicit witness. If the candidate's sixth harmonic is materially larger, implement the full 63,133-orbit Arb audit; otherwise retain the cheap certified witness and pivot back to a general physical-family construction/separator.
+
+
+## Run 69 verified outcome
+
+GitHub Actions [46089250192](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46089250192) completed SUCCESS. The 256-bit Arb verifier checked 792 local coefficient down-relations and evaluated 4,736 six-by-six principal minors (64 terms × 37 base atoms × base/one-site translate).
+
+For h(x)=product_{r=0}^5 (x_{2r}-x_{2r+1}), the certified expectation is
+\[
+E_q h\in[0.003257698086606305576152603130799854204787588894705348601643803344541485
+\pm6.81\times10^{-73}].
+\]
+The exact uniform variance is 508035072/6724861. The degree-six contribution is
+\[
+L_6>1.404789598599477631563898576212197161749960711983467025060350313034775\times10^{-7}.
+\]
+Using the conservative Run 68 quartic floor, the orthogonal sum is
+\[
+\chi^2(q\Vert u)>0.0823555788677805039017139898666983417427161749960711983467025060350313034775.
+\]
+The machine certificate is evidence/n42_degree_six_harmonic_witness_arb.json. CI generated it and committed it at c5507f80e3588f9bac914edda02e16ef87161c71. This is one explicit sixth-harmonic witness, not the full sixth-harmonic projection and not a global no-go.
