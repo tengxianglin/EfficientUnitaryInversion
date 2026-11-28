@@ -14,11 +14,51 @@
   "n": 21,
   "schema": "eui_n42_bipartite_matching_convex_hull_minimax_v1",
   "small_exact_exhaustive_cross_checks": [
-    {"all_label_probabilities_match_closed_formula": true, "balanced_labels": 2, "chi_square_exact": "0", "matchings_enumerated": 1, "n": 1, "transversal_pairs_enumerated": 2, "tv_exact": "0"},
-    {"all_label_probabilities_match_closed_formula": true, "balanced_labels": 6, "chi_square_exact": "1/8", "matchings_enumerated": 2, "n": 2, "transversal_pairs_enumerated": 8, "tv_exact": "1/6"},
-    {"all_label_probabilities_match_closed_formula": true, "balanced_labels": 20, "chi_square_exact": "1/4", "matchings_enumerated": 6, "n": 3, "transversal_pairs_enumerated": 48, "tv_exact": "3/20"},
-    {"all_label_probabilities_match_closed_formula": true, "balanced_labels": 70, "chi_square_exact": "47/128", "matchings_enumerated": 24, "n": 4, "transversal_pairs_enumerated": 384, "tv_exact": "39/280"},
-    {"all_label_probabilities_match_closed_formula": true, "balanced_labels": 252, "chi_square_exact": "61/128", "matchings_enumerated": 120, "n": 5, "transversal_pairs_enumerated": 3840, "tv_exact": "85/504"}
+    {
+      "all_label_probabilities_match_closed_formula": true,
+      "balanced_labels": 2,
+      "chi_square_exact": "0",
+      "matchings_enumerated": 1,
+      "n": 1,
+      "transversal_pairs_enumerated": 2,
+      "tv_exact": "0"
+    },
+    {
+      "all_label_probabilities_match_closed_formula": true,
+      "balanced_labels": 6,
+      "chi_square_exact": "1/8",
+      "matchings_enumerated": 2,
+      "n": 2,
+      "transversal_pairs_enumerated": 8,
+      "tv_exact": "1/6"
+    },
+    {
+      "all_label_probabilities_match_closed_formula": true,
+      "balanced_labels": 20,
+      "chi_square_exact": "1/4",
+      "matchings_enumerated": 6,
+      "n": 3,
+      "transversal_pairs_enumerated": 48,
+      "tv_exact": "3/20"
+    },
+    {
+      "all_label_probabilities_match_closed_formula": true,
+      "balanced_labels": 70,
+      "chi_square_exact": "47/128",
+      "matchings_enumerated": 24,
+      "n": 4,
+      "transversal_pairs_enumerated": 384,
+      "tv_exact": "39/280"
+    },
+    {
+      "all_label_probabilities_match_closed_formula": true,
+      "balanced_labels": 252,
+      "chi_square_exact": "61/128",
+      "matchings_enumerated": 120,
+      "n": 5,
+      "transversal_pairs_enumerated": 3840,
+      "tv_exact": "85/504"
+    }
   ],
   "status": "exact_bipartite_matching_mixture_minimax_certified",
   "symmetrized_law": {
@@ -34,12 +74,36 @@
     "chi_square_decimal": 1.6924847674490593,
     "chi_square_exact": "465226670411/274877906944",
     "chi_square_formula": "(22*binom(42,21)/2^42)-1",
+    "strictly_convex_chi_square_unique_minimizing_output_law": true,
     "tv_decimal": 0.1665907178398677,
     "tv_exact": "452040940614809/2713482158407680",
-    "tv_negative_orbit_indices": [9, 10, 11, 12],
-    "tv_positive_orbit_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 17, 18, 19, 20, 21],
-    "tv_zero_orbit_indices": [],
     "tv_formula": "sum_{k: binom(21,k)<binom(42,21)/2^21} [binom(21,k)/2^21 - binom(21,k)^2/binom(42,21)]",
-    "strictly_convex_chi_square_unique_minimizing_output_law": true
+    "tv_negative_orbit_indices": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "tv_positive_orbit_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "tv_zero_orbit_indices": []
   }
 }
