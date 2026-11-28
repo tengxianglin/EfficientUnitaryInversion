@@ -17,8 +17,35 @@
     "cross_bipartite_edges": 441,
     "each_cross_edge_occurs_exactly_once": true,
     "same_parity_edges": 0,
-    "cycle_edges_per_matching": [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-    "union_component_histogram_ordered_pairs": {"1": 252, "3": 126, "7": 42, "21": 21},
+    "cycle_edges_per_matching": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "union_component_histogram_ordered_pairs": {
+      "1": 252,
+      "3": 126,
+      "7": 42,
+      "21": 21
+    },
     "union_components_formula": "components(M_t union M_s)=gcd(21,t-s)"
   },
   "pair_moment_minimax": {
