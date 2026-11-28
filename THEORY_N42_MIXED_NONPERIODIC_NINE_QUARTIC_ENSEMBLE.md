@@ -133,3 +133,54 @@ The two certified quartic misses are candidate-specific and do not exclude a dif
 - Machine certificate: evidence/n42_mixed_cycle_nine_quartic_ensemble_arb.json
 - CI: .github/workflows/eui-n42-mixed-cycle-nine-quartic.yml
 
+
+
+## Final 256-bit Arb certificate
+
+The independent verifier completed in GitHub Actions [46128674321](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46128674321), against the corrected frozen input. It certified:
+
+- moment-matrix determinant:
+  \[
+  [-6.178383682608817535937694562703590719062047946330618475182622559141\times10^{-39}
+  \ \pm 3.92\times10^{-106}],
+  \]
+  which excludes zero;
+- minimum exact-real weight:
+  \[
+  [0.000889109464870221522803618559222143270398729262057262495186926153844640
+  \ \pm 6.76\times10^{-73}]>\frac1{2000};
+  \]
+- total weight:
+  \[
+  [1.0000000000000000000000000000000000000000000000000000000000000000000000
+  \ \pm3.58\times10^{-71}],
+  \]
+  which contains exactly one;
+- total mass on the four primitive-period-42 seeds:
+  \[
+  [0.06981604734786188502231445203212434131817526623576506399557910824831696
+  \ \pm4.53\times10^{-72}]>\frac1{20};
+  \]
+- minimum coupling over all 220 distinct atoms:
+  \[
+  \frac{6388147249}{125000000000}>0.
+  \]
+
+The two independently certified quartic misses are:
+\[
+\mathbb E m_{(0,3,18,21)}-\frac1{533}
+=
+[0.003543333344852453513810911961835713748324339484852944816801231133077765
+\ \pm6.21\times10^{-73}]>\frac1{500},
+\]
+and
+\[
+\mathbb E m_{(0,1,6,7)}-\frac1{533}
+=
+[0.004621673636191943613782702414344518917298679980578209751137610452220608
+\ \pm5.65\times10^{-73}]>\frac1{250}.
+\]
+
+The machine certificate is evidence/n42_mixed_cycle_nine_quartic_ensemble_arb.json. The workflow's environment check, compilation, full Arb reconstruction, deterministic certificate commit, and artifact upload all passed.
+
+The binary64 discovery screen additionally evaluated all 2,670 cyclic translation orbits of four-subsets (all 111,930 four-sets). It ranked \((0,1,6,7)\) as the largest absolute residual, approximately \(0.00462167363619\). This ranking is discovery evidence only; the strict lower bound for that named witness is the Arb-certified statement above.
