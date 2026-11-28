@@ -70,6 +70,28 @@ def verify():
     quartic_cert = json.loads(quartic_cert_bytes)
     run70 = json.loads(run70_bytes)
 
+    probes = [PROBES[0]]
+    seen_orbits = {
+        projection.canonical_mask(sum(1 << i for i in probes[0]))
+    }
+    for row in run70.get("top_harmonic_coordinates_by_abs_midpoint", []):
+        candidate = tuple(row["indices"])
+        representative = projection.canonical_mask(sum(1 << i for i in candidate))
+        if representative not in seen_orbits:
+            probes.append(candidate)
+            seen_orbits.add(representative)
+        if len(probes) == 12:
+            break
+    for candidate in PROBES[1:]:
+        if len(probes) == 12:
+            break
+        representative = projection.canonical_mask(sum(1 << i for i in candidate))
+        if representative not in seen_orbits:
+            probes.append(candidate)
+            seen_orbits.add(representative)
+    if len(probes) != 12:
+        raise AssertionError("could not construct twelve distinct pricing probes")
+
     if run70["status"] != "full_sixth_harmonic_projection_certified":
         raise AssertionError("Run 70 full projection certificate is not complete")
     if atom_sha != run70["atom_input_sha256"]:
@@ -98,9 +120,9 @@ def verify():
 
     canonical_orbits = {
         projection.canonical_mask(sum(1 << i for i in indices))
-        for indices in PROBES
+        for indices in probes
     }
-    if len(canonical_orbits) != len(PROBES):
+    if len(canonical_orbits) != len(probes):
         raise AssertionError("the fixed probes are not in distinct D42 orbits")
 
     variance = arb(fmpq(7938048, 8026447))
@@ -132,7 +154,7 @@ def verify():
 
     records = []
     first_probe_coordinate = None
-    for indices in PROBES:
+    for indices in probes:
         direct_coordinate = projection.harmonic_residual(
             indices,
             weights,
@@ -183,6 +205,7 @@ def verify():
         "n": n,
         "precision_bits": ctx.prec,
         "probe_count": len(records),
+        "probe_selection_method": "fixed S={0,...,5} plus eleven largest-magnitude Run 70 harmonic coordinates, ranked by binary64 midpoint",
         "distinct_D42_probe_orbits": len(canonical_orbits),
         "minors_per_atom_per_probe": 32,
         "local_witness_coefficients": {
@@ -201,7 +224,7 @@ def verify():
         "quartic_certificate_sha256": quartic_cert_sha,
         "run70_certificate_sha256": sha256(run70_bytes),
         "fully_connected_positive_cycle_escape": {
-            "probe_indices": list(PROBES[0]),
+            "probe_indices": list(probes[0]),
             "path_couplings": (
                 "c_j=(pi/4)*sqrt((j+1)*(41-j)) for j=0,...,40; "
                 "c_41=1/1000000"
@@ -230,7 +253,7 @@ def verify():
         "scope": (
             "This verifies the compact local pricing identity against the Run 70 "
             "full-projection coordinate formula on twelve distinct D42 orbits of "
-            "the frozen 37-base/74-labelled period-two candidate. The theorem "
+            "the frozen 37-base/74-labelled period-two candidate. Probe set: one fixed path-escape set plus eleven largest Run 70 residual coordinates. The theorem "
             "itself applies to every real 42-cycle coupling vector because Q(c) "
             "is a symmetric involution with 21 eigenvalues of each sign. The "
             "probe computation is not a global separator and does not exclude "
