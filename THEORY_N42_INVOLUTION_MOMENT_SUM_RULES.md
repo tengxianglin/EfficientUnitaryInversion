@@ -13,12 +13,21 @@ with indices modulo 42, and define
 D=\operatorname{diag}(1,-1,\ldots,1,-1),\qquad
 R(c)=e^{A(c)},\qquad Q(c)=R(c)D.
 \]
-Since \(D A(c)D=-A(c)\), every real coupling vector gives
+Since \(D A(c)D=-A(c)\), we have \(Q(c)^T=Q(c)\) and \(Q(c)^2=I\). To establish the trace condition explicitly, write the skew generator in even/odd block form
 \[
-Q(c)^T=Q(c),\qquad Q(c)^2=I,\qquad \operatorname{tr}Q(c)=0.
+A=\begin{pmatrix}0&B\\-B^T&0\end{pmatrix},\qquad
+D=\begin{pmatrix}I_{21}&0\\0&-I_{21}\end{pmatrix}.
 \]
-Thus \(Q(c)\) has 21 eigenvalues \(+1\) and 21 eigenvalues \(-1\), and
-\(\det Q(c)=-1\).
+Every odd power of \(A\) is off diagonal. For \(k\ge0\),
+\[
+A^{2k}=(-1)^k\begin{pmatrix}(BB^T)^k&0\\0&(B^TB)^k\end{pmatrix},
+\]
+and
+\[
+\operatorname{tr}(A^{2k}D)
+=(-1)^k\left[\operatorname{tr}(BB^T)^k-\operatorname{tr}(B^TB)^k\right]=0
+\]
+by cyclicity of trace (also for \(k=0\), since both blocks have size 21). Thus the power series gives \(\operatorname{tr}(e^A D)=0\). Consequently \(Q(c)\) has 21 eigenvalues \(+1\) and 21 eigenvalues \(-1\), and \(\det Q(c)=-1\).
 
 The target used for the even principal minors of \(Q\) is
 \[
