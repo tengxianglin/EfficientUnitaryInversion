@@ -78,7 +78,7 @@ Consequently, if all 21 pair-distance moments equal \(-1/41\), the total seed-or
 ## Computer-assisted exact existence statement
 
 The frozen rational-decimal couplings are in
-\evidence/n42_mixed_cycle_nine_quartic_atoms.json. The weights are not claimed to be rational: they are the unique exact-real solution of the frozen 30-by-30 moment system.
+evidence/n42_mixed_cycle_nine_quartic_atoms.json. The weights are not claimed to be rational: they are the unique exact-real solution of the frozen 30-by-30 moment system.
 
 The independent 256-bit Arb verifier reconstructs each period-two seed through its Fourier representation and each nonperiodic seed through the full 42-by-42 matrix exponential. It then:
 1. proves the 30-by-30 determinant interval excludes zero;
