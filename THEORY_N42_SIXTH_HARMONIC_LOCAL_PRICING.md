@@ -229,8 +229,7 @@ c_j^*=\frac{\pi}{4}\sqrt{(j+1)(41-j)},\quad j=0,\ldots,40,
 \qquad c_{41}^*=0.
 \]
 The path spin-chain identity gives
-\(R^*|j\rangle=(-1)^j|41-j\rangle\), so \(Q^*=R^*D\) is minus the reversal
-permutation. No pair \(\{j,41-j\}\) lies wholly inside \(S\). Hence every
+\(R^*|j\rangle=(-1)^j|41-j\rangle\), so \(Q^*=R^*D\) is the reversal permutation. No pair \(\{j,41-j\}\) lies wholly inside \(S\). Hence every
 nonempty even principal minor of \(Q^*\) on a subset of \(S\) vanishes and
 \[
 W_S(Q^*)=\frac1{2849}>0.
