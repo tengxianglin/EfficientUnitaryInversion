@@ -1,0 +1,40 @@
+{
+  "N": 42,
+  "dihedral_group_order": 84,
+  "pair_orbits": {
+    "cyclic_orbit_count_reconstructed": 21,
+    "cyclic_orbits_per_dihedral_orbit_histogram": {
+      "1": 21
+    },
+    "dihedral_orbit_count": 21,
+    "dihedral_orbit_size_histogram": {
+      "21": 1,
+      "42": 20
+    },
+    "representative_sha256": "f619fa393fbab48168e426bab53d1e63189b807312cf860b082acd8afdfed6bf",
+    "subset_count": 861,
+    "subset_size": 2
+  },
+  "quartic_orbits": {
+    "cyclic_orbit_count_reconstructed": 2670,
+    "cyclic_orbits_per_dihedral_orbit_histogram": {
+      "1": 210,
+      "2": 1230
+    },
+    "dihedral_orbit_count": 1440,
+    "dihedral_orbit_size_histogram": {
+      "21": 10,
+      "42": 200,
+      "84": 1230
+    },
+    "independent_orbit_coordinates_after_global_sum_rule": 1439,
+    "reduction_from_cyclic_orbit_count": 1230,
+    "representative_sha256": "54772a1b434e848b065cd53807a4f8733cf3afdc83b60d67680f2a208f80b121",
+    "subset_count": 111930,
+    "subset_size": 4
+  },
+  "reflection": "i -> -i mod 42",
+  "schema": "eui_n42_dihedral_quartic_orbits_v1",
+  "scope": "Exact combinatorial D42 orbit enumeration. The accompanying theorem proves that the even-principal-minor feature family is D42-equivariant for the real and strictly-positive cycle-coupling domains. This is a symmetry reduction, not a moment-feasibility certificate.",
+  "status": "exact_D42_orbit_partition_verified"
+}
