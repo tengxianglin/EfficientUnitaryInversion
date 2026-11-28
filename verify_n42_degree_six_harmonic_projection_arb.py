@@ -60,6 +60,18 @@ def is_canonical_mask(mask):
     return True
 
 
+def canonical_mask(mask):
+    """Return the numeric minimum among all 84 D_42 images of a six-set."""
+    best = mask
+    for start in (mask, reflect_mask(mask)):
+        current = start
+        for _ in range(N):
+            if current < best:
+                best = current
+            current = rotate_left_one(current)
+    return best
+
+
 def orbit_size_mask(mask):
     images = set()
     for start in (mask, reflect_mask(mask)):
@@ -96,6 +108,25 @@ def all_six_orbit_representatives():
     if orbit_size_sum != EXPECTED_SIX_SUBSETS:
         raise AssertionError(
             f"six-orbit sizes sum to {orbit_size_sum}, expected {EXPECTED_SIX_SUBSETS}"
+        )
+    return records, orbit_size_sum
+
+
+def all_five_orbit_representatives():
+    """Enumerate D_42 orbits of five-subsets for the D_6 h=0 regression."""
+    records = []
+    orbit_size_sum = 0
+    for subset in combinations(range(N), 5):
+        mask = sum(1 << i for i in subset)
+        if is_canonical_mask(mask):
+            size = orbit_size_mask(mask)
+            records.append((mask, size))
+            orbit_size_sum += size
+    expected_count = 10222
+    expected_size_sum = comb(N, 5)
+    if len(records) != expected_count or orbit_size_sum != expected_size_sum:
+        raise AssertionError(
+            f"wrong D42 five-orbit audit: {len(records)}, {orbit_size_sum}"
         )
     return records, orbit_size_sum
 
@@ -266,6 +297,7 @@ def verify():
         check_symmetry(mask_to_tuple(mask))
 
     norm2_lower = arb(0)
+    harmonic_by_mask = {}
     sign_definite_orbits = 0
     zero_crossing_orbits = 0
     digest = hashlib.sha256()
@@ -277,6 +309,7 @@ def verify():
             quartic_residual_by_rep, quartic_subset_to_rep, mu6
         )
         digest.update(f"{mask}:{orbit_size}:{residual}\n".encode())
+        harmonic_by_mask[mask] = residual
         if residual.contains(0):
             zero_crossing_orbits += 1
         else:
@@ -295,6 +328,27 @@ def verify():
 
     if sign_definite_orbits + zero_crossing_orbits != EXPECTED_SIX_ORBITS:
         raise AssertionError("not every sixth-order orbit was priced")
+
+    # Verify D_6 h = 0 on every five-subset orbit. D42 invariance then covers
+    # all C(42,5)=850,668 five-subsets, not merely the sampled symmetry probes.
+    fifth_records, fifth_orbit_size_sum = all_five_orbit_representatives()
+    down_relations_checked = 0
+    for fifth_mask, _ in fifth_records:
+        total = arb(0)
+        for i in range(N):
+            bit = 1 << i
+            if not (fifth_mask & bit):
+                six_rep = canonical_mask(fifth_mask | bit)
+                total += harmonic_by_mask[six_rep]
+        if not total.contains(0):
+            raise AssertionError(
+                f"sixth harmonic projection violates D6 h=0 at "
+                f"{mask_to_tuple(fifth_mask)}: {total}"
+            )
+        down_relations_checked += 1
+    if down_relations_checked != 10222 or fifth_orbit_size_sum != comb(N, 5):
+        raise AssertionError("incomplete fifth-subset harmonic down audit")
+
     if not (norm2_lower > 0):
         raise AssertionError("no positive full-projection lower bound was certified")
 
@@ -315,6 +369,22 @@ def verify():
         else "full_sixth_harmonic_projection_lower_bound_certified"
     )
     improvement_factor = degree6_partial / run69_witness
+    scope = (
+        "Candidate-specific for the frozen 37-base/74-labelled period-two ensemble. "
+        "All 63,133 D42 sixth-subset orbits and all 10,222 D42 fifth-subset down "
+        "relations were evaluated. Every corrected Arb residual interval excludes "
+        "zero in this run, so the reported norm interval is the complete sixth-harmonic "
+        "projection norm, with no orbit dropped. This does not exclude another physical "
+        "measure or the full continuous cycle-exponential family and implies no "
+        "program-TV, Choi, or diamond-distance bound."
+        if projection_complete
+        else
+        "Candidate-specific for the frozen 37-base/74-labelled period-two ensemble. "
+        "All 63,133 D42 sixth-subset orbits were evaluated; intervals containing zero "
+        "were safely dropped from the nonnegative norm lower bound. This does not "
+        "exclude another physical measure or the full continuous cycle-exponential "
+        "family and implies no program-TV, Choi, or diamond-distance bound."
+    )
 
     result = {
         "schema": "eui_n42_full_sixth_harmonic_projection_lower_bound_v1",
@@ -328,6 +398,11 @@ def verify():
         "sixth_orbit_count": len(orbit_records),
         "sixth_subset_count": EXPECTED_SIX_SUBSETS,
         "sixth_orbit_size_sum": orbit_size_sum,
+        "fifth_orbit_count": len(fifth_records),
+        "fifth_subset_count": comb(N, 5),
+        "fifth_orbit_size_sum": fifth_orbit_size_sum,
+        "D6_harmonic_down_relations_checked": down_relations_checked,
+        "D6_harmonic_down_relations_all_intervals_contain_zero": True,
         "sixth_orbits_with_harmonic_interval_excluding_zero": sign_definite_orbits,
         "sixth_orbits_with_harmonic_interval_containing_zero": zero_crossing_orbits,
         "all_harmonic_orbit_squares_included": projection_complete,
@@ -357,20 +432,15 @@ def verify():
         "quartic_orbit_certificate_sha256": quartic_orbit_sha,
         "quartic_certificate_sha256": quartic_cert_sha,
         "run69_certificate_sha256": hashlib.sha256(run69_bytes).hexdigest(),
-        "scope": (
-            "Candidate-specific for the frozen 37-base/74-labelled period-two ensemble. "
-            "All 63,133 D42 sixth-subset orbits were evaluated. Every corrected Arb "
-            "residual interval excludes zero in this run, so the reported norm interval "
-            "contains the complete sixth-harmonic projection norm, with no orbit dropped. "
-            "This does not exclude another physical measure or the full continuous "
-            "cycle-exponential family and implies no program-TV, Choi, or diamond-distance bound."
-        ),
+        "scope": scope,
     }
     OUTPUT_PATH.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps({
         "status": result["status"],
         "sixth_orbits": result["sixth_orbit_count"],
         "sixth_subsets": result["sixth_subset_count"],
+        "fifth_orbits": result["fifth_orbit_count"],
+        "D6_harmonic_down_relations_checked": result["D6_harmonic_down_relations_checked"],
         "sign_definite_orbits": sign_definite_orbits,
         "zero_crossing_orbits": zero_crossing_orbits,
         "harmonic_projection_norm2_partial_lower_bound_interval": result[
