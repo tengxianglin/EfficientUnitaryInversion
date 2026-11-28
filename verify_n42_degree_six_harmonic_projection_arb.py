@@ -30,9 +30,7 @@ n = 21
 M = (1 << N) - 1
 EXPECTED_SIX_ORBITS = 63133
 EXPECTED_SIX_SUBSETS = comb(N, 6)
-QUARTIC_FLOOR = arb(
-    "0.0823554383888206439539508334768407205230"
-)
+QUARTIC_FLOOR_DECIMAL = "0.0823554383888206439539508334768407205230"
 
 
 def rotate_left_one(mask):
@@ -135,7 +133,7 @@ def build_quartic_residual_lookup(quartic_data):
 def balanced_slice_moments_through_six():
     moments = [fmpq(1)]
     value = fmpq(1)
-    for j in range(1, 4):
+    for j in range(1, 7):
         value *= fmpq(-(2 * j - 1), N - (2 * j - 1))
         moments.append(value)
     return moments
@@ -144,7 +142,7 @@ def balanced_slice_moments_through_six():
 def exact_lambda6():
     moments = balanced_slice_moments_through_six()
     value = sum(
-        (fmpq((-1) ** j * comb(6, j)) * moments[j] for j in range(4)),
+        (fmpq((-1) ** j * comb(6, j)) * moments[j] for j in range(7)),
         fmpq(0),
     )
     closed = fmpq(4 ** 6 * comb(N - 12, n - 6), comb(N, n))
@@ -227,10 +225,11 @@ def verify():
         raise AssertionError("unexpected Run 68 quartic certificate status")
 
     ctx.prec = atom_data["precision_bits"]
+    quartic_floor = arb(QUARTIC_FLOOR_DECIMAL)
     if ctx.prec != 256 or atom_data["N"] != N or atom_data["n"] != n:
         raise AssertionError("unexpected N, n, or Arb precision")
     if not (arb(quartic_cert["optimal_quartic_chi_square_lower_bound_interval"])
-            > QUARTIC_FLOOR):
+            > quartic_floor):
         raise AssertionError("Run 68 does not certify the conservative quartic floor")
 
     quartic_residual_by_rep, quartic_subset_to_rep = (
@@ -302,7 +301,7 @@ def verify():
     degree6_partial = norm2_lower / arb(lambda6)
     partial_beats_run69 = degree6_partial > run69_witness
     best_degree6 = degree6_partial if partial_beats_run69 else run69_witness
-    combined = QUARTIC_FLOOR + best_degree6
+    combined = quartic_floor + best_degree6
     if not (combined > arb("0.0823555")):
         raise AssertionError("combined degree-four/sixth lower bound regressed")
 
@@ -331,7 +330,7 @@ def verify():
         "run69_explicit_witness_chi_square_contribution_interval": str(run69_witness),
         "partial_projection_beats_run69_explicit_witness": bool(partial_beats_run69),
         "best_degree_six_contribution_interval": str(best_degree6),
-        "quartic_chi_square_lower_bound_floor": str(QUARTIC_FLOOR),
+        "quartic_chi_square_lower_bound_floor": str(quartic_floor),
         "combined_degree_four_plus_degree_six_chi_square_lower_bound_interval": str(combined),
         "combined_lower_bound_gt_0.0823555": True,
         "orbit_residual_digest_sha256": digest.hexdigest(),
