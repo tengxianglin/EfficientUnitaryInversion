@@ -187,6 +187,50 @@ The result is candidate-specific. It is not a full sixth-harmonic projection,
 does not exclude any other period-two or general cycle-exponential measure,
 and does not imply a program-label TV, Choi, or diamond-distance bound.
 
+## 4.1 Frozen-candidate Arb result
+
+Workflow [46089250192](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46089250192) completed successfully. The verifier evaluated 64 minors for each of 37 base atoms and 37 one-site translates: 4,736 six-by-six principal minors, with 256-bit outward-rounded Arb arithmetic.
+
+For the fixed adjacent-pair witness,
+\[
+\mathbb E_q h\in
+[0.003257698086606305576152603130799854204787588894705348601643803344541485
+\pm 6.81\times10^{-73}].
+\]
+The exact uniform variance is
+\[
+\mathbb E_u h^2=64\lambda_6
+=\frac{508035072}{6724861}.
+\]
+Hence the additional degree-six contribution is certified as
+\[
+\boxed{
+\frac{(\mathbb E_q h)^2}{\mathbb E_u h^2}
+>
+1.404789598599477631563898576212197161749960711983467025060350313034775
+\times10^{-7}.
+}
+\]
+Adding the conservative Run 68 quartic floor
+\[
+L_4=0.0823554383888206439539508334768407205230
+\]
+gives
+\[
+\boxed{
+\chi^2(q\Vert u)>
+0.0823555788677805039017139898666983417427161749960711983467025060350313034775.
+}
+\]
+
+This is an explicit, independently certified degree-six harmonic increment, not the full degree-six projection. The frozen candidate remains only a failed candidate; no global physical-family conclusion follows.
+
+Machine certificate:
+[evidence/n42_degree_six_harmonic_witness_arb.json](evidence/n42_degree_six_harmonic_witness_arb.json)
+
+Certificate commit:
+[c5507f80e3588f9bac914edda02e16ef87161c71](https://github.com/tengxianglin/EfficientUnitaryInversion/commit/c5507f80e3588f9bac914edda02e16ef87161c71).
+
 ## 5. Reproduction
 
 ```bash
