@@ -7,7 +7,7 @@
     "all_42_couplings_strictly_positive": true,
     "boundary_witness_exact": "1/2849",
     "closing_edge_epsilon": "1/1000000",
-    "frozen_candidate_coordinate_interval": "[-0.000604644388181486443843770485452175730900398725814867757300154235939399 +/- 4.38e-73]",
+    "frozen_candidate_coordinate_interval": "[-0.000604644388181486443843770485452175730900398725814867757300154235939399 +/- 4.37e-73]",
     "generator_operator_norm_difference_bound": "2*epsilon",
     "minimum_internal_coupling_expression": "pi*sqrt(41)/4 > 0",
     "opposite_sign_physical_atom_certified": true,
