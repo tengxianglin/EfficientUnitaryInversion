@@ -1,0 +1,242 @@
+{
+  "N": 42,
+  "assumptions": [
+    "Q is real symmetric",
+    "Q^2 = I",
+    "trace(Q) = 0"
+  ],
+  "determined_by_complement": [
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34,
+    36,
+    38,
+    40,
+    42
+  ],
+  "even_order_hierarchy": [
+    {
+      "aggregate": "1",
+      "complement_order": 42,
+      "complement_target": "-1",
+      "order": 0,
+      "r": 0,
+      "target_coordinate": "1"
+    },
+    {
+      "aggregate": "-21",
+      "complement_order": 40,
+      "complement_target": "1/41",
+      "order": 2,
+      "r": 1,
+      "target_coordinate": "-1/41"
+    },
+    {
+      "aggregate": "210",
+      "complement_order": 38,
+      "complement_target": "-1/533",
+      "order": 4,
+      "r": 2,
+      "target_coordinate": "1/533"
+    },
+    {
+      "aggregate": "-1330",
+      "complement_order": 36,
+      "complement_target": "5/19721",
+      "order": 6,
+      "r": 3,
+      "target_coordinate": "-5/19721"
+    },
+    {
+      "aggregate": "5985",
+      "complement_order": 34,
+      "complement_target": "-1/19721",
+      "order": 8,
+      "r": 4,
+      "target_coordinate": "1/19721"
+    },
+    {
+      "aggregate": "-20349",
+      "complement_order": 32,
+      "complement_target": "3/216931",
+      "order": 10,
+      "r": 5,
+      "target_coordinate": "-3/216931"
+    },
+    {
+      "aggregate": "54264",
+      "complement_order": 30,
+      "complement_target": "-3/611351",
+      "order": 12,
+      "r": 6,
+      "target_coordinate": "3/611351"
+    },
+    {
+      "aggregate": "-116280",
+      "complement_order": 28,
+      "complement_target": "3/1363783",
+      "order": 14,
+      "r": 7,
+      "target_coordinate": "-3/1363783"
+    },
+    {
+      "aggregate": "203490",
+      "complement_order": 26,
+      "complement_target": "-5/4091349",
+      "order": 16,
+      "r": 8,
+      "target_coordinate": "5/4091349"
+    },
+    {
+      "aggregate": "-293930",
+      "complement_order": 24,
+      "complement_target": "17/20456745",
+      "order": 18,
+      "r": 9,
+      "target_coordinate": "-17/20456745"
+    },
+    {
+      "aggregate": "352716",
+      "complement_order": 22,
+      "complement_target": "-323/470505135",
+      "order": 20,
+      "r": 10,
+      "target_coordinate": "323/470505135"
+    },
+    {
+      "aggregate": "-352716",
+      "complement_order": 20,
+      "complement_target": "323/470505135",
+      "order": 22,
+      "r": 11,
+      "target_coordinate": "-323/470505135"
+    },
+    {
+      "aggregate": "293930",
+      "complement_order": 18,
+      "complement_target": "-17/20456745",
+      "order": 24,
+      "r": 12,
+      "target_coordinate": "17/20456745"
+    },
+    {
+      "aggregate": "-203490",
+      "complement_order": 16,
+      "complement_target": "5/4091349",
+      "order": 26,
+      "r": 13,
+      "target_coordinate": "-5/4091349"
+    },
+    {
+      "aggregate": "116280",
+      "complement_order": 14,
+      "complement_target": "-3/1363783",
+      "order": 28,
+      "r": 14,
+      "target_coordinate": "3/1363783"
+    },
+    {
+      "aggregate": "-54264",
+      "complement_order": 12,
+      "complement_target": "3/611351",
+      "order": 30,
+      "r": 15,
+      "target_coordinate": "-3/611351"
+    },
+    {
+      "aggregate": "20349",
+      "complement_order": 10,
+      "complement_target": "-3/216931",
+      "order": 32,
+      "r": 16,
+      "target_coordinate": "3/216931"
+    },
+    {
+      "aggregate": "-5985",
+      "complement_order": 8,
+      "complement_target": "1/19721",
+      "order": 34,
+      "r": 17,
+      "target_coordinate": "-1/19721"
+    },
+    {
+      "aggregate": "1330",
+      "complement_order": 6,
+      "complement_target": "-5/19721",
+      "order": 36,
+      "r": 18,
+      "target_coordinate": "5/19721"
+    },
+    {
+      "aggregate": "-210",
+      "complement_order": 4,
+      "complement_target": "1/533",
+      "order": 38,
+      "r": 19,
+      "target_coordinate": "-1/533"
+    },
+    {
+      "aggregate": "21",
+      "complement_order": 2,
+      "complement_target": "-1/41",
+      "order": 40,
+      "r": 20,
+      "target_coordinate": "1/41"
+    },
+    {
+      "aggregate": "-1",
+      "complement_order": 0,
+      "complement_target": "1",
+      "order": 42,
+      "r": 21,
+      "target_coordinate": "-1"
+    }
+  ],
+  "independent_even_orders": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    16,
+    18,
+    20
+  ],
+  "n": 21,
+  "pair_cyclic_orbits": {
+    "orbit_count": 21,
+    "orbit_sizes": [
+      21,
+      42
+    ],
+    "size_histogram": {
+      "21": 1,
+      "42": 20
+    },
+    "subset_count": 861
+  },
+  "quartic_aggregate": "210",
+  "quartic_cyclic_orbits": {
+    "independent_orbit_coordinates_after_global_sum_rule": 2669,
+    "orbit_count": 2670,
+    "orbit_sizes": [
+      21,
+      42
+    ],
+    "size_histogram": {
+      "21": 10,
+      "42": 2660
+    },
+    "subset_count": 111930
+  },
+  "quartic_target": "1/533",
+  "scope": "Exact integer/rational checks of identities proved analytically for every real symmetric trace-zero involution. This is a structural reduction, not a feasibility certificate for the cycle-exponential family.",
+  "status": "exact_involution_global_sum_and_complement_checks_passed"
+}
