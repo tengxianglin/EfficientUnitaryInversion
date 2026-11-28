@@ -1,0 +1,53 @@
+name: EUI N42 mixed nonperiodic nine-quartic partial ensemble
+on:
+  push:
+    branches: [main]
+    paths:
+      - "evidence/n42_mixed_cycle_nine_quartic_atoms.json"
+      - "verify_n42_mixed_cycle_nine_quartic_ensemble_arb.py"
+      - ".github/workflows/eui-n42-mixed-cycle-nine-quartic.yml"
+  pull_request:
+    paths:
+      - "evidence/n42_mixed_cycle_nine_quartic_atoms.json"
+      - "verify_n42_mixed_cycle_nine_quartic_ensemble_arb.py"
+      - ".github/workflows/eui-n42-mixed-cycle-nine-quartic.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-mixed-cycle-nine-quartic
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Check environment and compile
+        run: |
+          python -m pip check
+          python -m py_compile verify_n42_mixed_cycle_nine_quartic_ensemble_arb.py
+      - name: Reconstruct and certify the mixed physical ensemble
+        run: python verify_n42_mixed_cycle_nine_quartic_ensemble_arb.py
+      - name: Commit deterministic Arb certificate
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_mixed_cycle_nine_quartic_ensemble_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify mixed nonperiodic N42 partial ensemble"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-mixed-cycle-nine-quartic
+          path: evidence/n42_mixed_cycle_nine_quartic_ensemble_arb.json
+          if-no-files-found: error
