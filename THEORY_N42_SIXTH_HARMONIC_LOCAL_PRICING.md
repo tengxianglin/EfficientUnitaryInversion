@@ -191,6 +191,62 @@ Thus \(W_S\) is centered under \(u\). Since its coefficient vector is
 Cauchy--Schwarz applied to
 \(\mathbb E_qW_S-\mathbb E_uW_S\) proves the chi-square inequality.
 
+
+## General even-order extension
+
+The same argument is not specific to order six. Let \(N=2n\), \(m=2s\le n\),
+and let \(\mathcal H_m=\ker D_m\). For a fixed \(m\)-set \(S\), the projected
+coordinate \(a^{(S,m)}=P_me_S\) has
+\[
+a^{(S,m)}_J=p_{|J\cap S|},\qquad
+p_t=\frac{N-2m+1}{N-m+1}
+\frac{(-1)^{m-t}}{\binom{N-m}{m-t}}.
+\]
+Its squared norm is \((N-2m+1)/(N-m+1)\). Write
+\[
+p_t=\sum_{k=0}^t\binom tk\alpha_k,\qquad
+\alpha_k=\frac{(-1)^k}{\binom{N-m+1-k}{m-k}}.
+\]
+For \(0\le r\le s\), define
+\[
+\beta_{2r}^{(N,m)}
+=(-1)^{s-r}
+\sum_{k=2r}^{m}
+\frac{(-1)^k
+\binom{m-2r}{k-2r}
+\binom{n-k}{s-k+r}}
+{\binom{N-m+1-k}{m-k}},
+\]
+with invalid binomial terms interpreted as zero. Then the same generating
+identity proves
+\[
+W_{S,m}(Q)=
+\sum_{r=0}^{s}\beta_{2r}^{(N,m)}
+\sum_{\substack{L\subseteq S\\|L|=2r}}\det Q_{L,L}
+=\sum_{|J|=m}a^{(S,m)}_J\det Q_{J,J}.
+\]
+Thus every even harmonic coordinate can be priced using only the even
+principal minors contained in one fixed \(m\)-set. The number of minors is
+\(2^{m-1}\), rather than \(\binom{N}{m}\).
+
+The corresponding centered-witness variance and chi-square bound are
+\[
+\mathbb E_u W_{S,m}^2
+=\lambda_m\frac{N-2m+1}{N-m+1},
+\qquad
+\chi^2(q\Vert u)\ge
+\frac{(\mathbb E_q W_{S,m})^2}
+{\lambda_m(N-2m+1)/(N-m+1)},
+\]
+where
+\[
+\lambda_m=4^m\frac{\binom{N-2m}{n-m}}{\binom{N}{n}}.
+\]
+For \(N=42,m=6\), the general coefficient formula reduces to
+\((\beta_0,\beta_2,\beta_4,\beta_6)=(1/2849,1/385,1/33,1)\), exactly the
+local oracle above. The standard-library regression checks this reduction
+and the direct-versus-compact identity at \(N=8,10\).
+
 ## Why this is useful for the next physical search
 
 The full Run 70 projection has 5,245,786 coordinates. A single coordinate
