@@ -28,6 +28,17 @@ f_I(x)=\prod_{i\in I}x_i,\qquad
 where u is uniform on the balanced slice and q is the frozen candidate's
 complement-folded program-label law.
 
+The hypothesis needed below is exact pair matching, not merely a small
+numerical pair residual. It is supplied by the frozen construction: the
+37 exact-real weights are the unique solution of the 37-by-37 moment system
+(the Arb determinant excludes zero); 30 independent pair-feature equations
+are imposed exactly, the remaining cross-parity feature follows from the
+row-norm identity, and period-two translation plus the equal one-site
+symmetrization extends these equations to all 861 unordered pairs. The
+256-bit verifier independently checks every pair coordinate and certifies
+strict positivity of all 37 weights. Thus delta_2=0 exactly, and the
+balanced-sign identity implies D_4 delta_4=0.
+
 Use the down operator
 \[
 (D_m a)_J=\sum_{i\notin J}a_{J\cup\{i\}},
@@ -112,11 +123,74 @@ For each representative I it:
 
 All arithmetic is outward-rounded at 256-bit Arb precision. If an h_I interval
 contains zero, its nonnegative square is dropped from the lower-bound sum;
-otherwise its interval square is included. Thus the reported sum is a rigorous
-lower bound on the complete \|h\|_2^2 even if a few individual intervals are
-too wide to certify a nonzero sign.
+otherwise its interval square is included. In the final certificate, all
+63,133 corrected intervals exclude zero, so no term is dropped and the
+complete sixth-harmonic projection norm is enclosed.
 
-## 3. Reproducibility and evidence
+The verifier also enumerates all 10,222 D42 orbits of five-subsets and checks
+that the Arb interval for D_6 h contains zero on every orbit representative.
+By D42 invariance this covers all 850,668 five-subsets. This is a direct
+machine check of harmonicity, in addition to the operator derivation.
+
+## 3. Certified N=42 result (Run 70)
+
+At 256-bit Arb precision, the complete orbit computation gives
+\[
+\|h\|_2^2\in
+[0.0459250490456842704146973544669054902195855549007702836745852313698437
+\pm 7.09\times10^{-71}].
+\]
+All 63,133 six-subset orbit intervals are sign-definite; the orbit sizes sum
+to all 5,245,786 six-subsets. The verifier evaluates 4,671,842 six-by-six
+principal minors and checks all 10,222 five-subset orbit down relations.
+
+With
+\[
+\lambda_6=\frac{7938048}{6724861},
+\]
+the complete degree-six contribution is
+\[
+\frac{\|h\|_2^2}{\lambda_6}
+\in
+[0.0389062363002099972720311172038350639683171901096527698802218018352923
+\pm 7.31\times10^{-71}].
+\]
+This is at least 276,954.188 times the single-witness degree-six lower bound
+from Run 69; the comparison is between certified contributions, not a claim
+that the earlier witness was optimal.
+
+Combining the independently certified degree-four floor with the complete
+degree-six projection gives
+\[
+\boxed{
+\chi^2(q\Vert u)>
+0.1212616746890306412259819506806757844913171901096527698802218018352923.
+}
+\]
+Using the complement-folded Plücker frame-potential identity from
+[THEORY_COMPLEMENT_FOLDED_PLUCKER_FRAME_N42.md](THEORY_COMPLEMENT_FOLDED_PLUCKER_FRAME_N42.md),
+\[
+\boxed{
+\operatorname{FP}>
+8.332524077650208180211101200592596643935999786427223122225814449603037
+\times10^{-12}.
+}
+\]
+The ideal value is
+\(7.431382223923010964580659670172348923453308318310907496251881494350739665140
+\times10^{-12}\).
+
+The machine certificate is
+[evidence/n42_degree_six_harmonic_projection_arb.json](evidence/n42_degree_six_harmonic_projection_arb.json);
+its orbit-residual digest is
+7ce511ee2d4517fe3e3d80e15a73cc0df0b8a53c5ce42037179d7ba3111daa6f.
+The full workflow passed:
+[GitHub Actions run 46100133850](https://github.com/tengxianglin/EfficientUnitaryInversion/actions/runs/46100133850).
+
+These are degree-four plus degree-six lower bounds, not the full chi-square
+divergence. They remain specific to the frozen 37-base / 74-labelled candidate.
+
+## 4. Reproducibility and evidence
 
 Run:
 python verify_n42_degree_six_harmonic_projection_arb.py
@@ -132,7 +206,7 @@ certificate, Run 68 quartic certificate, and Run 69 explicit-witness
 certificate. It also records a digest over every orbit representative, orbit
 size, and Arb harmonic-residual interval.
 
-## 4. Interpretation boundary
+## 5. Interpretation boundary
 
 The all-orbit calculation is for the frozen 37-base / 74-labelled candidate
 only. A strict positive sixth-harmonic contribution quantitatively rejects
