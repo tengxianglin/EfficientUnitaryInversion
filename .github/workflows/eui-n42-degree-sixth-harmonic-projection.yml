@@ -1,0 +1,72 @@
+name: EUI N42 full sixth-harmonic projection lower bound
+on:
+  push:
+    branches: [main]
+    paths:
+      - "verify_n42_degree_six_harmonic_projection_arb.py"
+      - "THEORY_N42_DEGREE_SIX_HARMONIC_PROJECTION.md"
+      - "verify_n42_optimal_quartic_chi_square.py"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "verify_n42_period_two_six_quartic_all_orbits_arb.py"
+      - "verify_n42_degree_six_harmonic_witness_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "evidence/n42_degree_six_harmonic_witness_arb.json"
+      - ".github/workflows/eui-n42-degree-six-harmonic-projection.yml"
+  pull_request:
+    paths:
+      - "verify_n42_degree_six_harmonic_projection_arb.py"
+      - "THEORY_N42_DEGREE_SIX_HARMONIC_PROJECTION.md"
+      - "verify_n42_optimal_quartic_chi_square.py"
+      - "verify_n42_period_two_six_quartic_ensemble_arb.py"
+      - "verify_n42_period_two_six_quartic_all_orbits_arb.py"
+      - "verify_n42_degree_six_harmonic_witness_arb.py"
+      - "evidence/n42_period_two_six_quartic_atoms.json"
+      - "evidence/n42_degree_six_harmonic_witness_arb.json"
+      - ".github/workflows/eui-n42-degree-six-harmonic-projection.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eui-n42-degree-six-harmonic-projection
+  cancel-in-progress: true
+jobs:
+  certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pinned Arb dependency
+        run: python -m pip install "python-flint==0.9.0"
+      - name: Check environment and compile
+        run: |
+          python -m pip check
+          python -m py_compile \
+            verify_n42_degree_six_harmonic_projection_arb.py \
+            verify_n42_degree_six_harmonic_witness_arb.py \
+            verify_n42_optimal_quartic_chi_square.py \
+            verify_n42_period_two_six_quartic_ensemble_arb.py \
+            verify_n42_period_two_six_quartic_all_orbits_arb.py
+      - name: Recompute exact pair and complete quartic inputs
+        run: python verify_n42_optimal_quartic_chi_square.py
+      - name: Price all 63,133 sixth-order D42 orbits and certify the harmonic projection
+        run: python verify_n42_degree_six_harmonic_projection_arb.py
+      - name: Commit deterministic full-projection certificate
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions-bot@users.noreply.github.com"
+          git add evidence/n42_degree_six_harmonic_projection_arb.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Certify full N42 sixth-harmonic projection lower bound"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Upload full-projection certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: eui-n42-full-sixth-harmonic-projection
+          path: evidence/n42_degree_six_harmonic_projection_arb.json
+          if-no-files-found: error
